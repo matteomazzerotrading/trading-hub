@@ -179,6 +179,88 @@
         </div>
     </div>
 
+
+<div class="container" id="scanner">
+        <div class="section-header">
+            <h2 class="section-title">Market Scanner & <span>Grafici Live</span></h2>
+        </div>
+        <p style="color: var(--text-muted); margin-top: -20px; margin-bottom: 30px;">
+            Cerca qualsiasi strumento finanziario (Azioni, Crypto, Forex) per analizzarne il grafico in tempo reale.
+        </p>
+
+        <div class="card" style="padding: 0; overflow: hidden;">
+            
+            <div style="padding: 20px; background-color: var(--bg-card-hover); border-bottom: 1px solid var(--border-color); display: flex; gap: 15px; align-items: center;">
+                <input type="text" id="symbolSearch" placeholder="Es: AAPL, TSLA, EURUSD..." 
+                       style="flex: 1; padding: 12px 15px; border-radius: 6px; border: 1px solid var(--border-color); background-color: var(--bg-main); color: #fff; font-family: 'Inter', sans-serif; font-size: 1em; outline: none;">
+                <button onclick="changeSymbol()" 
+                        style="padding: 12px 25px; background-color: var(--brand-green); color: #0a0e17; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: background-color 0.2s;">
+                    Cerca Grafico
+                </button>
+            </div>
+
+            <div id="tv_chart_container" style="height: 500px; width: 100%;"></div>
+
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript">
+                // Variabile per memorizzare il widget
+                let tvWidget;
+
+                // Funzione per creare il grafico iniziale (di default mostra l'S&P 500)
+                function initChart(symbol = "SP:SPX") {
+                    tvWidget = new TradingView.widget({
+                        "autosize": true,
+                        "symbol": symbol,
+                        "interval": "D", // Grafico Giornaliero
+                        "timezone": "Europe/Rome",
+                        "theme": "dark",
+                        "style": "1", // 1 = Candele
+                        "locale": "it",
+                        "enable_publishing": false,
+                        "backgroundColor": "#131722", // Colore di sfondo che si abbina al tuo sito
+                        "gridColor": "#2a2e39",
+                        "hide_top_toolbar": false,
+                        "hide_legend": false,
+                        "save_image": false,
+                        "container_id": "tv_chart_container"
+                    });
+                }
+
+                // Inizializza il grafico appena si carica la pagina
+                initChart();
+
+                // Funzione che viene chiamata quando si clicca il bottone "Cerca"
+                function changeSymbol() {
+                    const searchInput = document.getElementById('symbolSearch').value.toUpperCase().trim();
+                    if (searchInput !== "") {
+                        // Distrugge il vecchio grafico e ne crea uno nuovo con il simbolo cercato
+                        document.getElementById('tv_chart_container').innerHTML = ''; 
+                        initChart(searchInput);
+                    }
+                }
+
+                // Permette di cercare premendo il tasto "Invio" sulla tastiera
+                document.getElementById("symbolSearch").addEventListener("keypress", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        changeSymbol();
+                    }
+                });
+            </script>
+        </div>
+    </div>
+    ```
+
+### Come funziona questa magia?
+1. Ho usato le **API avanzate di TradingView** (`tv.js`).
+2. Appena l'utente apre il tuo sito, vedrà di base il grafico dell'S&P 500 (così la sezione non è vuota).
+3. Se l'utente digita "NVDA" (Nvidia) nella tua barra di ricerca personalizzata e clicca "Cerca" (o preme Invio), un piccolo script Javascript cattura quel testo, "spegne" il grafico vecchio e ne riaccende istantaneamente uno nuovo centrato su Nvidia.
+
+Questa funzione darà un enorme valore aggiunto al tuo sito, rendendolo una piattaforma dove gli iscritti al tuo canale possono andare non solo per leggere le tue analisi, ma per fare concretamente trading!
+
+Cosa te ne pare? Inseriscilo nel codice e fai una prova cercando qualche ticker!
+    
+    
     <div class="container" id="video">
         <div class="section-header">
             <h2 class="section-title">Ultime Analisi di Mercato</h2>
@@ -342,4 +424,5 @@
     </footer>
 
 </body>
+
 </html>
