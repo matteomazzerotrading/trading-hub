@@ -80,11 +80,18 @@
         .kpi-box { flex: 1; background: var(--bg-main); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center; }
         .kpi-value { font-size: 1.8em; font-weight: 700; color: var(--brand-green); }
         
-        .bar-chart-container { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
-        .bar-header { display: flex; justify-content: space-between; font-size: 0.9em; font-weight: 600; color: #fff; margin-bottom: 5px; }
-        .bar-bg { width: 100%; height: 10px; background: var(--bg-main); border-radius: 5px; border: 1px solid var(--border-color); }
+        .bar-chart-container { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .bar-item { display: flex; flex-direction: column; gap: 5px; }
+        .bar-header { display: flex; justify-content: space-between; font-size: 0.85em; font-weight: 600; color: #fff; margin-bottom: 3px; }
+        .bar-bg { width: 100%; height: 8px; background: var(--bg-main); border-radius: 5px; border: 1px solid var(--border-color); }
         .bar-fill { height: 100%; border-radius: 5px; background: var(--brand-green); }
         
+        /* Colori per variare le barre */
+        .c1 { background: #00e676; }
+        .c2 { background: #00c853; }
+        .c3 { background: #69f0ae; }
+        .c4 { background: #454a59; } /* Per cash o altri */
+
         /* NEWSLETTER & FOOTER */
         .newsletter-card { background: linear-gradient(135deg, var(--bg-card), rgba(0,230,118,0.05)); text-align: center; padding: 40px; border-radius: 12px; border: 1px solid var(--border-color); }
         .newsletter-input { padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-main); color: #fff; width: 250px; }
@@ -118,7 +125,7 @@
     <div class="tradingview-widget-container" style="margin-top: 0;">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      { "symbols": [ { "proName": "MIL:FTSEMIB", "title": "FTSE MIB" }, { "proName": "NASDAQ:GOOG", "title": "Alphabet" }, { "proName": "XETR:SAP", "title": "SAP SE" } ], "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "it" }
+      { "symbols": [ { "proName": "MIL:FTSEMIB", "title": "FTSE MIB" }, { "proName": "NASDAQ:GOOG", "title": "Alphabet" }, { "proName": "XETR:SAP", "title": "SAP SE" }, { "proName": "MIL:RACE", "title": "Ferrari" } ], "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "it" }
       </script>
     </div>
 
@@ -149,6 +156,7 @@
                 <tbody>
                     <tr><td data-label="Asset"><strong>Alphabet</strong></td><td data-label="Prezzo" class="mono-font">304 $</td><td data-label="Fair Value" class="mono-font">335 $</td><td data-label="Distanza" style="color:var(--brand-green)">+10%</td><td data-label="Stato"><span class="badge badge-under">Sottovalutata</span></td></tr>
                     <tr><td data-label="Asset"><strong>Ferrari</strong></td><td data-label="Prezzo" class="mono-font">311 €</td><td data-label="Fair Value" class="mono-font">270 €</td><td data-label="Distanza" style="color:var(--accent-red-down)">-13%</td><td data-label="Stato"><span class="badge badge-over">Sopravvalutata</span></td></tr>
+                     <tr><td data-label="Asset"><strong>SAP</strong></td><td data-label="Prezzo" class="mono-font">172 €</td><td data-label="Fair Value" class="mono-font">191 €</td><td data-label="Distanza" style="color:var(--brand-green)">+10%</td><td data-label="Stato"><span class="badge badge-under">Sottovalutata</span></td></tr>
                 </tbody>
             </table>
         </div>
@@ -162,7 +170,7 @@
                     <span style="color:#8b93a6; font-size:0.9em;">Trending:</span>
                     <button onclick="initChart('NASDAQ:NVDA')" class="chip-btn">Nvidia</button>
                     <button onclick="initChart('NASDAQ:TSLA')" class="chip-btn">Tesla</button>
-                    <button onclick="initChart('CRYPTO:BTCUSD')" class="chip-btn">Bitcoin</button>
+                    <button onclick="initChart('MIL:RACE')" class="chip-btn">Ferrari</button>
                 </div>
                 <div class="search-container">
                     <input type="text" id="symbolSearch" placeholder="Es: AAPL..." class="search-input">
@@ -186,28 +194,42 @@
         </div>
 
         <div class="portfolio-grid">
+            
             <div class="card">
-                <h3>Singole Azioni</h3>
-                <div class="bar-chart-container">
-                    <div class="bar-item"><div class="bar-header"><span>GOOG</span><span>15%</span></div><div class="bar-bg"><div class="bar-fill" style="width:15%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>SAP</span><span>12%</span></div><div class="bar-bg"><div class="bar-fill" style="width:12%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>Altri</span><span>73%</span></div><div class="bar-bg"><div class="bar-fill" style="width:73%; background:#454a59"></div></div></div>
+                <h3>Asset Allocation (Azioni)</h3>
+                <div class="bar-chart-container" style="max-height: 400px; overflow-y: auto;">
+                    <div class="bar-item"><div class="bar-header"><span>Alphabet (GOOG)</span><span>15%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:15%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>SAP SE</span><span>12%</span></div><div class="bar-bg"><div class="bar-fill c2" style="width:12%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>ERG</span><span>10%</span></div><div class="bar-bg"><div class="bar-fill c3" style="width:10%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Adobe (ADBE)</span><span>10%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:10%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Qualcomm (QCOM)</span><span>10%</span></div><div class="bar-bg"><div class="bar-fill c2" style="width:10%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Ferrari (RACE)</span><span>10%</span></div><div class="bar-bg"><div class="bar-fill c3" style="width:10%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Six Flags (FUN)</span><span>8%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:8%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Intuit (INTU)</span><span>8%</span></div><div class="bar-bg"><div class="bar-fill c2" style="width:8%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>LVMH (MC)</span><span>7%</span></div><div class="bar-bg"><div class="bar-fill c3" style="width:7%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>DiaSorin (DIA)</span><span>5%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:5%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Liquidità</span><span>5%</span></div><div class="bar-bg"><div class="bar-fill c4" style="width:5%"></div></div></div>
                 </div>
             </div>
+
             <div class="card">
                 <h3>Settori</h3>
                 <div class="bar-chart-container">
-                    <div class="bar-item"><div class="bar-header"><span>Tech</span><span>43%</span></div><div class="bar-bg"><div class="bar-fill" style="width:43%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>Lusso</span><span>27%</span></div><div class="bar-bg"><div class="bar-fill" style="width:27%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>Cash</span><span>30%</span></div><div class="bar-bg"><div class="bar-fill" style="width:30%; background:#454a59"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Tecnologia</span><span>55%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:55%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Consumi / Lusso</span><span>25%</span></div><div class="bar-bg"><div class="bar-fill c2" style="width:25%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Energia</span><span>10%</span></div><div class="bar-bg"><div class="bar-fill c3" style="width:10%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Salute</span><span>5%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:5%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Liquidità</span><span>5%</span></div><div class="bar-bg"><div class="bar-fill c4" style="width:5%"></div></div></div>
                 </div>
             </div>
+
             <div class="card">
                 <h3>Geografia</h3>
                 <div class="bar-chart-container">
-                    <div class="bar-item"><div class="bar-header"><span>USA</span><span>43%</span></div><div class="bar-bg"><div class="bar-fill" style="width:43%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>EU</span><span>45%</span></div><div class="bar-bg"><div class="bar-fill" style="width:45%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>Cash</span><span>12%</span></div><div class="bar-bg"><div class="bar-fill" style="width:12%; background:#454a59"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>USA</span><span>51%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:51%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Italia</span><span>25%</span></div><div class="bar-bg"><div class="bar-fill c2" style="width:25%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Europa (Ex-ITA)</span><span>19%</span></div><div class="bar-bg"><div class="bar-fill c3" style="width:19%"></div></div></div>
+                    <div class="bar-item"><div class="bar-header"><span>Liquidità</span><span>5%</span></div><div class="bar-bg"><div class="bar-fill c4" style="width:5%"></div></div></div>
                 </div>
             </div>
         </div>
@@ -216,7 +238,31 @@
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-                { "width": "100%", "height": 450, "symbolsGroups": [ { "name": "Portafoglio", "symbols": [ { "name": "NASDAQ:GOOG" }, { "name": "XETR:SAP" }, { "name": "MIL:RACE" } ] } ], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
+                {
+                  "width": "100%",
+                  "height": 550,
+                  "symbolsGroups": [
+                    {
+                      "name": "Portafoglio Completo",
+                      "symbols": [
+                        { "name": "NASDAQ:GOOG", "displayName": "Alphabet" },
+                        { "name": "XETR:SAP", "displayName": "SAP SE" },
+                        { "name": "MIL:ERG", "displayName": "ERG" },
+                        { "name": "NASDAQ:ADBE", "displayName": "Adobe" },
+                        { "name": "NYSE:FUN", "displayName": "Six Flags" },
+                        { "name": "NASDAQ:QCOM", "displayName": "Qualcomm" },
+                        { "name": "MIL:RACE", "displayName": "Ferrari" },
+                        { "name": "MIL:DIA", "displayName": "DiaSorin" },
+                        { "name": "NASDAQ:INTU", "displayName": "Intuit" },
+                        { "name": "EPA:MC", "displayName": "LVMH" }
+                      ]
+                    }
+                  ],
+                  "showSymbolLogo": true,
+                  "isTransparent": true,
+                  "colorTheme": "dark",
+                  "locale": "it"
+                }
                 </script>
             </div>
         </div>
