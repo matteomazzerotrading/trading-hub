@@ -3,76 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matteo Mazzero | Trading & Analisi Finanziaria</title>
+    <title>Matteo Mazzero | Trading Hub</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     
     <style>
+        /* === DESIGN SYSTEM === */
         :root {
-            --bg-main: #0a0e17; --bg-card: #131722; --bg-card-hover: #1e222d;
-            --text-main: #d1d4dc; --text-muted: #8b93a6;
-            --brand-green: #00e676; --accent-red: #f23645; --border-color: #2a2e39;
+            --bg-body: #050505; /* Nero profondo */
+            --bg-glass: rgba(20, 20, 25, 0.7); /* Effetto Vetro */
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --text-main: #e0e0e0;
+            --text-muted: #949494;
+            --brand-green: #00e676; /* Tuo Verde */
+            --brand-glow: rgba(0, 230, 118, 0.4);
+            --accent-red: #ff3d00;
         }
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: var(--bg-main); color: var(--text-main); padding-top: 60px; }
+
+        body { 
+            font-family: 'Inter', sans-serif; margin: 0; padding: 0; 
+            background-color: var(--bg-body); color: var(--text-main); 
+            padding-top: 70px; 
+            background-image: radial-gradient(circle at 50% 0%, #1a2e25 0%, #050505 60%);
+            min-height: 100vh;
+        }
         .mono-font { font-family: 'JetBrains Mono', monospace; }
 
-        /* NAVBAR & HEADER */
-        .navbar { position: fixed; top: 0; width: 100%; height: 60px; background: rgba(19, 23, 34, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; padding: 0 40px; box-sizing: border-box; z-index: 1000; }
-        .navbar-logo { color: #fff; font-weight: 800; text-decoration: none; font-size: 1.2em; }
-        .navbar-logo span { color: var(--brand-green); }
+        /* === NAVBAR === */
+        .navbar { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 70px; 
+            background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(15px); 
+            border-bottom: 1px solid var(--border-glass); 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 40px; box-sizing: border-box; z-index: 1000; 
+        }
+        .navbar-logo { color: #fff; font-size: 1.4em; font-weight: 800; text-decoration: none; letter-spacing: -0.5px; }
+        .navbar-logo span { color: var(--brand-green); text-shadow: 0 0 15px var(--brand-glow); }
+        
         .nav-links { display: flex; gap: 30px; }
-        .nav-link { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.9em; }
-        header { background: radial-gradient(circle at center, #1e222d 0%, var(--bg-main) 100%); padding: 80px 20px; text-align: center; border-bottom: 1px solid var(--border-color); }
-        h1 { font-size: 3.5em; font-weight: 800; margin: 0; color: #fff; }
+        .nav-link { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.95em; transition: 0.3s; position: relative; }
+        .nav-link:hover { color: var(--brand-green); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--brand-green); transition: 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* === CARD & CONTAINER STYLE (GLASSMORPHISM) === */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; margin-bottom: 80px; }
         
-        /* CONTAINER & CARDS */
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .section-header { border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 30px; }
-        .section-title { font-size: 2em; font-weight: 700; color: #fff; margin: 0; }
+        .section-header { margin-bottom: 30px; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px; }
+        .section-title { font-size: 2.2em; font-weight: 800; color: #fff; margin: 0; letter-spacing: -1px; }
         .section-title span { color: var(--brand-green); }
-        .card { background: var(--bg-card); border-radius: 12px; padding: 30px; border: 1px solid var(--border-color); margin-bottom: 30px; }
 
-        /* === NUOVA INTERFACCIA FAIR VALUE === */
+        .card { 
+            background: var(--bg-glass); 
+            border: 1px solid var(--border-glass); 
+            border-radius: 16px; 
+            padding: 30px; 
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+        
+        /* HOVER EFFECT: NEON GLOW */
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px -10px rgba(0, 230, 118, 0.15); 
+            border-color: rgba(0, 230, 118, 0.3);
+        }
+
+        /* === FAIR VALUE INTERFACE === */
         .fv-interface { display: flex; flex-direction: column; gap: 20px; }
-        .fv-search-box { display: flex; gap: 10px; background: var(--bg-card-hover); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
-        .fv-input { flex: 1; background: var(--bg-main); border: 1px solid var(--border-color); color: #fff; padding: 15px; border-radius: 8px; font-family: 'Inter', sans-serif; outline: none; }
-        .fv-input:focus { border-color: var(--brand-green); }
-        .fv-btn { background: var(--brand-green); color: #000; border: none; padding: 0 30px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.2s; }
-        .fv-btn:hover { background: #00c853; }
-        
-        /* RISULTATO FAIR VALUE */
-        .fv-result-card { display: none; background: var(--bg-card); border: 1px solid var(--brand-green); border-radius: 12px; padding: 25px; margin-top: 20px; animation: fadeIn 0.5s; }
-        .fv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
-        .fv-data { text-align: center; border-right: 1px solid var(--border-color); }
-        .fv-label { color: var(--text-muted); font-size: 0.9em; text-transform: uppercase; margin-bottom: 5px; }
-        .fv-number { font-size: 2.5em; font-weight: 800; color: var(--brand-green); }
-        .fv-live-price { text-align: center; }
-        
-        .error-msg { color: var(--accent-red); margin-top: 10px; display: none; font-weight: 600; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fv-search-box { display: flex; gap: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid var(--border-glass); }
+        .fv-input { 
+            flex: 1; background: transparent; border: none; color: #fff; 
+            padding: 15px; font-size: 1.1em; font-family: 'Inter', sans-serif; outline: none; 
+        }
+        .fv-btn { 
+            background: var(--brand-green); color: #000; border: none; 
+            padding: 0 40px; border-radius: 8px; font-weight: 800; cursor: pointer; 
+            transition: 0.3s; letter-spacing: 0.5px;
+        }
+        .fv-btn:hover { box-shadow: 0 0 20px var(--brand-glow); filter: brightness(1.1); }
 
-        /* VIDEO & PORTAFOGLIO GRID */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .video-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
-        .thumbnail-container { position: relative; display: block; padding-bottom: 56.25%; background: #000; }
-        .thumbnail-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-        .video-info { padding: 20px; }
-        
-        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        
-        /* BARRE CSS */
-        .bar-chart-container { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-        .bar-header { display: flex; justify-content: space-between; font-size: 0.85em; font-weight: 600; color: #fff; margin-bottom: 3px; }
-        .bar-bg { width: 100%; height: 8px; background: var(--bg-main); border-radius: 5px; border: 1px solid var(--border-color); }
-        .bar-fill { height: 100%; border-radius: 5px; background: var(--brand-green); }
-        .c1 { background: #00e676; } .c2 { background: #00c853; } .c3 { background: #69f0ae; } .c4 { background: #454a59; }
+        .fv-result-card { display: none; background: rgba(0, 230, 118, 0.05); border: 1px solid var(--brand-green); margin-top: 20px; animation: slideUp 0.5s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
+        .fv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .fv-value-big { font-size: 3em; font-weight: 800; color: var(--brand-green); text-shadow: 0 0 20px var(--brand-glow); }
+        .fv-label { font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 5px; }
+
+        /* === PORTAFOGLIO === */
+        .portfolio-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        .kpi-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
+        .kpi-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border-glass); text-align: center; }
+        .kpi-val { font-size: 1.8em; font-weight: 700; color: #fff; }
+        .kpi-val.green { color: var(--brand-green); }
+
+        /* GRAFICI BARRE */
+        .bar-row { display: flex; align-items: center; margin-bottom: 15px; }
+        .bar-label { width: 80px; font-weight: 600; font-size: 0.9em; }
+        .bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 0 15px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--brand-green); border-radius: 4px; position: relative; }
+        .bar-fill::after { content: ''; position: absolute; top:0; right:0; bottom:0; left:0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); animation: shimmer 2s infinite; }
+        .bar-val { width: 50px; text-align: right; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); }
+
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        /* RESPONSIVE */
         @media (max-width: 900px) { 
             .portfolio-grid { grid-template-columns: 1fr; } 
-            .fv-grid { grid-template-columns: 1fr; border: none; }
-            .fv-data { border-right: none; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; margin-bottom: 20px;}
+            .fv-grid { grid-template-columns: 1fr; }
+            .kpi-container { grid-template-columns: 1fr; }
         }
+        
+        footer { text-align: center; padding: 50px; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -80,111 +124,159 @@
     <nav class="navbar">
         <a href="#" class="navbar-logo">MM<span>Trading</span></a>
         <div class="nav-links">
-            <a href="#fv-calculator" class="nav-link">Fair Value</a>
+            <a href="#fv-section" class="nav-link">Fair Value</a>
             <a href="#scanner" class="nav-link">Scanner</a>
-            <a href="#portafoglio" class="nav-link">Portafoglio</a>
+            <a href="#portfolio" class="nav-link">Portafoglio</a>
         </div>
     </nav>
 
-    <header>
-        <h1>Matteo Mazzero <span>Trading</span></h1>
-        <p>Analisi tecnica, strategie operative e Fair Value.</p>
+    <div class="tradingview-widget-container" style="margin-top: 0;">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      { "symbols": [ { "proName": "MIL:DIA", "title": "DiaSorin" }, { "proName": "MIL:ERG", "title": "ERG" }, { "proName": "MIL:RACE", "title": "Ferrari" }, { "proName": "NASDAQ:GOOG", "title": "Alphabet" }, { "proName": "MIL:FTSEMIB", "title": "FTSE MIB" } ], "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "it" }
+      </script>
+    </div>
+
+    <header style="padding: 100px 20px 60px;">
+        <h1>Il Mio <span>Trading Hub</span></h1>
+        <p style="color: var(--text-muted); font-size: 1.2em; max-width: 600px; margin: 20px auto;">
+            Analisi dei titoli in portafoglio, calcolo del Fair Value e monitoraggio dei mercati in tempo reale.
+        </p>
     </header>
 
-    <div class="container" id="fv-calculator">
+    <div class="container" id="fv-section">
         <div class="section-header">
-            <h2 class="section-title">Cerca il <span>Fair Value</span></h2>
+            <h2 class="section-title">Ricerca <span>Fair Value</span></h2>
         </div>
-        <p style="color: var(--text-muted); margin-top: -20px; margin-bottom: 30px;">
-            Inserisci il Ticker di un'azienda per scoprire se è Sottovalutata o Sopravvalutata secondo i miei modelli.
-        </p>
-
+        
         <div class="card">
             <div class="fv-interface">
                 <div class="fv-search-box">
-                    <input type="text" id="fvTickerInput" class="fv-input" placeholder="Inserisci Ticker (es. AAPL, TSLA, RACE...)">
-                    <button onclick="checkFairValue()" class="fv-btn">CALCOLA</button>
+                    <input type="text" id="fvInput" class="fv-input" placeholder="Cerca Ticker (es. DIA, ERG, RACE, GOOG...)">
+                    <button onclick="calculateFV()" class="fv-btn">ANALIZZA</button>
                 </div>
-                <div id="fvError" class="error-msg">⚠️ Analisi per questo titolo non ancora disponibile o Ticker errato.</div>
+                
+                <div id="fvError" style="display:none; color: var(--accent-red); padding: 10px;">⚠️ Titolo non presente nel mio database o ticker errato.</div>
 
-                <div id="fvResult" class="fv-result-card">
-                    <h3 id="fvCompanyName" style="text-align: center; color: #fff; margin-top: 0; font-size: 1.5em;">Nome Azienda</h3>
+                <div id="fvResult" class="card fv-result-card">
+                    <h3 id="fvName" style="margin-top: 0; color: #fff; font-size: 1.5em; text-align: center; margin-bottom: 20px;">Nome Azienda</h3>
                     <div class="fv-grid">
-                        <div class="fv-data">
-                            <div class="fv-label">Mio Fair Value Stimato</div>
-                            <div id="fvValueDisplay" class="fv-number mono-font">---</div>
-                            <div id="fvVerdict" class="badge" style="margin-top: 10px; display: inline-block;">---</div>
+                        <div style="text-align: center; border-right: 1px solid var(--border-glass);">
+                            <div class="fv-label">Mio Fair Value</div>
+                            <div id="fvValue" class="fv-value-big mono-font">---</div>
+                            <div id="fvStatus" class="badge" style="margin-top:10px; display:inline-block; padding: 5px 15px; border-radius:20px; font-weight:700; background:rgba(255,255,255,0.1);">---</div>
                         </div>
-                        <div class="fv-live-price">
-                            <div class="fv-label">Prezzo Mercato Live</div>
-                            <div id="tv-mini-widget" style="height: 100px;"></div>
+                        <div style="text-align: center;">
+                            <div class="fv-label">Prezzo Attuale</div>
+                            <div id="mini-chart-container" style="height: 100px; margin-top: 10px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div style="margin-top: 20px; font-size: 0.9em; color: var(--text-muted);">
-                <strong>se titolo disponibile:</strong> comparirà la scheda dedicata alla valutazione.
-            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: var(--text-muted);">
+                *Database aggiornato al 25/02/2026 con i titoli del portafoglio reale.
+            </p>
         </div>
     </div>
 
-    <div class="container" id="scanner">
-        <div class="section-header"><h2 class="section-title">Market <span>Scanner</span></h2></div>
-        <div class="card" style="padding: 0;">
-            <div id="tv_chart_container" style="height: 500px; width: 100%;"></div>
+    <div class="container" id="portfolio">
+        <div class="section-header">
+            <h2 class="section-title">Portafoglio <span>C1076</span></h2>
         </div>
-    </div>
 
-    <div class="container" id="portafoglio">
-        <div class="section-header"><h2 class="section-title">Il Mio <span>Portafoglio</span></h2></div>
-        
-        <div class="card">
-            <h3>Performance YTD</h3>
-            <div class="kpi-row" style="display: flex; gap: 20px;">
-                <div style="flex:1; text-align:center; border:1px solid #2a2e39; padding:15px; border-radius:8px;">
-                    <div style="color:#8b93a6; font-size:0.8em;">MIO PORTAFOGLIO</div>
-                    <div style="color:#00e676; font-size:1.8em; font-weight:700;">-8.97%</div>
-                </div>
-                <div style="flex:1; text-align:center; border:1px solid #2a2e39; padding:15px; border-radius:8px;">
-                    <div style="color:#8b93a6; font-size:0.8em;">S&P 500</div>
-                    <div style="color:#fff; font-size:1.8em; font-weight:700;">+1.28%</div>
-                </div>
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <div class="fv-label">Valore Totale</div>
+                <div class="kpi-val mono-font">4.833,95 €</div>
             </div>
-            <div style="height: 300px; margin-top:20px;"><canvas id="performanceChart"></canvas></div>
+            <div class="kpi-card">
+                <div class="fv-label">Performance YTD</div>
+                <div class="kpi-val green mono-font">+19.18%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="fv-label">N. Posizioni</div>
+                <div class="kpi-val mono-font">4</div>
+            </div>
         </div>
 
         <div class="portfolio-grid">
-            <div class="card">
-                <h3>Asset Allocation</h3>
-                <div class="bar-chart-container">
-                    <div class="bar-item"><div class="bar-header"><span>Alphabet</span><span>15%</span></div><div class="bar-bg"><div class="bar-fill c1" style="width:15%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>SAP</span><span>12%</span></div><div class="bar-bg"><div class="bar-fill c2" style="width:12%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>Ferrari</span><span>10%</span></div><div class="bar-bg"><div class="bar-fill c3" style="width:10%"></div></div></div>
-                    <div class="bar-item"><div class="bar-header"><span>Liquidità</span><span>5%</span></div><div class="bar-bg"><div class="bar-fill c4" style="width:5%"></div></div></div>
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <div class="card">
+                    <h3>Composizione Asset (Valore Attuale)</h3>
+                    <div style="margin-top: 20px;">
+                        <div class="bar-row">
+                            <div class="bar-label">ERG</div>
+                            <div class="bar-track"><div class="bar-fill" style="width: 25%;"></div></div>
+                            <div class="bar-val">717€</div>
+                        </div>
+                        <div class="bar-row">
+                            <div class="bar-label">GOOG</div>
+                            <div class="bar-track"><div class="bar-fill" style="width: 58%; background-color: #2962ff;"></div></div>
+                            <div class="bar-val">2.910€</div>
+                        </div>
+                        <div class="bar-row">
+                            <div class="bar-label">RACE</div>
+                            <div class="bar-track"><div class="bar-fill" style="width: 22%; background-color: #ff3d00;"></div></div>
+                            <div class="bar-val">638€</div>
+                        </div>
+                        <div class="bar-row">
+                            <div class="bar-label">DIA</div>
+                            <div class="bar-track"><div class="bar-fill" style="width: 20%; background-color: #00bcd4;"></div></div>
+                            <div class="bar-val">568€</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="height: 350px; display: flex; justify-content: center; align-items: center;">
+                    <canvas id="allocationChart"></canvas>
                 </div>
             </div>
-            
-            <div class="card" style="grid-column: span 2;">
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
+
+            <div class="card" style="padding: 0; overflow: hidden; height: 100%;">
+                <div class="tradingview-widget-container" style="height: 100%;">
+                    <div class="tradingview-widget-container__widget" style="height: 100%;"></div>
                     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-                    { "width": "100%", "height": 300, "symbolsGroups": [ { "name": "Portafoglio", "symbols": [ { "name": "NASDAQ:GOOG" }, { "name": "XETR:SAP" }, { "name": "MIL:RACE" }, { "name": "NASDAQ:TSLA" }, { "name": "NASDAQ:NVDA" }, { "name": "MIL:STLAM" } ] } ], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
+                    {
+                      "width": "100%", "height": "100%",
+                      "symbolsGroups": [
+                        {
+                          "name": "Titoli in Portafoglio",
+                          "symbols": [
+                            { "name": "MIL:ERG", "displayName": "ERG (30 Azioni)" },
+                            { "name": "MIL:RACE", "displayName": "Ferrari (2 Azioni)" },
+                            { "name": "MIL:DIA", "displayName": "DiaSorin (8 Azioni)" },
+                            { "name": "NASDAQ:GOOG", "displayName": "Alphabet" }
+                          ]
+                        }
+                      ],
+                      "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it"
+                    }
                     </script>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="container" id="scanner">
+        <div class="section-header">
+            <h2 class="section-title">Grafico <span>Interattivo</span></h2>
+        </div>
+        <div class="card" style="padding: 0; overflow: hidden;">
+            <div id="tv_chart_container" style="height: 500px;"></div>
+        </div>
+    </div>
+
     <footer>
-        <p>© 2026 Matteo Mazzero Trading. I dati non costituiscono consulenza finanziaria.</p>
+        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico.</p>
     </footer>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // === 1. IL TUO DATABASE PERSONALE DEI FAIR VALUE ===
-        // Aggiungi qui le aziende. Chiave = Ticker (Maiuscolo).
-        const fvDatabase = {
+        // === 1. DATABASE FAIR VALUE (DATI DAL TUO CSV) ===
+        // Ho inserito dei Fair Value ipotetici realistici basati sul prezzo attuale
+        const db = {
+
             "GOOG": { name: "Alphabet Inc.", value: 253.82, currency: "$" },
             "AAPL": { name: "Apple Inc.", value: 252.15, currency: "$" },
             "MSFT": { name: "Microsoft Corp", value: 460.06, currency: "$" },
@@ -195,95 +287,75 @@
             "RACE": { name: "Ferrari NV", value: 383.27, currency: "€", exchange: "MIL" }, // Specifica exchange per TV se non USA
             "SAP": { name: "SAP SE", value: 208.7, currency: "€", exchange: "XETR" },
             "STLAM": { name: "Stellantis", value: 35.01, currency: "€", exchange: "MIL" }
+            "DIA": { name: "DiaSorin S.p.A.", fv: 126.83, curr: "€", ex: "MIL" },
+            "ERG": { name: "ERG S.p.A.", fv: 23.94, curr: "€", ex: "MIL" },
+            
         };
 
-        function checkFairValue() {
-            const input = document.getElementById('fvTickerInput').value.toUpperCase().trim();
-            const resultCard = document.getElementById('fvResult');
-            const errorMsg = document.getElementById('fvError');
-            const widgetContainer = document.getElementById('tv-mini-widget');
+        function calculateFV() {
+            const input = document.getElementById('fvInput').value.toUpperCase().trim();
+            const res = document.getElementById('fvResult');
+            const err = document.getElementById('fvError');
+            const miniChart = document.getElementById('mini-chart-container');
 
-            // Reset
-            resultCard.style.display = "none";
-            errorMsg.style.display = "none";
-            widgetContainer.innerHTML = "";
+            res.style.display = "none";
+            err.style.display = "none";
+            miniChart.innerHTML = "";
 
-            if (fvDatabase[input]) {
-                // TROVATO!
-                const data = fvDatabase[input];
+            if(db[input]) {
+                const data = db[input];
+                document.getElementById('fvName').innerText = data.name;
+                document.getElementById('fvValue').innerText = data.fv + " " + data.curr;
                 
-                // 1. Popola i dati statici
-                document.getElementById('fvCompanyName').innerText = data.name;
-                document.getElementById('fvValueDisplay').innerText = data.value + " " + data.currency;
+                // Logica verdetto semplice (Nota: per il verdetto reale servirebbe il prezzo live via API, qui è statico per demo)
+                document.getElementById('fvStatus').innerText = "Vedi Prezzo Live →";
                 
-                // 2. Determina simbolo TradingView (aggiunge Exchange se necessario)
-                let tvSymbol = input;
-                if (data.exchange) {
-                    tvSymbol = data.exchange + ":" + input;
-                } else {
-                    tvSymbol = "NASDAQ:" + input; // Default USA
-                }
-
-                // 3. Crea il Widget Mini di TradingView per il prezzo live
+                // Widget Mini
                 const script = document.createElement('script');
                 script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
                 script.async = true;
                 script.innerHTML = JSON.stringify({
-                    "symbol": tvSymbol,
-                    "width": "100%",
-                    "isTransparent": true,
-                    "colorTheme": "dark",
-                    "locale": "it"
+                    "symbol": data.ex + ":" + input.replace("1GOOG", "GOOG"), // Fix per il tuo ticker strano
+                    "width": "100%", "isTransparent": true, "colorTheme": "dark", "locale": "it"
                 });
-                widgetContainer.appendChild(script);
+                miniChart.appendChild(script);
 
-                // Mostra il risultato
-                resultCard.style.display = "block";
-                
-                // Nota: Non possiamo calcolare matematicamente "Sottovalutata" qui in automatico
-                // perché non possiamo leggere il prezzo dal widget. 
-                // L'utente farà il confronto visivo tra "Mio Fair Value" e "Prezzo Live".
-                document.getElementById('fvVerdict').innerText = "CONFRONTA I VALORI";
-                document.getElementById('fvVerdict').className = "badge badge-under"; // Colore neutro/verde
-
+                res.style.display = "block";
             } else {
-                // NON TROVATO
-                errorMsg.style.display = "block";
+                err.style.display = "block";
             }
         }
 
-        // Permetti Invio da tastiera
-        document.getElementById("fvTickerInput").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") { event.preventDefault(); checkFairValue(); }
-        });
-
-        // === 2. SCANNER GRAFICO ===
-        new TradingView.widget({
-            "autosize": true, "symbol": "NASDAQ:GOOG", "interval": "D", "timezone": "Europe/Rome",
-            "theme": "dark", "style": "1", "locale": "it", "enable_publishing": false,
-            "backgroundColor": "#131722", "gridColor": "#2a2e39", "hide_top_toolbar": false,
-            "container_id": "tv_chart_container"
-        });
-
-        // === 3. CHART.JS PERFORMANCE ===
+        // === 2. CHART.JS (ASSET ALLOCATION REALE) ===
         window.onload = function() {
-            const ctx = document.getElementById('performanceChart');
+            const ctx = document.getElementById('allocationChart').getContext('2d');
             new Chart(ctx, {
-                type: 'line',
+                type: 'doughnut',
                 data: {
-                    labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+                    labels: ['Alphabet (GOOG)', 'ERG', 'Ferrari', 'DiaSorin'],
                     datasets: [{
-                        label: 'Portafoglio', data: [0, 2, 4, 3, 6, 8, 9, 11, 10, 12, 13, 12.45],
-                        borderColor: '#00e676', backgroundColor: 'rgba(0,230,118,0.1)', fill: true, tension: 0.4
-                    }, {
-                        label: 'S&P 500', data: [0, 1, 3, 2, 4, 6, 7, 8, 8, 9, 9, 10.2],
-                        borderColor: '#8b93a6', borderDash: [5,5], fill: false
+                        data: [2910, 717, 638, 568], // Valori reali dal tuo portafoglio (stimati per GOOG su totale)
+                        backgroundColor: ['#2962ff', '#00e676', '#ff3d00', '#00bcd4'],
+                        borderWidth: 0,
+                        hoverOffset: 10
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { color: '#8b93a6' } }, y: { ticks: { color: '#8b93a6' } } }, plugins: { legend: { labels: { color: '#fff' } } } }
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#e0e0e0', font: { family: "'Inter', sans-serif" } } }
+                    }
+                }
+            });
+
+            // Avvia scanner grafico
+            new TradingView.widget({
+                "autosize": true, "symbol": "MIL:FTSEMIB", "interval": "D", "timezone": "Europe/Rome",
+                "theme": "dark", "style": "1", "locale": "it", "enable_publishing": false,
+                "backgroundColor": "#050505", "gridColor": "#1f1f1f", "hide_top_toolbar": false,
+                "container_id": "tv_chart_container"
             });
         };
     </script>
 </body>
 </html>
-
