@@ -124,7 +124,7 @@
             </div>
             
             <div style="margin-top: 20px; font-size: 0.9em; color: var(--text-muted);">
-                <strong>Titoli analizzati disponibili:</strong> GOOG, AAPL, TSLA, RACE, SAP, MSFT, AMZN, NVDA, META, STLAM.
+                <strong>se titolo disponibile:</strong> comparirà la scheda dedicata alla valutazione.
             </div>
         </div>
     </div>
@@ -144,11 +144,11 @@
             <div class="kpi-row" style="display: flex; gap: 20px;">
                 <div style="flex:1; text-align:center; border:1px solid #2a2e39; padding:15px; border-radius:8px;">
                     <div style="color:#8b93a6; font-size:0.8em;">MIO PORTAFOGLIO</div>
-                    <div style="color:#00e676; font-size:1.8em; font-weight:700;">+12.45%</div>
+                    <div style="color:#00e676; font-size:1.8em; font-weight:700;">-8.97%</div>
                 </div>
                 <div style="flex:1; text-align:center; border:1px solid #2a2e39; padding:15px; border-radius:8px;">
                     <div style="color:#8b93a6; font-size:0.8em;">S&P 500</div>
-                    <div style="color:#fff; font-size:1.8em; font-weight:700;">+10.20%</div>
+                    <div style="color:#fff; font-size:1.8em; font-weight:700;">+1.28%</div>
                 </div>
             </div>
             <div style="height: 300px; margin-top:20px;"><canvas id="performanceChart"></canvas></div>
@@ -185,16 +185,16 @@
         // === 1. IL TUO DATABASE PERSONALE DEI FAIR VALUE ===
         // Aggiungi qui le aziende. Chiave = Ticker (Maiuscolo).
         const fvDatabase = {
-            "GOOG": { name: "Alphabet Inc.", value: 335, currency: "$" },
-            "AAPL": { name: "Apple Inc.", value: 180, currency: "$" },
-            "MSFT": { name: "Microsoft Corp", value: 450, currency: "$" },
-            "TSLA": { name: "Tesla Inc.", value: 250, currency: "$" },
-            "NVDA": { name: "Nvidia Corp", value: 850, currency: "$" },
-            "AMZN": { name: "Amazon.com", value: 200, currency: "$" },
-            "META": { name: "Meta Platforms", value: 550, currency: "$" },
-            "RACE": { name: "Ferrari NV", value: 270, currency: "€", exchange: "MIL" }, // Specifica exchange per TV se non USA
-            "SAP": { name: "SAP SE", value: 191, currency: "€", exchange: "XETR" },
-            "STLAM": { name: "Stellantis", value: 18.50, currency: "€", exchange: "MIL" }
+            "GOOG": { name: "Alphabet Inc.", value: 253.82, currency: "$" },
+            "AAPL": { name: "Apple Inc.", value: 252.15, currency: "$" },
+            "MSFT": { name: "Microsoft Corp", value: 460.06, currency: "$" },
+            "TSLA": { name: "Tesla Inc.", value: 224.04, currency: "$" },
+            "NVDA": { name: "Nvidia Corp", value: 90.46, currency: "$" },
+            "AMZN": { name: "Amazon.com", value: 179.18, currency: "$" },
+            "META": { name: "Meta Platforms", value: 568.07, currency: "$" },
+            "RACE": { name: "Ferrari NV", value: 383.27, currency: "€", exchange: "MIL" }, // Specifica exchange per TV se non USA
+            "SAP": { name: "SAP SE", value: 208.7, currency: "€", exchange: "XETR" },
+            "STLAM": { name: "Stellantis", value: 35.01, currency: "€", exchange: "MIL" }
         };
 
         function checkFairValue() {
@@ -286,3 +286,4 @@
     </script>
 </body>
 </html>
+
