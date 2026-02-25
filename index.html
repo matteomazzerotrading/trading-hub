@@ -80,6 +80,31 @@
         .fv-value-big { font-size: 3em; font-weight: 800; color: var(--brand-green); text-shadow: 0 0 20px var(--brand-glow); }
         .fv-label { font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 5px; }
 
+        /* VIDEO INTEGRATO (SMART VIDEO) */
+        .smart-video-container { margin-top: 30px; border-top: 1px solid var(--border-glass); padding-top: 20px; display: none; }
+        .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-glass); }
+        .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* VIDEO PRINCIPALI GRID */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .video-card { background: var(--bg-glass); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-glass); transition: transform 0.3s; }
+        .video-card:hover { transform: translateY(-5px); border-color: var(--brand-green); }
+        .thumbnail-container { position: relative; display: block; width: 100%; padding-bottom: 56.25%; background: #000; }
+        .thumbnail-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
+        .video-card:hover img { opacity: 1; }
+        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 40px; background: rgba(255, 61, 0, 0.9); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
+        .play-button::after { content: ''; border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent white; margin-left: 4px; }
+        .video-info { padding: 20px; }
+        .video-title { margin: 0; font-size: 1.1em; line-height: 1.4; color: #fff; font-weight: 600; }
+
+        /* FORM RICHIESTE */
+        .request-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-input { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 15px; border-radius: 8px; color: #fff; font-family: 'Inter', sans-serif; outline: none; }
+        .form-input:focus { border-color: var(--brand-green); }
+        .form-btn { grid-column: span 2; background: var(--brand-green); padding: 15px; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; color: #000; transition: 0.3s; }
+        .form-btn:hover { box-shadow: 0 0 15px var(--brand-glow); }
+
         /* PORTFOLIO & CHARTS */
         .portfolio-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         .kpi-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
@@ -91,7 +116,7 @@
         /* BARRE ASSET */
         .bar-row { display: flex; align-items: center; margin-bottom: 12px; }
         .bar-label { width: 120px; font-weight: 600; font-size: 0.85em; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.05); border-radius: 5px; margin: 0 15px; overflow: hidden; }
+        .bar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; margin: 0 15px; overflow: hidden; }
         .bar-fill { height: 100%; border-radius: 5px; position: relative; transition: width 1s ease-in-out; }
         .bar-val { width: 70px; text-align: right; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); font-size: 0.85em; }
 
@@ -107,6 +132,8 @@
             .portfolio-grid { grid-template-columns: 1fr; } 
             .kpi-container { grid-template-columns: 1fr; }
             .fv-result-card > div { flex-direction: column; }
+            .request-form { grid-template-columns: 1fr; }
+            .form-btn { grid-column: span 1; }
         }
         
         footer { text-align: center; padding: 50px; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.9em; }
@@ -120,8 +147,8 @@
         <div class="nav-links">
             <a href="#fv-section" class="nav-link">Fair Value</a>
             <a href="#portfolio" class="nav-link">Portafoglio</a>
-            <a href="#scanner" class="nav-link">Grafici</a>
-            <a href="disclaimer.html" class="nav-link" style="color: var(--text-muted);">Disclaimer</a>
+            <a href="#videos" class="nav-link">Video</a>
+            <a href="#richieste" class="nav-link">Richieste</a>
         </div>
     </nav>
 
@@ -147,7 +174,7 @@
         <div class="card">
             <div class="fv-interface">
                 <div class="fv-search-box">
-                    <input type="text" id="fvInput" class="fv-input" placeholder="Cerca Ticker (es. ERG, GOOG, RACE, DIA, ADBE...)">
+                    <input type="text" id="fvInput" class="fv-input" placeholder="Cerca Ticker (es. GOOG, ERG, RACE, STLAM...)">
                     <button onclick="calculateFV()" class="fv-btn">ANALIZZA</button>
                 </div>
                 
@@ -169,7 +196,53 @@
                                 <div id="mini-chart-container" style="height: 120px; margin-top: 10px;"></div>
                             </div>
                         </div>
+
+                        <div id="smart-video-box" class="smart-video-container">
+                            <div style="text-align: center; margin-bottom: 15px;">
+                                <span style="background: var(--brand-green); color: #000; padding: 5px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8em;">VIDEO CORRELATO</span>
+                                <h4 style="margin: 10px 0 0 0; color: #fff;">La mia analisi completa su questo titolo</h4>
+                            </div>
+                            <div class="video-responsive">
+                                <iframe id="smart-video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="videos">
+        <div class="section-header">
+            <h2 class="section-title">Video <span>Principali</span></h2>
+        </div>
+        <div class="video-grid">
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=MpwZcg3J8BE" target="_blank" class="thumbnail-container">
+                    <img src="https://img.youtube.com/vi/MpwZcg3J8BE/maxresdefault.jpg" alt="Video">
+                    <div class="play-button"></div>
+                </a>
+                <div class="video-info">
+                    <h3 class="video-title">DISASTRO STELLANTIS: 22 miliardi di PERDITE e -25%. COSA FARE?</h3>
+                </div>
+            </div>
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=Icy8DMAwDYw" target="_blank" class="thumbnail-container">
+                    <img src="https://img.youtube.com/vi/Icy8DMAwDYw/maxresdefault.jpg" alt="Video">
+                    <div class="play-button"></div>
+                </a>
+                <div class="video-info">
+                    <h3 class="video-title">Analisi SAP: Ho comprato la Salesforce Europea?</h3>
+                </div>
+            </div>
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=gR_9pwPeT3o" target="_blank" class="thumbnail-container">
+                    <img src="https://img.youtube.com/vi/gR_9pwPeT3o/maxresdefault.jpg" alt="Video">
+                    <div class="play-button"></div>
+                </a>
+                <div class="video-info">
+                    <h3 class="video-title">TUTORIAL: Come sfruttare al meglio TradingView</h3>
                 </div>
             </div>
         </div>
@@ -202,49 +275,29 @@
                     <h3>Composizione Asset (Valore Attuale)</h3>
                     <div style="margin-top: 30px;">
                         <div class="bar-row">
+                            <div class="bar-label">GOOG</div>
+                            <div class="bar-track"><div class="bar-fill c-1" style="width: 60.2%;"></div></div>
+                            <div class="bar-val">2.910€</div>
+                        </div>
+                        <div class="bar-row">
                             <div class="bar-label">ERG</div>
-                            <div class="bar-track"><div class="bar-fill c-1" style="width: 14.8%;"></div></div>
+                            <div class="bar-track"><div class="bar-fill c-2" style="width: 14.8%;"></div></div>
                             <div class="bar-val">717€</div>
                         </div>
                         <div class="bar-row">
-                            <div class="bar-label">Intuit (INTU)</div>
-                            <div class="bar-track"><div class="bar-fill c-2" style="width: 13.4%;"></div></div>
-                            <div class="bar-val">647€</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">Ferrari (RACE)</div>
+                            <div class="bar-label">RACE</div>
                             <div class="bar-track"><div class="bar-fill c-3" style="width: 13.2%;"></div></div>
                             <div class="bar-val">638€</div>
                         </div>
                         <div class="bar-row">
-                            <div class="bar-label">Qualcomm</div>
-                            <div class="bar-track"><div class="bar-fill c-4" style="width: 12.8%;"></div></div>
-                            <div class="bar-val">618€</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">DiaSorin</div>
-                            <div class="bar-track"><div class="bar-fill c-5" style="width: 11.7%;"></div></div>
+                            <div class="bar-label">DIA</div>
+                            <div class="bar-track"><div class="bar-fill c-4" style="width: 11.7%;"></div></div>
                             <div class="bar-val">568€</div>
                         </div>
                         <div class="bar-row">
-                            <div class="bar-label">LVMH</div>
-                            <div class="bar-track"><div class="bar-fill c-6" style="width: 11.4%;"></div></div>
-                            <div class="bar-val">552€</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">Alphabet</div>
-                            <div class="bar-track"><div class="bar-fill c-1" style="width: 10.9%;"></div></div>
-                            <div class="bar-val">526€</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">Six Flags</div>
-                            <div class="bar-track"><div class="bar-fill c-2" style="width: 7.1%;"></div></div>
-                            <div class="bar-val">346€</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">Adobe</div>
-                            <div class="bar-track"><div class="bar-fill c-3" style="width: 4.5%;"></div></div>
-                            <div class="bar-val">218€</div>
+                            <div class="bar-label">Altri (5)</div>
+                            <div class="bar-track"><div class="bar-fill c-5" style="width: 48%;"></div></div>
+                            <div class="bar-val">Vari</div>
                         </div>
                     </div>
                 </div>
@@ -264,13 +317,13 @@
                         {
                           "name": "Titoli in Portafoglio",
                           "symbols": [
+                            { "name": "NASDAQ:GOOG", "displayName": "Alphabet" },
                             { "name": "MIL:ERG", "displayName": "ERG" },
-                            { "name": "NASDAQ:INTU", "displayName": "Intuit" },
                             { "name": "MIL:RACE", "displayName": "Ferrari" },
-                            { "name": "NASDAQ:QCOM", "displayName": "Qualcomm" },
                             { "name": "MIL:DIA", "displayName": "DiaSorin" },
                             { "name": "EPA:MC", "displayName": "LVMH" },
-                            { "name": "NASDAQ:GOOG", "displayName": "Alphabet" },
+                            { "name": "NASDAQ:QCOM", "displayName": "Qualcomm" },
+                            { "name": "NASDAQ:INTU", "displayName": "Intuit" },
                             { "name": "NYSE:FUN", "displayName": "Six Flags" },
                             { "name": "NASDAQ:ADBE", "displayName": "Adobe" }
                           ]
@@ -281,6 +334,32 @@
                     </script>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container" id="richieste">
+        <div class="section-header">
+            <h2 class="section-title">Richiedi <span>Analisi</span></h2>
+        </div>
+        <div class="card">
+            <p style="color: var(--text-muted); margin-bottom: 20px;">
+                Vuoi conoscere il Fair Value di un'azienda specifica? Compila il modulo qui sotto.
+            </p>
+            <form action="mailto:tuaemail@esempio.com" method="POST" enctype="text/plain" class="request-form">
+                <div class="form-group">
+                    <label style="color:#fff; font-size:0.9em;">Nome</label>
+                    <input type="text" name="nome" class="form-input" placeholder="Il tuo nome">
+                </div>
+                <div class="form-group">
+                    <label style="color:#fff; font-size:0.9em;">Email</label>
+                    <input type="email" name="email" class="form-input" placeholder="La tua email">
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label style="color:#fff; font-size:0.9em;">Ticker Azienda</label>
+                    <input type="text" name="ticker" class="form-input" placeholder="Es. TSLA, ENEL...">
+                </div>
+                <button type="submit" class="form-btn">INVIA RICHIESTA</button>
+            </form>
         </div>
     </div>
 
@@ -299,18 +378,22 @@
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // === 1. DATABASE FAIR VALUE (TUTTI I 9 TITOLI) ===
-        // Valori di Fair Value (FV) stimati per demo. Aggiornali con i tuoi.
+        // === 1. DATABASE FAIR VALUE (TUTTI I 9 TITOLI + VIDEO LINK) ===
+        // IMPORTANTE: Nella proprietà 'videoID', inserisci la parte finale del link YouTube (es. MpwZcg3J8BE).
+        // Se non c'è video, lascia null.
+        
         const db = {
-            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, curr: "€", ex: "MIL" },
-            "ERG": { name: "ERG S.p.A.", fv: 28.50, curr: "€", ex: "MIL" },
-            "RACE": { name: "Ferrari N.V.", fv: 300.00, curr: "€", ex: "MIL" },
-            "GOOG": { name: "Alphabet Inc.", fv: 290.00, curr: "$", ex: "NASDAQ" },
-            "MC": { name: "LVMH", fv: 600.00, curr: "€", ex: "EPA" },
-            "ADBE": { name: "Adobe Inc.", fv: 300.00, curr: "$", ex: "NASDAQ" },
-            "FUN": { name: "Six Flags", fv: 25.00, curr: "$", ex: "NYSE" },
-            "INTU": { name: "Intuit Inc.", fv: 700.00, curr: "$", ex: "NASDAQ" },
-            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, curr: "$", ex: "NASDAQ" }
+            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, curr: "€", ex: "MIL", videoID: null },
+            "ERG": { name: "ERG S.p.A.", fv: 28.50, curr: "€", ex: "MIL", videoID: null },
+            "RACE": { name: "Ferrari N.V.", fv: 300.00, curr: "€", ex: "MIL", videoID: null }, // Metti qui ID video se ne hai uno su Ferrari
+            "GOOG": { name: "Alphabet Inc.", fv: 290.00, curr: "$", ex: "NASDAQ", videoID: null },
+            "MC": { name: "LVMH", fv: 600.00, curr: "€", ex: "EPA", videoID: null },
+            "ADBE": { name: "Adobe Inc.", fv: 300.00, curr: "$", ex: "NASDAQ", videoID: null },
+            "FUN": { name: "Six Flags", fv: 25.00, curr: "$", ex: "NYSE", videoID: null },
+            "INTU": { name: "Intuit Inc.", fv: 700.00, curr: "$", ex: "NASDAQ", videoID: null },
+            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, curr: "$", ex: "NASDAQ", videoID: null },
+            // Esempio per testare la funzione video (usa STLAM come prova)
+            "STLAM": { name: "Stellantis", fv: 18.00, curr: "€", ex: "MIL", videoID: "MpwZcg3J8BE" }
         };
 
         function calculateFV() {
@@ -326,10 +409,13 @@
             const res = document.getElementById('fvResult');
             const err = document.getElementById('fvError');
             const miniChart = document.getElementById('mini-chart-container');
+            const smartVideo = document.getElementById('smart-video-box');
+            const videoIframe = document.getElementById('smart-video-iframe');
 
             res.style.display = "none";
             err.style.display = "none";
             miniChart.innerHTML = "";
+            smartVideo.style.display = "none";
 
             if(db[input]) {
                 const data = db[input];
@@ -348,13 +434,18 @@
                 });
                 miniChart.appendChild(script);
 
+                // --- SMART VIDEO LOGIC ---
+                if (data.videoID) {
+                    smartVideo.style.display = "block";
+                    videoIframe.src = "https://www.youtube.com/embed/" + data.videoID;
+                }
+
                 res.style.display = "block";
             } else {
                 err.style.display = "block";
             }
         }
 
-        // Permetti invio con tasto Enter
         document.getElementById("fvInput").addEventListener("keypress", function(event) {
             if (event.key === "Enter") { event.preventDefault(); calculateFV(); }
         });
@@ -365,20 +456,10 @@
             new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['ERG', 'Intuit', 'Ferrari', 'Qualcomm', 'DiaSorin', 'LVMH', 'Alphabet', 'Six Flags', 'Adobe'],
+                    labels: ['Alphabet (GOOG)', 'ERG', 'Intuit', 'Ferrari', 'Qualcomm', 'DiaSorin', 'LVMH', 'Six Flags', 'Adobe'],
                     datasets: [{
-                        data: [717, 647, 638, 618, 568, 552, 526, 346, 218], // Dati reali dal file
-                        backgroundColor: [
-                            '#00e676', // ERG
-                            '#2962ff', // INTU
-                            '#ff3d00', // RACE
-                            '#9c27b0', // QCOM
-                            '#00bcd4', // DIA
-                            '#ffeb3b', // MC
-                            '#795548', // GOOG
-                            '#607d8b', // FUN
-                            '#e91e63'  // ADBE
-                        ],
+                        data: [2910, 717, 647, 638, 618, 568, 552, 346, 218],
+                        backgroundColor: ['#2962ff', '#00e676', '#3f51b5', '#ff3d00', '#9c27b0', '#00bcd4', '#ffeb3b', '#607d8b', '#e91e63'],
                         borderWidth: 0,
                         hoverOffset: 15
                     }]
@@ -392,9 +473,8 @@
                 }
             });
 
-            // Avvia scanner grafico di default su ERG
             new TradingView.widget({
-                "autosize": true, "symbol": "MIL:ERG", "interval": "D", "timezone": "Europe/Rome",
+                "autosize": true, "symbol": "MIL:FTSEMIB", "interval": "D", "timezone": "Europe/Rome",
                 "theme": "dark", "style": "1", "locale": "it", "enable_publishing": false,
                 "backgroundColor": "#050505", "gridColor": "#1f1f1f", "hide_top_toolbar": false,
                 "container_id": "tv_chart_container"
