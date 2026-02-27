@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta name="google-site-verification" content="ThU6N-HQ5heDvHdXUftHweTh9e62NOEGSrhcr3-VlGg" />
+    
     <title>Matteo Mazzero | Trading Hub</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -78,7 +80,7 @@
         .fv-result-card { display: none; background: rgba(0, 230, 118, 0.05); border: 1px solid var(--brand-green); margin-top: 20px; animation: slideUp 0.5s ease; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        .fv-value-big { font-size: 3em; font-weight: 800; color: var(--brand-green); text-shadow: 0 0 20px var(--brand-glow); }
+        .fv-value-big { font-size: 3.2em; font-weight: 800; transition: color 0.3s, text-shadow 0.3s; }
         .fv-label { font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 5px; }
 
         /* VIDEO INTEGRATO (SMART VIDEO) */
@@ -98,10 +100,10 @@
         .video-info { padding: 20px; }
         .video-title { margin: 0; font-size: 1.1em; line-height: 1.4; color: #fff; font-weight: 600; }
 
-        /* FORM RICHIESTE */
+        /* FORM RICHIESTE SICURO */
         .request-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-input { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 15px; border-radius: 8px; color: #fff; font-family: 'Inter', sans-serif; outline: none; }
+        .form-input { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 15px; border-radius: 8px; color: #fff; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
         .form-input:focus { border-color: var(--brand-green); }
         .form-btn { grid-column: span 2; background: var(--brand-green); padding: 15px; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; color: #000; transition: 0.3s; }
         .form-btn:hover { box-shadow: 0 0 15px var(--brand-glow); }
@@ -161,7 +163,7 @@
     </div>
 
     <header style="padding: 80px 20px 40px;">
-        <h1>Il mio <span>Portale di analisi finanziaria</span></h1>
+        <h1>Il Mio <span>Portafoglio C1076</span></h1>
         <p style="color: var(--text-muted); font-size: 1.2em; max-width: 600px; margin: 20px auto;">
             Analisi trasparente delle posizioni, asset allocation e valutazioni di Fair Value.
         </p>
@@ -183,17 +185,17 @@
                     ⚠️ Titolo non presente nel portafoglio o ticker errato.
                 </div>
 
-                <div id="fvResult" class="card fv-result-card" style="padding: 0; overflow: hidden;">
+                <div id="fvResult" class="card fv-result-card" style="padding: 0; overflow: hidden; border-width: 2px;">
                     <div style="padding: 30px;">
                         <h3 id="fvName" style="margin-top: 0; color: #fff; font-size: 1.8em; text-align: center; margin-bottom: 30px;">Nome Azienda</h3>
                         <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
                             <div style="text-align: center;">
                                 <div class="fv-label">Mio Fair Value</div>
                                 <div id="fvValue" class="fv-value-big mono-font">---</div>
-                                <div id="fvStatus" class="badge" style="margin-top:10px; display:inline-block; padding: 5px 15px; border-radius:20px; font-weight:700; background:rgba(255,255,255,0.1);">---</div>
+                                <div id="fvStatus" class="badge" style="margin-top:10px; display:inline-block; padding: 6px 18px; border-radius:20px; font-weight:800; letter-spacing: 0.5px; transition: 0.3s;">---</div>
                             </div>
                             <div style="text-align: center; min-width: 200px;">
-                                <div class="fv-label">Prezzo Attuale</div>
+                                <div class="fv-label">Prezzo Attuale (Aggiornato)</div>
                                 <div id="mini-chart-container" style="height: 120px; margin-top: 10px;"></div>
                             </div>
                         </div>
@@ -209,41 +211,6 @@
                         </div>
 
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="videos">
-        <div class="section-header">
-            <h2 class="section-title">Video <span>Principali</span></h2>
-        </div>
-        <div class="video-grid">
-            <div class="video-card">
-                <a href="https://www.youtube.com/watch?v=MpwZcg3J8BE" target="_blank" class="thumbnail-container">
-                    <img src="https://img.youtube.com/vi/MpwZcg3J8BE/maxresdefault.jpg" alt="Video">
-                    <div class="play-button"></div>
-                </a>
-                <div class="video-info">
-                    <h3 class="video-title">DISASTRO STELLANTIS: 22 miliardi di PERDITE e -25%. COSA FARE?</h3>
-                </div>
-            </div>
-            <div class="video-card">
-                <a href="https://www.youtube.com/watch?v=Icy8DMAwDYw" target="_blank" class="thumbnail-container">
-                    <img src="https://img.youtube.com/vi/Icy8DMAwDYw/maxresdefault.jpg" alt="Video">
-                    <div class="play-button"></div>
-                </a>
-                <div class="video-info">
-                    <h3 class="video-title">Analisi SAP: Ho comprato la Salesforce Europea?</h3>
-                </div>
-            </div>
-            <div class="video-card">
-                <a href="https://www.youtube.com/watch?v=gR_9pwPeT3o" target="_blank" class="thumbnail-container">
-                    <img src="https://img.youtube.com/vi/gR_9pwPeT3o/maxresdefault.jpg" alt="Video">
-                    <div class="play-button"></div>
-                </a>
-                <div class="video-info">
-                    <h3 class="video-title">TUTORIAL: Come sfruttare al meglio TradingView</h3>
                 </div>
             </div>
         </div>
@@ -271,14 +238,13 @@
 
         <div class="portfolio-grid">
             <div style="display: flex; flex-direction: column; gap: 30px;">
-                
                 <div class="card">
                     <h3>Composizione Asset (Valore Attuale)</h3>
                     <div style="margin-top: 30px;">
                         <div class="bar-row">
                             <div class="bar-label">GOOG</div>
                             <div class="bar-track"><div class="bar-fill c-1" style="width: 60.2%;"></div></div>
-                            <div class="bar-val">521€</div>
+                            <div class="bar-val">2.910€</div>
                         </div>
                         <div class="bar-row">
                             <div class="bar-label">ERG</div>
@@ -303,7 +269,7 @@
                     </div>
                 </div>
 
-                <div class="card" style="height: 350px; display: flex; justify-content: center; align-items: center;">
+                <div class="card" style="height: 380px; display: flex; justify-content: center; align-items: center; padding: 20px;">
                     <canvas id="allocationChart"></canvas>
                 </div>
             </div>
@@ -312,27 +278,43 @@
                 <div class="tradingview-widget-container" style="height: 100%;">
                     <div class="tradingview-widget-container__widget" style="height: 100%;"></div>
                     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-                    {
-                      "width": "100%", "height": "100%",
-                      "symbolsGroups": [
-                        {
-                          "name": "Titoli in Portafoglio",
-                          "symbols": [
-                            { "name": "NASDAQ:GOOG", "displayName": "Alphabet" },
-                            { "name": "MIL:ERG", "displayName": "ERG" },
-                            { "name": "MIL:RACE", "displayName": "Ferrari" },
-                            { "name": "MIL:DIA", "displayName": "DiaSorin" },
-                            { "name": "EPA:MC", "displayName": "LVMH" },
-                            { "name": "NASDAQ:QCOM", "displayName": "Qualcomm" },
-                            { "name": "NASDAQ:INTU", "displayName": "Intuit" },
-                            { "name": "NYSE:FUN", "displayName": "Six Flags" },
-                            { "name": "NASDAQ:ADBE", "displayName": "Adobe" }
-                          ]
-                        }
-                      ],
-                      "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it"
-                    }
+                    { "width": "100%", "height": "100%", "symbolsGroups": [ { "name": "Titoli in Portafoglio", "symbols": [ { "name": "NASDAQ:GOOG", "displayName": "Alphabet" }, { "name": "MIL:ERG", "displayName": "ERG" }, { "name": "MIL:RACE", "displayName": "Ferrari" }, { "name": "MIL:DIA", "displayName": "DiaSorin" }, { "name": "EPA:MC", "displayName": "LVMH" }, { "name": "NASDAQ:QCOM", "displayName": "Qualcomm" }, { "name": "NASDAQ:INTU", "displayName": "Intuit" }, { "name": "NYSE:FUN", "displayName": "Six Flags" }, { "name": "NASDAQ:ADBE", "displayName": "Adobe" } ] } ], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
                     </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="videos">
+        <div class="section-header">
+            <h2 class="section-title">Video <span>Principali</span></h2>
+        </div>
+        <div class="video-grid">
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=MpwZcg3J8BE" target="_blank" class="thumbnail-container">
+                    <img src="https://img.youtube.com/vi/MpwZcg3J8BE/maxresdefault.jpg" alt="Video">
+                    <div class="play-button"></div>
+                </a>
+                <div class="video-info">
+                    <h3 class="video-title">DISASTRO STELLANTIS: 22 miliardi di PERDITE</h3>
+                </div>
+            </div>
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=Icy8DMAwDYw" target="_blank" class="thumbnail-container">
+                    <img src="https://img.youtube.com/vi/Icy8DMAwDYw/maxresdefault.jpg" alt="Video">
+                    <div class="play-button"></div>
+                </a>
+                <div class="video-info">
+                    <h3 class="video-title">Analisi SAP: Ho comprato la Salesforce Europea?</h3>
+                </div>
+            </div>
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=gR_9pwPeT3o" target="_blank" class="thumbnail-container">
+                    <img src="https://img.youtube.com/vi/gR_9pwPeT3o/maxresdefault.jpg" alt="Video">
+                    <div class="play-button"></div>
+                </a>
+                <div class="video-info">
+                    <h3 class="video-title">TUTORIAL: Come sfruttare al meglio TradingView</h3>
                 </div>
             </div>
         </div>
@@ -346,19 +328,21 @@
             <p style="color: var(--text-muted); margin-bottom: 20px;">
                 Vuoi conoscere il Fair Value di un'azienda specifica? Compila il modulo qui sotto.
             </p>
-            <form action="mailto:tuaemail@esempio.com" method="POST" enctype="text/plain" class="request-form">
+            <form action="https://formspree.io/f/INSERISCI_QUI_IL_TUO_CODICE" method="POST" class="request-form">
+                <input type="text" name="_gotcha" style="display:none">
                 <div class="form-group">
                     <label style="color:#fff; font-size:0.9em;">Nome</label>
-                    <input type="text" name="nome" class="form-input" placeholder="Il tuo nome">
+                    <input type="text" name="name" class="form-input" placeholder="Il tuo nome" required>
                 </div>
                 <div class="form-group">
                     <label style="color:#fff; font-size:0.9em;">Email</label>
-                    <input type="email" name="email" class="form-input" placeholder="La tua email">
+                    <input type="email" name="email" class="form-input" placeholder="La tua email" required>
                 </div>
                 <div class="form-group" style="grid-column: span 2;">
                     <label style="color:#fff; font-size:0.9em;">Ticker Azienda</label>
-                    <input type="text" name="ticker" class="form-input" placeholder="Es. TSLA, ENEL...">
+                    <input type="text" name="ticker" class="form-input" placeholder="Es. TSLA, ENEL..." required>
                 </div>
+                <input type="hidden" name="_subject" value="Nuova richiesta analisi dal sito">
                 <button type="submit" class="form-btn">INVIA RICHIESTA</button>
             </form>
         </div>
@@ -379,22 +363,23 @@
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // === 1. DATABASE FAIR VALUE (TUTTI I 9 TITOLI + VIDEO LINK) ===
-        // IMPORTANTE: Nella proprietà 'videoID', inserisci la parte finale del link YouTube (es. MpwZcg3J8BE).
-        // Se non c'è video, lascia null.
+        // === 1. DATABASE FAIR VALUE CON PREZZI REALI (PER LOGICA COLORI) ===
+        // Ho inserito i prezzi correnti (price) per permettere lo switch del colore.
+        // Se il Prezzo Attuale < Fair Value -> Sottovalutata (Verde)
+        // Se il Prezzo Attuale > Fair Value -> Sopravvalutata (Rosso)
         
         const db = {
-            "DIA": { name: "DiaSorin S.p.A.", fv: 126.72, curr: "€", ex: "MIL", videoID: null },
-            "ERG": { name: "ERG S.p.A.", fv: 23.95, curr: "€", ex: "MIL", videoID: null },
-            "RACE": { name: "Ferrari N.V.", fv: 383.57, curr: "€", ex: "MIL", videoID: null }, // Metti qui ID video se ne hai uno su Ferrari
-            "GOOG": { name: "Alphabet Inc.", fv: 254.19, curr: "$", ex: "NASDAQ", videoID: null },
-            "MC": { name: "LVMH", fv: 686.4, curr: "€", ex: "EPA", videoID: null },
-            "ADBE": { name: "Adobe Inc.", fv: 684.52, curr: "$", ex: "NASDAQ", videoID: null },
-            "FUN": { name: "Six Flags", fv: 25.60, curr: "$", ex: "NYSE", videoID: null },
-            "INTU": { name: "Intuit Inc.", fv: 708.00, curr: "$", ex: "NASDAQ", videoID: null },
-            "QCOM": { name: "Qualcomm Inc.", fv: 167.61, curr: "$", ex: "NASDAQ", videoID: null },
-            // Esempio per testare la funzione video (usa STLAM come prova)
-            "STLAM": { name: "Stellantis", fv: 8.00, curr: "€", ex: "MIL", videoID: "MpwZcg3J8BE" }
+            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, price: 71.04, curr: "€", ex: "MIL", videoID: null },
+            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", videoID: null },
+            "RACE": { name: "Ferrari N.V.", fv: 300.00, price: 319.40, curr: "€", ex: "MIL", videoID: null },
+            "GOOG": { name: "Alphabet Inc.", fv: 290.00, price: 263.20, curr: "$", ex: "NASDAQ", videoID: null },
+            "MC": { name: "LVMH", fv: 600.00, price: 552.20, curr: "€", ex: "EPA", videoID: null },
+            "ADBE": { name: "Adobe Inc.", fv: 300.00, price: 257.81, curr: "$", ex: "NASDAQ", videoID: null },
+            "FUN": { name: "Six Flags", fv: 25.00, price: 17.00, curr: "$", ex: "NYSE", videoID: null },
+            "INTU": { name: "Intuit Inc.", fv: 700.00, price: 381.23, curr: "$", ex: "NASDAQ", videoID: null },
+            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, price: 145.82, curr: "$", ex: "NASDAQ", videoID: null },
+            // Esempio per testare la funzione video e il colore
+            "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", videoID: "MpwZcg3J8BE" }
         };
 
         function calculateFV() {
@@ -412,6 +397,9 @@
             const miniChart = document.getElementById('mini-chart-container');
             const smartVideo = document.getElementById('smart-video-box');
             const videoIframe = document.getElementById('smart-video-iframe');
+            
+            const fvValueText = document.getElementById('fvValue');
+            const fvStatusBadge = document.getElementById('fvStatus');
 
             res.style.display = "none";
             err.style.display = "none";
@@ -421,11 +409,32 @@
             if(db[input]) {
                 const data = db[input];
                 document.getElementById('fvName').innerText = data.name;
-                document.getElementById('fvValue').innerText = data.fv + " " + data.curr;
+                fvValueText.innerText = data.fv.toFixed(2) + " " + data.curr;
                 
-                document.getElementById('fvStatus').innerText = "Vedi Prezzo Live →";
+                // === LOGICA COLORI FAIR VALUE DINAMICA ===
+                if(data.fv > data.price) {
+                    // SOTTOVALUTATA (Verde)
+                    fvValueText.style.color = "var(--brand-green)";
+                    fvValueText.style.textShadow = "0 0 25px var(--brand-glow)";
+                    
+                    fvStatusBadge.innerText = "SOTTOVALUTATA";
+                    fvStatusBadge.style.color = "var(--brand-green)";
+                    fvStatusBadge.style.background = "rgba(0, 230, 118, 0.1)";
+                    fvStatusBadge.style.border = "1px solid rgba(0, 230, 118, 0.4)";
+                    res.style.borderColor = "var(--brand-green)";
+                } else {
+                    // SOPRAVVALUTATA (Rosso)
+                    fvValueText.style.color = "var(--accent-red)";
+                    fvValueText.style.textShadow = "0 0 25px rgba(255, 61, 0, 0.35)";
+                    
+                    fvStatusBadge.innerText = "SOPRAVVALUTATA";
+                    fvStatusBadge.style.color = "var(--accent-red)";
+                    fvStatusBadge.style.background = "rgba(255, 61, 0, 0.1)";
+                    fvStatusBadge.style.border = "1px solid rgba(255, 61, 0, 0.4)";
+                    res.style.borderColor = "var(--accent-red)";
+                }
                 
-                // Widget Mini
+                // Widget Mini TradingView
                 const script = document.createElement('script');
                 script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
                 script.async = true;
@@ -451,7 +460,7 @@
             if (event.key === "Enter") { event.preventDefault(); calculateFV(); }
         });
 
-        // === 2. CHART.JS (ASSET ALLOCATION REALE - 9 TITOLI) ===
+        // === 2. CHART.JS (UPGRADE GRAFICO PREMIUM) ===
         window.onload = function() {
             const ctx = document.getElementById('allocationChart').getContext('2d');
             new Chart(ctx, {
@@ -461,16 +470,43 @@
                     datasets: [{
                         data: [2910, 717, 647, 638, 618, 568, 552, 346, 218],
                         backgroundColor: ['#2962ff', '#00e676', '#3f51b5', '#ff3d00', '#9c27b0', '#00bcd4', '#ffeb3b', '#607d8b', '#e91e63'],
-                        borderWidth: 0,
-                        hoverOffset: 15
+                        borderWidth: 3,                 // Bordo spesso per staccare gli spicchi
+                        borderColor: '#0a0e17',         // Colore di sfondo per creare l'effetto "Gap"
+                        borderRadius: 5,                // Spigoli arrotondati (Premium look)
+                        hoverOffset: 12
                     }]
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
+                    layout: { padding: 10 },
                     plugins: {
-                        legend: { position: 'bottom', labels: { color: '#e0e0e0', font: { family: "'Inter', sans-serif" }, padding: 10 } }
+                        legend: { 
+                            position: 'bottom', 
+                            labels: { 
+                                color: '#e0e0e0', 
+                                font: { family: "'Inter', sans-serif", size: 12 }, 
+                                padding: 15,
+                                usePointStyle: true,    // Trasforma i quadrati della legenda in pallini
+                                pointStyle: 'circle'
+                            } 
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(5, 5, 5, 0.95)',
+                            titleColor: '#fff',
+                            bodyColor: '#d1d4dc',
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            padding: 12,
+                            usePointStyle: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.label + ': ' + context.parsed + ' €'; // Aggiunge il simbolo € nel tooltip
+                                }
+                            }
+                        }
                     },
-                    cutout: '60%'
+                    cutout: '68%' // Riduce lo spessore dell'anello rendendolo più moderno
                 }
             });
 
@@ -484,5 +520,3 @@
     </script>
 </body>
 </html>
-
-
