@@ -74,7 +74,7 @@
         .fv-interface { display: flex; flex-direction: column; gap: 20px; }
         .fv-search-box { display: flex; gap: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid var(--border-glass); }
         .fv-input { flex: 1; background: transparent; border: none; color: #fff; padding: 15px; font-size: 1.1em; font-family: 'Inter', sans-serif; outline: none; }
-        .fv-btn { background: var(--brand-green); color: #000; border: none; padding: 0 40px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; }
+        .fv-btn { background: var(--brand-green); color: #000; border: none; padding: 0 40px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; }
         .fv-btn:hover { box-shadow: 0 0 20px var(--brand-glow); }
 
         .fv-result-card { display: none; background: rgba(0, 230, 118, 0.05); border: 1px solid var(--brand-green); margin-top: 20px; animation: slideUp 0.5s ease; }
@@ -165,7 +165,7 @@
     <header style="padding: 80px 20px 40px;">
         <h1>Il Mio <span>Portafoglio C1076</span></h1>
         <p style="color: var(--text-muted); font-size: 1.2em; max-width: 600px; margin: 20px auto;">
-            Analisi trasparente delle posizioni, asset allocation e valutazioni di Fair Value.
+            Analisi trasparente delle posizioni, asset allocation e valutazioni di Fair Value in tempo reale.
         </p>
     </header>
 
@@ -178,7 +178,7 @@
             <div class="fv-interface">
                 <div class="fv-search-box">
                     <input type="text" id="fvInput" class="fv-input" placeholder="Cerca Ticker (es. GOOG, ERG, RACE, STLAM...)">
-                    <button onclick="calculateFV()" class="fv-btn">ANALIZZA</button>
+                    <button id="calcBtn" onclick="calculateFV()" class="fv-btn">ANALIZZA</button>
                 </div>
                 
                 <div id="fvError" style="display:none; color: var(--accent-red); padding: 15px; text-align: center;">
@@ -195,7 +195,7 @@
                                 <div id="fvStatus" class="badge" style="margin-top:10px; display:inline-block; padding: 6px 18px; border-radius:20px; font-weight:800; letter-spacing: 0.5px; transition: 0.3s;">---</div>
                             </div>
                             <div style="text-align: center; min-width: 200px;">
-                                <div class="fv-label">Prezzo Attuale (Aggiornato)</div>
+                                <div class="fv-label">Prezzo Attuale (Live)</div>
                                 <div id="mini-chart-container" style="height: 120px; margin-top: 10px;"></div>
                             </div>
                         </div>
@@ -363,28 +363,23 @@
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // === 1. DATABASE FAIR VALUE CON PREZZI REALI (PER LOGICA COLORI) ===
-        // Ho inserito i prezzi correnti (price) per permettere lo switch del colore.
-        // Se il Prezzo Attuale < Fair Value -> Sottovalutata (Verde)
-        // Se il Prezzo Attuale > Fair Value -> Sopravvalutata (Rosso)
-        
+        // === 1. DATABASE FAIR VALUE CON TICKER YAHOO FINANCE ===
+        // Abbiamo inserito "yf" che è il codice esatto per scaricare il prezzo live in background
         const db = {
-            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, price: 71.04, curr: "€", ex: "MIL", videoID: null },
-            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", videoID: null },
-            "RACE": { name: "Ferrari N.V.", fv: 300.00, price: 319.40, curr: "€", ex: "MIL", videoID: null },
-            "GOOG": { name: "Alphabet Inc.", fv: 290.00, price: 263.20, curr: "$", ex: "NASDAQ", videoID: null },
-            "MC": { name: "LVMH", fv: 600.00, price: 552.20, curr: "€", ex: "EPA", videoID: null },
-            "ADBE": { name: "Adobe Inc.", fv: 300.00, price: 257.81, curr: "$", ex: "NASDAQ", videoID: null },
-            "FUN": { name: "Six Flags", fv: 25.00, price: 17.00, curr: "$", ex: "NYSE", videoID: null },
-            "INTU": { name: "Intuit Inc.", fv: 700.00, price: 381.23, curr: "$", ex: "NASDAQ", videoID: null },
-            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, price: 145.82, curr: "$", ex: "NASDAQ", videoID: null },
-            // Esempio per testare la funzione video e il colore
-            "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", videoID: "MpwZcg3J8BE" }
+            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, price: 71.04, curr: "€", ex: "MIL", yf: "DIA.MI", videoID: null },
+            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", yf: "ERG.MI", videoID: null },
+            "RACE": { name: "Ferrari N.V.", fv: 300.00, price: 319.40, curr: "€", ex: "MIL", yf: "RACE.MI", videoID: null },
+            "GOOG": { name: "Alphabet Inc.", fv: 290.00, price: 263.20, curr: "$", ex: "NASDAQ", yf: "GOOG", videoID: null },
+            "MC": { name: "LVMH", fv: 600.00, price: 552.20, curr: "€", ex: "EPA", yf: "MC.PA", videoID: null },
+            "ADBE": { name: "Adobe Inc.", fv: 300.00, price: 257.81, curr: "$", ex: "NASDAQ", yf: "ADBE", videoID: null },
+            "FUN": { name: "Six Flags", fv: 25.00, price: 17.00, curr: "$", ex: "NYSE", yf: "FUN", videoID: null },
+            "INTU": { name: "Intuit Inc.", fv: 700.00, price: 381.23, curr: "$", ex: "NASDAQ", yf: "INTU", videoID: null },
+            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, price: 145.82, curr: "$", ex: "NASDAQ", yf: "QCOM", videoID: null },
+            "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", yf: "STLAM.MI", videoID: "MpwZcg3J8BE" }
         };
 
-        function calculateFV() {
+        async function calculateFV() {
             let input = document.getElementById('fvInput').value.toUpperCase().trim();
-            // Mapping ticker banca -> TradingView
             if(input === "1GOOG") input = "GOOG";
             if(input === "1MC") input = "MC";
             if(input === ".ADBE") input = "ADBE";
@@ -400,6 +395,7 @@
             
             const fvValueText = document.getElementById('fvValue');
             const fvStatusBadge = document.getElementById('fvStatus');
+            const btn = document.getElementById('calcBtn');
 
             res.style.display = "none";
             err.style.display = "none";
@@ -408,26 +404,55 @@
 
             if(db[input]) {
                 const data = db[input];
+                
+                // Effetto Caricamento
+                const originalText = btn.innerText;
+                btn.innerText = "RICERCA PREZZO LIVE...";
+                btn.style.opacity = "0.7";
+
+                // SCARICA IL PREZZO LIVE DA YAHOO FINANCE TRAMITE PROXY C.O.R.S.
+                let livePrice = data.price; // Fallback di sicurezza
+                try {
+                    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${data.yf}`;
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                    const response = await fetch(proxyUrl);
+                    if (response.ok) {
+                        const proxyData = await response.json();
+                        const yfData = JSON.parse(proxyData.contents);
+                        if (yfData.chart.result && yfData.chart.result.length > 0) {
+                            livePrice = yfData.chart.result[0].meta.regularMarketPrice;
+                        }
+                    }
+                } catch (error) {
+                    console.log("Prezzo live non disponibile, uso prezzo statico.");
+                }
+
+                // Ripristina Bottone
+                btn.innerText = originalText;
+                btn.style.opacity = "1";
+
                 document.getElementById('fvName').innerText = data.name;
                 fvValueText.innerText = data.fv.toFixed(2) + " " + data.curr;
                 
-                // === LOGICA COLORI FAIR VALUE DINAMICA ===
-                if(data.fv > data.price) {
-                    // SOTTOVALUTATA (Verde)
+                // === LOGICA COLORI CON PREZZO LIVE ===
+                if(data.fv > livePrice) {
+                    // SOTTOVALUTATA (Prezzo basso) -> VERDE
+                    const discount = (((data.fv - livePrice) / livePrice) * 100).toFixed(1);
                     fvValueText.style.color = "var(--brand-green)";
                     fvValueText.style.textShadow = "0 0 25px var(--brand-glow)";
                     
-                    fvStatusBadge.innerText = "SOTTOVALUTATA";
+                    fvStatusBadge.innerText = `SOTTOVALUTATA DEL ${discount}%`;
                     fvStatusBadge.style.color = "var(--brand-green)";
                     fvStatusBadge.style.background = "rgba(0, 230, 118, 0.1)";
                     fvStatusBadge.style.border = "1px solid rgba(0, 230, 118, 0.4)";
                     res.style.borderColor = "var(--brand-green)";
                 } else {
-                    // SOPRAVVALUTATA (Rosso)
+                    // SOPRAVVALUTATA (Prezzo alto) -> ROSSO
+                    const premium = (((livePrice - data.fv) / data.fv) * 100).toFixed(1);
                     fvValueText.style.color = "var(--accent-red)";
                     fvValueText.style.textShadow = "0 0 25px rgba(255, 61, 0, 0.35)";
                     
-                    fvStatusBadge.innerText = "SOPRAVVALUTATA";
+                    fvStatusBadge.innerText = `SOPRAVVALUTATA DEL ${premium}%`;
                     fvStatusBadge.style.color = "var(--accent-red)";
                     fvStatusBadge.style.background = "rgba(255, 61, 0, 0.1)";
                     fvStatusBadge.style.border = "1px solid rgba(255, 61, 0, 0.4)";
@@ -470,9 +495,9 @@
                     datasets: [{
                         data: [2910, 717, 647, 638, 618, 568, 552, 346, 218],
                         backgroundColor: ['#2962ff', '#00e676', '#3f51b5', '#ff3d00', '#9c27b0', '#00bcd4', '#ffeb3b', '#607d8b', '#e91e63'],
-                        borderWidth: 3,                 // Bordo spesso per staccare gli spicchi
-                        borderColor: '#0a0e17',         // Colore di sfondo per creare l'effetto "Gap"
-                        borderRadius: 5,                // Spigoli arrotondati (Premium look)
+                        borderWidth: 3,                 // Bordo scuro per staccare gli spicchi
+                        borderColor: '#0a0e17',         
+                        borderRadius: 5,                // Spigoli arrotondati stile App
                         hoverOffset: 12
                     }]
                 },
@@ -487,7 +512,7 @@
                                 color: '#e0e0e0', 
                                 font: { family: "'Inter', sans-serif", size: 12 }, 
                                 padding: 15,
-                                usePointStyle: true,    // Trasforma i quadrati della legenda in pallini
+                                usePointStyle: true,    // Trasforma in pallini
                                 pointStyle: 'circle'
                             } 
                         },
@@ -501,12 +526,12 @@
                             usePointStyle: true,
                             callbacks: {
                                 label: function(context) {
-                                    return ' ' + context.label + ': ' + context.parsed + ' €'; // Aggiunge il simbolo € nel tooltip
+                                    return ' ' + context.label + ': ' + context.parsed + ' €'; 
                                 }
                             }
                         }
                     },
-                    cutout: '68%' // Riduce lo spessore dell'anello rendendolo più moderno
+                    cutout: '68%' // Sottile e moderno
                 }
             });
 
