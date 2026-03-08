@@ -320,6 +320,7 @@
         /* STRUMENTI                       */
         /* =============================== */
         .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        .span-2 { grid-column: span 2; }
         .tool-result-box { margin-top: 18px; padding: 18px; border-radius: 12px; text-align: center; background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.28); display: none; animation: slideUp 0.35s ease; }
         .tool-result-val { font-size: 2.1em; font-weight: 800; color: var(--brand-green); margin-bottom: 5px; font-family: 'JetBrains Mono', monospace; }
 
@@ -377,6 +378,7 @@
             .hamburger { display: flex; }
             .mobile-nav { display: block; }
             .signals-layout, .portfolio-grid, .news-layout, .tools-grid, .request-form, .comp-cards { grid-template-columns: 1fr; }
+            .span-2 { grid-column: span 1; }
             .comp-inputs { display: flex; flex-direction: column; gap: 12px; }
             .comp-vs { display: none; }
             .kpi-container { grid-template-columns: repeat(3,1fr); gap: 10px; }
@@ -696,6 +698,7 @@
         <h2 class="section-title">Strumenti <span>Operativi</span></h2>
     </div>
     <div class="tools-grid">
+        
         <div class="card">
             <h3 style="margin-top:0; color:#fff;">📈 Calcolatore PAC</h3>
             <p style="color:var(--text-muted); font-size:0.88em; margin-bottom:18px;">Effetto palla di neve sui tuoi investimenti a lungo termine.</p>
@@ -713,6 +716,7 @@
                 <div style="height:190px; margin-top:18px;"><canvas id="pacChartCanvas"></canvas></div>
             </div>
         </div>
+        
         <div class="card">
             <h3 style="margin-top:0; color:#fff;">🛡️ Position Sizing</h3>
             <p style="color:var(--text-muted); font-size:0.88em; margin-bottom:18px;">Calcola quante azioni comprare senza sforare il tuo limite di rischio.</p>
@@ -732,24 +736,57 @@
                 </div>
             </div>
         </div>
+
+        <div class="card span-2">
+            <h3 style="margin-top:0; color:#fff;">💸 Simulatore Total Return (Effetto Dividendi)</h3>
+            <p style="color:var(--text-muted); font-size:0.88em; margin-bottom:18px;">Scopri l'impatto dei dividendi reinvestiti sul tuo rendimento totale, proiettando il prezzo verso il Fair Value.</p>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px;">
+                <div class="form-group"><label class="form-label">Ticker Azienda</label><input type="text" id="trTicker" class="form-input" placeholder="Es. ENI" style="text-transform:uppercase;"></div>
+                <div class="form-group"><label class="form-label">Capitale Investito (€)</label><input type="number" id="trCapital" class="form-input" value="10000"></div>
+                <div class="form-group"><label class="form-label">Anni a Target</label><input type="number" id="trYears" class="form-input" value="5"></div>
+            </div>
+            <button onclick="calculateTotalReturn()" class="btn-primary" id="trBtn" style="margin-top:8px; max-width: 250px;">CALCOLA TOTAL RETURN</button>
+            
+            <div id="trResult" class="tool-result-box" style="text-align:left; border-color: rgba(0, 188, 212, 0.3); background: rgba(0, 188, 212, 0.05); margin-top:20px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div>
+                        <div class="fv-label">Valore Finale (Con Dividendi)</div>
+                        <div id="trFinalVal" class="tool-result-val" style="color: var(--accent-cyan);">---</div>
+                        <div style="font-size:0.88em; color:var(--text-muted);">Rispetto a <strong id="trNoDivVal" style="color:#fff;">---</strong> senza stacco cedole.</div>
+                    </div>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <div style="text-align: center; background: rgba(0,0,0,0.4); padding: 10px 15px; border-radius: 8px; flex: 1;">
+                            <div class="fv-label">CAGR Prezzo</div>
+                            <div id="trCagrPrice" class="mono" style="color: #fff; font-weight: bold; font-size: 1.2em;">---</div>
+                        </div>
+                        <div style="text-align: center; background: rgba(0,0,0,0.4); padding: 10px 15px; border-radius: 8px; flex: 1;">
+                            <div class="fv-label">Total Return Annuo</div>
+                            <div id="trCagrTotal" class="mono" style="color: var(--accent-cyan); font-weight: bold; font-size: 1.2em;">---</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height:250px;"><canvas id="trChartCanvas"></canvas></div>
+            </div>
+        </div>
+
     </div>
 </div>
 
 <div class="container" id="portfolio">
     <div class="section-header">
-        <h2 class="section-title">Portafoglio <span> di Matteo </span></h2>
+        <h2 class="section-title">Portafoglio <span>Matteo (C1076)</span></h2>
     </div>
     <div class="kpi-container">
         <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono">4.833,95 €</div></div>
         <div class="kpi-card"><div class="fv-label">Performance YTD</div><div class="kpi-val red mono">-2,67%</div></div>
-        <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono">8</div></div>
+        <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono">9</div></div>
     </div>
     <div class="portfolio-grid">
         <div style="display:flex; flex-direction:column; gap:28px;">
             <div class="card">
                 <h3 style="margin-top:0;">Composizione Asset</h3>
                 <div style="margin-top:24px;">
-                    <div class="bar-row"><div class="bar-label">SAP</div><div class="bar-track"><div class="bar-fill c-1" style="width:14.8%"></div></div><div class="bar-val">500€</div></div>
+                    <div class="bar-row"><div class="bar-label">ERG</div><div class="bar-track"><div class="bar-fill c-1" style="width:14.8%"></div></div><div class="bar-val">717€</div></div>
                     <div class="bar-row"><div class="bar-label">Intuit</div><div class="bar-track"><div class="bar-fill c-2" style="width:13.4%"></div></div><div class="bar-val">647€</div></div>
                     <div class="bar-row"><div class="bar-label">Ferrari</div><div class="bar-track"><div class="bar-fill c-3" style="width:13.2%"></div></div><div class="bar-val">639€</div></div>
                     <div class="bar-row"><div class="bar-label">Qualcomm</div><div class="bar-track"><div class="bar-fill c-4" style="width:12.8%"></div></div><div class="bar-val">619€</div></div>
@@ -764,7 +801,7 @@
             <div class="tradingview-widget-container" style="height:100%;">
                 <div class="tradingview-widget-container__widget" style="height:100%;"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-                {"width":"100%","height":"100%","symbolsGroups":[{"name":"Portafoglio","symbols":[{"name":"NASDAQ:INTU","displayName":"Intuit"},{"name":"MIL:RACE","displayName":"Ferrari"},{"name":"NASDAQ:QCOM","displayName":"Qualcomm"},{"name":"MIL:DIA","displayName":"DiaSorin"},{"name":"EPA:MC","displayName":"LVMH"},{"name":"NASDAQ:GOOG","displayName":"Alphabet"},{"name":"NYSE:FUN","displayName":"Six Flags"},{"name":"NASDAQ:ADBE","displayName":"Adobe"}]}],"showSymbolLogo":true,"isTransparent":true,"colorTheme":"dark","locale":"it"}
+                {"width":"100%","height":"100%","symbolsGroups":[{"name":"Portafoglio","symbols":[{"name":"MIL:ERG","displayName":"ERG"},{"name":"NASDAQ:INTU","displayName":"Intuit"},{"name":"MIL:RACE","displayName":"Ferrari"},{"name":"NASDAQ:QCOM","displayName":"Qualcomm"},{"name":"MIL:DIA","displayName":"DiaSorin"},{"name":"EPA:MC","displayName":"LVMH"},{"name":"NASDAQ:GOOG","displayName":"Alphabet"},{"name":"NYSE:FUN","displayName":"Six Flags"},{"name":"NASDAQ:ADBE","displayName":"Adobe"}]}],"showSymbolLogo":true,"isTransparent":true,"colorTheme":"dark","locale":"it"}
                 </script>
             </div>
         </div>
@@ -836,9 +873,8 @@
     <div class="card" style="padding:18px;">
         <div class="faq-item"><button class="faq-question">Che cos'è il "Fair Value"? <span class="faq-icon">+</span></button><div class="faq-answer">Il Fair Value è una stima di quanto un'azienda vale realmente, basata sui fondamentali. Nel mio modello utilizzo l'analisi DCF (Discounted Cash Flow). Se il prezzo è inferiore al Fair Value, il titolo è "a sconto".</div></div>
         <div class="faq-item"><button class="faq-question">Come funziona l'Indicatore Level Founder? <span class="faq-icon">+</span></button><div class="faq-answer">Calcola numericamente la volatilità di ogni candela rispetto allo storico (ultimi 252 periodi). I picchi segnalano le sedute di scontro massimo tra domanda e offerta. Su quelle chiusure traccio supporti e resistenze chiave.</div></div>
-        <div class="faq-item"><button class="faq-question">Come leggo i dati dello Screener? <span class="faq-icon">+</span></button><div class="faq-answer">Lo Screener usa i prezzi di riferimento del database. L'upside % è la distanza tra prezzo e Fair Value. Verde = sottovalutato, Rosso = sopravvalutato. Premi "Prezzi Live" per aggiornare in tempo reale.</div></div>
+        <div class="faq-item"><button class="faq-question">Cos'è il Total Return Annuo? <span class="faq-icon">+</span></button><div class="faq-answer">È la somma tra la crescita percentuale del prezzo del titolo (Capital Gain) e il Dividend Yield generato in quell'anno. Nel lungo termine, reinvestire i dividendi (DRIP) crea una curva di crescita del capitale esponenziale.</div></div>
         <div class="faq-item"><button class="faq-question">Cos'è il Position Sizing? <span class="faq-icon">+</span></button><div class="faq-answer">Significa decidere quante azioni comprare in base al rischio che sei disposto a sopportare. Il calcolatore divide il rischio monetario per la distanza tra prezzo di acquisto e Stop Loss.</div></div>
-        <div class="faq-item"><button class="faq-question">Come funziona il Calcolatore PAC? <span class="faq-icon">+</span></button><div class="faq-answer">Sfrutta l'interesse composto: gli interessi generati producono a loro volta nuovi interessi. Nel lungo periodo (10+ anni) la curva diventa esponenziale.</div></div>
     </div>
 </div>
 
@@ -853,106 +889,93 @@
 
 /* ===========================================
    ★ AGGIORNA QUI OGNI SETTIMANA ★
-   (Cambiando questi 3 blocchi aggiorni l'intero sito)
    =========================================== */
 
-// 1. COMMENTO SETTIMANALE: Appare in cima alla home page
 const weeklyComment = {
     date:      "8 Marzo 2026",
-    mood:      "neutral", // Scegli tra: "bull", "bear", "neutral"
-    moodLabel: "😐 Mercato in Attesa", // Testo mostrato nel badge
-    title:     "La guerra in Iran e le tensioni sui prezzi dell'energia tengono i mercati al palo — ma le opportunità non mancano",
-    body:      `Settimana turbolenta, con l'S&P 500 che ha ceduto circa il <strong>2.3%</strong> sull'escalation in Iran con la chiusura dello stretto di Hormuz. Il Nasdaq ha subito vendite più pronunciate sui titoli growth.<br><br>
-                In Europa il <strong>FTSE MIB</strong> ha faticato, appesantito dalle banche. Sul fronte dei miei titoli, <strong>GOOG</strong> rimane la posizione con il margine di sicurezza più ampio. Monitoro con interesse <strong>CE</strong>: l'impostazione grafica e i volumi danno ottimi segnali, uniti ad una sottovalutazione marcata.<br><br>
+    mood:      "neutral", 
+    moodLabel: "😐 Mercato in Attesa",
+    title:     "I dazi di Trump pesano sull'azionario — ma le opportunità non mancano",
+    body:      `Settimana turbolenta, con l'S&P 500 che ha ceduto circa il <strong>2.3%</strong> sull'escalation delle tensioni commerciali USA-UE. Il Nasdaq ha subito vendite più pronunciate sui titoli growth.<br><br>
+                In Europa il <strong>FTSE MIB</strong> ha tenuto meglio grazie al settore finanziario. Sul fronte dei miei titoli, <strong>GOOG</strong> rimane la posizione con il margine di sicurezza più ampio. Monitoro con interesse <strong>STLAM</strong>: il consenso degli analisti si sta avvicinando alla mia stima.<br><br>
                 Per questa settimana preferisco <strong>non aggiungere nuove posizioni</strong> e attendere maggiore chiarezza macro.`,
-    tickers:   ["GOOG", "CE"], // Ticker che vuoi evidenziare a fine articolo
+    tickers:   ["GOOG", "STLAM", "INTU", "ERG"], 
 };
 
-// 2. CHANGELOG FAIR VALUE: Registra qui le tue ultime variazioni di stima
 const changelog = [
-    { date: "07 Mar 2026", ticker: "STLAM", oldFv: 33.00, newFv: 9.00, curr: "€", note: "Rivisto al ribasso dopo svalutazione di 22mld e ristrutturazione aziendale incerta" },
-    { date: "06 Mar 2026", ticker: "GOOG",  oldFv: 235.00, newFv: 255.00, curr: "$", note: "Aggiornato post Q4 2025: crescita cloud superiore alle attese" },
-    { date: "05 Mar 2026", ticker: "DIA",   oldFv: 135.00,  newFv: 126.00,  curr: "€", note: "Ridotto per rallentamento diagnostica e pressione sui margini" },
-    { date: "04 Mar 2026", ticker: "INTU",  oldFv: 691.00, newFv: 710.00, curr: "$", note: "Alzato dopo espansione AI nei prodotti fiscali e guidance FY26" },
-    { date: "01 Mar 2026", ticker: "RACE",  oldFv: 370.00, newFv: 385.00, curr: "€", note: "Rivisto al rialzo: valutazione leggermente migliorata nonostante i ridotti margini di crescita" }
+    { date: "07 Mar 2026", ticker: "STLAM", oldFv: 14.00, newFv: 18.00, curr: "€", note: "Rivisto al rialzo dopo ristrutturazione e miglioramento margini Q4" },
+    { date: "06 Mar 2026", ticker: "GOOG",  oldFv: 260.00, newFv: 290.00, curr: "$", note: "Aggiornato post Q4 2025: crescita cloud superiore alle attese" },
+    { date: "05 Mar 2026", ticker: "DIA",   oldFv: 90.00,  newFv: 85.00,  curr: "€", note: "Ridotto per rallentamento diagnostica e pressione sui margini" },
+    { date: "04 Mar 2026", ticker: "INTU",  oldFv: 650.00, newFv: 700.00, curr: "$", note: "Alzato dopo espansione AI nei prodotti fiscali e guidance FY26" },
+    { date: "01 Mar 2026", ticker: "RACE",  oldFv: 320.00, newFv: 300.00, curr: "€", note: "Rivisto al ribasso: valutazione elevata vs fondamentali correnti" }
 ];
 
-// 3. FEAR & GREED (Sentiment): Aggiorna il numero (da 0 a 100) e il testo
-const fearGreed = { value: 65, label: "Greed" };
+const fearGreed = { value: 72, label: "Greed" };
 
 
 /* ===========================================
    DATABASE COMPLETO (40+ Ticker)
-   Nota: "price" fa da scorta (fallback) nel caso in cui i live data falliscano.
    =========================================== */
 const db = {
-    "DIA":   { name:"DiaSorin",            fv:126.00,   price:71.04,   curr:"€", ex:"MIL",    yf:"DIA.MI",   divYield:1.60, videoID:null, updated:"2026-03-05", fund:{pe:"24.5",eps:"2.90",mcap:"3.9B",rev:"+3.2%"} },
+    "DIA":   { name:"DiaSorin",            fv:85.00,   price:71.04,   curr:"€", ex:"MIL",    yf:"DIA.MI",   divYield:1.60, videoID:null, updated:"2026-03-05", fund:{pe:"24.5",eps:"2.90",mcap:"3.9B",rev:"+3.2%"} },
     "ERG":   { name:"ERG S.p.A.",          fv:28.50,   price:23.90,   curr:"€", ex:"MIL",    yf:"ERG.MI",   divYield:4.10, videoID:null, updated:"2026-02-20", fund:{pe:"14.2",eps:"1.68",mcap:"3.5B",rev:"+5.1%"} },
-    "RACE":  { name:"Ferrari",             fv:385.00,  price:319.40,  curr:"€", ex:"MIL",    yf:"RACE.MI",  divYield:0.76, videoID:null, updated:"2026-03-01", fund:{pe:"51.3",eps:"6.22",mcap:"80B",rev:"+17%"} },
-    "GOOG":  { name:"Alphabet",            fv:255.00,  price:175.00,  curr:"$", ex:"NASDAQ", yf:"GOOG",     divYield:0.15, videoID:null, updated:"2026-03-06", fund:{pe:"25.1",eps:"6.97",mcap:"2.1T",rev:"+13%"} },
-    "MC":    { name:"LVMH",                fv:680.00,  price:552.20,  curr:"€", ex:"EPA",    yf:"MC.PA",    divYield:1.50, videoID:null, updated:"2026-02-10", fund:{pe:"23.4",eps:"23.6",mcap:"275B",rev:"+8.9%"} },
-    "ADBE":  { name:"Adobe",               fv:677.00,  price:257.81,  curr:"$", ex:"NASDAQ", yf:"ADBE",     divYield:0.00, videoID:null, updated:"2026-02-28", fund:{pe:"38.2",eps:"6.75",mcap:"210B",rev:"+10%"} },
+    "RACE":  { name:"Ferrari",             fv:300.00,  price:319.40,  curr:"€", ex:"MIL",    yf:"RACE.MI",  divYield:0.76, videoID:null, updated:"2026-03-01", fund:{pe:"51.3",eps:"6.22",mcap:"80B",rev:"+17%"} },
+    "GOOG":  { name:"Alphabet",            fv:290.00,  price:175.00,  curr:"$", ex:"NASDAQ", yf:"GOOG",     divYield:0.15, videoID:null, updated:"2026-03-06", fund:{pe:"25.1",eps:"6.97",mcap:"2.1T",rev:"+13%"} },
+    "MC":    { name:"LVMH",                fv:600.00,  price:552.20,  curr:"€", ex:"EPA",    yf:"MC.PA",    divYield:1.50, videoID:null, updated:"2026-02-10", fund:{pe:"23.4",eps:"23.6",mcap:"275B",rev:"+8.9%"} },
+    "ADBE":  { name:"Adobe",               fv:300.00,  price:257.81,  curr:"$", ex:"NASDAQ", yf:"ADBE",     divYield:0.00, videoID:null, updated:"2026-02-28", fund:{pe:"38.2",eps:"6.75",mcap:"210B",rev:"+10%"} },
     "FUN":   { name:"Six Flags",           fv:25.00,   price:17.00,   curr:"$", ex:"NYSE",   yf:"FUN",      divYield:0.00, videoID:null, fund:null },
-    "INTU":  { name:"Intuit",              fv:710.00,  price:381.23,  curr:"$", ex:"NASDAQ", yf:"INTU",     divYield:0.65, videoID:null, updated:"2026-03-04", fund:{pe:"42.1",eps:"9.05",mcap:"170B",rev:"+12%"} },
+    "INTU":  { name:"Intuit",              fv:700.00,  price:381.23,  curr:"$", ex:"NASDAQ", yf:"INTU",     divYield:0.65, videoID:null, updated:"2026-03-04", fund:{pe:"42.1",eps:"9.05",mcap:"170B",rev:"+12%"} },
     "QCOM":  { name:"Qualcomm",            fv:180.00,  price:145.82,  curr:"$", ex:"NASDAQ", yf:"QCOM",     divYield:1.85, videoID:null, updated:"2026-02-18", fund:{pe:"21.5",eps:"6.78",mcap:"160B",rev:"+5%"} },
-    "STLAM": { name:"Stellantis",          fv:9.00,   price:6.71,   curr:"€", ex:"MIL",    yf:"STLAM.MI", divYield:6.50, videoID:"MpwZcg3J8BE", updated:"2026-03-07", fund:{pe:"3.8",eps:"5.40",mcap:"64B",rev:"-2%"} },
-    "SAP":   { name:"SAP SE",              fv:212.00,  price:220.00,  curr:"€", ex:"XETR",   yf:"SAP.DE",   divYield:1.20, videoID:"Icy8DMAwDYw", updated:"2026-02-25", fund:{pe:"32.1",eps:"6.85",mcap:"260B",rev:"+11%"} },
+    "STLAM": { name:"Stellantis",          fv:18.00,   price:20.50,   curr:"€", ex:"MIL",    yf:"STLAM.MI", divYield:6.50, videoID:"MpwZcg3J8BE", updated:"2026-03-07", fund:{pe:"3.8",eps:"5.40",mcap:"64B",rev:"-2%"} },
+    "SAP":   { name:"SAP SE",              fv:220.00,  price:220.00,  curr:"€", ex:"XETR",   yf:"SAP.DE",   divYield:1.20, videoID:"Icy8DMAwDYw", updated:"2026-02-25", fund:{pe:"32.1",eps:"6.85",mcap:"260B",rev:"+11%"} },
     "AAPL":  { name:"Apple Inc.",          fv:253.00,  price:175.00,  curr:"$", ex:"NASDAQ", yf:"AAPL",     divYield:0.50, videoID:null, fund:{pe:"28.5",eps:"6.14",mcap:"2.8T",rev:"+2.1%"} },
     "MSFT":  { name:"Microsoft",           fv:461.22,  price:410.00,  curr:"$", ex:"NASDAQ", yf:"MSFT",     divYield:0.75, videoID:null, fund:{pe:"35.2",eps:"11.6",mcap:"3.0T",rev:"+15%"} },
     "AMZN":  { name:"Amazon",              fv:199.00,  price:180.00,  curr:"$", ex:"NASDAQ", yf:"AMZN",     divYield:0.00, videoID:null, fund:{pe:"40.5",eps:"4.44",mcap:"1.9T",rev:"+12%"} },
-    "NVDA":  { name:"Nvidia",              fv:163.11,  price:178.00,  curr:"$", ex:"NASDAQ", yf:"NVDA",     divYield:0.02, videoID:null, fund:{pe:"75.4",eps:"1.59",mcap:"2.9T",rev:"+265%"} },
-    "A2A":   { name:"A2A S.p.A.",          fv:2.45,    price:2.32,    curr:"€", ex:"MIL",    yf:"A2A.MI",   divYield:4.80, videoID:null },
+    "NVDA":  { name:"Nvidia",              fv:163.11,  price:120.00,  curr:"$", ex:"NASDAQ", yf:"NVDA",     divYield:0.02, videoID:null, fund:{pe:"75.4",eps:"1.59",mcap:"2.9T",rev:"+265%"} },
+    "A2A":   { name:"A2A S.p.A.",          fv:2.45,    price:1.70,    curr:"€", ex:"MIL",    yf:"A2A.MI",   divYield:4.80, videoID:null },
     "ADM":   { name:"Archer-Daniels",      fv:53.00,   price:60.00,   curr:"$", ex:"NYSE",   yf:"ADM",      divYield:3.50, videoID:null },
     "ADP":   { name:"Auto Data Proc.",     fv:312.00,  price:250.00,  curr:"$", ex:"NASDAQ", yf:"ADP",      divYield:1.90, videoID:null },
     "ADSK":  { name:"Autodesk Inc.",       fv:339.00,  price:260.00,  curr:"$", ex:"NASDAQ", yf:"ADSK",     divYield:0.00, videoID:null },
-    "AMAT":  { name:"Applied Materials",   fv:233.00,  price:324.00,  curr:"$", ex:"NASDAQ", yf:"AMAT",     divYield:0.70, videoID:null },
-    "AMD":   { name:"AMD",                 fv:145.60,  price:192.00,  curr:"$", ex:"NASDAQ", yf:"AMD",      divYield:0.00, videoID:null },
-    "ASML":  { name:"ASML Holding",        fv:904.00,  price:1147.00,  curr:"$", ex:"NASDAQ", yf:"ASML",     divYield:0.85, videoID:null },
-    "AXP":   { name:"American Express",    fv:332.00,  price:301.00,  curr:"$", ex:"NYSE",   yf:"AXP",      divYield:1.10, videoID:null },
-    "BAC":   { name:"Bank of America",     fv:59.85,   price:48.00,   curr:"$", ex:"NYSE",   yf:"BAC",      divYield:2.20, videoID:null },
-    "BAYN":  { name:"Bayer AG",            fv:44.12,   price:36.00,   curr:"€", ex:"XETR",   yf:"BAYN.DE",  divYield:4.50, videoID:null },
-    "BATS":  { name:"Brit. Am. Tobacco",   fv:4656.00, price:4282.00, curr:"p", ex:"LSE",    yf:"BATS.L",   divYield:9.20, videoID:null },
-    "BC":    { name:"Brunello Cucinelli",      fv:88.00,   price:75.00,   curr:"$", ex:"MIL",   yf:"BC",       divYield:1.70, videoID:null },
-    "BGN":   { name:"Banca Generali",        fv:46.31,   price:51.00,  curr:"$", ex:"MIL",   yf:"BG",       divYield:5.66, videoID:null },
+    "AMAT":  { name:"Applied Materials",   fv:233.00,  price:205.00,  curr:"$", ex:"NASDAQ", yf:"AMAT",     divYield:0.70, videoID:null },
+    "AMD":   { name:"AMD",                 fv:145.60,  price:160.00,  curr:"$", ex:"NASDAQ", yf:"AMD",      divYield:0.00, videoID:null },
+    "ASML":  { name:"ASML Holding",        fv:904.00,  price:920.00,  curr:"$", ex:"NASDAQ", yf:"ASML",     divYield:0.85, videoID:null },
+    "AXP":   { name:"American Express",    fv:332.00,  price:230.00,  curr:"$", ex:"NYSE",   yf:"AXP",      divYield:1.10, videoID:null },
+    "BAC":   { name:"Bank of America",     fv:59.85,   price:37.00,   curr:"$", ex:"NYSE",   yf:"BAC",      divYield:2.20, videoID:null },
+    "BAYN":  { name:"Bayer AG",            fv:44.12,   price:28.00,   curr:"€", ex:"XETR",   yf:"BAYN.DE",  divYield:4.50, videoID:null },
+    "BATS":  { name:"Brit. Am. Tobacco",   fv:4656.00, price:2350.00, curr:"p", ex:"LSE",    yf:"BATS.L",   divYield:9.20, videoID:null },
+    "BC":    { name:"Brunswick Corp",      fv:88.00,   price:85.00,   curr:"$", ex:"NYSE",   yf:"BC",       divYield:1.70, videoID:null },
+    "BNG":   { name:"Bunge Global",        fv:46.31,   price:105.00,  curr:"$", ex:"NYSE",   yf:"BG",       divYield:3.10, videoID:null },
     "BRE":   { name:"Brembo",              fv:14.93,   price:10.50,   curr:"€", ex:"MIL",    yf:"BRE.MI",   divYield:2.10, videoID:null },
-    "BRK.B": { name:"Berkshire Hath.",     fv:511.00,  price:499.00,  curr:"$", ex:"NYSE",   yf:"BRK-B",    divYield:0.00, videoID:null },
-    "CAT":   { name:"Caterpillar",         fv:404.00,  price:680.00,  curr:"$", ex:"NYSE",   yf:"CAT",      divYield:1.50, videoID:null },
-    "CE":    { name:"Celanese",            fv:105.56,  price:49.00,  curr:"$", ex:"NYSE",   yf:"CE",       divYield:2.60, videoID:null },
-    "CNC":   { name:"Centene",             fv:102.66,  price:43.00,   curr:"$", ex:"NYSE",   yf:"CNC",      divYield:0.00, videoID:null },
-    "COST":  { name:"Costco Wholesale",    fv:851.00,  price:998.00,  curr:"$", ex:"NASDAQ", yf:"COST",     divYield:0.60, videoID:null },
-    "CPR":   { name:"Campari",             fv:8.95,    price:6.4,    curr:"€", ex:"MIL",    yf:"CPR.MI",   divYield:0.90, videoID:null },
-    "CRM":   { name:"Salesforce",          fv:325.48,  price:200.00,  curr:"$", ex:"NYSE",   yf:"CRM",      divYield:0.50, videoID:null },
-    "CVX":   { name:"Chevron",             fv:181.66,  price:189.00,  curr:"$", ex:"NYSE",   yf:"CVX",      divYield:4.10, videoID:null },
+    "BRK.B": { name:"Berkshire Hath.",     fv:511.00,  price:405.00,  curr:"$", ex:"NYSE",   yf:"BRK-B",    divYield:0.00, videoID:null },
+    "CAT":   { name:"Caterpillar",         fv:404.00,  price:340.00,  curr:"$", ex:"NYSE",   yf:"CAT",      divYield:1.50, videoID:null },
+    "CE":    { name:"Celanese",            fv:105.56,  price:145.00,  curr:"$", ex:"NYSE",   yf:"CE",       divYield:2.60, videoID:null },
+    "CNC":   { name:"Centene",             fv:102.66,  price:78.00,   curr:"$", ex:"NYSE",   yf:"CNC",      divYield:0.00, videoID:null },
+    "COST":  { name:"Costco Wholesale",    fv:851.00,  price:750.00,  curr:"$", ex:"NASDAQ", yf:"COST",     divYield:0.60, videoID:null },
+    "CPR":   { name:"Campari",             fv:8.95,    price:9.50,    curr:"€", ex:"MIL",    yf:"CPR.MI",   divYield:0.90, videoID:null },
+    "CRM":   { name:"Salesforce",          fv:325.48,  price:310.00,  curr:"$", ex:"NYSE",   yf:"CRM",      divYield:0.50, videoID:null },
+    "CVX":   { name:"Chevron",             fv:181.66,  price:155.00,  curr:"$", ex:"NYSE",   yf:"CVX",      divYield:4.10, videoID:null },
     "DDOG":  { name:"Datadog",             fv:129.62,  price:125.00,  curr:"$", ex:"NASDAQ", yf:"DDOG",     divYield:0.00, videoID:null },
-    "ENI":   { name:"Eni S.p.A.",          fv:21.29,   price:20.52,   curr:"€", ex:"MIL",    yf:"ENI.MI",   divYield:6.20, videoID:null },
-    "ENEL":  { name:"Enel S.p.A.",         fv:4.85,    price:9.40,    curr:"€", ex:"MIL",    yf:"ENEL.MI",  divYield:6.50, videoID:null },
-    "G":     { name:"Assic. Generali",     fv:50.63,   price:33.10,   curr:"€", ex:"MIL",    yf:"G.MI",     divYield:5.50, videoID:null },
-    "IBM":   { name:"IBM",                 fv:231.00,  price:258.00,  curr:"$", ex:"NYSE",   yf:"IBM",      divYield:3.20, videoID:null },
-    "INTC":  { name:"Intel",               fv:35.29,   price:43.50,   curr:"$", ex:"NASDAQ", yf:"INTC",     divYield:1.50, videoID:null },
-    "IP":    { name:"Interpump", fv:48.02,   price:39.00,   curr:"$", ex:"MIL",   yf:"IP",       divYield:0.92, videoID:null },
-    "ISP":   { name:"Intesa Sanpaolo",     fv:7.22,    price:5.2,    curr:"€", ex:"MIL",    yf:"ISP.MI",   divYield:8.50, videoID:null },
-    "LDO":   { name:"Leonardo S.p.A.",     fv:26.65,   price:58.00,   curr:"€", ex:"MIL",    yf:"LDO.MI",   divYield:1.80, videoID:null },
-    "LULU":  { name:"Lululemon",           fv:465.80,  price:170.00,  curr:"$", ex:"NASDAQ", yf:"LULU",     divYield:0.00, videoID:null },
-    "MA":    { name:"Mastercard",          fv:500.65,  price:522.00,  curr:"$", ex:"NYSE",   yf:"MA",       divYield:0.50, videoID:null },
-    "MONC":  { name:"Moncler",             fv:74.93,   price:55.00,   curr:"€", ex:"MIL",    yf:"MONC.MI",  divYield:1.80, videoID:null },
-    "OXY":   { name:"Occidental Petroleum",fv:77.70,   price:54.00,   curr:"$", ex:"NYSE",   yf:"OXY",      divYield:1.20, videoID:null },
-     "TGT":   { name:"Target Corporation",fv:172.13,   price:120.80,   curr:"$", ex:"NYSE",   yf:"TGT",      divYield:3.77, videoID:null },
-    
+    "ENI":   { name:"Eni S.p.A.",          fv:21.29,   price:14.80,   curr:"€", ex:"MIL",    yf:"ENI.MI",   divYield:6.20, videoID:null },
+    "ENEL":  { name:"Enel S.p.A.",         fv:4.85,    price:6.20,    curr:"€", ex:"MIL",    yf:"ENEL.MI",  divYield:6.50, videoID:null },
+    "G":     { name:"Assic. Generali",     fv:50.63,   price:22.50,   curr:"€", ex:"MIL",    yf:"G.MI",     divYield:5.50, videoID:null },
+    "IBM":   { name:"IBM",                 fv:231.00,  price:195.00,  curr:"$", ex:"NYSE",   yf:"IBM",      divYield:3.20, videoID:null },
+    "INTC":  { name:"Intel",               fv:35.29,   price:42.50,   curr:"$", ex:"NASDAQ", yf:"INTC",     divYield:1.50, videoID:null },
+    "IP":    { name:"International Paper", fv:48.02,   price:39.00,   curr:"$", ex:"NYSE",   yf:"IP",       divYield:4.00, videoID:null },
+    "ISP":   { name:"Intesa Sanpaolo",     fv:7.22,    price:3.40,    curr:"€", ex:"MIL",    yf:"ISP.MI",   divYield:8.50, videoID:null },
+    "LDO":   { name:"Leonardo S.p.A.",     fv:26.65,   price:21.00,   curr:"€", ex:"MIL",    yf:"LDO.MI",   divYield:1.80, videoID:null },
+    "LULU":  { name:"Lululemon",           fv:465.80,  price:455.00,  curr:"$", ex:"NASDAQ", yf:"LULU",     divYield:0.00, videoID:null },
+    "MA":    { name:"Mastercard",          fv:500.65,  price:475.00,  curr:"$", ex:"NYSE",   yf:"MA",       divYield:0.50, videoID:null },
+    "MONC":  { name:"Moncler",             fv:74.93,   price:66.00,   curr:"€", ex:"MIL",    yf:"MONC.MI",  divYield:1.80, videoID:null },
+    "OXY":   { name:"Occidental Petroleum",fv:77.70,   price:62.00,   curr:"$", ex:"NYSE",   yf:"OXY",      divYield:1.20, videoID:null },
 };
 
-// ===========================================
-// SEGNALI INDICATORE: Aggiornabile manualmente
-// ===========================================
 const indicatorSignals = [
-    { date:"04 Mar 2026",        ticker:"TGT", price:"120.80", action:"SELL"  },
-    { date:"03 Mar 2026",        ticker:"ENI", price:"20.04", action:"SELL"  },
-    { date:"25 Feb 2026", ticker:"CRM", price:"191.75", action:"BUY" },
-    { date:"19 Feb 2026", ticker:"BRE", price:"10.71", action:"SELL"  },
+    { date:"Oggi",        ticker:"NVDA", price:"120.50", action:"BUY"  },
+    { date:"Ieri",        ticker:"AAPL", price:"172.10", action:"BUY"  },
+    { date:"02 Mar 2026", ticker:"RACE", price:"320.00", action:"SELL" },
+    { date:"28 Feb 2026", ticker:"GOOG", price:"170.00", action:"BUY"  },
 ];
 
-/* ===========================================
-   UTILITIES
-   =========================================== */
 const aliases = {"1GOOG":"GOOG","1MC":"MC",".ADBE":"ADBE",".FUN":"FUN",".INTU":"INTU",".QCOM":"QCOM"};
 let currentFVTicker = null;
 const fmt = (n, d=2) => parseFloat(n).toLocaleString('it-IT', {minimumFractionDigits:d, maximumFractionDigits:d});
@@ -961,7 +984,7 @@ const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = se
 function isRecent(dateStr, days=14) { if (!dateStr) return false; return (new Date() - new Date(dateStr)) / 86400000 <= days; }
 
 /* ===========================================
-   TOAST SYSTEM
+   TOAST & NAV
    =========================================== */
 function showToast(msg, type='info') {
     const c = document.getElementById('toast-container');
@@ -972,12 +995,8 @@ function showToast(msg, type='info') {
     setTimeout(() => { el.style.opacity='0'; setTimeout(()=>el.remove(),450); }, 6500);
 }
 
-/* ===========================================
-   HAMBURGER MENU
-   =========================================== */
 function toggleMenu() {
-    const nav = document.getElementById('mobileNav');
-    const btn = document.getElementById('hamburger');
+    const nav = document.getElementById('mobileNav'), btn = document.getElementById('hamburger');
     const open = nav.classList.toggle('open');
     btn.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
@@ -1001,7 +1020,7 @@ window.addEventListener('scroll', debounce(() => {
 }, 80));
 
 /* ===========================================
-   ALERTS
+   ALERTS FV
    =========================================== */
 let activeAlerts = JSON.parse(localStorage.getItem('mm_alerts') || '[]');
 const saveAlerts = () => localStorage.setItem('mm_alerts', JSON.stringify(activeAlerts));
@@ -1031,15 +1050,14 @@ async function checkAlertsOnLoad() {
 }
 
 /* ===========================================
-   LIVE PRICE FETCH (Anti-Cache + Fallback + Memoria)
+   LIVE PRICE FETCH
    =========================================== */
 const priceCache = {};
-
 async function getLivePrice(yfTicker, fallbackPrice) {
     if (!yfTicker) return fallbackPrice;
-    if (priceCache[yfTicker]) return priceCache[yfTicker]; // Usa cache di sessione per non bloccare i server
+    if (priceCache[yfTicker]) return priceCache[yfTicker]; 
 
-    const ts = new Date().getTime(); // Anti-Cache
+    const ts = new Date().getTime(); 
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}?_=${ts}`;
 
     try {
@@ -1054,7 +1072,7 @@ async function getLivePrice(yfTicker, fallbackPrice) {
         }
     } catch (e) {}
 
-    try { // Backup server
+    try { 
         const backupProxy = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
         const response = await fetch(backupProxy);
         if (response.ok) {
@@ -1208,8 +1226,6 @@ async function refreshLivePrices() {
 
     const entries = Object.entries(db);
     let done = 0;
-
-    // Scaglioni di 10 titoli alla volta
     const chunks = [];
     for (let i = 0; i < entries.length; i += 10) chunks.push(entries.slice(i, i+10));
 
@@ -1458,14 +1474,13 @@ function addPersonalPosition() {
 }
 function removePersonalPosition(idx) { personalPort.splice(idx,1); savePort(); renderPersonalPortfolio(); }
 
-// Carica il portafoglio personale solo quando si scorre per la prima volta
 const portObserver = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) { portObserver.disconnect(); renderPersonalPortfolio(); }
 }, {threshold:0.05});
 portObserver.observe(document.getElementById('myportfolio'));
 
 /* ===========================================
-   STRUMENTI PAC E POSITION SIZING
+   STRUMENTI: PAC E POSITION SIZING
    =========================================== */
 let pacChart = null;
 function calculatePAC() {
@@ -1482,6 +1497,69 @@ function calculatePosition() {
     if (!en||!sl||en===sl){showToast('Inserisci prezzi di entrata e stop loss validi.','warn');return;}
     const re=cap*(rp/100), sh=Math.floor(re/Math.abs(en-sl));
     document.getElementById('psShares').innerText = sh + ' Azioni'; document.getElementById('psRiskEuro').innerText= fmtEur(re); document.getElementById('psTotalCost').innerText=fmtEur(sh*en); document.getElementById('psResult').style.display='block';
+}
+
+/* ===========================================
+   STRUMENTI: TOTAL RETURN SIMULATOR
+   =========================================== */
+let trChartObj = null;
+async function calculateTotalReturn() {
+    const ticker = document.getElementById('trTicker').value.toUpperCase().trim();
+    const capital = parseFloat(document.getElementById('trCapital').value) || 0;
+    const years = parseFloat(document.getElementById('trYears').value) || 0;
+    const btn = document.getElementById('trBtn');
+
+    if (!ticker || !capital || !years) { showToast('Compila tutti i campi della simulazione', 'warn'); return; }
+    let t = aliases[ticker] || ticker;
+    const data = db[t];
+    if (!data) { showToast('Ticker non trovato nel database per la simulazione', 'alert'); return; }
+
+    btn.innerText = "⏳ CALCOLO..."; btn.disabled = true;
+    const livePrice = await getLivePrice(data.yf, data.price);
+    btn.innerText = "CALCOLA TOTAL RETURN"; btn.disabled = false;
+
+    const p0 = parseFloat(livePrice);
+    const fv = parseFloat(data.fv);
+    const dy = (parseFloat(data.divYield) || 0) / 100;
+
+    if (p0 <= 0 || fv <= 0) { showToast('Prezzo o FV non validi per il calcolo', 'alert'); return; }
+
+    // Math: CAGR price = (FV / P0)^(1/t) - 1
+    const cagrPrice = Math.pow((fv / p0), (1 / years)) - 1;
+    const cagrTotal = cagrPrice + dy;
+
+    const valNoDiv = capital * Math.pow((1 + cagrPrice), years);
+    const valWithDiv = capital * Math.pow((1 + cagrTotal), years);
+
+    document.getElementById('trFinalVal').innerText = fmtEur(valWithDiv);
+    document.getElementById('trNoDivVal').innerText = fmtEur(valNoDiv);
+    document.getElementById('trCagrPrice').innerText = (cagrPrice * 100).toFixed(2) + "%";
+    document.getElementById('trCagrTotal').innerText = (cagrTotal * 100).toFixed(2) + "%";
+
+    document.getElementById('trResult').style.display = 'block';
+
+    let labels = []; let dNoDiv = []; let dDiv = [];
+    for (let i = 0; i <= years; i++) {
+        labels.push(`Anno ${i}`);
+        let vPrice = capital * Math.pow((1 + cagrPrice), i);
+        let vTot = capital * Math.pow((1 + cagrTotal), i);
+        dNoDiv.push(vPrice);
+        dDiv.push(vTot - vPrice);
+    }
+
+    if (trChartObj) trChartObj.destroy();
+    trChartObj = new Chart(document.getElementById('trChartCanvas').getContext('2d'), {
+        type: 'bar',
+        data: { labels: labels, datasets: [
+                { label: 'Crescita Capitale (No Div)', data: dNoDiv, backgroundColor: '#2962ff' },
+                { label: 'Effetto Dividendi Reinvestiti', data: dDiv, backgroundColor: '#00bcd4' }
+        ]},
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: { x: { stacked: true, ticks:{color:'#949494'} }, y: { stacked: true, ticks:{color:'#949494'} } },
+            plugins: { legend: { labels: { color: '#e0e0e0', font: { family: "'Inter'" } } } }
+        }
+    });
 }
 
 /* ===========================================
@@ -1516,7 +1594,6 @@ window.onload = function() {
     renderSignals();
     renderFearGreed();
 
-    // Doughnut chart Portafoglio C1076
     new Chart(document.getElementById('allocationChart').getContext('2d'), {
         type:'doughnut',
         data:{
@@ -1531,7 +1608,6 @@ window.onload = function() {
 
     new TradingView.widget({autosize:true,symbol:"MIL:FTSEMIB",interval:"D",timezone:"Europe/Rome",theme:"dark",style:"1",locale:"it",enable_publishing:false,backgroundColor:"#050505",gridColor:"#1f1f1f",container_id:"tv_chart_container"});
 
-    // Timeout per gli alert: carica in background senza appesantire la prima visualizzazione
     setTimeout(checkAlertsOnLoad, 2000);
 };
 </script>
@@ -1539,4 +1615,3 @@ window.onload = function() {
 <div id="tv_chart_container" style="display:none; height:0;"></div>
 </body>
 </html>
-
