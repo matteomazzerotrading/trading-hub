@@ -365,18 +365,61 @@
     <script>
         // === 1. DATABASE FAIR VALUE CON TICKER YAHOO FINANCE ===
         // Abbiamo inserito "yf" che è il codice esatto per scaricare il prezzo live in background
-        const db = {
-            "DIA": { name: "DiaSorin S.p.A.", fv: 126.00, price: 71.04, curr: "€", ex: "MIL", yf: "DIA.MI", videoID: null },
-            "ERG": { name: "ERG S.p.A.", fv: 23.95, price: 24.90, curr: "€", ex: "MIL", yf: "ERG.MI", videoID: null },
-            "RACE": { name: "Ferrari N.V.", fv: 383.00, price: 319.40, curr: "€", ex: "MIL", yf: "RACE.MI", videoID: null },
-            "GOOG": { name: "Alphabet Inc.", fv: 255.00, price: 307.03, curr: "$", ex: "NASDAQ", yf: "GOOG", videoID: null },
-            "MC": { name: "LVMH", fv: 686.00, price: 552.20, curr: "€", ex: "EPA", yf: "MC.PA", videoID: null },
-            "ADBE": { name: "Adobe Inc.", fv: 684.00, price: 257.81, curr: "$", ex: "NASDAQ", yf: "ADBE", videoID: null },
-            "FUN": { name: "Six Flags", fv: 25.60, price: 17.00, curr: "$", ex: "NYSE", yf: "FUN", videoID: null },
-            "INTU": { name: "Intuit Inc.", fv: 708.00, price: 381.23, curr: "$", ex: "NASDAQ", yf: "INTU", videoID: null },
-            "QCOM": { name: "Qualcomm Inc.", fv: 167.70, price: 145.82, curr: "$", ex: "NASDAQ", yf: "QCOM", videoID: null },
-            "STLAM": { name: "Stellantis", fv: 6.00, price: 6.9, curr: "€", ex: "MIL", yf: "STLAM.MI", videoID: "MpwZcg3J8BE" }
+            const db = {
+            // --- TITOLI DEL TUO PORTAFOGLIO ---
+            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, price: 71.04, curr: "€", ex: "MIL", yf: "DIA.MI", videoID: null },
+            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", yf: "ERG.MI", videoID: null },
+            "RACE": { name: "Ferrari N.V.", fv: 300.00, price: 319.40, curr: "€", ex: "MIL", yf: "RACE.MI", videoID: null },
+            "GOOG": { name: "Alphabet Inc.", fv: 290.00, price: 263.20, curr: "$", ex: "NASDAQ", yf: "GOOG", videoID: null },
+            "MC": { name: "LVMH", fv: 600.00, price: 552.20, curr: "€", ex: "EPA", yf: "MC.PA", videoID: null },
+            "ADBE": { name: "Adobe Inc.", fv: 300.00, price: 257.81, curr: "$", ex: "NASDAQ", yf: "ADBE", videoID: null },
+            "FUN": { name: "Six Flags", fv: 25.00, price: 17.00, curr: "$", ex: "NYSE", yf: "FUN", videoID: null },
+            "INTU": { name: "Intuit Inc.", fv: 700.00, price: 381.23, curr: "$", ex: "NASDAQ", yf: "INTU", videoID: null },
+            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, price: 145.82, curr: "$", ex: "NASDAQ", yf: "QCOM", videoID: null },
+            "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", yf: "STLAM.MI", videoID: "MpwZcg3J8BE" },
+
+            // --- I NUOVI TITOLI CHE HAI RICHIESTO ---
+            "A2A": { name: "A2A S.p.A.", fv: 2.45, price: 2.45, curr: "€", ex: "MIL", yf: "A2A.MI", videoID: null },
+            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 253.00, curr: "$", ex: "NASDAQ", yf: "AAPL", videoID: null },
+            "ADM": { name: "Archer-Daniels-Midland", fv: 53.00, price: 53.00, curr: "$", ex: "NYSE", yf: "ADM", videoID: null },
+            "ADP": { name: "Automatic Data Processing", fv: 312.00, price: 312.00, curr: "$", ex: "NASDAQ", yf: "ADP", videoID: null },
+            "ADSK": { name: "Autodesk Inc.", fv: 339.00, price: 339.00, curr: "$", ex: "NASDAQ", yf: "ADSK", videoID: null },
+            "AMAT": { name: "Applied Materials", fv: 233.00, price: 233.00, curr: "$", ex: "NASDAQ", yf: "AMAT", videoID: null },
+            "AMD": { name: "Advanced Micro Devices", fv: 145.60, price: 145.60, curr: "$", ex: "NASDAQ", yf: "AMD", videoID: null },
+            "AMZN": { name: "Amazon.com", fv: 199.00, price: 199.00, curr: "$", ex: "NASDAQ", yf: "AMZN", videoID: null },
+            "ASML": { name: "ASML Holding", fv: 904.00, price: 904.00, curr: "$", ex: "NASDAQ", yf: "ASML", videoID: null },
+            "AXP": { name: "American Express", fv: 332.00, price: 332.00, curr: "$", ex: "NYSE", yf: "AXP", videoID: null },
+            "BAC": { name: "Bank of America", fv: 59.85, price: 59.85, curr: "$", ex: "NYSE", yf: "BAC", videoID: null },
+            "BAYN": { name: "Bayer AG", fv: 44.12, price: 44.12, curr: "€", ex: "XETR", yf: "BAYN.DE", videoID: null },
+            "BATS": { name: "British American Tobacco", fv: 4656.00, price: 4656.00, curr: "GBp", ex: "LSE", yf: "BATS.L", videoID: null },
+            "BC": { name: "Brunswick Corp", fv: 88.00, price: 88.00, curr: "$", ex: "NYSE", yf: "BC", videoID: null },
+            "BNG": { name: "Bunge Global", fv: 46.31, price: 46.31, curr: "$", ex: "NYSE", yf: "BG", videoID: null },
+            "BRE": { name: "Brembo", fv: 14.93, price: 14.93, curr: "€", ex: "MIL", yf: "BRE.MI", videoID: null },
+            "BRK.B": { name: "Berkshire Hathaway", fv: 511.00, price: 511.00, curr: "$", ex: "NYSE", yf: "BRK-B", videoID: null },
+            "CAT": { name: "Caterpillar", fv: 404.00, price: 404.00, curr: "$", ex: "NYSE", yf: "CAT", videoID: null },
+            "CE": { name: "Celanese", fv: 105.56, price: 105.56, curr: "$", ex: "NYSE", yf: "CE", videoID: null },
+            "CNC": { name: "Centene", fv: 102.66, price: 102.66, curr: "$", ex: "NYSE", yf: "CNC", videoID: null },
+            "COST": { name: "Costco Wholesale", fv: 851.00, price: 851.00, curr: "$", ex: "NASDAQ", yf: "COST", videoID: null },
+            "CPR": { name: "Campari", fv: 8.95, price: 8.95, curr: "€", ex: "MIL", yf: "CPR.MI", videoID: null },
+            "CRM": { name: "Salesforce", fv: 325.48, price: 325.48, curr: "$", ex: "NYSE", yf: "CRM", videoID: null },
+            "CVX": { name: "Chevron", fv: 181.66, price: 181.66, curr: "$", ex: "NYSE", yf: "CVX", videoID: null },
+            "DDOG": { name: "Datadog", fv: 129.62, price: 129.62, curr: "$", ex: "NASDAQ", yf: "DDOG", videoID: null },
+            "ENI": { name: "Eni S.p.A.", fv: 21.29, price: 21.29, curr: "€", ex: "MIL", yf: "ENI.MI", videoID: null },
+            "ENEL": { name: "Enel S.p.A.", fv: 4.85, price: 4.85, curr: "€", ex: "MIL", yf: "ENEL.MI", videoID: null },
+            "G": { name: "Assicurazioni Generali", fv: 50.63, price: 50.63, curr: "€", ex: "MIL", yf: "G.MI", videoID: null },
+            "IBM": { name: "IBM", fv: 231.00, price: 231.00, curr: "$", ex: "NYSE", yf: "IBM", videoID: null },
+            "INTC": { name: "Intel", fv: 35.29, price: 35.29, curr: "$", ex: "NASDAQ", yf: "INTC", videoID: null },
+            "IP": { name: "International Paper", fv: 48.02, price: 48.02, curr: "$", ex: "NYSE", yf: "IP", videoID: null },
+            "ISP": { name: "Intesa Sanpaolo", fv: 7.22, price: 7.22, curr: "€", ex: "MIL", yf: "ISP.MI", videoID: null },
+            "LDO": { name: "Leonardo S.p.A.", fv: 26.65, price: 26.65, curr: "€", ex: "MIL", yf: "LDO.MI", videoID: null },
+            "LULU": { name: "Lululemon", fv: 465.80, price: 465.80, curr: "$", ex: "NASDAQ", yf: "LULU", videoID: null },
+            "MA": { name: "Mastercard", fv: 500.65, price: 500.65, curr: "$", ex: "NYSE", yf: "MA", videoID: null },
+            "MONC": { name: "Moncler", fv: 74.93, price: 74.93, curr: "€", ex: "MIL", yf: "MONC.MI", videoID: null },
+            "MSFT": { name: "Microsoft", fv: 461.22, price: 461.22, curr: "$", ex: "NASDAQ", yf: "MSFT", videoID: null },
+            "NVDA": { name: "Nvidia", fv: 163.11, price: 163.11, curr: "$", ex: "NASDAQ", yf: "NVDA", videoID: null },
+            "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 77.70, curr: "$", ex: "NYSE", yf: "OXY", videoID: null }
         };
+            
 
         async function calculateFV() {
             let input = document.getElementById('fvInput').value.toUpperCase().trim();
@@ -545,6 +588,7 @@
     </script>
 </body>
 </html>
+
 
 
 
