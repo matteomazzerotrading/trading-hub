@@ -119,7 +119,7 @@
         .sig-badge.buy { background: rgba(0,230,118,0.15); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.4); }
         .sig-badge.sell { background: rgba(255,61,0,0.15); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.4); }
 
-        /* === SCREENER === */
+        /* === SCREENER E LOADER === */
         .screener-controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; }
         .screener-filter-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: var(--text-muted); padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 0.85em; font-weight: 700; transition: 0.2s; white-space: nowrap; }
         .screener-filter-btn.active, .screener-filter-btn:hover { background: rgba(0,230,118,0.1); color: var(--brand-green); border-color: rgba(0,230,118,0.5); }
@@ -155,6 +155,11 @@
         .screener-toggle-icon.open { transform: rotate(180deg); }
         .screener-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.35s ease; opacity: 0; }
         .screener-body.open { max-height: 4000px; opacity: 1; }
+
+        /* Loader Screener */
+        .screener-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--brand-green); font-weight: bold; }
+        .screener-loading-spinner { width: 40px; height: 40px; border: 4px solid rgba(0,230,118,0.2); border-top-color: var(--brand-green); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* === COMPARATORE === */
         .comp-inputs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin-bottom: 24px; }
@@ -207,7 +212,6 @@
         .wl-fv-btn { width: 100%; background: transparent; border: 1px solid var(--border-glass); color: var(--brand-green); padding: 8px; border-radius: 8px; cursor: pointer; font-size: 0.8em; font-weight: 600; transition: 0.2s; }
         .wl-fv-btn:hover { background: rgba(0,230,118,0.08); border-color: var(--brand-green); }
 
-        /* TABELLA PORTAFOGLIO PERSONALE */
         .pers-port-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; margin-bottom: 20px; }
         .pers-table { width: 100%; border-collapse: collapse; font-size: 0.9em; margin-top: 15px;}
         .pers-table th { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border-glass); }
@@ -251,17 +255,6 @@
         .faq-icon { font-size: 1.2em; transition: transform 0.3s; color: var(--brand-green); font-weight: 400;}
         .faq-item.active .faq-icon { transform: rotate(45deg); }
 
-        /* === VIDEO & RICHIESTE === */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .video-card { background: var(--bg-glass); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-glass); transition: transform 0.3s; }
-        .video-card:hover { transform: translateY(-5px); border-color: var(--brand-green); }
-        .thumbnail-container { position: relative; display: block; width: 100%; padding-bottom: 56.25%; background: #000; }
-        .thumbnail-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.3s; }
-        .video-card:hover img { opacity: 1; }
-        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 40px; background: rgba(255, 61, 0, 0.9); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
-        .play-button::after { content: ''; border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent white; margin-left: 4px; }
-        .video-info { padding: 20px; }
-        .video-title { margin: 0; font-size: 1.1em; line-height: 1.4; color: #fff; font-weight: 600; }
         .request-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
         /* COLORI ASSET */
@@ -405,7 +398,7 @@
                         </div>
                 </div>
                 <div>
-                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">🧠 Come leggere i segnali</h3>
+                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">🧠 Come usare l'Indicatore</h3>
                     <div class="video-responsive">
                         <iframe src="https://www.youtube.com/embed/yTvn64m3Ruo" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -441,7 +434,7 @@
                 </div>
 
                 <div class="screener-loading" id="scr-loading" style="display:none;">
-                    <div class="screener-loading-spinner"></div><div>Analisi del database in corso...</div>
+                    <div class="screener-loading-spinner"></div><div>Scaricamento prezzi live in corso...</div>
                 </div>
 
                 <div class="screener-table-wrap" id="scr-table-wrap" style="display:none;">
@@ -522,8 +515,8 @@
 
             <div id="mypLoading" style="display:none; text-align:center; padding:20px; color:var(--text-muted);">↻ Aggiornamento prezzi live in corso...</div>
 
-            <div class="pers-table-wrap" id="mypTableWrap" style="display:none;">
-                <table class="pers-table">
+            <div class="screener-table-wrap" id="mypTableWrap" style="display:none;">
+                <table class="screener-table pers-table">
                     <thead>
                         <tr>
                             <th>Ticker</th>
@@ -675,15 +668,6 @@
                         </script>
                     </div>
                 </div>
-                <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📊 Hot Stocks</h3>
-                    <div class="tv-news-widget">
-                        <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-                        { "colorTheme": "dark", "dateRange": "1D", "exchange": "US", "showChart": false, "locale": "it", "width": "100%", "height": 350, "isTransparent": true, "showSymbolLogo": false, "showFloatingTooltip": false, "plotLineColorGrowing": "rgba(0,230,118, 1)", "plotLineColorFalling": "rgba(255, 61, 0, 1)", "gridLineColor": "rgba(255, 255, 255, 0.05)", "scaleFontColor": "rgba(120, 123, 134, 1)", "belowLineFillColorGrowing": "rgba(0,230,118, 0.05)", "belowLineFillColorFalling": "rgba(255,61,0, 0.05)" }
-                        </script>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -696,58 +680,21 @@
             <div class="faq-item">
                 <button class="faq-question">Che cos'è il "Fair Value"? <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
-                    Il Fair Value (Valore Intrinseco) è una stima di quanto un'azienda vale realmente, basata sui suoi fondamentali economici. Nel mio modello utilizzo l'analisi DCF (Discounted Cash Flow). Se il prezzo in Borsa è inferiore al Fair Value, il titolo è considerato "a sconto" (Sottovalutato).
+                    Il Fair Value (Valore Intrinseco) è una stima di quanto un'azienda vale realmente, basata sui suoi fondamentali. Nel mio modello utilizzo l'analisi DCF. Se il prezzo in Borsa è inferiore al Fair Value, il titolo è considerato "a sconto" (Sottovalutato).
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">Come funziona il Calcolatore PAC? <span class="faq-icon">+</span></button>
+                <button class="faq-question">Come funziona l'Indicatore Level Founder? <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
-                    Il PAC (Piano di Accumulo del Capitale) sfrutta la formula dell'<strong>Interesse Composto</strong>: gli interessi generati dai tuoi investimenti producono a loro volta nuovi interessi. Nel lungo periodo, la curva di crescita diventa esponenziale.
+                    Calcola numericamente la volatilità di ogni singola candela rispetto allo storico (ultimi 252 periodi). I picchi (valore 100) segnalano le sedute di scontro massimo tra domanda e offerta. Sulle chiusure di queste candele traccio le mie linee di supporto e resistenza chiave, dove il prezzo tenderà a reagire in futuro.
                 </div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Cos'è il Position Sizing nel Trading? <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
-                    È la regola numero uno per non azzerare il conto. Significa decidere "quante azioni comprare" in base al rischio che sei disposto a sopportare. Il calcolatore divide il tuo rischio monetario per la distanza tra il prezzo di acquisto e il livello di Stop Loss.
+                    Significa decidere "quante azioni comprare" in base al rischio che sei disposto a sopportare. Il calcolatore divide il tuo rischio monetario per la distanza tra il prezzo di acquisto e il livello di Stop Loss.
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container" id="richieste">
-        <div class="section-header">
-            <h2 class="section-title">Richiedi <span>Analisi</span></h2>
-        </div>
-        <div class="card">
-            <p style="color: var(--text-muted); margin-bottom: 20px;">
-                Manca un'azienda nel motore di ricerca del Fair Value? Richiedila qui sotto.
-            </p>
-            <form action="https://formspree.io/f/INSERISCI_QUI_IL_TUO_CODICE" method="POST" class="request-form">
-                <input type="text" name="_gotcha" style="display:none">
-                <div class="form-group" style="margin-bottom:0;">
-                    <label class="form-label" style="color:#fff;">Nome</label>
-                    <input type="text" name="name" class="form-input" placeholder="Il tuo nome" required>
-                </div>
-                <div class="form-group" style="margin-bottom:0;">
-                    <label class="form-label" style="color:#fff;">Email</label>
-                    <input type="email" name="email" class="form-input" placeholder="La tua email" required>
-                </div>
-                <div class="form-group" style="grid-column: span 2; margin-bottom:0;">
-                    <label class="form-label" style="color:#fff;">Ticker Azienda</label>
-                    <input type="text" name="ticker" class="form-input" placeholder="Es. ENEL, ENI, TSLA..." required>
-                </div>
-                <input type="hidden" name="_subject" value="Nuova richiesta analisi dal sito">
-                <button type="submit" class="btn-primary" style="grid-column: span 2;">INVIA RICHIESTA</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="container" id="scanner">
-        <div class="section-header">
-            <h2 class="section-title">Grafico <span>Interattivo</span></h2>
-        </div>
-        <div class="card" style="padding: 0; overflow: hidden;">
-            <div id="tv_chart_container" style="height: 500px;"></div>
         </div>
     </div>
 
@@ -783,7 +730,7 @@
             "AXP": { name: "American Express", fv: 332.00, price: 230.00, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, videoID: null },
             "BAC": { name: "Bank of America", fv: 59.85, price: 37.00, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, videoID: null },
             "BAYN": { name: "Bayer AG", fv: 44.12, price: 28.00, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, videoID: null },
-            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "p", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
+            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
             "BC": { name: "Brunswick Corp", fv: 88.00, price: 85.00, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, videoID: null },
             "BNG": { name: "Bunge Global", fv: 46.31, price: 105.00, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null },
             "BRE": { name: "Brembo", fv: 14.93, price: 10.50, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, videoID: null },
@@ -810,7 +757,7 @@
             "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 62.00, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, videoID: null }
         };
 
-        // === SEGNALI INDICATORE (Puoi modificarli qui) ===
+        // QUI PUOI AGGIUNGERE/MODIFICARE I SEGNALI DEL TUO INDICATORE
         const indicatorSignals = [
             { date: "Oggi", ticker: "NVDA", price: "120.50", action: "BUY" },
             { date: "Ieri", ticker: "AAPL", price: "172.10", action: "BUY" },
@@ -968,11 +915,24 @@
             }
         }
 
-        function buildScreenerData() {
-            screenerData = Object.entries(db).map(([ticker, data]) => {
-                const upside = ((data.fv - data.price) / data.price) * 100;
-                return { ticker, ...data, upside };
-            });
+        async function buildScreenerData() {
+            document.getElementById('scr-table-wrap').style.display = 'none';
+            document.getElementById('scr-loading').style.display = 'flex';
+            
+            const entries = Object.entries(db);
+            screenerData = [];
+            
+            const chunkSize = 10;
+            for (let i = 0; i < entries.length; i += chunkSize) {
+                const chunk = entries.slice(i, i + chunkSize);
+                const chunkResults = await Promise.all(chunk.map(async ([ticker, data]) => {
+                    const livePrice = await getLivePrice(data.yf, data.price);
+                    const livePriceNum = parseFloat(livePrice);
+                    const upside = ((data.fv - livePriceNum) / livePriceNum) * 100;
+                    return { ticker, ...data, price: livePriceNum, upside };
+                }));
+                screenerData.push(...chunkResults);
+            }
             sortScreener(); renderScreener();
         }
 
@@ -1164,7 +1124,6 @@
             renderPersonalPortfolio();
             renderIndicatorSignals();
             
-            // Check Alert Drop FV (ritardato leggermente per non impattare il caricamento visivo iniziale)
             setTimeout(checkAlertsOnLoad, 1500);
 
             const ctx = document.getElementById('allocationChart').getContext('2d');
