@@ -45,9 +45,19 @@
         }
         .navbar-logo { color: #fff; font-size: 1.4em; font-weight: 800; text-decoration: none; letter-spacing: -0.5px; }
         .navbar-logo span { color: var(--brand-green); text-shadow: 0 0 15px var(--brand-glow); }
-        .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center;}
         .nav-link { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.9em; transition: 0.3s; }
         .nav-link:hover { color: var(--brand-green); }
+
+        /* NOTIFICHE TOAST (ALERTS) */
+        #toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
+        .toast {
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); border: 1px solid var(--brand-green);
+            color: #fff; padding: 16px 20px; border-radius: 12px; font-size: 0.9em; font-family: 'Inter', sans-serif;
+            box-shadow: 0 5px 25px rgba(0, 230, 118, 0.15); animation: slideInRight 0.5s ease forwards;
+            display: flex; align-items: center; gap: 12px; pointer-events: auto;
+        }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
         /* CONTAINERS & CARDS */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; margin-bottom: 80px; }
@@ -65,43 +75,20 @@
         /* FORMS & INPUTS */
         .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
         .form-label { color: var(--text-muted); font-size: 0.85em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .form-input { 
-            background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); 
-            color: #fff; padding: 15px; border-radius: 8px; font-family: 'Inter', sans-serif; 
-            outline: none; transition: 0.3s; width: 100%; box-sizing: border-box;
-        }
+        .form-input { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); color: #fff; padding: 15px; border-radius: 8px; font-family: 'Inter', sans-serif; outline: none; transition: 0.3s; width: 100%; box-sizing: border-box; }
         .form-input:focus { border-color: var(--brand-green); background: rgba(255,255,255,0.06); }
-        .btn-primary { 
-            background: var(--brand-green); color: #000; border: none; padding: 15px 30px; 
-            border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; width: 100%; 
-        }
+        .btn-primary { background: var(--brand-green); color: #000; border: none; padding: 15px 30px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; width: 100%; }
         .btn-primary:hover { box-shadow: 0 0 20px var(--brand-glow); transform: translateY(-2px); }
 
-        /* FIX AUTOFILL */
-        input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
-            transition: background-color 5000s ease-in-out 0s !important;
-            -webkit-text-fill-color: #fff !important;
-        }
+        input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus { transition: background-color 5000s ease-in-out 0s !important; -webkit-text-fill-color: #fff !important; }
 
         /* === FAIR VALUE === */
         .fv-interface { display: flex; flex-direction: column; gap: 20px; }
-        .fv-search-box { 
-            display: flex; gap: 12px; align-items: center; 
-            background: rgba(0, 0, 0, 0.4); padding: 8px 8px 8px 25px; 
-            border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); 
-            transition: all 0.3s ease;
-        }
+        .fv-search-box { display: flex; gap: 12px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 8px 8px 8px 25px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
         .fv-search-box:focus-within { border-color: var(--brand-green); box-shadow: 0 0 25px rgba(0, 230, 118, 0.15); background: rgba(0, 0, 0, 0.7); }
-        .fv-input-main { 
-            flex: 1; background: transparent !important; border: none !important; color: #fff !important; 
-            font-size: 1.15em; font-family: 'JetBrains Mono', monospace; 
-            outline: none !important; text-transform: uppercase; letter-spacing: 1px; box-shadow: none !important;
-        }
+        .fv-input-main { flex: 1; background: transparent !important; border: none !important; color: #fff !important; font-size: 1.15em; font-family: 'JetBrains Mono', monospace; outline: none !important; text-transform: uppercase; letter-spacing: 1px; box-shadow: none !important; }
         .fv-input-main::placeholder { color: rgba(255,255,255,0.3); font-family: 'Inter', sans-serif; text-transform: none; letter-spacing: 0; font-size: 0.9em; }
-        .fv-search-btn { 
-            background: var(--brand-green); color: #000; border: none; padding: 15px 35px; border-radius: 40px; 
-            font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 1em; letter-spacing: 0.5px;
-        }
+        .fv-search-btn { background: var(--brand-green); color: #000; border: none; padding: 15px 35px; border-radius: 40px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 1em; letter-spacing: 0.5px; }
         .fv-search-btn:hover { box-shadow: 0 0 20px var(--brand-glow); transform: scale(1.02); }
 
         .fv-result-card { display: none; background: rgba(0, 230, 118, 0.05); border: 1px solid var(--brand-green); margin-top: 20px; animation: slideUp 0.5s ease; border-width: 2px;}
@@ -109,9 +96,65 @@
         .fv-value-big { font-size: 3.2em; font-weight: 800; transition: 0.3s; }
         .fv-value-medium { font-size: 2.2em; font-weight: 800; color: var(--accent-blue); text-shadow: 0 0 15px rgba(41, 98, 255, 0.4); }
         .fv-label { font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 5px; }
+        
+        /* DATI FONDAMENTALI */
+        .fundamentals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-glass); }
+        .fund-box { background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 10px; padding: 15px; text-align: center; }
+        .fund-val { font-family: 'JetBrains Mono', monospace; font-size: 1.3em; font-weight: 700; color: #fff; }
+        .fund-lbl { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; letter-spacing: 0.5px;}
+
         .smart-video-container { margin-top: 30px; border-top: 1px solid var(--border-glass); padding-top: 20px; display: none; }
         .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-glass); }
         .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* === SEGNALI INDICATORE TV === */
+        .signals-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; }
+        .signal-list { display: flex; flex-direction: column; gap: 12px; }
+        .signal-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 10px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
+        .signal-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+        .signal-ticker { font-family: 'JetBrains Mono', monospace; font-size: 1.2em; font-weight: 800; color: #fff; }
+        .signal-date { font-size: 0.8em; color: var(--text-muted); margin-top: 4px; }
+        .signal-price { font-family: 'JetBrains Mono', monospace; font-size: 1.1em; font-weight: 600; color: #e0e0e0; }
+        .sig-badge { display: inline-block; padding: 4px 12px; border-radius: 8px; font-size: 0.75em; font-weight: 800; letter-spacing: 0.5px; }
+        .sig-badge.buy { background: rgba(0,230,118,0.15); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.4); }
+        .sig-badge.sell { background: rgba(255,61,0,0.15); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.4); }
+
+        /* === SCREENER === */
+        .screener-controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; }
+        .screener-filter-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: var(--text-muted); padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 0.85em; font-weight: 700; transition: 0.2s; white-space: nowrap; }
+        .screener-filter-btn.active, .screener-filter-btn:hover { background: rgba(0,230,118,0.1); color: var(--brand-green); border-color: rgba(0,230,118,0.5); }
+        .screener-filter-btn.active-red { background: rgba(255,61,0,0.1) !important; color: var(--accent-red) !important; border-color: rgba(255,61,0,0.5) !important; }
+        .screener-search { flex: 1; min-width: 180px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: #fff; padding: 9px 18px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.9em; outline: none; transition: 0.2s; }
+        .screener-search:focus { border-color: var(--brand-green); }
+        .screener-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-glass); }
+        .screener-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .screener-table th { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border-glass); cursor: pointer; white-space: nowrap; transition: color 0.2s; }
+        .screener-table th:hover, .screener-table th.sorted { color: var(--brand-green); }
+        .screener-table td { padding: 14px 18px; border-bottom: 1px solid var(--border-glass); vertical-align: middle; white-space: nowrap; }
+        .screener-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .scr-rank { font-family: 'JetBrains Mono', monospace; font-size: 0.8em; color: var(--text-muted); font-weight: 700; text-align: center; }
+        .scr-ticker { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #fff; font-size: 1em; letter-spacing: 0.5px; }
+        .scr-name { color: var(--text-muted); font-size: 0.82em; }
+        .scr-upside.positive { color: var(--brand-green); font-weight: bold; }
+        .scr-upside.negative { color: var(--accent-red); font-weight: bold; }
+        .scr-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.72em; font-weight: 800; letter-spacing: 0.3px; }
+        .scr-badge.buy { background: rgba(0,230,118,0.12); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.3); }
+        .scr-badge.sell { background: rgba(255,61,0,0.12); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.3); }
+        .scr-badge.watch { background: rgba(255,235,59,0.12); color: var(--accent-yellow); border: 1px solid rgba(255,235,59,0.3); }
+        .scr-bar-track { height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; margin-top: 4px; }
+        .scr-bar-fill { height: 100%; border-radius: 3px; }
+        
+        .screener-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+        .scr-stat { background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 10px; padding: 14px 18px; text-align: center; }
+        .scr-stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.5em; font-weight: 800; }
+        .scr-stat-lbl { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; margin-top: 3px; }
+
+        .screener-toggle-btn { display: flex; align-items: center; justify-content: space-between; background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.3); color: var(--brand-green); padding: 12px 24px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.95em; transition: 0.3s; width: 100%; font-family: 'Inter', sans-serif; }
+        .screener-toggle-btn:hover { background: rgba(0,230,118,0.14); box-shadow: 0 0 16px var(--brand-glow); }
+        .screener-toggle-icon { transition: transform 0.35s ease; }
+        .screener-toggle-icon.open { transform: rotate(180deg); }
+        .screener-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.35s ease; opacity: 0; }
+        .screener-body.open { max-height: 4000px; opacity: 1; }
 
         /* === COMPARATORE === */
         .comp-inputs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin-bottom: 24px; }
@@ -143,7 +186,7 @@
         .comp-verdict-title { font-size: 1em; font-weight: 800; color: #fff; margin-bottom: 4px; }
         .comp-verdict-sub { font-size: 0.85em; color: var(--text-muted); line-height: 1.5; }
 
-        /* === WATCHLIST === */
+        /* === WATCHLIST E PORTAFOGLIO PERSONALE === */
         .watchlist-add-box { display: flex; gap: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid var(--border-glass); margin-bottom: 24px; }
         .watchlist-input { flex: 1; background: transparent; border: none; color: #fff; padding: 12px; font-size: 1em; font-family: 'Inter', sans-serif; outline: none; text-transform: uppercase; }
         .watchlist-add-btn { background: var(--brand-green); color: #000; border: none; padding: 0 28px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 0.95em; }
@@ -164,13 +207,22 @@
         .wl-fv-btn { width: 100%; background: transparent; border: 1px solid var(--border-glass); color: var(--brand-green); padding: 8px; border-radius: 8px; cursor: pointer; font-size: 0.8em; font-weight: 600; transition: 0.2s; }
         .wl-fv-btn:hover { background: rgba(0,230,118,0.08); border-color: var(--brand-green); }
 
+        /* TABELLA PORTAFOGLIO PERSONALE */
+        .pers-port-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; margin-bottom: 20px; }
+        .pers-table { width: 100%; border-collapse: collapse; font-size: 0.9em; margin-top: 15px;}
+        .pers-table th { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border-glass); }
+        .pers-table td { padding: 15px; border-bottom: 1px solid var(--border-glass); font-family: 'JetBrains Mono', monospace; }
+        .pers-table tr:last-child td { border-bottom: none; }
+        .pl-positive { color: var(--brand-green); font-weight: bold; }
+        .pl-negative { color: var(--accent-red); font-weight: bold; }
+
         /* === STRUMENTI OPERATIVI === */
         .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .tool-result-box { margin-top: 20px; padding: 20px; border-radius: 12px; text-align: center; background: rgba(0, 230, 118, 0.05); border: 1px solid rgba(0, 230, 118, 0.3); display: none; animation: slideUp 0.4s ease; }
         .tool-result-val { font-size: 2.2em; font-weight: 800; color: var(--brand-green); margin-bottom: 5px; font-family: 'JetBrains Mono', monospace;}
         .tool-result-sub { font-size: 0.9em; color: var(--text-muted); }
 
-        /* === PORTAFOGLIO === */
+        /* === PORTAFOGLIO MATTEO === */
         .portfolio-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         .kpi-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
         .kpi-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border-glass); text-align: center; }
@@ -186,7 +238,7 @@
         .news-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .tv-news-widget { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-glass); margin-bottom: 20px;}
         .sentiment-bar { width: 100%; height: 12px; border-radius: 6px; background: linear-gradient(90deg, #ff3d00, #ffeb3b, #00e676); position: relative; margin: 30px 0 20px; }
-        .sentiment-needle { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 4px; height: 32px; background: #fff; border-radius: 2px; box-shadow: 0 0 10px rgba(255,255,255,0.5); transition: left 1s ease-in-out; }
+        .sentiment-needle { position: absolute; top: -10px; left: 72%; transform: translateX(-50%); width: 4px; height: 32px; background: #fff; border-radius: 2px; box-shadow: 0 0 10px rgba(255,255,255,0.5); transition: left 1s ease-in-out; }
         .sentiment-needle::after { content: ''; position: absolute; bottom: -6px; left: -4px; border-width: 6px 6px 0; border-style: solid; border-color: #fff transparent transparent transparent; }
         .sentiment-labels { display: flex; justify-content: space-between; font-size: 0.8em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
 
@@ -218,19 +270,23 @@
         .c-5 { background-color: var(--accent-purple); }
 
         @media (max-width: 900px) { 
-            .portfolio-grid, .news-layout, .tools-grid, .request-form, .comp-cards, .comp-inputs { grid-template-columns: 1fr; }
+            .portfolio-grid, .news-layout, .tools-grid, .request-form, .comp-cards, .comp-inputs, .signals-layout { grid-template-columns: 1fr; }
             .comp-vs { display: none; }
             .kpi-container { grid-template-columns: 1fr; }
+            .screener-stats { grid-template-columns: 1fr; }
             .fv-result-card > div > div { flex-direction: column; gap: 30px; }
             .btn-primary { grid-column: span 1; }
             .watchlist-grid { grid-template-columns: 1fr 1fr; }
             .nav-links { display: none; } 
+            .pers-port-inputs { grid-template-columns: 1fr; }
+            .pers-table-wrap { overflow-x: auto; }
         }
         @media (max-width: 600px) {
             .fv-search-box { padding: 6px 6px 6px 15px; border-radius: 30px; }
             .fv-search-btn { padding: 12px 20px; font-size: 0.9em; border-radius: 30px; }
             .fv-input-main { font-size: 1em; }
             .watchlist-grid { grid-template-columns: 1fr; }
+            .fundamentals-grid { grid-template-columns: 1fr 1fr; }
         }
         
         footer { text-align: center; padding: 50px; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.9em; }
@@ -239,15 +295,17 @@
 </head>
 <body>
 
+    <div id="toast-container"></div>
+
     <nav class="navbar">
         <a href="#" class="navbar-logo">MM<span>Trading</span></a>
         <div class="nav-links">
             <a href="#fv-section" class="nav-link">Fair Value</a>
-            <a href="#comparatore" class="nav-link">Comparatore</a>
-            <a href="#watchlist" class="nav-link">Watchlist</a>
+            <a href="#indicatore" class="nav-link">Indicatore TV</a>
+            <a href="#screener" class="nav-link">Screener</a>
+            <a href="#myportfolio" class="nav-link">Tuo Portafoglio</a>
             <a href="#strumenti" class="nav-link">Strumenti</a>
-            <a href="#portfolio" class="nav-link">Portafoglio</a>
-            <a href="#news" class="nav-link">News</a>
+            <a href="#portfolio" class="nav-link">Portfolio C1076</a>
         </div>
     </nav>
 
@@ -263,7 +321,7 @@
             Il mio <span style="color: var(--brand-green);">Trading Hub</span>
         </h1>
         <p style="color: var(--text-muted); font-size: 1.2em; max-width: 600px; margin: 10px auto 0;">
-            Analisi trasparente delle posizioni, strumenti operativi e valutazioni di Fair Value in tempo reale.
+            Analisi trasparente, gestione del tuo portafoglio e valutazioni di Fair Value in tempo reale.
         </p>
     </header>
 
@@ -273,7 +331,6 @@
         </div>
         <div class="card">
             <div class="fv-interface">
-                
                 <div class="fv-search-box">
                     <span style="color: var(--brand-green); font-size: 1.2em;">🔍</span>
                     <input type="text" id="fvInput" class="fv-input-main" placeholder="Cerca un'azienda (es. AAPL, ENEL, GOOG...)">
@@ -293,21 +350,31 @@
                                 <div class="fv-label">Mio Fair Value</div>
                                 <div id="fvValue" class="fv-value-big mono-font">---</div>
                                 <div id="fvStatus" class="wl-badge" style="margin-top:10px; padding: 6px 18px; font-size: 0.85em;">---</div>
-                                <div style="margin-top: 16px;">
+                                <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                                     <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="wl-fv-btn" style="width: auto; padding: 8px 20px;">
-                                        ＋ Aggiungi a Watchlist
+                                        ＋ Watchlist
+                                    </button>
+                                    <button onclick="toggleAlert(currentFVTicker)" class="wl-fv-btn" style="width: auto; padding: 8px 20px; border-color: var(--accent-yellow); color: var(--accent-yellow);" onmouseover="this.style.background='rgba(255,235,59,0.1)'" onmouseout="this.style.background='transparent'">
+                                        🔔 Attiva Alert Drop
                                     </button>
                                 </div>
                             </div>
                             <div style="text-align: center; flex: 1; min-width: 150px; border-left: 1px solid var(--border-glass); border-right: 1px solid var(--border-glass); padding: 0 15px;">
                                 <div class="fv-label">Dividend Yield</div>
                                 <div id="fvDividend" class="fv-value-medium mono-font">---</div>
-                                <div style="font-size: 0.85em; color: var(--text-muted); margin-top: 5px;">Rendimento Annuo Stimato</div>
+                                <div style="font-size: 0.85em; color: var(--text-muted); margin-top: 5px;">Rendimento Annuo</div>
                             </div>
                             <div style="text-align: center; flex: 1; min-width: 220px;">
                                 <div class="fv-label">Prezzo Attuale (Live)</div>
                                 <div id="mini-chart-container" style="height: 120px; margin-top: 10px;"></div>
                             </div>
+                        </div>
+
+                        <div class="fundamentals-grid" id="fv-fundamentals">
+                            <div class="fund-box"><div class="fund-val" id="fund-pe">--</div><div class="fund-lbl">P/E Ratio</div></div>
+                            <div class="fund-box"><div class="fund-val" id="fund-eps">--</div><div class="fund-lbl">EPS (Utili)</div></div>
+                            <div class="fund-box"><div class="fund-val" id="fund-mcap">--</div><div class="fund-lbl">Market Cap</div></div>
+                            <div class="fund-box"><div class="fund-val" id="fund-rev">--</div><div class="fund-lbl">Rev. Growth</div></div>
                         </div>
 
                         <div id="smart-video-box" class="smart-video-container">
@@ -325,6 +392,79 @@
         </div>
     </div>
 
+    <div class="container" id="indicatore">
+        <div class="section-header">
+            <h2 class="section-title">Segnali <span>Indicatore Premium</span></h2>
+            <span style="font-size: 0.82em; color: var(--text-muted);">Gli ultimi setup generati dal mio algoritmo su TradingView</span>
+        </div>
+        <div class="card">
+            <div class="signals-layout">
+                <div>
+                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">⏱️ Ultimi Setup Live</h3>
+                    <div class="signal-list" id="signal-list-container">
+                        </div>
+                </div>
+                <div>
+                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">🧠 Come leggere i segnali</h3>
+                    <div class="video-responsive">
+                        <iframe src="https://www.youtube.com/embed/yTvn64m3Ruo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="screener">
+        <div class="section-header">
+            <h2 class="section-title">Screener <span>Titoli</span></h2>
+            <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Tutti i titoli ordinati per upside</span>
+        </div>
+        <div class="card" style="padding: 24px;">
+            <button class="screener-toggle-btn" onclick="toggleScreener()" id="scr-toggle-btn">
+                <span>📊 Mostra tutti i titoli del database ordinati per upside</span>
+                <span class="screener-toggle-icon" id="scr-toggle-icon">▼</span>
+            </button>
+
+            <div class="screener-body" id="scr-body">
+                <div class="screener-stats" id="screener-stats" style="display:none; margin-top:20px;">
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-total" style="color:#fff;">—</div><div class="scr-stat-lbl">Titoli Analizzati</div></div>
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-undervalued" style="color:var(--brand-green);">—</div><div class="scr-stat-lbl">Sottovalutati</div></div>
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-overvalued" style="color:var(--accent-red);">—</div><div class="scr-stat-lbl">Sopravvalutati</div></div>
+                </div>
+
+                <div class="screener-controls" style="margin-top: 20px;">
+                    <button class="screener-filter-btn active" id="scr-btn-all" onclick="applyFilter('all')">Tutti</button>
+                    <button class="screener-filter-btn" id="scr-btn-under" onclick="applyFilter('under')">🟢 Sottovalutati</button>
+                    <button class="screener-filter-btn" id="scr-btn-over" onclick="applyFilter('over')">🔴 Sopravvalutati</button>
+                    <button class="screener-filter-btn" id="scr-btn-div" onclick="applyFilter('div')">💰 Dividendo &gt;3%</button>
+                    <input type="text" class="screener-search" id="scr-search" placeholder="🔍 Cerca ticker o nome..." oninput="applyFilter(currentFilter)">
+                </div>
+
+                <div class="screener-loading" id="scr-loading" style="display:none;">
+                    <div class="screener-loading-spinner"></div><div>Analisi del database in corso...</div>
+                </div>
+
+                <div class="screener-table-wrap" id="scr-table-wrap" style="display:none;">
+                    <table class="screener-table">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable('rank')" id="th-rank"># <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('ticker')" id="th-ticker">Ticker <span class="sort-arrow">↕</span></th>
+                                <th>Azienda</th>
+                                <th onclick="sortTable('price')" id="th-price">Prezzo <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('fv')" id="th-fv">Fair Value <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('upside')" id="th-upside" class="sorted">Upside % <span class="sort-arrow">↓</span></th>
+                                <th onclick="sortTable('div')" id="th-div">Dividendo <span class="sort-arrow">↕</span></th>
+                                <th>Segnale</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scr-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container" id="comparatore">
         <div class="section-header">
             <h2 class="section-title">Compara <span>Due Titoli</span></h2>
@@ -332,22 +472,12 @@
         </div>
         <div class="card">
             <div class="comp-inputs">
-                <div class="comp-input-group">
-                    <label>Primo Titolo</label>
-                    <input type="text" id="compInput1" class="comp-ticker-input" placeholder="es. GOOG">
-                </div>
+                <div class="comp-input-group"><label>Primo Titolo</label><input type="text" id="compInput1" class="comp-ticker-input" placeholder="es. GOOG"></div>
                 <div class="comp-vs">VS</div>
-                <div class="comp-input-group">
-                    <label>Secondo Titolo</label>
-                    <input type="text" id="compInput2" class="comp-ticker-input" placeholder="es. MSFT">
-                </div>
+                <div class="comp-input-group"><label>Secondo Titolo</label><input type="text" id="compInput2" class="comp-ticker-input" placeholder="es. MSFT"></div>
             </div>
             <button class="comp-btn" id="compBtnAction" onclick="compareStocks()">⚖️ CONFRONTA ORA</button>
-
-            <div id="compError" style="display:none; color:var(--accent-red); padding:15px; text-align:center; margin-top:16px;">
-                ⚠️ Uno o entrambi i ticker non sono nel database. Controlla e riprova.
-            </div>
-
+            <div id="compError" style="display:none; color:var(--accent-red); padding:15px; text-align:center; margin-top:16px;">⚠️ Uno o entrambi i ticker non sono nel database. Controlla e riprova.</div>
             <div id="compResult" class="comp-result">
                 <div class="comp-cards" id="compCards"></div>
                 <div class="comp-verdict" id="compVerdict"></div>
@@ -365,11 +495,51 @@
                 <input type="text" id="wlInput" class="watchlist-input" placeholder="Aggiungi ticker (es. MSFT, ISP, BATS...)">
                 <button class="watchlist-add-btn" onclick="addToWatchlist()">＋ AGGIUNGI</button>
             </div>
-            <div id="wlEmpty" class="watchlist-empty">
-                🔍 La tua watchlist è vuota.<br>
-                <span style="font-size: 0.85em;">Cerca un ticker o aggiungilo dai risultati.</span>
-            </div>
+            <div id="wlEmpty" class="watchlist-empty">🔍 La tua watchlist è vuota.<br><span style="font-size: 0.85em;">Cerca un ticker o aggiungilo dai risultati.</span></div>
             <div id="wlGrid" class="watchlist-grid" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div class="container" id="myportfolio">
+        <div class="section-header">
+            <h2 class="section-title">Il tuo <span>Portafoglio</span></h2>
+            <span style="color: var(--text-muted); font-size: 0.9em;">Monitora le tue posizioni live</span>
+        </div>
+        
+        <div class="kpi-container">
+            <div class="kpi-card"><div class="fv-label">Valore Investito</div><div class="kpi-val mono-font" id="myp-invested">0.00 €</div></div>
+            <div class="kpi-card"><div class="fv-label">Controvalore Live</div><div class="kpi-val mono-font" id="myp-current">0.00 €</div></div>
+            <div class="kpi-card"><div class="fv-label">P&L Totale</div><div class="kpi-val mono-font" id="myp-pl" style="color:#fff;">0.00 €</div></div>
+        </div>
+
+        <div class="card">
+            <div class="pers-port-inputs">
+                <div class="form-group"><label class="form-label">Ticker</label><input type="text" id="mypTicker" class="form-input" placeholder="Es. AAPL" style="text-transform:uppercase;"></div>
+                <div class="form-group"><label class="form-label">Quantità</label><input type="number" id="mypQty" class="form-input" placeholder="Es. 10" step="0.1"></div>
+                <div class="form-group"><label class="form-label">Prezzo Medio</label><input type="number" id="mypPrice" class="form-input" placeholder="Es. 150.50" step="0.01"></div>
+                <button class="btn-primary" onclick="addPersonalPosition()" style="margin-top:24px; padding: 15px 20px;">＋ AGGIUNGI</button>
+            </div>
+
+            <div id="mypLoading" style="display:none; text-align:center; padding:20px; color:var(--text-muted);">↻ Aggiornamento prezzi live in corso...</div>
+
+            <div class="pers-table-wrap" id="mypTableWrap" style="display:none;">
+                <table class="pers-table">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Q.tà</th>
+                            <th>PMC</th>
+                            <th>Prezzo Live</th>
+                            <th>P&L Monetario</th>
+                            <th>P&L %</th>
+                            <th>Status FV</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="mypBody"></tbody>
+                </table>
+            </div>
+            <div id="mypEmpty" class="watchlist-empty" style="margin-top: 10px;">💼 Il tuo portafoglio è vuoto. Inizia aggiungendo un titolo qui sopra.</div>
         </div>
     </div>
 
@@ -378,27 +548,14 @@
             <h2 class="section-title">Strumenti <span>Operativi</span></h2>
         </div>
         <div class="tools-grid">
-            
             <div class="card">
-                <h3 style="margin-top:0; color:#fff;">📈 Calcolatore PAC (Interesse Composto)</h3>
+                <h3 style="margin-top:0; color:#fff;">📈 Calcolatore PAC</h3>
                 <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Scopri l'effetto palla di neve sui tuoi investimenti a lungo termine.</p>
-                <div class="form-group">
-                    <label class="form-label">Capitale Iniziale (€)</label>
-                    <input type="number" id="pacInit" class="form-input" value="1000">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Versamento Mensile (€)</label>
-                    <input type="number" id="pacMonthly" class="form-input" value="200">
-                </div>
+                <div class="form-group"><label class="form-label">Capitale Iniziale (€)</label><input type="number" id="pacInit" class="form-input" value="1000"></div>
+                <div class="form-group"><label class="form-label">Versamento Mensile (€)</label><input type="number" id="pacMonthly" class="form-input" value="200"></div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label class="form-label">Anni</label>
-                        <input type="number" id="pacYears" class="form-input" value="10">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Rendimento Annuo Stimato (%)</label>
-                        <input type="number" id="pacRate" class="form-input" value="8">
-                    </div>
+                    <div class="form-group"><label class="form-label">Anni</label><input type="number" id="pacYears" class="form-input" value="10"></div>
+                    <div class="form-group"><label class="form-label">Rendimento Annuo Stimato (%)</label><input type="number" id="pacRate" class="form-input" value="8"></div>
                 </div>
                 <button onclick="calculatePAC()" class="btn-primary" style="margin-top: 10px;">CALCOLA PAC</button>
                 <div id="pacResult" class="tool-result-box">
@@ -412,23 +569,11 @@
             <div class="card">
                 <h3 style="margin-top:0; color:#fff;">🛡️ Calcolatore Position Sizing</h3>
                 <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Calcola esattamente quante azioni comprare per non sforare il tuo limite di rischio.</p>
-                <div class="form-group">
-                    <label class="form-label">Capitale Totale sul Conto (€)</label>
-                    <input type="number" id="psCap" class="form-input" value="5000">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Rischio Massimo per Trade (%)</label>
-                    <input type="number" id="psRisk" class="form-input" value="1" step="0.1">
-                </div>
+                <div class="form-group"><label class="form-label">Capitale Totale sul Conto (€)</label><input type="number" id="psCap" class="form-input" value="5000"></div>
+                <div class="form-group"><label class="form-label">Rischio Massimo per Trade (%)</label><input type="number" id="psRisk" class="form-input" value="1" step="0.1"></div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label class="form-label">Prezzo di Entrata (€)</label>
-                        <input type="number" id="psEntry" class="form-input" placeholder="Es. 150.50" step="0.01">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Prezzo Stop Loss (€)</label>
-                        <input type="number" id="psStop" class="form-input" placeholder="Es. 140.00" step="0.01">
-                    </div>
+                    <div class="form-group"><label class="form-label">Prezzo di Entrata (€)</label><input type="number" id="psEntry" class="form-input" placeholder="Es. 150.50" step="0.01"></div>
+                    <div class="form-group"><label class="form-label">Prezzo Stop Loss (€)</label><input type="number" id="psStop" class="form-input" placeholder="Es. 140.00" step="0.01"></div>
                 </div>
                 <button onclick="calculatePosition()" class="btn-primary" style="margin-top: 10px;">CALCOLA SIZE</button>
                 <div id="psResult" class="tool-result-box" style="border-color: rgba(41, 98, 255, 0.3); background: rgba(41, 98, 255, 0.05);">
@@ -440,27 +585,17 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <div class="container" id="portfolio">
         <div class="section-header">
-            <h2 class="section-title">Stato <span>Portafoglio C1076</span></h2>
+            <h2 class="section-title">Portafoglio <span>Matteo (C1076)</span></h2>
         </div>
         <div class="kpi-container">
-            <div class="kpi-card">
-                <div class="fv-label">Valore Totale</div>
-                <div class="kpi-val mono-font">4.833,95 €</div>
-            </div>
-            <div class="kpi-card">
-                <div class="fv-label">Performance YTD</div>
-                <div class="kpi-val red mono-font">-2,67%</div>
-            </div>
-            <div class="kpi-card">
-                <div class="fv-label">N. Posizioni</div>
-                <div class="kpi-val mono-font">9</div>
-            </div>
+            <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono-font">4.833,95 €</div></div>
+            <div class="kpi-card"><div class="fv-label">Performance YTD</div><div class="kpi-val red mono-font">-2,67%</div></div>
+            <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono-font">9</div></div>
         </div>
         <div class="portfolio-grid">
             <div style="display: flex; flex-direction: column; gap: 30px;">
@@ -507,11 +642,11 @@
                     </div>
                 </div>
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🌍 Panoramica Mercati Globali</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🌍 Panoramica Mercati</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                        { "colorTheme": "dark", "dateRange": "1D", "showChart": false, "locale": "it", "width": "100%", "height": 350, "isTransparent": true, "showSymbolLogo": true, "showFloatingTooltip": false, "tabs": [ { "title": "Indici", "symbols": [ { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" }, { "s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100" }, { "s": "MIL:FTSEMIB", "d": "FTSE MIB" }, { "s": "INDEX:DEU40", "d": "DAX" } ] }, { "title": "Commodities", "symbols": [ { "s": "CME_MINI:ES1!", "d": "S&P 500 Futures" }, { "s": "NYMEX:CL1!", "d": "Crude Oil" }, { "s": "TVC:GOLD", "d": "Gold" } ] }, { "title": "Forex", "symbols": [ { "s": "FX:EURUSD" }, { "s": "FX:GBPUSD" } ] } ] }
+                        { "colorTheme": "dark", "dateRange": "1D", "showChart": false, "locale": "it", "width": "100%", "height": 350, "isTransparent": true, "showSymbolLogo": true, "showFloatingTooltip": false, "tabs": [ { "title": "Indici", "symbols": [ { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" }, { "s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100" }, { "s": "MIL:FTSEMIB", "d": "FTSE MIB" } ] }, { "title": "Commodities", "symbols": [ { "s": "CME_MINI:ES1!", "d": "S&P 500 Futures" }, { "s": "NYMEX:CL1!", "d": "Crude Oil" }, { "s": "TVC:GOLD", "d": "Gold" } ] }, { "title": "Forex", "symbols": [ { "s": "FX:EURUSD" }, { "s": "FX:GBPUSD" } ] } ] }
                         </script>
                     </div>
                 </div>
@@ -541,7 +676,7 @@
                     </div>
                 </div>
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📊 Hot Stocks del Momento</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📊 Hot Stocks</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
@@ -561,55 +696,20 @@
             <div class="faq-item">
                 <button class="faq-question">Che cos'è il "Fair Value"? <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
-                    Il Fair Value (Valore Intrinseco o Giusto Valore) è una stima di quanto un'azienda vale *realmente*, basata sui suoi fondamentali economici e non sulle fluttuazioni emotive della Borsa. Nel mio modello, utilizzo principalmente l'analisi dei Flussi di Cassa Scontati (DCF). Se il prezzo in Borsa è inferiore al Fair Value, il titolo è considerato "a sconto" (Sottovalutato).
+                    Il Fair Value (Valore Intrinseco) è una stima di quanto un'azienda vale realmente, basata sui suoi fondamentali economici. Nel mio modello utilizzo l'analisi DCF (Discounted Cash Flow). Se il prezzo in Borsa è inferiore al Fair Value, il titolo è considerato "a sconto" (Sottovalutato).
                 </div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Come funziona il Calcolatore PAC? <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
-                    Il PAC (Piano di Accumulo del Capitale) sfrutta la formula dell'<strong>Interesse Composto</strong>: gli interessi generati dai tuoi investimenti producono a loro volta nuovi interessi. Nel lungo periodo (10+ anni), la curva di crescita diventa esponenziale.
+                    Il PAC (Piano di Accumulo del Capitale) sfrutta la formula dell'<strong>Interesse Composto</strong>: gli interessi generati dai tuoi investimenti producono a loro volta nuovi interessi. Nel lungo periodo, la curva di crescita diventa esponenziale.
                 </div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Cos'è il Position Sizing nel Trading? <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
-                    È la regola numero uno per non azzerare il conto. Significa decidere "quante azioni comprare" in base al rischio che sei disposto a sopportare. Il calcolatore divide il tuo rischio monetario per la distanza tra il prezzo di acquisto e il livello di Stop Loss, dicendoti l'esatto numero di azioni da acquistare.
+                    È la regola numero uno per non azzerare il conto. Significa decidere "quante azioni comprare" in base al rischio che sei disposto a sopportare. Il calcolatore divide il tuo rischio monetario per la distanza tra il prezzo di acquisto e il livello di Stop Loss.
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Cos'è il Dividend Yield? <span class="faq-icon">+</span></button>
-                <div class="faq-answer">
-                    Il Dividend Yield (Rendimento da Dividendo) è il rapporto percentuale tra il dividendo annuo pagato da un'azienda per ogni singola azione e il prezzo attuale dell'azione stessa. Ti indica quanto rende il tuo investimento solo tenendo il titolo in portafoglio, indipendentemente dall'andamento della Borsa.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="videos">
-        <div class="section-header">
-            <h2 class="section-title">Video <span>Principali</span></h2>
-        </div>
-        <div class="video-grid">
-            <div class="video-card">
-                <a href="https://www.youtube.com/watch?v=MpwZcg3J8BE" target="_blank" class="thumbnail-container">
-                    <img src="https://img.youtube.com/vi/MpwZcg3J8BE/maxresdefault.jpg" alt="Video">
-                    <div class="play-button"></div>
-                </a>
-                <div class="video-info"><h3 class="video-title">DISASTRO STELLANTIS: 22 miliardi di PERDITE</h3></div>
-            </div>
-            <div class="video-card">
-                <a href="https://www.youtube.com/watch?v=Icy8DMAwDYw" target="_blank" class="thumbnail-container">
-                    <img src="https://img.youtube.com/vi/Icy8DMAwDYw/maxresdefault.jpg" alt="Video">
-                    <div class="play-button"></div>
-                </a>
-                <div class="video-info"><h3 class="video-title">Analisi SAP: Ho comprato la Salesforce Europea?</h3></div>
-            </div>
-            <div class="video-card">
-                <a href="https://www.youtube.com/watch?v=gR_9pwPeT3o" target="_blank" class="thumbnail-container">
-                    <img src="https://img.youtube.com/vi/gR_9pwPeT3o/maxresdefault.jpg" alt="Video">
-                    <div class="play-button"></div>
-                </a>
-                <div class="video-info"><h3 class="video-title">TUTORIAL: Come sfruttare al meglio TradingView</h3></div>
             </div>
         </div>
     </div>
@@ -657,34 +757,33 @@
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // === 1. DATABASE COMPLETO (40+ Ticker) ===
-        // I prezzi ("price") sono ora stime realistiche per fare da fallback sicuro.
+        // === 1. DATABASE COMPLETO ===
         const db = {
-            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, price: 71.00, curr: "€", ex: "MIL", yf: "DIA.MI", divYield: 1.60, videoID: null },
-            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", yf: "ERG.MI", divYield: 4.10, videoID: null },
-            "RACE": { name: "Ferrari N.V.", fv: 300.00, price: 319.00, curr: "€", ex: "MIL", yf: "RACE.MI", divYield: 0.76, videoID: null },
-            "GOOG": { name: "Alphabet Inc.", fv: 290.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "GOOG", divYield: 0.15, videoID: null },
-            "MC": { name: "LVMH", fv: 600.00, price: 552.00, curr: "€", ex: "EPA", yf: "MC.PA", divYield: 1.50, videoID: null },
-            "ADBE": { name: "Adobe Inc.", fv: 300.00, price: 257.00, curr: "$", ex: "NASDAQ", yf: "ADBE", divYield: 0.00, videoID: null },
-            "FUN": { name: "Six Flags", fv: 25.00, price: 17.00, curr: "$", ex: "NYSE", yf: "FUN", divYield: 0.00, videoID: null },
-            "INTU": { name: "Intuit Inc.", fv: 700.00, price: 381.00, curr: "$", ex: "NASDAQ", yf: "INTU", divYield: 0.65, videoID: null },
-            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, price: 145.00, curr: "$", ex: "NASDAQ", yf: "QCOM", divYield: 1.85, videoID: null },
-            "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", yf: "STLAM.MI", divYield: 6.50, videoID: "MpwZcg3J8BE" },
-            "SAP": { name: "SAP SE", fv: 220.00, price: 220.00, curr: "€", ex: "XETR", yf: "SAP.DE", divYield: 1.20, videoID: "Icy8DMAwDYw" },
-            
+            "DIA": { name: "DiaSorin", fv: 85.00, price: 71.04, curr: "€", ex: "MIL", yf: "DIA.MI", divYield: 1.60, videoID: null, fund: {pe: "24.5", eps: "2.90", mcap: "3.9B", rev: "+3.2%"} },
+            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", yf: "ERG.MI", divYield: 4.10, videoID: null, fund: {pe: "14.2", eps: "1.68", mcap: "3.5B", rev: "+5.1%"} },
+            "RACE": { name: "Ferrari", fv: 300.00, price: 319.40, curr: "€", ex: "MIL", yf: "RACE.MI", divYield: 0.76, videoID: null, fund: {pe: "51.3", eps: "6.22", mcap: "80B", rev: "+17%"} },
+            "GOOG": { name: "Alphabet", fv: 290.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "GOOG", divYield: 0.15, videoID: null, fund: {pe: "25.1", eps: "6.97", mcap: "2.1T", rev: "+13%"} },
+            "MC": { name: "LVMH", fv: 600.00, price: 552.20, curr: "€", ex: "EPA", yf: "MC.PA", divYield: 1.50, videoID: null, fund: {pe: "23.4", eps: "23.6", mcap: "275B", rev: "+8.9%"} },
+            "ADBE": { name: "Adobe", fv: 300.00, price: 257.81, curr: "$", ex: "NASDAQ", yf: "ADBE", divYield: 0.00, videoID: null, fund: {pe: "38.2", eps: "6.75", mcap: "210B", rev: "+10%"} },
+            "INTU": { name: "Intuit", fv: 700.00, price: 381.23, curr: "$", ex: "NASDAQ", yf: "INTU", divYield: 0.65, videoID: null, fund: {pe: "42.1", eps: "9.05", mcap: "170B", rev: "+12%"} },
+            "QCOM": { name: "Qualcomm", fv: 180.00, price: 145.82, curr: "$", ex: "NASDAQ", yf: "QCOM", divYield: 1.85, videoID: null, fund: {pe: "21.5", eps: "6.78", mcap: "160B", rev: "+5%"} },
+            "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", yf: "STLAM.MI", divYield: 6.50, videoID: "MpwZcg3J8BE", fund: {pe: "3.8", eps: "5.40", mcap: "64B", rev: "-2%"} },
+            "SAP": { name: "SAP SE", fv: 220.00, price: 220.00, curr: "€", ex: "XETR", yf: "SAP.DE", divYield: 1.20, videoID: "Icy8DMAwDYw", fund: {pe: "32.1", eps: "6.85", mcap: "260B", rev: "+11%"} },
+            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "AAPL", divYield: 0.50, videoID: null, fund: {pe: "28.5", eps: "6.14", mcap: "2.8T", rev: "+2.1%"} },
+            "MSFT": { name: "Microsoft", fv: 461.22, price: 410.00, curr: "$", ex: "NASDAQ", yf: "MSFT", divYield: 0.75, videoID: null, fund: {pe: "35.2", eps: "11.6", mcap: "3.0T", rev: "+15%"} },
+            "AMZN": { name: "Amazon", fv: 199.00, price: 180.00, curr: "$", ex: "NASDAQ", yf: "AMZN", divYield: 0.00, videoID: null, fund: {pe: "40.5", eps: "4.44", mcap: "1.9T", rev: "+12%"} },
+            "NVDA": { name: "Nvidia", fv: 163.11, price: 120.00, curr: "$", ex: "NASDAQ", yf: "NVDA", divYield: 0.02, videoID: null, fund: {pe: "75.4", eps: "1.59", mcap: "2.9T", rev: "+265%"} },
             "A2A": { name: "A2A S.p.A.", fv: 2.45, price: 1.70, curr: "€", ex: "MIL", yf: "A2A.MI", divYield: 4.80, videoID: null },
-            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "AAPL", divYield: 0.50, videoID: null },
             "ADM": { name: "Archer-Daniels", fv: 53.00, price: 60.00, curr: "$", ex: "NYSE", yf: "ADM", divYield: 3.50, videoID: null },
             "ADP": { name: "Auto Data Proc.", fv: 312.00, price: 250.00, curr: "$", ex: "NASDAQ", yf: "ADP", divYield: 1.90, videoID: null },
             "ADSK": { name: "Autodesk Inc.", fv: 339.00, price: 260.00, curr: "$", ex: "NASDAQ", yf: "ADSK", divYield: 0.00, videoID: null },
             "AMAT": { name: "Applied Materials", fv: 233.00, price: 205.00, curr: "$", ex: "NASDAQ", yf: "AMAT", divYield: 0.70, videoID: null },
             "AMD": { name: "AMD", fv: 145.60, price: 160.00, curr: "$", ex: "NASDAQ", yf: "AMD", divYield: 0.00, videoID: null },
-            "AMZN": { name: "Amazon.com", fv: 199.00, price: 180.00, curr: "$", ex: "NASDAQ", yf: "AMZN", divYield: 0.00, videoID: null },
             "ASML": { name: "ASML Holding", fv: 904.00, price: 920.00, curr: "$", ex: "NASDAQ", yf: "ASML", divYield: 0.85, videoID: null },
             "AXP": { name: "American Express", fv: 332.00, price: 230.00, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, videoID: null },
             "BAC": { name: "Bank of America", fv: 59.85, price: 37.00, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, videoID: null },
             "BAYN": { name: "Bayer AG", fv: 44.12, price: 28.00, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, videoID: null },
-            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
+            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "p", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
             "BC": { name: "Brunswick Corp", fv: 88.00, price: 85.00, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, videoID: null },
             "BNG": { name: "Bunge Global", fv: 46.31, price: 105.00, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null },
             "BRE": { name: "Brembo", fv: 14.93, price: 10.50, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, videoID: null },
@@ -699,7 +798,7 @@
             "DDOG": { name: "Datadog", fv: 129.62, price: 125.00, curr: "$", ex: "NASDAQ", yf: "DDOG", divYield: 0.00, videoID: null },
             "ENI": { name: "Eni S.p.A.", fv: 21.29, price: 14.80, curr: "€", ex: "MIL", yf: "ENI.MI", divYield: 6.20, videoID: null },
             "ENEL": { name: "Enel S.p.A.", fv: 4.85, price: 6.20, curr: "€", ex: "MIL", yf: "ENEL.MI", divYield: 6.50, videoID: null },
-            "G": { name: "Assicurazioni Generali", fv: 50.63, price: 22.50, curr: "€", ex: "MIL", yf: "G.MI", divYield: 5.50, videoID: null },
+            "G": { name: "Assic. Generali", fv: 50.63, price: 22.50, curr: "€", ex: "MIL", yf: "G.MI", divYield: 5.50, videoID: null },
             "IBM": { name: "IBM", fv: 231.00, price: 195.00, curr: "$", ex: "NYSE", yf: "IBM", divYield: 3.20, videoID: null },
             "INTC": { name: "Intel", fv: 35.29, price: 42.50, curr: "$", ex: "NASDAQ", yf: "INTC", divYield: 1.50, videoID: null },
             "IP": { name: "International Paper", fv: 48.02, price: 39.00, curr: "$", ex: "NYSE", yf: "IP", divYield: 4.00, videoID: null },
@@ -708,43 +807,102 @@
             "LULU": { name: "Lululemon", fv: 465.80, price: 455.00, curr: "$", ex: "NASDAQ", yf: "LULU", divYield: 0.00, videoID: null },
             "MA": { name: "Mastercard", fv: 500.65, price: 475.00, curr: "$", ex: "NYSE", yf: "MA", divYield: 0.50, videoID: null },
             "MONC": { name: "Moncler", fv: 74.93, price: 66.00, curr: "€", ex: "MIL", yf: "MONC.MI", divYield: 1.80, videoID: null },
-            "MSFT": { name: "Microsoft", fv: 461.22, price: 410.00, curr: "$", ex: "NASDAQ", yf: "MSFT", divYield: 0.75, videoID: null },
-            "NVDA": { name: "Nvidia", fv: 163.11, price: 120.00, curr: "$", ex: "NASDAQ", yf: "NVDA", divYield: 0.02, videoID: null },
             "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 62.00, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, videoID: null }
         };
 
-        const aliases = {"1GOOG":"GOOG","1MC":"MC",".ADBE":"ADBE",".FUN":"FUN",".INTU":"INTU",".QCOM":"QCOM"};
-        let currentFVTicker = null;
+        // === SEGNALI INDICATORE (Puoi modificarli qui) ===
+        const indicatorSignals = [
+            { date: "Oggi", ticker: "NVDA", price: "120.50", action: "BUY" },
+            { date: "Ieri", ticker: "AAPL", price: "172.10", action: "BUY" },
+            { date: "02 Mar 2026", ticker: "RACE", price: "320.00", action: "SELL" },
+            { date: "28 Feb 2026", ticker: "GOOG", price: "170.00", action: "BUY" }
+        ];
 
-        // === 2. FUNZIONE CENTRALE FETCH PREZZO LIVE ===
+        const aliases = {"1GOOG":"GOOG","1MC":"MC",".ADBE":"ADBE",".FUN":"FUN",".INTU":"INTU",".QCOM":"QCOM"};
+
+        // === NOTIFICHE TOAST ===
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div'); toast.className = 'toast';
+            toast.innerHTML = `<span style="font-size: 1.5em;">💡</span> <div>${message}</div>`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 6000);
+        }
+
+        // === GESTIONE ALERTS SALVATI ===
+        let activeAlerts = JSON.parse(localStorage.getItem('mm_alerts') || '[]');
+        function saveAlerts() { localStorage.setItem('mm_alerts', JSON.stringify(activeAlerts)); }
+        
+        function toggleAlert(ticker) {
+            if(!ticker) return;
+            if(activeAlerts.includes(ticker)) {
+                activeAlerts = activeAlerts.filter(t => t !== ticker);
+                showToast(`🔕 Alert rimosso per <strong>${ticker}</strong>.`);
+            } else {
+                activeAlerts.push(ticker);
+                showToast(`🔔 Alert impostato! Ti avviserò se <strong>${ticker}</strong> scende sotto il Fair Value.`);
+            }
+            saveAlerts();
+        }
+
+        async function checkAlertsOnLoad() {
+            if(activeAlerts.length === 0) return;
+            for (let ticker of activeAlerts) {
+                const data = db[ticker];
+                if(data) {
+                    const livePrice = await getLivePrice(data.yf, data.price);
+                    if(data.fv > livePrice) {
+                        showToast(`🚨 OCCASIONE: <strong>${ticker}</strong> è scesa a ${parseFloat(livePrice).toFixed(2)}${data.curr}, sotto il tuo Fair Value di ${data.fv}${data.curr}!`);
+                    }
+                }
+            }
+        }
+
+        // === FETCH LIVE PREZZO ===
         async function getLivePrice(yfTicker, fallbackPrice) {
-            if(!yfTicker) return fallbackPrice;
+            if (!yfTicker) return fallbackPrice;
             try {
                 const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}`;
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
                 const response = await fetch(proxyUrl);
                 if (response.ok) {
-                    const data = await response.json();
-                    const j = JSON.parse(data.contents);
-                    if (j.chart && j.chart.result && j.chart.result.length > 0) {
-                        return j.chart.result[0].meta.regularMarketPrice;
-                    }
+                    const data = await response.json(); const j = JSON.parse(data.contents);
+                    if (j.chart && j.chart.result && j.chart.result.length > 0) return j.chart.result[0].meta.regularMarketPrice;
                 }
-            } catch (e) {
-                console.log("Fetch live fallito per " + yfTicker + ". Uso prezzo storico di fallback.");
-            }
-            return fallbackPrice;
+            } catch (e) {} return fallbackPrice;
         }
 
-        // === 3. LOGICA FAIR VALUE ===
+        // === CARICAMENTO SEGNALI INDICATORE ===
+        function renderIndicatorSignals() {
+            const list = document.getElementById('signal-list-container');
+            if(!list) return;
+            let html = '';
+            indicatorSignals.forEach(s => {
+                const isBuy = s.action === 'BUY';
+                html += `
+                <div class="signal-item">
+                    <div>
+                        <div class="signal-ticker">${s.ticker}</div>
+                        <div class="signal-date">${s.date}</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div class="signal-price">${s.price} $</div>
+                        <div class="sig-badge ${isBuy ? 'buy' : 'sell'}">${s.action}</div>
+                    </div>
+                </div>`;
+            });
+            list.innerHTML = html;
+        }
+
+        // === FAIR VALUE SEARCH ===
+        let currentFVTicker = null;
         async function calculateFV() {
             let input = document.getElementById('fvInput').value.toUpperCase().trim();
             if (aliases[input]) input = aliases[input];
 
-            const res = document.getElementById('fvResult'); const err = document.getElementById('fvError');
-            const miniChart = document.getElementById('mini-chart-container'); const smartVideo = document.getElementById('smart-video-box');
-            const videoIframe = document.getElementById('smart-video-iframe'); const fvValueText = document.getElementById('fvValue');
-            const fvDividendText = document.getElementById('fvDividend'); const fvStatusBadge = document.getElementById('fvStatus');
+            const res = document.getElementById('fvResult'), err = document.getElementById('fvError');
+            const miniChart = document.getElementById('mini-chart-container'), smartVideo = document.getElementById('smart-video-box');
+            const videoIframe = document.getElementById('smart-video-iframe');
             const btn = document.getElementById('calcBtn');
 
             res.style.display = "none"; err.style.display = "none"; miniChart.innerHTML = ""; smartVideo.style.display = "none"; currentFVTicker = null;
@@ -752,42 +910,39 @@
             if (db[input]) {
                 const data = db[input];
                 btn.innerText = "CARICAMENTO..."; btn.style.opacity = "0.7";
-
                 const livePrice = await getLivePrice(data.yf, data.price);
-
                 btn.innerText = "ANALIZZA"; btn.style.opacity = "1";
 
                 currentFVTicker = input;
                 document.getElementById('fvName').innerText = data.name;
-                fvValueText.innerText = data.fv.toFixed(2) + " " + data.curr;
-                
-                if(data.divYield && data.divYield > 0) fvDividendText.innerText = data.divYield.toFixed(2) + "%";
-                else fvDividendText.innerText = "N/A";
+                document.getElementById('fvValue').innerText = data.fv.toFixed(2) + " " + data.curr;
+                document.getElementById('fvDividend').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
 
-                const fvNum = parseFloat(data.fv);
-                const priceNum = parseFloat(livePrice);
+                document.getElementById('fund-pe').innerText = data.fund?.pe || "N/A";
+                document.getElementById('fund-eps').innerText = data.fund?.eps || "N/A";
+                document.getElementById('fund-mcap').innerText = data.fund?.mcap || "N/A";
+                document.getElementById('fund-rev').innerText = data.fund?.rev || "N/A";
 
-                if(fvNum === priceNum) {
-                    fvValueText.style.color = "#fff"; fvValueText.style.textShadow = "none";
-                    fvStatusBadge.innerText = "IN LINEA COL FAIR VALUE (0.0%)";
-                    fvStatusBadge.style.cssText = "color: #fff; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.4);";
-                    res.style.borderColor = "var(--border-glass)";
-                } else if (fvNum > priceNum) {
-                    const upside = (((fvNum - priceNum) / priceNum) * 100).toFixed(1);
-                    fvValueText.style.color = "var(--brand-green)"; fvValueText.style.textShadow = "0 0 25px var(--brand-glow)";
-                    fvStatusBadge.innerText = `SOTTOVALUTATA (POTENZIALE: +${upside}%)`;
-                    fvStatusBadge.style.cssText = "color: var(--brand-green); background: rgba(0,230,118,0.1); border: 1px solid rgba(0,230,118,0.4);";
+                const fvNum = parseFloat(data.fv), priceNum = parseFloat(livePrice);
+                const badge = document.getElementById('fvStatus');
+                if (fvNum > priceNum) {
+                    document.getElementById('fvValue').style.color = "var(--brand-green)";
+                    badge.innerText = `SOTTOVALUTATA (+${(((fvNum - priceNum) / priceNum) * 100).toFixed(1)}%)`;
+                    badge.style.cssText = "color:var(--brand-green); background:rgba(0,230,118,0.1); border:1px solid rgba(0,230,118,0.4);";
                     res.style.borderColor = "var(--brand-green)";
-                } else {
-                    const premium = (((priceNum - fvNum) / fvNum) * 100).toFixed(1);
-                    fvValueText.style.color = "var(--accent-red)"; fvValueText.style.textShadow = "0 0 25px rgba(255,61,0,0.35)";
-                    fvStatusBadge.innerText = `SOPRAVVALUTATA DEL ${premium}%`;
-                    fvStatusBadge.style.cssText = "color: var(--accent-red); background: rgba(255,61,0,0.1); border: 1px solid rgba(255,61,0,0.4);";
+                } else if (fvNum < priceNum) {
+                    document.getElementById('fvValue').style.color = "var(--accent-red)";
+                    badge.innerText = `SOPRAVVALUTATA (${(((priceNum - fvNum) / fvNum) * 100).toFixed(1)}%)`;
+                    badge.style.cssText = "color:var(--accent-red); background:rgba(255,61,0,0.1); border:1px solid rgba(255,61,0,0.4);";
                     res.style.borderColor = "var(--accent-red)";
+                } else {
+                    document.getElementById('fvValue').style.color = "#fff";
+                    badge.innerText = "IN LINEA";
+                    badge.style.cssText = "color:#fff; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.4);";
+                    res.style.borderColor = "var(--border-glass)";
                 }
 
-                const script = document.createElement('script');
-                script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js'; script.async = true;
+                const script = document.createElement('script'); script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js'; script.async = true;
                 script.innerHTML = JSON.stringify({ "symbol": data.ex + ":" + input, "width": "100%", "isTransparent": true, "colorTheme": "dark", "locale": "it" });
                 miniChart.appendChild(script);
 
@@ -797,218 +952,225 @@
         }
         document.getElementById("fvInput").addEventListener("keypress", e => { if (e.key === "Enter") { e.preventDefault(); calculateFV(); } });
 
-        // === 4. LOGICA COMPARATORE TITOLI ===
+        // === SCREENER ===
+        let screenerData = []; let screenerOpen = false; let screenerBuilt = false;
+        let currentFilter = 'all'; let currentSort = { col: 'upside', dir: 'desc' };
+
+        function toggleScreener() {
+            screenerOpen = !screenerOpen;
+            document.getElementById('scr-body').classList.toggle('open', screenerOpen);
+            document.getElementById('scr-toggle-icon').classList.toggle('open', screenerOpen);
+            if (screenerOpen) {
+                document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `📊 <strong>Nascondi</strong> lo Screener`;
+                if (!screenerBuilt) { buildScreenerData(); screenerBuilt = true; }
+            } else {
+                document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `📊 Mostra tutti i <strong>${Object.keys(db).length}</strong> titoli del database ordinati per upside`;
+            }
+        }
+
+        function buildScreenerData() {
+            screenerData = Object.entries(db).map(([ticker, data]) => {
+                const upside = ((data.fv - data.price) / data.price) * 100;
+                return { ticker, ...data, upside };
+            });
+            sortScreener(); renderScreener();
+        }
+
+        function sortScreener() {
+            const { col, dir } = currentSort;
+            screenerData.sort((a, b) => {
+                let va = (col === 'ticker') ? a.ticker : a[col] || 0;
+                let vb = (col === 'ticker') ? b.ticker : b[col] || 0;
+                if (col === 'div') { va = a.divYield || 0; vb = b.divYield || 0; }
+                if (col === 'ticker') return dir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+                return dir === 'asc' ? va - vb : vb - va;
+            });
+        }
+
+        function sortTable(col) {
+            currentSort.dir = (currentSort.col === col && currentSort.dir === 'desc') ? 'asc' : 'desc';
+            currentSort.col = col;
+            document.querySelectorAll('.screener-table th').forEach(th => th.classList.remove('sorted'));
+            document.getElementById('th-' + col).classList.add('sorted');
+            sortScreener(); renderScreener();
+        }
+
+        function applyFilter(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.screener-filter-btn').forEach(b => b.classList.remove('active', 'active-red'));
+            document.getElementById('scr-btn-' + filter)?.classList.add(filter === 'over' ? 'active-red' : 'active');
+            renderScreener();
+        }
+
+        function renderScreener() {
+            const search = document.getElementById('scr-search').value.toLowerCase();
+            let filtered = screenerData.filter(d => {
+                if (search && !d.ticker.toLowerCase().includes(search) && !d.name.toLowerCase().includes(search)) return false;
+                if (currentFilter === 'under' && d.upside <= 0) return false;
+                if (currentFilter === 'over' && d.upside > 0) return false;
+                if (currentFilter === 'div' && (d.divYield || 0) < 3) return false;
+                return true;
+            });
+
+            document.getElementById('stat-total').innerText = screenerData.length;
+            document.getElementById('stat-undervalued').innerText = screenerData.filter(d => d.upside > 0).length;
+            document.getElementById('stat-overvalued').innerText = screenerData.filter(d => d.upside <= 0).length;
+            document.getElementById('screener-stats').style.display = 'grid';
+
+            const tbody = document.getElementById('scr-tbody'); tbody.innerHTML = '';
+            filtered.forEach((d, i) => {
+                const isUnder = d.upside > 0;
+                let badge = isUnder ? (d.upside > 20 ? 'BUY FORTE' : 'SOTTOVALUTATO') : 'SOPRAVVALUTATO';
+                let bClass = isUnder ? 'buy' : 'sell';
+
+                const tr = document.createElement('tr');
+                tr.onclick = () => { document.getElementById('fvInput').value = d.ticker; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV,400); };
+                tr.innerHTML = `<td class="scr-rank">${i + 1}</td><td class="scr-ticker">${d.ticker}</td><td class="scr-name">${d.name}</td>
+                <td class="scr-price">${d.price.toFixed(2)} ${d.curr}</td><td class="scr-fv" style="color:${isUnder?'var(--brand-green)':'var(--accent-red)'}">${d.fv.toFixed(2)} ${d.curr}</td>
+                <td><div class="scr-upside ${isUnder?'positive':'negative'}">${isUnder?'+':''}${d.upside.toFixed(1)}%</div></td>
+                <td class="scr-div">${d.divYield ? d.divYield.toFixed(1)+'%' : '—'}</td><td><span class="scr-badge ${bClass}">${badge}</span></td>`;
+                tbody.appendChild(tr);
+            });
+            document.getElementById('scr-loading').style.display = 'none'; document.getElementById('scr-table-wrap').style.display = 'block';
+        }
+
+        // === COMPARATORE ===
         async function compareStocks() {
             let t1 = document.getElementById('compInput1').value.toUpperCase().trim();
             let t2 = document.getElementById('compInput2').value.toUpperCase().trim();
-            if (aliases[t1]) t1 = aliases[t1];
-            if (aliases[t2]) t2 = aliases[t2];
+            if (aliases[t1]) t1 = aliases[t1]; if (aliases[t2]) t2 = aliases[t2];
 
-            const err = document.getElementById('compError'); const result = document.getElementById('compResult');
-            const cardsEl = document.getElementById('compCards'); const verdictEl = document.getElementById('compVerdict');
-
+            const err = document.getElementById('compError'), result = document.getElementById('compResult'), cardsEl = document.getElementById('compCards'), verdictEl = document.getElementById('compVerdict'), btn = document.getElementById('compBtnAction');
             err.style.display = 'none'; result.style.display = 'none';
             if (!db[t1] || !db[t2]) { err.style.display = 'block'; return; }
-
-            const btn = document.getElementById('compBtnAction');
-            btn.innerText = '⏳ ANALISI IN CORSO...'; btn.style.opacity = '0.7';
-
-            const d1 = db[t1]; const d2 = db[t2];
-            const [p1, p2] = await Promise.all([ getLivePrice(d1.yf, d1.price), getLivePrice(d2.yf, d2.price) ]);
-
+            btn.innerText = '⏳ ANALISI...'; btn.style.opacity = '0.7';
+            const d1 = db[t1], d2 = db[t2];
+            const [p1, p2] = await Promise.all([getLivePrice(d1.yf, d1.price), getLivePrice(d2.yf, d2.price)]);
             btn.innerText = '⚖️ CONFRONTA ORA'; btn.style.opacity = '1';
+            const up1 = ((d1.fv - p1) / p1) * 100, up2 = ((d2.fv - p2) / p2) * 100;
+            const winner = up1 >= up2 ? t1 : t2;
 
-            const upside1 = ((d1.fv - p1) / p1) * 100;
-            const upside2 = ((d2.fv - p2) / p2) * 100;
-            const winner = upside1 >= upside2 ? t1 : t2;
-
-            function buildCard(ticker, data, livePrice, upside, isWinner) {
-                const isUnder = upside > 0;
-                const color = isUnder ? 'var(--brand-green)' : 'var(--accent-red)';
-                const barColor = isUnder ? '#00e676' : '#ff3d00';
-                const barWidth = Math.min(Math.abs(upside), 60);
-                const discount = Math.abs(upside).toFixed(1);
-                const statusLabel = isUnder ? `Sottovalutata del ${discount}%` : `Sopravvalutata del ${discount}%`;
-
-                return `
-                    <div class="comp-card ${isWinner ? 'winner' : 'loser'}">
-                        ${isWinner ? '<div class="comp-winner-badge">🏆 MIGLIORE OPPORTUNITÀ</div>' : ''}
-                        <div class="comp-ticker-big">${ticker}</div>
-                        <div class="comp-name">${data.name}</div>
-                        <div class="comp-row"><span class="comp-row-label">Prezzo Live</span><span class="comp-row-val">${parseFloat(livePrice).toFixed(2)} ${data.curr}</span></div>
-                        <div class="comp-row"><span class="comp-row-label">Fair Value</span><span class="comp-row-val" style="color:${color}">${data.fv.toFixed(2)} ${data.curr}</span></div>
-                        <div class="comp-row"><span class="comp-row-label">Gap FV</span><span class="comp-row-val" style="color:${color}">${isUnder ? '+' : ''}${upside.toFixed(1)}%</span></div>
-                        <div class="comp-upside-bar">
-                            <div style="display:flex; justify-content:space-between; font-size:0.75em; color:var(--text-muted);">
-                                <span>Potenziale</span><span style="color:${color}; font-weight:700;">${statusLabel}</span>
-                            </div>
-                            <div class="comp-upside-track"><div class="comp-upside-fill" style="width:${barWidth}%; background:${barColor};"></div></div>
-                        </div>
-                    </div>`;
+            function buildCard(t, d, p, u, isW) {
+                const isU = u > 0, color = isU ? 'var(--brand-green)' : 'var(--accent-red)';
+                return `<div class="comp-card ${isW ? 'winner' : 'loser'}">${isW ? '<div class="comp-winner-badge">🏆 MIGLIORE OPPORTUNITÀ</div>' : ''}
+                    <div class="comp-ticker-big">${t}</div><div class="comp-name">${d.name}</div>
+                    <div class="comp-row"><span class="comp-row-label">Prezzo Live</span><span class="comp-row-val">${parseFloat(p).toFixed(2)} ${d.curr}</span></div>
+                    <div class="comp-row"><span class="comp-row-label">Fair Value</span><span class="comp-row-val" style="color:${color}">${d.fv.toFixed(2)} ${d.curr}</span></div>
+                    <div class="comp-row"><span class="comp-row-label">Gap FV</span><span class="comp-row-val" style="color:${color}">${isU?'+':''}${u.toFixed(1)}%</span></div>
+                </div>`;
             }
-
-            cardsEl.innerHTML = buildCard(t1, d1, p1, upside1, winner === t1) + buildCard(t2, d2, p2, upside2, winner === t2);
-
-            const wData = winner === t1 ? d1 : d2; const wUpside = winner === t1 ? upside1 : upside2;
-            const lTicker = winner === t1 ? t2 : t1; const lUpside = winner === t1 ? upside2 : upside1;
-            const isGoodDeal = wUpside > 0;
-
-            let verdictText = '';
-            if (isGoodDeal) {
-                verdictText = `<strong style="color:var(--brand-green)">${winner}</strong> offre il maggiore margine di sicurezza con un upside del <strong>${wUpside.toFixed(1)}%</strong> rispetto al mio Fair Value. ${lUpside > 0 ? `Anche ${lTicker} è sottovalutata (+${lUpside.toFixed(1)}%), ma meno conveniente.` : `${lTicker} è invece sopravvalutata del ${Math.abs(lUpside).toFixed(1)}%.`}`;
-            } else {
-                verdictText = `Entrambi i titoli risultano sopravvalutati rispetto al mio Fair Value. <strong>${winner}</strong> ha il gap negativo minore (${wUpside.toFixed(1)}%), ma preferisco attendere prezzi più bassi su entrambi.`;
-            }
-
+            cardsEl.innerHTML = buildCard(t1, d1, p1, up1, winner === t1) + buildCard(t2, d2, p2, up2, winner === t2);
+            const wUpside = winner === t1 ? up1 : up2; const lTicker = winner === t1 ? t2 : t1; const lUpside = winner === t1 ? up2 : up1; const isGoodDeal = wUpside > 0;
+            let verdictText = isGoodDeal 
+                ? `<strong style="color:var(--brand-green)">${winner}</strong> offre il maggiore margine di sicurezza con un upside del <strong>${wUpside.toFixed(1)}%</strong>.`
+                : `Entrambi i titoli risultano sopravvalutati rispetto al mio Fair Value. <strong>${winner}</strong> ha il gap negativo minore (${wUpside.toFixed(1)}%).`;
             verdictEl.innerHTML = `<div class="comp-verdict-icon">${isGoodDeal ? '💡' : '⏳'}</div><div class="comp-verdict-text"><div class="comp-verdict-title">Verdetto di Matteo</div><div class="comp-verdict-sub">${verdictText}</div></div>`;
             result.style.display = 'block';
         }
-        ['compInput1','compInput2'].forEach(id => { document.getElementById(id).addEventListener('keypress', e => { if (e.key === 'Enter') compareStocks(); }); });
 
-        // === 5. WATCHLIST ASINCRONA ===
-        let watchlist = JSON.parse(localStorage.getItem('mmtrading_watchlist') || '[]');
-        function saveWatchlist() { localStorage.setItem('mmtrading_watchlist', JSON.stringify(watchlist)); }
+        // === WATCHLIST ASINCRONA ===
+        let watchlist = JSON.parse(localStorage.getItem('mm_wl') || '[]');
+        function saveWatchlist() { localStorage.setItem('mm_wl', JSON.stringify(watchlist)); }
 
         function renderWatchlist() {
-            const grid = document.getElementById('wlGrid'); const empty = document.getElementById('wlEmpty'); const count = document.getElementById('wl-count');
-            count.innerText = watchlist.length + (watchlist.length === 1 ? ' titolo' : ' titoli');
-
+            const grid = document.getElementById('wlGrid'), empty = document.getElementById('wlEmpty');
+            document.getElementById('wl-count').innerText = watchlist.length + ' titoli';
             if (watchlist.length === 0) { grid.style.display = 'none'; empty.style.display = 'block'; return; }
             empty.style.display = 'none'; grid.style.display = 'grid'; grid.innerHTML = '';
 
             watchlist.forEach(ticker => {
                 const data = db[ticker]; const card = document.createElement('div'); card.className = 'wl-item';
-                
-                if (!data) {
-                    card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">Non in DB</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>`;
-                    grid.appendChild(card); return;
-                }
-
-                // Stato di caricamento visivo
-                card.innerHTML = `
-                    <div class="wl-item-header">
-                        <div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div>
-                        <button class="wl-remove" onclick="removeFromWatchlist('${ticker}')" title="Rimuovi">✕</button>
-                    </div>
-                    <div style="text-align: center; color: var(--text-muted); font-size: 0.85em; padding: 10px 0;">↻ Connessione Live...</div>
-                `;
+                if(!data) { card.innerHTML=`<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>`; grid.appendChild(card); return; }
+                card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div><div style="text-align:center; color:var(--text-muted); font-size:0.85em; padding:10px 0;">↻ Calcolo in corso...</div>`;
                 grid.appendChild(card);
 
-                // Fetch reale e aggiornamento card
-                getLivePrice(data.yf, data.price).then(livePrice => {
-                    const priceNum = parseFloat(livePrice); const fvNum = parseFloat(data.fv);
-                    let badge = '';
-
-                    if (fvNum === priceNum) { badge = `<span class="wl-badge neutral" style="background:rgba(255,255,255,0.1); color:#fff;">In Linea</span>`; } 
-                    else if (fvNum > priceNum) { const diff = (((fvNum - priceNum) / priceNum) * 100).toFixed(1); badge = `<span class="wl-badge green">↑ +${diff}% upside</span>`; } 
-                    else { const diff = (((priceNum - fvNum) / fvNum) * 100).toFixed(1); badge = `<span class="wl-badge red">↓ -${diff}% calo al FV</span>`; }
-
-                    card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')" title="Rimuovi">✕</button></div>
-                        <div class="wl-fv-row"><div><div class="wl-fv-label">Fair Value</div><div class="wl-fv-val mono-font" style="color: ${fvNum > priceNum ? 'var(--brand-green)' : (fvNum < priceNum ? 'var(--accent-red)' : '#fff')}">${fvNum.toFixed(2)} ${data.curr}</div></div><div>${badge}</div></div>
-                        <button class="wl-fv-btn" onclick="jumpToFV('${ticker}')">🔍 Analizza Live</button>`;
+                getLivePrice(data.yf, data.price).then(price => {
+                    const fvNum = parseFloat(data.fv), priceNum = parseFloat(price);
+                    const badge = (fvNum > priceNum) ? `<span class="wl-badge green">↑ +${(((fvNum-priceNum)/priceNum)*100).toFixed(1)}% upside</span>` : `<span class="wl-badge red">↓ ${(((priceNum-fvNum)/fvNum)*100).toFixed(1)}% al FV</span>`;
+                    card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>
+                        <div class="wl-fv-row"><div><div style="font-size:0.75em; color:var(--text-muted); text-transform:uppercase;">Fair Value</div><div class="mono-font" style="font-weight:700; color:${fvNum > priceNum ? 'var(--brand-green)' : 'var(--accent-red)'}">${fvNum.toFixed(2)} ${data.curr}</div></div><div>${badge}</div></div>`;
                 });
             });
         }
+        function addToWatchlist(t) {
+            let input = t || document.getElementById('wlInput').value.toUpperCase().trim(); if(aliases[input]) input = aliases[input];
+            if (!input || watchlist.includes(input)) return;
+            watchlist.unshift(input); saveWatchlist(); renderWatchlist(); document.getElementById('wlInput').value = '';
+        }
+        function addCurrentToWatchlist() { if (currentFVTicker) addToWatchlist(currentFVTicker); }
+        function removeFromWatchlist(t) { watchlist = watchlist.filter(x => x !== t); saveWatchlist(); renderWatchlist(); }
 
-        function addToWatchlist(ticker) {
-            let input = ticker || document.getElementById('wlInput').value.toUpperCase().trim();
-            if (aliases[input]) input = aliases[input];
-            if (!input) return;
-            if (watchlist.includes(input)) { alert(`"${input}" è già nella tua watchlist.`); return; }
-            watchlist.unshift(input); saveWatchlist(); renderWatchlist();
-            if (!ticker) document.getElementById('wlInput').value = '';
+        // === PORTAFOGLIO PERSONALE ===
+        let personalPort = JSON.parse(localStorage.getItem('mm_port') || '[]');
+        function savePersonalPort() { localStorage.setItem('mm_port', JSON.stringify(personalPort)); }
+        
+        async function renderPersonalPortfolio() {
+            const tbody = document.getElementById('mypBody'), wrap = document.getElementById('mypTableWrap'), empty = document.getElementById('mypEmpty'), loading = document.getElementById('mypLoading');
+            if(personalPort.length === 0) { wrap.style.display = 'none'; empty.style.display = 'block'; document.getElementById('myp-invested').innerText = '0.00 €'; document.getElementById('myp-current').innerText = '0.00 €'; document.getElementById('myp-pl').innerText = '0.00 €'; return; }
+            empty.style.display = 'none'; wrap.style.display = 'none'; loading.style.display = 'block'; tbody.innerHTML = '';
+            
+            let totInv = 0, totCur = 0;
+            const rowsData = await Promise.all(personalPort.map(async (pos, index) => {
+                const data = db[pos.ticker];
+                const livePrice = data ? await getLivePrice(data.yf, data.price) : pos.price; 
+                const inv = pos.qty * pos.price, cur = pos.qty * livePrice, pl = cur - inv, plPct = (pl / inv) * 100;
+                totInv += inv; totCur += cur;
+                
+                let fvStatus = '—';
+                if(data) { fvStatus = data.fv > livePrice ? `<span style="color:var(--brand-green)">Sottovalutato</span>` : `<span style="color:var(--accent-red)">Sopravvalutato</span>`; }
+
+                return `<tr><td style="font-weight:800; color:#fff;">${pos.ticker}</td><td>${pos.qty}</td><td>${pos.price.toFixed(2)}</td><td>${parseFloat(livePrice).toFixed(2)}</td><td class="${pl >= 0 ? 'pl-positive' : 'pl-negative'}">${pl > 0 ? '+':''}${pl.toFixed(2)} €</td><td class="${pl >= 0 ? 'pl-positive' : 'pl-negative'}">${pl > 0 ? '+':''}${plPct.toFixed(1)} %</td><td>${fvStatus}</td><td><button onclick="removePersonalPosition(${index})" style="background:rgba(255,61,0,0.1); border:none; color:var(--accent-red); padding:5px 10px; border-radius:6px; cursor:pointer;">X</button></td></tr>`;
+            }));
+            
+            tbody.innerHTML = rowsData.join('');
+            document.getElementById('myp-invested').innerText = totInv.toLocaleString('it-IT', {style:'currency', currency:'EUR'});
+            document.getElementById('myp-current').innerText = totCur.toLocaleString('it-IT', {style:'currency', currency:'EUR'});
+            const totPl = totCur - totInv; const plEl = document.getElementById('myp-pl');
+            plEl.innerText = (totPl > 0 ? '+' : '') + totPl.toLocaleString('it-IT', {style:'currency', currency:'EUR'});
+            plEl.style.color = totPl >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
+            loading.style.display = 'none'; wrap.style.display = 'block';
         }
 
-        function addCurrentToWatchlist() {
-            if (!currentFVTicker) return;
-            addToWatchlist(currentFVTicker);
-            document.getElementById('watchlist').scrollIntoView({ behavior: 'smooth' });
+        function addPersonalPosition() {
+            let t = document.getElementById('mypTicker').value.toUpperCase().trim(); if(aliases[t]) t = aliases[t];
+            const q = parseFloat(document.getElementById('mypQty').value), p = parseFloat(document.getElementById('mypPrice').value);
+            if(!t || !q || !p) return;
+            personalPort.push({ ticker: t, qty: q, price: p }); savePersonalPort(); renderPersonalPortfolio();
+            document.getElementById('mypTicker').value = ''; document.getElementById('mypQty').value = ''; document.getElementById('mypPrice').value = '';
         }
+        function removePersonalPosition(index) { personalPort.splice(index, 1); savePersonalPort(); renderPersonalPortfolio(); }
 
-        function removeFromWatchlist(ticker) { watchlist = watchlist.filter(t => t !== ticker); saveWatchlist(); renderWatchlist(); }
-        function jumpToFV(ticker) { document.getElementById('fvInput').value = ticker; document.getElementById('fv-section').scrollIntoView({ behavior: 'smooth' }); setTimeout(calculateFV, 400); }
-        document.getElementById('wlInput').addEventListener('keypress', e => { if (e.key === 'Enter') { e.preventDefault(); addToWatchlist(); }});
-
-        // === 6. STRUMENTI: PAC E POSITION SIZING ===
+        // === STRUMENTI (PAC) ===
         let pacChartObj = null;
         function calculatePAC() {
-            const init = parseFloat(document.getElementById('pacInit').value) || 0;
-            const monthly = parseFloat(document.getElementById('pacMonthly').value) || 0;
-            const years = parseInt(document.getElementById('pacYears').value) || 0;
-            const rate = parseFloat(document.getElementById('pacRate').value) || 0;
-            let total = init; let invested = init; let labels = []; let dataInvested = []; let dataTotal = [];
-
-            for (let i = 1; i <= years; i++) {
-                labels.push(`Anno ${i}`);
-                for (let m = 0; m < 12; m++) { total = (total + monthly) * (1 + (rate/100)/12); invested += monthly; }
-                dataInvested.push(invested); dataTotal.push(total);
-            }
-            document.getElementById('pacTotal').innerText = total.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-            document.getElementById('pacInvested').innerText = invested.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-            document.getElementById('pacInterest').innerText = (total - invested).toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-            document.getElementById('pacResult').style.display = 'block';
-
-            if(pacChartObj) pacChartObj.destroy();
-            const ctx = document.getElementById('pacChartCanvas').getContext('2d');
-            pacChartObj = new Chart(ctx, { type: 'bar', data: { labels: labels, datasets: [ { label: 'Capitale Versato', data: dataInvested, backgroundColor: '#2962ff' }, { label: 'Interesse Composto', data: dataTotal.map((v, i) => v - dataInvested[i]), backgroundColor: '#00e676' } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } } });
+            const init = parseFloat(document.getElementById('pacInit').value) || 0, monthly = parseFloat(document.getElementById('pacMonthly').value) || 0, years = parseInt(document.getElementById('pacYears').value) || 0, rate = parseFloat(document.getElementById('pacRate').value) || 0;
+            let total = init, invested = init, labels = [], dataInvested = [], dataTotal = [];
+            for (let i = 1; i <= years; i++) { labels.push(`Anno ${i}`); for (let m = 0; m < 12; m++) { total = (total + monthly) * (1 + (rate/100)/12); invested += monthly; } dataInvested.push(invested); dataTotal.push(total); }
+            document.getElementById('pacTotal').innerText = total.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('pacInvested').innerText = invested.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('pacInterest').innerText = (total - invested).toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('pacResult').style.display = 'block';
+            if (pacChartObj) pacChartObj.destroy();
+            pacChartObj = new Chart(document.getElementById('pacChartCanvas').getContext('2d'), { type: 'bar', data: { labels, datasets: [ { label: 'Capitale Versato', data: dataInvested, backgroundColor: '#2962ff' }, { label: 'Interesse Composto', data: dataTotal.map((v,i) => v - dataInvested[i]), backgroundColor: '#00e676' } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } } });
         }
-
         function calculatePosition() {
-            const cap = parseFloat(document.getElementById('psCap').value) || 0;
-            const riskPct = parseFloat(document.getElementById('psRisk').value) || 0;
-            const entry = parseFloat(document.getElementById('psEntry').value) || 0;
-            const stop = parseFloat(document.getElementById('psStop').value) || 0;
-            if (entry === 0 || stop === 0 || entry === stop) { alert("Inserisci un prezzo di entrata e stop loss validi e differenti."); return; }
-
-            const riskEuro = cap * (riskPct / 100); const riskPerShare = Math.abs(entry - stop);
-            const shares = Math.floor(riskEuro / riskPerShare); const totalCost = shares * entry;
-
-            document.getElementById('psShares').innerText = shares + " Azioni";
-            document.getElementById('psRiskEuro').innerText = riskEuro.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-            document.getElementById('psTotalCost').innerText = totalCost.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-            document.getElementById('psResult').style.display = 'block';
+            const cap = parseFloat(document.getElementById('psCap').value) || 0, riskPct = parseFloat(document.getElementById('psRisk').value) || 0, entry = parseFloat(document.getElementById('psEntry').value) || 0, stop = parseFloat(document.getElementById('psStop').value) || 0;
+            const riskEuro = cap * (riskPct / 100); const shares = Math.floor(riskEuro / Math.abs(entry - stop));
+            document.getElementById('psShares').innerText = shares + " Azioni"; document.getElementById('psRiskEuro').innerText = riskEuro.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('psTotalCost').innerText = (shares * entry).toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('psResult').style.display = 'block';
         }
 
-        // === 7. FAQ FISARMONICA ===
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.parentElement;
-                document.querySelectorAll('.faq-item').forEach(el => { if (el !== item) el.classList.remove('active'); });
-                item.classList.toggle('active');
-            });
-        });
+        document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const item = btn.parentElement; document.querySelectorAll('.faq-item').forEach(el => { if (el !== item) el.classList.remove('active'); }); item.classList.toggle('active'); }); });
 
-        // === 8. INIT ALL ===
+        // === INIT ALL ===
         window.onload = function() {
             renderWatchlist();
+            renderPersonalPortfolio();
+            renderIndicatorSignals();
+            
+            // Check Alert Drop FV (ritardato leggermente per non impattare il caricamento visivo iniziale)
+            setTimeout(checkAlertsOnLoad, 1500);
 
-            // GRAFICO A TORTA PORTAFOGLIO
             const ctx = document.getElementById('allocationChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['ERG', 'Intuit', 'Ferrari', 'Qualcomm', 'DiaSorin', 'LVMH', 'Alphabet', 'Six Flags', 'Adobe'],
-                    datasets: [{
-                        data: [717, 647, 639, 619, 568, 552, 526, 346, 219],
-                        backgroundColor: ['#00e676','#2962ff','#ff3d00','#9c27b0','#00bcd4','#ffeb3b','#795548','#607d8b','#e91e63'],
-                        borderWidth: 3, borderColor: '#0a0e17', borderRadius: 5, hoverOffset: 12
-                    }]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: false, layout: { padding: 10 },
-                    plugins: {
-                        legend: { position: 'bottom', labels: { color: '#e0e0e0', font: { family: "'Inter', sans-serif", size: 12 }, padding: 15, usePointStyle: true, pointStyle: 'circle' } },
-                        tooltip: { backgroundColor: 'rgba(5,5,5,0.95)', titleColor: '#fff', bodyColor: '#d1d4dc', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, padding: 12, usePointStyle: true, callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.parsed + ' €'; } } }
-                    }, cutout: '68%'
-                }
-            });
+            new Chart(ctx, { type: 'doughnut', data: { labels: ['ERG','Intuit','Ferrari','Qualcomm','DiaSorin','LVMH','Alphabet','Six Flags','Adobe'], datasets: [{ data: [717,647,639,619,568,552,526,346,219], backgroundColor: ['#00e676','#2962ff','#ff3d00','#9c27b0','#00bcd4','#ffeb3b','#795548','#607d8b','#e91e63'], borderWidth: 3, borderColor: '#0a0e17', borderRadius: 5, hoverOffset: 12 }] }, options: { responsive: true, maintainAspectRatio: false, layout: { padding: 10 }, plugins: { legend: { position: 'bottom', labels: { color: '#e0e0e0', font: { family: "'Inter', sans-serif", size: 12 }, padding: 15, usePointStyle: true, pointStyle: 'circle' } }, tooltip: { backgroundColor: 'rgba(5,5,5,0.95)', titleColor: '#fff', bodyColor: '#d1d4dc', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, padding: 12, usePointStyle: true, callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' €' } } }, cutout: '68%' } });
 
-            new TradingView.widget({
-                "autosize": true, "symbol": "MIL:FTSEMIB", "interval": "D", "timezone": "Europe/Rome",
-                "theme": "dark", "style": "1", "locale": "it", "enable_publishing": false,
-                "backgroundColor": "#050505", "gridColor": "#1f1f1f",
-                "container_id": "tv_chart_container"
-            });
+            new TradingView.widget({ "autosize": true, "symbol": "MIL:FTSEMIB", "interval": "D", "timezone": "Europe/Rome", "theme": "dark", "style": "1", "locale": "it", "enable_publishing": false, "backgroundColor": "#050505", "gridColor": "#1f1f1f", "container_id": "tv_chart_container" });
         };
     </script>
 </body>
