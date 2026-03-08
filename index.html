@@ -737,19 +737,19 @@
 
 <div class="container" id="portfolio">
     <div class="section-header">
-        <h2 class="section-title">Portafoglio <span>Matteo (C1076)</span></h2>
+        <h2 class="section-title">Portafoglio <span> di Matteo </span></h2>
     </div>
     <div class="kpi-container">
         <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono">4.833,95 €</div></div>
         <div class="kpi-card"><div class="fv-label">Performance YTD</div><div class="kpi-val red mono">-2,67%</div></div>
-        <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono">9</div></div>
+        <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono">8</div></div>
     </div>
     <div class="portfolio-grid">
         <div style="display:flex; flex-direction:column; gap:28px;">
             <div class="card">
                 <h3 style="margin-top:0;">Composizione Asset</h3>
                 <div style="margin-top:24px;">
-                    <div class="bar-row"><div class="bar-label">ERG</div><div class="bar-track"><div class="bar-fill c-1" style="width:14.8%"></div></div><div class="bar-val">717€</div></div>
+                    <div class="bar-row"><div class="bar-label">SAP</div><div class="bar-track"><div class="bar-fill c-1" style="width:14.8%"></div></div><div class="bar-val">500€</div></div>
                     <div class="bar-row"><div class="bar-label">Intuit</div><div class="bar-track"><div class="bar-fill c-2" style="width:13.4%"></div></div><div class="bar-val">647€</div></div>
                     <div class="bar-row"><div class="bar-label">Ferrari</div><div class="bar-track"><div class="bar-fill c-3" style="width:13.2%"></div></div><div class="bar-val">639€</div></div>
                     <div class="bar-row"><div class="bar-label">Qualcomm</div><div class="bar-track"><div class="bar-fill c-4" style="width:12.8%"></div></div><div class="bar-val">619€</div></div>
@@ -764,7 +764,7 @@
             <div class="tradingview-widget-container" style="height:100%;">
                 <div class="tradingview-widget-container__widget" style="height:100%;"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-                {"width":"100%","height":"100%","symbolsGroups":[{"name":"Portafoglio","symbols":[{"name":"MIL:ERG","displayName":"ERG"},{"name":"NASDAQ:INTU","displayName":"Intuit"},{"name":"MIL:RACE","displayName":"Ferrari"},{"name":"NASDAQ:QCOM","displayName":"Qualcomm"},{"name":"MIL:DIA","displayName":"DiaSorin"},{"name":"EPA:MC","displayName":"LVMH"},{"name":"NASDAQ:GOOG","displayName":"Alphabet"},{"name":"NYSE:FUN","displayName":"Six Flags"},{"name":"NASDAQ:ADBE","displayName":"Adobe"}]}],"showSymbolLogo":true,"isTransparent":true,"colorTheme":"dark","locale":"it"}
+                {"width":"100%","height":"100%","symbolsGroups":[{"name":"Portafoglio","symbols":[{"name":"NASDAQ:INTU","displayName":"Intuit"},{"name":"MIL:RACE","displayName":"Ferrari"},{"name":"NASDAQ:QCOM","displayName":"Qualcomm"},{"name":"MIL:DIA","displayName":"DiaSorin"},{"name":"EPA:MC","displayName":"LVMH"},{"name":"NASDAQ:GOOG","displayName":"Alphabet"},{"name":"NYSE:FUN","displayName":"Six Flags"},{"name":"NASDAQ:ADBE","displayName":"Adobe"}]}],"showSymbolLogo":true,"isTransparent":true,"colorTheme":"dark","locale":"it"}
                 </script>
             </div>
         </div>
@@ -861,24 +861,24 @@ const weeklyComment = {
     date:      "8 Marzo 2026",
     mood:      "neutral", // Scegli tra: "bull", "bear", "neutral"
     moodLabel: "😐 Mercato in Attesa", // Testo mostrato nel badge
-    title:     "I dazi di Trump pesano sull'azionario — ma le opportunità non mancano",
-    body:      `Settimana turbolenta, con l'S&P 500 che ha ceduto circa il <strong>2.3%</strong> sull'escalation delle tensioni commerciali USA-UE. Il Nasdaq ha subito vendite più pronunciate sui titoli growth.<br><br>
-                In Europa il <strong>FTSE MIB</strong> ha tenuto meglio grazie al settore finanziario. Sul fronte dei miei titoli, <strong>GOOG</strong> rimane la posizione con il margine di sicurezza più ampio. Monitoro con interesse <strong>STLAM</strong>: il consenso degli analisti si sta avvicinando alla mia stima.<br><br>
+    title:     "La guerra in Iran e le tensioni sui prezzi dell'energia tengono i mercati al palo — ma le opportunità non mancano",
+    body:      `Settimana turbolenta, con l'S&P 500 che ha ceduto circa il <strong>2.3%</strong> sull'escalation in Iran con la chiusura dello stretto di Hormuz. Il Nasdaq ha subito vendite più pronunciate sui titoli growth.<br><br>
+                In Europa il <strong>FTSE MIB</strong> ha faticato, appesantito dalle banche. Sul fronte dei miei titoli, <strong>GOOG</strong> rimane la posizione con il margine di sicurezza più ampio. Monitoro con interesse <strong>CE</strong>: l'impostazione grafica e i volumi danno ottimi segnali, uniti ad una sottovalutazione marcata.<br><br>
                 Per questa settimana preferisco <strong>non aggiungere nuove posizioni</strong> e attendere maggiore chiarezza macro.`,
-    tickers:   ["GOOG", "STLAM", "INTU", "ERG"], // Ticker che vuoi evidenziare a fine articolo
+    tickers:   ["GOOG", "CE"], // Ticker che vuoi evidenziare a fine articolo
 };
 
 // 2. CHANGELOG FAIR VALUE: Registra qui le tue ultime variazioni di stima
 const changelog = [
-    { date: "07 Mar 2026", ticker: "STLAM", oldFv: 14.00, newFv: 18.00, curr: "€", note: "Rivisto al rialzo dopo ristrutturazione e miglioramento margini Q4" },
-    { date: "06 Mar 2026", ticker: "GOOG",  oldFv: 260.00, newFv: 290.00, curr: "$", note: "Aggiornato post Q4 2025: crescita cloud superiore alle attese" },
-    { date: "05 Mar 2026", ticker: "DIA",   oldFv: 90.00,  newFv: 85.00,  curr: "€", note: "Ridotto per rallentamento diagnostica e pressione sui margini" },
-    { date: "04 Mar 2026", ticker: "INTU",  oldFv: 650.00, newFv: 700.00, curr: "$", note: "Alzato dopo espansione AI nei prodotti fiscali e guidance FY26" },
-    { date: "01 Mar 2026", ticker: "RACE",  oldFv: 320.00, newFv: 300.00, curr: "€", note: "Rivisto al ribasso: valutazione elevata vs fondamentali correnti" }
+    { date: "07 Mar 2026", ticker: "STLAM", oldFv: 33.00, newFv: 9.00, curr: "€", note: "Rivisto al ribasso dopo svalutazione di 22mld e ristrutturazione aziendale incerta" },
+    { date: "06 Mar 2026", ticker: "GOOG",  oldFv: 235.00, newFv: 255.00, curr: "$", note: "Aggiornato post Q4 2025: crescita cloud superiore alle attese" },
+    { date: "05 Mar 2026", ticker: "DIA",   oldFv: 135.00,  newFv: 126.00,  curr: "€", note: "Ridotto per rallentamento diagnostica e pressione sui margini" },
+    { date: "04 Mar 2026", ticker: "INTU",  oldFv: 691.00, newFv: 710.00, curr: "$", note: "Alzato dopo espansione AI nei prodotti fiscali e guidance FY26" },
+    { date: "01 Mar 2026", ticker: "RACE",  oldFv: 370.00, newFv: 385.00, curr: "€", note: "Rivisto al rialzo: valutazione leggermente migliorata nonostante i ridotti margini di crescita" }
 ];
 
 // 3. FEAR & GREED (Sentiment): Aggiorna il numero (da 0 a 100) e il testo
-const fearGreed = { value: 72, label: "Greed" };
+const fearGreed = { value: 65, label: "Greed" };
 
 
 /* ===========================================
@@ -886,66 +886,68 @@ const fearGreed = { value: 72, label: "Greed" };
    Nota: "price" fa da scorta (fallback) nel caso in cui i live data falliscano.
    =========================================== */
 const db = {
-    "DIA":   { name:"DiaSorin",            fv:85.00,   price:71.04,   curr:"€", ex:"MIL",    yf:"DIA.MI",   divYield:1.60, videoID:null, updated:"2026-03-05", fund:{pe:"24.5",eps:"2.90",mcap:"3.9B",rev:"+3.2%"} },
+    "DIA":   { name:"DiaSorin",            fv:126.00,   price:71.04,   curr:"€", ex:"MIL",    yf:"DIA.MI",   divYield:1.60, videoID:null, updated:"2026-03-05", fund:{pe:"24.5",eps:"2.90",mcap:"3.9B",rev:"+3.2%"} },
     "ERG":   { name:"ERG S.p.A.",          fv:28.50,   price:23.90,   curr:"€", ex:"MIL",    yf:"ERG.MI",   divYield:4.10, videoID:null, updated:"2026-02-20", fund:{pe:"14.2",eps:"1.68",mcap:"3.5B",rev:"+5.1%"} },
-    "RACE":  { name:"Ferrari",             fv:300.00,  price:319.40,  curr:"€", ex:"MIL",    yf:"RACE.MI",  divYield:0.76, videoID:null, updated:"2026-03-01", fund:{pe:"51.3",eps:"6.22",mcap:"80B",rev:"+17%"} },
-    "GOOG":  { name:"Alphabet",            fv:290.00,  price:175.00,  curr:"$", ex:"NASDAQ", yf:"GOOG",     divYield:0.15, videoID:null, updated:"2026-03-06", fund:{pe:"25.1",eps:"6.97",mcap:"2.1T",rev:"+13%"} },
-    "MC":    { name:"LVMH",                fv:600.00,  price:552.20,  curr:"€", ex:"EPA",    yf:"MC.PA",    divYield:1.50, videoID:null, updated:"2026-02-10", fund:{pe:"23.4",eps:"23.6",mcap:"275B",rev:"+8.9%"} },
-    "ADBE":  { name:"Adobe",               fv:300.00,  price:257.81,  curr:"$", ex:"NASDAQ", yf:"ADBE",     divYield:0.00, videoID:null, updated:"2026-02-28", fund:{pe:"38.2",eps:"6.75",mcap:"210B",rev:"+10%"} },
+    "RACE":  { name:"Ferrari",             fv:385.00,  price:319.40,  curr:"€", ex:"MIL",    yf:"RACE.MI",  divYield:0.76, videoID:null, updated:"2026-03-01", fund:{pe:"51.3",eps:"6.22",mcap:"80B",rev:"+17%"} },
+    "GOOG":  { name:"Alphabet",            fv:255.00,  price:175.00,  curr:"$", ex:"NASDAQ", yf:"GOOG",     divYield:0.15, videoID:null, updated:"2026-03-06", fund:{pe:"25.1",eps:"6.97",mcap:"2.1T",rev:"+13%"} },
+    "MC":    { name:"LVMH",                fv:680.00,  price:552.20,  curr:"€", ex:"EPA",    yf:"MC.PA",    divYield:1.50, videoID:null, updated:"2026-02-10", fund:{pe:"23.4",eps:"23.6",mcap:"275B",rev:"+8.9%"} },
+    "ADBE":  { name:"Adobe",               fv:677.00,  price:257.81,  curr:"$", ex:"NASDAQ", yf:"ADBE",     divYield:0.00, videoID:null, updated:"2026-02-28", fund:{pe:"38.2",eps:"6.75",mcap:"210B",rev:"+10%"} },
     "FUN":   { name:"Six Flags",           fv:25.00,   price:17.00,   curr:"$", ex:"NYSE",   yf:"FUN",      divYield:0.00, videoID:null, fund:null },
-    "INTU":  { name:"Intuit",              fv:700.00,  price:381.23,  curr:"$", ex:"NASDAQ", yf:"INTU",     divYield:0.65, videoID:null, updated:"2026-03-04", fund:{pe:"42.1",eps:"9.05",mcap:"170B",rev:"+12%"} },
+    "INTU":  { name:"Intuit",              fv:710.00,  price:381.23,  curr:"$", ex:"NASDAQ", yf:"INTU",     divYield:0.65, videoID:null, updated:"2026-03-04", fund:{pe:"42.1",eps:"9.05",mcap:"170B",rev:"+12%"} },
     "QCOM":  { name:"Qualcomm",            fv:180.00,  price:145.82,  curr:"$", ex:"NASDAQ", yf:"QCOM",     divYield:1.85, videoID:null, updated:"2026-02-18", fund:{pe:"21.5",eps:"6.78",mcap:"160B",rev:"+5%"} },
-    "STLAM": { name:"Stellantis",          fv:18.00,   price:20.50,   curr:"€", ex:"MIL",    yf:"STLAM.MI", divYield:6.50, videoID:"MpwZcg3J8BE", updated:"2026-03-07", fund:{pe:"3.8",eps:"5.40",mcap:"64B",rev:"-2%"} },
-    "SAP":   { name:"SAP SE",              fv:220.00,  price:220.00,  curr:"€", ex:"XETR",   yf:"SAP.DE",   divYield:1.20, videoID:"Icy8DMAwDYw", updated:"2026-02-25", fund:{pe:"32.1",eps:"6.85",mcap:"260B",rev:"+11%"} },
+    "STLAM": { name:"Stellantis",          fv:9.00,   price:6.71,   curr:"€", ex:"MIL",    yf:"STLAM.MI", divYield:6.50, videoID:"MpwZcg3J8BE", updated:"2026-03-07", fund:{pe:"3.8",eps:"5.40",mcap:"64B",rev:"-2%"} },
+    "SAP":   { name:"SAP SE",              fv:212.00,  price:220.00,  curr:"€", ex:"XETR",   yf:"SAP.DE",   divYield:1.20, videoID:"Icy8DMAwDYw", updated:"2026-02-25", fund:{pe:"32.1",eps:"6.85",mcap:"260B",rev:"+11%"} },
     "AAPL":  { name:"Apple Inc.",          fv:253.00,  price:175.00,  curr:"$", ex:"NASDAQ", yf:"AAPL",     divYield:0.50, videoID:null, fund:{pe:"28.5",eps:"6.14",mcap:"2.8T",rev:"+2.1%"} },
     "MSFT":  { name:"Microsoft",           fv:461.22,  price:410.00,  curr:"$", ex:"NASDAQ", yf:"MSFT",     divYield:0.75, videoID:null, fund:{pe:"35.2",eps:"11.6",mcap:"3.0T",rev:"+15%"} },
     "AMZN":  { name:"Amazon",              fv:199.00,  price:180.00,  curr:"$", ex:"NASDAQ", yf:"AMZN",     divYield:0.00, videoID:null, fund:{pe:"40.5",eps:"4.44",mcap:"1.9T",rev:"+12%"} },
-    "NVDA":  { name:"Nvidia",              fv:163.11,  price:120.00,  curr:"$", ex:"NASDAQ", yf:"NVDA",     divYield:0.02, videoID:null, fund:{pe:"75.4",eps:"1.59",mcap:"2.9T",rev:"+265%"} },
-    "A2A":   { name:"A2A S.p.A.",          fv:2.45,    price:1.70,    curr:"€", ex:"MIL",    yf:"A2A.MI",   divYield:4.80, videoID:null },
+    "NVDA":  { name:"Nvidia",              fv:163.11,  price:178.00,  curr:"$", ex:"NASDAQ", yf:"NVDA",     divYield:0.02, videoID:null, fund:{pe:"75.4",eps:"1.59",mcap:"2.9T",rev:"+265%"} },
+    "A2A":   { name:"A2A S.p.A.",          fv:2.45,    price:2.32,    curr:"€", ex:"MIL",    yf:"A2A.MI",   divYield:4.80, videoID:null },
     "ADM":   { name:"Archer-Daniels",      fv:53.00,   price:60.00,   curr:"$", ex:"NYSE",   yf:"ADM",      divYield:3.50, videoID:null },
     "ADP":   { name:"Auto Data Proc.",     fv:312.00,  price:250.00,  curr:"$", ex:"NASDAQ", yf:"ADP",      divYield:1.90, videoID:null },
     "ADSK":  { name:"Autodesk Inc.",       fv:339.00,  price:260.00,  curr:"$", ex:"NASDAQ", yf:"ADSK",     divYield:0.00, videoID:null },
-    "AMAT":  { name:"Applied Materials",   fv:233.00,  price:205.00,  curr:"$", ex:"NASDAQ", yf:"AMAT",     divYield:0.70, videoID:null },
-    "AMD":   { name:"AMD",                 fv:145.60,  price:160.00,  curr:"$", ex:"NASDAQ", yf:"AMD",      divYield:0.00, videoID:null },
-    "ASML":  { name:"ASML Holding",        fv:904.00,  price:920.00,  curr:"$", ex:"NASDAQ", yf:"ASML",     divYield:0.85, videoID:null },
-    "AXP":   { name:"American Express",    fv:332.00,  price:230.00,  curr:"$", ex:"NYSE",   yf:"AXP",      divYield:1.10, videoID:null },
-    "BAC":   { name:"Bank of America",     fv:59.85,   price:37.00,   curr:"$", ex:"NYSE",   yf:"BAC",      divYield:2.20, videoID:null },
-    "BAYN":  { name:"Bayer AG",            fv:44.12,   price:28.00,   curr:"€", ex:"XETR",   yf:"BAYN.DE",  divYield:4.50, videoID:null },
-    "BATS":  { name:"Brit. Am. Tobacco",   fv:4656.00, price:2350.00, curr:"p", ex:"LSE",    yf:"BATS.L",   divYield:9.20, videoID:null },
-    "BC":    { name:"Brunswick Corp",      fv:88.00,   price:85.00,   curr:"$", ex:"NYSE",   yf:"BC",       divYield:1.70, videoID:null },
-    "BNG":   { name:"Bunge Global",        fv:46.31,   price:105.00,  curr:"$", ex:"NYSE",   yf:"BG",       divYield:3.10, videoID:null },
+    "AMAT":  { name:"Applied Materials",   fv:233.00,  price:324.00,  curr:"$", ex:"NASDAQ", yf:"AMAT",     divYield:0.70, videoID:null },
+    "AMD":   { name:"AMD",                 fv:145.60,  price:192.00,  curr:"$", ex:"NASDAQ", yf:"AMD",      divYield:0.00, videoID:null },
+    "ASML":  { name:"ASML Holding",        fv:904.00,  price:1147.00,  curr:"$", ex:"NASDAQ", yf:"ASML",     divYield:0.85, videoID:null },
+    "AXP":   { name:"American Express",    fv:332.00,  price:301.00,  curr:"$", ex:"NYSE",   yf:"AXP",      divYield:1.10, videoID:null },
+    "BAC":   { name:"Bank of America",     fv:59.85,   price:48.00,   curr:"$", ex:"NYSE",   yf:"BAC",      divYield:2.20, videoID:null },
+    "BAYN":  { name:"Bayer AG",            fv:44.12,   price:36.00,   curr:"€", ex:"XETR",   yf:"BAYN.DE",  divYield:4.50, videoID:null },
+    "BATS":  { name:"Brit. Am. Tobacco",   fv:4656.00, price:4282.00, curr:"p", ex:"LSE",    yf:"BATS.L",   divYield:9.20, videoID:null },
+    "BC":    { name:"Brunello Cucinelli",      fv:88.00,   price:75.00,   curr:"$", ex:"MIL",   yf:"BC",       divYield:1.70, videoID:null },
+    "BGN":   { name:"Banca Generali",        fv:46.31,   price:51.00,  curr:"$", ex:"MIL",   yf:"BG",       divYield:5.66, videoID:null },
     "BRE":   { name:"Brembo",              fv:14.93,   price:10.50,   curr:"€", ex:"MIL",    yf:"BRE.MI",   divYield:2.10, videoID:null },
-    "BRK.B": { name:"Berkshire Hath.",     fv:511.00,  price:405.00,  curr:"$", ex:"NYSE",   yf:"BRK-B",    divYield:0.00, videoID:null },
-    "CAT":   { name:"Caterpillar",         fv:404.00,  price:340.00,  curr:"$", ex:"NYSE",   yf:"CAT",      divYield:1.50, videoID:null },
-    "CE":    { name:"Celanese",            fv:105.56,  price:145.00,  curr:"$", ex:"NYSE",   yf:"CE",       divYield:2.60, videoID:null },
-    "CNC":   { name:"Centene",             fv:102.66,  price:78.00,   curr:"$", ex:"NYSE",   yf:"CNC",      divYield:0.00, videoID:null },
-    "COST":  { name:"Costco Wholesale",    fv:851.00,  price:750.00,  curr:"$", ex:"NASDAQ", yf:"COST",     divYield:0.60, videoID:null },
-    "CPR":   { name:"Campari",             fv:8.95,    price:9.50,    curr:"€", ex:"MIL",    yf:"CPR.MI",   divYield:0.90, videoID:null },
-    "CRM":   { name:"Salesforce",          fv:325.48,  price:310.00,  curr:"$", ex:"NYSE",   yf:"CRM",      divYield:0.50, videoID:null },
-    "CVX":   { name:"Chevron",             fv:181.66,  price:155.00,  curr:"$", ex:"NYSE",   yf:"CVX",      divYield:4.10, videoID:null },
+    "BRK.B": { name:"Berkshire Hath.",     fv:511.00,  price:499.00,  curr:"$", ex:"NYSE",   yf:"BRK-B",    divYield:0.00, videoID:null },
+    "CAT":   { name:"Caterpillar",         fv:404.00,  price:680.00,  curr:"$", ex:"NYSE",   yf:"CAT",      divYield:1.50, videoID:null },
+    "CE":    { name:"Celanese",            fv:105.56,  price:49.00,  curr:"$", ex:"NYSE",   yf:"CE",       divYield:2.60, videoID:null },
+    "CNC":   { name:"Centene",             fv:102.66,  price:43.00,   curr:"$", ex:"NYSE",   yf:"CNC",      divYield:0.00, videoID:null },
+    "COST":  { name:"Costco Wholesale",    fv:851.00,  price:998.00,  curr:"$", ex:"NASDAQ", yf:"COST",     divYield:0.60, videoID:null },
+    "CPR":   { name:"Campari",             fv:8.95,    price:6.4,    curr:"€", ex:"MIL",    yf:"CPR.MI",   divYield:0.90, videoID:null },
+    "CRM":   { name:"Salesforce",          fv:325.48,  price:200.00,  curr:"$", ex:"NYSE",   yf:"CRM",      divYield:0.50, videoID:null },
+    "CVX":   { name:"Chevron",             fv:181.66,  price:189.00,  curr:"$", ex:"NYSE",   yf:"CVX",      divYield:4.10, videoID:null },
     "DDOG":  { name:"Datadog",             fv:129.62,  price:125.00,  curr:"$", ex:"NASDAQ", yf:"DDOG",     divYield:0.00, videoID:null },
-    "ENI":   { name:"Eni S.p.A.",          fv:21.29,   price:14.80,   curr:"€", ex:"MIL",    yf:"ENI.MI",   divYield:6.20, videoID:null },
-    "ENEL":  { name:"Enel S.p.A.",         fv:4.85,    price:6.20,    curr:"€", ex:"MIL",    yf:"ENEL.MI",  divYield:6.50, videoID:null },
-    "G":     { name:"Assic. Generali",     fv:50.63,   price:22.50,   curr:"€", ex:"MIL",    yf:"G.MI",     divYield:5.50, videoID:null },
-    "IBM":   { name:"IBM",                 fv:231.00,  price:195.00,  curr:"$", ex:"NYSE",   yf:"IBM",      divYield:3.20, videoID:null },
-    "INTC":  { name:"Intel",               fv:35.29,   price:42.50,   curr:"$", ex:"NASDAQ", yf:"INTC",     divYield:1.50, videoID:null },
-    "IP":    { name:"International Paper", fv:48.02,   price:39.00,   curr:"$", ex:"NYSE",   yf:"IP",       divYield:4.00, videoID:null },
-    "ISP":   { name:"Intesa Sanpaolo",     fv:7.22,    price:3.40,    curr:"€", ex:"MIL",    yf:"ISP.MI",   divYield:8.50, videoID:null },
-    "LDO":   { name:"Leonardo S.p.A.",     fv:26.65,   price:21.00,   curr:"€", ex:"MIL",    yf:"LDO.MI",   divYield:1.80, videoID:null },
-    "LULU":  { name:"Lululemon",           fv:465.80,  price:455.00,  curr:"$", ex:"NASDAQ", yf:"LULU",     divYield:0.00, videoID:null },
-    "MA":    { name:"Mastercard",          fv:500.65,  price:475.00,  curr:"$", ex:"NYSE",   yf:"MA",       divYield:0.50, videoID:null },
-    "MONC":  { name:"Moncler",             fv:74.93,   price:66.00,   curr:"€", ex:"MIL",    yf:"MONC.MI",  divYield:1.80, videoID:null },
-    "OXY":   { name:"Occidental Petroleum",fv:77.70,   price:62.00,   curr:"$", ex:"NYSE",   yf:"OXY",      divYield:1.20, videoID:null },
+    "ENI":   { name:"Eni S.p.A.",          fv:21.29,   price:20.52,   curr:"€", ex:"MIL",    yf:"ENI.MI",   divYield:6.20, videoID:null },
+    "ENEL":  { name:"Enel S.p.A.",         fv:4.85,    price:9.40,    curr:"€", ex:"MIL",    yf:"ENEL.MI",  divYield:6.50, videoID:null },
+    "G":     { name:"Assic. Generali",     fv:50.63,   price:33.10,   curr:"€", ex:"MIL",    yf:"G.MI",     divYield:5.50, videoID:null },
+    "IBM":   { name:"IBM",                 fv:231.00,  price:258.00,  curr:"$", ex:"NYSE",   yf:"IBM",      divYield:3.20, videoID:null },
+    "INTC":  { name:"Intel",               fv:35.29,   price:43.50,   curr:"$", ex:"NASDAQ", yf:"INTC",     divYield:1.50, videoID:null },
+    "IP":    { name:"Interpump", fv:48.02,   price:39.00,   curr:"$", ex:"MIL",   yf:"IP",       divYield:0.92, videoID:null },
+    "ISP":   { name:"Intesa Sanpaolo",     fv:7.22,    price:5.2,    curr:"€", ex:"MIL",    yf:"ISP.MI",   divYield:8.50, videoID:null },
+    "LDO":   { name:"Leonardo S.p.A.",     fv:26.65,   price:58.00,   curr:"€", ex:"MIL",    yf:"LDO.MI",   divYield:1.80, videoID:null },
+    "LULU":  { name:"Lululemon",           fv:465.80,  price:170.00,  curr:"$", ex:"NASDAQ", yf:"LULU",     divYield:0.00, videoID:null },
+    "MA":    { name:"Mastercard",          fv:500.65,  price:522.00,  curr:"$", ex:"NYSE",   yf:"MA",       divYield:0.50, videoID:null },
+    "MONC":  { name:"Moncler",             fv:74.93,   price:55.00,   curr:"€", ex:"MIL",    yf:"MONC.MI",  divYield:1.80, videoID:null },
+    "OXY":   { name:"Occidental Petroleum",fv:77.70,   price:54.00,   curr:"$", ex:"NYSE",   yf:"OXY",      divYield:1.20, videoID:null },
+     "TGT":   { name:"Target Corporation",fv:172.13,   price:120.80,   curr:"$", ex:"NYSE",   yf:"TGT",      divYield:3.77, videoID:null },
+    
 };
 
 // ===========================================
 // SEGNALI INDICATORE: Aggiornabile manualmente
 // ===========================================
 const indicatorSignals = [
-    { date:"Oggi",        ticker:"NVDA", price:"120.50", action:"BUY"  },
-    { date:"Ieri",        ticker:"AAPL", price:"172.10", action:"BUY"  },
-    { date:"02 Mar 2026", ticker:"RACE", price:"320.00", action:"SELL" },
-    { date:"28 Feb 2026", ticker:"GOOG", price:"170.00", action:"BUY"  },
+    { date:"04 Mar 2026",        ticker:"TGT", price:"120.80", action:"SELL"  },
+    { date:"03 Mar 2026",        ticker:"ENI", price:"20.04", action:"SELL"  },
+    { date:"25 Feb 2026", ticker:"CRM", price:"191.75", action:"BUY" },
+    { date:"19 Feb 2026", ticker:"BRE", price:"10.71", action:"SELL"  },
 ];
 
 /* ===========================================
@@ -1537,3 +1539,4 @@ window.onload = function() {
 <div id="tv_chart_container" style="display:none; height:0;"></div>
 </body>
 </html>
+
