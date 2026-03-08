@@ -716,7 +716,7 @@
                 <div style="height:190px; margin-top:18px;"><canvas id="pacChartCanvas"></canvas></div>
             </div>
         </div>
-        
+
         <div class="card">
             <h3 style="margin-top:0; color:#fff;">🛡️ Position Sizing</h3>
             <p style="color:var(--text-muted); font-size:0.88em; margin-bottom:18px;">Calcola quante azioni comprare senza sforare il tuo limite di rischio.</p>
@@ -738,34 +738,36 @@
         </div>
 
         <div class="card span-2">
-            <h3 style="margin-top:0; color:#fff;">💸 Simulatore Total Return (Effetto Dividendi)</h3>
-            <p style="color:var(--text-muted); font-size:0.88em; margin-bottom:18px;">Scopri l'impatto dei dividendi reinvestiti sul tuo rendimento totale, proiettando il prezzo verso il Fair Value.</p>
+            <h3 style="margin-top:0; color:#fff;">💸 Simulatore Total Return (Effetto Cedole)</h3>
+            <p style="color:var(--text-muted); font-size:0.88em; margin-bottom:18px;">
+                Scopri l'impatto reale dei dividendi: questo strumento calcola la crescita necessaria per raggiungere il Fair Value e mostra l'esplosione del capitale se l'azienda trattenesse le cedole per reinvestirle (o se lo facessi tu in DRIP).
+            </p>
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px;">
-                <div class="form-group"><label class="form-label">Ticker Azienda</label><input type="text" id="trTicker" class="form-input" placeholder="Es. ENI" style="text-transform:uppercase;"></div>
-                <div class="form-group"><label class="form-label">Capitale Investito (€)</label><input type="number" id="trCapital" class="form-input" value="10000"></div>
-                <div class="form-group"><label class="form-label">Anni a Target</label><input type="number" id="trYears" class="form-input" value="5"></div>
+                <div class="form-group"><label class="form-label">Ticker (dal DB)</label><input type="text" id="trTicker" class="form-input" placeholder="Es. ENI" style="text-transform:uppercase;"></div>
+                <div class="form-group"><label class="form-label">Capitale Investito (€/$)</label><input type="number" id="trCap" class="form-input" value="10000"></div>
+                <div class="form-group"><label class="form-label">Anni a Target Fair Value</label><input type="number" id="trYears" class="form-input" value="5"></div>
             </div>
-            <button onclick="calculateTotalReturn()" class="btn-primary" id="trBtn" style="margin-top:8px; max-width: 250px;">CALCOLA TOTAL RETURN</button>
+            <button onclick="calcTotalReturn()" class="btn-primary" id="trBtn" style="margin-top:8px; max-width: 250px;">CALCOLA TOTAL RETURN</button>
             
-            <div id="trResult" class="tool-result-box" style="text-align:left; border-color: rgba(0, 188, 212, 0.3); background: rgba(0, 188, 212, 0.05); margin-top:20px;">
-                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div id="trResult" class="tool-result-box" style="border-color:rgba(0,188,212,0.3); background:rgba(0,188,212,0.05); margin-top:24px; text-align:left;">
+                <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; align-items:center; margin-bottom:24px;">
                     <div>
-                        <div class="fv-label">Valore Finale (Con Dividendi)</div>
-                        <div id="trFinalVal" class="tool-result-val" style="color: var(--accent-cyan);">---</div>
-                        <div style="font-size:0.88em; color:var(--text-muted);">Rispetto a <strong id="trNoDivVal" style="color:#fff;">---</strong> senza stacco cedole.</div>
+                        <div class="fv-label">Valore Finale (Con Cedole Reinvestite)</div>
+                        <div id="trFinal" class="tool-result-val" style="color:var(--accent-cyan);">---</div>
+                        <div style="font-size:0.88em; color:var(--text-muted);">Rispetto a <strong id="trNoDiv" style="color:#fff;">---</strong> (crescita legata solo al prezzo).</div>
                     </div>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <div style="text-align: center; background: rgba(0,0,0,0.4); padding: 10px 15px; border-radius: 8px; flex: 1;">
+                    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+                        <div style="background:rgba(0,0,0,0.4); padding:12px 18px; border-radius:8px; text-align:center;">
                             <div class="fv-label">CAGR Prezzo</div>
-                            <div id="trCagrPrice" class="mono" style="color: #fff; font-weight: bold; font-size: 1.2em;">---</div>
+                            <div id="trCagrPrice" class="mono" style="color:#fff; font-weight:bold; font-size:1.2em;">---</div>
                         </div>
-                        <div style="text-align: center; background: rgba(0,0,0,0.4); padding: 10px 15px; border-radius: 8px; flex: 1;">
+                        <div style="background:rgba(0,0,0,0.4); padding:12px 18px; border-radius:8px; text-align:center;">
                             <div class="fv-label">Total Return Annuo</div>
-                            <div id="trCagrTotal" class="mono" style="color: var(--accent-cyan); font-weight: bold; font-size: 1.2em;">---</div>
+                            <div id="trCagrTotal" class="mono" style="color:var(--accent-cyan); font-weight:bold; font-size:1.2em;">---</div>
                         </div>
                     </div>
                 </div>
-                <div style="height:250px;"><canvas id="trChartCanvas"></canvas></div>
+                <div style="height:250px;"><canvas id="trChart"></canvas></div>
             </div>
         </div>
 
@@ -873,8 +875,10 @@
     <div class="card" style="padding:18px;">
         <div class="faq-item"><button class="faq-question">Che cos'è il "Fair Value"? <span class="faq-icon">+</span></button><div class="faq-answer">Il Fair Value è una stima di quanto un'azienda vale realmente, basata sui fondamentali. Nel mio modello utilizzo l'analisi DCF (Discounted Cash Flow). Se il prezzo è inferiore al Fair Value, il titolo è "a sconto".</div></div>
         <div class="faq-item"><button class="faq-question">Come funziona l'Indicatore Level Founder? <span class="faq-icon">+</span></button><div class="faq-answer">Calcola numericamente la volatilità di ogni candela rispetto allo storico (ultimi 252 periodi). I picchi segnalano le sedute di scontro massimo tra domanda e offerta. Su quelle chiusure traccio supporti e resistenze chiave.</div></div>
-        <div class="faq-item"><button class="faq-question">Cos'è il Total Return Annuo? <span class="faq-icon">+</span></button><div class="faq-answer">È la somma tra la crescita percentuale del prezzo del titolo (Capital Gain) e il Dividend Yield generato in quell'anno. Nel lungo termine, reinvestire i dividendi (DRIP) crea una curva di crescita del capitale esponenziale.</div></div>
+        <div class="faq-item"><button class="faq-question">Cos'è il Total Return Annuo? <span class="faq-icon">+</span></button><div class="faq-answer">È la somma tra la crescita percentuale del prezzo del titolo (Capital Gain) calcolata verso il Fair Value e il Dividend Yield dell'azienda. Nel lungo termine, l'azienda che reinveste le cedole (o tu tramite DRIP) crea una curva di crescita del capitale esponenziale.</div></div>
+        <div class="faq-item"><button class="faq-question">Come leggo i dati dello Screener? <span class="faq-icon">+</span></button><div class="faq-answer">Lo Screener usa i prezzi di riferimento del database. L'upside % è la distanza tra prezzo e Fair Value. Verde = sottovalutato, Rosso = sopravvalutato. Premi "Prezzi Live" per aggiornare in tempo reale.</div></div>
         <div class="faq-item"><button class="faq-question">Cos'è il Position Sizing? <span class="faq-icon">+</span></button><div class="faq-answer">Significa decidere quante azioni comprare in base al rischio che sei disposto a sopportare. Il calcolatore divide il rischio monetario per la distanza tra prezzo di acquisto e Stop Loss.</div></div>
+        <div class="faq-item"><button class="faq-question">Come funziona il Calcolatore PAC? <span class="faq-icon">+</span></button><div class="faq-answer">Sfrutta l'interesse composto: gli interessi generati producono a loro volta nuovi interessi. Nel lungo periodo (10+ anni) la curva diventa esponenziale.</div></div>
     </div>
 </div>
 
@@ -969,6 +973,9 @@ const db = {
     "OXY":   { name:"Occidental Petroleum",fv:77.70,   price:62.00,   curr:"$", ex:"NYSE",   yf:"OXY",      divYield:1.20, videoID:null },
 };
 
+// ===========================================
+// SEGNALI INDICATORE: Aggiornabile manualmente
+// ===========================================
 const indicatorSignals = [
     { date:"Oggi",        ticker:"NVDA", price:"120.50", action:"BUY"  },
     { date:"Ieri",        ticker:"AAPL", price:"172.10", action:"BUY"  },
@@ -976,6 +983,9 @@ const indicatorSignals = [
     { date:"28 Feb 2026", ticker:"GOOG", price:"170.00", action:"BUY"  },
 ];
 
+/* ===========================================
+   UTILITIES E CACHE
+   =========================================== */
 const aliases = {"1GOOG":"GOOG","1MC":"MC",".ADBE":"ADBE",".FUN":"FUN",".INTU":"INTU",".QCOM":"QCOM"};
 let currentFVTicker = null;
 const fmt = (n, d=2) => parseFloat(n).toLocaleString('it-IT', {minimumFractionDigits:d, maximumFractionDigits:d});
@@ -984,78 +994,12 @@ const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = se
 function isRecent(dateStr, days=14) { if (!dateStr) return false; return (new Date() - new Date(dateStr)) / 86400000 <= days; }
 
 /* ===========================================
-   TOAST & NAV
-   =========================================== */
-function showToast(msg, type='info') {
-    const c = document.getElementById('toast-container');
-    const el = document.createElement('div');
-    el.className = 'toast' + (type !== 'info' ? ' '+type : '');
-    el.innerHTML = `<span style="font-size:1.3em; flex-shrink:0;">${type==='alert'?'🚨':type==='warn'?'⚠️':'💡'}</span><div style="flex:1">${msg}</div><button class="toast-close" onclick="this.parentElement.remove()">✕</button>`;
-    c.appendChild(el);
-    setTimeout(() => { el.style.opacity='0'; setTimeout(()=>el.remove(),450); }, 6500);
-}
-
-function toggleMenu() {
-    const nav = document.getElementById('mobileNav'), btn = document.getElementById('hamburger');
-    const open = nav.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-}
-function closeMenu() {
-    document.getElementById('mobileNav').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-    document.body.style.overflow = '';
-}
-document.addEventListener('click', e => {
-    const nav = document.getElementById('mobileNav'), btn = document.getElementById('hamburger');
-    if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) closeMenu();
-});
-
-const sections = ['weekly','fv-section','indicatore','screener','myportfolio','strumenti','portfolio','news'];
-const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', debounce(() => {
-    let current = '';
-    sections.forEach(id => { const el = document.getElementById(id); if (el && window.scrollY >= el.offsetTop - 130) current = id; });
-    navLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#'+current); });
-}, 80));
-
-/* ===========================================
-   ALERTS FV
-   =========================================== */
-let activeAlerts = JSON.parse(localStorage.getItem('mm_alerts') || '[]');
-const saveAlerts = () => localStorage.setItem('mm_alerts', JSON.stringify(activeAlerts));
-
-function toggleAlert(ticker) {
-    if (!ticker) return;
-    if (activeAlerts.includes(ticker)) {
-        activeAlerts = activeAlerts.filter(t => t !== ticker);
-        showToast(`🔕 Alert rimosso per <strong>${ticker}</strong>.`, 'warn');
-    } else {
-        activeAlerts.push(ticker);
-        showToast(`🔔 Alert impostato! Ti avviserò se <strong>${ticker}</strong> scende sotto il Fair Value.`);
-    }
-    saveAlerts();
-}
-
-async function checkAlertsOnLoad() {
-    if (!activeAlerts.length) return;
-    for (const ticker of activeAlerts) {
-        const data = db[ticker];
-        if (!data) continue;
-        const livePrice = await getLivePrice(data.yf, data.price);
-        if (data.fv > livePrice) {
-            showToast(`🚨 OCCASIONE: <strong>${ticker}</strong> a ${parseFloat(livePrice).toFixed(2)}${data.curr} — sotto il FV di ${data.fv}${data.curr}!`, 'alert');
-        }
-    }
-}
-
-/* ===========================================
    LIVE PRICE FETCH
    =========================================== */
 const priceCache = {};
 async function getLivePrice(yfTicker, fallbackPrice) {
     if (!yfTicker) return fallbackPrice;
-    if (priceCache[yfTicker]) return priceCache[yfTicker]; 
+    if (priceCache[yfTicker]) return priceCache[yfTicker];
 
     const ts = new Date().getTime(); 
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}?_=${ts}`;
@@ -1088,8 +1032,17 @@ async function getLivePrice(yfTicker, fallbackPrice) {
 }
 
 /* ===========================================
-   WEEKLY + CHANGELOG RENDER
+   UI & COMPONENTI BASE
    =========================================== */
+function showToast(msg, type='info') {
+    const c = document.getElementById('toast-container');
+    const el = document.createElement('div');
+    el.className = 'toast' + (type !== 'info' ? ' '+type : '');
+    el.innerHTML = `<span style="font-size:1.3em; flex-shrink:0;">${type==='alert'?'🚨':type==='warn'?'⚠️':'💡'}</span><div style="flex:1">${msg}</div><button class="toast-close" onclick="this.parentElement.remove()">✕</button>`;
+    c.appendChild(el);
+    setTimeout(() => { el.style.opacity='0'; setTimeout(()=>el.remove(),450); }, 6500);
+}
+
 function renderWeekly() {
     const wc = weeklyComment;
     document.getElementById('weekly-date-hdr').innerText = wc.date;
@@ -1119,8 +1072,18 @@ function renderWeekly() {
     });
 }
 
+function renderSignals() {
+    const el = document.getElementById('signal-list-container');
+    if (!el) return;
+    el.innerHTML = indicatorSignals.map(s => `
+        <div class="signal-item">
+            <div><div class="signal-ticker">${s.ticker}</div><div class="signal-date">${s.date}</div></div>
+            <div style="text-align:right"><div class="signal-price">${s.price} $</div><span class="sig-badge ${s.action.toLowerCase()}">${s.action}</span></div>
+        </div>`).join('');
+}
+
 /* ===========================================
-   FAIR VALUE CALCULATOR
+   FAIR VALUE
    =========================================== */
 function jumpToFV(ticker) {
     document.getElementById('fvInput').value = ticker;
@@ -1188,20 +1151,7 @@ async function calculateFV() {
 document.getElementById('fvInput').addEventListener('keypress', e => { if (e.key === 'Enter') { e.preventDefault(); calculateFV(); } });
 
 /* ===========================================
-   INDICATORE SEGNALI
-   =========================================== */
-function renderSignals() {
-    const el = document.getElementById('signal-list-container');
-    if (!el) return;
-    el.innerHTML = indicatorSignals.map(s => `
-        <div class="signal-item">
-            <div><div class="signal-ticker">${s.ticker}</div><div class="signal-date">${s.date}</div></div>
-            <div style="text-align:right"><div class="signal-price">${s.price} $</div><span class="sig-badge ${s.action.toLowerCase()}">${s.action}</span></div>
-        </div>`).join('');
-}
-
-/* ===========================================
-   SCREENER (con Chunking per evitare blocchi API)
+   SCREENER
    =========================================== */
 let screenerData = [];
 let screenerOpen = false;
@@ -1343,246 +1293,71 @@ document.getElementById('scr-search').addEventListener('input', () => applyFilte
 document.getElementById('scr-db-count').textContent = Object.keys(db).length;
 
 /* ===========================================
-   COMPARATORE
-   =========================================== */
-async function compareStocks() {
-    let t1 = document.getElementById('compInput1').value.toUpperCase().trim(), t2 = document.getElementById('compInput2').value.toUpperCase().trim();
-    if (aliases[t1]) t1 = aliases[t1]; if (aliases[t2]) t2 = aliases[t2];
-
-    const err = document.getElementById('compError'), res = document.getElementById('compResult'), btn = document.getElementById('compBtn');
-    err.style.display = 'none'; res.style.display = 'none';
-
-    if (!db[t1] || !db[t2]) { err.style.display = 'block'; return; }
-
-    btn.textContent = '⟳ ANALISI...'; btn.disabled = true;
-    const d1 = db[t1], d2 = db[t2];
-    const [p1, p2] = await Promise.all([getLivePrice(d1.yf, d1.price), getLivePrice(d2.yf, d2.price)]);
-    btn.textContent = '⚖️ CONFRONTA ORA'; btn.disabled = false;
-
-    const up1 = ((d1.fv-p1)/p1)*100, up2 = ((d2.fv-p2)/p2)*100, winner = up1 >= up2 ? t1 : t2;
-
-    const buildCard = (t, d, p, u, isW) => {
-        const isU = u > 0, color = isU ? 'var(--brand-green)' : 'var(--accent-red)';
-        return `<div class="comp-card ${isW?'winner':'loser'}">
-            ${isW ? '<div class="comp-winner-badge">🏆 MIGLIORE</div>' : ''}
-            <div class="comp-ticker-big">${t}</div><div class="comp-name">${d.name}</div>
-            <div class="comp-row"><span class="comp-row-label">Prezzo Live</span><span class="comp-row-val">${fmt(p)} ${d.curr}</span></div>
-            <div class="comp-row"><span class="comp-row-label">Fair Value</span><span class="comp-row-val" style="color:${color}">${fmt(d.fv)} ${d.curr}</span></div>
-            <div class="comp-row"><span class="comp-row-label">Gap FV</span><span class="comp-row-val" style="color:${color}">${isU?'+':''}${u.toFixed(1)}%</span></div>
-            <div class="comp-row"><span class="comp-row-label">Dividendo</span><span class="comp-row-val">${d.divYield ? d.divYield+'%' : '—'}</span></div>
-        </div>`;
-    };
-
-    document.getElementById('compCards').innerHTML = buildCard(t1,d1,p1,up1,winner===t1) + buildCard(t2,d2,p2,up2,winner===t2);
-
-    const wUp = winner===t1?up1:up2, good = wUp > 0;
-    const verdictText = good ? `<strong style="color:var(--brand-green)">${winner}</strong> offre il margine di sicurezza maggiore con un upside del <strong>${wUp.toFixed(1)}%</strong>.` : `Entrambi risultano sopravvalutati. <strong>${winner}</strong> ha il gap negativo minore (${wUp.toFixed(1)}%).`;
-    document.getElementById('compVerdict').innerHTML = `<div class="comp-verdict-icon">${good?'💡':'⏳'}</div><div><div class="comp-verdict-title">Verdetto di Matteo</div><div class="comp-verdict-sub">${verdictText}</div></div>`;
-    res.style.display = 'block';
-}
-
-/* ===========================================
-   WATCHLIST (Lazy Load Prezzi)
-   =========================================== */
-let watchlist = JSON.parse(localStorage.getItem('mm_wl') || '[]');
-const saveWatchlist = () => localStorage.setItem('mm_wl', JSON.stringify(watchlist));
-
-function renderWatchlist() {
-    const grid = document.getElementById('wlGrid'), empty = document.getElementById('wlEmpty');
-    document.getElementById('wl-count').innerText = `${watchlist.length} titoli`;
-    if (!watchlist.length) { grid.style.display='none'; empty.style.display='block'; return; }
-    empty.style.display='none'; grid.style.display='grid'; grid.innerHTML='';
-
-    watchlist.forEach(ticker => {
-        const data = db[ticker]; const card = document.createElement('div'); card.className='wl-item';
-        if (!data) {
-            card.innerHTML=`<div class="wl-item-header"><div class="wl-ticker">${ticker}</div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div><div style="font-size:0.8em; color:var(--text-muted);">Non nel database</div>`;
-            grid.appendChild(card); return;
-        }
-
-        card.innerHTML=`<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div><div id="wl-body-${ticker}" style="text-align:center;color:var(--text-muted);font-size:0.82em;padding:8px 0;">↻ Live fetching...</div>`;
-        grid.appendChild(card);
-
-        // Fetch intelligente: solo quando la card entra nello schermo
-        const obs = new IntersectionObserver(entries => {
-            if (!entries[0].isIntersecting) return;
-            obs.disconnect();
-            getLivePrice(data.yf, data.price).then(price => {
-                const fv=data.fv, pr=parseFloat(price), isU=fv>pr;
-                const badge = isU ? `<span class="wl-badge green">↑ +${(((fv-pr)/pr)*100).toFixed(1)}% upside</span>` : `<span class="wl-badge red">↓ ${(((pr-fv)/fv)*100).toFixed(1)}% al FV</span>`;
-                const body = document.getElementById(`wl-body-${ticker}`);
-                if (body) body.outerHTML = `<div class="wl-fv-row"><div><div style="font-size:0.72em;color:var(--text-muted);text-transform:uppercase;">Fair Value</div><div class="mono" style="font-weight:700;color:${isU?'var(--brand-green)':'var(--accent-red)'}">${fmt(fv)} ${data.curr}</div></div>${badge}</div><button class="wl-fv-btn" onclick="jumpToFV('${ticker}')">Apri analisi →</button>`;
-            });
-        }, {threshold:0.1});
-        obs.observe(card);
-    });
-}
-function addToWatchlist(t) {
-    let input = (t || document.getElementById('wlInput').value).toUpperCase().trim();
-    if (aliases[input]) input = aliases[input];
-    if (!input) return;
-    if (watchlist.includes(input)) { showToast(`<strong>${input}</strong> è già in watchlist.`, 'warn'); return; }
-    watchlist.unshift(input); saveWatchlist(); renderWatchlist(); document.getElementById('wlInput').value='';
-    showToast(`<strong>${input}</strong> aggiunto alla watchlist.`);
-}
-function addCurrentToWatchlist() { if (currentFVTicker) addToWatchlist(currentFVTicker); }
-function removeFromWatchlist(t) { watchlist=watchlist.filter(x=>x!==t); saveWatchlist(); renderWatchlist(); }
-document.getElementById('wlInput').addEventListener('keypress', e => { if (e.key==='Enter') addToWatchlist(); });
-
-/* ===========================================
-   PORTAFOGLIO PERSONALE (Lazy Load)
-   =========================================== */
-let personalPort = JSON.parse(localStorage.getItem('mm_port') || '[]');
-const savePort = () => localStorage.setItem('mm_port', JSON.stringify(personalPort));
-
-function updateKPIs(totInv, totCur) {
-    const pl = totCur - totInv;
-    document.getElementById('myp-invested').innerText = fmtEur(totInv);
-    document.getElementById('myp-current').innerText  = fmtEur(totCur);
-    const plEl = document.getElementById('myp-pl');
-    plEl.innerText = (pl>0?'+':'') + fmtEur(pl);
-    plEl.className = `kpi-val mono ${pl >= 0 ? 'green' : 'red'}`;
-}
-
-async function renderPersonalPortfolio() {
-    const tbody = document.getElementById('mypBody'), wrap  = document.getElementById('mypTableWrap'), empty = document.getElementById('mypEmpty'), load  = document.getElementById('mypLoading');
-    if (!personalPort.length) { wrap.style.display='none'; empty.style.display='block'; updateKPIs(0,0); return; }
-    empty.style.display='none'; wrap.style.display='none'; load.style.display='block'; tbody.innerHTML='';
-
-    let totInv=0, totCur=0;
-    const rows = await Promise.all(personalPort.map(async (pos, idx) => {
-        const data = db[pos.ticker];
-        const live = data ? await getLivePrice(data.yf, data.price) : pos.price;
-        const inv = pos.qty * pos.price, cur = pos.qty * live, pl = cur - inv, plPct = (pl/inv)*100;
-        totInv += inv; totCur += cur;
-        const vsF = data ? (data.fv > live ? `<span style="color:var(--brand-green);font-size:0.85em;">Sottovalutato</span>` : `<span style="color:var(--accent-red);font-size:0.85em;">Sopravvalutato</span>`) : '—';
-        return `<tr><td style="font-weight:800;color:#fff;font-size:1em;">${pos.ticker}</td><td>${pos.qty}</td><td>${fmt(pos.price)}</td><td>${fmt(live)} <span class="live-dot" style="margin-left:3px; width:5px; height:5px;"></span></td><td class="${pl>=0?'pl-pos':'pl-neg'}">${pl>0?'+':''}${fmt(pl)} €</td><td class="${pl>=0?'pl-pos':'pl-neg'}">${pl>0?'+':''}${plPct.toFixed(1)}%</td><td>${vsF}</td><td><button onclick="removePersonalPosition(${idx})" style="background:rgba(255,61,0,0.09);border:1px solid rgba(255,61,0,0.3);color:var(--accent-red);padding:5px 10px;border-radius:6px;cursor:pointer;font-size:0.8em;transition:0.2s;">✕</button></td></tr>`;
-    }));
-
-    tbody.innerHTML = rows.join('');
-    updateKPIs(totInv, totCur);
-    load.style.display='none'; wrap.style.display='block';
-}
-
-function addPersonalPosition() {
-    let t = document.getElementById('mypTicker').value.toUpperCase().trim(); if (aliases[t]) t = aliases[t];
-    const q = parseFloat(document.getElementById('mypQty').value), p = parseFloat(document.getElementById('mypPrice').value);
-    if (!t || !q || !p) { showToast('Compila tutti i campi per il portafoglio.', 'warn'); return; }
-    personalPort.push({ticker:t, qty:q, price:p}); savePort(); renderPersonalPortfolio();
-    document.getElementById('mypTicker').value=''; document.getElementById('mypQty').value=''; document.getElementById('mypPrice').value='';
-    showToast(`Acquisto di ${t} aggiunto al portafoglio.`);
-}
-function removePersonalPosition(idx) { personalPort.splice(idx,1); savePort(); renderPersonalPortfolio(); }
-
-const portObserver = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) { portObserver.disconnect(); renderPersonalPortfolio(); }
-}, {threshold:0.05});
-portObserver.observe(document.getElementById('myportfolio'));
-
-/* ===========================================
-   STRUMENTI: PAC E POSITION SIZING
-   =========================================== */
-let pacChart = null;
-function calculatePAC() {
-    const init=parseFloat(document.getElementById('pacInit').value)||0, mo=parseFloat(document.getElementById('pacMonthly').value)||0, yr=parseInt(document.getElementById('pacYears').value)||0, rt=parseFloat(document.getElementById('pacRate').value)||0;
-    let total=init, invested=init, labels=[], dataI=[], dataT=[];
-    for (let i=1;i<=yr;i++){ labels.push(`Anno ${i}`); for(let m=0;m<12;m++){total=(total+mo)*(1+(rt/100)/12); invested+=mo;} dataI.push(invested); dataT.push(total); }
-    document.getElementById('pacTotal').innerText = fmtEur(total); document.getElementById('pacInvested').innerText = fmtEur(invested); document.getElementById('pacInterest').innerText = fmtEur(total-invested); document.getElementById('pacResult').style.display='block';
-    if (pacChart) pacChart.destroy();
-    pacChart = new Chart(document.getElementById('pacChartCanvas').getContext('2d'), { type:'bar', data:{labels, datasets:[{label:'Versato', data:dataI, backgroundColor:'#2962ff'},{label:'Rendita', data:dataT.map((v,i)=>v-dataI[i]), backgroundColor:'#00e676'}]}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#e0e0e0',font:{family:"'Inter'"}}}} , scales:{x:{stacked:true,ticks:{color:'#949494'}},y:{stacked:true,ticks:{color:'#949494'}}}} });
-}
-
-function calculatePosition() {
-    const cap=parseFloat(document.getElementById('psCap').value)||0, rp=parseFloat(document.getElementById('psRisk').value)||0, en=parseFloat(document.getElementById('psEntry').value)||0, sl=parseFloat(document.getElementById('psStop').value)||0;
-    if (!en||!sl||en===sl){showToast('Inserisci prezzi di entrata e stop loss validi.','warn');return;}
-    const re=cap*(rp/100), sh=Math.floor(re/Math.abs(en-sl));
-    document.getElementById('psShares').innerText = sh + ' Azioni'; document.getElementById('psRiskEuro').innerText= fmtEur(re); document.getElementById('psTotalCost').innerText=fmtEur(sh*en); document.getElementById('psResult').style.display='block';
-}
-
-/* ===========================================
-   STRUMENTI: TOTAL RETURN SIMULATOR
+   STRUMENTI: TOTAL RETURN
    =========================================== */
 let trChartObj = null;
-async function calculateTotalReturn() {
-    const ticker = document.getElementById('trTicker').value.toUpperCase().trim();
-    const capital = parseFloat(document.getElementById('trCapital').value) || 0;
-    const years = parseFloat(document.getElementById('trYears').value) || 0;
+
+async function calcTotalReturn() {
+    let t = document.getElementById('trTicker').value.toUpperCase().trim();
+    if (aliases[t]) t = aliases[t];
+    const cap = parseFloat(document.getElementById('trCap').value) || 0;
+    const yrs = parseInt(document.getElementById('trYears').value) || 0;
     const btn = document.getElementById('trBtn');
-
-    if (!ticker || !capital || !years) { showToast('Compila tutti i campi della simulazione', 'warn'); return; }
-    let t = aliases[ticker] || ticker;
+    
+    if (!t || !cap || !yrs) { showToast("Compila tutti i campi della simulazione", "warn"); return; }
     const data = db[t];
-    if (!data) { showToast('Ticker non trovato nel database per la simulazione', 'alert'); return; }
+    if (!data) { showToast("Ticker non presente nel DB. Usane uno analizzato nel Fair Value.", "alert"); return; }
 
-    btn.innerText = "⏳ CALCOLO..."; btn.disabled = true;
-    const livePrice = await getLivePrice(data.yf, data.price);
+    btn.innerText = "⏳ CALCOLO IN CORSO..."; btn.disabled = true;
+    const livePrice = parseFloat(await getLivePrice(data.yf, data.price));
     btn.innerText = "CALCOLA TOTAL RETURN"; btn.disabled = false;
 
-    const p0 = parseFloat(livePrice);
     const fv = parseFloat(data.fv);
-    const dy = (parseFloat(data.divYield) || 0) / 100;
+    const yieldPct = parseFloat(data.divYield) || 0;
 
-    if (p0 <= 0 || fv <= 0) { showToast('Prezzo o FV non validi per il calcolo', 'alert'); return; }
+    if (fv <= livePrice) {
+        showToast(`Il prezzo live di ${t} (${fmt(livePrice)}) è già superiore o uguale al Fair Value (${fmt(fv)}). Impossibile proiettare una crescita al rialzo.`, "warn");
+        return;
+    }
 
-    // Math: CAGR price = (FV / P0)^(1/t) - 1
-    const cagrPrice = Math.pow((fv / p0), (1 / years)) - 1;
-    const cagrTotal = cagrPrice + dy;
+    // Calcolo CAGR
+    const cagrP = Math.pow((fv / livePrice), 1 / yrs) - 1;
+    const cagrT = cagrP + (yieldPct / 100);
 
-    const valNoDiv = capital * Math.pow((1 + cagrPrice), years);
-    const valWithDiv = capital * Math.pow((1 + cagrTotal), years);
+    const vNoDiv = cap * Math.pow(1 + cagrP, yrs);
+    const vDiv = cap * Math.pow(1 + cagrT, yrs);
 
-    document.getElementById('trFinalVal').innerText = fmtEur(valWithDiv);
-    document.getElementById('trNoDivVal').innerText = fmtEur(valNoDiv);
-    document.getElementById('trCagrPrice').innerText = (cagrPrice * 100).toFixed(2) + "%";
-    document.getElementById('trCagrTotal').innerText = (cagrTotal * 100).toFixed(2) + "%";
-
+    document.getElementById('trFinal').innerText = fmtEur(vDiv);
+    document.getElementById('trNoDiv').innerText = fmtEur(vNoDiv);
+    document.getElementById('trCagrPrice').innerText = (cagrP * 100).toFixed(2) + '%';
+    document.getElementById('trCagrTotal').innerText = (cagrT * 100).toFixed(2) + '%';
     document.getElementById('trResult').style.display = 'block';
 
-    let labels = []; let dNoDiv = []; let dDiv = [];
-    for (let i = 0; i <= years; i++) {
+    let labels = [], d1 = [], d2 = [];
+    for (let i = 0; i <= yrs; i++) {
         labels.push(`Anno ${i}`);
-        let vPrice = capital * Math.pow((1 + cagrPrice), i);
-        let vTot = capital * Math.pow((1 + cagrTotal), i);
-        dNoDiv.push(vPrice);
-        dDiv.push(vTot - vPrice);
+        let pOnly = cap * Math.pow(1 + cagrP, i);
+        let tOnly = cap * Math.pow(1 + cagrT, i);
+        d1.push(pOnly);
+        d2.push(tOnly - pOnly);
     }
 
     if (trChartObj) trChartObj.destroy();
     trChartObj = new Chart(document.getElementById('trChartCanvas').getContext('2d'), {
         type: 'bar',
-        data: { labels: labels, datasets: [
-                { label: 'Crescita Capitale (No Div)', data: dNoDiv, backgroundColor: '#2962ff' },
-                { label: 'Effetto Dividendi Reinvestiti', data: dDiv, backgroundColor: '#00bcd4' }
-        ]},
+        data: {
+            labels,
+            datasets: [
+                { label: 'Crescita legata al Prezzo', data: d1, backgroundColor: '#2962ff' },
+                { label: 'Potenza delle Cedole (Reinvestite)', data: d2, backgroundColor: '#00bcd4' }
+            ]
+        },
         options: {
             responsive: true, maintainAspectRatio: false,
-            scales: { x: { stacked: true, ticks:{color:'#949494'} }, y: { stacked: true, ticks:{color:'#949494'} } },
+            scales: { x: { stacked: true, ticks: { color: '#949494' } }, y: { stacked: true, ticks: { color: '#949494' } } },
             plugins: { legend: { labels: { color: '#e0e0e0', font: { family: "'Inter'" } } } }
         }
     });
-}
-
-/* ===========================================
-   FAQ
-   =========================================== */
-document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const item=btn.parentElement;
-        document.querySelectorAll('.faq-item').forEach(el=>{ if(el!==item)el.classList.remove('active'); });
-        item.classList.toggle('active');
-    });
-});
-
-/* ===========================================
-   FEAR & GREED RENDER
-   =========================================== */
-function renderFearGreed() {
-    const val = fearGreed.value;
-    document.getElementById('sentiment-needle').style.left = `${val}%`;
-    const el = document.getElementById('sentiment-label');
-    const color = val >= 60 ? 'var(--brand-green)' : val <= 40 ? 'var(--accent-red)' : 'var(--accent-yellow)';
-    el.style.color = color;
-    el.innerText = `${fearGreed.label} (${val})`;
 }
 
 /* ===========================================
@@ -1610,6 +1385,23 @@ window.onload = function() {
 
     setTimeout(checkAlertsOnLoad, 2000);
 };
+
+/* STRUMENTI (PAC E SIZING) MANTENUTI DAL PRECEDENTE */
+let pacChart = null;
+function calculatePAC() {
+    const init=parseFloat(document.getElementById('pacInit').value)||0, mo=parseFloat(document.getElementById('pacMonthly').value)||0, yr=parseInt(document.getElementById('pacYears').value)||0, rt=parseFloat(document.getElementById('pacRate').value)||0;
+    let total=init, invested=init, labels=[], dataI=[], dataT=[];
+    for (let i=1;i<=yr;i++){ labels.push(`Anno ${i}`); for(let m=0;m<12;m++){total=(total+mo)*(1+(rt/100)/12); invested+=mo;} dataI.push(invested); dataT.push(total); }
+    document.getElementById('pacTotal').innerText = fmtEur(total); document.getElementById('pacInvested').innerText = fmtEur(invested); document.getElementById('pacInterest').innerText = fmtEur(total-invested); document.getElementById('pacResult').style.display='block';
+    if (pacChart) pacChart.destroy();
+    pacChart = new Chart(document.getElementById('pacChartCanvas').getContext('2d'), { type:'bar', data:{labels, datasets:[{label:'Versato', data:dataI, backgroundColor:'#2962ff'},{label:'Rendita', data:dataT.map((v,i)=>v-dataI[i]), backgroundColor:'#00e676'}]}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#e0e0e0',font:{family:"'Inter'"}}}} , scales:{x:{stacked:true,ticks:{color:'#949494'}},y:{stacked:true,ticks:{color:'#949494'}}}} });
+}
+function calculatePosition() {
+    const cap=parseFloat(document.getElementById('psCap').value)||0, rp=parseFloat(document.getElementById('psRisk').value)||0, en=parseFloat(document.getElementById('psEntry').value)||0, sl=parseFloat(document.getElementById('psStop').value)||0;
+    if (!en||!sl||en===sl){showToast('Inserisci prezzi validi.','warn');return;}
+    const re=cap*(rp/100), sh=Math.floor(re/Math.abs(en-sl));
+    document.getElementById('psShares').innerText = sh + ' Azioni'; document.getElementById('psRiskEuro').innerText= fmtEur(re); document.getElementById('psTotalCost').innerText=fmtEur(sh*en); document.getElementById('psResult').style.display='block';
+}
 </script>
 
 <div id="tv_chart_container" style="display:none; height:0;"></div>
