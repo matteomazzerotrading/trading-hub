@@ -131,7 +131,7 @@
         .screener-table th { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border-glass); cursor: pointer; white-space: nowrap; transition: color 0.2s; }
         .screener-table th:hover, .screener-table th.sorted { color: var(--brand-green); }
         .screener-table td { padding: 14px 18px; border-bottom: 1px solid var(--border-glass); vertical-align: middle; white-space: nowrap; }
-        .screener-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .screener-table tr:hover td { background: rgba(255,255,255,0.03); cursor: pointer; }
         .scr-rank { font-family: 'JetBrains Mono', monospace; font-size: 0.8em; color: var(--text-muted); font-weight: 700; text-align: center; }
         .scr-ticker { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #fff; font-size: 1em; letter-spacing: 0.5px; }
         .scr-name { color: var(--text-muted); font-size: 0.82em; }
@@ -154,7 +154,7 @@
         .screener-toggle-icon { transition: transform 0.35s ease; }
         .screener-toggle-icon.open { transform: rotate(180deg); }
         .screener-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.35s ease; opacity: 0; }
-        .screener-body.open { max-height: 4000px; opacity: 1; }
+        .screener-body.open { max-height: 5000px; opacity: 1; }
 
         /* Loader Screener */
         .screener-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--brand-green); font-weight: bold; }
@@ -410,7 +410,7 @@
     <div class="container" id="screener">
         <div class="section-header">
             <h2 class="section-title">Screener <span>Titoli</span></h2>
-            <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Tutti i titoli ordinati per upside</span>
+            <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Tutti i titoli ordinati per upside (Prezzi in tempo reale)</span>
         </div>
         <div class="card" style="padding: 24px;">
             <button class="screener-toggle-btn" onclick="toggleScreener()" id="scr-toggle-btn">
@@ -434,7 +434,7 @@
                 </div>
 
                 <div class="screener-loading" id="scr-loading" style="display:none;">
-                    <div class="screener-loading-spinner"></div><div>Scaricamento prezzi live in corso...</div>
+                    <div class="screener-loading-spinner"></div><div>Scaricamento prezzi Live da Yahoo Finance in corso...</div>
                 </div>
 
                 <div class="screener-table-wrap" id="scr-table-wrap" style="display:none;">
@@ -668,6 +668,15 @@
                         </script>
                     </div>
                 </div>
+                <div class="card" style="padding: 20px 20px 0 20px;">
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📊 Hot Stocks</h3>
+                    <div class="tv-news-widget">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+                        { "colorTheme": "dark", "dateRange": "1D", "exchange": "US", "showChart": false, "locale": "it", "width": "100%", "height": 350, "isTransparent": true, "showSymbolLogo": false, "showFloatingTooltip": false, "plotLineColorGrowing": "rgba(0,230,118, 1)", "plotLineColorFalling": "rgba(255, 61, 0, 1)", "gridLineColor": "rgba(255, 255, 255, 0.05)", "scaleFontColor": "rgba(120, 123, 134, 1)", "belowLineFillColorGrowing": "rgba(0,230,118, 0.05)", "belowLineFillColorFalling": "rgba(255,61,0, 0.05)" }
+                        </script>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -730,7 +739,7 @@
             "AXP": { name: "American Express", fv: 332.00, price: 230.00, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, videoID: null },
             "BAC": { name: "Bank of America", fv: 59.85, price: 37.00, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, videoID: null },
             "BAYN": { name: "Bayer AG", fv: 44.12, price: 28.00, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, videoID: null },
-            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
+            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "p", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
             "BC": { name: "Brunswick Corp", fv: 88.00, price: 85.00, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, videoID: null },
             "BNG": { name: "Bunge Global", fv: 46.31, price: 105.00, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null },
             "BRE": { name: "Brembo", fv: 14.93, price: 10.50, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, videoID: null },
@@ -805,18 +814,31 @@
             }
         }
 
-        // === FETCH LIVE PREZZO ===
+        // === FETCH LIVE PREZZO (Anti-Cache e Doppio Proxy) ===
         async function getLivePrice(yfTicker, fallbackPrice) {
             if (!yfTicker) return fallbackPrice;
+            const ts = new Date().getTime(); 
+            const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}?_=${ts}`;
+            
             try {
-                const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}`;
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}&disableCache=true`;
                 const response = await fetch(proxyUrl);
                 if (response.ok) {
                     const data = await response.json(); const j = JSON.parse(data.contents);
                     if (j.chart && j.chart.result && j.chart.result.length > 0) return j.chart.result[0].meta.regularMarketPrice;
                 }
-            } catch (e) {} return fallbackPrice;
+            } catch (e) {} 
+            
+            try {
+                const backupProxy = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
+                const response = await fetch(backupProxy);
+                if (response.ok) {
+                    const j = await response.json();
+                    if (j.chart && j.chart.result && j.chart.result.length > 0) return j.chart.result[0].meta.regularMarketPrice;
+                }
+            } catch (e) {}
+
+            return fallbackPrice;
         }
 
         // === CARICAMENTO SEGNALI INDICATORE ===
@@ -899,7 +921,7 @@
         }
         document.getElementById("fvInput").addEventListener("keypress", e => { if (e.key === "Enter") { e.preventDefault(); calculateFV(); } });
 
-        // === SCREENER ===
+        // === SCREENER (CHUNKING PER NON FAR CADERE LE API) ===
         let screenerData = []; let screenerOpen = false; let screenerBuilt = false;
         let currentFilter = 'all'; let currentSort = { col: 'upside', dir: 'desc' };
 
@@ -1124,6 +1146,7 @@
             renderPersonalPortfolio();
             renderIndicatorSignals();
             
+            // Check Alert Drop FV
             setTimeout(checkAlertsOnLoad, 1500);
 
             const ctx = document.getElementById('allocationChart').getContext('2d');
