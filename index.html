@@ -77,9 +77,33 @@
         }
         .btn-primary:hover { box-shadow: 0 0 20px var(--brand-glow); transform: translateY(-2px); }
 
+        /* FIX AUTOFILL */
+        input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+            transition: background-color 5000s ease-in-out 0s !important;
+            -webkit-text-fill-color: #fff !important;
+        }
+
         /* === FAIR VALUE === */
         .fv-interface { display: flex; flex-direction: column; gap: 20px; }
-        .fv-search-box { display: flex; gap: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid var(--border-glass); }
+        .fv-search-box { 
+            display: flex; gap: 12px; align-items: center; 
+            background: rgba(0, 0, 0, 0.4); padding: 8px 8px 8px 25px; 
+            border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); 
+            transition: all 0.3s ease;
+        }
+        .fv-search-box:focus-within { border-color: var(--brand-green); box-shadow: 0 0 25px rgba(0, 230, 118, 0.15); background: rgba(0, 0, 0, 0.7); }
+        .fv-input-main { 
+            flex: 1; background: transparent !important; border: none !important; color: #fff !important; 
+            font-size: 1.15em; font-family: 'JetBrains Mono', monospace; 
+            outline: none !important; text-transform: uppercase; letter-spacing: 1px; box-shadow: none !important;
+        }
+        .fv-input-main::placeholder { color: rgba(255,255,255,0.3); font-family: 'Inter', sans-serif; text-transform: none; letter-spacing: 0; font-size: 0.9em; }
+        .fv-search-btn { 
+            background: var(--brand-green); color: #000; border: none; padding: 15px 35px; border-radius: 40px; 
+            font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 1em; letter-spacing: 0.5px;
+        }
+        .fv-search-btn:hover { box-shadow: 0 0 20px var(--brand-glow); transform: scale(1.02); }
+
         .fv-result-card { display: none; background: rgba(0, 230, 118, 0.05); border: 1px solid var(--brand-green); margin-top: 20px; animation: slideUp 0.5s ease; border-width: 2px;}
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .fv-value-big { font-size: 3.2em; font-weight: 800; transition: 0.3s; }
@@ -140,7 +164,7 @@
         .wl-fv-btn { width: 100%; background: transparent; border: 1px solid var(--border-glass); color: var(--brand-green); padding: 8px; border-radius: 8px; cursor: pointer; font-size: 0.8em; font-weight: 600; transition: 0.2s; }
         .wl-fv-btn:hover { background: rgba(0,230,118,0.08); border-color: var(--brand-green); }
 
-        /* === STRUMENTI (PAC & POSITION SIZING) === */
+        /* === STRUMENTI OPERATIVI === */
         .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .tool-result-box { margin-top: 20px; padding: 20px; border-radius: 12px; text-align: center; background: rgba(0, 230, 118, 0.05); border: 1px solid rgba(0, 230, 118, 0.3); display: none; animation: slideUp 0.4s ease; }
         .tool-result-val { font-size: 2.2em; font-weight: 800; color: var(--brand-green); margin-bottom: 5px; font-family: 'JetBrains Mono', monospace;}
@@ -151,15 +175,13 @@
         .kpi-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
         .kpi-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border-glass); text-align: center; }
         .kpi-val { font-size: 1.8em; font-weight: 700; color: #fff; }
-        .kpi-val.green { color: var(--brand-green); }
-        .kpi-val.red { color: var(--accent-red); }
+        .kpi-val.green { color: var(--brand-green); } .kpi-val.red { color: var(--accent-red); }
         .bar-row { display: flex; align-items: center; margin-bottom: 12px; }
         .bar-label { width: 120px; font-weight: 600; font-size: 0.85em; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .bar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; margin: 0 15px; overflow: hidden; }
         .bar-fill { height: 100%; border-radius: 5px; transition: width 1s ease-in-out; }
         .bar-val { width: 70px; text-align: right; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); font-size: 0.85em; }
-        .c-1 { background-color: var(--brand-green); } .c-2 { background-color: var(--accent-blue); } .c-3 { background-color: var(--accent-red); } .c-4 { background-color: var(--accent-cyan); } .c-5 { background-color: var(--accent-purple); }
-
+        
         /* === NEWS & SENTIMENT === */
         .news-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .tv-news-widget { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-glass); margin-bottom: 20px;}
@@ -190,9 +212,13 @@
         .video-title { margin: 0; font-size: 1.1em; line-height: 1.4; color: #fff; font-weight: 600; }
         .request-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
+        /* COLORI ASSET */
+        .c-1 { background-color: var(--brand-green); } .c-2 { background-color: var(--accent-blue); } 
+        .c-3 { background-color: var(--accent-red); } .c-4 { background-color: var(--accent-cyan); } 
+        .c-5 { background-color: var(--accent-purple); }
+
         @media (max-width: 900px) { 
-            .portfolio-grid, .news-layout, .tools-grid, .request-form, .comp-cards { grid-template-columns: 1fr; }
-            .comp-inputs { grid-template-columns: 1fr; }
+            .portfolio-grid, .news-layout, .tools-grid, .request-form, .comp-cards, .comp-inputs { grid-template-columns: 1fr; }
             .comp-vs { display: none; }
             .kpi-container { grid-template-columns: 1fr; }
             .fv-result-card > div > div { flex-direction: column; gap: 30px; }
@@ -200,7 +226,12 @@
             .watchlist-grid { grid-template-columns: 1fr 1fr; }
             .nav-links { display: none; } 
         }
-        @media (max-width: 500px) { .watchlist-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .fv-search-box { padding: 6px 6px 6px 15px; border-radius: 30px; }
+            .fv-search-btn { padding: 12px 20px; font-size: 0.9em; border-radius: 30px; }
+            .fv-input-main { font-size: 1em; }
+            .watchlist-grid { grid-template-columns: 1fr; }
+        }
         
         footer { text-align: center; padding: 50px; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.9em; }
         footer a { color: var(--brand-green); text-decoration: none; }
@@ -213,10 +244,10 @@
         <div class="nav-links">
             <a href="#fv-section" class="nav-link">Fair Value</a>
             <a href="#comparatore" class="nav-link">Comparatore</a>
+            <a href="#watchlist" class="nav-link">Watchlist</a>
             <a href="#strumenti" class="nav-link">Strumenti</a>
             <a href="#portfolio" class="nav-link">Portafoglio</a>
             <a href="#news" class="nav-link">News</a>
-            <a href="#faq" class="nav-link">Glossario</a>
         </div>
     </nav>
 
@@ -242,13 +273,17 @@
         </div>
         <div class="card">
             <div class="fv-interface">
+                
                 <div class="fv-search-box">
-                    <input type="text" id="fvInput" class="fv-input" placeholder="Cerca Ticker (es. AAPL, ENEL, GOOG, RACE...)">
-                    <button id="calcBtn" onclick="calculateFV()" class="btn-primary" style="width: auto;">ANALIZZA</button>
+                    <span style="color: var(--brand-green); font-size: 1.2em;">🔍</span>
+                    <input type="text" id="fvInput" class="fv-input-main" placeholder="Cerca un'azienda (es. AAPL, ENEL, GOOG...)">
+                    <button id="calcBtn" onclick="calculateFV()" class="fv-search-btn">ANALIZZA</button>
                 </div>
+                
                 <div id="fvError" style="display:none; color: var(--accent-red); padding: 15px; text-align: center;">
                     ⚠️ Titolo non presente nel database o ticker errato.
                 </div>
+                
                 <div id="fvResult" class="card fv-result-card" style="padding: 0; overflow: hidden;">
                     <div style="padding: 30px;">
                         <h3 id="fvName" style="margin-top: 0; color: #fff; font-size: 1.8em; text-align: center; margin-bottom: 30px;">Nome Azienda</h3>
@@ -307,7 +342,7 @@
                     <input type="text" id="compInput2" class="comp-ticker-input" placeholder="es. MSFT">
                 </div>
             </div>
-            <button class="comp-btn" onclick="compareStocks()">⚖️ CONFRONTA ORA</button>
+            <button class="comp-btn" id="compBtnAction" onclick="compareStocks()">⚖️ CONFRONTA ORA</button>
 
             <div id="compError" style="display:none; color:var(--accent-red); padding:15px; text-align:center; margin-top:16px;">
                 ⚠️ Uno o entrambi i ticker non sono nel database. Controlla e riprova.
@@ -332,7 +367,7 @@
             </div>
             <div id="wlEmpty" class="watchlist-empty">
                 🔍 La tua watchlist è vuota.<br>
-                <span style="font-size: 0.85em;">Cerca un ticker sopra oppure clicca "Aggiungi a Watchlist" dopo un'analisi.</span>
+                <span style="font-size: 0.85em;">Cerca un ticker o aggiungilo dai risultati.</span>
             </div>
             <div id="wlGrid" class="watchlist-grid" style="display: none;"></div>
         </div>
@@ -471,7 +506,6 @@
                         </script>
                     </div>
                 </div>
-
                 <div class="card" style="padding: 20px 20px 0 20px;">
                     <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🌍 Panoramica Mercati Globali</h3>
                     <div class="tv-news-widget">
@@ -497,7 +531,6 @@
                     </div>
                     <div style="text-align: center; margin-top: 15px; font-size: 1.5em; font-weight: 800; color: var(--brand-green);">Greed (72)</div>
                 </div>
-
                 <div class="card" style="padding: 20px 20px 0 20px;">
                     <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📅 Calendario Macro</h3>
                     <div class="tv-news-widget">
@@ -507,7 +540,6 @@
                         </script>
                     </div>
                 </div>
-
                 <div class="card" style="padding: 20px 20px 0 20px;">
                     <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📊 Hot Stocks del Momento</h3>
                     <div class="tv-news-widget">
@@ -625,100 +657,103 @@
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // === 1. DATABASE COMPLETO (40+ Ticker con DivYield) ===
+        // === 1. DATABASE COMPLETO (40+ Ticker) ===
+        // I prezzi ("price") sono ora stime realistiche per fare da fallback sicuro.
         const db = {
-            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, price: 71.04, curr: "€", ex: "MIL", yf: "DIA.MI", divYield: 1.60, videoID: null },
+            "DIA": { name: "DiaSorin S.p.A.", fv: 85.00, price: 71.00, curr: "€", ex: "MIL", yf: "DIA.MI", divYield: 1.60, videoID: null },
             "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", yf: "ERG.MI", divYield: 4.10, videoID: null },
-            "RACE": { name: "Ferrari N.V.", fv: 300.00, price: 319.40, curr: "€", ex: "MIL", yf: "RACE.MI", divYield: 0.76, videoID: null },
-            "GOOG": { name: "Alphabet Inc.", fv: 290.00, price: 263.20, curr: "$", ex: "NASDAQ", yf: "GOOG", divYield: 0.15, videoID: null },
-            "MC": { name: "LVMH", fv: 600.00, price: 552.20, curr: "€", ex: "EPA", yf: "MC.PA", divYield: 1.50, videoID: null },
-            "ADBE": { name: "Adobe Inc.", fv: 300.00, price: 257.81, curr: "$", ex: "NASDAQ", yf: "ADBE", divYield: 0.00, videoID: null },
+            "RACE": { name: "Ferrari N.V.", fv: 300.00, price: 319.00, curr: "€", ex: "MIL", yf: "RACE.MI", divYield: 0.76, videoID: null },
+            "GOOG": { name: "Alphabet Inc.", fv: 290.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "GOOG", divYield: 0.15, videoID: null },
+            "MC": { name: "LVMH", fv: 600.00, price: 552.00, curr: "€", ex: "EPA", yf: "MC.PA", divYield: 1.50, videoID: null },
+            "ADBE": { name: "Adobe Inc.", fv: 300.00, price: 257.00, curr: "$", ex: "NASDAQ", yf: "ADBE", divYield: 0.00, videoID: null },
             "FUN": { name: "Six Flags", fv: 25.00, price: 17.00, curr: "$", ex: "NYSE", yf: "FUN", divYield: 0.00, videoID: null },
-            "INTU": { name: "Intuit Inc.", fv: 700.00, price: 381.23, curr: "$", ex: "NASDAQ", yf: "INTU", divYield: 0.65, videoID: null },
-            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, price: 145.82, curr: "$", ex: "NASDAQ", yf: "QCOM", divYield: 1.85, videoID: null },
+            "INTU": { name: "Intuit Inc.", fv: 700.00, price: 381.00, curr: "$", ex: "NASDAQ", yf: "INTU", divYield: 0.65, videoID: null },
+            "QCOM": { name: "Qualcomm Inc.", fv: 180.00, price: 145.00, curr: "$", ex: "NASDAQ", yf: "QCOM", divYield: 1.85, videoID: null },
             "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", yf: "STLAM.MI", divYield: 6.50, videoID: "MpwZcg3J8BE" },
             "SAP": { name: "SAP SE", fv: 220.00, price: 220.00, curr: "€", ex: "XETR", yf: "SAP.DE", divYield: 1.20, videoID: "Icy8DMAwDYw" },
             
-            "A2A": { name: "A2A S.p.A.", fv: 2.45, price: 2.45, curr: "€", ex: "MIL", yf: "A2A.MI", divYield: 4.80, videoID: null },
-            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 253.00, curr: "$", ex: "NASDAQ", yf: "AAPL", divYield: 0.50, videoID: null },
-            "ADM": { name: "Archer-Daniels-Midland", fv: 53.00, price: 53.00, curr: "$", ex: "NYSE", yf: "ADM", divYield: 3.50, videoID: null },
-            "ADP": { name: "Automatic Data Processing", fv: 312.00, price: 312.00, curr: "$", ex: "NASDAQ", yf: "ADP", divYield: 1.90, videoID: null },
-            "ADSK": { name: "Autodesk Inc.", fv: 339.00, price: 339.00, curr: "$", ex: "NASDAQ", yf: "ADSK", divYield: 0.00, videoID: null },
-            "AMAT": { name: "Applied Materials", fv: 233.00, price: 233.00, curr: "$", ex: "NASDAQ", yf: "AMAT", divYield: 0.70, videoID: null },
-            "AMD": { name: "Advanced Micro Devices", fv: 145.60, price: 145.60, curr: "$", ex: "NASDAQ", yf: "AMD", divYield: 0.00, videoID: null },
-            "AMZN": { name: "Amazon.com", fv: 199.00, price: 199.00, curr: "$", ex: "NASDAQ", yf: "AMZN", divYield: 0.00, videoID: null },
-            "ASML": { name: "ASML Holding", fv: 904.00, price: 904.00, curr: "$", ex: "NASDAQ", yf: "ASML", divYield: 0.85, videoID: null },
-            "AXP": { name: "American Express", fv: 332.00, price: 332.00, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, videoID: null },
-            "BAC": { name: "Bank of America", fv: 59.85, price: 59.85, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, videoID: null },
-            "BAYN": { name: "Bayer AG", fv: 44.12, price: 44.12, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, videoID: null },
-            "BATS": { name: "British American Tobacco", fv: 4656.00, price: 4656.00, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
-            "BC": { name: "Brunswick Corp", fv: 88.00, price: 88.00, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, videoID: null },
-            "BNG": { name: "Bunge Global", fv: 46.31, price: 46.31, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null },
-            "BRE": { name: "Brembo", fv: 14.93, price: 14.93, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, videoID: null },
-            "BRK.B": { name: "Berkshire Hathaway", fv: 511.00, price: 511.00, curr: "$", ex: "NYSE", yf: "BRK-B", divYield: 0.00, videoID: null },
-            "CAT": { name: "Caterpillar", fv: 404.00, price: 404.00, curr: "$", ex: "NYSE", yf: "CAT", divYield: 1.50, videoID: null },
-            "CE": { name: "Celanese", fv: 105.56, price: 105.56, curr: "$", ex: "NYSE", yf: "CE", divYield: 2.60, videoID: null },
-            "CNC": { name: "Centene", fv: 102.66, price: 102.66, curr: "$", ex: "NYSE", yf: "CNC", divYield: 0.00, videoID: null },
-            "COST": { name: "Costco Wholesale", fv: 851.00, price: 851.00, curr: "$", ex: "NASDAQ", yf: "COST", divYield: 0.60, videoID: null },
-            "CPR": { name: "Campari", fv: 8.95, price: 8.95, curr: "€", ex: "MIL", yf: "CPR.MI", divYield: 0.90, videoID: null },
-            "CRM": { name: "Salesforce", fv: 325.48, price: 325.48, curr: "$", ex: "NYSE", yf: "CRM", divYield: 0.50, videoID: null },
-            "CVX": { name: "Chevron", fv: 181.66, price: 181.66, curr: "$", ex: "NYSE", yf: "CVX", divYield: 4.10, videoID: null },
-            "DDOG": { name: "Datadog", fv: 129.62, price: 129.62, curr: "$", ex: "NASDAQ", yf: "DDOG", divYield: 0.00, videoID: null },
-            "ENI": { name: "Eni S.p.A.", fv: 21.29, price: 21.29, curr: "€", ex: "MIL", yf: "ENI.MI", divYield: 6.20, videoID: null },
-            "ENEL": { name: "Enel S.p.A.", fv: 4.85, price: 4.85, curr: "€", ex: "MIL", yf: "ENEL.MI", divYield: 6.50, videoID: null },
-            "G": { name: "Assicurazioni Generali", fv: 50.63, price: 50.63, curr: "€", ex: "MIL", yf: "G.MI", divYield: 5.50, videoID: null },
-            "IBM": { name: "IBM", fv: 231.00, price: 231.00, curr: "$", ex: "NYSE", yf: "IBM", divYield: 3.20, videoID: null },
-            "INTC": { name: "Intel", fv: 35.29, price: 35.29, curr: "$", ex: "NASDAQ", yf: "INTC", divYield: 1.50, videoID: null },
-            "IP": { name: "International Paper", fv: 48.02, price: 48.02, curr: "$", ex: "NYSE", yf: "IP", divYield: 4.00, videoID: null },
-            "ISP": { name: "Intesa Sanpaolo", fv: 7.22, price: 7.22, curr: "€", ex: "MIL", yf: "ISP.MI", divYield: 8.50, videoID: null },
-            "LDO": { name: "Leonardo S.p.A.", fv: 26.65, price: 26.65, curr: "€", ex: "MIL", yf: "LDO.MI", divYield: 1.80, videoID: null },
-            "LULU": { name: "Lululemon", fv: 465.80, price: 465.80, curr: "$", ex: "NASDAQ", yf: "LULU", divYield: 0.00, videoID: null },
-            "MA": { name: "Mastercard", fv: 500.65, price: 500.65, curr: "$", ex: "NYSE", yf: "MA", divYield: 0.50, videoID: null },
-            "MONC": { name: "Moncler", fv: 74.93, price: 74.93, curr: "€", ex: "MIL", yf: "MONC.MI", divYield: 1.80, videoID: null },
-            "MSFT": { name: "Microsoft", fv: 461.22, price: 461.22, curr: "$", ex: "NASDAQ", yf: "MSFT", divYield: 0.75, videoID: null },
-            "NVDA": { name: "Nvidia", fv: 163.11, price: 163.11, curr: "$", ex: "NASDAQ", yf: "NVDA", divYield: 0.02, videoID: null },
-            "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 77.70, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, videoID: null }
+            "A2A": { name: "A2A S.p.A.", fv: 2.45, price: 1.70, curr: "€", ex: "MIL", yf: "A2A.MI", divYield: 4.80, videoID: null },
+            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "AAPL", divYield: 0.50, videoID: null },
+            "ADM": { name: "Archer-Daniels", fv: 53.00, price: 60.00, curr: "$", ex: "NYSE", yf: "ADM", divYield: 3.50, videoID: null },
+            "ADP": { name: "Auto Data Proc.", fv: 312.00, price: 250.00, curr: "$", ex: "NASDAQ", yf: "ADP", divYield: 1.90, videoID: null },
+            "ADSK": { name: "Autodesk Inc.", fv: 339.00, price: 260.00, curr: "$", ex: "NASDAQ", yf: "ADSK", divYield: 0.00, videoID: null },
+            "AMAT": { name: "Applied Materials", fv: 233.00, price: 205.00, curr: "$", ex: "NASDAQ", yf: "AMAT", divYield: 0.70, videoID: null },
+            "AMD": { name: "AMD", fv: 145.60, price: 160.00, curr: "$", ex: "NASDAQ", yf: "AMD", divYield: 0.00, videoID: null },
+            "AMZN": { name: "Amazon.com", fv: 199.00, price: 180.00, curr: "$", ex: "NASDAQ", yf: "AMZN", divYield: 0.00, videoID: null },
+            "ASML": { name: "ASML Holding", fv: 904.00, price: 920.00, curr: "$", ex: "NASDAQ", yf: "ASML", divYield: 0.85, videoID: null },
+            "AXP": { name: "American Express", fv: 332.00, price: 230.00, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, videoID: null },
+            "BAC": { name: "Bank of America", fv: 59.85, price: 37.00, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, videoID: null },
+            "BAYN": { name: "Bayer AG", fv: 44.12, price: 28.00, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, videoID: null },
+            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
+            "BC": { name: "Brunswick Corp", fv: 88.00, price: 85.00, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, videoID: null },
+            "BNG": { name: "Bunge Global", fv: 46.31, price: 105.00, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null },
+            "BRE": { name: "Brembo", fv: 14.93, price: 10.50, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, videoID: null },
+            "BRK.B": { name: "Berkshire Hath.", fv: 511.00, price: 405.00, curr: "$", ex: "NYSE", yf: "BRK-B", divYield: 0.00, videoID: null },
+            "CAT": { name: "Caterpillar", fv: 404.00, price: 340.00, curr: "$", ex: "NYSE", yf: "CAT", divYield: 1.50, videoID: null },
+            "CE": { name: "Celanese", fv: 105.56, price: 145.00, curr: "$", ex: "NYSE", yf: "CE", divYield: 2.60, videoID: null },
+            "CNC": { name: "Centene", fv: 102.66, price: 78.00, curr: "$", ex: "NYSE", yf: "CNC", divYield: 0.00, videoID: null },
+            "COST": { name: "Costco Wholesale", fv: 851.00, price: 750.00, curr: "$", ex: "NASDAQ", yf: "COST", divYield: 0.60, videoID: null },
+            "CPR": { name: "Campari", fv: 8.95, price: 9.50, curr: "€", ex: "MIL", yf: "CPR.MI", divYield: 0.90, videoID: null },
+            "CRM": { name: "Salesforce", fv: 325.48, price: 310.00, curr: "$", ex: "NYSE", yf: "CRM", divYield: 0.50, videoID: null },
+            "CVX": { name: "Chevron", fv: 181.66, price: 155.00, curr: "$", ex: "NYSE", yf: "CVX", divYield: 4.10, videoID: null },
+            "DDOG": { name: "Datadog", fv: 129.62, price: 125.00, curr: "$", ex: "NASDAQ", yf: "DDOG", divYield: 0.00, videoID: null },
+            "ENI": { name: "Eni S.p.A.", fv: 21.29, price: 14.80, curr: "€", ex: "MIL", yf: "ENI.MI", divYield: 6.20, videoID: null },
+            "ENEL": { name: "Enel S.p.A.", fv: 4.85, price: 6.20, curr: "€", ex: "MIL", yf: "ENEL.MI", divYield: 6.50, videoID: null },
+            "G": { name: "Assicurazioni Generali", fv: 50.63, price: 22.50, curr: "€", ex: "MIL", yf: "G.MI", divYield: 5.50, videoID: null },
+            "IBM": { name: "IBM", fv: 231.00, price: 195.00, curr: "$", ex: "NYSE", yf: "IBM", divYield: 3.20, videoID: null },
+            "INTC": { name: "Intel", fv: 35.29, price: 42.50, curr: "$", ex: "NASDAQ", yf: "INTC", divYield: 1.50, videoID: null },
+            "IP": { name: "International Paper", fv: 48.02, price: 39.00, curr: "$", ex: "NYSE", yf: "IP", divYield: 4.00, videoID: null },
+            "ISP": { name: "Intesa Sanpaolo", fv: 7.22, price: 3.40, curr: "€", ex: "MIL", yf: "ISP.MI", divYield: 8.50, videoID: null },
+            "LDO": { name: "Leonardo S.p.A.", fv: 26.65, price: 21.00, curr: "€", ex: "MIL", yf: "LDO.MI", divYield: 1.80, videoID: null },
+            "LULU": { name: "Lululemon", fv: 465.80, price: 455.00, curr: "$", ex: "NASDAQ", yf: "LULU", divYield: 0.00, videoID: null },
+            "MA": { name: "Mastercard", fv: 500.65, price: 475.00, curr: "$", ex: "NYSE", yf: "MA", divYield: 0.50, videoID: null },
+            "MONC": { name: "Moncler", fv: 74.93, price: 66.00, curr: "€", ex: "MIL", yf: "MONC.MI", divYield: 1.80, videoID: null },
+            "MSFT": { name: "Microsoft", fv: 461.22, price: 410.00, curr: "$", ex: "NASDAQ", yf: "MSFT", divYield: 0.75, videoID: null },
+            "NVDA": { name: "Nvidia", fv: 163.11, price: 120.00, curr: "$", ex: "NASDAQ", yf: "NVDA", divYield: 0.02, videoID: null },
+            "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 62.00, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, videoID: null }
         };
 
         const aliases = {"1GOOG":"GOOG","1MC":"MC",".ADBE":"ADBE",".FUN":"FUN",".INTU":"INTU",".QCOM":"QCOM"};
         let currentFVTicker = null;
 
-        // === 2. LOGICA FAIR VALUE ===
+        // === 2. FUNZIONE CENTRALE FETCH PREZZO LIVE ===
+        async function getLivePrice(yfTicker, fallbackPrice) {
+            if(!yfTicker) return fallbackPrice;
+            try {
+                const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}`;
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                const response = await fetch(proxyUrl);
+                if (response.ok) {
+                    const data = await response.json();
+                    const j = JSON.parse(data.contents);
+                    if (j.chart && j.chart.result && j.chart.result.length > 0) {
+                        return j.chart.result[0].meta.regularMarketPrice;
+                    }
+                }
+            } catch (e) {
+                console.log("Fetch live fallito per " + yfTicker + ". Uso prezzo storico di fallback.");
+            }
+            return fallbackPrice;
+        }
+
+        // === 3. LOGICA FAIR VALUE ===
         async function calculateFV() {
             let input = document.getElementById('fvInput').value.toUpperCase().trim();
             if (aliases[input]) input = aliases[input];
 
-            const res = document.getElementById('fvResult');
-            const err = document.getElementById('fvError');
-            const miniChart = document.getElementById('mini-chart-container');
-            const smartVideo = document.getElementById('smart-video-box');
-            const videoIframe = document.getElementById('smart-video-iframe');
-            
-            const fvValueText = document.getElementById('fvValue');
-            const fvDividendText = document.getElementById('fvDividend');
-            const fvStatusBadge = document.getElementById('fvStatus');
+            const res = document.getElementById('fvResult'); const err = document.getElementById('fvError');
+            const miniChart = document.getElementById('mini-chart-container'); const smartVideo = document.getElementById('smart-video-box');
+            const videoIframe = document.getElementById('smart-video-iframe'); const fvValueText = document.getElementById('fvValue');
+            const fvDividendText = document.getElementById('fvDividend'); const fvStatusBadge = document.getElementById('fvStatus');
             const btn = document.getElementById('calcBtn');
 
-            res.style.display = "none"; err.style.display = "none";
-            miniChart.innerHTML = ""; smartVideo.style.display = "none"; currentFVTicker = null;
+            res.style.display = "none"; err.style.display = "none"; miniChart.innerHTML = ""; smartVideo.style.display = "none"; currentFVTicker = null;
 
             if (db[input]) {
                 const data = db[input];
                 btn.innerText = "CARICAMENTO..."; btn.style.opacity = "0.7";
 
-                let livePrice = data.price;
-                try {
-                    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${data.yf}`;
-                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
-                    const response = await fetch(proxyUrl);
-                    if (response.ok) {
-                        const proxyData = await response.json();
-                        const yfData = JSON.parse(proxyData.contents);
-                        if (yfData.chart.result && yfData.chart.result.length > 0) {
-                            livePrice = yfData.chart.result[0].meta.regularMarketPrice;
-                        }
-                    }
-                } catch (e) {}
+                const livePrice = await getLivePrice(data.yf, data.price);
 
                 btn.innerText = "ANALIZZA"; btn.style.opacity = "1";
 
@@ -752,8 +787,7 @@
                 }
 
                 const script = document.createElement('script');
-                script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
-                script.async = true;
+                script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js'; script.async = true;
                 script.innerHTML = JSON.stringify({ "symbol": data.ex + ":" + input, "width": "100%", "isTransparent": true, "colorTheme": "dark", "locale": "it" });
                 miniChart.appendChild(script);
 
@@ -761,43 +795,26 @@
                 res.style.display = "block";
             } else { err.style.display = "block"; }
         }
-
         document.getElementById("fvInput").addEventListener("keypress", e => { if (e.key === "Enter") { e.preventDefault(); calculateFV(); } });
 
-        // === 3. LOGICA COMPARATORE TITOLI ===
+        // === 4. LOGICA COMPARATORE TITOLI ===
         async function compareStocks() {
             let t1 = document.getElementById('compInput1').value.toUpperCase().trim();
             let t2 = document.getElementById('compInput2').value.toUpperCase().trim();
             if (aliases[t1]) t1 = aliases[t1];
             if (aliases[t2]) t2 = aliases[t2];
 
-            const err = document.getElementById('compError');
-            const result = document.getElementById('compResult');
-            const cardsEl = document.getElementById('compCards');
-            const verdictEl = document.getElementById('compVerdict');
+            const err = document.getElementById('compError'); const result = document.getElementById('compResult');
+            const cardsEl = document.getElementById('compCards'); const verdictEl = document.getElementById('compVerdict');
 
             err.style.display = 'none'; result.style.display = 'none';
-
             if (!db[t1] || !db[t2]) { err.style.display = 'block'; return; }
 
-            const btn = document.querySelector('.comp-btn');
+            const btn = document.getElementById('compBtnAction');
             btn.innerText = '⏳ ANALISI IN CORSO...'; btn.style.opacity = '0.7';
 
             const d1 = db[t1]; const d2 = db[t2];
-
-            async function getLive(data) {
-                try {
-                    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${data.yf}`;
-                    const r = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-                    if (r.ok) {
-                        const p = await r.json(); const j = JSON.parse(p.contents);
-                        if (j.chart.result) return j.chart.result[0].meta.regularMarketPrice;
-                    }
-                } catch(e) {}
-                return data.price;
-            }
-
-            const [p1, p2] = await Promise.all([getLive(d1), getLive(d2)]);
+            const [p1, p2] = await Promise.all([ getLivePrice(d1.yf, d1.price), getLivePrice(d2.yf, d2.price) ]);
 
             btn.innerText = '⚖️ CONFRONTA ORA'; btn.style.opacity = '1';
 
@@ -818,24 +835,12 @@
                         ${isWinner ? '<div class="comp-winner-badge">🏆 MIGLIORE OPPORTUNITÀ</div>' : ''}
                         <div class="comp-ticker-big">${ticker}</div>
                         <div class="comp-name">${data.name}</div>
-
-                        <div class="comp-row">
-                            <span class="comp-row-label">Prezzo Live</span>
-                            <span class="comp-row-val">${livePrice.toFixed(2)} ${data.curr}</span>
-                        </div>
-                        <div class="comp-row">
-                            <span class="comp-row-label">Fair Value</span>
-                            <span class="comp-row-val" style="color:${color}">${data.fv.toFixed(2)} ${data.curr}</span>
-                        </div>
-                        <div class="comp-row">
-                            <span class="comp-row-label">Gap FV</span>
-                            <span class="comp-row-val" style="color:${color}">${isUnder ? '+' : ''}${upside.toFixed(1)}%</span>
-                        </div>
-
+                        <div class="comp-row"><span class="comp-row-label">Prezzo Live</span><span class="comp-row-val">${parseFloat(livePrice).toFixed(2)} ${data.curr}</span></div>
+                        <div class="comp-row"><span class="comp-row-label">Fair Value</span><span class="comp-row-val" style="color:${color}">${data.fv.toFixed(2)} ${data.curr}</span></div>
+                        <div class="comp-row"><span class="comp-row-label">Gap FV</span><span class="comp-row-val" style="color:${color}">${isUnder ? '+' : ''}${upside.toFixed(1)}%</span></div>
                         <div class="comp-upside-bar">
                             <div style="display:flex; justify-content:space-between; font-size:0.75em; color:var(--text-muted);">
-                                <span>Potenziale</span>
-                                <span style="color:${color}; font-weight:700;">${statusLabel}</span>
+                                <span>Potenziale</span><span style="color:${color}; font-weight:700;">${statusLabel}</span>
                             </div>
                             <div class="comp-upside-track"><div class="comp-upside-fill" style="width:${barWidth}%; background:${barColor};"></div></div>
                         </div>
@@ -845,7 +850,7 @@
             cardsEl.innerHTML = buildCard(t1, d1, p1, upside1, winner === t1) + buildCard(t2, d2, p2, upside2, winner === t2);
 
             const wData = winner === t1 ? d1 : d2; const wUpside = winner === t1 ? upside1 : upside2;
-            const lTicker = winner === t1 ? t2 : t1; const lData = winner === t1 ? d2 : d1; const lUpside = winner === t1 ? upside2 : upside1;
+            const lTicker = winner === t1 ? t2 : t1; const lUpside = winner === t1 ? upside2 : upside1;
             const isGoodDeal = wUpside > 0;
 
             let verdictText = '';
@@ -858,31 +863,50 @@
             verdictEl.innerHTML = `<div class="comp-verdict-icon">${isGoodDeal ? '💡' : '⏳'}</div><div class="comp-verdict-text"><div class="comp-verdict-title">Verdetto di Matteo</div><div class="comp-verdict-sub">${verdictText}</div></div>`;
             result.style.display = 'block';
         }
-
         ['compInput1','compInput2'].forEach(id => { document.getElementById(id).addEventListener('keypress', e => { if (e.key === 'Enter') compareStocks(); }); });
 
-        // === 4. WATCHLIST ===
+        // === 5. WATCHLIST ASINCRONA ===
         let watchlist = JSON.parse(localStorage.getItem('mmtrading_watchlist') || '[]');
         function saveWatchlist() { localStorage.setItem('mmtrading_watchlist', JSON.stringify(watchlist)); }
 
         function renderWatchlist() {
             const grid = document.getElementById('wlGrid'); const empty = document.getElementById('wlEmpty'); const count = document.getElementById('wl-count');
             count.innerText = watchlist.length + (watchlist.length === 1 ? ' titolo' : ' titoli');
+
             if (watchlist.length === 0) { grid.style.display = 'none'; empty.style.display = 'block'; return; }
             empty.style.display = 'none'; grid.style.display = 'grid'; grid.innerHTML = '';
 
             watchlist.forEach(ticker => {
                 const data = db[ticker]; const card = document.createElement('div'); card.className = 'wl-item';
-                let fvSection = ''; let badge = '';
-                if (data) {
-                    const price = data.price; const fv = data.fv;
-                    if (fv === price) { badge = `<span class="wl-badge neutral">In Linea</span>`; } 
-                    else if (fv > price) { const diff = (((fv - price) / price) * 100).toFixed(1); badge = `<span class="wl-badge green">↑ +${diff}% upside</span>`; } 
-                    else { const diff = (((price - fv) / fv) * 100).toFixed(1); badge = `<span class="wl-badge red">↓ -${diff}% calo al FV</span>`; }
-                    fvSection = `<div class="wl-fv-row"><div><div class="wl-fv-label">Fair Value</div><div class="wl-fv-val mono-font" style="color: ${fv > price ? 'var(--brand-green)' : (fv < price ? 'var(--accent-red)' : '#fff')}">${fv.toFixed(2)} ${data.curr}</div></div><div>${badge}</div></div>`;
-                } else { fvSection = `<div style="color: var(--text-muted); font-size: 0.82em;">Dati FV non disponibili</div>`; }
-                card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data ? data.name : 'Personalizzato'}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')" title="Rimuovi">✕</button></div>${fvSection}<button class="wl-fv-btn" onclick="jumpToFV('${ticker}')">🔍 Analizza Live</button>`;
+                
+                if (!data) {
+                    card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">Non in DB</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>`;
+                    grid.appendChild(card); return;
+                }
+
+                // Stato di caricamento visivo
+                card.innerHTML = `
+                    <div class="wl-item-header">
+                        <div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div>
+                        <button class="wl-remove" onclick="removeFromWatchlist('${ticker}')" title="Rimuovi">✕</button>
+                    </div>
+                    <div style="text-align: center; color: var(--text-muted); font-size: 0.85em; padding: 10px 0;">↻ Connessione Live...</div>
+                `;
                 grid.appendChild(card);
+
+                // Fetch reale e aggiornamento card
+                getLivePrice(data.yf, data.price).then(livePrice => {
+                    const priceNum = parseFloat(livePrice); const fvNum = parseFloat(data.fv);
+                    let badge = '';
+
+                    if (fvNum === priceNum) { badge = `<span class="wl-badge neutral" style="background:rgba(255,255,255,0.1); color:#fff;">In Linea</span>`; } 
+                    else if (fvNum > priceNum) { const diff = (((fvNum - priceNum) / priceNum) * 100).toFixed(1); badge = `<span class="wl-badge green">↑ +${diff}% upside</span>`; } 
+                    else { const diff = (((priceNum - fvNum) / fvNum) * 100).toFixed(1); badge = `<span class="wl-badge red">↓ -${diff}% calo al FV</span>`; }
+
+                    card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')" title="Rimuovi">✕</button></div>
+                        <div class="wl-fv-row"><div><div class="wl-fv-label">Fair Value</div><div class="wl-fv-val mono-font" style="color: ${fvNum > priceNum ? 'var(--brand-green)' : (fvNum < priceNum ? 'var(--accent-red)' : '#fff')}">${fvNum.toFixed(2)} ${data.curr}</div></div><div>${badge}</div></div>
+                        <button class="wl-fv-btn" onclick="jumpToFV('${ticker}')">🔍 Analizza Live</button>`;
+                });
             });
         }
 
@@ -905,7 +929,7 @@
         function jumpToFV(ticker) { document.getElementById('fvInput').value = ticker; document.getElementById('fv-section').scrollIntoView({ behavior: 'smooth' }); setTimeout(calculateFV, 400); }
         document.getElementById('wlInput').addEventListener('keypress', e => { if (e.key === 'Enter') { e.preventDefault(); addToWatchlist(); }});
 
-        // === 5. STRUMENTI: PAC E POSITION SIZING ===
+        // === 6. STRUMENTI: PAC E POSITION SIZING ===
         let pacChartObj = null;
         function calculatePAC() {
             const init = parseFloat(document.getElementById('pacInit').value) || 0;
@@ -945,7 +969,7 @@
             document.getElementById('psResult').style.display = 'block';
         }
 
-        // === 6. FAQ FISARMONICA ===
+        // === 7. FAQ FISARMONICA ===
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -954,11 +978,11 @@
             });
         });
 
-        // === 7. INIT ALL ===
+        // === 8. INIT ALL ===
         window.onload = function() {
             renderWatchlist();
 
-            // GRAFICO A TORTA PORTAFOGLIO (Dati reali)
+            // GRAFICO A TORTA PORTAFOGLIO
             const ctx = document.getElementById('allocationChart').getContext('2d');
             new Chart(ctx, {
                 type: 'doughnut',
@@ -989,4 +1013,3 @@
     </script>
 </body>
 </html>
-
