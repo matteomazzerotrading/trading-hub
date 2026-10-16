@@ -1,0 +1,48 @@
+{
+  "_comment": "Esportato da TradingView — Directa Investments + Unicredit — 2026-10-14. Aggiorna manualmente dopo ogni modifica al portafoglio su TradingView.",
+  "updated": "2026-10-14",
+  "summary": {
+    "total_value_usd": 13502.68,
+    "cash_usd": 569.50,
+    "unrealized_pl_usd": -1277.13,
+    "unrealized_pl_pct": -8.99,
+    "realized_pl_usd": 291.81,
+    "dividends_usd": 153.26,
+    "total_pl_usd": -985.32,
+    "total_pl_pct": -6.65,
+    "annualized_return_pct": -3.96
+  },
+  "allocation": [
+    { "label": "Azioni",        "value_usd": 9636.90,  "pct": 74.51 },
+    { "label": "Obbligazioni",  "value_usd": 2325.03,  "pct": 17.98 },
+    { "label": "ETF/Dr",        "value_usd": 573.72,   "pct": 4.44  },
+    { "label": "Fund",          "value_usd": 397.53,   "pct": 3.07  }
+  ],
+  "positions": [
+    { "ticker": "TTD",            "name": "The Trade Desk",        "exchange": "NASDAQ",   "type": "stock",  "qty": 70,  "avg_price": 17.44,  "curr": "USD", "alloc_pct": 6.59, "unrealized_pl": -369.10 },
+    { "ticker": "TRI",            "name": "Thomson Reuters",       "exchange": "NASDAQ",   "type": "stock",  "qty": 7,   "avg_price": 91.12,  "curr": "USD", "alloc_pct": 5.69, "unrealized_pl": 98.14  },
+    { "ticker": "DIA",            "name": "DiaSorin",              "exchange": "MIL",      "type": "stock",  "qty": 8,   "avg_price": 59.42,  "curr": "EUR", "alloc_pct": 5.54, "unrealized_pl": 167.24 },
+    { "ticker": "PFE",            "name": "Pfizer",                "exchange": "NYSE",     "type": "stock",  "qty": 25,  "avg_price": 27.70,  "curr": "USD", "alloc_pct": 5.48, "unrealized_pl": 16.75  },
+    { "ticker": "SAP",            "name": "SAP SE",                "exchange": "XETR",     "type": "stock",  "qty": 3,   "avg_price": 166.40, "curr": "EUR", "alloc_pct": 5.31, "unrealized_pl": 103.35 },
+    { "ticker": "US912810RX81",   "name": "US T-Bond 2048",        "exchange": "EUROTLX",  "type": "bond",   "qty": 10,  "avg_price": 73.48,  "curr": "USD", "alloc_pct": 5.26, "unrealized_pl": -55.10 },
+    { "ticker": "BR",             "name": "Broadridge Financial",  "exchange": "NYSE",     "type": "stock",  "qty": 4,   "avg_price": 149.68, "curr": "USD", "alloc_pct": 5.21, "unrealized_pl": 75.06  },
+    { "ticker": "BF.B",           "name": "Brown-Forman B",        "exchange": "NYSE",     "type": "stock",  "qty": 22,  "avg_price": 26.05,  "curr": "USD", "alloc_pct": 4.64, "unrealized_pl": 27.32  },
+    { "ticker": "IT0005480980",   "name": "BTP 2037",              "exchange": "OTCB",     "type": "bond",   "qty": 10,  "avg_price": 59.06,  "curr": "EUR", "alloc_pct": 4.55, "unrealized_pl": -2.53  },
+    { "ticker": "PDD",            "name": "PDD Holdings",          "exchange": "NASDAQ",   "type": "stock",  "qty": 7,   "avg_price": 97.00,  "curr": "USD", "alloc_pct": 4.44, "unrealized_pl": -105.28},
+    { "ticker": "BSX",            "name": "Boston Scientific",     "exchange": "NYSE",     "type": "stock",  "qty": 13,  "avg_price": 43.57,  "curr": "USD", "alloc_pct": 4.35, "unrealized_pl": -3.38  },
+    { "ticker": "IT0005425233",   "name": "BTP 2030",              "exchange": "OTCB",     "type": "bond",   "qty": 10,  "avg_price": 58.16,  "curr": "EUR", "alloc_pct": 4.19, "unrealized_pl": -39.64 },
+    { "ticker": "QCOM",           "name": "Qualcomm",              "exchange": "NASDAQ",   "type": "stock",  "qty": 3,   "avg_price": 164.45, "curr": "USD", "alloc_pct": 4.10, "unrealized_pl": 37.22  },
+    { "ticker": "EL",             "name": "EssilorLuxottica",      "exchange": "EURONEXT", "type": "stock",  "qty": 3,   "avg_price": 179.00, "curr": "EUR", "alloc_pct": 4.00, "unrealized_pl": -109.44},
+    { "ticker": "US912810SZ21",   "name": "US T-Bond 2054",        "exchange": "EUROTLX",  "type": "bond",   "qty": 10,  "avg_price": 56.06,  "curr": "USD", "alloc_pct": 3.98, "unrealized_pl": -45.30 },
+    { "ticker": "LULU",           "name": "Lululemon",             "exchange": "NASDAQ",   "type": "stock",  "qty": 5,   "avg_price": 121.70, "curr": "USD", "alloc_pct": 3.65, "unrealized_pl": -136.80},
+    { "ticker": "BLDR",           "name": "Builders FirstSource",  "exchange": "NYSE",     "type": "stock",  "qty": 9,   "avg_price": 69.40,  "curr": "USD", "alloc_pct": 3.60, "unrealized_pl": -159.21},
+    { "ticker": "RACE",           "name": "Ferrari",               "exchange": "MIL",      "type": "stock",  "qty": 1,   "avg_price": 342.60, "curr": "EUR", "alloc_pct": 3.14, "unrealized_pl": 9.54   },
+    { "ticker": "SGBS",           "name": "Sprott Gold Miners ETF","exchange": "LSE",      "type": "etf",    "qty": 1,   "avg_price": 394.56, "curr": "USD", "alloc_pct": 3.07, "unrealized_pl": 2.97   },
+    { "ticker": "FUN",            "name": "Six Flags Entertain.",  "exchange": "NYSE",     "type": "stock",  "qty": 36,  "avg_price": 19.52,  "curr": "USD", "alloc_pct": 2.84, "unrealized_pl": -335.52},
+    { "ticker": "CE",             "name": "Celanese",              "exchange": "NYSE",     "type": "stock",  "qty": 8,   "avg_price": 44.91,  "curr": "USD", "alloc_pct": 2.77, "unrealized_pl": -1.44  },
+    { "ticker": "INTU",           "name": "Intuit",                "exchange": "NASDAQ",   "type": "stock",  "qty": 1,   "avg_price": 307.37, "curr": "USD", "alloc_pct": 2.33, "unrealized_pl": -5.92  },
+    { "ticker": "CPRT",           "name": "Copart",                "exchange": "NASDAQ",   "type": "stock",  "qty": 10,  "avg_price": 31.80,  "curr": "USD", "alloc_pct": 2.04, "unrealized_pl": -54.30 },
+    { "ticker": "ADBE",           "name": "Adobe",                 "exchange": "NASDAQ",   "type": "stock",  "qty": 1,   "avg_price": 486.37, "curr": "USD", "alloc_pct": 1.83, "unrealized_pl": -250.09},
+    { "ticker": "FMC",            "name": "FMC Corporation",       "exchange": "NYSE",     "type": "stock",  "qty": 22,  "avg_price": 14.75,  "curr": "USD", "alloc_pct": 1.41, "unrealized_pl": -141.68}
+  ]
+}
