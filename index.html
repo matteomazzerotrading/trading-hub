@@ -285,6 +285,16 @@
         
         footer { text-align: center; padding: 50px; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.9em; }
         footer a { color: var(--brand-green); text-decoration: none; }
+
+        /* === TOTAL WATCHLIST LIVE BADGE === */
+        .live-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8em; color: var(--brand-green); background: rgba(0,230,118,0.1); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(0,230,118,0.3); font-weight: 700; }
+        .live-badge::before { content: '●'; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        /* === DESIGN IMPROVEMENTS === */
+        .section-title { font-size: 1.6em; font-weight: 800; }
+        .card { transition: box-shadow 0.3s; }
+        .section-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-glass); }
     </style>
 </head>
 <body>
@@ -295,18 +305,19 @@
         <a href="#" class="navbar-logo">MM<span>Trading</span></a>
         <div class="nav-links">
             <a href="#fv-section" class="nav-link">Fair Value</a>
-            <a href="#indicatore" class="nav-link">Indicatore TV</a>
+            <a href="#indicatore" class="nav-link">Segnali</a>
             <a href="#screener" class="nav-link">Screener</a>
-            <a href="#myportfolio" class="nav-link">Tuo Portafoglio</a>
+            <a href="#total-watchlist" class="nav-link">Watchlist TOTAL</a>
+            <a href="#myportfolio" class="nav-link">Portafoglio</a>
             <a href="#strumenti" class="nav-link">Strumenti</a>
-            <a href="#portfolio" class="nav-link">Portfolio C1076</a>
+            <a href="#portfolio" class="nav-link">Portfolio TV</a>
         </div>
     </nav>
 
     <div class="tradingview-widget-container" style="margin-top: 0;">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        { "symbols": [ { "proName": "NASDAQ:GOOG", "title": "Alphabet" }, { "proName": "MIL:ERG", "title": "ERG" }, { "proName": "MIL:RACE", "title": "Ferrari" }, { "proName": "MIL:DIA", "title": "DiaSorin" }, { "proName": "EPA:MC", "title": "LVMH" }, { "proName": "NASDAQ:INTU", "title": "Intuit" } ], "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "it" }
+        { "symbols": [ { "proName": "SP:SPX", "title": "S&P 500" }, { "proName": "NASDAQ:NDX", "title": "Nasdaq 100" }, { "proName": "FTSE:FTSEMIB", "title": "FTSE MIB" }, { "proName": "TVC:GOLD", "title": "Gold" }, { "proName": "TVC:USOIL", "title": "WTI" }, { "proName": "FX:EURUSD", "title": "EUR/USD" }, { "proName": "NASDAQ:NVDA", "title": "Nvidia" }, { "proName": "NASDAQ:AAPL", "title": "Apple" }, { "proName": "NASDAQ:MSFT", "title": "Microsoft" }, { "proName": "NASDAQ:META", "title": "Meta" }, { "proName": "NYSE:BRK.B", "title": "Berkshire" }, { "proName": "MIL:RACE", "title": "Ferrari" }, { "proName": "XETR:SAP", "title": "SAP" }, { "proName": "NYSE:JPM", "title": "JPMorgan" }, { "proName": "NASDAQ:AMZN", "title": "Amazon" } ], "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "it" }
         </script>
     </div>
 
@@ -739,6 +750,72 @@
                 <div class="faq-answer">
                     Significa decidere "quante azioni comprare" in base al rischio che sei disposto a sopportare. Il calcolatore divide il tuo rischio monetario per la distanza tra il prezzo di acquisto e il livello di Stop Loss.
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="total-watchlist">
+        <div class="section-header">
+            <h2 class="section-title">Watchlist <span>TOTAL</span></h2>
+            <span class="live-badge">LIVE</span>
+        </div>
+
+        <!-- Tab bar to switch between groups -->
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+            <button class="screener-filter-btn active" onclick="switchWLTab('azioni', this)">🏢 Azioni (112)</button>
+            <button class="screener-filter-btn" onclick="switchWLTab('etf', this)">📈 ETF &amp; Fondi</button>
+            <button class="screener-filter-btn" onclick="switchWLTab('indici', this)">📊 Indici</button>
+            <button class="screener-filter-btn" onclick="switchWLTab('materie', this)">🥇 Materie Prime</button>
+            <button class="screener-filter-btn" onclick="switchWLTab('obbligazioni', this)">🏛️ Obbligazioni</button>
+        </div>
+
+        <!-- AZIONI -->
+        <div id="wl-tab-azioni" class="card" style="padding:0; overflow:hidden;">
+            <div class="tradingview-widget-container" style="height:650px;">
+                <div class="tradingview-widget-container__widget" style="height:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                { "width": "100%", "height": 650, "symbolsGroups": [{ "name": "Difesa & Industria", "symbols": [{"name":"XETR:RHM"},{"name":"XETR:GXI"},{"name":"MIL:LDO"},{"name":"NYSE:NOC"},{"name":"NYSE:RTX"},{"name":"NYSE:LMT"},{"name":"NYSE:GD"},{"name":"NYSE:HWM"},{"name":"NYSE:CAT"},{"name":"NYSE:DE"},{"name":"NYSE:UPS"},{"name":"NYSE:FDX"},{"name":"NYSE:HON","displayName":"HON"},{"name":"NYSE:BA"},{"name":"NYSE:UNP"}]},{"name":"Energia & Commodities", "symbols":[{"name":"NYSE:KMI"},{"name":"NYSE:COP"},{"name":"NYSE:DVN"},{"name":"NYSE:CVX"},{"name":"NYSE:XOM"},{"name":"NYSE:SLB"}]},{"name":"Pharma & Salute","symbols":[{"name":"NYSE:ABBV"},{"name":"NYSE:MRK"},{"name":"NYSE:PFE"},{"name":"NYSE:LLY"},{"name":"NYSE:MDT"},{"name":"NYSE:BSX"},{"name":"NYSE:BDX"},{"name":"NYSE:DHR"},{"name":"NYSE:TMO"},{"name":"NYSE:MTD"},{"name":"NASDAQ:REGN"},{"name":"NASDAQ:GILD"},{"name":"NASDAQ:ISRG"},{"name":"NASDAQ:VRTX"},{"name":"NYSE:ELV"},{"name":"NYSE:UNH"},{"name":"NYSE:CVS"}]},{"name":"Finance & Insurance","symbols":[{"name":"NYSE:JPM"},{"name":"NYSE:BLK"},{"name":"NYSE:BRK.B"},{"name":"NYSE:C"},{"name":"NYSE:BAC"},{"name":"NYSE:GS"},{"name":"NYSE:AXP"},{"name":"NYSE:V"},{"name":"NYSE:MA"},{"name":"NYSE:MCO"},{"name":"NYSE:CB"},{"name":"NYSE:L"},{"name":"NYSE:RSG"},{"name":"NYSE:WM"}]},{"name":"Consumer & Retail","symbols":[{"name":"NYSE:PM"},{"name":"NASDAQ:PEP"},{"name":"NYSE:KO"},{"name":"NYSE:AZO"},{"name":"NYSE:MO"},{"name":"NYSE:CL"},{"name":"NYSE:PG"},{"name":"NYSE:GIS"},{"name":"NYSE:HD"},{"name":"NASDAQ:COST"},{"name":"NASDAQ:ROST"},{"name":"NASDAQ:ORLY"},{"name":"NYSE:DG"},{"name":"NYSE:MCD"},{"name":"NYSE:NKE"},{"name":"NYSE:DIS"},{"name":"NYSE:VZ"},{"name":"NYSE:T"},{"name":"NYSE:CHTR"},{"name":"NASDAQ:TMUS"}]},{"name":"Tech & Growth","symbols":[{"name":"NASDAQ:AAPL"},{"name":"NASDAQ:MSFT"},{"name":"NASDAQ:AMZN"},{"name":"NASDAQ:NVDA"},{"name":"NASDAQ:GOOG"},{"name":"NASDAQ:META"},{"name":"NASDAQ:TSLA"},{"name":"NASDAQ:AVGO"},{"name":"NYSE:ORCL"},{"name":"NYSE:CRM"},{"name":"NASDAQ:ADBE"},{"name":"NASDAQ:INTU"},{"name":"NASDAQ:TXN"},{"name":"NASDAQ:AMAT"},{"name":"NASDAQ:BKNG"},{"name":"NASDAQ:SHOP"},{"name":"NASDAQ:TTD"},{"name":"NASDAQ:CRWD"},{"name":"NASDAQ:FTNT"},{"name":"NASDAQ:PLTR"},{"name":"NASDAQ:PANW"},{"name":"NASDAQ:DDOG"},{"name":"NASDAQ:LULU"},{"name":"NASDAQ:CPRT"},{"name":"NYSE:IBM"},{"name":"NASDAQ:ISRG"}]},{"name":"Italia & Europa","symbols":[{"name":"MIL:RACE"},{"name":"MIL:CPR"},{"name":"XETR:SAP"},{"name":"EURONEXT:EL"},{"name":"NYSE:FMC"},{"name":"NYSE:CE"},{"name":"NYSE:BR"},{"name":"NYSE:HWM"},{"name":"NYSE:ACN"},{"name":"NYSE:NEE"},{"name":"NASDAQ:TRI"},{"name":"NASDAQ:CME"},{"name":"NASDAQ:ADP"},{"name":"NYSE:WM"},{"name":"NYSE:BLDR"},{"name":"NYSE:RCL"},{"name":"NYSE:NVO"}]}], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
+                </script>
+            </div>
+        </div>
+
+        <!-- ETF & FONDI -->
+        <div id="wl-tab-etf" class="card" style="padding:0; overflow:hidden; display:none;">
+            <div class="tradingview-widget-container" style="height:400px;">
+                <div class="tradingview-widget-container__widget" style="height:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                { "width": "100%", "height": 400, "symbolsGroups": [{ "name": "ETF & Fondi", "symbols": [{"name":"AMEX:SPY","displayName":"SPY — S&P 500"},{"name":"NASDAQ:QQQ","displayName":"QQQ — Nasdaq 100"},{"name":"AMEX:IWM","displayName":"IWM — Russell 2000"},{"name":"AMEX:EEM","displayName":"EEM — Emerging Markets"},{"name":"AMEX:XLK","displayName":"XLK — Tech"},{"name":"AMEX:XLE","displayName":"XLE — Energy"},{"name":"AMEX:XLP","displayName":"XLP — Consumer Staples"},{"name":"AMEX:XLF","displayName":"XLF — Financials"},{"name":"NASDAQ:TLT","displayName":"TLT — 20Y Treasury"},{"name":"AMEX:GLD","displayName":"GLD — Gold ETF"},{"name":"NASDAQ:PAYX","displayName":"PAYX — Paychex"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
+                </script>
+            </div>
+        </div>
+
+        <!-- INDICI -->
+        <div id="wl-tab-indici" class="card" style="padding:0; overflow:hidden; display:none;">
+            <div class="tradingview-widget-container" style="height:280px;">
+                <div class="tradingview-widget-container__widget" style="height:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                { "width": "100%", "height": 280, "symbolsGroups": [{ "name": "Indici Globali", "symbols": [{"name":"SP:SPX","displayName":"S&P 500"},{"name":"NASDAQ:NDX","displayName":"Nasdaq 100"},{"name":"TVC:DJI","displayName":"Dow Jones"},{"name":"XETR:DAX","displayName":"DAX"},{"name":"FTSE:FTSEMIB","displayName":"FTSE MIB"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
+                </script>
+            </div>
+        </div>
+
+        <!-- MATERIE PRIME -->
+        <div id="wl-tab-materie" class="card" style="padding:0; overflow:hidden; display:none;">
+            <div class="tradingview-widget-container" style="height:250px;">
+                <div class="tradingview-widget-container__widget" style="height:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                { "width": "100%", "height": 250, "symbolsGroups": [{ "name": "Materie Prime", "symbols": [{"name":"TVC:GOLD","displayName":"Gold"},{"name":"TVC:SILVER","displayName":"Silver"},{"name":"TVC:USOIL","displayName":"WTI Crude"},{"name":"ICEUS:CC1!","displayName":"Cocoa"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
+                </script>
+            </div>
+        </div>
+
+        <!-- OBBLIGAZIONI -->
+        <div id="wl-tab-obbligazioni" class="card" style="padding:0; overflow:hidden; display:none;">
+            <div class="tradingview-widget-container" style="height:220px;">
+                <div class="tradingview-widget-container__widget" style="height:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                { "width": "100%", "height": 220, "symbolsGroups": [{ "name": "Obbligazioni", "symbols": [{"name":"CBOT:ZB1!","displayName":"US 30Y Bond Futures"},{"name":"NASDAQ:TLT","displayName":"TLT — 20Y US Treasury ETF"},{"name":"MUN:IT548098","displayName":"BTP IT548098"},{"name":"MUN:IT542523","displayName":"BTP IT542523"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
+                </script>
             </div>
         </div>
     </div>
@@ -1205,6 +1282,16 @@
 
         document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const item = btn.parentElement; document.querySelectorAll('.faq-item').forEach(el => { if (el !== item) el.classList.remove('active'); }); item.classList.toggle('active'); }); });
 
+        // === TOTAL WATCHLIST TABS ===
+        function switchWLTab(tab, btn) {
+            ['azioni','etf','indici','materie','obbligazioni'].forEach(t => {
+                const el = document.getElementById('wl-tab-' + t);
+                if (el) el.style.display = (t === tab) ? 'block' : 'none';
+            });
+            document.querySelectorAll('#total-watchlist .screener-filter-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
         // === PORTAFOGLIO TRADINGVIEW (portfolio.json) ===
         let allocChartObj = null;
         function renderPortfolio() {
@@ -1303,7 +1390,7 @@
 
         // Bug 3 fix: scroll spy — highlight active nav link
         (function() {
-            const sections = ['fv-section','indicatore','screener','comparatore','watchlist','myportfolio','strumenti','portfolio','news'];
+            const sections = ['fv-section','indicatore','screener','comparatore','watchlist','total-watchlist','myportfolio','strumenti','portfolio','news'];
             const navLinks = document.querySelectorAll('.nav-link');
             let ticking = false;
             window.addEventListener('scroll', function() {
