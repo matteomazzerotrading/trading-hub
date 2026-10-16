@@ -1,0 +1,30 @@
+name: Compute Fair Value
+
+on:
+  schedule:
+    # Ogni domenica alle 18:00 UTC (dopo la chiusura dei mercati settimanali)
+    - cron: '0 18 * * 0'
+  workflow_dispatch:  # consente di avviarlo manualmente dal repo
+
+permissions:
+  contents: write
+
+jobs:
+  compute-fv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install yfinance --break-system-packages 2>/dev/null || pip install yfinance
+
+      - name: Run FV computation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/compute_fv.py
