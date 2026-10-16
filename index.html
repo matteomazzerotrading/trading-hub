@@ -442,9 +442,13 @@
                                 <span style="background: var(--brand-green); color: #000; padding: 5px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8em;">VIDEO CORRELATO</span>
                                 <h4 style="margin: 10px 0 0 0; color: #fff;">La mia analisi completa su questo titolo</h4>
                             </div>
-                            <div class="video-responsive">
-                                <iframe id="smart-video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div style="position:relative; cursor:pointer; border-radius:12px; overflow:hidden; background:#111;" onclick="openVideoExternal()">
+                                <img id="smart-video-thumb" src="" style="width:100%; display:block; min-height:160px; object-fit:cover; border-radius:12px;" alt="Anteprima video YouTube">
+                                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.25);">
+                                    <div style="background:rgba(200,0,0,0.92); border-radius:50%; width:54px; height:54px; display:flex; align-items:center; justify-content:center; font-size:1.3em; box-shadow:0 4px 20px rgba(0,0,0,0.5);">▶</div>
+                                </div>
                             </div>
+                            <a id="smart-video-link" href="#" target="_blank" rel="noopener" style="display:block; text-align:center; margin-top:12px; color:var(--brand-green); font-weight:600; text-decoration:none; font-size:0.88em;">📺 Guarda l'analisi completa su YouTube →</a>
                         </div>
                     </div>
                 </div>
@@ -670,6 +674,28 @@
                 <div class="card" style="height: 380px; display: flex; justify-content: center; align-items: center; padding: 20px;">
                     <canvas id="allocationChart"></canvas>
                 </div>
+                <!-- Andamento Portafoglio (grafico storico) -->
+                <div class="card" style="padding:20px;" id="perf-chart-card">
+                    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                        <h3 style="margin:0; font-size:0.95em; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">📈 Andamento Storico</h3>
+                        <div style="display:flex; gap:6px; flex-wrap:wrap;" id="perf-period-btns">
+                            <button class="perf-period-btn" onclick="setPerfPeriod('1M',this)">1M</button>
+                            <button class="perf-period-btn" onclick="setPerfPeriod('3M',this)">3M</button>
+                            <button class="perf-period-btn" onclick="setPerfPeriod('6M',this)">6M</button>
+                            <button class="perf-period-btn active" onclick="setPerfPeriod('1Y',this)">1Y</button>
+                            <button class="perf-period-btn" onclick="setPerfPeriod('ALL',this)">ALL</button>
+                        </div>
+                    </div>
+                    <div id="perf-chart-placeholder" style="text-align:center; color:var(--text-muted); padding:24px 10px;">
+                        <div style="font-size:2em; margin-bottom:8px;">📊</div>
+                        <div style="font-weight:600; color:#fff; margin-bottom:8px; font-size:0.9em;">Storico non disponibile</div>
+                        <div style="font-size:0.78em; line-height:1.7; max-width:280px; margin:0 auto;">Aggiungi un array <code style="background:rgba(255,255,255,0.08); padding:1px 5px; border-radius:3px;">history</code> a <strong>portfolio.json</strong>:<br><code style="background:rgba(255,255,255,0.08); padding:2px 6px; border-radius:3px; font-size:0.92em;">[{"date":"Gen 24","value":42000}]</code></div>
+                    </div>
+                    <div id="perf-chart-wrap" style="display:none; position:relative; height:220px;">
+                        <canvas id="perfChart"></canvas>
+                    </div>
+                    <div class="perf-kpi-bar" id="perf-kpi-bar" style="margin-top:14px;"></div>
+                </div>
             </div>
             <!-- Tabella posizioni + widget TradingView -->
             <div style="display: flex; flex-direction: column; gap: 30px;">
@@ -693,30 +719,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- PORTFOLIO PERFORMANCE CHART -->
-    <div class="container" id="perf-chart-section">
-        <div class="section-header">
-            <h2 class="section-title">Andamento <span>Portafoglio</span></h2>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;" id="perf-period-btns">
-                <button class="perf-period-btn" onclick="setPerfPeriod('1M',this)">1M</button>
-                <button class="perf-period-btn" onclick="setPerfPeriod('3M',this)">3M</button>
-                <button class="perf-period-btn" onclick="setPerfPeriod('6M',this)">6M</button>
-                <button class="perf-period-btn active" onclick="setPerfPeriod('1Y',this)">1Y</button>
-                <button class="perf-period-btn" onclick="setPerfPeriod('ALL',this)">ALL</button>
-            </div>
-        </div>
-        <div class="card" style="padding:24px;">
-            <div id="perf-chart-placeholder" style="text-align:center; color:var(--text-muted); padding:40px 0;">
-                <div style="font-size:2.5em; margin-bottom:10px;">📈</div>
-                <div style="font-weight:600;">Caricamento dati portafoglio...</div>
-            </div>
-            <div id="perf-chart-wrap" style="display:none; position:relative; height:300px;">
-                <canvas id="perfChart"></canvas>
-            </div>
-            <div class="perf-kpi-bar" id="perf-kpi-bar"></div>
         </div>
     </div>
 
@@ -926,98 +928,98 @@
             "MONC": { name: "Moncler", fv: 74.93, price: 66.00, curr: "€", ex: "MIL", yf: "MONC.MI", divYield: 1.80, videoID: null },
             "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 62.00, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, videoID: null },
             // ── Difesa & Aerospazio ──────────────────────────────────────────
-            "RHM":  { name: "Rheinmetall AG",       fv: 680.00, price: 620.00, curr: "€", ex: "XETR",     yf: "RHM.DE",  divYield: 1.0,  videoID: null, fund: {pe: "32.1", eps: "19.4", mcap: "24B",  rev: "+36%"} },
-            "GXI":  { name: "Gerresheimer AG",      fv: 62.00,  price: 55.00,  curr: "€", ex: "XETR",     yf: "GXI.DE",  divYield: 1.5,  videoID: null, fund: {pe: "15.0", eps: "3.67", mcap: "1.9B", rev: "+8%"} },
-            "NOC":  { name: "Northrop Grumman",     fv: 585.00, price: 480.00, curr: "$", ex: "NYSE",      yf: "NOC",     divYield: 1.7,  videoID: null, fund: {pe: "21.0", eps: "22.8", mcap: "72B",  rev: "+7%"} },
-            "RTX":  { name: "RTX Corp",             fv: 135.00, price: 118.00, curr: "$", ex: "NYSE",      yf: "RTX",     divYield: 2.1,  videoID: null, fund: {pe: "38.0", eps: "3.11", mcap: "160B", rev: "+9%"} },
-            "LMT":  { name: "Lockheed Martin",      fv: 650.00, price: 570.00, curr: "$", ex: "NYSE",      yf: "LMT",     divYield: 2.8,  videoID: null, fund: {pe: "18.0", eps: "31.5", mcap: "140B", rev: "+5%"} },
-            "GD":   { name: "General Dynamics",     fv: 345.00, price: 295.00, curr: "$", ex: "NYSE",      yf: "GD",      divYield: 2.1,  videoID: null, fund: {pe: "21.0", eps: "14.0", mcap: "82B",  rev: "+8%"} },
-            "HWM":  { name: "Howmet Aerospace",     fv: 118.00, price: 105.00, curr: "$", ex: "NYSE",      yf: "HWM",     divYield: 0.4,  videoID: null, fund: {pe: "40.0", eps: "2.63", mcap: "44B",  rev: "+13%"} },
-            "HON":  { name: "Honeywell",            fv: 230.00, price: 200.00, curr: "$", ex: "NASDAQ",    yf: "HON",     divYield: 2.2,  videoID: null, fund: {pe: "25.0", eps: "8.00", mcap: "126B", rev: "+4%"} },
-            "BA":   { name: "Boeing",               fv: 185.00, price: 145.00, curr: "$", ex: "NYSE",      yf: "BA",      divYield: 0.0,  videoID: null, fund: {pe: "—",    eps: "-3.8", mcap: "110B", rev: "+17%"} },
-            "UNP":  { name: "Union Pacific",        fv: 280.00, price: 248.00, curr: "$", ex: "NYSE",      yf: "UNP",     divYield: 2.3,  videoID: null, fund: {pe: "21.0", eps: "11.8", mcap: "155B", rev: "-1%"} },
-            "UPS":  { name: "UPS",                  fv: 155.00, price: 130.00, curr: "$", ex: "NYSE",      yf: "UPS",     divYield: 4.8,  videoID: null, fund: {pe: "22.0", eps: "5.91", mcap: "111B", rev: "-9%"} },
-            "FDX":  { name: "FedEx",                fv: 315.00, price: 280.00, curr: "$", ex: "NYSE",      yf: "FDX",     divYield: 2.0,  videoID: null, fund: {pe: "16.0", eps: "17.5", mcap: "70B",  rev: "-2%"} },
-            "DE":   { name: "Deere & Company",      fv: 490.00, price: 400.00, curr: "$", ex: "NYSE",      yf: "DE",      divYield: 1.5,  videoID: null, fund: {pe: "12.0", eps: "33.3", mcap: "124B", rev: "-5%"} },
+            "RHM":  { name: "Rheinmetall AG",       fv: null, price: 620.00, curr: "€", ex: "XETR",     yf: "RHM.DE",  divYield: 1.0,  videoID: null, fund: {pe: "32.1", eps: "19.4", mcap: "24B",  rev: "+36%"} },
+            "GXI":  { name: "Gerresheimer AG",      fv: null,  price: 55.00,  curr: "€", ex: "XETR",     yf: "GXI.DE",  divYield: 1.5,  videoID: null, fund: {pe: "15.0", eps: "3.67", mcap: "1.9B", rev: "+8%"} },
+            "NOC":  { name: "Northrop Grumman",     fv: null, price: 480.00, curr: "$", ex: "NYSE",      yf: "NOC",     divYield: 1.7,  videoID: null, fund: {pe: "21.0", eps: "22.8", mcap: "72B",  rev: "+7%"} },
+            "RTX":  { name: "RTX Corp",             fv: null, price: 118.00, curr: "$", ex: "NYSE",      yf: "RTX",     divYield: 2.1,  videoID: null, fund: {pe: "38.0", eps: "3.11", mcap: "160B", rev: "+9%"} },
+            "LMT":  { name: "Lockheed Martin",      fv: null, price: 570.00, curr: "$", ex: "NYSE",      yf: "LMT",     divYield: 2.8,  videoID: null, fund: {pe: "18.0", eps: "31.5", mcap: "140B", rev: "+5%"} },
+            "GD":   { name: "General Dynamics",     fv: null, price: 295.00, curr: "$", ex: "NYSE",      yf: "GD",      divYield: 2.1,  videoID: null, fund: {pe: "21.0", eps: "14.0", mcap: "82B",  rev: "+8%"} },
+            "HWM":  { name: "Howmet Aerospace",     fv: null, price: 105.00, curr: "$", ex: "NYSE",      yf: "HWM",     divYield: 0.4,  videoID: null, fund: {pe: "40.0", eps: "2.63", mcap: "44B",  rev: "+13%"} },
+            "HON":  { name: "Honeywell",            fv: null, price: 200.00, curr: "$", ex: "NASDAQ",    yf: "HON",     divYield: 2.2,  videoID: null, fund: {pe: "25.0", eps: "8.00", mcap: "126B", rev: "+4%"} },
+            "BA":   { name: "Boeing",               fv: null, price: 145.00, curr: "$", ex: "NYSE",      yf: "BA",      divYield: 0.0,  videoID: null, fund: {pe: "—",    eps: "-3.8", mcap: "110B", rev: "+17%"} },
+            "UNP":  { name: "Union Pacific",        fv: null, price: 248.00, curr: "$", ex: "NYSE",      yf: "UNP",     divYield: 2.3,  videoID: null, fund: {pe: "21.0", eps: "11.8", mcap: "155B", rev: "-1%"} },
+            "UPS":  { name: "UPS",                  fv: null, price: 130.00, curr: "$", ex: "NYSE",      yf: "UPS",     divYield: 4.8,  videoID: null, fund: {pe: "22.0", eps: "5.91", mcap: "111B", rev: "-9%"} },
+            "FDX":  { name: "FedEx",                fv: null, price: 280.00, curr: "$", ex: "NYSE",      yf: "FDX",     divYield: 2.0,  videoID: null, fund: {pe: "16.0", eps: "17.5", mcap: "70B",  rev: "-2%"} },
+            "DE":   { name: "Deere & Company",      fv: null, price: 400.00, curr: "$", ex: "NYSE",      yf: "DE",      divYield: 1.5,  videoID: null, fund: {pe: "12.0", eps: "33.3", mcap: "124B", rev: "-5%"} },
             // ── Energia & Petrolio ───────────────────────────────────────────
-            "KMI":  { name: "Kinder Morgan",        fv: 23.00,  price: 22.00,  curr: "$", ex: "NYSE",      yf: "KMI",     divYield: 6.2,  videoID: null, fund: {pe: "16.5", eps: "1.33", mcap: "50B",  rev: "+3%"} },
-            "COP":  { name: "ConocoPhillips",       fv: 132.00, price: 108.00, curr: "$", ex: "NYSE",      yf: "COP",     divYield: 3.0,  videoID: null, fund: {pe: "13.0", eps: "8.30", mcap: "130B", rev: "+2%"} },
-            "DVN":  { name: "Devon Energy",         fv: 46.00,  price: 38.00,  curr: "$", ex: "NYSE",      yf: "DVN",     divYield: 4.5,  videoID: null, fund: {pe: "7.0",  eps: "5.43", mcap: "24B",  rev: "-5%"} },
-            "SLB":  { name: "Schlumberger",         fv: 55.00,  price: 44.00,  curr: "$", ex: "NYSE",      yf: "SLB",     divYield: 2.8,  videoID: null, fund: {pe: "13.0", eps: "3.38", mcap: "60B",  rev: "+7%"} },
-            "XOM":  { name: "ExxonMobil",           fv: 130.00, price: 115.00, curr: "$", ex: "NYSE",      yf: "XOM",     divYield: 3.5,  videoID: null, fund: {pe: "14.0", eps: "8.21", mcap: "460B", rev: "+2%"} },
+            "KMI":  { name: "Kinder Morgan",        fv: null,  price: 22.00,  curr: "$", ex: "NYSE",      yf: "KMI",     divYield: 6.2,  videoID: null, fund: {pe: "16.5", eps: "1.33", mcap: "50B",  rev: "+3%"} },
+            "COP":  { name: "ConocoPhillips",       fv: null, price: 108.00, curr: "$", ex: "NYSE",      yf: "COP",     divYield: 3.0,  videoID: null, fund: {pe: "13.0", eps: "8.30", mcap: "130B", rev: "+2%"} },
+            "DVN":  { name: "Devon Energy",         fv: null,  price: 38.00,  curr: "$", ex: "NYSE",      yf: "DVN",     divYield: 4.5,  videoID: null, fund: {pe: "7.0",  eps: "5.43", mcap: "24B",  rev: "-5%"} },
+            "SLB":  { name: "Schlumberger",         fv: null,  price: 44.00,  curr: "$", ex: "NYSE",      yf: "SLB",     divYield: 2.8,  videoID: null, fund: {pe: "13.0", eps: "3.38", mcap: "60B",  rev: "+7%"} },
+            "XOM":  { name: "ExxonMobil",           fv: null, price: 115.00, curr: "$", ex: "NYSE",      yf: "XOM",     divYield: 3.5,  videoID: null, fund: {pe: "14.0", eps: "8.21", mcap: "460B", rev: "+2%"} },
             // ── Pharma & Salute ──────────────────────────────────────────────
-            "ABBV": { name: "AbbVie",               fv: 192.00, price: 175.00, curr: "$", ex: "NYSE",      yf: "ABBV",    divYield: 3.6,  videoID: null, fund: {pe: "55.0", eps: "3.18", mcap: "310B", rev: "+4%"} },
-            "MRK":  { name: "Merck & Co",           fv: 135.00, price: 112.00, curr: "$", ex: "NYSE",      yf: "MRK",     divYield: 2.8,  videoID: null, fund: {pe: "16.0", eps: "7.00", mcap: "284B", rev: "+7%"} },
-            "PFE":  { name: "Pfizer",               fv: 32.00,  price: 28.00,  curr: "$", ex: "NYSE",      yf: "PFE",     divYield: 6.4,  videoID: null, fund: {pe: "—",    eps: "-3.12",mcap: "158B", rev: "-42%"} },
-            "LLY":  { name: "Eli Lilly",            fv: 980.00, price: 870.00, curr: "$", ex: "NYSE",      yf: "LLY",     divYield: 0.6,  videoID: null, fund: {pe: "105",  eps: "8.28", mcap: "827B", rev: "+29%"} },
-            "MDT":  { name: "Medtronic",            fv: 95.00,  price: 87.00,  curr: "$", ex: "NYSE",      yf: "MDT",     divYield: 3.3,  videoID: null, fund: {pe: "25.0", eps: "3.48", mcap: "116B", rev: "+3%"} },
-            "BSX":  { name: "Boston Scientific",    fv: 96.00,  price: 82.00,  curr: "$", ex: "NYSE",      yf: "BSX",     divYield: 0.0,  videoID: null, fund: {pe: "56.0", eps: "1.47", mcap: "124B", rev: "+15%"} },
-            "BDX":  { name: "Becton Dickinson",     fv: 252.00, price: 220.00, curr: "$", ex: "NYSE",      yf: "BDX",     divYield: 1.8,  videoID: null, fund: {pe: "40.0", eps: "5.50", mcap: "63B",  rev: "+4%"} },
-            "DHR":  { name: "Danaher",              fv: 282.00, price: 245.00, curr: "$", ex: "NYSE",      yf: "DHR",     divYield: 0.4,  videoID: null, fund: {pe: "50.0", eps: "4.90", mcap: "177B", rev: "-7%"} },
-            "TMO":  { name: "Thermo Fisher",        fv: 620.00, price: 540.00, curr: "$", ex: "NYSE",      yf: "TMO",     divYield: 0.3,  videoID: null, fund: {pe: "28.0", eps: "19.3", mcap: "207B", rev: "+1%"} },
-            "MTD":  { name: "Mettler-Toledo",       fv: 1350.00,price: 1200.00,curr: "$", ex: "NYSE",      yf: "MTD",     divYield: 0.0,  videoID: null, fund: {pe: "27.0", eps: "44.4", mcap: "28B",  rev: "-5%"} },
-            "REGN": { name: "Regeneron Pharma",     fv: 1100.00,price: 930.00, curr: "$", ex: "NASDAQ",    yf: "REGN",    divYield: 0.0,  videoID: null, fund: {pe: "24.0", eps: "38.8", mcap: "99B",  rev: "+8%"} },
-            "GILD": { name: "Gilead Sciences",      fv: 90.00,  price: 87.00,  curr: "$", ex: "NASDAQ",    yf: "GILD",    divYield: 3.5,  videoID: null, fund: {pe: "16.0", eps: "5.44", mcap: "108B", rev: "+5%"} },
-            "ISRG": { name: "Intuitive Surgical",   fv: 490.00, price: 450.00, curr: "$", ex: "NASDAQ",    yf: "ISRG",    divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "5.77", mcap: "160B", rev: "+14%"} },
-            "VRTX": { name: "Vertex Pharma",        fv: 530.00, price: 470.00, curr: "$", ex: "NASDAQ",    yf: "VRTX",    divYield: 0.0,  videoID: null, fund: {pe: "33.0", eps: "14.2", mcap: "121B", rev: "+11%"} },
-            "ELV":  { name: "Elevance Health",      fv: 425.00, price: 380.00, curr: "$", ex: "NYSE",      yf: "ELV",     divYield: 1.4,  videoID: null, fund: {pe: "15.0", eps: "25.3", mcap: "88B",  rev: "+6%"} },
-            "UNH":  { name: "UnitedHealth",         fv: 625.00, price: 545.00, curr: "$", ex: "NYSE",      yf: "UNH",     divYield: 1.5,  videoID: null, fund: {pe: "23.0", eps: "23.7", mcap: "502B", rev: "+8%"} },
-            "CVS":  { name: "CVS Health",           fv: 65.00,  price: 57.00,  curr: "$", ex: "NYSE",      yf: "CVS",     divYield: 4.2,  videoID: null, fund: {pe: "10.0", eps: "5.70", mcap: "71B",  rev: "+3%"} },
-            "NVO":  { name: "Novo Nordisk ADR",     fv: 122.00, price: 105.00, curr: "$", ex: "NYSE",      yf: "NVO",     divYield: 1.5,  videoID: null, fund: {pe: "30.0", eps: "3.50", mcap: "472B", rev: "+23%"} },
+            "ABBV": { name: "AbbVie",               fv: null, price: 175.00, curr: "$", ex: "NYSE",      yf: "ABBV",    divYield: 3.6,  videoID: null, fund: {pe: "55.0", eps: "3.18", mcap: "310B", rev: "+4%"} },
+            "MRK":  { name: "Merck & Co",           fv: null, price: 112.00, curr: "$", ex: "NYSE",      yf: "MRK",     divYield: 2.8,  videoID: null, fund: {pe: "16.0", eps: "7.00", mcap: "284B", rev: "+7%"} },
+            "PFE":  { name: "Pfizer",               fv: null,  price: 28.00,  curr: "$", ex: "NYSE",      yf: "PFE",     divYield: 6.4,  videoID: null, fund: {pe: "—",    eps: "-3.12",mcap: "158B", rev: "-42%"} },
+            "LLY":  { name: "Eli Lilly",            fv: null, price: 870.00, curr: "$", ex: "NYSE",      yf: "LLY",     divYield: 0.6,  videoID: null, fund: {pe: "105",  eps: "8.28", mcap: "827B", rev: "+29%"} },
+            "MDT":  { name: "Medtronic",            fv: null,  price: 87.00,  curr: "$", ex: "NYSE",      yf: "MDT",     divYield: 3.3,  videoID: null, fund: {pe: "25.0", eps: "3.48", mcap: "116B", rev: "+3%"} },
+            "BSX":  { name: "Boston Scientific",    fv: null,  price: 82.00,  curr: "$", ex: "NYSE",      yf: "BSX",     divYield: 0.0,  videoID: null, fund: {pe: "56.0", eps: "1.47", mcap: "124B", rev: "+15%"} },
+            "BDX":  { name: "Becton Dickinson",     fv: null, price: 220.00, curr: "$", ex: "NYSE",      yf: "BDX",     divYield: 1.8,  videoID: null, fund: {pe: "40.0", eps: "5.50", mcap: "63B",  rev: "+4%"} },
+            "DHR":  { name: "Danaher",              fv: null, price: 245.00, curr: "$", ex: "NYSE",      yf: "DHR",     divYield: 0.4,  videoID: null, fund: {pe: "50.0", eps: "4.90", mcap: "177B", rev: "-7%"} },
+            "TMO":  { name: "Thermo Fisher",        fv: null, price: 540.00, curr: "$", ex: "NYSE",      yf: "TMO",     divYield: 0.3,  videoID: null, fund: {pe: "28.0", eps: "19.3", mcap: "207B", rev: "+1%"} },
+            "MTD":  { name: "Mettler-Toledo",       fv: null,price: 1200.00,curr: "$", ex: "NYSE",      yf: "MTD",     divYield: 0.0,  videoID: null, fund: {pe: "27.0", eps: "44.4", mcap: "28B",  rev: "-5%"} },
+            "REGN": { name: "Regeneron Pharma",     fv: null,price: 930.00, curr: "$", ex: "NASDAQ",    yf: "REGN",    divYield: 0.0,  videoID: null, fund: {pe: "24.0", eps: "38.8", mcap: "99B",  rev: "+8%"} },
+            "GILD": { name: "Gilead Sciences",      fv: null,  price: 87.00,  curr: "$", ex: "NASDAQ",    yf: "GILD",    divYield: 3.5,  videoID: null, fund: {pe: "16.0", eps: "5.44", mcap: "108B", rev: "+5%"} },
+            "ISRG": { name: "Intuitive Surgical",   fv: null, price: 450.00, curr: "$", ex: "NASDAQ",    yf: "ISRG",    divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "5.77", mcap: "160B", rev: "+14%"} },
+            "VRTX": { name: "Vertex Pharma",        fv: null, price: 470.00, curr: "$", ex: "NASDAQ",    yf: "VRTX",    divYield: 0.0,  videoID: null, fund: {pe: "33.0", eps: "14.2", mcap: "121B", rev: "+11%"} },
+            "ELV":  { name: "Elevance Health",      fv: null, price: 380.00, curr: "$", ex: "NYSE",      yf: "ELV",     divYield: 1.4,  videoID: null, fund: {pe: "15.0", eps: "25.3", mcap: "88B",  rev: "+6%"} },
+            "UNH":  { name: "UnitedHealth",         fv: null, price: 545.00, curr: "$", ex: "NYSE",      yf: "UNH",     divYield: 1.5,  videoID: null, fund: {pe: "23.0", eps: "23.7", mcap: "502B", rev: "+8%"} },
+            "CVS":  { name: "CVS Health",           fv: null,  price: 57.00,  curr: "$", ex: "NYSE",      yf: "CVS",     divYield: 4.2,  videoID: null, fund: {pe: "10.0", eps: "5.70", mcap: "71B",  rev: "+3%"} },
+            "NVO":  { name: "Novo Nordisk ADR",     fv: null, price: 105.00, curr: "$", ex: "NYSE",      yf: "NVO",     divYield: 1.5,  videoID: null, fund: {pe: "30.0", eps: "3.50", mcap: "472B", rev: "+23%"} },
             // ── Finance & Insurance ──────────────────────────────────────────
-            "JPM":  { name: "JPMorgan Chase",       fv: 238.00, price: 218.00, curr: "$", ex: "NYSE",      yf: "JPM",     divYield: 2.2,  videoID: null, fund: {pe: "13.0", eps: "16.8", mcap: "620B", rev: "+21%"} },
-            "BLK":  { name: "BlackRock",            fv: 1055.00,price: 960.00, curr: "$", ex: "NYSE",      yf: "BLK",     divYield: 2.2,  videoID: null, fund: {pe: "23.0", eps: "41.7", mcap: "145B", rev: "+14%"} },
-            "C":    { name: "Citigroup",            fv: 84.00,  price: 65.00,  curr: "$", ex: "NYSE",      yf: "C",       divYield: 3.3,  videoID: null, fund: {pe: "12.0", eps: "5.42", mcap: "125B", rev: "+4%"} },
-            "GS":   { name: "Goldman Sachs",        fv: 605.00, price: 520.00, curr: "$", ex: "NYSE",      yf: "GS",      divYield: 2.5,  videoID: null, fund: {pe: "15.0", eps: "34.7", mcap: "178B", rev: "+16%"} },
-            "V":    { name: "Visa",                 fv: 332.00, price: 285.00, curr: "$", ex: "NYSE",      yf: "V",       divYield: 0.8,  videoID: null, fund: {pe: "31.0", eps: "9.19", mcap: "590B", rev: "+11%"} },
-            "MCO":  { name: "Moody's Corp",         fv: 498.00, price: 430.00, curr: "$", ex: "NYSE",      yf: "MCO",     divYield: 0.8,  videoID: null, fund: {pe: "43.0", eps: "10.0", mcap: "77B",  rev: "+15%"} },
-            "CB":   { name: "Chubb",                fv: 282.00, price: 262.00, curr: "$", ex: "NYSE",      yf: "CB",      divYield: 1.4,  videoID: null, fund: {pe: "12.0", eps: "21.8", mcap: "110B", rev: "+13%"} },
-            "L":    { name: "Loews Corp",           fv: 90.00,  price: 78.00,  curr: "$", ex: "NYSE",      yf: "L",       divYield: 0.4,  videoID: null, fund: {pe: "10.0", eps: "7.80", mcap: "18B",  rev: "+4%"} },
-            "RSG":  { name: "Republic Services",    fv: 235.00, price: 205.00, curr: "$", ex: "NYSE",      yf: "RSG",     divYield: 1.3,  videoID: null, fund: {pe: "36.0", eps: "5.71", mcap: "66B",  rev: "+8%"} },
-            "WM":   { name: "Waste Management",     fv: 232.00, price: 205.00, curr: "$", ex: "NYSE",      yf: "WM",      divYield: 1.4,  videoID: null, fund: {pe: "31.0", eps: "6.61", mcap: "83B",  rev: "+5%"} },
+            "JPM":  { name: "JPMorgan Chase",       fv: null, price: 218.00, curr: "$", ex: "NYSE",      yf: "JPM",     divYield: 2.2,  videoID: null, fund: {pe: "13.0", eps: "16.8", mcap: "620B", rev: "+21%"} },
+            "BLK":  { name: "BlackRock",            fv: null,price: 960.00, curr: "$", ex: "NYSE",      yf: "BLK",     divYield: 2.2,  videoID: null, fund: {pe: "23.0", eps: "41.7", mcap: "145B", rev: "+14%"} },
+            "C":    { name: "Citigroup",            fv: null,  price: 65.00,  curr: "$", ex: "NYSE",      yf: "C",       divYield: 3.3,  videoID: null, fund: {pe: "12.0", eps: "5.42", mcap: "125B", rev: "+4%"} },
+            "GS":   { name: "Goldman Sachs",        fv: null, price: 520.00, curr: "$", ex: "NYSE",      yf: "GS",      divYield: 2.5,  videoID: null, fund: {pe: "15.0", eps: "34.7", mcap: "178B", rev: "+16%"} },
+            "V":    { name: "Visa",                 fv: null, price: 285.00, curr: "$", ex: "NYSE",      yf: "V",       divYield: 0.8,  videoID: null, fund: {pe: "31.0", eps: "9.19", mcap: "590B", rev: "+11%"} },
+            "MCO":  { name: "Moody's Corp",         fv: null, price: 430.00, curr: "$", ex: "NYSE",      yf: "MCO",     divYield: 0.8,  videoID: null, fund: {pe: "43.0", eps: "10.0", mcap: "77B",  rev: "+15%"} },
+            "CB":   { name: "Chubb",                fv: null, price: 262.00, curr: "$", ex: "NYSE",      yf: "CB",      divYield: 1.4,  videoID: null, fund: {pe: "12.0", eps: "21.8", mcap: "110B", rev: "+13%"} },
+            "L":    { name: "Loews Corp",           fv: null,  price: 78.00,  curr: "$", ex: "NYSE",      yf: "L",       divYield: 0.4,  videoID: null, fund: {pe: "10.0", eps: "7.80", mcap: "18B",  rev: "+4%"} },
+            "RSG":  { name: "Republic Services",    fv: null, price: 205.00, curr: "$", ex: "NYSE",      yf: "RSG",     divYield: 1.3,  videoID: null, fund: {pe: "36.0", eps: "5.71", mcap: "66B",  rev: "+8%"} },
+            "WM":   { name: "Waste Management",     fv: null, price: 205.00, curr: "$", ex: "NYSE",      yf: "WM",      divYield: 1.4,  videoID: null, fund: {pe: "31.0", eps: "6.61", mcap: "83B",  rev: "+5%"} },
             // ── Consumer & Retail ────────────────────────────────────────────
-            "PM":   { name: "Philip Morris",        fv: 142.00, price: 128.00, curr: "$", ex: "NYSE",      yf: "PM",      divYield: 4.6,  videoID: null, fund: {pe: "22.0", eps: "5.82", mcap: "200B", rev: "+10%"} },
-            "PEP":  { name: "PepsiCo",              fv: 182.00, price: 163.00, curr: "$", ex: "NASDAQ",    yf: "PEP",     divYield: 3.3,  videoID: null, fund: {pe: "22.0", eps: "7.41", mcap: "224B", rev: "+2%"} },
-            "KO":   { name: "Coca-Cola",            fv: 74.00,  price: 66.00,  curr: "$", ex: "NYSE",      yf: "KO",      divYield: 3.1,  videoID: null, fund: {pe: "26.0", eps: "2.54", mcap: "285B", rev: "+3%"} },
-            "AZO":  { name: "AutoZone",             fv: 3500.00,price: 3100.00,curr: "$", ex: "NYSE",      yf: "AZO",     divYield: 0.0,  videoID: null, fund: {pe: "22.0", eps: "141",  mcap: "51B",  rev: "+5%"} },
-            "MO":   { name: "Altria Group",         fv: 52.00,  price: 48.00,  curr: "$", ex: "NYSE",      yf: "MO",      divYield: 8.2,  videoID: null, fund: {pe: "10.0", eps: "4.80", mcap: "86B",  rev: "+1%"} },
-            "CL":   { name: "Colgate-Palmolive",    fv: 97.00,  price: 95.00,  curr: "$", ex: "NYSE",      yf: "CL",      divYield: 2.3,  videoID: null, fund: {pe: "30.0", eps: "3.17", mcap: "80B",  rev: "+8%"} },
-            "PG":   { name: "Procter & Gamble",     fv: 178.00, price: 165.00, curr: "$", ex: "NYSE",      yf: "PG",      divYield: 2.3,  videoID: null, fund: {pe: "27.0", eps: "6.12", mcap: "390B", rev: "+3%"} },
-            "GIS":  { name: "General Mills",        fv: 72.00,  price: 63.00,  curr: "$", ex: "NYSE",      yf: "GIS",     divYield: 3.9,  videoID: null, fund: {pe: "14.0", eps: "4.50", mcap: "37B",  rev: "-1%"} },
-            "HD":   { name: "Home Depot",           fv: 438.00, price: 390.00, curr: "$", ex: "NYSE",      yf: "HD",      divYield: 2.4,  videoID: null, fund: {pe: "25.0", eps: "15.6", mcap: "387B", rev: "+5%"} },
-            "ROST": { name: "Ross Stores",          fv: 168.00, price: 150.00, curr: "$", ex: "NASDAQ",    yf: "ROST",    divYield: 1.0,  videoID: null, fund: {pe: "24.0", eps: "6.25", mcap: "55B",  rev: "+8%"} },
-            "ORLY": { name: "O'Reilly Automotive",  fv: 1250.00,price: 1100.00,curr: "$", ex: "NASDAQ",    yf: "ORLY",    divYield: 0.0,  videoID: null, fund: {pe: "28.0", eps: "39.3", mcap: "68B",  rev: "+7%"} },
-            "DG":   { name: "Dollar General",       fv: 115.00, price: 82.00,  curr: "$", ex: "NYSE",      yf: "DG",      divYield: 2.0,  videoID: null, fund: {pe: "14.0", eps: "5.86", mcap: "18B",  rev: "+4%"} },
-            "MCD":  { name: "McDonald's",           fv: 318.00, price: 290.00, curr: "$", ex: "NYSE",      yf: "MCD",     divYield: 2.4,  videoID: null, fund: {pe: "25.0", eps: "11.6", mcap: "210B", rev: "+3%"} },
-            "NKE":  { name: "Nike",                 fv: 100.00, price: 77.00,  curr: "$", ex: "NYSE",      yf: "NKE",     divYield: 2.1,  videoID: null, fund: {pe: "20.0", eps: "3.85", mcap: "118B", rev: "-10%"} },
-            "DIS":  { name: "Walt Disney",          fv: 132.00, price: 100.00, curr: "$", ex: "NYSE",      yf: "DIS",     divYield: 0.9,  videoID: null, fund: {pe: "30.0", eps: "3.33", mcap: "185B", rev: "+3%"} },
-            "VZ":   { name: "Verizon",              fv: 47.00,  price: 42.00,  curr: "$", ex: "NYSE",      yf: "VZ",      divYield: 6.8,  videoID: null, fund: {pe: "10.0", eps: "4.20", mcap: "177B", rev: "+0.5%"} },
-            "T":    { name: "AT&T",                 fv: 22.00,  price: 20.00,  curr: "$", ex: "NYSE",      yf: "T",       divYield: 6.8,  videoID: null, fund: {pe: "17.0", eps: "1.18", mcap: "144B", rev: "+1%"} },
-            "CHTR": { name: "Charter Comm.",        fv: 390.00, price: 320.00, curr: "$", ex: "NASDAQ",    yf: "CHTR",    divYield: 0.0,  videoID: null, fund: {pe: "13.0", eps: "24.6", mcap: "46B",  rev: "+1%"} },
-            "TMUS": { name: "T-Mobile US",          fv: 218.00, price: 195.00, curr: "$", ex: "NASDAQ",    yf: "TMUS",    divYield: 1.5,  videoID: null, fund: {pe: "27.0", eps: "7.24", mcap: "233B", rev: "+3%"} },
-            "RCL":  { name: "Royal Caribbean",      fv: 218.00, price: 195.00, curr: "$", ex: "NYSE",      yf: "RCL",     divYield: 0.9,  videoID: null, fund: {pe: "23.0", eps: "8.48", mcap: "51B",  rev: "+14%"} },
-            "BLDR": { name: "Builders FirstSource", fv: 232.00, price: 175.00, curr: "$", ex: "NYSE",      yf: "BLDR",    divYield: 0.0,  videoID: null, fund: {pe: "12.0", eps: "14.6", mcap: "22B",  rev: "-3%"} },
+            "PM":   { name: "Philip Morris",        fv: null, price: 128.00, curr: "$", ex: "NYSE",      yf: "PM",      divYield: 4.6,  videoID: null, fund: {pe: "22.0", eps: "5.82", mcap: "200B", rev: "+10%"} },
+            "PEP":  { name: "PepsiCo",              fv: null, price: 163.00, curr: "$", ex: "NASDAQ",    yf: "PEP",     divYield: 3.3,  videoID: null, fund: {pe: "22.0", eps: "7.41", mcap: "224B", rev: "+2%"} },
+            "KO":   { name: "Coca-Cola",            fv: null,  price: 66.00,  curr: "$", ex: "NYSE",      yf: "KO",      divYield: 3.1,  videoID: null, fund: {pe: "26.0", eps: "2.54", mcap: "285B", rev: "+3%"} },
+            "AZO":  { name: "AutoZone",             fv: null,price: 3100.00,curr: "$", ex: "NYSE",      yf: "AZO",     divYield: 0.0,  videoID: null, fund: {pe: "22.0", eps: "141",  mcap: "51B",  rev: "+5%"} },
+            "MO":   { name: "Altria Group",         fv: null,  price: 48.00,  curr: "$", ex: "NYSE",      yf: "MO",      divYield: 8.2,  videoID: null, fund: {pe: "10.0", eps: "4.80", mcap: "86B",  rev: "+1%"} },
+            "CL":   { name: "Colgate-Palmolive",    fv: null,  price: 95.00,  curr: "$", ex: "NYSE",      yf: "CL",      divYield: 2.3,  videoID: null, fund: {pe: "30.0", eps: "3.17", mcap: "80B",  rev: "+8%"} },
+            "PG":   { name: "Procter & Gamble",     fv: null, price: 165.00, curr: "$", ex: "NYSE",      yf: "PG",      divYield: 2.3,  videoID: null, fund: {pe: "27.0", eps: "6.12", mcap: "390B", rev: "+3%"} },
+            "GIS":  { name: "General Mills",        fv: null,  price: 63.00,  curr: "$", ex: "NYSE",      yf: "GIS",     divYield: 3.9,  videoID: null, fund: {pe: "14.0", eps: "4.50", mcap: "37B",  rev: "-1%"} },
+            "HD":   { name: "Home Depot",           fv: null, price: 390.00, curr: "$", ex: "NYSE",      yf: "HD",      divYield: 2.4,  videoID: null, fund: {pe: "25.0", eps: "15.6", mcap: "387B", rev: "+5%"} },
+            "ROST": { name: "Ross Stores",          fv: null, price: 150.00, curr: "$", ex: "NASDAQ",    yf: "ROST",    divYield: 1.0,  videoID: null, fund: {pe: "24.0", eps: "6.25", mcap: "55B",  rev: "+8%"} },
+            "ORLY": { name: "O'Reilly Automotive",  fv: null,price: 1100.00,curr: "$", ex: "NASDAQ",    yf: "ORLY",    divYield: 0.0,  videoID: null, fund: {pe: "28.0", eps: "39.3", mcap: "68B",  rev: "+7%"} },
+            "DG":   { name: "Dollar General",       fv: null, price: 82.00,  curr: "$", ex: "NYSE",      yf: "DG",      divYield: 2.0,  videoID: null, fund: {pe: "14.0", eps: "5.86", mcap: "18B",  rev: "+4%"} },
+            "MCD":  { name: "McDonald's",           fv: null, price: 290.00, curr: "$", ex: "NYSE",      yf: "MCD",     divYield: 2.4,  videoID: null, fund: {pe: "25.0", eps: "11.6", mcap: "210B", rev: "+3%"} },
+            "NKE":  { name: "Nike",                 fv: null, price: 77.00,  curr: "$", ex: "NYSE",      yf: "NKE",     divYield: 2.1,  videoID: null, fund: {pe: "20.0", eps: "3.85", mcap: "118B", rev: "-10%"} },
+            "DIS":  { name: "Walt Disney",          fv: null, price: 100.00, curr: "$", ex: "NYSE",      yf: "DIS",     divYield: 0.9,  videoID: null, fund: {pe: "30.0", eps: "3.33", mcap: "185B", rev: "+3%"} },
+            "VZ":   { name: "Verizon",              fv: null,  price: 42.00,  curr: "$", ex: "NYSE",      yf: "VZ",      divYield: 6.8,  videoID: null, fund: {pe: "10.0", eps: "4.20", mcap: "177B", rev: "+0.5%"} },
+            "T":    { name: "AT&T",                 fv: null,  price: 20.00,  curr: "$", ex: "NYSE",      yf: "T",       divYield: 6.8,  videoID: null, fund: {pe: "17.0", eps: "1.18", mcap: "144B", rev: "+1%"} },
+            "CHTR": { name: "Charter Comm.",        fv: null, price: 320.00, curr: "$", ex: "NASDAQ",    yf: "CHTR",    divYield: 0.0,  videoID: null, fund: {pe: "13.0", eps: "24.6", mcap: "46B",  rev: "+1%"} },
+            "TMUS": { name: "T-Mobile US",          fv: null, price: 195.00, curr: "$", ex: "NASDAQ",    yf: "TMUS",    divYield: 1.5,  videoID: null, fund: {pe: "27.0", eps: "7.24", mcap: "233B", rev: "+3%"} },
+            "RCL":  { name: "Royal Caribbean",      fv: null, price: 195.00, curr: "$", ex: "NYSE",      yf: "RCL",     divYield: 0.9,  videoID: null, fund: {pe: "23.0", eps: "8.48", mcap: "51B",  rev: "+14%"} },
+            "BLDR": { name: "Builders FirstSource", fv: null, price: 175.00, curr: "$", ex: "NYSE",      yf: "BLDR",    divYield: 0.0,  videoID: null, fund: {pe: "12.0", eps: "14.6", mcap: "22B",  rev: "-3%"} },
             // ── Tech & Growth ────────────────────────────────────────────────
-            "META": { name: "Meta Platforms",       fv: 645.00, price: 580.00, curr: "$", ex: "NASDAQ",    yf: "META",    divYield: 0.4,  videoID: null, fund: {pe: "28.0", eps: "20.7", mcap: "1.5T", rev: "+22%"} },
-            "TSLA": { name: "Tesla",                fv: 185.00, price: 245.00, curr: "$", ex: "NASDAQ",    yf: "TSLA",    divYield: 0.0,  videoID: null, fund: {pe: "72.0", eps: "3.40", mcap: "782B", rev: "+1%"} },
-            "AVGO": { name: "Broadcom",             fv: 188.00, price: 165.00, curr: "$", ex: "NASDAQ",    yf: "AVGO",    divYield: 1.3,  videoID: null, fund: {pe: "42.0", eps: "3.93", mcap: "773B", rev: "+47%"} },
-            "ORCL": { name: "Oracle",               fv: 165.00, price: 185.00, curr: "$", ex: "NYSE",      yf: "ORCL",    divYield: 1.0,  videoID: null, fund: {pe: "44.0", eps: "4.21", mcap: "505B", rev: "+8%"} },
-            "TXN":  { name: "Texas Instruments",    fv: 198.00, price: 200.00, curr: "$", ex: "NASDAQ",    yf: "TXN",     divYield: 2.9,  videoID: null, fund: {pe: "36.0", eps: "5.56", mcap: "182B", rev: "-11%"} },
-            "BKNG": { name: "Booking Holdings",     fv: 4400.00,price: 3900.00,curr: "$", ex: "NASDAQ",    yf: "BKNG",    divYield: 0.8,  videoID: null, fund: {pe: "28.0", eps: "139",  mcap: "150B", rev: "+10%"} },
-            "SHOP": { name: "Shopify",              fv: 94.00,  price: 82.00,  curr: "$", ex: "NASDAQ",    yf: "SHOP",    divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "1.05", mcap: "104B", rev: "+21%"} },
-            "TTD":  { name: "The Trade Desk",       fv: 112.00, price: 72.00,  curr: "$", ex: "NASDAQ",    yf: "TTD",     divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "0.92", mcap: "36B",  rev: "+27%"} },
-            "CRWD": { name: "CrowdStrike",          fv: 362.00, price: 310.00, curr: "$", ex: "NASDAQ",    yf: "CRWD",    divYield: 0.0,  videoID: null, fund: {pe: "350",  eps: "0.89", mcap: "76B",  rev: "+32%"} },
-            "FTNT": { name: "Fortinet",             fv: 92.00,  price: 82.00,  curr: "$", ex: "NASDAQ",    yf: "FTNT",    divYield: 0.0,  videoID: null, fund: {pe: "48.0", eps: "1.71", mcap: "65B",  rev: "+10%"} },
-            "PLTR": { name: "Palantir",             fv: 28.00,  price: 42.00,  curr: "$", ex: "NASDAQ",    yf: "PLTR",    divYield: 0.0,  videoID: null, fund: {pe: "218",  eps: "0.19", mcap: "90B",  rev: "+27%"} },
-            "PANW": { name: "Palo Alto Networks",   fv: 392.00, price: 350.00, curr: "$", ex: "NASDAQ",    yf: "PANW",    divYield: 0.0,  videoID: null, fund: {pe: "188",  eps: "1.86", mcap: "113B", rev: "+16%"} },
-            "CPRT": { name: "Copart",               fv: 63.00,  price: 55.00,  curr: "$", ex: "NASDAQ",    yf: "CPRT",    divYield: 0.0,  videoID: null, fund: {pe: "38.0", eps: "1.45", mcap: "55B",  rev: "+9%"} },
+            "META": { name: "Meta Platforms",       fv: null, price: 580.00, curr: "$", ex: "NASDAQ",    yf: "META",    divYield: 0.4,  videoID: null, fund: {pe: "28.0", eps: "20.7", mcap: "1.5T", rev: "+22%"} },
+            "TSLA": { name: "Tesla",                fv: null, price: 245.00, curr: "$", ex: "NASDAQ",    yf: "TSLA",    divYield: 0.0,  videoID: null, fund: {pe: "72.0", eps: "3.40", mcap: "782B", rev: "+1%"} },
+            "AVGO": { name: "Broadcom",             fv: null, price: 165.00, curr: "$", ex: "NASDAQ",    yf: "AVGO",    divYield: 1.3,  videoID: null, fund: {pe: "42.0", eps: "3.93", mcap: "773B", rev: "+47%"} },
+            "ORCL": { name: "Oracle",               fv: null, price: 185.00, curr: "$", ex: "NYSE",      yf: "ORCL",    divYield: 1.0,  videoID: null, fund: {pe: "44.0", eps: "4.21", mcap: "505B", rev: "+8%"} },
+            "TXN":  { name: "Texas Instruments",    fv: null, price: 200.00, curr: "$", ex: "NASDAQ",    yf: "TXN",     divYield: 2.9,  videoID: null, fund: {pe: "36.0", eps: "5.56", mcap: "182B", rev: "-11%"} },
+            "BKNG": { name: "Booking Holdings",     fv: null,price: 3900.00,curr: "$", ex: "NASDAQ",    yf: "BKNG",    divYield: 0.8,  videoID: null, fund: {pe: "28.0", eps: "139",  mcap: "150B", rev: "+10%"} },
+            "SHOP": { name: "Shopify",              fv: null,  price: 82.00,  curr: "$", ex: "NASDAQ",    yf: "SHOP",    divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "1.05", mcap: "104B", rev: "+21%"} },
+            "TTD":  { name: "The Trade Desk",       fv: null, price: 72.00,  curr: "$", ex: "NASDAQ",    yf: "TTD",     divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "0.92", mcap: "36B",  rev: "+27%"} },
+            "CRWD": { name: "CrowdStrike",          fv: null, price: 310.00, curr: "$", ex: "NASDAQ",    yf: "CRWD",    divYield: 0.0,  videoID: null, fund: {pe: "350",  eps: "0.89", mcap: "76B",  rev: "+32%"} },
+            "FTNT": { name: "Fortinet",             fv: null,  price: 82.00,  curr: "$", ex: "NASDAQ",    yf: "FTNT",    divYield: 0.0,  videoID: null, fund: {pe: "48.0", eps: "1.71", mcap: "65B",  rev: "+10%"} },
+            "PLTR": { name: "Palantir",             fv: null,  price: 42.00,  curr: "$", ex: "NASDAQ",    yf: "PLTR",    divYield: 0.0,  videoID: null, fund: {pe: "218",  eps: "0.19", mcap: "90B",  rev: "+27%"} },
+            "PANW": { name: "Palo Alto Networks",   fv: null, price: 350.00, curr: "$", ex: "NASDAQ",    yf: "PANW",    divYield: 0.0,  videoID: null, fund: {pe: "188",  eps: "1.86", mcap: "113B", rev: "+16%"} },
+            "CPRT": { name: "Copart",               fv: null,  price: 55.00,  curr: "$", ex: "NASDAQ",    yf: "CPRT",    divYield: 0.0,  videoID: null, fund: {pe: "38.0", eps: "1.45", mcap: "55B",  rev: "+9%"} },
             // ── Finanza & Business Services ──────────────────────────────────
-            "NEE":  { name: "NextEra Energy",       fv: 82.00,  price: 72.00,  curr: "$", ex: "NYSE",      yf: "NEE",     divYield: 2.8,  videoID: null, fund: {pe: "22.0", eps: "3.27", mcap: "148B", rev: "+18%"} },
-            "TRI":  { name: "Thomson Reuters",      fv: 188.00, price: 170.00, curr: "$", ex: "NASDAQ",    yf: "TRI",     divYield: 1.2,  videoID: null, fund: {pe: "45.0", eps: "3.78", mcap: "88B",  rev: "+8%"} },
-            "CME":  { name: "CME Group",            fv: 242.00, price: 215.00, curr: "$", ex: "NASDAQ",    yf: "CME",     divYield: 2.0,  videoID: null, fund: {pe: "23.0", eps: "9.35", mcap: "78B",  rev: "+11%"} },
-            "ACN":  { name: "Accenture",            fv: 402.00, price: 320.00, curr: "$", ex: "NYSE",      yf: "ACN",     divYield: 1.6,  videoID: null, fund: {pe: "30.0", eps: "10.7", mcap: "200B", rev: "+4%"} },
+            "NEE":  { name: "NextEra Energy",       fv: null,  price: 72.00,  curr: "$", ex: "NYSE",      yf: "NEE",     divYield: 2.8,  videoID: null, fund: {pe: "22.0", eps: "3.27", mcap: "148B", rev: "+18%"} },
+            "TRI":  { name: "Thomson Reuters",      fv: null, price: 170.00, curr: "$", ex: "NASDAQ",    yf: "TRI",     divYield: 1.2,  videoID: null, fund: {pe: "45.0", eps: "3.78", mcap: "88B",  rev: "+8%"} },
+            "CME":  { name: "CME Group",            fv: null, price: 215.00, curr: "$", ex: "NASDAQ",    yf: "CME",     divYield: 2.0,  videoID: null, fund: {pe: "23.0", eps: "9.35", mcap: "78B",  rev: "+11%"} },
+            "ACN":  { name: "Accenture",            fv: null, price: 320.00, curr: "$", ex: "NYSE",      yf: "ACN",     divYield: 1.6,  videoID: null, fund: {pe: "30.0", eps: "10.7", mcap: "200B", rev: "+4%"} },
             // ── Europa ───────────────────────────────────────────────────────
-            "EL":   { name: "EssilorLuxottica",     fv: 195.00, price: 175.00, curr: "€", ex: "EURONEXT",  yf: "EL.PA",   divYield: 1.2,  videoID: null, fund: {pe: "35.0", eps: "5.00", mcap: "84B",  rev: "+7%"} }
+            "EL":   { name: "EssilorLuxottica",     fv: null, price: 175.00, curr: "€", ex: "EURONEXT",  yf: "EL.PA",   divYield: 1.2,  videoID: null, fund: {pe: "35.0", eps: "5.00", mcap: "84B",  rev: "+7%"} }
         };
 
         // Segnali — caricati live da signals.json (aggiornato da TradingView via webhook)
@@ -1149,16 +1151,19 @@
 
         // === FAIR VALUE SEARCH ===
         let currentFVTicker = null;
+        let currentVideoID = null;
+        function openVideoExternal() {
+            if (currentVideoID) window.open('https://www.youtube.com/watch?v=' + currentVideoID, '_blank');
+        }
         async function calculateFV() {
             let input = document.getElementById('fvInput').value.toUpperCase().trim();
             if (aliases[input]) input = aliases[input];
 
             const res = document.getElementById('fvResult'), err = document.getElementById('fvError');
             const miniChart = document.getElementById('mini-chart-container'), smartVideo = document.getElementById('smart-video-box');
-            const videoIframe = document.getElementById('smart-video-iframe');
             const btn = document.getElementById('calcBtn');
 
-            res.style.display = "none"; err.style.display = "none"; miniChart.innerHTML = ""; smartVideo.style.display = "none"; videoIframe.src = ""; currentFVTicker = null;
+            res.style.display = "none"; err.style.display = "none"; miniChart.innerHTML = ""; smartVideo.style.display = "none"; currentFVTicker = null; currentVideoID = null;
 
             if (db[input]) {
                 const data = db[input];
@@ -1168,7 +1173,7 @@
 
                 currentFVTicker = input;
                 document.getElementById('fvName').innerText = data.name;
-                document.getElementById('fvValue').innerText = data.fv.toFixed(2) + " " + data.curr;
+                document.getElementById('fvValue').innerText = data.fv != null ? data.fv.toFixed(2) + " " + data.curr : "N/D";
                 document.getElementById('fvDividend').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
 
                 document.getElementById('fund-pe').innerText = data.fund?.pe || "N/A";
@@ -1176,16 +1181,22 @@
                 document.getElementById('fund-mcap').innerText = data.fund?.mcap || "N/A";
                 document.getElementById('fund-rev').innerText = data.fund?.rev || "N/A";
 
-                const fvNum = parseFloat(data.fv), priceNum = parseFloat(livePrice);
+                const fvNum = data.fv != null ? parseFloat(data.fv) : null;
+                const priceNum = parseFloat(livePrice);
                 const badge = document.getElementById('fvStatus');
-                if (fvNum > priceNum) {
+                if (fvNum === null) {
+                    document.getElementById('fvValue').style.color = "var(--text-muted)";
+                    badge.innerText = "FV NON INSERITO";
+                    badge.style.cssText = "color:var(--text-muted); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.2);";
+                    res.style.borderColor = "var(--border-glass)";
+                } else if (fvNum > priceNum) {
                     document.getElementById('fvValue').style.color = "var(--brand-green)";
                     badge.innerText = `SOTTOVALUTATA (+${(((fvNum - priceNum) / priceNum) * 100).toFixed(1)}%)`;
                     badge.style.cssText = "color:var(--brand-green); background:rgba(0,230,118,0.1); border:1px solid rgba(0,230,118,0.4);";
                     res.style.borderColor = "var(--brand-green)";
                 } else if (fvNum < priceNum) {
                     document.getElementById('fvValue').style.color = "var(--accent-red)";
-                    badge.innerText = `SOPRAVVALUTATA (${(((priceNum - fvNum) / fvNum) * 100).toFixed(1)}%)`;
+                    badge.innerText = `SOPRAVVALUTATA (-${(((priceNum - fvNum) / priceNum) * 100).toFixed(1)}%)`;
                     badge.style.cssText = "color:var(--accent-red); background:rgba(255,61,0,0.1); border:1px solid rgba(255,61,0,0.4);";
                     res.style.borderColor = "var(--accent-red)";
                 } else {
@@ -1199,7 +1210,12 @@
                 script.innerHTML = JSON.stringify({ "symbol": data.ex + ":" + input, "width": "100%", "isTransparent": true, "colorTheme": "dark", "locale": "it" });
                 miniChart.appendChild(script);
 
-                if (data.videoID) { smartVideo.style.display = "block"; videoIframe.src = "https://www.youtube.com/embed/" + data.videoID + "?rel=0&modestbranding=1"; }
+                if (data.videoID) {
+                    currentVideoID = data.videoID;
+                    document.getElementById('smart-video-thumb').src = 'https://img.youtube.com/vi/' + data.videoID + '/hqdefault.jpg';
+                    document.getElementById('smart-video-link').href = 'https://www.youtube.com/watch?v=' + data.videoID;
+                    smartVideo.style.display = 'block';
+                }
 
                 // FV band dall'indicatore Pine Script (se disponibile)
                 const bandRow = document.getElementById('fv-band-row');
@@ -1250,7 +1266,7 @@
                 const chunkResults = await Promise.all(chunk.map(async ([ticker, data]) => {
                     const livePrice = await getLivePrice(data.yf, data.price);
                     const livePriceNum = parseFloat(livePrice);
-                    const upside = ((data.fv - livePriceNum) / livePriceNum) * 100;
+                    const upside = data.fv != null ? ((data.fv - livePriceNum) / livePriceNum) * 100 : null;
                     return { ticker, ...data, price: livePriceNum, upside };
                 }));
                 screenerData.push(...chunkResults);
@@ -1261,10 +1277,11 @@
         function sortScreener() {
             const { col, dir } = currentSort;
             screenerData.sort((a, b) => {
-                let va = (col === 'ticker') ? a.ticker : a[col] || 0;
-                let vb = (col === 'ticker') ? b.ticker : b[col] || 0;
-                if (col === 'div') { va = a.divYield || 0; vb = b.divYield || 0; }
-                if (col === 'ticker') return dir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+                if (col === 'ticker') {
+                    return dir === 'asc' ? a.ticker.localeCompare(b.ticker) : b.ticker.localeCompare(a.ticker);
+                }
+                let va = col === 'div' ? (a.divYield || 0) : (a[col] != null ? a[col] : (dir === 'asc' ? Infinity : -Infinity));
+                let vb = col === 'div' ? (b.divYield || 0) : (b[col] != null ? b[col] : (dir === 'asc' ? Infinity : -Infinity));
                 return dir === 'asc' ? va - vb : vb - va;
             });
         }
@@ -1288,28 +1305,32 @@
             const search = document.getElementById('scr-search').value.toLowerCase();
             let filtered = screenerData.filter(d => {
                 if (search && !d.ticker.toLowerCase().includes(search) && !d.name.toLowerCase().includes(search)) return false;
-                if (currentFilter === 'under' && d.upside <= 0) return false;
-                if (currentFilter === 'over' && d.upside > 0) return false;
+                if (currentFilter === 'under' && (d.upside == null || d.upside <= 0)) return false;
+                if (currentFilter === 'over' && (d.upside == null || d.upside > 0)) return false;
                 if (currentFilter === 'div' && (d.divYield || 0) < 3) return false;
                 return true;
             });
 
             document.getElementById('stat-total').innerText = screenerData.length;
-            document.getElementById('stat-undervalued').innerText = screenerData.filter(d => d.upside > 0).length;
-            document.getElementById('stat-overvalued').innerText = screenerData.filter(d => d.upside <= 0).length;
+            document.getElementById('stat-undervalued').innerText = screenerData.filter(d => d.upside != null && d.upside > 0).length;
+            document.getElementById('stat-overvalued').innerText = screenerData.filter(d => d.upside != null && d.upside <= 0).length;
             document.getElementById('screener-stats').style.display = 'grid';
 
             const tbody = document.getElementById('scr-tbody'); tbody.innerHTML = '';
             filtered.forEach((d, i) => {
-                const isUnder = d.upside > 0;
-                let badge = isUnder ? (d.upside > 20 ? 'BUY FORTE' : 'SOTTOVALUTATO') : 'SOPRAVVALUTATO';
-                let bClass = isUnder ? 'buy' : 'sell';
+                const hasUpside = d.upside != null;
+                const isUnder = hasUpside && d.upside > 0;
+                let badge = !hasUpside ? 'N/D' : (isUnder ? (d.upside > 20 ? 'BUY FORTE' : 'SOTTOVALUTATO') : 'SOPRAVVALUTATO');
+                let bClass = !hasUpside ? '' : (isUnder ? 'buy' : 'sell');
 
                 const tr = document.createElement('tr');
                 tr.onclick = () => { document.getElementById('fvInput').value = d.ticker; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV,400); };
+                const fvDisplay = d.fv != null ? d.fv.toFixed(2) + ' ' + d.curr : '—';
+                const fvColor = !hasUpside ? 'var(--text-muted)' : (isUnder ? 'var(--brand-green)' : 'var(--accent-red)');
+                const upsideDisplay = hasUpside ? `<div class="scr-upside ${isUnder?'positive':'negative'}">${isUnder?'+':''}${d.upside.toFixed(1)}%</div>` : `<span style="color:var(--text-muted);">—</span>`;
                 tr.innerHTML = `<td class="scr-rank">${i + 1}</td><td class="scr-ticker">${d.ticker}</td><td class="scr-name">${d.name}</td>
-                <td class="scr-price">${d.price.toFixed(2)} ${d.curr}</td><td class="scr-fv" style="color:${isUnder?'var(--brand-green)':'var(--accent-red)'}">${d.fv.toFixed(2)} ${d.curr}</td>
-                <td><div class="scr-upside ${isUnder?'positive':'negative'}">${isUnder?'+':''}${d.upside.toFixed(1)}%</div></td>
+                <td class="scr-price">${d.price.toFixed(2)} ${d.curr}</td><td class="scr-fv" style="color:${fvColor}">${fvDisplay}</td>
+                <td>${upsideDisplay}</td>
                 <td class="scr-div">${d.divYield ? d.divYield.toFixed(1)+'%' : '—'}</td><td><span class="scr-badge ${bClass}">${badge}</span></td>`;
                 tbody.appendChild(tr);
             });
@@ -1368,7 +1389,7 @@
 
                 getLivePrice(data.yf, data.price).then(price => {
                     const fvNum = parseFloat(data.fv), priceNum = parseFloat(price);
-                    const badge = (fvNum > priceNum) ? `<span class="wl-badge green">↑ +${(((fvNum-priceNum)/priceNum)*100).toFixed(1)}% upside</span>` : `<span class="wl-badge red">↓ ${(((priceNum-fvNum)/fvNum)*100).toFixed(1)}% al FV</span>`;
+                    const badge = (fvNum > priceNum) ? `<span class="wl-badge green">↑ +${(((fvNum-priceNum)/priceNum)*100).toFixed(1)}% upside</span>` : `<span class="wl-badge red">↓ ${(((priceNum-fvNum)/priceNum)*100).toFixed(1)}% al FV</span>`;
                     card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>
                         <div class="wl-fv-row"><div><div style="font-size:0.75em; color:var(--text-muted); text-transform:uppercase;">Fair Value</div><div class="mono-font" style="font-weight:700; color:${fvNum > priceNum ? 'var(--brand-green)' : 'var(--accent-red)'}">${fvNum.toFixed(2)} ${data.curr}</div></div><div>${badge}</div></div>`;
                 });
@@ -1522,29 +1543,6 @@
         let perfChartInstance = null;
         let currentPerfPeriod = '1Y';
 
-        function buildHistoryData() {
-            // Use portfolio.json history if present
-            if (portfolioData && portfolioData.history && portfolioData.history.length >= 2) {
-                return portfolioData.history;
-            }
-            // Simulate 24 monthly data points from current value + annualized return
-            const now = new Date();
-            const totalVal = portfolioData && portfolioData.summary ? (portfolioData.summary.total_value_usd || 50000) : 50000;
-            const annReturn = portfolioData && portfolioData.summary ? ((portfolioData.summary.annualized_return_pct || 10) / 100) : 0.10;
-            const monthlyReturn = Math.pow(1 + annReturn, 1/12) - 1;
-            const seed = totalVal * 0.0001; // deterministic noise seed
-            const points = [];
-            for (let i = 23; i >= 0; i--) {
-                const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
-                const label = d.toLocaleDateString('it-IT', {month:'short', year:'2-digit'});
-                const trend = totalVal / Math.pow(1 + monthlyReturn, i);
-                // Small deterministic noise ±1.5%
-                const noise = trend * 0.015 * Math.sin(i * 1.618 + seed);
-                points.push({ date: label, value: Math.round(trend + noise) });
-            }
-            return points;
-        }
-
         function setPerfPeriod(period, btn) {
             currentPerfPeriod = period;
             document.querySelectorAll('.perf-period-btn').forEach(b => b.classList.remove('active'));
@@ -1553,12 +1551,27 @@
         }
 
         function renderPerfChart() {
-            if (!portfolioData) return;
-            const allHistory = buildHistoryData();
-            const periodMap = { '1M': 2, '3M': 3, '6M': 6, '1Y': 12, 'ALL': allHistory.length };
+            const placeholder = document.getElementById('perf-chart-placeholder');
+            const wrap = document.getElementById('perf-chart-wrap');
+            const kpiBar = document.getElementById('perf-kpi-bar');
+            if (!placeholder || !wrap) return;
+
+            // Require real history data — no fake simulation
+            const history = portfolioData && portfolioData.history;
+            if (!history || history.length < 2) {
+                placeholder.style.display = 'block';
+                wrap.style.display = 'none';
+                if (kpiBar) kpiBar.innerHTML = '';
+                return;
+            }
+
+            const periodMap = { '1M': 1, '3M': 3, '6M': 6, '1Y': 12, 'ALL': history.length };
             const n = periodMap[currentPerfPeriod] || 12;
-            const slice = allHistory.slice(-n);
-            if (slice.length < 2) return;
+            const slice = history.slice(-n);
+            if (slice.length < 2) { wrap.style.display = 'none'; return; }
+
+            placeholder.style.display = 'none';
+            wrap.style.display = 'block';
 
             const labels = slice.map(p => p.date);
             const values = slice.map(p => typeof p.value === 'number' ? p.value : parseFloat(p.value) || 0);
@@ -1569,13 +1582,10 @@
             const isPositive = change >= 0;
             const color = isPositive ? '#00e676' : '#ff3d00';
 
-            document.getElementById('perf-chart-placeholder').style.display = 'none';
-            document.getElementById('perf-chart-wrap').style.display = 'block';
-
             if (perfChartInstance) { perfChartInstance.destroy(); perfChartInstance = null; }
             const ctx = document.getElementById('perfChart').getContext('2d');
-            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(0, isPositive ? 'rgba(0,230,118,0.25)' : 'rgba(255,61,0,0.25)');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 220);
+            gradient.addColorStop(0, isPositive ? 'rgba(0,230,118,0.22)' : 'rgba(255,61,0,0.22)');
             gradient.addColorStop(1, 'rgba(0,0,0,0)');
 
             perfChartInstance = new Chart(ctx, {
@@ -1586,9 +1596,9 @@
                         data: values,
                         borderColor: color,
                         backgroundColor: gradient,
-                        borderWidth: 2.5,
-                        pointRadius: slice.length <= 6 ? 5 : 3,
-                        pointHoverRadius: 7,
+                        borderWidth: 2,
+                        pointRadius: slice.length <= 6 ? 4 : 2,
+                        pointHoverRadius: 6,
                         pointBackgroundColor: color,
                         fill: true,
                         tension: 0.4
@@ -1600,36 +1610,33 @@
                         legend: { display: false },
                         tooltip: {
                             backgroundColor: 'rgba(5,5,5,0.9)',
-                            borderColor: color,
-                            borderWidth: 1,
-                            titleColor: '#fff',
-                            bodyColor: '#aaa',
-                            callbacks: { label: ctx => ' $' + ctx.parsed.y.toLocaleString('en-US') }
+                            borderColor: color, borderWidth: 1,
+                            titleColor: '#fff', bodyColor: '#aaa',
+                            callbacks: { label: c => ' $' + c.parsed.y.toLocaleString('en-US') }
                         }
                     },
                     scales: {
-                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#555', font: { size: 11 } } },
-                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#555', font: { size: 11 }, callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v) } }
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#555', font: { size: 10 } } },
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#555', font: { size: 10 }, callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v) } }
                     }
                 }
             });
 
-            // KPI bar
-            document.getElementById('perf-kpi-bar').innerHTML = `
+            if (kpiBar) kpiBar.innerHTML = `
                 <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">Variazione periodo</div>
+                    <div class="perf-kpi-label">Variazione</div>
                     <div class="perf-kpi-val" style="color:${color};">${isPositive?'+':''}${changePct}%</div>
                 </div>
                 <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">Valore Iniziale</div>
+                    <div class="perf-kpi-label">Inizio periodo</div>
                     <div class="perf-kpi-val">$${Math.round(startVal).toLocaleString('en-US')}</div>
                 </div>
                 <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">Valore Attuale</div>
+                    <div class="perf-kpi-label">Valore attuale</div>
                     <div class="perf-kpi-val">$${Math.round(endVal).toLocaleString('en-US')}</div>
                 </div>
                 <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">P&L Periodo</div>
+                    <div class="perf-kpi-label">P&L periodo</div>
                     <div class="perf-kpi-val" style="color:${color};">${isPositive?'+':''}$${Math.abs(Math.round(change)).toLocaleString('en-US')}</div>
                 </div>`;
         }
@@ -1667,7 +1674,7 @@
 
         // Bug 3 fix: scroll spy — highlight active nav link
         (function() {
-            const sections = ['fv-section','indicatore','screener','comparatore','watchlist','total-watchlist','myportfolio','strumenti','portfolio','perf-chart-section','news'];
+            const sections = ['fv-section','indicatore','screener','comparatore','watchlist','total-watchlist','myportfolio','strumenti','portfolio','news'];
             const navLinks = document.querySelectorAll('.nav-link');
             let ticking = false;
             window.addEventListener('scroll', function() {
