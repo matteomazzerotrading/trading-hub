@@ -1858,7 +1858,7 @@
 
         // === ULTIMO VIDEO YOUTUBE ===
         async function loadLatestYouTubeVideo() {
-            const channelHandle = 'investireconmatteomazzero';
+            const CHANNEL_ID = 'UCflbinnpV6oa8dwfbMh1FNw'; // @investireconmatteomazzero
             const CACHE_KEY = 'mm_yt_cache';
             const CACHE_TTL = 3600000; // 1 ora
 
@@ -1871,7 +1871,7 @@
                 }
             } catch(e) {}
 
-            // Helper: fetch HTML via proxy (allorigins→JSON, corsproxy→text)
+            // Helper: fetch via proxy (allorigins→JSON, corsproxy→text)
             async function fetchViaProxy(targetUrl) {
                 const proxies = [
                     { url: 'https://api.allorigins.win/get?url=' + encodeURIComponent(targetUrl), json: true },
@@ -1889,24 +1889,8 @@
             }
 
             try {
-                // Step 1: fetch channel page per estrarre channel ID
-                const pageUrl = 'https://www.youtube.com/@' + channelHandle;
-                const html = await fetchViaProxy(pageUrl);
-                if (!html) throw new Error('no html');
-
-                // Prova vari pattern per trovare il channel ID
-                let channelId = null;
-                const patterns = [
-                    /"channelId"\s*:\s*"(UC[^"]{20,})"/,
-                    /href="[^"]*feeds\/videos\.xml\?channel_id=(UC[^&"]{20,})"/,
-                    /"externalId"\s*:\s*"(UC[^"]{20,})"/,
-                    /channel_id=(UC[^&"\\]{20,})/
-                ];
-                for (const pat of patterns) {
-                    const m = html.match(pat);
-                    if (m && m[1]) { channelId = m[1]; break; }
-                }
-                if (!channelId) throw new Error('no channel id');
+                // Fetch RSS direttamente con channel ID hardcodato — nessun parsing HTML necessario
+                const channelId = CHANNEL_ID;
 
                 // Step 2: fetch RSS feed
                 const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
