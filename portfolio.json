@@ -1,16 +1,16 @@
 {
   "_comment": "Esportato da TradingView — Directa Investments + Unicredit — 2026-10-14. Aggiorna manualmente dopo ogni modifica al portafoglio su TradingView.",
-  "updated": "2026-10-14",
+  "updated": "2026-10-25",
   "summary": {
-    "total_value_usd": 13502.68,
+    "total_value_usd": 14054.73,
     "cash_usd": 569.50,
-    "unrealized_pl_usd": -1277.13,
-    "unrealized_pl_pct": -8.99,
+    "unrealized_pl_usd": -725.08,
+    "unrealized_pl_pct": -4.91,
     "realized_pl_usd": 291.81,
     "dividends_usd": 153.26,
-    "total_pl_usd": -985.32,
-    "total_pl_pct": -6.65,
-    "annualized_return_pct": -3.96
+    "total_pl_usd": -280.01,
+    "total_pl_pct": -1.89,
+    "annualized_return_pct": -1.02
   },
   "allocation": [
     { "label": "Azioni",        "value_usd": 9636.90,  "pct": 74.51 },
