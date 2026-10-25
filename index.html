@@ -1096,17 +1096,28 @@
         }
 
         // === FETCH LIVE PREZZO ===
+        const _priceCache = {};
         async function getLivePrice(yfTicker, fallbackPrice) {
             if (!yfTicker) return fallbackPrice;
-            try {
-                const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}`;
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
-                const response = await fetch(proxyUrl);
-                if (response.ok) {
-                    const data = await response.json(); const j = JSON.parse(data.contents);
-                    if (j.chart && j.chart.result && j.chart.result.length > 0) return j.chart.result[0].meta.regularMarketPrice;
-                }
-            } catch (e) {} return fallbackPrice;
+            const now = Date.now();
+            if (_priceCache[yfTicker] && (now - _priceCache[yfTicker].ts) < 300000) return _priceCache[yfTicker].price;
+            const proxies = [
+                t => `https://api.allorigins.win/get?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+t)}`,
+                t => `https://api.allorigins.win/get?url=${encodeURIComponent('https://query2.finance.yahoo.com/v8/finance/chart/'+t)}`,
+                t => `https://corsproxy.io/?${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+t)}`
+            ];
+            for (const makeUrl of proxies) {
+                try {
+                    const resp = await fetch(makeUrl(yfTicker), { signal: AbortSignal.timeout(5000) });
+                    if (!resp.ok) continue;
+                    const raw = await resp.json();
+                    const contents = raw.contents !== undefined ? raw.contents : raw;
+                    const j = typeof contents === 'string' ? JSON.parse(contents) : contents;
+                    const price = j?.chart?.result?.[0]?.meta?.regularMarketPrice;
+                    if (price) { _priceCache[yfTicker] = { price, ts: now }; return price; }
+                } catch (e) { continue; }
+            }
+            return fallbackPrice;
         }
 
         // === CARICAMENTO SEGNALI INDICATORE ===
@@ -1388,10 +1399,18 @@
                 grid.appendChild(card);
 
                 getLivePrice(data.yf, data.price).then(price => {
-                    const fvNum = parseFloat(data.fv), priceNum = parseFloat(price);
-                    const badge = (fvNum > priceNum) ? `<span class="wl-badge green">↑ +${(((fvNum-priceNum)/priceNum)*100).toFixed(1)}% upside</span>` : `<span class="wl-badge red">↓ ${(((priceNum-fvNum)/priceNum)*100).toFixed(1)}% al FV</span>`;
+                    const fvNum = data.fv != null ? parseFloat(data.fv) : null;
+                    const priceNum = parseFloat(price);
+                    const isLive = price !== data.price;
+                    const liveDot = isLive ? `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#0f0;margin-right:4px;box-shadow:0 0 6px #0f0;"></span>` : `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#888;margin-right:4px;"></span>`;
+                    let fvSection = '';
+                    if (fvNum != null) {
+                        const badge = (fvNum > priceNum) ? `<span class="wl-badge green">↑ +${(((fvNum-priceNum)/priceNum)*100).toFixed(1)}% upside</span>` : `<span class="wl-badge red">↓ ${(((priceNum-fvNum)/priceNum)*100).toFixed(1)}% al FV</span>`;
+                        fvSection = `<div class="wl-fv-row"><div><div style="font-size:0.75em; color:var(--text-muted); text-transform:uppercase;">Fair Value</div><div class="mono-font" style="font-weight:700; color:${fvNum > priceNum ? 'var(--brand-green)' : 'var(--accent-red)'}">${fvNum.toFixed(2)} ${data.curr}</div></div><div>${badge}</div></div>`;
+                    }
                     card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>
-                        <div class="wl-fv-row"><div><div style="font-size:0.75em; color:var(--text-muted); text-transform:uppercase;">Fair Value</div><div class="mono-font" style="font-weight:700; color:${fvNum > priceNum ? 'var(--brand-green)' : 'var(--accent-red)'}">${fvNum.toFixed(2)} ${data.curr}</div></div><div>${badge}</div></div>`;
+                        <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px;"><span style="font-size:0.75em;color:var(--text-muted);">${liveDot}${isLive ? 'Live' : 'Statico'}</span><span class="mono-font" style="font-size:1.3em;font-weight:800;color:#fff;">${priceNum.toFixed(2)} ${data.curr}</span></div>
+                        ${fvSection}`;
                 });
             });
         }
@@ -1772,6 +1791,13 @@
             renderPerfChart();
 
             setTimeout(checkAlertsOnLoad, 1500);
+
+            // Auto-refresh prezzi ogni 5 minuti
+            setInterval(() => {
+                Object.keys(_priceCache).forEach(k => delete _priceCache[k]); // svuota cache
+                renderWatchlist();
+                renderPersonalPortfolio();
+            }, 300000);
 
             // Bug 1 fix: guard against missing container
             const tvContainer = document.getElementById('tv_chart_container');
