@@ -69,9 +69,9 @@
         .card {
             background: var(--bg-glass); border: 1px solid var(--border-glass); border-radius: 16px;
             padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s;
+            transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s; will-change: transform;
         }
-        .card:hover { transform: translateY(-5px); border-color: rgba(0, 230, 118, 0.3); }
+        .card:not(.fv-result-card):hover { transform: translateY(-5px); border-color: rgba(0, 230, 118, 0.3); }
 
         /* FORMS & INPUTS */
         .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
@@ -155,7 +155,7 @@
         .screener-toggle-icon { transition: transform 0.35s ease; }
         .screener-toggle-icon.open { transform: rotate(180deg); }
         .screener-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.35s ease; opacity: 0; }
-        .screener-body.open { max-height: 4000px; opacity: 1; }
+        .screener-body.open { max-height: 3000px; opacity: 1; }
 
         /* Loader Screener */
         .screener-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--brand-green); font-weight: bold; }
@@ -309,9 +309,24 @@
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
         /* === DESIGN IMPROVEMENTS === */
-        .section-title { font-size: 1.6em; font-weight: 800; }
-        .card { transition: box-shadow 0.3s; }
-        .section-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-glass); }
+
+        /* === EDITORIALE (YouTube + Pensiero) === */
+        .editorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 768px) { .editorial-grid { grid-template-columns: 1fr; } }
+
+        .yt-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; }
+        .yt-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
+        .yt-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9em; gap: 10px; }
+        .yt-title { margin-top: 12px; font-size: 0.95em; font-weight: 600; color: #e0e0e0; line-height: 1.4; }
+        .yt-meta { font-size: 0.8em; color: var(--text-muted); margin-top: 4px; }
+
+        .pensiero-card { background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.2); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; min-height: 260px; }
+        .pensiero-author { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .pensiero-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-green), #00b894); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; color: #000; flex-shrink: 0; }
+        .pensiero-byline { font-size: 0.82em; color: var(--text-muted); }
+        .pensiero-byline strong { color: #e0e0e0; display: block; font-size: 1.05em; }
+        .pensiero-text { flex: 1; font-size: 1.0em; line-height: 1.75; color: #d0d0d0; font-style: italic; white-space: pre-wrap; word-break: break-word; }
+        .pensiero-week { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-glass); }
     </style>
 </head>
 <body>
@@ -321,6 +336,7 @@
     <nav class="navbar">
         <a href="#" class="navbar-logo">MM<span>Trading</span></a>
         <div class="nav-links">
+            <a href="#editoriale" class="nav-link">Editoriale</a>
             <a href="#fv-section" class="nav-link">Fair Value</a>
             <a href="#indicatore" class="nav-link">Segnali</a>
             <a href="#screener" class="nav-link">Screener</a>
@@ -333,6 +349,7 @@
     </nav>
     <!-- Mobile nav overlay -->
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
+        <a href="#editoriale" class="nav-link" onclick="closeMobileNav()">✍️ Editoriale</a>
         <a href="#fv-section" class="nav-link" onclick="closeMobileNav()">📊 Fair Value</a>
         <a href="#indicatore" class="nav-link" onclick="closeMobileNav()">📡 Segnali</a>
         <a href="#screener" class="nav-link" onclick="closeMobileNav()">🔍 Screener</a>
@@ -357,6 +374,47 @@
             Analisi trasparente, gestione del tuo portafoglio e valutazioni di Fair Value in tempo reale.
         </p>
     </header>
+
+    <!-- ===== EDITORIALE ===== -->
+    <div class="container" id="editoriale">
+        <div class="section-header">
+            <h2 class="section-title">✍️ <span>Editoriale</span></h2>
+            <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" style="font-size:0.82em; color:var(--brand-green); text-decoration:none; font-weight:700;">▶ Canale YouTube →</a>
+        </div>
+        <div class="editorial-grid">
+
+            <!-- YouTube: ultimo video -->
+            <div>
+                <div style="font-size:0.75em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:12px;">📺 Ultimo Video</div>
+                <div class="yt-embed-wrap" id="yt-embed-wrap">
+                    <div class="yt-loading" id="yt-loading">
+                        <div class="screener-loading-spinner"></div>
+                        <span>Caricamento video...</span>
+                    </div>
+                </div>
+                <div id="yt-title" class="yt-title"></div>
+                <div id="yt-meta" class="yt-meta"></div>
+            </div>
+
+            <!-- Pensiero della settimana -->
+            <div>
+                <div style="font-size:0.75em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:12px;">💬 Il Mio Pensiero della Settimana</div>
+                <div class="pensiero-card">
+                    <div class="pensiero-author">
+                        <div class="pensiero-avatar">MM</div>
+                        <div class="pensiero-byline">
+                            <strong>Matteo Mazzero</strong>
+                            Financial Advisor · Trader
+                        </div>
+                    </div>
+                    <!-- PENSIERO: modifica solo il testo qui sotto nel repo -->
+                    <div class="pensiero-text" id="pensiero-text">Scrivi qui il tuo pensiero della settimana. Per aggiornarlo, modifica questo testo direttamente nel file index.html su GitHub.</div>
+                    <div class="pensiero-week" id="pensiero-week"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <div class="container" id="fv-section">
         <div class="section-header">
@@ -407,7 +465,7 @@
                             <div class="fund-box"><div class="fund-val" id="fund-pe">--</div><div class="fund-lbl">P/E Ratio</div></div>
                             <div class="fund-box"><div class="fund-val" id="fund-eps">--</div><div class="fund-lbl">EPS (Utili)</div></div>
                             <div class="fund-box"><div class="fund-val" id="fund-mcap">--</div><div class="fund-lbl">Market Cap</div></div>
-                            <div class="fund-box"><div class="fund-val" id="fund-rev">--</div><div class="fund-lbl">Rev. Growth</div></div>
+                            <div class="fund-box"><div class="fund-val" id="fund-div">--</div><div class="fund-lbl">Dividendo</div></div>
                         </div>
 
                         <!-- FV band dall'indicatore Pine Script -->
@@ -515,9 +573,9 @@
                                 <th onclick="sortTable('rank')" id="th-rank"># <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('ticker')" id="th-ticker">Ticker <span class="sort-arrow">↕</span></th>
                                 <th>Azienda</th>
-                                <th onclick="sortTable('price')" id="th-price">Prezzo <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('price')" id="th-price">Prezzo Live <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('fv')" id="th-fv">Fair Value <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('upside')" id="th-upside" class="sorted">Upside % <span class="sort-arrow">↓</span></th>
+                                <th onclick="sortTable('upside')" id="th-upside" class="sorted">Gap FV % <span class="sort-arrow">↓</span></th>
                                 <th onclick="sortTable('div')" id="th-div">Dividendo <span class="sort-arrow">↕</span></th>
                                 <th>Segnale</th>
                             </tr>
@@ -878,148 +936,148 @@
         // === 1. DATABASE — caricato da data.json (con fallback inline) ===
         // Per aggiornare FV o prezzi: modifica data.json nel repo GitHub, non questo file.
         let db = {
-            "DIA": { name: "DiaSorin", fv: 85.00, price: 71.04, curr: "€", ex: "MIL", yf: "DIA.MI", divYield: 1.60, videoID: null, fund: {pe: "24.5", eps: "2.90", mcap: "3.9B", rev: "+3.2%"} },
-            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 23.90, curr: "€", ex: "MIL", yf: "ERG.MI", divYield: 4.10, videoID: null, fund: {pe: "14.2", eps: "1.68", mcap: "3.5B", rev: "+5.1%"} },
-            "RACE": { name: "Ferrari", fv: 300.00, price: 319.40, curr: "€", ex: "MIL", yf: "RACE.MI", divYield: 0.76, videoID: null, fund: {pe: "51.3", eps: "6.22", mcap: "80B", rev: "+17%"} },
-            "GOOG": { name: "Alphabet", fv: 290.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "GOOG", divYield: 0.15, videoID: null, fund: {pe: "25.1", eps: "6.97", mcap: "2.1T", rev: "+13%"} },
-            "MC": { name: "LVMH", fv: 600.00, price: 552.20, curr: "€", ex: "EPA", yf: "MC.PA", divYield: 1.50, videoID: null, fund: {pe: "23.4", eps: "23.6", mcap: "275B", rev: "+8.9%"} },
-            "ADBE": { name: "Adobe", fv: 300.00, price: 257.81, curr: "$", ex: "NASDAQ", yf: "ADBE", divYield: 0.00, videoID: null, fund: {pe: "38.2", eps: "6.75", mcap: "210B", rev: "+10%"} },
-            "INTU": { name: "Intuit", fv: 700.00, price: 381.23, curr: "$", ex: "NASDAQ", yf: "INTU", divYield: 0.65, videoID: null, fund: {pe: "42.1", eps: "9.05", mcap: "170B", rev: "+12%"} },
-            "QCOM": { name: "Qualcomm", fv: 180.00, price: 145.82, curr: "$", ex: "NASDAQ", yf: "QCOM", divYield: 1.85, videoID: null, fund: {pe: "21.5", eps: "6.78", mcap: "160B", rev: "+5%"} },
-            "STLAM": { name: "Stellantis", fv: 18.00, price: 20.50, curr: "€", ex: "MIL", yf: "STLAM.MI", divYield: 6.50, videoID: "MpwZcg3J8BE", fund: {pe: "3.8", eps: "5.40", mcap: "64B", rev: "-2%"} },
-            "SAP": { name: "SAP SE", fv: 220.00, price: 220.00, curr: "€", ex: "XETR", yf: "SAP.DE", divYield: 1.20, videoID: "Icy8DMAwDYw", fund: {pe: "32.1", eps: "6.85", mcap: "260B", rev: "+11%"} },
-            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 175.00, curr: "$", ex: "NASDAQ", yf: "AAPL", divYield: 0.50, videoID: null, fund: {pe: "28.5", eps: "6.14", mcap: "2.8T", rev: "+2.1%"} },
-            "MSFT": { name: "Microsoft", fv: 461.22, price: 410.00, curr: "$", ex: "NASDAQ", yf: "MSFT", divYield: 0.75, videoID: null, fund: {pe: "35.2", eps: "11.6", mcap: "3.0T", rev: "+15%"} },
-            "AMZN": { name: "Amazon", fv: 199.00, price: 180.00, curr: "$", ex: "NASDAQ", yf: "AMZN", divYield: 0.00, videoID: null, fund: {pe: "40.5", eps: "4.44", mcap: "1.9T", rev: "+12%"} },
-            "NVDA": { name: "Nvidia", fv: 163.11, price: 120.00, curr: "$", ex: "NASDAQ", yf: "NVDA", divYield: 0.02, videoID: null, fund: {pe: "75.4", eps: "1.59", mcap: "2.9T", rev: "+265%"} },
-            "A2A": { name: "A2A S.p.A.", fv: 2.45, price: 1.70, curr: "€", ex: "MIL", yf: "A2A.MI", divYield: 4.80, videoID: null },
-            "ADM": { name: "Archer-Daniels", fv: 53.00, price: 60.00, curr: "$", ex: "NYSE", yf: "ADM", divYield: 3.50, videoID: null },
-            "ADP": { name: "Auto Data Proc.", fv: 312.00, price: 250.00, curr: "$", ex: "NASDAQ", yf: "ADP", divYield: 1.90, videoID: null },
-            "ADSK": { name: "Autodesk Inc.", fv: 339.00, price: 260.00, curr: "$", ex: "NASDAQ", yf: "ADSK", divYield: 0.00, videoID: null },
-            "AMAT": { name: "Applied Materials", fv: 233.00, price: 205.00, curr: "$", ex: "NASDAQ", yf: "AMAT", divYield: 0.70, videoID: null },
-            "AMD": { name: "AMD", fv: 145.60, price: 160.00, curr: "$", ex: "NASDAQ", yf: "AMD", divYield: 0.00, videoID: null },
-            "ASML": { name: "ASML Holding", fv: 904.00, price: 920.00, curr: "$", ex: "NASDAQ", yf: "ASML", divYield: 0.85, videoID: null },
-            "AXP": { name: "American Express", fv: 332.00, price: 230.00, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, videoID: null },
-            "BAC": { name: "Bank of America", fv: 59.85, price: 37.00, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, videoID: null },
-            "BAYN": { name: "Bayer AG", fv: 44.12, price: 28.00, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, videoID: null },
-            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 2350.00, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, videoID: null },
-            "BC": { name: "Brunswick Corp", fv: 88.00, price: 85.00, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, videoID: null },
-            "BNG": { name: "Bunge Global", fv: 46.31, price: 105.00, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null },
-            "BRE": { name: "Brembo", fv: 14.93, price: 10.50, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, videoID: null },
-            "BRK.B": { name: "Berkshire Hath.", fv: 511.00, price: 405.00, curr: "$", ex: "NYSE", yf: "BRK-B", divYield: 0.00, videoID: null },
-            "CAT": { name: "Caterpillar", fv: 404.00, price: 340.00, curr: "$", ex: "NYSE", yf: "CAT", divYield: 1.50, videoID: null },
-            "CE": { name: "Celanese", fv: 105.56, price: 145.00, curr: "$", ex: "NYSE", yf: "CE", divYield: 2.60, videoID: null },
-            "CNC": { name: "Centene", fv: 102.66, price: 78.00, curr: "$", ex: "NYSE", yf: "CNC", divYield: 0.00, videoID: null },
-            "COST": { name: "Costco Wholesale", fv: 851.00, price: 750.00, curr: "$", ex: "NASDAQ", yf: "COST", divYield: 0.60, videoID: null },
-            "CPR": { name: "Campari", fv: 8.95, price: 9.50, curr: "€", ex: "MIL", yf: "CPR.MI", divYield: 0.90, videoID: null },
-            "CRM": { name: "Salesforce", fv: 325.48, price: 310.00, curr: "$", ex: "NYSE", yf: "CRM", divYield: 0.50, videoID: null },
-            "CVX": { name: "Chevron", fv: 181.66, price: 155.00, curr: "$", ex: "NYSE", yf: "CVX", divYield: 4.10, videoID: null },
-            "DDOG": { name: "Datadog", fv: 129.62, price: 125.00, curr: "$", ex: "NASDAQ", yf: "DDOG", divYield: 0.00, videoID: null },
-            "ENI": { name: "Eni S.p.A.", fv: 21.29, price: 14.80, curr: "€", ex: "MIL", yf: "ENI.MI", divYield: 6.20, videoID: null },
-            "ENEL": { name: "Enel S.p.A.", fv: 4.85, price: 6.20, curr: "€", ex: "MIL", yf: "ENEL.MI", divYield: 6.50, videoID: null },
-            "G": { name: "Assic. Generali", fv: 50.63, price: 22.50, curr: "€", ex: "MIL", yf: "G.MI", divYield: 5.50, videoID: null },
-            "IBM": { name: "IBM", fv: 231.00, price: 195.00, curr: "$", ex: "NYSE", yf: "IBM", divYield: 3.20, videoID: null },
-            "INTC": { name: "Intel", fv: 35.29, price: 42.50, curr: "$", ex: "NASDAQ", yf: "INTC", divYield: 1.50, videoID: null },
-            "IP": { name: "International Paper", fv: 48.02, price: 39.00, curr: "$", ex: "NYSE", yf: "IP", divYield: 4.00, videoID: null },
-            "ISP": { name: "Intesa Sanpaolo", fv: 7.22, price: 3.40, curr: "€", ex: "MIL", yf: "ISP.MI", divYield: 8.50, videoID: null },
-            "LDO": { name: "Leonardo S.p.A.", fv: 26.65, price: 21.00, curr: "€", ex: "MIL", yf: "LDO.MI", divYield: 1.80, videoID: null },
-            "LULU": { name: "Lululemon", fv: 465.80, price: 455.00, curr: "$", ex: "NASDAQ", yf: "LULU", divYield: 0.00, videoID: null },
-            "MA": { name: "Mastercard", fv: 500.65, price: 475.00, curr: "$", ex: "NYSE", yf: "MA", divYield: 0.50, videoID: null },
-            "MONC": { name: "Moncler", fv: 74.93, price: 66.00, curr: "€", ex: "MIL", yf: "MONC.MI", divYield: 1.80, videoID: null },
-            "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 62.00, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, videoID: null },
+            "DIA": { name: "DiaSorin", fv: 85.00, price: 79.72, curr: "€", ex: "MIL", yf: "DIA.MI", divYield: 1.60, videoID: null, fund: {pe: "30.2", eps: "2.64", mcap: "4B", rev: "N/D"} },
+            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 21.88, curr: "€", ex: "MIL", yf: "ERG.MI", divYield: 4.10, videoID: null, fund: {pe: "62.0", eps: "0.35", mcap: "3B", rev: "N/D"} },
+            "RACE": { name: "Ferrari", fv: 300.00, price: 349.5, curr: "€", ex: "MIL", yf: "RACE.MI", divYield: 0.76, videoID: null, fund: {pe: "37.9", eps: "9.22", mcap: "77B", rev: "N/D"} },
+            "GOOG": { name: "Alphabet", fv: 290.00, price: 317.28, curr: "$", ex: "NASDAQ", yf: "GOOG", divYield: 0.15, videoID: null, fund: {pe: "15.9", eps: "19.91", mcap: "3.9T", rev: "N/D"} },
+            "MC": { name: "LVMH", fv: 600.00, price: 383, curr: "€", ex: "EPA", yf: "MC.PA", divYield: 1.50, videoID: null, fund: {pe: "17.4", eps: "21.95", mcap: "189B", rev: "N/D"} },
+            "ADBE": { name: "Adobe", fv: 300.00, price: 263.82, curr: "$", ex: "NASDAQ", yf: "ADBE", divYield: 0.00, videoID: null, fund: {pe: "14.7", eps: "17.93", mcap: "103B", rev: "N/D"} },
+            "INTU": { name: "Intuit", fv: 700.00, price: 343.39, curr: "$", ex: "NASDAQ", yf: "INTU", divYield: 0.65, videoID: null, fund: {pe: "20.8", eps: "16.50", mcap: "92B", rev: "N/D"} },
+            "QCOM": { name: "Qualcomm", fv: 180.00, price: 175.91, curr: "$", ex: "NASDAQ", yf: "QCOM", divYield: 1.85, videoID: null, fund: {pe: "20.4", eps: "8.64", mcap: "188B", rev: "N/D"} },
+            "STLAM": { name: "Stellantis", fv: 18.00, price: 3.555, curr: "€", ex: "MIL", yf: "STLAM.MI", divYield: 6.50, videoID: "MpwZcg3J8BE", fund: {pe: "N/D", eps: "N/D", mcap: "13B", rev: "N/D"} },
+            "SAP": { name: "SAP SE", fv: 220.00, price: 214.4, curr: "€", ex: "XETR", yf: "SAP.DE", divYield: 1.20, videoID: "Icy8DMAwDYw", fund: {pe: "30.4", eps: "7.04", mcap: "250B", rev: "N/D"} },
+            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 347.725, curr: "$", ex: "NASDAQ", yf: "AAPL", divYield: 0.50, videoID: null, fund: {pe: "39.9", eps: "8.72", mcap: "5.1T", rev: "N/D"} },
+            "MSFT": { name: "Microsoft", fv: 461.22, price: 524.51, curr: "$", ex: "NASDAQ", yf: "MSFT", divYield: 0.75, videoID: null, fund: {pe: "29.2", eps: "17.95", mcap: "3.9T", rev: "N/D"} },
+            "AMZN": { name: "Amazon", fv: 199.00, price: 248.0, curr: "$", ex: "NASDAQ", yf: "AMZN", divYield: 0.00, videoID: null, fund: {pe: "19.9", eps: "12.43", mcap: "2.7T", rev: "N/D"} },
+            "NVDA": { name: "Nvidia", fv: 163.11, price: 210.96, curr: "$", ex: "NASDAQ", yf: "NVDA", divYield: 0.02, videoID: null, fund: {pe: "26.7", eps: "7.91", mcap: "5.1T", rev: "N/D"} },
+            "A2A": { name: "A2A S.p.A.", fv: 2.45, price: 2.436, curr: "€", ex: "MIL", yf: "A2A.MI", divYield: 4.80, fund: {pe: "11.2", eps: "0.22", mcap: "8B", rev: "N/D"}, videoID: null },
+            "ADM": { name: "Archer-Daniels", fv: 53.00, price: 80.14, curr: "$", ex: "NYSE", yf: "ADM", divYield: 3.50, fund: {pe: "21.9", eps: "3.65", mcap: "39B", rev: "N/D"}, videoID: null },
+            "ADP": { name: "Auto Data Proc.", fv: 312.00, price: 304.16, curr: "$", ex: "NASDAQ", yf: "ADP", divYield: 1.90, fund: {pe: "27.8", eps: "10.94", mcap: "121B", rev: "N/D"}, videoID: null },
+            "ADSK": { name: "Autodesk Inc.", fv: 339.00, price: 252.2, curr: "$", ex: "NASDAQ", yf: "ADSK", divYield: 0.00, fund: {pe: "32.7", eps: "7.72", mcap: "53B", rev: "N/D"}, videoID: null },
+            "AMAT": { name: "Applied Materials", fv: 233.00, price: 377.24, curr: "$", ex: "NASDAQ", yf: "AMAT", divYield: 0.70, fund: {pe: "32.5", eps: "11.60", mcap: "299B", rev: "N/D"}, videoID: null },
+            "AMD": { name: "AMD", fv: 145.60, price: 516.79, curr: "$", ex: "NASDAQ", yf: "AMD", divYield: 0.00, fund: {pe: "132.6", eps: "3.90", mcap: "844B", rev: "N/D"}, videoID: null },
+            "ASML": { name: "ASML Holding", fv: 904.00, price: 1571.8, curr: "$", ex: "NASDAQ", yf: "ASML", divYield: 0.85, fund: {pe: "38.7", eps: "40.60", mcap: "603B", rev: "N/D"}, videoID: null },
+            "AXP": { name: "American Express", fv: 332.00, price: 313.22, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, fund: {pe: "17.6", eps: "17.76", mcap: "212B", rev: "N/D"}, videoID: null },
+            "BAC": { name: "Bank of America", fv: 59.85, price: 50.56, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, fund: {pe: "12.1", eps: "4.19", mcap: "350B", rev: "N/D"}, videoID: null },
+            "BAYN": { name: "Bayer AG", fv: 44.12, price: 43.98, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, fund: {pe: "N/D", eps: "-1.77", mcap: "43B", rev: "N/D"}, videoID: null },
+            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 4432, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, fund: {pe: "15.2", eps: "2.91", mcap: "95B", rev: "N/D"}, videoID: null },
+            "BC": { name: "Brunswick Corp", fv: 88.00, price: 65.88, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, fund: {pe: "N/D", eps: "-1.30", mcap: "4B", rev: "N/D"}, videoID: null },
+            "BNG": { name: "Bunge Global", fv: 46.31, price: 105.00, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null, fund: {pe: "N/D", eps: "N/D", mcap: "N/D", rev: "N/D"} },
+            "BRE": { name: "Brembo", fv: 14.93, price: 9.795, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, fund: {pe: "13.6", eps: "0.72", mcap: "5B", rev: "N/D"}, videoID: null },
+            "BRK.B": { name: "Berkshire Hath.", fv: 511.00, price: 542.19, curr: "$", ex: "NYSE", yf: "BRK-B", divYield: 0.00, fund: {pe: "13.6", eps: "39.77", mcap: "1.2T", rev: "N/D"}, videoID: null },
+            "CAT": { name: "Caterpillar", fv: 404.00, price: 687.0, curr: "$", ex: "NYSE", yf: "CAT", divYield: 1.50, fund: {pe: "29.6", eps: "23.25", mcap: "316B", rev: "N/D"}, videoID: null },
+            "CE": { name: "Celanese", fv: 105.56, price: 47.71, curr: "$", ex: "NYSE", yf: "CE", divYield: 2.60, fund: {pe: "N/D", eps: "-10.68", mcap: "5B", rev: "N/D"}, videoID: null },
+            "CNC": { name: "Centene", fv: 102.66, price: 70.17, curr: "$", ex: "NYSE", yf: "CNC", divYield: 0.00, fund: {pe: "N/D", eps: "-10.44", mcap: "35B", rev: "N/D"}, videoID: null },
+            "COST": { name: "Costco Wholesale", fv: 851.00, price: 1003.32, curr: "$", ex: "NASDAQ", yf: "COST", divYield: 0.60, fund: {pe: "48.3", eps: "20.76", mcap: "445B", rev: "N/D"}, videoID: null },
+            "CPR": { name: "Campari", fv: 8.95, price: 6.708, curr: "€", ex: "MIL", yf: "CPR.MI", divYield: 0.90, fund: {pe: "29.9", eps: "0.22", mcap: "8B", rev: "N/D"}, videoID: null },
+            "CRM": { name: "Salesforce", fv: 325.48, price: 248.57, curr: "$", ex: "NYSE", yf: "CRM", divYield: 0.50, fund: {pe: "22.6", eps: "10.97", mcap: "205B", rev: "N/D"}, videoID: null },
+            "CVX": { name: "Chevron", fv: 181.66, price: 233.21, curr: "$", ex: "NYSE", yf: "CVX", divYield: 4.10, fund: {pe: "22.4", eps: "10.43", mcap: "461B", rev: "N/D"}, videoID: null },
+            "DDOG": { name: "Datadog", fv: 129.62, price: 269.65, curr: "$", ex: "NASDAQ", yf: "DDOG", divYield: 0.00, fund: {pe: "N/D", eps: "0.49", mcap: "97B", rev: "N/D"}, videoID: null },
+            "ENI": { name: "Eni S.p.A.", fv: 21.29, price: 27.65, curr: "€", ex: "MIL", yf: "ENI.MI", divYield: 6.20, fund: {pe: "10.8", eps: "2.56", mcap: "81B", rev: "N/D"}, videoID: null },
+            "ENEL": { name: "Enel S.p.A.", fv: 4.85, price: 9.218, curr: "€", ex: "MIL", yf: "ENEL.MI", divYield: 6.50, fund: {pe: "20.3", eps: "0.45", mcap: "91B", rev: "N/D"}, videoID: null },
+            "G": { name: "Assic. Generali", fv: 50.63, price: 42.1, curr: "€", ex: "MIL", yf: "G.MI", divYield: 5.50, fund: {pe: "14.3", eps: "2.94", mcap: "63B", rev: "N/D"}, videoID: null },
+            "IBM": { name: "IBM", fv: 231.00, price: 253.56, curr: "$", ex: "NYSE", yf: "IBM", divYield: 3.20, fund: {pe: "21.6", eps: "11.72", mcap: "240B", rev: "N/D"}, videoID: null },
+            "INTC": { name: "Intel", fv: 35.29, price: 86.96, curr: "$", ex: "NASDAQ", yf: "INTC", divYield: 1.50, fund: {pe: "N/D", eps: "-2.12", mcap: "460B", rev: "N/D"}, videoID: null },
+            "IP": { name: "International Paper", fv: 48.02, price: 33.19, curr: "$", ex: "NYSE", yf: "IP", divYield: 4.00, fund: {pe: "N/D", eps: "-6.48", mcap: "18B", rev: "N/D"}, videoID: null },
+            "ISP": { name: "Intesa Sanpaolo", fv: 7.22, price: 5.86, curr: "€", ex: "MIL", yf: "ISP.MI", divYield: 8.50, fund: {pe: "10.7", eps: "0.55", mcap: "101B", rev: "N/D"}, videoID: null },
+            "LDO": { name: "Leonardo S.p.A.", fv: 26.65, price: 48.46, curr: "€", ex: "MIL", yf: "LDO.MI", divYield: 1.80, fund: {pe: "24.8", eps: "1.95", mcap: "28B", rev: "N/D"}, videoID: null },
+            "LULU": { name: "Lululemon", fv: 465.80, price: 99.01, curr: "$", ex: "NASDAQ", yf: "LULU", divYield: 0.00, fund: {pe: "8.1", eps: "12.20", mcap: "11B", rev: "N/D"}, videoID: null },
+            "MA": { name: "Mastercard", fv: 500.65, price: 623.6, curr: "$", ex: "NYSE", yf: "MA", divYield: 0.50, fund: {pe: "34.3", eps: "18.18", mcap: "546B", rev: "N/D"}, videoID: null },
+            "MONC": { name: "Moncler", fv: 74.93, price: 42.66, curr: "€", ex: "MIL", yf: "MONC.MI", divYield: 1.80, fund: {pe: "18.2", eps: "2.35", mcap: "12B", rev: "N/D"}, videoID: null },
+            "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 64.17, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, fund: {pe: "19.0", eps: "3.38", mcap: "64B", rev: "N/D"}, videoID: null },
             // ── Difesa & Aerospazio ──────────────────────────────────────────
-            "RHM":  { name: "Rheinmetall AG",       fv: null, price: 620.00, curr: "€", ex: "XETR",     yf: "RHM.DE",  divYield: 1.0,  videoID: null, fund: {pe: "32.1", eps: "19.4", mcap: "24B",  rev: "+36%"} },
-            "GXI":  { name: "Gerresheimer AG",      fv: null,  price: 55.00,  curr: "€", ex: "XETR",     yf: "GXI.DE",  divYield: 1.5,  videoID: null, fund: {pe: "15.0", eps: "3.67", mcap: "1.9B", rev: "+8%"} },
-            "NOC":  { name: "Northrop Grumman",     fv: null, price: 480.00, curr: "$", ex: "NYSE",      yf: "NOC",     divYield: 1.7,  videoID: null, fund: {pe: "21.0", eps: "22.8", mcap: "72B",  rev: "+7%"} },
-            "RTX":  { name: "RTX Corp",             fv: null, price: 118.00, curr: "$", ex: "NYSE",      yf: "RTX",     divYield: 2.1,  videoID: null, fund: {pe: "38.0", eps: "3.11", mcap: "160B", rev: "+9%"} },
-            "LMT":  { name: "Lockheed Martin",      fv: null, price: 570.00, curr: "$", ex: "NYSE",      yf: "LMT",     divYield: 2.8,  videoID: null, fund: {pe: "18.0", eps: "31.5", mcap: "140B", rev: "+5%"} },
-            "GD":   { name: "General Dynamics",     fv: null, price: 295.00, curr: "$", ex: "NYSE",      yf: "GD",      divYield: 2.1,  videoID: null, fund: {pe: "21.0", eps: "14.0", mcap: "82B",  rev: "+8%"} },
-            "HWM":  { name: "Howmet Aerospace",     fv: null, price: 105.00, curr: "$", ex: "NYSE",      yf: "HWM",     divYield: 0.4,  videoID: null, fund: {pe: "40.0", eps: "2.63", mcap: "44B",  rev: "+13%"} },
-            "HON":  { name: "Honeywell",            fv: null, price: 200.00, curr: "$", ex: "NASDAQ",    yf: "HON",     divYield: 2.2,  videoID: null, fund: {pe: "25.0", eps: "8.00", mcap: "126B", rev: "+4%"} },
-            "BA":   { name: "Boeing",               fv: null, price: 145.00, curr: "$", ex: "NYSE",      yf: "BA",      divYield: 0.0,  videoID: null, fund: {pe: "—",    eps: "-3.8", mcap: "110B", rev: "+17%"} },
-            "UNP":  { name: "Union Pacific",        fv: null, price: 248.00, curr: "$", ex: "NYSE",      yf: "UNP",     divYield: 2.3,  videoID: null, fund: {pe: "21.0", eps: "11.8", mcap: "155B", rev: "-1%"} },
-            "UPS":  { name: "UPS",                  fv: null, price: 130.00, curr: "$", ex: "NYSE",      yf: "UPS",     divYield: 4.8,  videoID: null, fund: {pe: "22.0", eps: "5.91", mcap: "111B", rev: "-9%"} },
-            "FDX":  { name: "FedEx",                fv: null, price: 280.00, curr: "$", ex: "NYSE",      yf: "FDX",     divYield: 2.0,  videoID: null, fund: {pe: "16.0", eps: "17.5", mcap: "70B",  rev: "-2%"} },
-            "DE":   { name: "Deere & Company",      fv: null, price: 400.00, curr: "$", ex: "NYSE",      yf: "DE",      divYield: 1.5,  videoID: null, fund: {pe: "12.0", eps: "33.3", mcap: "124B", rev: "-5%"} },
+            "RHM": { name: "Rheinmetall AG",       fv: null, price: 1019.0, curr: "€", ex: "XETR",     yf: "RHM.DE",  divYield: 1.0,  videoID: null, fund: {pe: "66.1", eps: "15.42", mcap: "48B", rev: "N/D"} },
+            "GXI": { name: "Gerresheimer AG",      fv: null,  price: 31.34,  curr: "€", ex: "XETR",     yf: "GXI.DE",  divYield: 1.5,  videoID: null, fund: {pe: "N/D", eps: "-11.60", mcap: "1B", rev: "N/D"} },
+            "NOC": { name: "Northrop Grumman",     fv: null, price: 551.44, curr: "$", ex: "NYSE",      yf: "NOC",     divYield: 1.7,  videoID: null, fund: {pe: "17.4", eps: "31.77", mcap: "78B", rev: "N/D"} },
+            "RTX": { name: "RTX Corp",             fv: null, price: 191.01, curr: "$", ex: "NYSE",      yf: "RTX",     divYield: 2.1,  videoID: null, fund: {pe: "31.0", eps: "6.16", mcap: "258B", rev: "N/D"} },
+            "LMT": { name: "Lockheed Martin",      fv: null, price: 604.18, curr: "$", ex: "NYSE",      yf: "LMT",     divYield: 2.8,  videoID: null, fund: {pe: "21.5", eps: "28.15", mcap: "140B", rev: "N/D"} },
+            "GD": { name: "General Dynamics",     fv: null, price: 349.36, curr: "$", ex: "NYSE",      yf: "GD",      divYield: 2.1,  videoID: null, fund: {pe: "21.3", eps: "16.40", mcap: "95B", rev: "N/D"} },
+            "HWM": { name: "Howmet Aerospace",     fv: null, price: 185.91, curr: "$", ex: "NYSE",      yf: "HWM",     divYield: 0.4,  videoID: null, fund: {pe: "40.1", eps: "4.64", mcap: "74B", rev: "N/D"} },
+            "HON": { name: "Honeywell",            fv: null, price: 221.15, curr: "$", ex: "NASDAQ",    yf: "HON",     divYield: 2.2,  videoID: null, fund: {pe: "9.4", eps: "23.41", mcap: "70B", rev: "N/D"} },
+            "BA": { name: "Boeing",               fv: null, price: 188.35, curr: "$", ex: "NYSE",      yf: "BA",      divYield: 0.0,  videoID: null, fund: {pe: "85.8", eps: "2.20", mcap: "149B", rev: "N/D"} },
+            "UNP": { name: "Union Pacific",        fv: null, price: 292.87, curr: "$", ex: "NYSE",      yf: "UNP",     divYield: 2.3,  videoID: null, fund: {pe: "22.8", eps: "12.83", mcap: "174B", rev: "N/D"} },
+            "UPS": { name: "UPS",                  fv: null, price: 101.06, curr: "$", ex: "NYSE",      yf: "UPS",     divYield: 4.8,  videoID: null, fund: {pe: "18.8", eps: "5.37", mcap: "86B", rev: "N/D"} },
+            "FDX": { name: "FedEx",                fv: null, price: 298.72, curr: "$", ex: "NYSE",      yf: "FDX",     divYield: 2.0,  videoID: null, fund: {pe: "16.1", eps: "18.54", mcap: "71B", rev: "N/D"} },
+            "DE": { name: "Deere & Company",      fv: null, price: 646.15, curr: "$", ex: "NYSE",      yf: "DE",      divYield: 1.5,  videoID: null, fund: {pe: "35.9", eps: "17.99", mcap: "174B", rev: "N/D"} },
             // ── Energia & Petrolio ───────────────────────────────────────────
-            "KMI":  { name: "Kinder Morgan",        fv: null,  price: 22.00,  curr: "$", ex: "NYSE",      yf: "KMI",     divYield: 6.2,  videoID: null, fund: {pe: "16.5", eps: "1.33", mcap: "50B",  rev: "+3%"} },
-            "COP":  { name: "ConocoPhillips",       fv: null, price: 108.00, curr: "$", ex: "NYSE",      yf: "COP",     divYield: 3.0,  videoID: null, fund: {pe: "13.0", eps: "8.30", mcap: "130B", rev: "+2%"} },
-            "DVN":  { name: "Devon Energy",         fv: null,  price: 38.00,  curr: "$", ex: "NYSE",      yf: "DVN",     divYield: 4.5,  videoID: null, fund: {pe: "7.0",  eps: "5.43", mcap: "24B",  rev: "-5%"} },
-            "SLB":  { name: "Schlumberger",         fv: null,  price: 44.00,  curr: "$", ex: "NYSE",      yf: "SLB",     divYield: 2.8,  videoID: null, fund: {pe: "13.0", eps: "3.38", mcap: "60B",  rev: "+7%"} },
-            "XOM":  { name: "ExxonMobil",           fv: null, price: 115.00, curr: "$", ex: "NYSE",      yf: "XOM",     divYield: 3.5,  videoID: null, fund: {pe: "14.0", eps: "8.21", mcap: "460B", rev: "+2%"} },
+            "KMI": { name: "Kinder Morgan",        fv: null,  price: 34.43,  curr: "$", ex: "NYSE",      yf: "KMI",     divYield: 6.2,  videoID: null, fund: {pe: "21.4", eps: "1.61", mcap: "77B", rev: "N/D"} },
+            "COP": { name: "ConocoPhillips",       fv: null, price: 150.8, curr: "$", ex: "NYSE",      yf: "COP",     divYield: 3.0,  videoID: null, fund: {pe: "20.0", eps: "7.55", mcap: "181B", rev: "N/D"} },
+            "DVN": { name: "Devon Energy",         fv: null,  price: 51.39,  curr: "$", ex: "NYSE",      yf: "DVN",     divYield: 4.5,  videoID: null, fund: {pe: "12.2", eps: "4.22", mcap: "57B", rev: "N/D"} },
+            "SLB": { name: "Schlumberger",         fv: null,  price: 53.06,  curr: "$", ex: "NYSE",      yf: "SLB",     divYield: 2.8,  videoID: null, fund: {pe: "25.8", eps: "2.05", mcap: "79B", rev: "N/D"} },
+            "XOM": { name: "ExxonMobil",           fv: null, price: 183.21, curr: "$", ex: "NYSE",      yf: "XOM",     divYield: 3.5,  videoID: null, fund: {pe: "23.6", eps: "7.77", mcap: "753B", rev: "N/D"} },
             // ── Pharma & Salute ──────────────────────────────────────────────
-            "ABBV": { name: "AbbVie",               fv: null, price: 175.00, curr: "$", ex: "NYSE",      yf: "ABBV",    divYield: 3.6,  videoID: null, fund: {pe: "55.0", eps: "3.18", mcap: "310B", rev: "+4%"} },
-            "MRK":  { name: "Merck & Co",           fv: null, price: 112.00, curr: "$", ex: "NYSE",      yf: "MRK",     divYield: 2.8,  videoID: null, fund: {pe: "16.0", eps: "7.00", mcap: "284B", rev: "+7%"} },
-            "PFE":  { name: "Pfizer",               fv: null,  price: 28.00,  curr: "$", ex: "NYSE",      yf: "PFE",     divYield: 6.4,  videoID: null, fund: {pe: "—",    eps: "-3.12",mcap: "158B", rev: "-42%"} },
-            "LLY":  { name: "Eli Lilly",            fv: null, price: 870.00, curr: "$", ex: "NYSE",      yf: "LLY",     divYield: 0.6,  videoID: null, fund: {pe: "105",  eps: "8.28", mcap: "827B", rev: "+29%"} },
-            "MDT":  { name: "Medtronic",            fv: null,  price: 87.00,  curr: "$", ex: "NYSE",      yf: "MDT",     divYield: 3.3,  videoID: null, fund: {pe: "25.0", eps: "3.48", mcap: "116B", rev: "+3%"} },
-            "BSX":  { name: "Boston Scientific",    fv: null,  price: 82.00,  curr: "$", ex: "NYSE",      yf: "BSX",     divYield: 0.0,  videoID: null, fund: {pe: "56.0", eps: "1.47", mcap: "124B", rev: "+15%"} },
-            "BDX":  { name: "Becton Dickinson",     fv: null, price: 220.00, curr: "$", ex: "NYSE",      yf: "BDX",     divYield: 1.8,  videoID: null, fund: {pe: "40.0", eps: "5.50", mcap: "63B",  rev: "+4%"} },
-            "DHR":  { name: "Danaher",              fv: null, price: 245.00, curr: "$", ex: "NYSE",      yf: "DHR",     divYield: 0.4,  videoID: null, fund: {pe: "50.0", eps: "4.90", mcap: "177B", rev: "-7%"} },
-            "TMO":  { name: "Thermo Fisher",        fv: null, price: 540.00, curr: "$", ex: "NYSE",      yf: "TMO",     divYield: 0.3,  videoID: null, fund: {pe: "28.0", eps: "19.3", mcap: "207B", rev: "+1%"} },
-            "MTD":  { name: "Mettler-Toledo",       fv: null,price: 1200.00,curr: "$", ex: "NYSE",      yf: "MTD",     divYield: 0.0,  videoID: null, fund: {pe: "27.0", eps: "44.4", mcap: "28B",  rev: "-5%"} },
-            "REGN": { name: "Regeneron Pharma",     fv: null,price: 930.00, curr: "$", ex: "NASDAQ",    yf: "REGN",    divYield: 0.0,  videoID: null, fund: {pe: "24.0", eps: "38.8", mcap: "99B",  rev: "+8%"} },
-            "GILD": { name: "Gilead Sciences",      fv: null,  price: 87.00,  curr: "$", ex: "NASDAQ",    yf: "GILD",    divYield: 3.5,  videoID: null, fund: {pe: "16.0", eps: "5.44", mcap: "108B", rev: "+5%"} },
-            "ISRG": { name: "Intuitive Surgical",   fv: null, price: 450.00, curr: "$", ex: "NASDAQ",    yf: "ISRG",    divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "5.77", mcap: "160B", rev: "+14%"} },
-            "VRTX": { name: "Vertex Pharma",        fv: null, price: 470.00, curr: "$", ex: "NASDAQ",    yf: "VRTX",    divYield: 0.0,  videoID: null, fund: {pe: "33.0", eps: "14.2", mcap: "121B", rev: "+11%"} },
-            "ELV":  { name: "Elevance Health",      fv: null, price: 380.00, curr: "$", ex: "NYSE",      yf: "ELV",     divYield: 1.4,  videoID: null, fund: {pe: "15.0", eps: "25.3", mcap: "88B",  rev: "+6%"} },
-            "UNH":  { name: "UnitedHealth",         fv: null, price: 545.00, curr: "$", ex: "NYSE",      yf: "UNH",     divYield: 1.5,  videoID: null, fund: {pe: "23.0", eps: "23.7", mcap: "502B", rev: "+8%"} },
-            "CVS":  { name: "CVS Health",           fv: null,  price: 57.00,  curr: "$", ex: "NYSE",      yf: "CVS",     divYield: 4.2,  videoID: null, fund: {pe: "10.0", eps: "5.70", mcap: "71B",  rev: "+3%"} },
-            "NVO":  { name: "Novo Nordisk ADR",     fv: null, price: 105.00, curr: "$", ex: "NYSE",      yf: "NVO",     divYield: 1.5,  videoID: null, fund: {pe: "30.0", eps: "3.50", mcap: "472B", rev: "+23%"} },
+            "ABBV": { name: "AbbVie",               fv: null, price: 285.64, curr: "$", ex: "NYSE",      yf: "ABBV",    divYield: 3.6,  videoID: null, fund: {pe: "80.8", eps: "3.54", mcap: "505B", rev: "N/D"} },
+            "MRK": { name: "Merck & Co",           fv: null, price: 145.27, curr: "$", ex: "NYSE",      yf: "MRK",     divYield: 2.8,  videoID: null, fund: {pe: "116.1", eps: "1.25", mcap: "358B", rev: "N/D"} },
+            "PFE": { name: "Pfizer",               fv: null,  price: 30.03,  curr: "$", ex: "NYSE",      yf: "PFE",     divYield: 6.4,  videoID: null, fund: {pe: "39.8", eps: "0.76", mcap: "171B", rev: "N/D"} },
+            "LLY": { name: "Eli Lilly",            fv: null, price: 1273.46, curr: "$", ex: "NYSE",      yf: "LLY",     divYield: 0.6,  videoID: null, fund: {pe: "43.3", eps: "29.43", mcap: "1.2T", rev: "N/D"} },
+            "MDT": { name: "Medtronic",            fv: null,  price: 95.41,  curr: "$", ex: "NYSE",      yf: "MDT",     divYield: 3.3,  videoID: null, fund: {pe: "23.5", eps: "4.06", mcap: "122B", rev: "N/D"} },
+            "BSX": { name: "Boston Scientific",    fv: null,  price: 45.69,  curr: "$", ex: "NYSE",      yf: "BSX",     divYield: 0.0,  videoID: null, fund: {pe: "18.5", eps: "2.47", mcap: "66B", rev: "N/D"} },
+            "BDX": { name: "Becton Dickinson",     fv: null, price: 198.91, curr: "$", ex: "NYSE",      yf: "BDX",     divYield: 1.8,  videoID: null, fund: {pe: "60.0", eps: "3.32", mcap: "54B", rev: "N/D"} },
+            "DHR": { name: "Danaher",              fv: null, price: 230.5, curr: "$", ex: "NYSE",      yf: "DHR",     divYield: 0.4,  videoID: null, fund: {pe: "37.7", eps: "6.11", mcap: "162B", rev: "N/D"} },
+            "TMO": { name: "Thermo Fisher",        fv: null, price: 673.82, curr: "$", ex: "NYSE",      yf: "TMO",     divYield: 0.3,  videoID: null, fund: {pe: "35.5", eps: "18.96", mcap: "249B", rev: "N/D"} },
+            "MTD": { name: "Mettler-Toledo",       fv: null,price: 1670.29,curr: "$", ex: "NYSE",      yf: "MTD",     divYield: 0.0,  videoID: null, fund: {pe: "37.6", eps: "44.43", mcap: "33B", rev: "N/D"} },
+            "REGN": { name: "Regeneron Pharma",     fv: null,price: 805.02, curr: "$", ex: "NASDAQ",    yf: "REGN",    divYield: 0.0,  videoID: null, fund: {pe: "19.9", eps: "40.46", mcap: "83B", rev: "N/D"} },
+            "GILD": { name: "Gilead Sciences",      fv: null,  price: 156.04,  curr: "$", ex: "NASDAQ",    yf: "GILD",    divYield: 3.5,  videoID: null, fund: {pe: "N/D", eps: "-2.66", mcap: "193B", rev: "N/D"} },
+            "ISRG": { name: "Intuitive Surgical",   fv: null, price: 452.29, curr: "$", ex: "NASDAQ",    yf: "ISRG",    divYield: 0.0,  videoID: null, fund: {pe: "54.7", eps: "8.27", mcap: "157B", rev: "N/D"} },
+            "VRTX": { name: "Vertex Pharma",        fv: null, price: 523.93, curr: "$", ex: "NASDAQ",    yf: "VRTX",    divYield: 0.0,  videoID: null, fund: {pe: "30.5", eps: "17.19", mcap: "133B", rev: "N/D"} },
+            "ELV": { name: "Elevance Health",      fv: null, price: 439.95, curr: "$", ex: "NYSE",      yf: "ELV",     divYield: 1.4,  videoID: null, fund: {pe: "18.8", eps: "23.46", mcap: "95B", rev: "N/D"} },
+            "UNH": { name: "UnitedHealth",         fv: null, price: 418.09, curr: "$", ex: "NYSE",      yf: "UNH",     divYield: 1.5,  videoID: null, fund: {pe: "23.9", eps: "17.52", mcap: "375B", rev: "N/D"} },
+            "CVS": { name: "CVS Health",           fv: null,  price: 93.47,  curr: "$", ex: "NYSE",      yf: "CVS",     divYield: 4.2,  videoID: null, fund: {pe: "24.7", eps: "3.79", mcap: "120B", rev: "N/D"} },
+            "NVO": { name: "Novo Nordisk ADR",     fv: null, price: 39.05, curr: "$", ex: "NYSE",      yf: "NVO",     divYield: 1.5,  videoID: null, fund: {pe: "9.5", eps: "4.09", mcap: "173B", rev: "N/D"} },
             // ── Finance & Insurance ──────────────────────────────────────────
-            "JPM":  { name: "JPMorgan Chase",       fv: null, price: 218.00, curr: "$", ex: "NYSE",      yf: "JPM",     divYield: 2.2,  videoID: null, fund: {pe: "13.0", eps: "16.8", mcap: "620B", rev: "+21%"} },
-            "BLK":  { name: "BlackRock",            fv: null,price: 960.00, curr: "$", ex: "NYSE",      yf: "BLK",     divYield: 2.2,  videoID: null, fund: {pe: "23.0", eps: "41.7", mcap: "145B", rev: "+14%"} },
-            "C":    { name: "Citigroup",            fv: null,  price: 65.00,  curr: "$", ex: "NYSE",      yf: "C",       divYield: 3.3,  videoID: null, fund: {pe: "12.0", eps: "5.42", mcap: "125B", rev: "+4%"} },
-            "GS":   { name: "Goldman Sachs",        fv: null, price: 520.00, curr: "$", ex: "NYSE",      yf: "GS",      divYield: 2.5,  videoID: null, fund: {pe: "15.0", eps: "34.7", mcap: "178B", rev: "+16%"} },
-            "V":    { name: "Visa",                 fv: null, price: 285.00, curr: "$", ex: "NYSE",      yf: "V",       divYield: 0.8,  videoID: null, fund: {pe: "31.0", eps: "9.19", mcap: "590B", rev: "+11%"} },
-            "MCO":  { name: "Moody's Corp",         fv: null, price: 430.00, curr: "$", ex: "NYSE",      yf: "MCO",     divYield: 0.8,  videoID: null, fund: {pe: "43.0", eps: "10.0", mcap: "77B",  rev: "+15%"} },
-            "CB":   { name: "Chubb",                fv: null, price: 262.00, curr: "$", ex: "NYSE",      yf: "CB",      divYield: 1.4,  videoID: null, fund: {pe: "12.0", eps: "21.8", mcap: "110B", rev: "+13%"} },
-            "L":    { name: "Loews Corp",           fv: null,  price: 78.00,  curr: "$", ex: "NYSE",      yf: "L",       divYield: 0.4,  videoID: null, fund: {pe: "10.0", eps: "7.80", mcap: "18B",  rev: "+4%"} },
-            "RSG":  { name: "Republic Services",    fv: null, price: 205.00, curr: "$", ex: "NYSE",      yf: "RSG",     divYield: 1.3,  videoID: null, fund: {pe: "36.0", eps: "5.71", mcap: "66B",  rev: "+8%"} },
-            "WM":   { name: "Waste Management",     fv: null, price: 205.00, curr: "$", ex: "NYSE",      yf: "WM",      divYield: 1.4,  videoID: null, fund: {pe: "31.0", eps: "6.61", mcap: "83B",  rev: "+5%"} },
+            "JPM": { name: "JPMorgan Chase",       fv: null, price: 331.58, curr: "$", ex: "NYSE",      yf: "JPM",     divYield: 2.2,  videoID: null, fund: {pe: "13.9", eps: "23.84", mcap: "881B", rev: "N/D"} },
+            "BLK": { name: "BlackRock",            fv: null,price: 1118.25, curr: "$", ex: "NYSE",      yf: "BLK",     divYield: 2.2,  videoID: null, fund: {pe: "26.1", eps: "42.76", mcap: "182B", rev: "N/D"} },
+            "C": { name: "Citigroup",            fv: null,  price: 120.62,  curr: "$", ex: "NYSE",      yf: "C",       divYield: 3.3,  videoID: null, fund: {pe: "11.8", eps: "10.26", mcap: "202B", rev: "N/D"} },
+            "GS": { name: "Goldman Sachs",        fv: null, price: 875.68, curr: "$", ex: "NYSE",      yf: "GS",      divYield: 2.5,  videoID: null, fund: {pe: "12.6", eps: "69.55", mcap: "255B", rev: "N/D"} },
+            "V": { name: "Visa",                 fv: null, price: 407.92, curr: "$", ex: "NYSE",      yf: "V",       divYield: 0.8,  videoID: null, fund: {pe: "35.0", eps: "11.65", mcap: "762B", rev: "N/D"} },
+            "MCO": { name: "Moody's Corp",         fv: null, price: 483.45, curr: "$", ex: "NYSE",      yf: "MCO",     divYield: 0.8,  videoID: null, fund: {pe: "29.5", eps: "16.41", mcap: "83B", rev: "N/D"} },
+            "CB": { name: "Chubb",                fv: null, price: 355.11, curr: "$", ex: "NYSE",      yf: "CB",      divYield: 1.4,  videoID: null, fund: {pe: "12.4", eps: "28.57", mcap: "137B", rev: "N/D"} },
+            "L": { name: "Loews Corp",           fv: null,  price: 112.01,  curr: "$", ex: "NYSE",      yf: "L",       divYield: 0.4,  videoID: null, fund: {pe: "13.7", eps: "8.16", mcap: "23B", rev: "N/D"} },
+            "RSG": { name: "Republic Services",    fv: null, price: 240.45, curr: "$", ex: "NYSE",      yf: "RSG",     divYield: 1.3,  videoID: null, fund: {pe: "34.1", eps: "7.06", mcap: "74B", rev: "N/D"} },
+            "WM": { name: "Waste Management",     fv: null, price: 239.38, curr: "$", ex: "NYSE",      yf: "WM",      divYield: 1.4,  videoID: null, fund: {pe: "33.9", eps: "7.06", mcap: "96B", rev: "N/D"} },
             // ── Consumer & Retail ────────────────────────────────────────────
-            "PM":   { name: "Philip Morris",        fv: null, price: 128.00, curr: "$", ex: "NYSE",      yf: "PM",      divYield: 4.6,  videoID: null, fund: {pe: "22.0", eps: "5.82", mcap: "200B", rev: "+10%"} },
-            "PEP":  { name: "PepsiCo",              fv: null, price: 163.00, curr: "$", ex: "NASDAQ",    yf: "PEP",     divYield: 3.3,  videoID: null, fund: {pe: "22.0", eps: "7.41", mcap: "224B", rev: "+2%"} },
-            "KO":   { name: "Coca-Cola",            fv: null,  price: 66.00,  curr: "$", ex: "NYSE",      yf: "KO",      divYield: 3.1,  videoID: null, fund: {pe: "26.0", eps: "2.54", mcap: "285B", rev: "+3%"} },
-            "AZO":  { name: "AutoZone",             fv: null,price: 3100.00,curr: "$", ex: "NYSE",      yf: "AZO",     divYield: 0.0,  videoID: null, fund: {pe: "22.0", eps: "141",  mcap: "51B",  rev: "+5%"} },
-            "MO":   { name: "Altria Group",         fv: null,  price: 48.00,  curr: "$", ex: "NYSE",      yf: "MO",      divYield: 8.2,  videoID: null, fund: {pe: "10.0", eps: "4.80", mcap: "86B",  rev: "+1%"} },
-            "CL":   { name: "Colgate-Palmolive",    fv: null,  price: 95.00,  curr: "$", ex: "NYSE",      yf: "CL",      divYield: 2.3,  videoID: null, fund: {pe: "30.0", eps: "3.17", mcap: "80B",  rev: "+8%"} },
-            "PG":   { name: "Procter & Gamble",     fv: null, price: 165.00, curr: "$", ex: "NYSE",      yf: "PG",      divYield: 2.3,  videoID: null, fund: {pe: "27.0", eps: "6.12", mcap: "390B", rev: "+3%"} },
-            "GIS":  { name: "General Mills",        fv: null,  price: 63.00,  curr: "$", ex: "NYSE",      yf: "GIS",     divYield: 3.9,  videoID: null, fund: {pe: "14.0", eps: "4.50", mcap: "37B",  rev: "-1%"} },
-            "HD":   { name: "Home Depot",           fv: null, price: 390.00, curr: "$", ex: "NYSE",      yf: "HD",      divYield: 2.4,  videoID: null, fund: {pe: "25.0", eps: "15.6", mcap: "387B", rev: "+5%"} },
-            "ROST": { name: "Ross Stores",          fv: null, price: 150.00, curr: "$", ex: "NASDAQ",    yf: "ROST",    divYield: 1.0,  videoID: null, fund: {pe: "24.0", eps: "6.25", mcap: "55B",  rev: "+8%"} },
-            "ORLY": { name: "O'Reilly Automotive",  fv: null,price: 1100.00,curr: "$", ex: "NASDAQ",    yf: "ORLY",    divYield: 0.0,  videoID: null, fund: {pe: "28.0", eps: "39.3", mcap: "68B",  rev: "+7%"} },
-            "DG":   { name: "Dollar General",       fv: null, price: 82.00,  curr: "$", ex: "NYSE",      yf: "DG",      divYield: 2.0,  videoID: null, fund: {pe: "14.0", eps: "5.86", mcap: "18B",  rev: "+4%"} },
-            "MCD":  { name: "McDonald's",           fv: null, price: 290.00, curr: "$", ex: "NYSE",      yf: "MCD",     divYield: 2.4,  videoID: null, fund: {pe: "25.0", eps: "11.6", mcap: "210B", rev: "+3%"} },
-            "NKE":  { name: "Nike",                 fv: null, price: 77.00,  curr: "$", ex: "NYSE",      yf: "NKE",     divYield: 2.1,  videoID: null, fund: {pe: "20.0", eps: "3.85", mcap: "118B", rev: "-10%"} },
-            "DIS":  { name: "Walt Disney",          fv: null, price: 100.00, curr: "$", ex: "NYSE",      yf: "DIS",     divYield: 0.9,  videoID: null, fund: {pe: "30.0", eps: "3.33", mcap: "185B", rev: "+3%"} },
-            "VZ":   { name: "Verizon",              fv: null,  price: 42.00,  curr: "$", ex: "NYSE",      yf: "VZ",      divYield: 6.8,  videoID: null, fund: {pe: "10.0", eps: "4.20", mcap: "177B", rev: "+0.5%"} },
-            "T":    { name: "AT&T",                 fv: null,  price: 20.00,  curr: "$", ex: "NYSE",      yf: "T",       divYield: 6.8,  videoID: null, fund: {pe: "17.0", eps: "1.18", mcap: "144B", rev: "+1%"} },
-            "CHTR": { name: "Charter Comm.",        fv: null, price: 320.00, curr: "$", ex: "NASDAQ",    yf: "CHTR",    divYield: 0.0,  videoID: null, fund: {pe: "13.0", eps: "24.6", mcap: "46B",  rev: "+1%"} },
-            "TMUS": { name: "T-Mobile US",          fv: null, price: 195.00, curr: "$", ex: "NASDAQ",    yf: "TMUS",    divYield: 1.5,  videoID: null, fund: {pe: "27.0", eps: "7.24", mcap: "233B", rev: "+3%"} },
-            "RCL":  { name: "Royal Caribbean",      fv: null, price: 195.00, curr: "$", ex: "NYSE",      yf: "RCL",     divYield: 0.9,  videoID: null, fund: {pe: "23.0", eps: "8.48", mcap: "51B",  rev: "+14%"} },
-            "BLDR": { name: "Builders FirstSource", fv: null, price: 175.00, curr: "$", ex: "NYSE",      yf: "BLDR",    divYield: 0.0,  videoID: null, fund: {pe: "12.0", eps: "14.6", mcap: "22B",  rev: "-3%"} },
+            "PM": { name: "Philip Morris",        fv: null, price: 199.47, curr: "$", ex: "NYSE",      yf: "PM",      divYield: 4.6,  videoID: null, fund: {pe: "29.1", eps: "6.85", mcap: "311B", rev: "N/D"} },
+            "PEP": { name: "PepsiCo",              fv: null, price: 135.77, curr: "$", ex: "NASDAQ",    yf: "PEP",     divYield: 3.3,  videoID: null, fund: {pe: "17.1", eps: "7.96", mcap: "185B", rev: "N/D"} },
+            "KO": { name: "Coca-Cola",            fv: null,  price: 92.71,  curr: "$", ex: "NYSE",      yf: "KO",      divYield: 3.1,  videoID: null, fund: {pe: "27.9", eps: "3.32", mcap: "399B", rev: "N/D"} },
+            "AZO": { name: "AutoZone",             fv: null,price: 3200.76,curr: "$", ex: "NYSE",      yf: "AZO",     divYield: 0.0,  videoID: null, fund: {pe: "20.9", eps: "152.79", mcap: "52B", rev: "N/D"} },
+            "MO": { name: "Altria Group",         fv: null,  price: 74.31,  curr: "$", ex: "NYSE",      yf: "MO",      divYield: 8.2,  videoID: null, fund: {pe: "15.7", eps: "4.75", mcap: "124B", rev: "N/D"} },
+            "CL": { name: "Colgate-Palmolive",    fv: null,  price: 94.04,  curr: "$", ex: "NYSE",      yf: "CL",      divYield: 2.3,  videoID: null, fund: {pe: "37.2", eps: "2.53", mcap: "75B", rev: "N/D"} },
+            "PG": { name: "Procter & Gamble",     fv: null, price: 161.02, curr: "$", ex: "NYSE",      yf: "PG",      divYield: 2.3,  videoID: null, fund: {pe: "24.3", eps: "6.64", mcap: "373B", rev: "N/D"} },
+            "GIS": { name: "General Mills",        fv: null,  price: 34.39,  curr: "$", ex: "NYSE",      yf: "GIS",     divYield: 3.9,  videoID: null, fund: {pe: "N/D", eps: "-1.67", mcap: "18B", rev: "N/D"} },
+            "HD": { name: "Home Depot",           fv: null, price: 319.83, curr: "$", ex: "NYSE",      yf: "HD",      divYield: 2.4,  videoID: null, fund: {pe: "22.4", eps: "14.29", mcap: "319B", rev: "N/D"} },
+            "ROST": { name: "Ross Stores",          fv: null, price: 229.3, curr: "$", ex: "NASDAQ",    yf: "ROST",    divYield: 1.0,  videoID: null, fund: {pe: "27.7", eps: "8.28", mcap: "73B", rev: "N/D"} },
+            "ORLY": { name: "O'Reilly Automotive",  fv: null,price: 89.92,curr: "$", ex: "NASDAQ",    yf: "ORLY",    divYield: 0.0,  videoID: null, fund: {pe: "28.6", eps: "3.14", mcap: "73B", rev: "N/D"} },
+            "DG": { name: "Dollar General",       fv: null, price: 132.69,  curr: "$", ex: "NYSE",      yf: "DG",      divYield: 2.0,  videoID: null, fund: {pe: "17.2", eps: "7.69", mcap: "29B", rev: "N/D"} },
+            "MCD": { name: "McDonald's",           fv: null, price: 248.46, curr: "$", ex: "NYSE",      yf: "MCD",     divYield: 2.4,  videoID: null, fund: {pe: "20.2", eps: "12.31", mcap: "176B", rev: "N/D"} },
+            "NKE": { name: "Nike",                 fv: null, price: 37.3,  curr: "$", ex: "NYSE",      yf: "NKE",     divYield: 2.1,  videoID: null, fund: {pe: "17.9", eps: "2.09", mcap: "55B", rev: "N/D"} },
+            "DIS": { name: "Walt Disney",          fv: null, price: 112.52, curr: "$", ex: "NYSE",      yf: "DIS",     divYield: 0.9,  videoID: null, fund: {pe: "23.2", eps: "4.85", mcap: "194B", rev: "N/D"} },
+            "VZ": { name: "Verizon",              fv: null,  price: 44.66,  curr: "$", ex: "NYSE",      yf: "VZ",      divYield: 6.8,  videoID: null, fund: {pe: "11.6", eps: "3.84", mcap: "186B", rev: "N/D"} },
+            "T": { name: "AT&T",                 fv: null,  price: 20.93,  curr: "$", ex: "NYSE",      yf: "T",       divYield: 6.8,  videoID: null, fund: {pe: "11.3", eps: "1.85", mcap: "141B", rev: "N/D"} },
+            "CHTR": { name: "Charter Comm.",        fv: null, price: 108.61, curr: "$", ex: "NASDAQ",    yf: "CHTR",    divYield: 0.0,  videoID: null, fund: {pe: "2.8", eps: "38.49", mcap: "19B", rev: "N/D"} },
+            "TMUS": { name: "T-Mobile US",          fv: null, price: 146.54, curr: "$", ex: "NASDAQ",    yf: "TMUS",    divYield: 1.5,  videoID: null, fund: {pe: "15.3", eps: "9.56", mcap: "157B", rev: "N/D"} },
+            "RCL": { name: "Royal Caribbean",      fv: null, price: 276.48, curr: "$", ex: "NYSE",      yf: "RCL",     divYield: 0.9,  videoID: null, fund: {pe: "17.1", eps: "16.19", mcap: "74B", rev: "N/D"} },
+            "BLDR": { name: "Builders FirstSource", fv: null, price: 56.85, curr: "$", ex: "NYSE",      yf: "BLDR",    divYield: 0.0,  videoID: null, fund: {pe: "61.8", eps: "0.92", mcap: "6B", rev: "N/D"} },
             // ── Tech & Growth ────────────────────────────────────────────────
-            "META": { name: "Meta Platforms",       fv: null, price: 580.00, curr: "$", ex: "NASDAQ",    yf: "META",    divYield: 0.4,  videoID: null, fund: {pe: "28.0", eps: "20.7", mcap: "1.5T", rev: "+22%"} },
-            "TSLA": { name: "Tesla",                fv: null, price: 245.00, curr: "$", ex: "NASDAQ",    yf: "TSLA",    divYield: 0.0,  videoID: null, fund: {pe: "72.0", eps: "3.40", mcap: "782B", rev: "+1%"} },
-            "AVGO": { name: "Broadcom",             fv: null, price: 165.00, curr: "$", ex: "NASDAQ",    yf: "AVGO",    divYield: 1.3,  videoID: null, fund: {pe: "42.0", eps: "3.93", mcap: "773B", rev: "+47%"} },
-            "ORCL": { name: "Oracle",               fv: null, price: 185.00, curr: "$", ex: "NYSE",      yf: "ORCL",    divYield: 1.0,  videoID: null, fund: {pe: "44.0", eps: "4.21", mcap: "505B", rev: "+8%"} },
-            "TXN":  { name: "Texas Instruments",    fv: null, price: 200.00, curr: "$", ex: "NASDAQ",    yf: "TXN",     divYield: 2.9,  videoID: null, fund: {pe: "36.0", eps: "5.56", mcap: "182B", rev: "-11%"} },
-            "BKNG": { name: "Booking Holdings",     fv: null,price: 3900.00,curr: "$", ex: "NASDAQ",    yf: "BKNG",    divYield: 0.8,  videoID: null, fund: {pe: "28.0", eps: "139",  mcap: "150B", rev: "+10%"} },
-            "SHOP": { name: "Shopify",              fv: null,  price: 82.00,  curr: "$", ex: "NASDAQ",    yf: "SHOP",    divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "1.05", mcap: "104B", rev: "+21%"} },
-            "TTD":  { name: "The Trade Desk",       fv: null, price: 72.00,  curr: "$", ex: "NASDAQ",    yf: "TTD",     divYield: 0.0,  videoID: null, fund: {pe: "78.0", eps: "0.92", mcap: "36B",  rev: "+27%"} },
-            "CRWD": { name: "CrowdStrike",          fv: null, price: 310.00, curr: "$", ex: "NASDAQ",    yf: "CRWD",    divYield: 0.0,  videoID: null, fund: {pe: "350",  eps: "0.89", mcap: "76B",  rev: "+32%"} },
-            "FTNT": { name: "Fortinet",             fv: null,  price: 82.00,  curr: "$", ex: "NASDAQ",    yf: "FTNT",    divYield: 0.0,  videoID: null, fund: {pe: "48.0", eps: "1.71", mcap: "65B",  rev: "+10%"} },
-            "PLTR": { name: "Palantir",             fv: null,  price: 42.00,  curr: "$", ex: "NASDAQ",    yf: "PLTR",    divYield: 0.0,  videoID: null, fund: {pe: "218",  eps: "0.19", mcap: "90B",  rev: "+27%"} },
-            "PANW": { name: "Palo Alto Networks",   fv: null, price: 350.00, curr: "$", ex: "NASDAQ",    yf: "PANW",    divYield: 0.0,  videoID: null, fund: {pe: "188",  eps: "1.86", mcap: "113B", rev: "+16%"} },
-            "CPRT": { name: "Copart",               fv: null,  price: 55.00,  curr: "$", ex: "NASDAQ",    yf: "CPRT",    divYield: 0.0,  videoID: null, fund: {pe: "38.0", eps: "1.45", mcap: "55B",  rev: "+9%"} },
+            "META": { name: "Meta Platforms",       fv: null, price: 642.62, curr: "$", ex: "NASDAQ",    yf: "META",    divYield: 0.4,  videoID: null, fund: {pe: "21.9", eps: "29.33", mcap: "1.6T", rev: "N/D"} },
+            "TSLA": { name: "Tesla",                fv: null, price: 372.22, curr: "$", ex: "NASDAQ",    yf: "TSLA",    divYield: 0.0,  videoID: null, fund: {pe: "409.4", eps: "0.91", mcap: "1.5T", rev: "N/D"} },
+            "AVGO": { name: "Broadcom",             fv: null, price: 321.68, curr: "$", ex: "NASDAQ",    yf: "AVGO",    divYield: 1.3,  videoID: null, fund: {pe: "41.1", eps: "7.83", mcap: "1.5T", rev: "N/D"} },
+            "ORCL": { name: "Oracle",               fv: null, price: 126.16, curr: "$", ex: "NYSE",      yf: "ORCL",    divYield: 1.0,  videoID: null, fund: {pe: "19.8", eps: "6.38", mcap: "381B", rev: "N/D"} },
+            "TXN": { name: "Texas Instruments",    fv: null, price: 284.69, curr: "$", ex: "NASDAQ",    yf: "TXN",     divYield: 2.9,  videoID: null, fund: {pe: "36.9", eps: "7.71", mcap: "260B", rev: "N/D"} },
+            "BKNG": { name: "Booking Holdings",     fv: null,price: 155.83,curr: "$", ex: "NASDAQ",    yf: "BKNG",    divYield: 0.8,  videoID: null, fund: {pe: "17.2", eps: "9.04", mcap: "117B", rev: "N/D"} },
+            "SHOP": { name: "Shopify",              fv: null,  price: 168.68,  curr: "$", ex: "NASDAQ",    yf: "SHOP",    divYield: 0.0,  videoID: null, fund: {pe: "116.2", eps: "1.45", mcap: "217B", rev: "N/D"} },
+            "TTD": { name: "The Trade Desk",       fv: null, price: 13.0,  curr: "$", ex: "NASDAQ",    yf: "TTD",     divYield: 0.0,  videoID: null, fund: {pe: "15.4", eps: "0.84", mcap: "6B", rev: "N/D"} },
+            "CRWD": { name: "CrowdStrike",          fv: null, price: 257.57, curr: "$", ex: "NASDAQ",    yf: "CRWD",    divYield: 0.0,  videoID: null, fund: {pe: "N/D", eps: "0.04", mcap: "264B", rev: "N/D"} },
+            "FTNT": { name: "Fortinet",             fv: null,  price: 179.99,  curr: "$", ex: "NASDAQ",    yf: "FTNT",    divYield: 0.0,  videoID: null, fund: {pe: "63.4", eps: "2.84", mcap: "132B", rev: "N/D"} },
+            "PLTR": { name: "Palantir",             fv: null,  price: 196.75,  curr: "$", ex: "NASDAQ",    yf: "PLTR",    divYield: 0.0,  videoID: null, fund: {pe: "167.7", eps: "1.17", mcap: "473B", rev: "N/D"} },
+            "PANW": { name: "Palo Alto Networks",   fv: null, price: 380.55, curr: "$", ex: "NASDAQ",    yf: "PANW",    divYield: 0.0,  videoID: null, fund: {pe: "N/D", eps: "0.51", mcap: "311B", rev: "N/D"} },
+            "CPRT": { name: "Copart",               fv: null,  price: 29.0,  curr: "$", ex: "NASDAQ",    yf: "CPRT",    divYield: 0.0,  videoID: null, fund: {pe: "18.7", eps: "1.55", mcap: "27B", rev: "N/D"} },
             // ── Finanza & Business Services ──────────────────────────────────
-            "NEE":  { name: "NextEra Energy",       fv: null,  price: 72.00,  curr: "$", ex: "NYSE",      yf: "NEE",     divYield: 2.8,  videoID: null, fund: {pe: "22.0", eps: "3.27", mcap: "148B", rev: "+18%"} },
-            "TRI":  { name: "Thomson Reuters",      fv: null, price: 170.00, curr: "$", ex: "NASDAQ",    yf: "TRI",     divYield: 1.2,  videoID: null, fund: {pe: "45.0", eps: "3.78", mcap: "88B",  rev: "+8%"} },
-            "CME":  { name: "CME Group",            fv: null, price: 215.00, curr: "$", ex: "NASDAQ",    yf: "CME",     divYield: 2.0,  videoID: null, fund: {pe: "23.0", eps: "9.35", mcap: "78B",  rev: "+11%"} },
-            "ACN":  { name: "Accenture",            fv: null, price: 320.00, curr: "$", ex: "NYSE",      yf: "ACN",     divYield: 1.6,  videoID: null, fund: {pe: "30.0", eps: "10.7", mcap: "200B", rev: "+4%"} },
+            "NEE": { name: "NextEra Energy",       fv: null,  price: 82.1,  curr: "$", ex: "NYSE",      yf: "NEE",     divYield: 2.8,  videoID: null, fund: {pe: "14.8", eps: "5.56", mcap: "172B", rev: "N/D"} },
+            "TRI": { name: "Thomson Reuters",      fv: null, price: 123.17, curr: "$", ex: "NASDAQ",    yf: "TRI",     divYield: 1.2,  videoID: null, fund: {pe: "34.0", eps: "3.63", mcap: "53B", rev: "N/D"} },
+            "CME": { name: "CME Group",            fv: null, price: 305.71, curr: "$", ex: "NASDAQ",    yf: "CME",     divYield: 2.0,  videoID: null, fund: {pe: "25.1", eps: "12.20", mcap: "110B", rev: "N/D"} },
+            "ACN": { name: "Accenture",            fv: null, price: 249.37, curr: "$", ex: "NYSE",      yf: "ACN",     divYield: 1.6,  videoID: null, fund: {pe: "18.4", eps: "13.57", mcap: "147B", rev: "N/D"} },
             // ── Europa ───────────────────────────────────────────────────────
-            "EL":   { name: "EssilorLuxottica",     fv: null, price: 175.00, curr: "€", ex: "EURONEXT",  yf: "EL.PA",   divYield: 1.2,  videoID: null, fund: {pe: "35.0", eps: "5.00", mcap: "84B",  rev: "+7%"} }
+            "EL": { name: "EssilorLuxottica",     fv: null, price: 181.2, curr: "€", ex: "EURONEXT",  yf: "EL.PA",   divYield: 1.2,  videoID: null, fund: {pe: "33.9", eps: "5.35", mcap: "84B", rev: "N/D"} }
         };
 
         // Segnali — caricati live da signals.json (aggiornato da TradingView via webhook)
@@ -1104,7 +1162,7 @@
             const proxies = [
                 t => `https://api.allorigins.win/get?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+t)}`,
                 t => `https://api.allorigins.win/get?url=${encodeURIComponent('https://query2.finance.yahoo.com/v8/finance/chart/'+t)}`,
-                t => `https://corsproxy.io/?${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+t)}`
+                t => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+t)}`
             ];
             for (const makeUrl of proxies) {
                 try {
@@ -1190,7 +1248,7 @@
                 document.getElementById('fund-pe').innerText = data.fund?.pe || "N/A";
                 document.getElementById('fund-eps').innerText = data.fund?.eps || "N/A";
                 document.getElementById('fund-mcap').innerText = data.fund?.mcap || "N/A";
-                document.getElementById('fund-rev').innerText = data.fund?.rev || "N/A";
+                document.getElementById('fund-div').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
 
                 const fvNum = data.fv != null ? parseFloat(data.fv) : null;
                 const priceNum = parseFloat(livePrice);
@@ -1338,9 +1396,16 @@
                 tr.onclick = () => { document.getElementById('fvInput').value = d.ticker; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV,400); };
                 const fvDisplay = d.fv != null ? d.fv.toFixed(2) + ' ' + d.curr : '—';
                 const fvColor = !hasUpside ? 'var(--text-muted)' : (isUnder ? 'var(--brand-green)' : 'var(--accent-red)');
-                const upsideDisplay = hasUpside ? `<div class="scr-upside ${isUnder?'positive':'negative'}">${isUnder?'+':''}${d.upside.toFixed(1)}%</div>` : `<span style="color:var(--text-muted);">—</span>`;
+                const absDiff = hasUpside ? (d.fv - d.price).toFixed(2) : null;
+                const upsideDisplay = hasUpside
+                    ? `<div class="scr-upside ${isUnder?'positive':'negative'}" style="line-height:1.3">
+                        <div style="font-weight:800">${isUnder?'+':''}${d.upside.toFixed(1)}%</div>
+                        <div style="font-size:0.75em;opacity:0.75">${isUnder?'+':''}${absDiff} ${d.curr}</div>
+                       </div>`
+                    : `<span style="color:var(--text-muted);">—</span>`;
                 tr.innerHTML = `<td class="scr-rank">${i + 1}</td><td class="scr-ticker">${d.ticker}</td><td class="scr-name">${d.name}</td>
-                <td class="scr-price">${d.price.toFixed(2)} ${d.curr}</td><td class="scr-fv" style="color:${fvColor}">${fvDisplay}</td>
+                <td class="scr-price" style="color:var(--text-muted)">${d.price.toFixed(2)} ${d.curr}</td>
+                <td class="scr-fv" style="color:${fvColor}">${fvDisplay}</td>
                 <td>${upsideDisplay}</td>
                 <td class="scr-div">${d.divYield ? d.divYield.toFixed(1)+'%' : '—'}</td><td><span class="scr-badge ${bClass}">${badge}</span></td>`;
                 tbody.appendChild(tr);
@@ -1439,7 +1504,7 @@
                 totInv += inv; totCur += cur;
                 
                 let fvStatus = '—';
-                if(data) { fvStatus = data.fv > livePrice ? `<span style="color:var(--brand-green)">Sottovalutato</span>` : `<span style="color:var(--accent-red)">Sopravvalutato</span>`; }
+                if(data && data.fv != null) { fvStatus = data.fv > livePrice ? `<span style="color:var(--brand-green)">Sottovalutato</span>` : `<span style="color:var(--accent-red)">Sopravvalutato</span>`; }
 
                 return `<tr><td style="font-weight:800; color:#fff;">${pos.ticker}</td><td>${pos.qty}</td><td>${pos.price.toFixed(2)}</td><td>${parseFloat(livePrice).toFixed(2)}</td><td class="${pl >= 0 ? 'pl-positive' : 'pl-negative'}">${pl > 0 ? '+':''}${pl.toFixed(2)} €</td><td class="${pl >= 0 ? 'pl-positive' : 'pl-negative'}">${pl > 0 ? '+':''}${plPct.toFixed(1)} %</td><td>${fvStatus}</td><td><button onclick="removePersonalPosition(${index})" style="background:rgba(255,61,0,0.1); border:none; color:var(--accent-red); padding:5px 10px; border-radius:6px; cursor:pointer;">X</button></td></tr>`;
             }));
@@ -1474,6 +1539,7 @@
         }
         function calculatePosition() {
             const cap = parseFloat(document.getElementById('psCap').value) || 0, riskPct = parseFloat(document.getElementById('psRisk').value) || 0, entry = parseFloat(document.getElementById('psEntry').value) || 0, stop = parseFloat(document.getElementById('psStop').value) || 0;
+            if (!cap || !riskPct || !entry || !stop || entry === stop) return;
             const riskEuro = cap * (riskPct / 100); const shares = Math.floor(riskEuro / Math.abs(entry - stop));
             document.getElementById('psShares').innerText = shares + " Azioni"; document.getElementById('psRiskEuro').innerText = riskEuro.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('psTotalCost').innerText = (shares * entry).toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('psResult').style.display = 'block';
         }
@@ -1780,11 +1846,87 @@
             document.getElementById('nav-hamburger-btn').textContent = '☰';
         }
 
+        // === DATA PENSIERO AUTOMATICA ===
+        function initPensieroWeek() {
+            try {
+                const now = new Date();
+                const day = now.getDay(); // 0=dom, 1=lun...
+                const diffToMonday = (day === 0) ? -6 : 1 - day;
+                const monday = new Date(now);
+                monday.setDate(now.getDate() + diffToMonday);
+                const weekStr = 'Settimana del ' + monday.toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'});
+                const el = document.getElementById('pensiero-week');
+                if (el) el.innerText = weekStr;
+            } catch(e) {}
+        }
+
+        // === ULTIMO VIDEO YOUTUBE ===
+        async function loadLatestYouTubeVideo() {
+            const channelHandle = 'investireconmatteomazzero';
+            const CACHE_KEY = 'mm_yt_cache';
+            const CACHE_TTL = 3600000; // 1 ora
+
+            // Prova a usare la cache sessionStorage
+            try {
+                const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || 'null');
+                if (cached && (Date.now() - cached.ts) < CACHE_TTL) {
+                    injectYouTube(cached.videoId, cached.title, cached.dateStr);
+                    return;
+                }
+            } catch(e) {}
+
+            try {
+                // Step 1: fetch channel page per estrarre channel ID
+                const pageUrl = 'https://www.youtube.com/@' + channelHandle;
+                const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(pageUrl);
+                const resp = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
+                if (!resp.ok) throw new Error('proxy fail');
+                const data = await resp.json();
+                const html = data.contents || '';
+                const cidMatch = html.match(/"channelId"\s*:\s*"(UC[^"]+)"/);
+                if (!cidMatch) throw new Error('no channel id');
+                const channelId = cidMatch[1];
+                // Step 2: fetch RSS feed
+                const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
+                const rssProxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl);
+                const rssResp = await fetch(rssProxy, { signal: AbortSignal.timeout(10000) });
+                if (!rssResp.ok) throw new Error('rss fail');
+                const rssData = await rssResp.json();
+                const xml = rssData.contents || '';
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(xml, 'application/xml');
+                const entry = doc.querySelector('entry');
+                if (!entry) throw new Error('no entry');
+                const vidIdEl = entry.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015', 'videoId')[0];
+                const videoId = vidIdEl ? vidIdEl.textContent : (entry.querySelector('id')?.textContent || '').split(':').pop();
+                const title = entry.querySelector('title')?.textContent || '';
+                const published = entry.querySelector('published')?.textContent || '';
+                const dateStr = published ? new Date(published).toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'}) : '';
+                // Salva in cache
+                try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({videoId, title, dateStr, ts: Date.now()})); } catch(e) {}
+                injectYouTube(videoId, title, dateStr);
+            } catch(e) {
+                const wrap = document.getElementById('yt-embed-wrap');
+                if (wrap) wrap.innerHTML = '<div class="yt-loading"><span style="font-size:1.5em">📺</span><span>Video non disponibile al momento</span></div>';
+                document.getElementById('yt-title').innerText = '';
+                document.getElementById('yt-meta').innerText = '';
+            }
+        }
+        function injectYouTube(videoId, title, dateStr) {
+            const wrap = document.getElementById('yt-embed-wrap');
+            if (!wrap) return;
+            wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>';
+            document.getElementById('yt-title').innerText = title;
+            document.getElementById('yt-meta').innerText = dateStr ? 'Pubblicato il ' + dateStr : '';
+        }
+
         // === INIT ALL ===
         window.onload = async function() {
             // Carica prima i dati remoti (FV + segnali), poi renderizza
             await loadRemoteData();
             renderWatchlist();
+            loadLatestYouTubeVideo();
+            initPensieroWeek();
             renderPersonalPortfolio();
             renderIndicatorSignals();
             renderPortfolio();
@@ -1808,7 +1950,7 @@
 
         // Bug 3 fix: scroll spy — highlight active nav link
         (function() {
-            const sections = ['fv-section','indicatore','screener','comparatore','watchlist','total-watchlist','myportfolio','strumenti','portfolio','news'];
+            const sections = ['editoriale','fv-section','indicatore','screener','comparatore','watchlist','total-watchlist','myportfolio','strumenti','portfolio','news'];
             const navLinks = document.querySelectorAll('.nav-link');
             let ticking = false;
             window.addEventListener('scroll', function() {
