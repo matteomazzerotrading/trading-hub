@@ -1633,7 +1633,7 @@
 
         // Dati storici reali portafoglio (USD, dati reali da TradingView)
         // Fonte: TradingView portfolio 64b3546145c9469581c8eacaa9b898fe — Directa Investments + Unicredit
-        // Valore attuale: 14,054.73 USD | Profitto totale: -433.27 USD (-2.84%)
+        // Valore attuale: 13,502.68 USD | Profitto totale: -985.32 USD (-6.65%) — aggiornato 14 Ott 26
         const PORTFOLIO_HISTORY_REAL = [
   { date: "1 Dic 24", value: 14488.0 },
   { date: "8 Dic 24", value: 14475.87 },
@@ -1733,8 +1733,7 @@
   { date: "27 Set 26", value: 13355.6 },
   { date: "4 Ott 26", value: 13315.7 },
   { date: "11 Ott 26", value: 13297.14 },
-  { date: "18 Ott 26", value: 13286.43 },
-  { date: "25 Ott 26", value: 14054.73 },
+  { date: "14 Ott 26", value: 13502.68 },
 ];
 
         function renderPerfChart() {
@@ -1871,24 +1870,48 @@
                 }
             } catch(e) {}
 
+            // Helper: fetch HTML via proxy (allorigins→JSON, corsproxy→text)
+            async function fetchViaProxy(targetUrl) {
+                const proxies = [
+                    { url: 'https://api.allorigins.win/get?url=' + encodeURIComponent(targetUrl), json: true },
+                    { url: 'https://corsproxy.io/?' + encodeURIComponent(targetUrl), json: false }
+                ];
+                for (const p of proxies) {
+                    try {
+                        const r = await fetch(p.url, { signal: AbortSignal.timeout(12000) });
+                        if (!r.ok) continue;
+                        if (p.json) { const d = await r.json(); return d.contents || ''; }
+                        return await r.text();
+                    } catch(e) {}
+                }
+                return '';
+            }
+
             try {
                 // Step 1: fetch channel page per estrarre channel ID
                 const pageUrl = 'https://www.youtube.com/@' + channelHandle;
-                const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(pageUrl);
-                const resp = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
-                if (!resp.ok) throw new Error('proxy fail');
-                const data = await resp.json();
-                const html = data.contents || '';
-                const cidMatch = html.match(/"channelId"\s*:\s*"(UC[^"]+)"/);
-                if (!cidMatch) throw new Error('no channel id');
-                const channelId = cidMatch[1];
+                const html = await fetchViaProxy(pageUrl);
+                if (!html) throw new Error('no html');
+
+                // Prova vari pattern per trovare il channel ID
+                let channelId = null;
+                const patterns = [
+                    /"channelId"\s*:\s*"(UC[^"]{20,})"/,
+                    /href="[^"]*feeds\/videos\.xml\?channel_id=(UC[^&"]{20,})"/,
+                    /"externalId"\s*:\s*"(UC[^"]{20,})"/,
+                    /channel_id=(UC[^&"\\]{20,})/
+                ];
+                for (const pat of patterns) {
+                    const m = html.match(pat);
+                    if (m && m[1]) { channelId = m[1]; break; }
+                }
+                if (!channelId) throw new Error('no channel id');
+
                 // Step 2: fetch RSS feed
                 const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
-                const rssProxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl);
-                const rssResp = await fetch(rssProxy, { signal: AbortSignal.timeout(10000) });
-                if (!rssResp.ok) throw new Error('rss fail');
-                const rssData = await rssResp.json();
-                const xml = rssData.contents || '';
+                const xml = await fetchViaProxy(rssUrl);
+                if (!xml) throw new Error('no rss');
+
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(xml, 'application/xml');
                 const entry = doc.querySelector('entry');
