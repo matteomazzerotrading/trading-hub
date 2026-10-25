@@ -1,0 +1,48 @@
+name: Update latest YouTube video
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # ogni 6 ore
+  workflow_dispatch:           # eseguibile manualmente da GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest video from YouTube RSS
+        run: |
+          RSS="https://www.youtube.com/feeds/videos.xml?channel_id=UCflbinnpV6oa8dwfbMh1FNw"
+          XML=$(curl -fsSL --max-time 15 "$RSS")
+
+          VIDEO_ID=$(echo "$XML" | grep -oP '(?<=<yt:videoId>)[^<]+' | head -1)
+          TITLE=$(echo "$XML" | grep -oP '(?<=<title>)[^<]+' | sed -n '2p')
+          PUBLISHED=$(echo "$XML" | grep -oP '(?<=<published>)[^<]+' | head -1)
+
+          if [ -z "$VIDEO_ID" ]; then
+            echo "No video ID found, skipping update."
+            exit 0
+          fi
+
+          cat > latest_video.json <<EOF
+          {
+            "videoId": "$VIDEO_ID",
+            "title": "$TITLE",
+            "published": "$PUBLISHED",
+            "updated": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+
+          echo "Found: $VIDEO_ID — $TITLE"
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add latest_video.json
+          git diff --cached --quiet || git commit -m "chore: update latest YouTube video"
+          git push
