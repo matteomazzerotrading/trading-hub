@@ -1871,50 +1871,71 @@
                 }
             } catch(e) {}
 
-            // Helper: fetch via proxy (allorigins→JSON, corsproxy→text)
-            async function fetchViaProxy(targetUrl) {
-                const proxies = [
-                    { url: 'https://api.allorigins.win/get?url=' + encodeURIComponent(targetUrl), json: true },
-                    { url: 'https://corsproxy.io/?' + encodeURIComponent(targetUrl), json: false }
-                ];
-                for (const p of proxies) {
-                    try {
-                        const r = await fetch(p.url, { signal: AbortSignal.timeout(12000) });
-                        if (!r.ok) continue;
-                        if (p.json) { const d = await r.json(); return d.contents || ''; }
-                        return await r.text();
-                    } catch(e) {}
-                }
-                return '';
-            }
-
-            try {
-                // Fetch RSS direttamente con channel ID hardcodato — nessun parsing HTML necessario
-                const channelId = CHANNEL_ID;
-
-                // Step 2: fetch RSS feed
-                const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
-                const xml = await fetchViaProxy(rssUrl);
-                if (!xml) throw new Error('no rss');
-
+            function parseRssXml(xml) {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(xml, 'application/xml');
                 const entry = doc.querySelector('entry');
-                if (!entry) throw new Error('no entry');
+                if (!entry) return null;
                 const vidIdEl = entry.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015', 'videoId')[0];
-                const videoId = vidIdEl ? vidIdEl.textContent : (entry.querySelector('id')?.textContent || '').split(':').pop();
+                const videoId = vidIdEl ? vidIdEl.textContent.trim() : (entry.querySelector('id')?.textContent || '').split(':').pop();
                 const title = entry.querySelector('title')?.textContent || '';
                 const published = entry.querySelector('published')?.textContent || '';
                 const dateStr = published ? new Date(published).toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'}) : '';
-                // Salva in cache
-                try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({videoId, title, dateStr, ts: Date.now()})); } catch(e) {}
-                injectYouTube(videoId, title, dateStr);
-            } catch(e) {
-                const wrap = document.getElementById('yt-embed-wrap');
-                if (wrap) wrap.innerHTML = '<div class="yt-loading"><span style="font-size:1.5em">📺</span><span>Video non disponibile al momento</span></div>';
-                document.getElementById('yt-title').innerText = '';
-                document.getElementById('yt-meta').innerText = '';
+                return videoId ? { videoId, title, dateStr } : null;
             }
+
+            const RSS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+
+            // Metodo 1: latest_video.json aggiornato dal GitHub Action (fonte più affidabile)
+            try {
+                const r = await fetch(DATA_BASE + 'latest_video.json?v=' + Date.now(), { signal: AbortSignal.timeout(8000) });
+                if (r.ok) {
+                    const d = await r.json();
+                    if (d.videoId) {
+                        const dateStr = d.published ? new Date(d.published).toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'}) : '';
+                        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({videoId: d.videoId, title: d.title, dateStr, ts: Date.now()})); } catch(e) {}
+                        injectYouTube(d.videoId, d.title, dateStr);
+                        return;
+                    }
+                }
+            } catch(e) {}
+
+            // Metodo 2: rss2json.com (JSON nativo, niente XML parsing)
+            try {
+                const r = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS_URL), { signal: AbortSignal.timeout(10000) });
+                if (r.ok) {
+                    const d = await r.json();
+                    if (d.status === 'ok' && d.items && d.items[0]) {
+                        const item = d.items[0];
+                        const videoId = (item.link || item.guid || '').split('v=').pop().split('&')[0];
+                        const title = item.title || '';
+                        const dateStr = item.pubDate ? new Date(item.pubDate).toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'}) : '';
+                        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({videoId, title, dateStr, ts: Date.now()})); } catch(e) {}
+                        injectYouTube(videoId, title, dateStr);
+                        return;
+                    }
+                }
+            } catch(e) {}
+
+            // Metodo 3: allorigins.win con XML parsing
+            try {
+                const r = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(RSS_URL), { signal: AbortSignal.timeout(12000) });
+                if (r.ok) {
+                    const d = await r.json();
+                    const result = parseRssXml(d.contents || '');
+                    if (result) {
+                        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({...result, ts: Date.now()})); } catch(e) {}
+                        injectYouTube(result.videoId, result.title, result.dateStr);
+                        return;
+                    }
+                }
+            } catch(e) {}
+
+            // Fallback
+            const wrap = document.getElementById('yt-embed-wrap');
+            if (wrap) wrap.innerHTML = '<div class="yt-loading"><span style="font-size:1.5em">📺</span><span>Video non disponibile al momento</span></div>';
+            document.getElementById('yt-title').innerText = '';
+            document.getElementById('yt-meta').innerText = '';
         }
         function injectYouTube(videoId, title, dateStr) {
             const wrap = document.getElementById('yt-embed-wrap');
