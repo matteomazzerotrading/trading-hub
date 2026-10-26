@@ -266,7 +266,7 @@
         /* === HAMBURGER NAV MOBILE === */
         .nav-hamburger { display: none; background: none; border: 1px solid var(--border-glass); color: #fff; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 1.1em; transition: 0.2s; }
         .nav-hamburger:hover { border-color: var(--brand-green); color: var(--brand-green); }
-        .nav-mobile-overlay { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(5,5,5,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glass); z-index: 999; padding: 20px; flex-direction: column; gap: 4px; }
+        .nav-mobile-overlay { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(5,5,5,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glass); z-index: 999; padding: 20px; flex-direction: column; gap: 4px; }
         .nav-mobile-overlay.open { display: flex; }
         .nav-mobile-overlay .nav-link { padding: 12px 16px; border-radius: 10px; font-size: 1em; color: var(--text-muted); text-decoration: none; transition: 0.2s; }
         .nav-mobile-overlay .nav-link:hover, .nav-mobile-overlay .nav-link.active { background: rgba(0,230,118,0.08); color: var(--brand-green); }
@@ -280,24 +280,93 @@
         .perf-kpi-val { font-family: 'JetBrains Mono', monospace; font-size: 1.3em; font-weight: 800; color: #fff; }
 
         @media (max-width: 900px) {
+            /* Layout grids → single column */
             .portfolio-grid, .news-layout, .tools-grid, .request-form, .comp-cards, .comp-inputs, .signals-layout { grid-template-columns: 1fr; }
             .comp-vs { display: none; }
-            .kpi-container { grid-template-columns: 1fr; }
-            .screener-stats { grid-template-columns: 1fr; }
+            /* KPI cards → 2 per row instead of stacked vertically */
+            .kpi-container { grid-template-columns: 1fr 1fr; }
+            /* Screener stats → 3 columns (mantieni leggibilità) */
+            .screener-stats { grid-template-columns: repeat(3, 1fr); }
+            /* FV result card inner layout → colonna */
             .fv-result-card > div > div { flex-direction: column; gap: 30px; }
             .btn-primary { grid-column: span 1; }
             .watchlist-grid { grid-template-columns: 1fr 1fr; }
+            /* Navbar → padding ridotto */
             .nav-links { display: none; }
-            .nav-hamburger { display: block; }
+            .nav-hamburger { display: block; min-height: 44px; min-width: 44px; }
+            .navbar { padding: 0 16px; }
+            /* Personal portfolio inputs → single column */
             .pers-port-inputs { grid-template-columns: 1fr; }
             .pers-table-wrap { overflow-x: auto; }
+            /* Card padding ridotto */
+            .card { padding: 20px; }
+            /* Section titles scala giù */
+            .section-title { font-size: 1.7em; letter-spacing: -0.5px; }
+            /* Section header in colonna se lo spazio è stretto */
+            .section-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+            /* Header principale più piccolo */
+            header h1 { font-size: 2em !important; }
         }
         @media (max-width: 600px) {
+            /* Search box FV */
             .fv-search-box { padding: 6px 6px 6px 15px; border-radius: 30px; }
-            .fv-search-btn { padding: 12px 20px; font-size: 0.9em; border-radius: 30px; }
+            .fv-search-btn { padding: 12px 18px; font-size: 0.88em; border-radius: 30px; }
             .fv-input-main { font-size: 1em; }
+            /* Watchlist e fundamentals */
             .watchlist-grid { grid-template-columns: 1fr; }
             .fundamentals-grid { grid-template-columns: 1fr 1fr; }
+            /* Font sizes più piccoli */
+            .section-title { font-size: 1.3em; }
+            header h1 { font-size: 1.65em !important; }
+            header p { font-size: 0.95em !important; }
+            /* KPI cards su due colonne anche a 600px */
+            .kpi-container { grid-template-columns: 1fr 1fr; }
+            .kpi-val { font-size: 1.35em; }
+            .kpi-card { padding: 14px 12px; }
+            /* FV values più piccoli */
+            .fv-value-big { font-size: 2.1em; }
+            .fv-value-medium { font-size: 1.55em; }
+            /* FV result card padding ridotto */
+            .fv-result-card > div { padding: 16px !important; }
+            /* Card padding ridotto */
+            .card { padding: 14px; }
+            /* Screener stats compatti */
+            .screener-stats { grid-template-columns: repeat(3, 1fr); }
+            .scr-stat-val { font-size: 1.1em; }
+            .scr-stat { padding: 10px 8px; }
+            /* Filtri screener */
+            .screener-filter-btn { padding: 7px 12px; font-size: 0.8em; }
+            .screener-controls { gap: 6px; }
+            /* Comparatore ticker */
+            .comp-ticker-big { font-size: 1.4em; }
+            .comp-card { padding: 16px; }
+            /* Perf KPI bar */
+            .perf-kpi-item { min-width: 100px; padding: 10px 12px; }
+            .perf-kpi-val { font-size: 1.1em; }
+            .perf-kpi-bar { gap: 10px; }
+            /* Barre portfolio alloc */
+            .bar-label { width: 85px; font-size: 0.8em; }
+            .bar-val { width: 50px; font-size: 0.8em; }
+            /* Segnali lista */
+            .signal-ticker { font-size: 1em; }
+            .signal-price { font-size: 0.95em; }
+            /* Pensiero card */
+            .pensiero-card { padding: 18px; min-height: auto; }
+            .pensiero-text { font-size: 0.9em; }
+            /* Button primario */
+            .btn-primary { padding: 13px 20px; font-size: 0.95em; }
+        }
+        @media (max-width: 380px) {
+            /* Telefoni molto piccoli (iPhone SE, ecc.) */
+            .section-title { font-size: 1.15em; }
+            header h1 { font-size: 1.4em !important; }
+            .fv-value-big { font-size: 1.8em; }
+            .kpi-val { font-size: 1.15em; }
+            .kpi-container { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .card { padding: 12px; }
+            .fv-search-btn { padding: 10px 12px; }
+            .screener-filter-btn { padding: 6px 10px; font-size: 0.75em; }
+            .bar-label { width: 75px; }
         }
         
         footer { text-align: center; padding: 50px; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.9em; }
@@ -408,7 +477,7 @@
                         </div>
                     </div>
                     <!-- PENSIERO: modifica solo il testo qui sotto nel repo -->
-                    <div class="pensiero-text" id="pensiero-text">Entriamo nell'ultima settimana di Ottobre e come di consueto le borse cambiano orario: 14:30 apertura USA e chiusura alle 21:30. Inoltre entriamo in una settimana piena di eventi macro importanti, tra utili, banche centrali ed elezioni. Per quanto riguarda il mio portafoglio, ho impostato ordine sell su SAP a 219.95€.</div>
+                    <div class="pensiero-text" id="pensiero-text">Scrivi qui il tuo pensiero della settimana. Per aggiornarlo, modifica questo testo direttamente nel file index.html su GitHub.</div>
                     <div class="pensiero-week" id="pensiero-week"></div>
                 </div>
             </div>
