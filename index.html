@@ -1685,12 +1685,29 @@
             const ctx = document.getElementById('allocationChart');
             if (ctx && pd && pd.positions) {
                 const labels = pd.positions.map(p => p.ticker);
+                const names  = pd.positions.map(p => p.name);
                 const values = pd.positions.map(p => p.alloc_pct);
                 if (allocChartObj) allocChartObj.destroy();
                 allocChartObj = new Chart(ctx.getContext('2d'), {
                     type: 'doughnut',
-                    data: { labels, datasets: [{ data: values, backgroundColor: COLORS.slice(0, labels.length), borderWidth: 3, borderColor: '#0a0e17', borderRadius: 5, hoverOffset: 12 }] },
-                    options: { responsive: true, maintainAspectRatio: false, layout: { padding: 10 }, plugins: { legend: { position: 'bottom', labels: { color: '#e0e0e0', font: { family: "'Inter', sans-serif", size: 12 }, padding: 15, usePointStyle: true, pointStyle: 'circle' } }, tooltip: { backgroundColor: 'rgba(5,5,5,0.95)', titleColor: '#fff', bodyColor: '#d1d4dc', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, padding: 12, usePointStyle: true, callbacks: { label: c => ' ' + c.label + ': ' + c.parsed.toFixed(1) + '%' } } }, cutout: '68%' }
+                    data: { labels, datasets: [{ data: values, backgroundColor: COLORS.slice(0, labels.length), borderWidth: 3, borderColor: '#0a0e17', borderRadius: 5, hoverOffset: 14 }] },
+                    options: {
+                        responsive: true, maintainAspectRatio: false, layout: { padding: 16 }, cutout: '68%',
+                        plugins: {
+                            // Niente legenda: il ticker compare solo passando sopra la fetta (o toccandola da smartphone)
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: 'rgba(5,5,5,0.95)', titleColor: '#fff', bodyColor: '#d1d4dc',
+                                borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, padding: 12, usePointStyle: true,
+                                titleFont: { family: "'JetBrains Mono', monospace", size: 14, weight: 'bold' },
+                                bodyFont: { family: "'Inter', sans-serif", size: 12 },
+                                callbacks: {
+                                    title: items => items[0].label,
+                                    label: c => ' ' + names[c.dataIndex] + ': ' + c.parsed.toFixed(1) + '%'
+                                }
+                            }
+                        }
+                    }
                 });
             }
 
