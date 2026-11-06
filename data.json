@@ -1,6 +1,6 @@
 {
   "_comment": "Aggiorna qui i Fair Value senza toccare index.html. Le chiavi in 'db' fanno override dei valori nell'HTML. I prezzi vengono aggiornati automaticamente dal GitHub Action giornaliero.",
-  "prices_updated": "2026-11-06T21:30:00Z",
+  "prices_updated": "2026-11-06T21:52:31Z",
   "db": {
     "DIA": {
       "name": "DiaSorin",
@@ -847,7 +847,7 @@
     "SGBS": {
       "name": "Sprott Gold Miners",
       "fv": null,
-      "price": 388.12,
+      "price": 388.11,
       "curr": "$",
       "ex": "LSE",
       "yf": "SGBS.L",
