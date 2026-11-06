@@ -510,6 +510,7 @@
                                 <div class="fv-label">Mio Fair Value</div>
                                 <div id="fvValue" class="fv-value-big mono-font">---</div>
                                 <div id="fvStatus" class="wl-badge" style="margin-top:10px; padding: 6px 18px; font-size: 0.85em;">---</div>
+                                <div id="fvPriceBasis" style="margin-top:8px; font-size:0.78em; color:var(--text-muted); line-height:1.5; max-width:320px; margin-left:auto; margin-right:auto;"></div>
                                 <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                                     <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="wl-fv-btn" style="width: auto; padding: 8px 20px;">
                                         ＋ Watchlist
@@ -1247,6 +1248,14 @@
             return fallbackPrice;
         }
 
+        // Come getLivePrice, ma dice anche se il prezzo è live o è quello salvato in data.json
+        async function getPriceInfo(data) {
+            const fb = data.price;
+            const p = await getLivePrice(data.yf, fb);
+            const isLive = !!(data.yf && _priceCache[data.yf] && _priceCache[data.yf].price === p);
+            return { price: parseFloat(p), live: isLive };
+        }
+
         // === CARICAMENTO SEGNALI INDICATORE ===
         function renderIndicatorSignals() {
             const list = document.getElementById('signal-list-container');
@@ -1306,7 +1315,8 @@
             if (db[input]) {
                 const data = db[input];
                 btn.innerText = "CARICAMENTO..."; btn.style.opacity = "0.7";
-                const livePrice = await getLivePrice(data.yf, data.price);
+                const priceInfo = await getPriceInfo(data);
+                const livePrice = priceInfo.price;
                 btn.innerText = "ANALIZZA"; btn.style.opacity = "1";
 
                 currentFVTicker = input;
@@ -1344,8 +1354,21 @@
                     res.style.borderColor = "var(--border-glass)";
                 }
 
+                // Mostra su quale prezzo è stato fatto il confronto
+                const basis = document.getElementById('fvPriceBasis');
+                if (basis) {
+                    if (fvNum === null || isNaN(priceNum)) {
+                        basis.innerHTML = '';
+                    } else if (priceInfo.live) {
+                        basis.innerHTML = `Confronto sul prezzo live: <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong>`;
+                    } else {
+                        const upd = data.updated ? new Date(data.updated + 'T12:00:00').toLocaleDateString('it-IT', {day:'2-digit', month:'2-digit', year:'numeric'}) : 'data sconosciuta';
+                        basis.innerHTML = `⚠️ Prezzo live non disponibile: confronto sull'ultimo prezzo salvato <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong> (${upd}). Se diverso dal prezzo qui accanto, fa fede quello.`;
+                    }
+                }
+
                 const script = document.createElement('script'); script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js'; script.async = true;
-                script.innerHTML = JSON.stringify({ "symbol": data.ex + ":" + input, "width": "100%", "isTransparent": true, "colorTheme": "dark", "locale": "it" });
+                script.innerHTML = JSON.stringify({ "symbol": data.tv || (data.ex + ":" + input), "width": "100%", "isTransparent": true, "colorTheme": "dark", "locale": "it" });
                 miniChart.appendChild(script);
 
                 if (data.videoID) {
