@@ -1,17 +1,17 @@
 {
   "_comment": "Aggiorna qui i Fair Value senza toccare index.html. Le chiavi in 'db' fanno override dei valori nell'HTML. I prezzi vengono aggiornati automaticamente dal GitHub Action giornaliero.",
-  "prices_updated": "2026-10-25T00:00:00Z",
+  "prices_updated": "2026-11-06T21:30:00Z",
   "db": {
     "DIA": {
       "name": "DiaSorin",
       "fv": 85.0,
-      "price": 80.33,
+      "price": 82.64,
       "curr": "€",
       "ex": "MIL",
       "yf": "DIA.MI",
       "divYield": 1.6,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "27.7",
         "eps": "2.90",
@@ -22,13 +22,13 @@
     "ERG": {
       "name": "ERG S.p.A.",
       "fv": 28.5,
-      "price": 23.9,
+      "price": 22.46,
       "curr": "€",
       "ex": "MIL",
       "yf": "ERG.MI",
       "divYield": 4.1,
       "videoID": null,
-      "updated": "2026-03-05",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "14.2",
         "eps": "1.68",
@@ -39,13 +39,13 @@
     "RACE": {
       "name": "Ferrari",
       "fv": 300.0,
-      "price": 352.14,
+      "price": 373.85,
       "curr": "€",
       "ex": "MIL",
       "yf": "RACE.MI",
       "divYield": 0.76,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "56.6",
         "eps": "6.22",
@@ -56,13 +56,13 @@
     "GOOG": {
       "name": "Alphabet",
       "fv": 290.0,
-      "price": 175.0,
+      "price": 283.93,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GOOG",
       "divYield": 0.15,
       "videoID": null,
-      "updated": "2026-03-06",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "25.1",
         "eps": "6.97",
@@ -73,93 +73,82 @@
     "MC": {
       "name": "LVMH",
       "fv": 600.0,
-      "price": 552.2,
+      "price": 408.75,
       "curr": "€",
       "ex": "EPA",
       "yf": "MC.PA",
       "divYield": 1.5,
       "videoID": null,
-      "updated": "2026-03-05",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "23.4",
         "eps": "23.6",
         "mcap": "275B",
         "rev": "+8.9%"
-      }
+      },
+      "tv": "EURONEXT:MC"
     },
     "ADBE": {
       "name": "Adobe",
-      "fv": 325.65,
-      "price": 236.28,
+      "fv": 300.0,
+      "price": 239.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADBE",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "28.5",
         "eps": "8.30",
         "mcap": "160B",
         "rev": "+10%"
-      },
-      "fv_low": 300.12,
-      "fv_high": 350.05,
-      "fv_mkt": 489.83,
-      "fv_sto": 402.91
+      }
     },
     "INTU": {
       "name": "Intuit",
-      "fv": 429.37,
-      "price": 301.45,
+      "fv": 700.0,
+      "price": 341.5,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTU",
       "divYield": 0.65,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "33.3",
         "eps": "9.05",
         "mcap": "135B",
         "rev": "+12%"
-      },
-      "fv_low": 366.73,
-      "fv_high": 510.53,
-      "fv_mkt": 702.03,
-      "fv_sto": 511.65
+      }
     },
     "QCOM": {
       "name": "Qualcomm",
-      "fv": 123.92,
-      "price": 176.86,
+      "fv": 180.0,
+      "price": 165.41,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "QCOM",
       "divYield": 1.85,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "26.1",
         "eps": "6.78",
         "mcap": "191B",
         "rev": "+5%"
-      },
-      "fv_low": 78.21,
-      "fv_high": 141.92,
-      "fv_mkt": 179.92,
-      "fv_sto": 148.34
+      }
     },
     "STLAM": {
       "name": "Stellantis",
       "fv": 18.0,
-      "price": 20.5,
+      "price": 4.02,
       "curr": "€",
       "ex": "MIL",
       "yf": "STLAM.MI",
       "divYield": 6.5,
       "videoID": "MpwZcg3J8BE",
-      "updated": "2026-03-07",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "3.8",
         "eps": "5.40",
@@ -169,35 +158,31 @@
     },
     "SAP": {
       "name": "SAP SE",
-      "fv": 101.46,
-      "price": 200.85,
+      "fv": 220.0,
+      "price": 210.75,
       "curr": "€",
       "ex": "XETR",
       "yf": "SAP.DE",
       "divYield": 1.2,
       "videoID": "Icy8DMAwDYw",
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "29.3",
         "eps": "6.85",
         "mcap": "238B",
         "rev": "+11%"
-      },
-      "fv_low": 77.25,
-      "fv_high": 131.42,
-      "fv_mkt": 175.98,
-      "fv_sto": 171.25
+      }
     },
     "AAPL": {
       "name": "Apple Inc.",
       "fv": 253.0,
-      "price": 175.0,
+      "price": 342.37,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AAPL",
       "divYield": 0.5,
       "videoID": null,
-      "updated": "2026-03-05",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "28.5",
         "eps": "6.14",
@@ -208,13 +193,13 @@
     "MSFT": {
       "name": "Microsoft",
       "fv": 461.22,
-      "price": 410.0,
+      "price": 530.61,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MSFT",
       "divYield": 0.75,
       "videoID": null,
-      "updated": "2026-03-05",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "35.2",
         "eps": "11.6",
@@ -225,13 +210,13 @@
     "AMZN": {
       "name": "Amazon",
       "fv": 199.0,
-      "price": 180.0,
+      "price": 259.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMZN",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-03-05",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "40.5",
         "eps": "4.44",
@@ -242,13 +227,13 @@
     "NVDA": {
       "name": "Nvidia",
       "fv": 163.11,
-      "price": 120.0,
+      "price": 186.64,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NVDA",
       "divYield": 0.02,
       "videoID": null,
-      "updated": "2026-03-05",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "75.4",
         "eps": "1.59",
@@ -259,544 +244,514 @@
     "A2A": {
       "name": "A2A S.p.A.",
       "fv": 2.45,
-      "price": 1.7,
+      "price": 2.432,
       "curr": "€",
       "ex": "MIL",
       "yf": "A2A.MI",
       "divYield": 4.8,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "ADM": {
       "name": "Archer-Daniels",
       "fv": 53.0,
-      "price": 60.0,
+      "price": 69.97,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ADM",
       "divYield": 3.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "ADP": {
       "name": "Auto Data Proc.",
       "fv": 312.0,
-      "price": 250.0,
+      "price": 303.35,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADP",
       "divYield": 1.9,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "ADSK": {
       "name": "Autodesk Inc.",
       "fv": 339.0,
-      "price": 260.0,
+      "price": 261.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADSK",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "AMAT": {
       "name": "Applied Materials",
       "fv": 233.0,
-      "price": 205.0,
+      "price": 332.71,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMAT",
       "divYield": 0.7,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "AMD": {
       "name": "AMD",
       "fv": 145.6,
-      "price": 160.0,
+      "price": 449.04,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMD",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "ASML": {
       "name": "ASML Holding",
       "fv": 904.0,
-      "price": 920.0,
+      "price": 1424.75,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ASML",
       "divYield": 0.85,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "AXP": {
       "name": "American Express",
       "fv": 332.0,
-      "price": 230.0,
+      "price": 320.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AXP",
       "divYield": 1.1,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "BAC": {
       "name": "Bank of America",
       "fv": 59.85,
-      "price": 37.0,
+      "price": 49.42,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BAC",
       "divYield": 2.2,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "BAYN": {
       "name": "Bayer AG",
       "fv": 44.12,
-      "price": 28.0,
+      "price": 55.58,
       "curr": "€",
       "ex": "XETR",
       "yf": "BAYN.DE",
       "divYield": 4.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "BATS": {
       "name": "Brit. Am. Tobacco",
       "fv": 4656.0,
-      "price": 2350.0,
+      "price": 4567.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
       "divYield": 9.2,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "BC": {
       "name": "Brunswick Corp",
       "fv": 88.0,
-      "price": 85.0,
+      "price": 77.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BC",
       "divYield": 1.7,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "BNG": {
       "name": "Bunge Global",
       "fv": 46.31,
-      "price": 105.0,
+      "price": 99.1,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BG",
       "divYield": 3.1,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06",
+      "tv": "NYSE:BG"
     },
     "BRE": {
       "name": "Brembo",
       "fv": 14.93,
-      "price": 10.5,
+      "price": 9.9,
       "curr": "€",
       "ex": "MIL",
       "yf": "BRE.MI",
       "divYield": 2.1,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "BRK.B": {
       "name": "Berkshire Hath.",
       "fv": 511.0,
-      "price": 405.0,
+      "price": 570.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BRK-B",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "CAT": {
       "name": "Caterpillar",
       "fv": 404.0,
-      "price": 340.0,
+      "price": 558.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CAT",
       "divYield": 1.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "CE": {
       "name": "Celanese",
-      "fv": 147.53,
-      "price": 44.73,
+      "fv": 105.56,
+      "price": 46.49,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CE",
       "divYield": 2.6,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "N/D",
         "eps": "-5.21",
         "mcap": "4.4B",
         "rev": "-8%"
-      },
-      "fv_low": 83.73,
-      "fv_high": 195.74,
-      "fv_mkt": 255.06,
-      "fv_sto": 103.38
+      }
     },
     "CNC": {
       "name": "Centene",
       "fv": 102.66,
-      "price": 78.0,
+      "price": 69.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNC",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "COST": {
       "name": "Costco Wholesale",
       "fv": 851.0,
-      "price": 750.0,
+      "price": 1053.56,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "COST",
       "divYield": 0.6,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "CPR": {
       "name": "Campari",
       "fv": 8.95,
-      "price": 9.5,
+      "price": 6.64,
       "curr": "€",
       "ex": "MIL",
       "yf": "CPR.MI",
       "divYield": 0.9,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "CRM": {
       "name": "Salesforce",
       "fv": 325.48,
-      "price": 310.0,
+      "price": 213.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CRM",
       "divYield": 0.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "CVX": {
       "name": "Chevron",
       "fv": 181.66,
-      "price": 155.0,
+      "price": 212.61,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVX",
       "divYield": 4.1,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "DDOG": {
       "name": "Datadog",
       "fv": 129.62,
-      "price": 125.0,
+      "price": 179.04,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DDOG",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "ENI": {
       "name": "Eni S.p.A.",
       "fv": 21.29,
-      "price": 14.8,
+      "price": 25.05,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENI.MI",
       "divYield": 6.2,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "ENEL": {
       "name": "Enel S.p.A.",
       "fv": 4.85,
-      "price": 6.2,
+      "price": 9.693,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENEL.MI",
       "divYield": 6.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "G": {
       "name": "Assic. Generali",
       "fv": 50.63,
-      "price": 22.5,
+      "price": 43.73,
       "curr": "€",
       "ex": "MIL",
       "yf": "G.MI",
       "divYield": 5.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "IBM": {
       "name": "IBM",
       "fv": 231.0,
-      "price": 195.0,
+      "price": 245.0,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IBM",
       "divYield": 3.2,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "INTC": {
       "name": "Intel",
       "fv": 35.29,
-      "price": 42.5,
+      "price": 56.28,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTC",
       "divYield": 1.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "IP": {
       "name": "International Paper",
       "fv": 48.02,
-      "price": 39.0,
+      "price": 34.53,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IP",
       "divYield": 4.0,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "ISP": {
       "name": "Intesa Sanpaolo",
       "fv": 7.22,
-      "price": 3.4,
+      "price": 6.177,
       "curr": "€",
       "ex": "MIL",
       "yf": "ISP.MI",
       "divYield": 8.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "LDO": {
       "name": "Leonardo S.p.A.",
       "fv": 26.65,
-      "price": 21.0,
+      "price": 48.07,
       "curr": "€",
       "ex": "MIL",
       "yf": "LDO.MI",
       "divYield": 1.8,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "LULU": {
       "name": "Lululemon",
-      "fv": 202.11,
-      "price": 94.34,
+      "fv": 465.8,
+      "price": 110.79,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LULU",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "12.1",
         "eps": "7.80",
         "mcap": "11B",
         "rev": "+3%"
-      },
-      "fv_low": 84.49,
-      "fv_high": 302.05,
-      "fv_mkt": 331.85,
-      "fv_sto": 309.85
+      }
     },
     "MA": {
       "name": "Mastercard",
       "fv": 500.65,
-      "price": 475.0,
+      "price": 652.7,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MA",
       "divYield": 0.5,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "MONC": {
       "name": "Moncler",
       "fv": 74.93,
-      "price": 66.0,
+      "price": 45.37,
       "curr": "€",
       "ex": "MIL",
       "yf": "MONC.MI",
       "divYield": 1.8,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "OXY": {
       "name": "Occidental Petroleum",
       "fv": 77.7,
-      "price": 62.0,
+      "price": 56.38,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OXY",
       "divYield": 1.2,
       "videoID": null,
-      "updated": "2026-03-05"
+      "updated": "2026-11-06"
     },
     "TTD": {
       "name": "The Trade Desk",
-      "fv": 30.01,
-      "price": 13.0,
+      "fv": 18.0,
+      "price": 12.93,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTD",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "15.4",
         "eps": "0.84",
         "mcap": "6.1B",
         "rev": "+8%"
-      },
-      "fv_low": 28.37,
-      "fv_high": 31.58,
-      "fv_mkt": 49.07,
-      "fv_sto": 66.32
+      }
     },
     "TRI": {
       "name": "Thomson Reuters",
-      "fv": 62.47,
-      "price": 127.0,
+      "fv": 135.0,
+      "price": 112.57,
       "curr": "$",
-      "ex": "NYSE",
+      "ex": "NASDAQ",
       "yf": "TRI",
       "divYield": 2.05,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "33.5",
         "eps": "3.81",
         "mcap": "74B",
         "rev": "+7%"
       },
-      "fv_low": 50.52,
-      "fv_high": 68.13,
-      "fv_mkt": 103.5,
-      "fv_sto": 120.52
+      "tv": "NASDAQ:TRI"
     },
     "PFE": {
       "name": "Pfizer",
-      "fv": 25.48,
-      "price": 30.03,
+      "fv": 35.0,
+      "price": 29.39,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PFE",
       "divYield": 5.73,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "39.8",
         "eps": "0.76",
         "mcap": "171B",
         "rev": "-8%"
-      },
-      "fv_low": 12.97,
-      "fv_high": 41.02,
-      "fv_mkt": 42.32,
-      "fv_sto": 25.77
+      }
     },
     "BSX": {
       "name": "Boston Scientific",
-      "fv": 33.73,
-      "price": 45.69,
+      "fv": 72.0,
+      "price": 42.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BSX",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "18.5",
         "eps": "2.47",
         "mcap": "66B",
         "rev": "+12%"
-      },
-      "fv_low": 19.93,
-      "fv_high": 45.06,
-      "fv_mkt": 63.54,
-      "fv_sto": 54.98
+      }
     },
     "BLDR": {
       "name": "Builders FirstSource",
-      "fv": 172.83,
-      "price": 56.85,
+      "fv": 80.0,
+      "price": 62.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLDR",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "61.8",
         "eps": "0.92",
         "mcap": "6.1B",
         "rev": "-15%"
-      },
-      "fv_low": 98.4,
-      "fv_high": 248.58,
-      "fv_mkt": 261.52,
-      "fv_sto": 110.34
+      }
     },
     "CPRT": {
       "name": "Copart",
-      "fv": 20.6,
-      "price": 29.0,
+      "fv": 40.0,
+      "price": 31.95,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CPRT",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "18.7",
         "eps": "1.55",
         "mcap": "26.9B",
         "rev": "+5%"
-      },
-      "fv_low": 18.59,
-      "fv_high": 22.56,
-      "fv_mkt": 32.5,
-      "fv_sto": 41.76
+      }
     },
     "EL": {
       "name": "EssilorLuxottica",
       "fv": 200.0,
-      "price": 181.2,
+      "price": 193.8,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "EL.PA",
       "divYield": 2.21,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "33.9",
         "eps": "5.35",
@@ -806,35 +761,31 @@
     },
     "BR": {
       "name": "Broadridge Financial",
-      "fv": 156.89,
-      "price": 183.28,
+      "fv": 220.0,
+      "price": 190.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BR",
       "divYield": 2.19,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "19.0",
         "eps": "9.62",
         "mcap": "20.7B",
         "rev": "+7%"
-      },
-      "fv_low": 132.61,
-      "fv_high": 175.97,
-      "fv_mkt": 263.7,
-      "fv_sto": 177.22
+      }
     },
     "BF.B": {
       "name": "Brown-Forman B",
       "fv": 42.0,
-      "price": 29.41,
+      "price": 30.58,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BF-B",
       "divYield": 3.14,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "19.0",
         "eps": "1.55",
@@ -844,109 +795,71 @@
     },
     "PDD": {
       "name": "PDD Holdings",
-      "fv": 1585.55,
-      "price": 79.04,
+      "fv": 110.0,
+      "price": 83.03,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PDD",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "8.8",
         "eps": "9.02",
         "mcap": "112B",
         "rev": "+25%"
-      },
-      "fv_low": 1216.91,
-      "fv_high": 1835.59,
-      "fv_mkt": 2590.58,
-      "fv_sto": 97.48
+      }
     },
     "FUN": {
       "name": "Six Flags Entertain.",
-      "fv": 22.5,
-      "price": 6.77,
+      "fv": 15.0,
+      "price": 10.0,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FUN",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "N/D",
         "eps": "-17.32",
         "mcap": "693M",
         "rev": "-3%"
-      },
-      "fv_high": 70.94,
-      "fv_mkt": 45.05,
-      "fv_sto": 39.33
+      }
     },
     "FMC": {
       "name": "FMC Corporation",
-      "fv": 9.06,
-      "price": 5.05,
+      "fv": 20.0,
+      "price": 5.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FMC",
       "divYield": 6.34,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "N/D",
         "eps": "-22.04",
         "mcap": "785M",
         "rev": "-12%"
-      },
-      "fv_high": 62.75,
-      "fv_mkt": 14.53,
-      "fv_sto": 53.82
+      }
     },
     "SGBS": {
       "name": "Sprott Gold Miners",
       "fv": null,
-      "price": 397.53,
+      "price": 388.12,
       "curr": "$",
       "ex": "LSE",
       "yf": "SGBS.L",
       "divYield": 0.0,
       "videoID": null,
-      "updated": "2026-10-25",
+      "updated": "2026-11-06",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
         "mcap": "N/D",
         "rev": "N/D"
       }
-    },
-    "DIA.MI": {
-      "fv": 79.16,
-      "fv_low": 72.86,
-      "fv_high": 85.38,
-      "fv_mkt": 143.2,
-      "fv_sto": 92.1
-    },
-    "BF-B": {
-      "fv": 37.93,
-      "fv_low": 28.24,
-      "fv_high": 62.68,
-      "fv_mkt": 82.03,
-      "fv_sto": 45.4
-    },
-    "EL.PA": {
-      "fv": 158.4,
-      "fv_low": 154.04,
-      "fv_high": 160.67,
-      "fv_mkt": 297.27,
-      "fv_sto": 168.39
-    },
-    "RACE.MI": {
-      "fv": 119.53,
-      "fv_low": 95.93,
-      "fv_high": 155.0,
-      "fv_mkt": 218.64,
-      "fv_sto": 315.34
     }
   },
   "aliases": {
@@ -956,30 +869,5 @@
     ".FUN": "FUN",
     ".INTU": "INTU",
     ".QCOM": "QCOM"
-  },
-  "fv_updated": "2026-11-01T21:30:05.152721Z",
-  "fv_tickers_ok": [
-    "TTD",
-    "TRI",
-    "DIA.MI",
-    "PFE",
-    "SAP",
-    "BR",
-    "BF-B",
-    "PDD",
-    "BSX",
-    "QCOM",
-    "EL.PA",
-    "LULU",
-    "BLDR",
-    "RACE.MI",
-    "FUN",
-    "CE",
-    "INTU",
-    "CPRT",
-    "ADBE",
-    "FMC"
-  ],
-  "fv_rf": 4.98,
-  "fv_pi": 2.34
+  }
 }
