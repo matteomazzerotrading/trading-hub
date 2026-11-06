@@ -27,21 +27,45 @@ PREMIO_PCT = 0.03     # premio/sconto qualità
 INFL_FIX   = 0.025    # inflazione fissa di fallback
 
 # Ticker del portafoglio (solo azioni/ETF, non obbligazioni)
+# Nomi come le chiavi di data.json (NON in formato yfinance, altrimenti
+# lo script creava voci doppie tipo "DIA.MI" e non aggiornava "DIA")
 TICKERS_PORTAFOGLIO = [
-    "TTD", "TRI", "DIA.MI", "PFE", "SAP",
-    "BR", "BF-B", "PDD", "BSX", "QCOM",
-    "EL.PA", "LULU", "BLDR", "RACE.MI",
+    "TTD", "TRI", "DIA", "PFE", "SAP",
+    "BR", "BF.B", "PDD", "BSX", "QCOM",
+    "EL", "LULU", "BLDR", "RACE",
     "FUN", "CE", "INTU", "CPRT", "ADBE", "FMC"
 ]
 
-# Mappa ticker TradingView → yfinance (dove divergono)
+# Mappa ticker data.json → yfinance (dove divergono)
 TV_TO_YF = {
     "DIA":   "DIA.MI",
     "RACE":  "RACE.MI",
     "EL":    "EL.PA",
     "BF.B":  "BF-B",
+    "SAP":   "SAP.DE",   # quotazione XETR in EUR, non l'ADR USA in USD
     "SGBS":  "SGBS.L",
 }
+
+# Voci create per errore dalle versioni precedenti dello script
+VOCI_ERRATE = ["DIA.MI", "BF-B", "EL.PA", "RACE.MI"]
+
+
+def fx_factor(from_cur, to_cur):
+    """Fattore per convertire importi di bilancio (from_cur) nella valuta del prezzo (to_cur).
+    Gestisce GBp (pence): 1 GBP = 100 GBp."""
+    import yfinance as yf
+    if not from_cur or not to_cur:
+        return 1.0
+    mult = 1.0
+    if to_cur == "GBp":
+        to_cur, mult = "GBP", 100.0
+    if from_cur.upper() == to_cur.upper():
+        return mult
+    pair = f"{from_cur.upper()}{to_cur.upper()}=X"
+    hist = yf.Ticker(pair).history(period="5d")
+    if hist.empty:
+        raise RuntimeError(f"cambio {pair} non disponibile")
+    return float(hist["Close"].dropna().iloc[-1]) * mult
 
 # ── Fetch US 10Y da FRED ──────────────────────────────────────────────────────
 def get_rf():
@@ -133,16 +157,29 @@ def compute_fv(ticker_yf, ticker_tv, rf, pi=None):
     marg_max = max(marges)
     rev_now  = rev_s[0]                   # ricavi più recenti
 
-    fcf_norm = marg_n   * rev_now / tso
-    fcf_min  = marg_min * rev_now / tso
-    fcf_max  = marg_max * rev_now / tso
+    # ── Valuta: il bilancio può essere in una valuta diversa dal prezzo ───
+    # (es. PDD: bilancio in CNY, azione quotata in USD). Senza conversione
+    # il FV risulterebbe espresso nella valuta sbagliata.
+    fin_cur = info.get("financialCurrency")
+    px_cur  = info.get("currency")
+    try:
+        fx = fx_factor(fin_cur, px_cur)
+    except Exception as e:
+        print(f"  {ticker_tv}: {e} — FV saltato per evitare valuta errata")
+        return None
+    if fx != 1.0:
+        print(f"  {ticker_tv}: bilancio in {fin_cur}, prezzo in {px_cur} → cambio {fx:.4f}")
+
+    fcf_norm = marg_n   * rev_now / tso * fx
+    fcf_min  = marg_min * rev_now / tso * fx
+    fcf_max  = marg_max * rev_now / tso * fx
 
     # ── Cassa per azione ──────────────────────────────────────────────────
     cash_val = 0.0
     if cash_row is not None:
         v = float(list(cash_row.values)[0]) if list(cash_row.values) else 0
         if not math.isnan(v):
-            cash_val = max(v, 0) / tso
+            cash_val = max(v, 0) / tso * fx
 
     # ── Beta (da yfinance, con correzione Blume) ──────────────────────────
     beta_raw = info.get("beta") or 1.0
@@ -292,6 +329,10 @@ def main():
     if "db" not in data:
         data["db"] = {}
 
+    for k in VOCI_ERRATE:
+        if data["db"].pop(k, None) is not None:
+            print(f"Rimossa voce errata: {k}")
+
     updated = []
     failed  = []
 
@@ -300,9 +341,11 @@ def main():
         print(f"\n→ {ticker_tv} ({ticker_yf})")
         try:
             result = compute_fv(ticker_yf, ticker_tv, rf, pi)
+            if result and ticker_tv not in data["db"]:
+                print(f"  ⚠️  {ticker_tv} non è in data.json — salto (aggiungilo prima con nome, valuta, yf)")
+                failed.append(ticker_tv)
+                continue
             if result:
-                if ticker_tv not in data["db"]:
-                    data["db"][ticker_tv] = {}
                 data["db"][ticker_tv].update(result)
                 fv_str = f"fv={result.get('fv','—')}"
                 print(f"  ✅ {fv_str}  low={result.get('fv_low','—')}  high={result.get('fv_high','—')}")
