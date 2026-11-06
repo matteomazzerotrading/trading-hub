@@ -476,8 +476,8 @@
                             Financial Advisor · Trader
                         </div>
                     </div>
-                    <!-- PENSIERO: modifica solo il testo qui sotto nel repo -->
-                    <div class="pensiero-text" id="pensiero-text">Scrivi qui il tuo pensiero della settimana. Per aggiornarlo, modifica questo testo direttamente nel file index.html su GitHub.</div>
+                    <!-- PENSIERO: il testo viene caricato da pensiero.json nel repo GitHub (modifica quel file) -->
+                    <div class="pensiero-text" id="pensiero-text">Caricamento...</div>
                     <div class="pensiero-week" id="pensiero-week"></div>
                 </div>
             </div>
@@ -1911,6 +1911,25 @@
             document.getElementById('nav-hamburger-btn').textContent = '☰';
         }
 
+        // === PENSIERO DELLA SETTIMANA — letto da pensiero.json su GitHub (uguale su tutti i dispositivi) ===
+        async function loadPensiero() {
+            const el = document.getElementById('pensiero-text');
+            const weekEl = document.getElementById('pensiero-week');
+            try {
+                const r = await fetch(DATA_BASE + 'pensiero.json?v=' + Date.now(), { cache: 'no-store' });
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                const p = await r.json();
+                if (p.testo && el) el.textContent = String(p.testo).trim();
+                if (p.data && weekEl) {
+                    const d = new Date(p.data + 'T12:00:00');
+                    if (!isNaN(d)) weekEl.innerText = 'Pubblicato il ' + d.toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'});
+                }
+            } catch(e) {
+                // Fallback: resta il testo scritto in index.html
+                if (el) el.textContent = el.textContent.trim();
+            }
+        }
+
         // === DATA PENSIERO AUTOMATICA ===
         function initPensieroWeek() {
             try {
@@ -2021,6 +2040,7 @@
             renderWatchlist();
             loadLatestYouTubeVideo();
             initPensieroWeek();
+            loadPensiero();
             renderPersonalPortfolio();
             renderIndicatorSignals();
             renderPortfolio();
