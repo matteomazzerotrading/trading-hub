@@ -1,0 +1,39 @@
+name: Aggiorna Prezzi
+
+# Ogni 2 ore dal lunedì al venerdì, dalle 8:00 alle 22:00 ora italiana circa (7-21 UTC).
+# Puoi anche avviarlo manualmente dalla tab Actions su GitHub.
+on:
+  schedule:
+    - cron: '0 7-21/2 * * 1-5'
+  workflow_dispatch:
+
+# Senza questo permesso il bot non può salvare data.json nel repo
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installa dipendenze
+        run: pip install yfinance --quiet
+
+      - name: Aggiorna prezzi in data.json
+        run: python scripts/update_prices.py
+
+      - name: Commit e push (se ci sono modifiche)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto: aggiornamento prezzi [skip ci]"
+          file_pattern: "data.json"
+          commit_user_name: "TradingHub Bot"
+          commit_user_email: "bot@tradinghub.local"
