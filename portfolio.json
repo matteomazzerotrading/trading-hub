@@ -135,7 +135,7 @@
     },
     {
       "ticker": "US912810RX81",
-      "name": "US T-Bond 2048",
+      "name": "US T-Bond 3% mag 2047",
       "exchange": "EUROTLX",
       "type": "bond",
       "qty": 10,
@@ -179,7 +179,7 @@
     },
     {
       "ticker": "IT0005480980",
-      "name": "BTP 2037",
+      "name": "BTP 2,15% set 2052",
       "exchange": "OTCB",
       "type": "bond",
       "qty": 10,
@@ -212,7 +212,7 @@
     },
     {
       "ticker": "IT0005425233",
-      "name": "BTP 2030",
+      "name": "BTP 1,7% set 2051",
       "exchange": "OTCB",
       "type": "bond",
       "qty": 10,
@@ -245,7 +245,7 @@
     },
     {
       "ticker": "US912810SZ21",
-      "name": "US T-Bond 2054",
+      "name": "US T-Bond 2% ago 2051",
       "exchange": "EUROTLX",
       "type": "bond",
       "qty": 10,
