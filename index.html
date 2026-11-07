@@ -1874,16 +1874,38 @@
                 return;
             }
 
-            const periodMap = { '1M': 4, '3M': 13, '6M': 26, '1Y': 52, 'ALL': history.length };
-            const n = periodMap[currentPerfPeriod] || 52;
-            const slice = history.slice(-n);
+            // Date: "2026-11-06" (portfolio.json) oppure "6 Nov 26" (storico hardcoded).
+            // Punti settimanali e giornalieri possono convivere: il periodo si taglia per data, non per numero di punti.
+            const MESI = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+            const toDate = s => {
+                let m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+                if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
+                m = /^(\d{1,2}) (\w{3}) (\d{2})$/.exec(s);
+                if (m && MESI.includes(m[2])) return new Date(2000 + +m[3], MESI.indexOf(m[2]), +m[1]);
+                return null;
+            };
+            const points = history.map(p => ({
+                d: toDate(p.date),
+                label: p.date,
+                v: Number(p.value ?? p.total_value_usd) || 0
+            })).filter(p => p.v > 0);
+            const monthsMap = { '1M': 1, '3M': 3, '6M': 6, '1Y': 12 };
+            let slice = points;
+            const last = points.length ? points[points.length - 1].d : null;
+            if (monthsMap[currentPerfPeriod] && last && points.every(p => p.d)) {
+                const from = new Date(last);
+                from.setMonth(from.getMonth() - monthsMap[currentPerfPeriod]);
+                // include l'ultimo punto prima dell'inizio, così la variazione copre tutto il periodo
+                const i = points.findIndex(p => p.d >= from);
+                slice = points.slice(Math.max(0, i - 1));
+            }
             if (slice.length < 2) { wrap.style.display = 'none'; return; }
 
             placeholder.style.display = 'none';
             wrap.style.display = 'block';
 
-            const labels = slice.map(p => p.date);
-            const values = slice.map(p => typeof p.value === 'number' ? p.value : parseFloat(p.value) || 0);
+            const labels = slice.map(p => p.d ? `${p.d.getDate()} ${MESI[p.d.getMonth()]} ${String(p.d.getFullYear()).slice(2)}` : p.label);
+            const values = slice.map(p => p.v);
             const startVal = values[0];
             const endVal = values[values.length - 1];
             const change = endVal - startVal;
