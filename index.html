@@ -127,6 +127,10 @@
         .affiliate-text { flex: 1 1 auto; min-width: 0; }
         .affiliate-btn { flex: 0 0 auto; width: auto; margin: 0; padding: 14px 28px; text-decoration: none; text-align: center; white-space: nowrap; }
         .affiliate-note { margin: 18px 0 0; font-size: 0.75em; color: var(--text-muted); opacity: 0.8; }
+        .promo-code { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; font-size: 0.85em; color: var(--text-muted); }
+        .promo-code-val { color: #fff; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 1px dashed var(--brand-green); border-radius: 6px; background: rgba(0,230,118,0.06); }
+        .promo-copy-btn { background: transparent; color: var(--brand-green); border: 1px solid rgba(0,230,118,0.4); border-radius: 6px; padding: 4px 12px; font-size: 0.95em; font-weight: 600; cursor: pointer; font-family: inherit; }
+        .promo-copy-btn:hover { background: rgba(0,230,118,0.1); }
         @media (max-width: 600px) { .affiliate-inner { flex-direction: column; align-items: stretch; gap: 18px; } .affiliate-btn { white-space: normal; } }
         .fv-search-btn, .watchlist-add-btn { flex-shrink: 0; }
 
@@ -838,6 +842,23 @@
             </div>
             <p class="affiliate-note">Link affiliato: se ti abboni a un piano a pagamento partendo da qui ricevo una piccola commissione, senza alcun costo aggiuntivo per te.</p>
         </div>
+        <div class="card affiliate-card" style="margin-top: 20px;">
+            <div class="affiliate-inner">
+                <div class="affiliate-text">
+                    <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
+                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📈 Investing.com e InvestingPro</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
+                        La uso da quasi 7 anni per seguire i mercati in tempo reale quando non sono a casa, costruire le mie watchlist e controllare i dati finanziari del giorno.
+                        Con InvestingPro approfondisco le analisi fondamentali dei titoli, il fair value, le notizie riservate agli abbonati e le reazioni alle trimestrali.
+                    </p>
+                    <div class="promo-code">Codice sconto: <span class="promo-code-val mono-font" id="promoCodeInv">mazzeropro</span>
+                        <button type="button" class="promo-copy-btn" onclick="copyPromoCode('promoCodeInv', this)">Copia</button>
+                    </div>
+                </div>
+                <a href="https://www.investing-referral.com/mazzeropro/" target="_blank" rel="sponsored noopener" class="btn-primary affiliate-btn">Prova InvestingPro →</a>
+            </div>
+            <p class="affiliate-note">Link affiliato: se ti abboni partendo da qui ricevo una piccola commissione, senza alcun costo aggiuntivo per te.</p>
+        </div>
     </div>
 
     <div class="container" id="portfolio">
@@ -1058,7 +1079,7 @@
     </div>
 
     <footer>
-        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView sono link affiliati. <br><br> <a href="disclaimer.html">Leggi il Disclaimer</a></p>
+        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView e Investing.com sono link affiliati. <br><br> <a href="disclaimer.html">Leggi il Disclaimer</a></p>
     </footer>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
@@ -2031,6 +2052,18 @@
         function closeMobileNav() {
             document.getElementById('nav-mobile-overlay').classList.remove('open');
             document.getElementById('nav-hamburger-btn').textContent = '☰';
+        }
+
+        // === Copia codice sconto ===
+        function copyPromoCode(id, btn) {
+            const code = document.getElementById(id).innerText.trim();
+            const done = () => { const t = btn.innerText; btn.innerText = 'Copiato ✓'; setTimeout(() => btn.innerText = t, 1800); };
+            if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(code).then(done).catch(() => fallbackCopy(code, done)); }
+            else fallbackCopy(code, done);
+        }
+        function fallbackCopy(text, cb) {
+            const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); cb(); } catch(e) {} document.body.removeChild(ta);
         }
 
         // === PENSIERO DELLA SETTIMANA — letto da pensiero.json su GitHub (uguale su tutti i dispositivi) ===
