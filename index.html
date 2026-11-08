@@ -121,6 +121,13 @@
         /* Le caselle di testo dentro le barre devono potersi restringere, altrimenti su smartphone
            spingono il pulsante fuori dalla barra e allargano tutta la pagina */
         .fv-input-main, .watchlist-input { min-width: 0; width: 100%; }
+        /* Card strumenti / link affiliato */
+        .affiliate-card { border-color: rgba(0, 230, 118, 0.25); background: linear-gradient(135deg, rgba(0,230,118,0.06), rgba(20,20,25,0.6)); }
+        .affiliate-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+        .affiliate-text { flex: 1 1 auto; min-width: 0; }
+        .affiliate-btn { flex: 0 0 auto; width: auto; margin: 0; padding: 14px 28px; text-decoration: none; text-align: center; white-space: nowrap; }
+        .affiliate-note { margin: 18px 0 0; font-size: 0.75em; color: var(--text-muted); opacity: 0.8; }
+        @media (max-width: 600px) { .affiliate-inner { flex-direction: column; align-items: stretch; gap: 18px; } .affiliate-btn { white-space: normal; } }
         .fv-search-btn, .watchlist-add-btn { flex-shrink: 0; }
 
         .fv-result-card { display: none; background: rgba(0, 230, 118, 0.05); border: 1px solid var(--brand-green); margin-top: 20px; animation: slideUp 0.5s ease; border-width: 2px;}
@@ -625,7 +632,7 @@
     <div class="container" id="indicatore">
         <div class="section-header">
             <h2 class="section-title">Segnali <span>Indicatore Premium</span></h2>
-            <span style="font-size: 0.82em; color: var(--text-muted);">Gli ultimi setup generati dal mio algoritmo su TradingView</span>
+            <span style="font-size: 0.82em; color: var(--text-muted);">Gli ultimi setup generati dal mio algoritmo su <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" style="color: var(--brand-green); text-decoration: none;">TradingView</a></span>
         </div>
         <div class="card">
             <div class="signals-layout">
@@ -815,6 +822,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- Strumenti che uso (link affiliato TradingView) -->
+        <div class="card affiliate-card" style="margin-top: 30px;">
+            <div class="affiliate-inner">
+                <div class="affiliate-text">
+                    <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
+                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📊 TradingView</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
+                        È la piattaforma su cui faccio tutte le mie analisi: i grafici, gli screener, il portafoglio e l'indicatore che genera i segnali di questo sito sono costruiti lì.
+                        Puoi iniziare con il piano gratuito e passare a un piano a pagamento solo se ti serve.
+                    </p>
+                </div>
+                <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" class="btn-primary affiliate-btn">Prova TradingView →</a>
+            </div>
+            <p class="affiliate-note">Link affiliato: se ti abboni a un piano a pagamento partendo da qui ricevo una piccola commissione, senza alcun costo aggiuntivo per te.</p>
         </div>
     </div>
 
@@ -1036,7 +1058,7 @@
     </div>
 
     <footer>
-        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. <br><br> <a href="disclaimer.html">Leggi il Disclaimer</a></p>
+        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView sono link affiliati. <br><br> <a href="disclaimer.html">Leggi il Disclaimer</a></p>
     </footer>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
