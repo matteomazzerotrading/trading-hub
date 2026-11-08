@@ -1515,6 +1515,8 @@
             document.getElementById('scr-table-wrap').style.display = 'none';
             document.getElementById('scr-loading').style.display = 'flex';
             
+            // Prezzi salvati in data.json (aggiornati ogni 2 ore nei giorni di borsa): lo screener si apre subito
+            // invece di aspettare 141 richieste di prezzo live tramite proxy pubblici, spesso lente o rifiutate.
             const entries = Object.entries(db);
             screenerData = [];
             
@@ -1522,8 +1524,7 @@
             for (let i = 0; i < entries.length; i += chunkSize) {
                 const chunk = entries.slice(i, i + chunkSize);
                 const chunkResults = await Promise.all(chunk.map(async ([ticker, data]) => {
-                    const livePrice = await getLivePrice(data.yf, data.price);
-                    const livePriceNum = parseFloat(livePrice);
+                    const livePriceNum = parseFloat(data.price);
                     const upside = data.fv != null ? ((data.fv - livePriceNum) / livePriceNum) * 100 : null;
                     const verdict = fvVerdict(data, livePriceNum);
                     return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat };
