@@ -10,6 +10,7 @@ on:
     paths:
       - 'scripts/fv_engine.js'
       - 'scripts/compute_fv.mjs'
+      - 'scripts/fetch_market_data.py'
       - '.github/workflows/compute-fv.yml'
   workflow_dispatch:
 
@@ -32,6 +33,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Scarica prezzi settimanali e CPI
+        run: |
+          pip install yfinance --quiet
+          python scripts/fetch_market_data.py
 
       - name: Calcola i fair value
         run: node scripts/compute_fv.mjs

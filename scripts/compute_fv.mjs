@@ -94,13 +94,22 @@ async function main() {
 
   const fund = await tvScan(tickers.map(([, e]) => e.tv));
   let rf = await tvClose('TVC:US10Y'); rf = rf != null ? rf / 100 : null;
-  let cpi = [];
-  try { cpi = await fredCpi(); } catch (e) { console.log('CPI FRED non disponibile:', e.message); }
+
+  // Dati di mercato scaricati prima da scripts/fetch_market_data.py (yfinance + FRED/BLS)
+  const MD = path.join(ROOT, 'market_data.json');
+  const md = fs.existsSync(MD) ? JSON.parse(fs.readFileSync(MD, 'utf8')) : { weekly: {}, cpi: [], fonti: {} };
+  const weeklyOf = async sym => {
+    if (md.weekly && md.weekly[sym] && md.weekly[sym].length) return md.weekly[sym];
+    return yahooWeekly(sym);                       // ripiego: richiesta diretta (spesso rifiutata da Yahoo)
+  };
+  let cpi = md.cpi || [];
+  if (!cpi.length) { try { cpi = await fredCpi(); } catch (e) { console.log('CPI non disponibile:', e.message); } }
   let bench = [];
-  try { bench = await yahooWeekly('^GSPC'); } catch (e) { console.log('S&P 500 non disponibile:', e.message); }
+  try { bench = await weeklyOf('^GSPC'); } catch (e) { console.log('S&P 500 non disponibile:', e.message); }
   console.log(`Decennale ${rf}  CPI ultimo ${JSON.stringify(cpi[cpi.length - 1])}  S&P 500 ${bench.length} settimane`);
 
-  const report = { run: new Date().toISOString(), rf, cpi_ultimo: cpi[cpi.length - 1] || null, parametri: E.P, titoli: {} };
+  const report = { run: new Date().toISOString(), rf, cpi_ultimo: cpi[cpi.length - 1] || null, fonti: md.fonti || {},
+    sp500_settimane: bench.length, parametri: E.P, titoli: {} };
   let ok = 0;
   for (const [t, e] of tickers) {
     const f = fund[e.tv];
@@ -108,7 +117,7 @@ async function main() {
     if (!f) r = { status: 'simbolo_non_trovato' };
     else {
       let weekly = [], yerr = null;
-      try { weekly = await yahooWeekly(e.yf || t); } catch (ex) { yerr = String(ex.message).slice(0, 120); }
+      try { weekly = await weeklyOf(e.yf || t); } catch (ex) { yerr = String(ex.message).slice(0, 120); }
       try { r = E.compute(f, cpi, rf, null, weekly, bench, weekly, today); r.settimane = weekly.length; if (yerr) r.prezzi = 'Yahoo: ' + yerr; }
       catch (ex) { r = { status: 'errore', errore: String(ex.message).slice(0, 200) }; }
       if (f.close != null) e.price = r2(f.close, f.close < 10 ? 3 : 2);
@@ -123,7 +132,7 @@ async function main() {
       if (r.status === 'ok') ok++;
     }
     console.log(`${t.padEnd(6)} ${String(r.status).padEnd(20)} FV ${r.fv} [${r.fv_low} – ${r.fv_high}] MKT ${r.fv_mkt} STO ${r.fv_sto} beta ${r.beta}`);
-    await sleep(150);
+    if (!(md.weekly && md.weekly[e.yf || t])) await sleep(150);
   }
   data.fv_updated = report.run;
   fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n');
