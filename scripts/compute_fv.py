@@ -33,7 +33,7 @@ TICKERS_PORTAFOGLIO = [
     "TTD", "TRI", "DIA", "PFE", "SAP",
     "BR", "BF.B", "PDD", "BSX", "QCOM",
     "EL", "LULU", "BLDR", "RACE",
-    "FUN", "CE", "INTU", "CPRT", "ADBE", "FMC"
+    "FUN", "CE", "INTU", "CPRT", "ADBE", "FMC", "NFLX"
 ]
 
 # Mappa ticker data.json → yfinance (dove divergono)

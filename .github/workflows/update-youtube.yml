@@ -17,27 +17,42 @@ jobs:
       - name: Fetch latest video from YouTube RSS
         run: |
           RSS="https://www.youtube.com/feeds/videos.xml?channel_id=UCflbinnpV6oa8dwfbMh1FNw"
-          XML=$(curl -fsSL --max-time 15 "$RSS")
-
-          VIDEO_ID=$(echo "$XML" | grep -oP '(?<=<yt:videoId>)[^<]+' | head -1)
-          TITLE=$(echo "$XML" | grep -oP '(?<=<title>)[^<]+' | sed -n '2p')
-          PUBLISHED=$(echo "$XML" | grep -oP '(?<=<published>)[^<]+' | head -1)
-
-          if [ -z "$VIDEO_ID" ]; then
-            echo "No video ID found, skipping update."
+          # Se YouTube non risponde non è un errore: si riprova al giro successivo
+          if ! curl -fsSL --retry 3 --retry-delay 10 --max-time 30 "$RSS" -o feed.xml; then
+            echo "Feed YouTube non raggiungibile, riprovo al prossimo giro."
             exit 0
           fi
 
-          cat > latest_video.json <<EOF
-          {
-            "videoId": "$VIDEO_ID",
-            "title": "$TITLE",
-            "published": "$PUBLISHED",
-            "updated": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          }
-          EOF
+          python3 - <<'PY'
+          import json, os, xml.etree.ElementTree as ET
+          from datetime import datetime, timezone
 
-          echo "Found: $VIDEO_ID — $TITLE"
+          ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
+          root = ET.parse("feed.xml").getroot()
+          entry = root.find("a:entry", ns)          # il primo <entry> è il video più recente
+          if entry is None:
+              print("Nessun video nel feed, salto."); raise SystemExit(0)
+
+          new = {
+              "videoId":   entry.findtext("yt:videoId", default="", namespaces=ns),
+              "title":     entry.findtext("a:title", default="", namespaces=ns),
+              "published": entry.findtext("a:published", default="", namespaces=ns),  # data del video, non del canale
+          }
+          old = {}
+          if os.path.exists("latest_video.json"):
+              try: old = json.load(open("latest_video.json", encoding="utf-8"))
+              except Exception: old = {}
+
+          # Riscrive il file solo se il video è cambiato (evita un commit ogni 6 ore)
+          if all(old.get(k) == v for k, v in new.items()):
+              print("Nessun video nuovo:", new["videoId"]); raise SystemExit(0)
+
+          new["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+          with open("latest_video.json", "w", encoding="utf-8") as f:
+              json.dump(new, f, ensure_ascii=False, indent=2); f.write("\n")
+          print("Aggiornato:", new["videoId"], "-", new["title"], "-", new["published"])
+          PY
+          rm -f feed.xml
 
       - name: Commit if changed
         run: |

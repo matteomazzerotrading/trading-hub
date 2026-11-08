@@ -860,6 +860,23 @@
         "mcap": "N/D",
         "rev": "N/D"
       }
+    },
+    "NFLX": {
+      "name": "Netflix",
+      "fv": 78.0,
+      "price": 63.41,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "NFLX",
+      "divYield": 0.0,
+      "videoID": null,
+      "updated": "2026-11-08",
+      "fund": {
+        "pe": "18.3",
+        "eps": "3.46",
+        "mcap": "260B",
+        "rev": "+15%"
+      }
     }
   },
   "aliases": {
