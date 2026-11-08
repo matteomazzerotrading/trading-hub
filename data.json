@@ -4,7 +4,7 @@
   "db": {
     "DIA": {
       "name": "DiaSorin",
-      "fv": 85,
+      "fv": 85.79,
       "price": 82.64,
       "curr": "€",
       "ex": "MIL",
@@ -18,11 +18,31 @@
         "mcap": "4.4B",
         "rev": "+3.2%"
       },
-      "tv": "MIL:DIA"
+      "tv": "MIL:DIA",
+      "fv_low": 71.78,
+      "fv_high": 100.53,
+      "fv_mkt": 137.95,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.3653,
+        "cassa_az": 2.1465,
+        "g_hist": 0.0832,
+        "roic_m": 0.0637,
+        "marg_n": 0.2528,
+        "marg_now": 0.2352,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ERG": {
       "name": "ERG S.p.A.",
-      "fv": 28.5,
+      "fv": 27.67,
       "price": 22.46,
       "curr": "€",
       "ex": "MIL",
@@ -36,11 +56,34 @@
         "mcap": "3.5B",
         "rev": "+5.1%"
       },
-      "tv": "MIL:ERG"
+      "tv": "MIL:ERG",
+      "fv_low": null,
+      "fv_high": 64.91,
+      "fv_mkt": 42.91,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.5669,
+        "cassa_az": 3.2456,
+        "g_hist": -0.0361,
+        "roic_m": 0.0208,
+        "marg_n": 0.3063,
+        "marg_now": 0.2811,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo",
+          "debito netto = 9,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "RACE": {
       "name": "Ferrari",
-      "fv": 300,
+      "fv": 153.88,
       "price": 373.85,
       "curr": "€",
       "ex": "MIL",
@@ -54,11 +97,31 @@
         "mcap": "88B",
         "rev": "+17%"
       },
-      "tv": "MIL:RACE"
+      "tv": "MIL:RACE",
+      "fv_low": 67.22,
+      "fv_high": 187.11,
+      "fv_mkt": 243.68,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 8.6994,
+        "cassa_az": 9.8676,
+        "g_hist": 0.1041,
+        "roic_m": 0.2806,
+        "marg_n": 0.2171,
+        "marg_now": 0.2609,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "GOOG": {
       "name": "Alphabet",
-      "fv": 290,
+      "fv": 138.67,
       "price": 283.93,
       "curr": "$",
       "ex": "NASDAQ",
@@ -72,11 +135,31 @@
         "mcap": "2.1T",
         "rev": "+13%"
       },
-      "tv": "NASDAQ:GOOG"
+      "tv": "NASDAQ:GOOG",
+      "fv_low": 112.61,
+      "fv_high": 178.65,
+      "fv_mkt": 211.62,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 7.0672,
+        "cassa_az": 21.676,
+        "g_hist": 0.1993,
+        "roic_m": 0.3201,
+        "marg_n": 0.2145,
+        "marg_now": 0.1818,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MC": {
       "name": "LVMH",
-      "fv": 600,
+      "fv": 468.59,
       "price": 408.75,
       "curr": "€",
       "ex": "EPA",
@@ -90,11 +173,31 @@
         "mcap": "275B",
         "rev": "+8.9%"
       },
-      "tv": "EURONEXT:MC"
+      "tv": "EURONEXT:MC",
+      "fv_low": 316.85,
+      "fv_high": 693.11,
+      "fv_mkt": 745.5,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 26.8259,
+        "cassa_az": 24.5032,
+        "g_hist": 0.0903,
+        "roic_m": 0.1159,
+        "marg_n": 0.1653,
+        "marg_now": 0.1862,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ADBE": {
       "name": "Adobe",
-      "fv": 300,
+      "fv": 376.63,
       "price": 239.3,
       "curr": "$",
       "ex": "NASDAQ",
@@ -108,11 +211,31 @@
         "mcap": "160B",
         "rev": "+10%"
       },
-      "tv": "NASDAQ:ADBE"
+      "tv": "NASDAQ:ADBE",
+      "fv_low": 328.35,
+      "fv_high": 414.52,
+      "fv_mkt": 603.24,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 21.9533,
+        "cassa_az": 13.2061,
+        "g_hist": 0.1905,
+        "roic_m": 0.3877,
+        "marg_n": 0.3944,
+        "marg_now": 0.4145,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "INTU": {
       "name": "Intuit",
-      "fv": 700,
+      "fv": 437.93,
       "price": 341.5,
       "curr": "$",
       "ex": "NASDAQ",
@@ -126,11 +249,31 @@
         "mcap": "135B",
         "rev": "+12%"
       },
-      "tv": "NASDAQ:INTU"
+      "tv": "NASDAQ:INTU",
+      "fv_low": 364.95,
+      "fv_high": 540.97,
+      "fv_mkt": 694.8,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 24.8842,
+        "cassa_az": 25.9929,
+        "g_hist": 0.1634,
+        "roic_m": 0.1744,
+        "marg_n": 0.3214,
+        "marg_now": 0.4018,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "QCOM": {
       "name": "Qualcomm",
-      "fv": 180,
+      "fv": 169.79,
       "price": 165.41,
       "curr": "$",
       "ex": "NASDAQ",
@@ -144,11 +287,31 @@
         "mcap": "191B",
         "rev": "+5%"
       },
-      "tv": "NASDAQ:QCOM"
+      "tv": "NASDAQ:QCOM",
+      "fv_low": 93.27,
+      "fv_high": 188.94,
+      "fv_mkt": 271.33,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 10.4452,
+        "cassa_az": 6.9512,
+        "g_hist": 0.1096,
+        "roic_m": 0.3417,
+        "marg_n": 0.2606,
+        "marg_now": 0.2895,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "STLAM": {
       "name": "Stellantis",
-      "fv": 18,
+      "fv": 45.66,
       "price": 4.02,
       "curr": "€",
       "ex": "MIL",
@@ -162,11 +325,36 @@
         "mcap": "64B",
         "rev": "-2%"
       },
-      "tv": "MIL:STLAM"
+      "tv": "MIL:STLAM",
+      "fv_low": null,
+      "fv_high": 67.56,
+      "fv_mkt": 67.7,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.2671,
+        "cassa_az": 10.3129,
+        "g_hist": -0.0342,
+        "roic_m": -0.2329,
+        "marg_n": 0.0426,
+        "marg_now": -0.0898,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -9,0% molto sotto la media 4,3%",
+          "FCF solo 55% dell'utile",
+          "2 anni con FCF negativo",
+          "debito netto = 4,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "SAP": {
       "name": "SAP SE",
-      "fv": 220,
+      "fv": 92.48,
       "price": 210.75,
       "curr": "€",
       "ex": "XETR",
@@ -180,11 +368,31 @@
         "mcap": "238B",
         "rev": "+11%"
       },
-      "tv": "XETR:SAP"
+      "tv": "XETR:SAP",
+      "fv_low": 58.38,
+      "fv_high": 128.93,
+      "fv_mkt": 145.17,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.1048,
+        "cassa_az": 7.9694,
+        "g_hist": 0.0609,
+        "roic_m": 0.1399,
+        "marg_n": 0.163,
+        "marg_now": 0.2245,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "AAPL": {
       "name": "Apple Inc.",
-      "fv": 253,
+      "fv": 119.01,
       "price": 342.37,
       "curr": "$",
       "ex": "NASDAQ",
@@ -198,11 +406,31 @@
         "mcap": "2.8T",
         "rev": "+2.1%"
       },
-      "tv": "NASDAQ:AAPL"
+      "tv": "NASDAQ:AAPL",
+      "fv_low": 106.52,
+      "fv_high": 133.54,
+      "fv_mkt": 190.86,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 6.9605,
+        "cassa_az": 3.7803,
+        "g_hist": 0.1233,
+        "roic_m": 0.761,
+        "marg_n": 0.251,
+        "marg_now": 0.2373,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MSFT": {
       "name": "Microsoft",
-      "fv": 461.22,
+      "fv": 232.37,
       "price": 530.61,
       "curr": "$",
       "ex": "NASDAQ",
@@ -216,11 +444,33 @@
         "mcap": "3.0T",
         "rev": "+15%"
       },
-      "tv": "NASDAQ:MSFT"
+      "tv": "NASDAQ:MSFT",
+      "fv_low": 157.44,
+      "fv_high": 254.73,
+      "fv_mkt": 371.87,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 13.5139,
+        "cassa_az": 8.6555,
+        "g_hist": 0.1543,
+        "roic_m": 0.2685,
+        "marg_n": 0.3035,
+        "marg_now": 0.2019,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 20,2% molto sotto la media 30,4%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "AMZN": {
       "name": "Amazon",
-      "fv": 199,
+      "fv": 69.79,
       "price": 259.3,
       "curr": "$",
       "ex": "NASDAQ",
@@ -234,11 +484,36 @@
         "mcap": "1.9T",
         "rev": "+12%"
       },
-      "tv": "NASDAQ:AMZN"
+      "tv": "NASDAQ:AMZN",
+      "fv_low": null,
+      "fv_high": 95.43,
+      "fv_mkt": 106.56,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 3.562,
+        "cassa_az": 10.8208,
+        "g_hist": 0.188,
+        "roic_m": 0.1584,
+        "marg_n": 0.0538,
+        "marg_now": 0.0107,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 1,1% molto sotto la media 5,4%",
+          "FCF solo 50% dell'utile",
+          "2 anni con FCF negativo",
+          "debito netto = 4,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "NVDA": {
       "name": "Nvidia",
-      "fv": 163.11,
+      "fv": 47.92,
       "price": 186.64,
       "curr": "$",
       "ex": "NASDAQ",
@@ -252,11 +527,31 @@
         "mcap": "2.9T",
         "rev": "+265%"
       },
-      "tv": "NASDAQ:NVDA"
+      "tv": "NASDAQ:NVDA",
+      "fv_low": 24.64,
+      "fv_high": 72.05,
+      "fv_mkt": 75.27,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.6497,
+        "cassa_az": 4.0536,
+        "g_hist": 0.4752,
+        "roic_m": 0.9357,
+        "marg_n": 0.3008,
+        "marg_now": 0.4477,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "A2A": {
       "name": "A2A S.p.A.",
-      "fv": 2.45,
+      "fv": 5.2,
       "price": 2.432,
       "curr": "€",
       "ex": "MIL",
@@ -264,11 +559,33 @@
       "divYield": 4.8,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:A2A"
+      "tv": "MIL:A2A",
+      "fv_low": 2.49,
+      "fv_high": 9.53,
+      "fv_mkt": 8.12,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.2832,
+        "cassa_az": 0.5065,
+        "g_hist": 0.1289,
+        "roic_m": 0.0628,
+        "marg_n": 0.0646,
+        "marg_now": 0.0686,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 6,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ADM": {
       "name": "Archer-Daniels",
-      "fv": 53,
+      "fv": 42.81,
       "price": 69.97,
       "curr": "$",
       "ex": "NYSE",
@@ -276,11 +593,35 @@
       "divYield": 3.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:ADM"
+      "tv": "NYSE:ADM",
+      "fv_low": null,
+      "fv_high": 176.63,
+      "fv_mkt": 62.05,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.9794,
+        "cassa_az": 11.9526,
+        "g_hist": 0.0517,
+        "roic_m": 0.0352,
+        "marg_n": 0.0119,
+        "marg_now": 0.0523,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo -26% dell'utile",
+          "4 anni con FCF negativo",
+          "debito netto = 4,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ADP": {
       "name": "Auto Data Proc.",
-      "fv": 312,
+      "fv": 183.9,
       "price": 303.35,
       "curr": "$",
       "ex": "NASDAQ",
@@ -288,11 +629,31 @@
       "divYield": 1.9,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:ADP"
+      "tv": "NASDAQ:ADP",
+      "fv_low": 145.53,
+      "fv_high": 223.58,
+      "fv_mkt": 293.39,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 10.6071,
+        "cassa_az": 8.3045,
+        "g_hist": 0.0788,
+        "roic_m": 0.4052,
+        "marg_n": 0.1949,
+        "marg_now": 0.239,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ADSK": {
       "name": "Autodesk Inc.",
-      "fv": 339,
+      "fv": 183.13,
       "price": 261.72,
       "curr": "$",
       "ex": "NASDAQ",
@@ -300,11 +661,33 @@
       "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:ADSK"
+      "tv": "NASDAQ:ADSK",
+      "fv_low": null,
+      "fv_high": 251.16,
+      "fv_mkt": 285.28,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.8952,
+        "cassa_az": 19.3256,
+        "g_hist": 0.1563,
+        "roic_m": 0.2131,
+        "marg_n": 0.2955,
+        "marg_now": 0.3346,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "AMAT": {
       "name": "Applied Materials",
-      "fv": 233,
+      "fv": 129.21,
       "price": 332.71,
       "curr": "$",
       "ex": "NASDAQ",
@@ -312,11 +695,31 @@
       "divYield": 0.7,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:AMAT"
+      "tv": "NASDAQ:AMAT",
+      "fv_low": 115.79,
+      "fv_high": 178.27,
+      "fv_mkt": 202.65,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 7.1147,
+        "cassa_az": 11.427,
+        "g_hist": 0.1538,
+        "roic_m": 0.2692,
+        "marg_n": 0.2026,
+        "marg_now": 0.2009,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "AMD": {
       "name": "AMD",
-      "fv": 145.6,
+      "fv": 32.25,
       "price": 449.04,
       "curr": "$",
       "ex": "NASDAQ",
@@ -324,11 +727,33 @@
       "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:AMD"
+      "tv": "NASDAQ:AMD",
+      "fv_low": null,
+      "fv_high": 78.32,
+      "fv_mkt": 46.35,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.3658,
+        "cassa_az": 9.6432,
+        "g_hist": 0.1699,
+        "roic_m": 0.0679,
+        "marg_n": 0.0645,
+        "marg_now": 0.1944,
+        "anni": 10,
+        "avvisi": [
+          "2 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ASML": {
       "name": "ASML Holding",
-      "fv": 904,
+      "fv": 422.11,
       "price": 1424.75,
       "curr": "$",
       "ex": "NASDAQ",
@@ -336,11 +761,31 @@
       "divYield": 0.85,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:ASML"
+      "tv": "NASDAQ:ASML",
+      "fv_low": 224.42,
+      "fv_high": 875.8,
+      "fv_mkt": 662.13,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 23.2519,
+        "cassa_az": 37.195,
+        "g_hist": 0.2059,
+        "roic_m": 0.4371,
+        "marg_n": 0.2453,
+        "marg_now": 0.3393,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "AXP": {
       "name": "American Express",
-      "fv": 332,
+      "fv": 491.95,
       "price": 320.99,
       "curr": "$",
       "ex": "NYSE",
@@ -348,11 +793,31 @@
       "divYield": 1.1,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:AXP"
+      "tv": "NYSE:AXP",
+      "fv_low": 266.77,
+      "fv_high": 719.77,
+      "fv_mkt": 760.21,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 25.9878,
+        "cassa_az": 61.7386,
+        "g_hist": 0.1346,
+        "roic_m": 0.1423,
+        "marg_n": 0.226,
+        "marg_now": 0.1997,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BAC": {
       "name": "Bank of America",
-      "fv": 59.85,
+      "fv": 94.5,
       "price": 49.42,
       "curr": "$",
       "ex": "NYSE",
@@ -360,11 +825,34 @@
       "divYield": 2.2,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:BAC"
+      "tv": "NYSE:BAC",
+      "fv_low": null,
+      "fv_high": 282,
+      "fv_mkt": 153.43,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.7088,
+        "cassa_az": 0,
+        "g_hist": 0.1365,
+        "roic_m": 0.0532,
+        "marg_n": 0.2352,
+        "marg_now": 0.2235,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo",
+          "debito netto = 15,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BAYN": {
       "name": "Bayer AG",
-      "fv": 44.12,
+      "fv": 50.64,
       "price": 55.58,
       "curr": "€",
       "ex": "XETR",
@@ -372,11 +860,34 @@
       "divYield": 4.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "XETR:BAYN"
+      "tv": "XETR:BAYN",
+      "fv_low": 24.27,
+      "fv_high": 124.54,
+      "fv_mkt": 79.5,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.9685,
+        "cassa_az": 4.3658,
+        "g_hist": 0.013,
+        "roic_m": -0.0578,
+        "marg_n": 0.064,
+        "marg_now": 0.0457,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 4,6% molto sotto la media 6,4%",
+          "debito netto = 11,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BATS": {
       "name": "Brit. Am. Tobacco",
-      "fv": 4656,
+      "fv": 5863.62,
       "price": 4567,
       "curr": "GBp",
       "ex": "LSE",
@@ -384,11 +895,34 @@
       "divYield": 9.2,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "LSE:BATS"
+      "tv": "LSE:BATS",
+      "fv_low": 3398.91,
+      "fv_high": 6447.17,
+      "fv_mkt": 9448.12,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 347.2474,
+        "cassa_az": 115.1877,
+        "g_hist": 0.043,
+        "roic_m": 0.0948,
+        "marg_n": 0.2978,
+        "marg_now": 0.1701,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 17,0% molto sotto la media 29,8%",
+          "debito netto = 4,3 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BC": {
       "name": "Brunswick Corp",
-      "fv": 88,
+      "fv": 69.52,
       "price": 77.23,
       "curr": "$",
       "ex": "NYSE",
@@ -396,11 +930,33 @@
       "divYield": 1.7,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:BC"
+      "tv": "NYSE:BC",
+      "fv_low": 41.08,
+      "fv_high": 183.97,
+      "fv_mkt": 110.22,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.1872,
+        "cassa_az": 4.2398,
+        "g_hist": 0.0676,
+        "roic_m": -0.0352,
+        "marg_n": 0.0515,
+        "marg_now": 0.0739,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 6,2 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BNG": {
       "name": "Bunge Global",
-      "fv": 46.31,
+      "fv": null,
       "price": 99.1,
       "curr": "$",
       "ex": "NYSE",
@@ -408,11 +964,34 @@
       "divYield": 3.1,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:BG"
+      "tv": "NYSE:BG",
+      "fv_low": null,
+      "fv_high": 244.82,
+      "fv_mkt": null,
+      "fv_sto": null,
+      "ind": {
+        "status": "fcf_negativo",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": -14.0313,
+        "cassa_az": 5.5206,
+        "g_hist": 0.0436,
+        "roic_m": 0.0399,
+        "marg_n": -0.0332,
+        "marg_now": -0.0127,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo -181% dell'utile",
+          "7 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BRE": {
       "name": "Brembo",
-      "fv": 14.93,
+      "fv": 11.64,
       "price": 9.9,
       "curr": "€",
       "ex": "MIL",
@@ -420,11 +999,34 @@
       "divYield": 2.1,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:BRE"
+      "tv": "MIL:BRE",
+      "fv_low": 4.58,
+      "fv_high": 15.89,
+      "fv_mkt": 17.76,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.6295,
+        "cassa_az": 1.8297,
+        "g_hist": 0.0578,
+        "roic_m": 0.0685,
+        "marg_n": 0.0542,
+        "marg_now": 0.0515,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 62% dell'utile",
+          "debito netto = 4,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BRK.B": {
       "name": "Berkshire Hath.",
-      "fv": 511,
+      "fv": 426.09,
       "price": 570.89,
       "curr": "$",
       "ex": "NYSE",
@@ -432,11 +1034,34 @@
       "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:BRK.B"
+      "tv": "NYSE:BRK.B",
+      "fv_low": 258.57,
+      "fv_high": 573.57,
+      "fv_mkt": 586.14,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 15.5044,
+        "cassa_az": 169.4285,
+        "g_hist": 0.0783,
+        "roic_m": 0.0833,
+        "marg_n": 0.09,
+        "marg_now": 0.0674,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 6,7% molto sotto la media 9,0%",
+          "FCF solo 47% dell'utile"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CAT": {
       "name": "Caterpillar",
-      "fv": 404,
+      "fv": 229.58,
       "price": 558.63,
       "curr": "$",
       "ex": "NYSE",
@@ -444,11 +1069,33 @@
       "divYield": 1.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:CAT"
+      "tv": "NYSE:CAT",
+      "fv_low": 174.46,
+      "fv_high": 362.74,
+      "fv_mkt": 362.26,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 12.854,
+        "cassa_az": 16.7881,
+        "g_hist": 0.0949,
+        "roic_m": 0.1779,
+        "marg_n": 0.0898,
+        "marg_now": 0.1103,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 6,1 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CE": {
       "name": "Celanese",
-      "fv": 105.56,
+      "fv": 184.67,
       "price": 46.49,
       "curr": "$",
       "ex": "NYSE",
@@ -462,11 +1109,34 @@
         "mcap": "4.4B",
         "rev": "-8%"
       },
-      "tv": "NYSE:CE"
+      "tv": "NYSE:CE",
+      "fv_low": 82.69,
+      "fv_high": 247.61,
+      "fv_mkt": 292.07,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 11.0478,
+        "cassa_az": 12.4349,
+        "g_hist": 0.0999,
+        "roic_m": -0.0709,
+        "marg_n": 0.1268,
+        "marg_now": 0.0841,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 8,4% molto sotto la media 12,7%",
+          "debito netto = 8,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CNC": {
       "name": "Centene",
-      "fv": 102.66,
+      "fv": 148.83,
       "price": 69.74,
       "curr": "$",
       "ex": "NYSE",
@@ -474,11 +1144,33 @@
       "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:CNC"
+      "tv": "NYSE:CNC",
+      "fv_low": null,
+      "fv_high": 290.06,
+      "fv_mkt": 241.64,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.5467,
+        "cassa_az": 0,
+        "g_hist": 0.1376,
+        "roic_m": -0.1599,
+        "marg_n": 0.0242,
+        "marg_now": 0.0222,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "COST": {
       "name": "Costco Wholesale",
-      "fv": 851,
+      "fv": 359.85,
       "price": 1053.56,
       "curr": "$",
       "ex": "NASDAQ",
@@ -486,11 +1178,31 @@
       "divYield": 0.6,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:COST"
+      "tv": "NASDAQ:COST",
+      "fv_low": 222.12,
+      "fv_high": 457.67,
+      "fv_mkt": 554.35,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 18.8424,
+        "cassa_az": 47.9291,
+        "g_hist": 0.0985,
+        "roic_m": 0.2245,
+        "marg_n": 0.0276,
+        "marg_now": 0.0309,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CPR": {
       "name": "Campari",
-      "fv": 8.95,
+      "fv": 5.09,
       "price": 6.64,
       "curr": "€",
       "ex": "MIL",
@@ -498,11 +1210,35 @@
       "divYield": 0.9,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:CPR"
+      "tv": "MIL:CPR",
+      "fv_low": null,
+      "fv_high": 6.85,
+      "fv_mkt": 7.9,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.272,
+        "cassa_az": 0.5897,
+        "g_hist": 0.0604,
+        "roic_m": 0.0552,
+        "marg_n": 0.1076,
+        "marg_now": 0.1029,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 62% dell'utile",
+          "1 anni con FCF negativo",
+          "debito netto = 6,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CRM": {
       "name": "Salesforce",
-      "fv": 325.48,
+      "fv": 162.98,
       "price": 213.65,
       "curr": "$",
       "ex": "NYSE",
@@ -510,11 +1246,31 @@
       "divYield": 0.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:CRM"
+      "tv": "NYSE:CRM",
+      "fv_low": 150.35,
+      "fv_high": 261.32,
+      "fv_mkt": 257.17,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.1248,
+        "cassa_az": 11.9278,
+        "g_hist": 0.1521,
+        "roic_m": 0.1033,
+        "marg_n": 0.2101,
+        "marg_now": 0.3468,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CVX": {
       "name": "Chevron",
-      "fv": 181.66,
+      "fv": 151.35,
       "price": 212.61,
       "curr": "$",
       "ex": "NYSE",
@@ -522,11 +1278,33 @@
       "divYield": 4.1,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:CVX"
+      "tv": "NYSE:CVX",
+      "fv_low": null,
+      "fv_high": 262.28,
+      "fv_mkt": 241.43,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.266,
+        "cassa_az": 6.8987,
+        "g_hist": 0.0597,
+        "roic_m": 0.0605,
+        "marg_n": 0.0932,
+        "marg_now": 0.0911,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "DDOG": {
       "name": "Datadog",
-      "fv": 129.62,
+      "fv": 50.1,
       "price": 179.04,
       "curr": "$",
       "ex": "NASDAQ",
@@ -534,11 +1312,31 @@
       "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:DDOG"
+      "tv": "NASDAQ:DDOG",
+      "fv_low": 15.32,
+      "fv_high": 63,
+      "fv_mkt": 72.36,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.1565,
+        "cassa_az": 14.3978,
+        "g_hist": 0.5382,
+        "roic_m": 0.0243,
+        "marg_n": 0.2287,
+        "marg_now": 0.2919,
+        "anni": 9,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ENI": {
       "name": "Eni S.p.A.",
-      "fv": 21.29,
+      "fv": 31.65,
       "price": 25.05,
       "curr": "€",
       "ex": "MIL",
@@ -546,11 +1344,34 @@
       "divYield": 6.2,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:ENI"
+      "tv": "MIL:ENI",
+      "fv_low": null,
+      "fv_high": 50,
+      "fv_mkt": 47.27,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.6064,
+        "cassa_az": 6.6062,
+        "g_hist": 0.0625,
+        "roic_m": 0.0312,
+        "marg_n": 0.0596,
+        "marg_now": 0.0563,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo",
+          "debito netto = 4,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ENEL": {
       "name": "Enel S.p.A.",
-      "fv": 4.85,
+      "fv": 5.13,
       "price": 9.693,
       "curr": "€",
       "ex": "MIL",
@@ -558,11 +1379,35 @@
       "divYield": 6.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:ENEL"
+      "tv": "MIL:ENEL",
+      "fv_low": null,
+      "fv_high": 8.82,
+      "fv_mkt": 8.03,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.2989,
+        "cassa_az": 0.4678,
+        "g_hist": 0.0099,
+        "roic_m": 0.0437,
+        "marg_n": 0.0394,
+        "marg_now": 0.0706,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 69% dell'utile",
+          "2 anni con FCF negativo",
+          "debito netto = 26,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "G": {
       "name": "Assic. Generali",
-      "fv": 50.63,
+      "fv": 141.94,
       "price": 43.73,
       "curr": "€",
       "ex": "MIL",
@@ -570,11 +1415,31 @@
       "divYield": 5.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:G"
+      "tv": "MIL:G",
+      "fv_low": 14.95,
+      "fv_high": 196.32,
+      "fv_mkt": 230.45,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.1045,
+        "cassa_az": 0,
+        "g_hist": -0.0187,
+        "roic_m": 0.0619,
+        "marg_n": 0.2041,
+        "marg_now": 0.2822,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "IBM": {
       "name": "IBM",
-      "fv": 231,
+      "fv": 205.77,
       "price": 245,
       "curr": "$",
       "ex": "NYSE",
@@ -582,11 +1447,33 @@
       "divYield": 3.2,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:IBM"
+      "tv": "NYSE:IBM",
+      "fv_low": 176.98,
+      "fv_high": 325.06,
+      "fv_mkt": 326.78,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 12.4481,
+        "cassa_az": 11.7069,
+        "g_hist": -0.0178,
+        "roic_m": 0.1245,
+        "marg_n": 0.1749,
+        "marg_now": 0.1792,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 4,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "INTC": {
       "name": "Intel",
-      "fv": 35.29,
+      "fv": 37.99,
       "price": 56.28,
       "curr": "$",
       "ex": "NASDAQ",
@@ -594,11 +1481,35 @@
       "divYield": 1.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NASDAQ:INTC"
+      "tv": "NASDAQ:INTC",
+      "fv_low": null,
+      "fv_high": 61.23,
+      "fv_mkt": 54.25,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.6725,
+        "cassa_az": 11.9135,
+        "g_hist": -0.0049,
+        "roic_m": -0.0018,
+        "marg_n": 0.1434,
+        "marg_now": -0.1509,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -15,1% molto sotto la media 14,3%",
+          "FCF solo 38% dell'utile",
+          "4 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "IP": {
       "name": "International Paper",
-      "fv": 48.02,
+      "fv": 44.13,
       "price": 34.53,
       "curr": "$",
       "ex": "NYSE",
@@ -606,11 +1517,35 @@
       "divYield": 4,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:IP"
+      "tv": "NYSE:IP",
+      "fv_low": null,
+      "fv_high": 97.51,
+      "fv_mkt": 70.64,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.7271,
+        "cassa_az": 1.6116,
+        "g_hist": -0.0007,
+        "roic_m": -0.1344,
+        "marg_n": 0.0584,
+        "marg_now": -0.0067,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -0,7% molto sotto la media 5,8%",
+          "1 anni con FCF negativo",
+          "debito netto = 6,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ISP": {
       "name": "Intesa Sanpaolo",
-      "fv": 7.22,
+      "fv": 13.52,
       "price": 6.177,
       "curr": "€",
       "ex": "MIL",
@@ -618,11 +1553,34 @@
       "divYield": 8.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:ISP"
+      "tv": "MIL:ISP",
+      "fv_low": null,
+      "fv_high": 50.36,
+      "fv_mkt": 21.94,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.8164,
+        "cassa_az": 0,
+        "g_hist": 0.0349,
+        "roic_m": 0.0495,
+        "marg_n": 0.3053,
+        "marg_now": 0.3898,
+        "anni": 10,
+        "avvisi": [
+          "2 anni con FCF negativo",
+          "debito netto = 11,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "LDO": {
       "name": "Leonardo S.p.A.",
-      "fv": 26.65,
+      "fv": 14.81,
       "price": 48.07,
       "curr": "€",
       "ex": "MIL",
@@ -630,11 +1588,35 @@
       "divYield": 1.8,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:LDO"
+      "tv": "MIL:LDO",
+      "fv_low": null,
+      "fv_high": 29.75,
+      "fv_mkt": 22.97,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.7911,
+        "cassa_az": 1.7095,
+        "g_hist": 0.055,
+        "roic_m": 0.1073,
+        "marg_n": 0.0234,
+        "marg_now": 0.0501,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 54% dell'utile",
+          "1 anni con FCF negativo",
+          "debito netto = 7,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "LULU": {
       "name": "Lululemon",
-      "fv": 465.8,
+      "fv": 208.91,
       "price": 110.79,
       "curr": "$",
       "ex": "NASDAQ",
@@ -648,11 +1630,33 @@
         "mcap": "11B",
         "rev": "+3%"
       },
-      "tv": "NASDAQ:LULU"
+      "tv": "NASDAQ:LULU",
+      "fv_low": 74.06,
+      "fv_high": 275.54,
+      "fv_mkt": 331.89,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 11.9144,
+        "cassa_az": 11.6718,
+        "g_hist": 0.2076,
+        "roic_m": 0.2613,
+        "marg_n": 0.1278,
+        "marg_now": 0.083,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 8,3% molto sotto la media 12,8%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MA": {
       "name": "Mastercard",
-      "fv": 500.65,
+      "fv": 280.21,
       "price": 652.7,
       "curr": "$",
       "ex": "NYSE",
@@ -660,11 +1664,31 @@
       "divYield": 0.5,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:MA"
+      "tv": "NYSE:MA",
+      "fv_low": 248.91,
+      "fv_high": 321.19,
+      "fv_mkt": 447.35,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 16.1916,
+        "cassa_az": 12.1722,
+        "g_hist": 0.1565,
+        "roic_m": 0.5841,
+        "marg_n": 0.4468,
+        "marg_now": 0.515,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MONC": {
       "name": "Moncler",
-      "fv": 74.93,
+      "fv": 48.1,
       "price": 45.37,
       "curr": "€",
       "ex": "MIL",
@@ -672,11 +1696,31 @@
       "divYield": 1.8,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "MIL:MONC"
+      "tv": "MIL:MONC",
+      "fv_low": 38.05,
+      "fv_high": 70.36,
+      "fv_mkt": 76.91,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.7913,
+        "cassa_az": 1.8893,
+        "g_hist": 0.1206,
+        "roic_m": 0.1372,
+        "marg_n": 0.2419,
+        "marg_now": 0.2364,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "OXY": {
       "name": "Occidental Petroleum",
-      "fv": 77.7,
+      "fv": 48.56,
       "price": 56.38,
       "curr": "$",
       "ex": "NYSE",
@@ -684,11 +1728,31 @@
       "divYield": 1.2,
       "videoID": null,
       "updated": "2026-11-06",
-      "tv": "NYSE:OXY"
+      "tv": "NYSE:OXY",
+      "fv_low": 16.11,
+      "fv_high": 88.22,
+      "fv_mkt": 77.01,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.7563,
+        "cassa_az": 2.933,
+        "g_hist": 0.0157,
+        "roic_m": 0.0347,
+        "marg_n": 0.1817,
+        "marg_now": 0.1904,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "TTD": {
       "name": "The Trade Desk",
-      "fv": 18,
+      "fv": 29.42,
       "price": 12.93,
       "curr": "$",
       "ex": "NASDAQ",
@@ -702,11 +1766,31 @@
         "mcap": "6.1B",
         "rev": "+8%"
       },
-      "tv": "NASDAQ:TTD"
+      "tv": "NASDAQ:TTD",
+      "fv_low": 6.61,
+      "fv_high": 41.47,
+      "fv_mkt": 45.88,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.5952,
+        "cassa_az": 3.0095,
+        "g_hist": 0.3231,
+        "roic_m": 0.1468,
+        "marg_n": 0.2718,
+        "marg_now": 0.2747,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "TRI": {
       "name": "Thomson Reuters",
-      "fv": 135,
+      "fv": 71.52,
       "price": 112.57,
       "curr": "$",
       "ex": "NASDAQ",
@@ -720,11 +1804,31 @@
         "mcap": "74B",
         "rev": "+7%"
       },
-      "tv": "NASDAQ:TRI"
+      "tv": "NASDAQ:TRI",
+      "fv_low": 11.88,
+      "fv_high": 97.73,
+      "fv_mkt": 114.19,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.3894,
+        "cassa_az": 3.0884,
+        "g_hist": 0.0048,
+        "roic_m": 0.1073,
+        "marg_n": 0.2597,
+        "marg_now": 0.2698,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "PFE": {
       "name": "Pfizer",
-      "fv": 35,
+      "fv": 47.04,
       "price": 29.39,
       "curr": "$",
       "ex": "NYSE",
@@ -738,11 +1842,33 @@
         "mcap": "171B",
         "rev": "-8%"
       },
-      "tv": "NYSE:PFE"
+      "tv": "NYSE:PFE",
+      "fv_low": 16.19,
+      "fv_high": 65.04,
+      "fv_mkt": 74.83,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.8578,
+        "cassa_az": 2.4902,
+        "g_hist": 0.0273,
+        "roic_m": 0.0519,
+        "marg_n": 0.2617,
+        "marg_now": 0.145,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 14,5% molto sotto la media 26,2%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BSX": {
       "name": "Boston Scientific",
-      "fv": 72,
+      "fv": 26.74,
       "price": 42.75,
       "curr": "$",
       "ex": "NYSE",
@@ -756,11 +1882,34 @@
         "mcap": "66B",
         "rev": "+12%"
       },
-      "tv": "NYSE:BSX"
+      "tv": "NYSE:BSX",
+      "fv_low": null,
+      "fv_high": 40.97,
+      "fv_mkt": 43.14,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.5886,
+        "cassa_az": 0.4463,
+        "g_hist": 0.0928,
+        "roic_m": 0.0866,
+        "marg_n": 0.1183,
+        "marg_now": 0.1822,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo",
+          "debito netto = 4,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BLDR": {
       "name": "Builders FirstSource",
-      "fv": 80,
+      "fv": 116.87,
       "price": 62.54,
       "curr": "$",
       "ex": "NYSE",
@@ -774,11 +1923,33 @@
         "mcap": "6.1B",
         "rev": "-15%"
       },
-      "tv": "NYSE:BLDR"
+      "tv": "NYSE:BLDR",
+      "fv_low": 35.45,
+      "fv_high": 304.2,
+      "fv_mkt": 189.44,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 7.4649,
+        "cassa_az": 0.492,
+        "g_hist": 0.1034,
+        "roic_m": 0.0488,
+        "marg_n": 0.055,
+        "marg_now": 0.0562,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 6,3 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CPRT": {
       "name": "Copart",
-      "fv": 40,
+      "fv": 22.45,
       "price": 31.95,
       "curr": "$",
       "ex": "NASDAQ",
@@ -792,11 +1963,33 @@
         "mcap": "26.9B",
         "rev": "+5%"
       },
-      "tv": "NASDAQ:CPRT"
+      "tv": "NASDAQ:CPRT",
+      "fv_low": 15.48,
+      "fv_high": 26.59,
+      "fv_mkt": 33.52,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.0727,
+        "cassa_az": 4.6923,
+        "g_hist": 0.1377,
+        "roic_m": 0.161,
+        "marg_n": 0.22,
+        "marg_now": 0.2712,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 70% dell'utile"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "EL": {
       "name": "EssilorLuxottica",
-      "fv": 200,
+      "fv": 147.18,
       "price": 193.8,
       "curr": "€",
       "ex": "EURONEXT",
@@ -810,11 +2003,31 @@
         "mcap": "84B",
         "rev": "+5%"
       },
-      "tv": "EURONEXT:EL"
+      "tv": "EURONEXT:EL",
+      "fv_low": 117.33,
+      "fv_high": 184.16,
+      "fv_mkt": 236.36,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 8.6397,
+        "cassa_az": 4.1556,
+        "g_hist": 0.0732,
+        "roic_m": 0.047,
+        "marg_n": 0.1409,
+        "marg_now": 0.1425,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BR": {
       "name": "Broadridge Financial",
-      "fv": 220,
+      "fv": 137.92,
       "price": 190.4,
       "curr": "$",
       "ex": "NYSE",
@@ -828,11 +2041,31 @@
         "mcap": "20.7B",
         "rev": "+7%"
       },
-      "tv": "NYSE:BR"
+      "tv": "NYSE:BR",
+      "fv_low": 78.81,
+      "fv_high": 183.16,
+      "fv_mkt": 222.41,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 8.1845,
+        "cassa_az": 2.4338,
+        "g_hist": 0.0692,
+        "roic_m": 0.189,
+        "marg_n": 0.1282,
+        "marg_now": 0.171,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BF.B": {
       "name": "Brown-Forman B",
-      "fv": 42,
+      "fv": 24.45,
       "price": 30.58,
       "curr": "$",
       "ex": "NYSE",
@@ -846,11 +2079,31 @@
         "mcap": "13.6B",
         "rev": "-5%"
       },
-      "tv": "NYSE:BF.B"
+      "tv": "NYSE:BF.B",
+      "fv_low": 13.94,
+      "fv_high": 30.51,
+      "fv_mkt": 39.27,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.5246,
+        "cassa_az": 0.6856,
+        "g_hist": 0.0381,
+        "roic_m": 0.1128,
+        "marg_n": 0.1803,
+        "marg_now": 0.2263,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "PDD": {
       "name": "PDD Holdings",
-      "fv": 110,
+      "fv": 299.05,
       "price": 83.03,
       "curr": "$",
       "ex": "NASDAQ",
@@ -864,11 +2117,33 @@
         "mcap": "112B",
         "rev": "+25%"
       },
-      "tv": "NASDAQ:PDD"
+      "tv": "NASDAQ:PDD",
+      "fv_low": 170.98,
+      "fv_high": 448.86,
+      "fv_mkt": 452.44,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 14.8597,
+        "cassa_az": 53.0576,
+        "g_hist": 0.9181,
+        "roic_m": 0.2645,
+        "marg_n": 0.3667,
+        "marg_now": 0.2742,
+        "anni": 9,
+        "avvisi": [
+          "margine attuale 27,4% molto sotto la media 36,7%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "FUN": {
       "name": "Six Flags Entertain.",
-      "fv": 15,
+      "fv": 40.52,
       "price": 10,
       "curr": "$",
       "ex": "NYSE",
@@ -882,11 +2157,35 @@
         "mcap": "693M",
         "rev": "-3%"
       },
-      "tv": "NYSE:FUN"
+      "tv": "NYSE:FUN",
+      "fv_low": null,
+      "fv_high": 74.65,
+      "fv_mkt": 64.95,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.5131,
+        "cassa_az": 1.3383,
+        "g_hist": 0.0341,
+        "roic_m": -0.2473,
+        "marg_n": 0.0816,
+        "marg_now": -0.0491,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -4,9% molto sotto la media 8,2%",
+          "2 anni con FCF negativo",
+          "debito netto = 19,9 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "FMC": {
       "name": "FMC Corporation",
-      "fv": 20,
+      "fv": 43.1,
       "price": 5.63,
       "curr": "$",
       "ex": "NYSE",
@@ -900,12 +2199,36 @@
         "mcap": "785M",
         "rev": "-12%"
       },
-      "tv": "NYSE:FMC"
+      "tv": "NYSE:FMC",
+      "fv_low": null,
+      "fv_high": 75.05,
+      "fv_mkt": 66.32,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.3877,
+        "cassa_az": 5.8788,
+        "g_hist": 0.0436,
+        "roic_m": -0.3508,
+        "marg_n": 0.0862,
+        "marg_now": -0.0509,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -5,1% molto sotto la media 8,6%",
+          "2 anni con FCF negativo",
+          "debito netto = 11,9 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "SGBS": {
       "name": "Sprott Gold Miners",
       "fv": null,
-      "price": 388.11,
+      "price": 388.12,
       "curr": "$",
       "ex": "LSE",
       "yf": "SGBS.L",
@@ -918,11 +2241,31 @@
         "mcap": "N/D",
         "rev": "N/D"
       },
-      "tv": "LSE:SGBS"
+      "tv": "LSE:SGBS",
+      "fv_low": null,
+      "fv_high": null,
+      "fv_mkt": null,
+      "fv_sto": null,
+      "ind": {
+        "status": "dati_insufficienti",
+        "ke": null,
+        "pi": null,
+        "beta": null,
+        "fcf_norm": null,
+        "cassa_az": null,
+        "g_hist": null,
+        "roic_m": null,
+        "marg_n": null,
+        "marg_now": null,
+        "anni": 0,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "NFLX": {
       "name": "Netflix",
-      "fv": 78,
+      "fv": 5.93,
       "price": 63.41,
       "curr": "$",
       "ex": "NASDAQ",
@@ -936,12 +2279,36 @@
         "mcap": "260B",
         "rev": "+15%"
       },
-      "tv": "NASDAQ:NFLX"
+      "tv": "NASDAQ:NFLX",
+      "fv_low": null,
+      "fv_high": 37.95,
+      "fv_mkt": 8.44,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.2436,
+        "cassa_az": 1.8938,
+        "g_hist": 0.1917,
+        "roic_m": 0.2657,
+        "marg_n": 0.0234,
+        "marg_now": 0.209,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 42% dell'utile",
+          "5 anni con FCF negativo",
+          "debito netto = 8,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "RHM": {
       "name": "Rheinmetall AG",
-      "fv": null,
-      "price": 1019,
+      "fv": 183.58,
+      "price": 812.7,
       "curr": "€",
       "ex": "XETR",
       "yf": "RHM.DE",
@@ -953,12 +2320,35 @@
         "mcap": "48B",
         "rev": "N/D"
       },
-      "tv": "XETR:RHM"
+      "tv": "XETR:RHM",
+      "fv_low": null,
+      "fv_high": 515.88,
+      "fv_mkt": 294.59,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 10.7537,
+        "cassa_az": 5.5593,
+        "g_hist": 0.0571,
+        "roic_m": 0.1703,
+        "marg_n": 0.0496,
+        "marg_now": 0.1423,
+        "anni": 10,
+        "avvisi": [
+          "2 anni con FCF negativo",
+          "debito netto = 5,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "GXI": {
       "name": "Gerresheimer AG",
-      "fv": null,
-      "price": 31.34,
+      "fv": 18.55,
+      "price": 31.2,
       "curr": "€",
       "ex": "XETR",
       "yf": "GXI.DE",
@@ -970,12 +2360,37 @@
         "mcap": "1B",
         "rev": "N/D"
       },
-      "tv": "XETR:GXI"
+      "tv": "XETR:GXI",
+      "fv_low": null,
+      "fv_high": 159.86,
+      "fv_mkt": 27.09,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.8786,
+        "cassa_az": 4.8527,
+        "g_hist": 0.0488,
+        "roic_m": -0.1254,
+        "marg_n": 0.0131,
+        "marg_now": -0.0426,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -4,3% molto sotto la media 1,3%",
+          "FCF solo 23% dell'utile",
+          "4 anni con FCF negativo",
+          "debito netto = 67,1 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "NOC": {
       "name": "Northrop Grumman",
-      "fv": null,
-      "price": 551.44,
+      "fv": 369.04,
+      "price": 525.01,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOC",
@@ -987,12 +2402,35 @@
         "mcap": "78B",
         "rev": "N/D"
       },
-      "tv": "NYSE:NOC"
+      "tv": "NYSE:NOC",
+      "fv_low": 219.48,
+      "fv_high": 458.9,
+      "fv_mkt": 582.92,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 20.72,
+        "cassa_az": 26.0362,
+        "g_hist": 0.0887,
+        "roic_m": 0.1277,
+        "marg_n": 0.071,
+        "marg_now": 0.0788,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 66% dell'utile",
+          "debito netto = 4,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "RTX": {
       "name": "RTX Corp",
-      "fv": null,
-      "price": 191.01,
+      "fv": 87.57,
+      "price": 189.53,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RTX",
@@ -1004,12 +2442,34 @@
         "mcap": "258B",
         "rev": "N/D"
       },
-      "tv": "NYSE:RTX"
+      "tv": "NYSE:RTX",
+      "fv_low": 41.32,
+      "fv_high": 173.85,
+      "fv_mkt": 137.97,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.8816,
+        "cassa_az": 6.7627,
+        "g_hist": -0.0069,
+        "roic_m": 0.0668,
+        "marg_n": 0.0747,
+        "marg_now": 0.0896,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 4,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "LMT": {
       "name": "Lockheed Martin",
-      "fv": null,
-      "price": 604.18,
+      "fv": 489.3,
+      "price": 567.08,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LMT",
@@ -1021,12 +2481,32 @@
         "mcap": "140B",
         "rev": "N/D"
       },
-      "tv": "NYSE:LMT"
+      "tv": "NYSE:LMT",
+      "fv_low": 198.88,
+      "fv_high": 600.93,
+      "fv_mkt": 778.5,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 29.7486,
+        "cassa_az": 25.5246,
+        "g_hist": 0.0837,
+        "roic_m": 0.1829,
+        "marg_n": 0.0926,
+        "marg_now": 0.092,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "GD": {
       "name": "General Dynamics",
-      "fv": null,
-      "price": 349.36,
+      "fv": 258.11,
+      "price": 354.06,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GD",
@@ -1038,12 +2518,32 @@
         "mcap": "95B",
         "rev": "N/D"
       },
-      "tv": "NYSE:GD"
+      "tv": "NYSE:GD",
+      "fv_low": 177.92,
+      "fv_high": 371.9,
+      "fv_mkt": 409.01,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 14.6184,
+        "cassa_az": 16.1072,
+        "g_hist": 0.0775,
+        "roic_m": 0.1295,
+        "marg_n": 0.0758,
+        "marg_now": 0.0753,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "HWM": {
       "name": "Howmet Aerospace",
-      "fv": null,
-      "price": 185.91,
+      "fv": 5.95,
+      "price": 205.81,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HWM",
@@ -1055,12 +2555,36 @@
         "mcap": "74B",
         "rev": "N/D"
       },
-      "tv": "NYSE:HWM"
+      "tv": "NYSE:HWM",
+      "fv_low": null,
+      "fv_high": 56.13,
+      "fv_mkt": 8.88,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.3015,
+        "cassa_az": 1.2496,
+        "g_hist": -0.044,
+        "roic_m": 0.1849,
+        "marg_n": 0.0149,
+        "marg_now": 0.1734,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 45% dell'utile",
+          "5 anni con FCF negativo",
+          "debito netto = 33,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "HON": {
       "name": "Honeywell",
-      "fv": null,
-      "price": 221.15,
+      "fv": 272.5,
+      "price": 220.05,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
@@ -1072,12 +2596,32 @@
         "mcap": "70B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:HON"
+      "tv": "NASDAQ:HON",
+      "fv_low": 222.7,
+      "fv_high": 318.99,
+      "fv_mkt": 430.43,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 16.2449,
+        "cassa_az": 19.2471,
+        "g_hist": 0.0156,
+        "roic_m": 0.1019,
+        "marg_n": 0.1394,
+        "marg_now": 0.1448,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BA": {
       "name": "Boeing",
-      "fv": null,
-      "price": 188.35,
+      "fv": 33.98,
+      "price": 173.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BA",
@@ -1089,12 +2633,36 @@
         "mcap": "149B",
         "rev": "N/D"
       },
-      "tv": "NYSE:BA"
+      "tv": "NYSE:BA",
+      "fv_low": null,
+      "fv_high": 243.9,
+      "fv_mkt": 40.85,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.6649,
+        "cassa_az": 22.9764,
+        "g_hist": -0.0428,
+        "roic_m": 0.0432,
+        "marg_n": 0.0067,
+        "marg_now": -0.021,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -2,1% molto sotto la media 0,7%",
+          "5 anni con FCF negativo",
+          "debito netto = 42,1 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "UNP": {
       "name": "Union Pacific",
-      "fv": null,
-      "price": 292.87,
+      "fv": 162.03,
+      "price": 290.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNP",
@@ -1106,12 +2674,34 @@
         "mcap": "174B",
         "rev": "N/D"
       },
-      "tv": "NYSE:UNP"
+      "tv": "NYSE:UNP",
+      "fv_low": 133.15,
+      "fv_high": 200.84,
+      "fv_mkt": 259.84,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.4752,
+        "cassa_az": 5.1804,
+        "g_hist": 0.0623,
+        "roic_m": 0.1471,
+        "marg_n": 0.2304,
+        "marg_now": 0.2244,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 5,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "UPS": {
       "name": "UPS",
-      "fv": null,
-      "price": 101.06,
+      "fv": 101.19,
+      "price": 108.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UPS",
@@ -1123,12 +2713,35 @@
         "mcap": "86B",
         "rev": "N/D"
       },
-      "tv": "NYSE:UPS"
+      "tv": "NYSE:UPS",
+      "fv_low": null,
+      "fv_high": 186.31,
+      "fv_mkt": 160.88,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 6.1397,
+        "cassa_az": 5.4741,
+        "g_hist": 0.0482,
+        "roic_m": 0.1339,
+        "marg_n": 0.0589,
+        "marg_now": 0.0538,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo",
+          "debito netto = 4,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "FDX": {
       "name": "FedEx",
-      "fv": null,
-      "price": 298.72,
+      "fv": 251.88,
+      "price": 308.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FDX",
@@ -1140,12 +2753,36 @@
         "mcap": "71B",
         "rev": "N/D"
       },
-      "tv": "NYSE:FDX"
+      "tv": "NYSE:FDX",
+      "fv_low": null,
+      "fv_high": 401.28,
+      "fv_mkt": 379.68,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 12.3808,
+        "cassa_az": 46.9246,
+        "g_hist": 0.0658,
+        "roic_m": 0.0676,
+        "marg_n": 0.0312,
+        "marg_now": 0.054,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 55% dell'utile",
+          "3 anni con FCF negativo",
+          "debito netto = 7,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "DE": {
       "name": "Deere & Company",
-      "fv": null,
-      "price": 646.15,
+      "fv": 173.93,
+      "price": 671.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DE",
@@ -1157,12 +2794,36 @@
         "mcap": "174B",
         "rev": "N/D"
       },
-      "tv": "NYSE:DE"
+      "tv": "NYSE:DE",
+      "fv_low": null,
+      "fv_high": 415.44,
+      "fv_mkt": 258.79,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 8.2213,
+        "cassa_az": 37.8284,
+        "g_hist": 0.0799,
+        "roic_m": 0.0742,
+        "marg_n": 0.049,
+        "marg_now": 0.0708,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 46% dell'utile",
+          "3 anni con FCF negativo",
+          "debito netto = 24,1 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "KMI": {
       "name": "Kinder Morgan",
-      "fv": null,
-      "price": 34.43,
+      "fv": 25.64,
+      "price": 29.96,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KMI",
@@ -1174,12 +2835,34 @@
         "mcap": "77B",
         "rev": "N/D"
       },
-      "tv": "NYSE:KMI"
+      "tv": "NYSE:KMI",
+      "fv_low": 16.85,
+      "fv_high": 36.55,
+      "fv_mkt": 41.36,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.5229,
+        "cassa_az": 0.4242,
+        "g_hist": 0.0569,
+        "roic_m": 0.0495,
+        "marg_n": 0.2014,
+        "marg_now": 0.1916,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 9,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "COP": {
       "name": "ConocoPhillips",
-      "fv": null,
-      "price": 150.8,
+      "fv": 116.4,
+      "price": 136.27,
       "curr": "$",
       "ex": "NYSE",
       "yf": "COP",
@@ -1191,12 +2874,34 @@
         "mcap": "181B",
         "rev": "N/D"
       },
-      "tv": "NYSE:COP"
+      "tv": "NYSE:COP",
+      "fv_low": null,
+      "fv_high": 202.66,
+      "fv_mkt": 185.16,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 6.6607,
+        "cassa_az": 6.1367,
+        "g_hist": 0.1043,
+        "roic_m": 0.0903,
+        "marg_n": 0.1422,
+        "marg_now": 0.1234,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "DVN": {
       "name": "Devon Energy",
-      "fv": null,
-      "price": 51.39,
+      "fv": 25.67,
+      "price": 42.21,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DVN",
@@ -1208,12 +2913,36 @@
         "mcap": "57B",
         "rev": "N/D"
       },
-      "tv": "NYSE:DVN"
+      "tv": "NYSE:DVN",
+      "fv_low": null,
+      "fv_high": 95.8,
+      "fv_mkt": 40.69,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.4545,
+        "cassa_az": 1.594,
+        "g_hist": 0.0298,
+        "roic_m": 0.1141,
+        "marg_n": 0.0538,
+        "marg_now": 0.1655,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 55% dell'utile",
+          "2 anni con FCF negativo",
+          "debito netto = 11,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "SLB": {
       "name": "Schlumberger",
-      "fv": null,
-      "price": 53.06,
+      "fv": 52.94,
+      "price": 49.92,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SLB",
@@ -1225,12 +2954,32 @@
         "mcap": "79B",
         "rev": "N/D"
       },
-      "tv": "NYSE:SLB"
+      "tv": "NYSE:SLB",
+      "fv_low": 33.14,
+      "fv_high": 65.41,
+      "fv_mkt": 84.4,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 3.0484,
+        "cassa_az": 2.4712,
+        "g_hist": 0.0219,
+        "roic_m": 0.0981,
+        "marg_n": 0.1227,
+        "marg_now": 0.1343,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "XOM": {
       "name": "ExxonMobil",
-      "fv": null,
-      "price": 183.21,
+      "fv": 86.73,
+      "price": 165.87,
       "curr": "$",
       "ex": "NYSE",
       "yf": "XOM",
@@ -1242,12 +2991,34 @@
         "mcap": "753B",
         "rev": "N/D"
       },
-      "tv": "NYSE:XOM"
+      "tv": "NYSE:XOM",
+      "fv_low": null,
+      "fv_high": 184.44,
+      "fv_mkt": 139.05,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.0685,
+        "cassa_az": 2.823,
+        "g_hist": 0.0509,
+        "roic_m": 0.0955,
+        "marg_n": 0.0674,
+        "marg_now": 0.0729,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ABBV": {
       "name": "AbbVie",
-      "fv": null,
-      "price": 285.64,
+      "fv": 207.88,
+      "price": 291.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABBV",
@@ -1259,12 +3030,32 @@
         "mcap": "505B",
         "rev": "N/D"
       },
-      "tv": "NYSE:ABBV"
+      "tv": "NYSE:ABBV",
+      "fv_low": 143.72,
+      "fv_high": 230.7,
+      "fv_mkt": 333.72,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 12.9444,
+        "cassa_az": 6.0768,
+        "g_hist": 0.0913,
+        "roic_m": 0.0693,
+        "marg_n": 0.3752,
+        "marg_now": 0.2913,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MRK": {
       "name": "Merck & Co",
-      "fv": null,
-      "price": 145.27,
+      "fv": 90.16,
+      "price": 146.73,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MRK",
@@ -1276,12 +3067,32 @@
         "mcap": "358B",
         "rev": "N/D"
       },
-      "tv": "NYSE:MRK"
+      "tv": "NYSE:MRK",
+      "fv_low": 54.79,
+      "fv_high": 127.13,
+      "fv_mkt": 142.72,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.0921,
+        "cassa_az": 5.8596,
+        "g_hist": 0.069,
+        "roic_m": 0.2007,
+        "marg_n": 0.1966,
+        "marg_now": 0.1904,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "LLY": {
       "name": "Eli Lilly",
-      "fv": null,
-      "price": 1273.46,
+      "fv": 223.18,
+      "price": 1354,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LLY",
@@ -1293,12 +3104,32 @@
         "mcap": "1.2T",
         "rev": "N/D"
       },
-      "tv": "NYSE:LLY"
+      "tv": "NYSE:LLY",
+      "fv_low": 33.3,
+      "fv_high": 257.56,
+      "fv_mkt": 358.95,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 13.1534,
+        "cassa_az": 5.432,
+        "g_hist": 0.1538,
+        "roic_m": 0.371,
+        "marg_n": 0.1815,
+        "marg_now": 0.1377,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MDT": {
       "name": "Medtronic",
-      "fv": null,
-      "price": 95.41,
+      "fv": 82.29,
+      "price": 101.8,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MDT",
@@ -1310,12 +3141,32 @@
         "mcap": "122B",
         "rev": "N/D"
       },
-      "tv": "NYSE:MDT"
+      "tv": "NYSE:MDT",
+      "fv_low": 63.27,
+      "fv_high": 104.17,
+      "fv_mkt": 129.34,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.5575,
+        "cassa_az": 6.8465,
+        "g_hist": 0.0317,
+        "roic_m": 0.0635,
+        "marg_n": 0.1614,
+        "marg_now": 0.1492,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BDX": {
       "name": "Becton Dickinson",
-      "fv": null,
-      "price": 198.91,
+      "fv": 188.34,
+      "price": 211.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BDX",
@@ -1327,12 +3178,34 @@
         "mcap": "54B",
         "rev": "N/D"
       },
-      "tv": "NYSE:BDX"
+      "tv": "NYSE:BDX",
+      "fv_low": 113.3,
+      "fv_high": 229.18,
+      "fv_mkt": 303.91,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 11.196,
+        "cassa_az": 2.9947,
+        "g_hist": 0.0312,
+        "roic_m": 0.038,
+        "marg_n": 0.1479,
+        "marg_now": 0.1223,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 4,9 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "DHR": {
       "name": "Danaher",
-      "fv": null,
-      "price": 230.5,
+      "fv": 124.51,
+      "price": 230.25,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DHR",
@@ -1344,12 +3217,34 @@
         "mcap": "162B",
         "rev": "N/D"
       },
-      "tv": "NYSE:DHR"
+      "tv": "NYSE:DHR",
+      "fv_low": 91.34,
+      "fv_high": 156.51,
+      "fv_mkt": 197.21,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 7.4778,
+        "cassa_az": 7.9347,
+        "g_hist": 0.0398,
+        "roic_m": 0.0522,
+        "marg_n": 0.218,
+        "marg_now": 0.2141,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 4,1 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "TMO": {
       "name": "Thermo Fisher",
-      "fv": null,
-      "price": 673.82,
+      "fv": 328.39,
+      "price": 694.76,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TMO",
@@ -1361,12 +3256,34 @@
         "mcap": "249B",
         "rev": "N/D"
       },
-      "tv": "NYSE:TMO"
+      "tv": "NYSE:TMO",
+      "fv_low": 291.7,
+      "fv_high": 428.88,
+      "fv_mkt": 523.15,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 18.8669,
+        "cassa_az": 16.0632,
+        "g_hist": 0.1102,
+        "roic_m": 0.0787,
+        "marg_n": 0.16,
+        "marg_now": 0.1412,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 5,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MTD": {
       "name": "Mettler-Toledo",
-      "fv": null,
-      "price": 1670.29,
+      "fv": 636.33,
+      "price": 1722.15,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MTD",
@@ -1378,12 +3295,32 @@
         "mcap": "33B",
         "rev": "N/D"
       },
-      "tv": "NYSE:MTD"
+      "tv": "NYSE:MTD",
+      "fv_low": 412.72,
+      "fv_high": 734.94,
+      "fv_mkt": 1031.57,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 38.2887,
+        "cassa_az": 2.4857,
+        "g_hist": 0.0859,
+        "roic_m": 0.4418,
+        "marg_n": 0.1966,
+        "marg_now": 0.2108,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "REGN": {
       "name": "Regeneron Pharma",
-      "fv": null,
-      "price": 805.02,
+      "fv": 691.93,
+      "price": 904.35,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "REGN",
@@ -1395,12 +3332,32 @@
         "mcap": "83B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:REGN"
+      "tv": "NASDAQ:REGN",
+      "fv_low": 470.92,
+      "fv_high": 974,
+      "fv_mkt": 1069.92,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 36.6172,
+        "cassa_az": 85.7606,
+        "g_hist": 0.1364,
+        "roic_m": 0.1356,
+        "marg_n": 0.2773,
+        "marg_now": 0.2845,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "GILD": {
       "name": "Gilead Sciences",
-      "fv": null,
-      "price": 156.04,
+      "fv": 141.37,
+      "price": 166.89,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GILD",
@@ -1412,12 +3369,32 @@
         "mcap": "193B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:GILD"
+      "tv": "NASDAQ:GILD",
+      "fv_low": 112.87,
+      "fv_high": 215.17,
+      "fv_mkt": 225.57,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 8.1571,
+        "cassa_az": 6.3363,
+        "g_hist": 0.0055,
+        "roic_m": 0.189,
+        "marg_n": 0.3476,
+        "marg_now": 0.3211,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ISRG": {
       "name": "Intuitive Surgical",
-      "fv": null,
-      "price": 452.29,
+      "fv": 131.62,
+      "price": 452.8,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ISRG",
@@ -1429,12 +3406,32 @@
         "mcap": "157B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:ISRG"
+      "tv": "NASDAQ:ISRG",
+      "fv_low": 59.56,
+      "fv_high": 179.28,
+      "fv_mkt": 206.69,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 7.2724,
+        "cassa_az": 11.2264,
+        "g_hist": 0.154,
+        "roic_m": 0.1656,
+        "marg_n": 0.2621,
+        "marg_now": 0.2475,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "VRTX": {
       "name": "Vertex Pharma",
-      "fv": null,
-      "price": 523.93,
+      "fv": 278.54,
+      "price": 547.09,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRTX",
@@ -1446,12 +3443,34 @@
         "mcap": "133B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:VRTX"
+      "tv": "NASDAQ:VRTX",
+      "fv_low": null,
+      "fv_high": 398,
+      "fv_mkt": 436.97,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 15.3477,
+        "cassa_az": 24.4675,
+        "g_hist": 0.2353,
+        "roic_m": 0.2044,
+        "marg_n": 0.3279,
+        "marg_now": 0.2645,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ELV": {
       "name": "Elevance Health",
-      "fv": null,
-      "price": 439.95,
+      "fv": 565.65,
+      "price": 425.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ELV",
@@ -1463,12 +3482,35 @@
         "mcap": "95B",
         "rev": "N/D"
       },
-      "tv": "NYSE:ELV"
+      "tv": "NYSE:ELV",
+      "fv_low": 233.94,
+      "fv_high": 1164.21,
+      "fv_mkt": 918.36,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 34.1691,
+        "cassa_az": 0,
+        "g_hist": 0.1211,
+        "roic_m": 0.0774,
+        "marg_n": 0.0385,
+        "marg_now": 0.0159,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 1,6% molto sotto la media 3,9%",
+          "debito netto = 4,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "UNH": {
       "name": "UnitedHealth",
-      "fv": null,
-      "price": 418.09,
+      "fv": 490.28,
+      "price": 394.15,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNH",
@@ -1480,12 +3522,34 @@
         "mcap": "375B",
         "rev": "N/D"
       },
-      "tv": "NYSE:UNH"
+      "tv": "NYSE:UNH",
+      "fv_low": 275.09,
+      "fv_high": 599.39,
+      "fv_mkt": 796.01,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 31.4487,
+        "cassa_az": 0,
+        "g_hist": 0.1107,
+        "roic_m": 0.0712,
+        "marg_n": 0.064,
+        "marg_now": 0.0359,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 3,6% molto sotto la media 6,4%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CVS": {
       "name": "CVS Health",
-      "fv": null,
-      "price": 93.47,
+      "fv": 198.12,
+      "price": 83.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVS",
@@ -1497,12 +3561,34 @@
         "mcap": "120B",
         "rev": "N/D"
       },
-      "tv": "NYSE:CVS"
+      "tv": "NYSE:CVS",
+      "fv_low": 95.43,
+      "fv_high": 277.72,
+      "fv_mkt": 314.36,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 11.9571,
+        "cassa_az": 11.7126,
+        "g_hist": 0.0754,
+        "roic_m": 0.0118,
+        "marg_n": 0.0378,
+        "marg_now": 0.0194,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 1,9% molto sotto la media 3,8%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "NVO": {
       "name": "Novo Nordisk ADR",
-      "fv": null,
-      "price": 39.05,
+      "fv": 58.87,
+      "price": 40.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NVO",
@@ -1514,12 +3600,34 @@
         "mcap": "173B",
         "rev": "N/D"
       },
-      "tv": "NYSE:NVO"
+      "tv": "NYSE:NVO",
+      "fv_low": 34.77,
+      "fv_high": 67.19,
+      "fv_mkt": 94.59,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 3.4603,
+        "cassa_az": 1.5835,
+        "g_hist": 0.1383,
+        "roic_m": 0.3797,
+        "marg_n": 0.3293,
+        "marg_now": 0.1908,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 19,1% molto sotto la media 32,9%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "JPM": {
       "name": "JPMorgan Chase",
-      "fv": null,
-      "price": 331.58,
+      "fv": 619.48,
+      "price": 334.49,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JPM",
@@ -1531,12 +3639,35 @@
         "mcap": "881B",
         "rev": "N/D"
       },
-      "tv": "NYSE:JPM"
+      "tv": "NYSE:JPM",
+      "fv_low": null,
+      "fv_high": 1043.21,
+      "fv_mkt": 1005.77,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 37.4212,
+        "cassa_az": 0,
+        "g_hist": 0.1563,
+        "roic_m": 0.0742,
+        "marg_n": 0.3803,
+        "marg_now": 0.3614,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo",
+          "debito netto = 12,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BLK": {
       "name": "BlackRock",
-      "fv": null,
-      "price": 1118.25,
+      "fv": 633.91,
+      "price": 1178.87,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLK",
@@ -1548,12 +3679,34 @@
         "mcap": "182B",
         "rev": "N/D"
       },
-      "tv": "NYSE:BLK"
+      "tv": "NYSE:BLK",
+      "fv_low": 467.54,
+      "fv_high": 844.79,
+      "fv_mkt": 983.72,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 33.8878,
+        "cassa_az": 72.9194,
+        "g_hist": 0.0998,
+        "roic_m": 0.0845,
+        "marg_n": 0.2138,
+        "marg_now": 0.1504,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 15,0% molto sotto la media 21,4%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "C": {
       "name": "Citigroup",
-      "fv": null,
-      "price": 120.62,
+      "fv": 209.1,
+      "price": 119.05,
       "curr": "$",
       "ex": "NYSE",
       "yf": "C",
@@ -1565,12 +3718,35 @@
         "mcap": "202B",
         "rev": "N/D"
       },
-      "tv": "NYSE:C"
+      "tv": "NYSE:C",
+      "fv_low": null,
+      "fv_high": 1148.24,
+      "fv_mkt": 339.49,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 12.6314,
+        "cassa_az": 0,
+        "g_hist": 0.134,
+        "roic_m": 0.0301,
+        "marg_n": 0.151,
+        "marg_now": 0.1317,
+        "anni": 10,
+        "avvisi": [
+          "2 anni con FCF negativo",
+          "debito netto = 32,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "GS": {
       "name": "Goldman Sachs",
-      "fv": null,
-      "price": 875.68,
+      "fv": 1245.64,
+      "price": 865.82,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GS",
@@ -1582,12 +3758,35 @@
         "mcap": "255B",
         "rev": "N/D"
       },
-      "tv": "NYSE:GS"
+      "tv": "NYSE:GS",
+      "fv_low": null,
+      "fv_high": 9824,
+      "fv_mkt": 2022.36,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 75.2455,
+        "cassa_az": 0,
+        "g_hist": 0.1852,
+        "roic_m": 0.0431,
+        "marg_n": 0.1995,
+        "marg_now": 0.1834,
+        "anni": 10,
+        "avvisi": [
+          "4 anni con FCF negativo",
+          "debito netto = 33,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "V": {
       "name": "Visa",
-      "fv": null,
-      "price": 407.92,
+      "fv": 186.48,
+      "price": 422.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "V",
@@ -1599,12 +3798,32 @@
         "mcap": "762B",
         "rev": "N/D"
       },
-      "tv": "NYSE:V"
+      "tv": "NYSE:V",
+      "fv_low": 120.28,
+      "fv_high": 212.94,
+      "fv_mkt": 298.1,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 10.8129,
+        "cassa_az": 7.4827,
+        "g_hist": 0.1402,
+        "roic_m": 0.4133,
+        "marg_n": 0.5315,
+        "marg_now": 0.5394,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MCO": {
       "name": "Moody's Corp",
-      "fv": null,
-      "price": 483.45,
+      "fv": 231.42,
+      "price": 505.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCO",
@@ -1616,12 +3835,32 @@
         "mcap": "83B",
         "rev": "N/D"
       },
-      "tv": "NYSE:MCO"
+      "tv": "NYSE:MCO",
+      "fv_low": 121.18,
+      "fv_high": 279.16,
+      "fv_mkt": 370.1,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 13.4349,
+        "cassa_az": 9.0106,
+        "g_hist": 0.0983,
+        "roic_m": 0.2254,
+        "marg_n": 0.3132,
+        "marg_now": 0.3336,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CB": {
       "name": "Chubb",
-      "fv": null,
-      "price": 355.11,
+      "fv": 639.76,
+      "price": 365.02,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CB",
@@ -1633,12 +3872,32 @@
         "mcap": "137B",
         "rev": "N/D"
       },
-      "tv": "NYSE:CB"
+      "tv": "NYSE:CB",
+      "fv_low": 343.22,
+      "fv_high": 775.37,
+      "fv_mkt": 1038.69,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 38.6464,
+        "cassa_az": 0,
+        "g_hist": 0.0918,
+        "roic_m": 0.1209,
+        "marg_n": 0.2595,
+        "marg_now": 0.2432,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "L": {
       "name": "Loews Corp",
-      "fv": null,
-      "price": 112.01,
+      "fv": 194.09,
+      "price": 109.71,
       "curr": "$",
       "ex": "NYSE",
       "yf": "L",
@@ -1650,12 +3909,32 @@
         "mcap": "23B",
         "rev": "N/D"
       },
-      "tv": "NYSE:L"
+      "tv": "NYSE:L",
+      "fv_low": 116.83,
+      "fv_high": 259.55,
+      "fv_mkt": 315.11,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 11.7243,
+        "cassa_az": 0,
+        "g_hist": 0.0958,
+        "roic_m": 0.062,
+        "marg_n": 0.1328,
+        "marg_now": 0.1687,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "RSG": {
       "name": "Republic Services",
-      "fv": null,
-      "price": 240.45,
+      "fv": 112.14,
+      "price": 246.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RSG",
@@ -1667,12 +3946,34 @@
         "mcap": "74B",
         "rev": "N/D"
       },
-      "tv": "NYSE:RSG"
+      "tv": "NYSE:RSG",
+      "fv_low": 80.96,
+      "fv_high": 128.04,
+      "fv_mkt": 181.89,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 6.7565,
+        "cassa_az": 0.2947,
+        "g_hist": 0.0769,
+        "roic_m": 0.0881,
+        "marg_n": 0.1271,
+        "marg_now": 0.1452,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 6,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "WM": {
       "name": "Waste Management",
-      "fv": null,
-      "price": 239.38,
+      "fv": 120.24,
+      "price": 236.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WM",
@@ -1684,12 +3985,34 @@
         "mcap": "96B",
         "rev": "N/D"
       },
-      "tv": "NYSE:WM"
+      "tv": "NYSE:WM",
+      "fv_low": 92.82,
+      "fv_high": 140.76,
+      "fv_mkt": 194.82,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 7.2249,
+        "cassa_az": 0.6383,
+        "g_hist": 0.0827,
+        "roic_m": 0.0837,
+        "marg_n": 0.1159,
+        "marg_now": 0.1117,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 7,9 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "PM": {
       "name": "Philip Morris",
-      "fv": null,
-      "price": 199.47,
+      "fv": 124.36,
+      "price": 197.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PM",
@@ -1701,12 +4024,32 @@
         "mcap": "311B",
         "rev": "N/D"
       },
-      "tv": "NYSE:PM"
+      "tv": "NYSE:PM",
+      "fv_low": 101.16,
+      "fv_high": 158.47,
+      "fv_mkt": 199.23,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 7.2525,
+        "cassa_az": 4.3043,
+        "g_hist": 0.0469,
+        "roic_m": 0.3403,
+        "marg_n": 0.2787,
+        "marg_now": 0.263,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "PEP": {
       "name": "PepsiCo",
-      "fv": null,
-      "price": 135.77,
+      "fv": 106.99,
+      "price": 141.34,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PEP",
@@ -1718,12 +4061,34 @@
         "mcap": "185B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:PEP"
+      "tv": "NASDAQ:PEP",
+      "fv_low": 81.58,
+      "fv_high": 140.92,
+      "fv_mkt": 168.63,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.9717,
+        "cassa_az": 8.1304,
+        "g_hist": 0.0522,
+        "roic_m": 0.133,
+        "marg_n": 0.0873,
+        "marg_now": 0.0817,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 5,0 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "KO": {
       "name": "Coca-Cola",
-      "fv": null,
-      "price": 92.71,
+      "fv": 40.14,
+      "price": 95.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KO",
@@ -1735,12 +4100,34 @@
         "mcap": "399B",
         "rev": "N/D"
       },
-      "tv": "NYSE:KO"
+      "tv": "NYSE:KO",
+      "fv_low": 22.68,
+      "fv_high": 57.84,
+      "fv_mkt": 62.76,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.192,
+        "cassa_az": 3.8477,
+        "g_hist": 0.019,
+        "roic_m": 0.1822,
+        "marg_n": 0.1954,
+        "marg_now": 0.1094,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 10,9% molto sotto la media 19,5%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "AZO": {
       "name": "AutoZone",
-      "fv": null,
-      "price": 3200.76,
+      "fv": 2619.9,
+      "price": 3216.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AZO",
@@ -1752,12 +4139,35 @@
         "mcap": "52B",
         "rev": "N/D"
       },
-      "tv": "NYSE:AZO"
+      "tv": "NYSE:AZO",
+      "fv_low": 1802.46,
+      "fv_high": 3973.38,
+      "fv_mkt": 4240.86,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 157.0303,
+        "cassa_az": 20.3726,
+        "g_hist": 0.1387,
+        "roic_m": 0.2706,
+        "marg_n": 0.1302,
+        "marg_now": 0.0893,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 8,9% molto sotto la media 13,0%",
+          "debito netto = 4,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MO": {
       "name": "Altria Group",
-      "fv": null,
-      "price": 74.31,
+      "fv": 74.41,
+      "price": 76.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MO",
@@ -1769,12 +4179,32 @@
         "mcap": "124B",
         "rev": "N/D"
       },
-      "tv": "NYSE:MO"
+      "tv": "NYSE:MO",
+      "fv_low": 36.32,
+      "fv_high": 85.66,
+      "fv_mkt": 119.8,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.6697,
+        "cassa_az": 1.6055,
+        "g_hist": 0.0211,
+        "roic_m": 0.3314,
+        "marg_n": 0.3907,
+        "marg_now": 0.4511,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CL": {
       "name": "Colgate-Palmolive",
-      "fv": null,
-      "price": 94.04,
+      "fv": 67.85,
+      "price": 96.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CL",
@@ -1786,12 +4216,32 @@
         "mcap": "75B",
         "rev": "N/D"
       },
-      "tv": "NYSE:CL"
+      "tv": "NYSE:CL",
+      "fv_low": 42.54,
+      "fv_high": 80.69,
+      "fv_mkt": 108.92,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.2246,
+        "cassa_az": 1.9874,
+        "g_hist": 0.0448,
+        "roic_m": 0.2781,
+        "marg_n": 0.1681,
+        "marg_now": 0.1783,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "PG": {
       "name": "Procter & Gamble",
-      "fv": null,
-      "price": 161.02,
+      "fv": 108.41,
+      "price": 165.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PG",
@@ -1803,12 +4253,32 @@
         "mcap": "373B",
         "rev": "N/D"
       },
-      "tv": "NYSE:PG"
+      "tv": "NYSE:PG",
+      "fv_low": 91.99,
+      "fv_high": 128.11,
+      "fv_mkt": 172.05,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 6.1655,
+        "cassa_az": 6.3426,
+        "g_hist": 0.0471,
+        "roic_m": 0.2067,
+        "marg_n": 0.1716,
+        "marg_now": 0.174,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "GIS": {
       "name": "General Mills",
-      "fv": null,
-      "price": 34.39,
+      "fv": 70.75,
+      "price": 35.51,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GIS",
@@ -1820,12 +4290,35 @@
         "mcap": "18B",
         "rev": "N/D"
       },
-      "tv": "NYSE:GIS"
+      "tv": "NYSE:GIS",
+      "fv_low": 47.95,
+      "fv_high": 98.24,
+      "fv_mkt": 114.37,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.4866,
+        "cassa_az": 0.8054,
+        "g_hist": 0.0307,
+        "roic_m": -0.0041,
+        "marg_n": 0.1309,
+        "marg_now": 0.0883,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 8,8% molto sotto la media 13,1%",
+          "debito netto = 5,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "HD": {
       "name": "Home Depot",
-      "fv": null,
-      "price": 319.83,
+      "fv": 273.53,
+      "price": 343.47,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HD",
@@ -1837,12 +4330,32 @@
         "mcap": "319B",
         "rev": "N/D"
       },
-      "tv": "NYSE:HD"
+      "tv": "NYSE:HD",
+      "fv_low": 202.21,
+      "fv_high": 341.73,
+      "fv_mkt": 442.78,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 16.3964,
+        "cassa_az": 2.0955,
+        "g_hist": 0.0892,
+        "roic_m": 0.2177,
+        "marg_n": 0.0991,
+        "marg_now": 0.0768,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ROST": {
       "name": "Ross Stores",
-      "fv": null,
-      "price": 229.3,
+      "fv": 123.4,
+      "price": 231.09,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
@@ -1854,12 +4367,32 @@
         "mcap": "73B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:ROST"
+      "tv": "NASDAQ:ROST",
+      "fv_low": 77.57,
+      "fv_high": 183.79,
+      "fv_mkt": 192.06,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 6.6518,
+        "cassa_az": 13.2837,
+        "g_hist": 0.0889,
+        "roic_m": 0.2149,
+        "marg_n": 0.0949,
+        "marg_now": 0.097,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ORLY": {
       "name": "O'Reilly Automotive",
-      "fv": null,
-      "price": 89.92,
+      "fv": 43.13,
+      "price": 89.89,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ORLY",
@@ -1871,12 +4404,35 @@
         "mcap": "73B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:ORLY"
+      "tv": "NASDAQ:ORLY",
+      "fv_low": 31.04,
+      "fv_high": 71.57,
+      "fv_mkt": 69.89,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.5919,
+        "cassa_az": 0.2272,
+        "g_hist": 0.1496,
+        "roic_m": 0.3783,
+        "marg_n": 0.1248,
+        "marg_now": 0.0896,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 9,0% molto sotto la media 12,5%",
+          "debito netto = 4,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "DG": {
       "name": "Dollar General",
-      "fv": null,
-      "price": 132.69,
+      "fv": 160.34,
+      "price": 133.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DG",
@@ -1888,12 +4444,34 @@
         "mcap": "29B",
         "rev": "N/D"
       },
-      "tv": "NYSE:DG"
+      "tv": "NYSE:DG",
+      "fv_low": 40.99,
+      "fv_high": 261.78,
+      "fv_mkt": 255.83,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.8228,
+        "cassa_az": 7.1988,
+        "g_hist": 0.1065,
+        "roic_m": 0.0664,
+        "marg_n": 0.0508,
+        "marg_now": 0.056,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 6,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "MCD": {
       "name": "McDonald's",
-      "fv": null,
-      "price": 248.46,
+      "fv": 155.81,
+      "price": 276.52,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCD",
@@ -1905,12 +4483,34 @@
         "mcap": "176B",
         "rev": "N/D"
       },
-      "tv": "NYSE:MCD"
+      "tv": "NYSE:MCD",
+      "fv_low": 101.74,
+      "fv_high": 191.06,
+      "fv_mkt": 252.29,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.3468,
+        "cassa_az": 1.0804,
+        "g_hist": 0.0307,
+        "roic_m": 0.1715,
+        "marg_n": 0.2491,
+        "marg_now": 0.2673,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 8,1 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "NKE": {
       "name": "Nike",
-      "fv": null,
-      "price": 37.3,
+      "fv": 52.01,
+      "price": 38.59,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NKE",
@@ -1922,12 +4522,34 @@
         "mcap": "55B",
         "rev": "N/D"
       },
-      "tv": "NYSE:NKE"
+      "tv": "NYSE:NKE",
+      "fv_low": 23.91,
+      "fv_high": 71.1,
+      "fv_mkt": 80.92,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.9739,
+        "cassa_az": 5.6503,
+        "g_hist": 0.0495,
+        "roic_m": 0.1319,
+        "marg_n": 0.0949,
+        "marg_now": 0.0471,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 4,7% molto sotto la media 9,5%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "DIS": {
       "name": "Walt Disney",
-      "fv": null,
-      "price": 112.52,
+      "fv": 67.22,
+      "price": 116.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DIS",
@@ -1939,12 +4561,34 @@
         "mcap": "194B",
         "rev": "N/D"
       },
-      "tv": "NYSE:DIS"
+      "tv": "NYSE:DIS",
+      "fv_low": 13.9,
+      "fv_high": 145.16,
+      "fv_mkt": 107.35,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 3.8878,
+        "cassa_az": 2.863,
+        "g_hist": 0.0491,
+        "roic_m": 0.0854,
+        "marg_n": 0.0748,
+        "marg_now": 0.107,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 5,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "VZ": {
       "name": "Verizon",
-      "fv": null,
-      "price": 44.66,
+      "fv": 71.06,
+      "price": 45.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VZ",
@@ -1956,12 +4600,34 @@
         "mcap": "186B",
         "rev": "N/D"
       },
-      "tv": "NYSE:VZ"
+      "tv": "NYSE:VZ",
+      "fv_low": 23.97,
+      "fv_high": 94.68,
+      "fv_mkt": 114.67,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 4.4869,
+        "cassa_az": 1.1057,
+        "g_hist": 0.0065,
+        "roic_m": 0.0682,
+        "marg_n": 0.1374,
+        "marg_now": 0.1456,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 9,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "T": {
       "name": "AT&T",
-      "fv": null,
-      "price": 20.93,
+      "fv": 43.2,
+      "price": 21.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "T",
@@ -1973,12 +4639,34 @@
         "mcap": "141B",
         "rev": "N/D"
       },
-      "tv": "NYSE:T"
+      "tv": "NYSE:T",
+      "fv_low": 29.46,
+      "fv_high": 55.19,
+      "fv_mkt": 69.17,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.6717,
+        "cassa_az": 1.5509,
+        "g_hist": -0.0453,
+        "roic_m": 0.0884,
+        "marg_n": 0.153,
+        "marg_now": 0.1547,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 8,7 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CHTR": {
       "name": "Charter Comm.",
-      "fv": null,
-      "price": 108.61,
+      "fv": 578.06,
+      "price": 118.07,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CHTR",
@@ -1990,12 +4678,34 @@
         "mcap": "19B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:CHTR"
+      "tv": "NASDAQ:CHTR",
+      "fv_low": 382.1,
+      "fv_high": 1100.26,
+      "fv_mkt": 935.8,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 34.6561,
+        "cassa_az": 4.3487,
+        "g_hist": 0.131,
+        "roic_m": 0.0453,
+        "marg_n": 0.0872,
+        "marg_now": 0.0807,
+        "anni": 10,
+        "avvisi": [
+          "debito netto = 19,8 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "TMUS": {
       "name": "T-Mobile US",
-      "fv": null,
-      "price": 146.54,
+      "fv": 52.78,
+      "price": 162.01,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TMUS",
@@ -2007,12 +4717,35 @@
         "mcap": "157B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:TMUS"
+      "tv": "NASDAQ:TMUS",
+      "fv_low": null,
+      "fv_high": 231.04,
+      "fv_mkt": 82.42,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.8712,
+        "cassa_az": 5.2525,
+        "g_hist": 0.0679,
+        "roic_m": 0.0649,
+        "marg_n": 0.0368,
+        "marg_now": 0.1747,
+        "anni": 10,
+        "avvisi": [
+          "2 anni con FCF negativo",
+          "debito netto = 34,5 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "RCL": {
       "name": "Royal Caribbean",
-      "fv": null,
-      "price": 276.48,
+      "fv": 27.24,
+      "price": 327.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RCL",
@@ -2024,12 +4757,36 @@
         "mcap": "74B",
         "rev": "N/D"
       },
-      "tv": "NYSE:RCL"
+      "tv": "NYSE:RCL",
+      "fv_low": null,
+      "fv_high": 289.4,
+      "fv_mkt": 42.28,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.4571,
+        "cassa_az": 3.1175,
+        "g_hist": 0.0589,
+        "roic_m": 0.1538,
+        "marg_n": 0.0222,
+        "marg_now": 0.0689,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo -241% dell'utile",
+          "4 anni con FCF negativo",
+          "debito netto = 56,1 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "META": {
       "name": "Meta Platforms",
-      "fv": null,
-      "price": 642.62,
+      "fv": 436.21,
+      "price": 610.15,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "META",
@@ -2041,12 +4798,34 @@
         "mcap": "1.6T",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:META"
+      "tv": "NASDAQ:META",
+      "fv_low": 243.35,
+      "fv_high": 588.1,
+      "fv_mkt": 688.09,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 24.4013,
+        "cassa_az": 32.2635,
+        "g_hist": 0.2641,
+        "roic_m": 0.2281,
+        "marg_n": 0.3125,
+        "marg_now": 0.2294,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 22,9% molto sotto la media 31,3%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "TSLA": {
       "name": "Tesla",
-      "fv": null,
-      "price": 372.22,
+      "fv": 30.75,
+      "price": 358.22,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TSLA",
@@ -2058,12 +4837,35 @@
         "mcap": "1.5T",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:TSLA"
+      "tv": "NASDAQ:TSLA",
+      "fv_low": null,
+      "fv_high": 51.91,
+      "fv_mkt": 41.8,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.1371,
+        "cassa_az": 13.0204,
+        "g_hist": 0.2652,
+        "roic_m": 0.0427,
+        "marg_n": 0.0423,
+        "marg_now": 0.0656,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 61% dell'utile",
+          "3 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "AVGO": {
       "name": "Broadcom",
-      "fv": null,
-      "price": 321.68,
+      "fv": 95.52,
+      "price": 293.69,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AVGO",
@@ -2075,12 +4877,32 @@
         "mcap": "1.5T",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:AVGO"
+      "tv": "NASDAQ:AVGO",
+      "fv_low": 49.18,
+      "fv_high": 112.22,
+      "fv_mkt": 152,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.4717,
+        "cassa_az": 4.9402,
+        "g_hist": 0.1664,
+        "roic_m": 0.1654,
+        "marg_n": 0.4156,
+        "marg_now": 0.4213,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ORCL": {
       "name": "Oracle",
-      "fv": null,
-      "price": 126.16,
+      "fv": 111.39,
+      "price": 116.1,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ORCL",
@@ -2092,12 +4914,37 @@
         "mcap": "381B",
         "rev": "N/D"
       },
-      "tv": "NYSE:ORCL"
+      "tv": "NYSE:ORCL",
+      "fv_low": null,
+      "fv_high": 144.47,
+      "fv_mkt": 172.96,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.9646,
+        "cassa_az": 12.647,
+        "g_hist": 0.1107,
+        "roic_m": 0.1073,
+        "marg_n": 0.2596,
+        "marg_now": -0.3516,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale -35,2% molto sotto la media 26,0%",
+          "FCF solo 63% dell'utile",
+          "2 anni con FCF negativo",
+          "debito netto = 7,6 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "TXN": {
       "name": "Texas Instruments",
-      "fv": null,
-      "price": 284.69,
+      "fv": 102.12,
+      "price": 277.36,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TXN",
@@ -2109,12 +4956,34 @@
         "mcap": "260B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:TXN"
+      "tv": "NASDAQ:TXN",
+      "fv_low": 32.17,
+      "fv_high": 130.71,
+      "fv_mkt": 160.24,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.9786,
+        "cassa_az": 8.9179,
+        "g_hist": 0.0443,
+        "roic_m": 0.1635,
+        "marg_n": 0.3087,
+        "marg_now": 0.1472,
+        "anni": 10,
+        "avvisi": [
+          "margine attuale 14,7% molto sotto la media 30,9%"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "BKNG": {
       "name": "Booking Holdings",
-      "fv": null,
-      "price": 155.83,
+      "fv": 202.48,
+      "price": 160.66,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKNG",
@@ -2126,12 +4995,34 @@
         "mcap": "117B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:BKNG"
+      "tv": "NASDAQ:BKNG",
+      "fv_low": null,
+      "fv_high": 217.33,
+      "fv_mkt": 316.48,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 11.0437,
+        "cassa_az": 19.6625,
+        "g_hist": 0.1613,
+        "roic_m": 0.4667,
+        "marg_n": 0.3348,
+        "marg_now": 0.3376,
+        "anni": 10,
+        "avvisi": [
+          "1 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "SHOP": {
       "name": "Shopify",
-      "fv": null,
-      "price": 168.68,
+      "fv": 11.6,
+      "price": 148.91,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SHOP",
@@ -2143,12 +5034,34 @@
         "mcap": "217B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:SHOP"
+      "tv": "NASDAQ:SHOP",
+      "fv_low": null,
+      "fv_high": 30.44,
+      "fv_mkt": 16.59,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.4827,
+        "cassa_az": 3.6118,
+        "g_hist": 0.4499,
+        "roic_m": 0.0966,
+        "marg_n": 0.0536,
+        "marg_now": 0.1737,
+        "anni": 10,
+        "avvisi": [
+          "4 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CRWD": {
       "name": "CrowdStrike",
-      "fv": null,
-      "price": 257.57,
+      "fv": 24.84,
+      "price": 216.9,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CRWD",
@@ -2160,12 +5073,34 @@
         "mcap": "264B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:CRWD"
+      "tv": "NASDAQ:CRWD",
+      "fv_low": null,
+      "fv_high": 30.15,
+      "fv_mkt": 37.17,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 1.2675,
+        "cassa_az": 5.0838,
+        "g_hist": 0.5794,
+        "roic_m": -0.035,
+        "marg_n": 0.2641,
+        "marg_now": 0.258,
+        "anni": 10,
+        "avvisi": [
+          "3 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "FTNT": {
       "name": "Fortinet",
-      "fv": null,
-      "price": 179.99,
+      "fv": 54.4,
+      "price": 118.84,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FTNT",
@@ -2177,12 +5112,32 @@
         "mcap": "132B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:FTNT"
+      "tv": "NASDAQ:FTNT",
+      "fv_low": 38.43,
+      "fv_high": 60.63,
+      "fv_mkt": 84.4,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 2.9068,
+        "cassa_az": 6.2765,
+        "g_hist": 0.199,
+        "roic_m": 0.8624,
+        "marg_n": 0.3269,
+        "marg_now": 0.3273,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "PLTR": {
       "name": "Palantir",
-      "fv": null,
-      "price": 196.75,
+      "fv": 8.52,
+      "price": 160.38,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PLTR",
@@ -2194,12 +5149,34 @@
         "mcap": "473B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:PLTR"
+      "tv": "NASDAQ:PLTR",
+      "fv_low": null,
+      "fv_high": 17.68,
+      "fv_mkt": 11.27,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.2658,
+        "cassa_az": 4.1211,
+        "g_hist": 0.2551,
+        "roic_m": 0.2545,
+        "marg_n": 0.1524,
+        "marg_now": 0.4694,
+        "anni": 8,
+        "avvisi": [
+          "3 anni con FCF negativo"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "PANW": {
       "name": "Palo Alto Networks",
-      "fv": null,
-      "price": 380.55,
+      "fv": 95.38,
+      "price": 313.84,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PANW",
@@ -2211,12 +5188,32 @@
         "mcap": "311B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:PANW"
+      "tv": "NASDAQ:PANW",
+      "fv_low": 63.96,
+      "fv_high": 105.34,
+      "fv_mkt": 152.34,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 5.5183,
+        "cassa_az": 4.0259,
+        "g_hist": 0.1859,
+        "roic_m": 0.0161,
+        "marg_n": 0.3673,
+        "marg_now": 0.3583,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "NEE": {
       "name": "NextEra Energy",
-      "fv": null,
-      "price": 82.1,
+      "fv": 17.39,
+      "price": 86.95,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEE",
@@ -2228,12 +5225,36 @@
         "mcap": "172B",
         "rev": "N/D"
       },
-      "tv": "NYSE:NEE"
+      "tv": "NYSE:NEE",
+      "fv_low": null,
+      "fv_high": 44.07,
+      "fv_mkt": 26.46,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 0.8792,
+        "cassa_az": 2.8311,
+        "g_hist": 0.0507,
+        "roic_m": 0.0511,
+        "marg_n": 0.0686,
+        "marg_now": 0.1211,
+        "anni": 10,
+        "avvisi": [
+          "FCF solo 19% dell'utile",
+          "3 anni con FCF negativo",
+          "debito netto = 59,4 anni di FCF"
+        ]
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "CME": {
       "name": "CME Group",
-      "fv": null,
-      "price": 305.71,
+      "fv": 161.77,
+      "price": 305.89,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CME",
@@ -2245,12 +5266,32 @@
         "mcap": "110B",
         "rev": "N/D"
       },
-      "tv": "NASDAQ:CME"
+      "tv": "NASDAQ:CME",
+      "fv_low": 140.98,
+      "fv_high": 198.02,
+      "fv_mkt": 258.63,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 9.383,
+        "cassa_az": 6.4383,
+        "g_hist": 0.0605,
+        "roic_m": 0.1306,
+        "marg_n": 0.5214,
+        "marg_now": 0.6431,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     },
     "ACN": {
       "name": "Accenture",
-      "fv": null,
-      "price": 249.37,
+      "fv": 303.05,
+      "price": 260.5,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ACN",
@@ -2262,7 +5303,27 @@
         "mcap": "147B",
         "rev": "N/D"
       },
-      "tv": "NYSE:ACN"
+      "tv": "NYSE:ACN",
+      "fv_low": 262.14,
+      "fv_high": 362.83,
+      "fv_mkt": 479.04,
+      "fv_sto": null,
+      "ind": {
+        "status": "ok",
+        "ke": 0.0888,
+        "pi": 0.025,
+        "beta": 0.95,
+        "fcf_norm": 17.0492,
+        "cassa_az": 20.8096,
+        "g_hist": 0.0843,
+        "roic_m": 0.2025,
+        "marg_n": 0.1418,
+        "marg_now": 0.1566,
+        "anni": 10,
+        "avvisi": []
+      },
+      "fv_source": "indicatore",
+      "fv_updated": "2026-11-08"
     }
   },
   "aliases": {
@@ -2272,5 +5333,6 @@
     ".FUN": "FUN",
     ".INTU": "INTU",
     ".QCOM": "QCOM"
-  }
+  },
+  "fv_updated": "2026-11-08T21:37:37.354Z"
 }
