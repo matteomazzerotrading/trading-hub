@@ -24,15 +24,15 @@ const COLS = ['close', 'currency', 'fiscal_period_fy_h', 'fiscal_period_end_fy',
   'cash_n_short_term_invest_fq', 'cash_n_short_term_invest_fy', 'total_debt_fq', 'total_debt_fy',
   'return_on_invested_capital_fy', 'total_shares_outstanding'];
 
-async function get(url, opts = {}, tries = 3) {
+async function get(url, opts = {}, tries = 3, timeoutMs = 30000) {
   let last;
   for (let i = 0; i < tries; i++) {
     try {
-      const r = await fetch(url, { ...opts, headers: { ...UA, ...(opts.headers || {}) }, signal: AbortSignal.timeout(30000) });
+      const r = await fetch(url, { ...opts, headers: { ...UA, ...(opts.headers || {}) }, signal: AbortSignal.timeout(timeoutMs) });
       if (r.ok) return r;
       last = new Error(`HTTP ${r.status}`);
     } catch (e) { last = e; }
-    await sleep(2000 * (i + 1));
+    if (i < tries - 1) await sleep(2000 * (i + 1));
   }
   throw new Error(`${url.slice(0, 90)}: ${last && last.message}`);
 }
@@ -58,9 +58,23 @@ async function fredCpi() {
     .map(r => [r[0].slice(0, 7) + '-01', Number(r[1])]);
 }
 
+// Yahoo: un tentativo per host (query1, poi query2); dopo 5 errori di fila non lo si chiama più
+let yahooErrors = 0, yahooOff = false;
 async function yahooWeekly(sym) {
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=1wk&range=11y`;
-  const j = await (await get(url)).json();
+  if (yahooOff) throw new Error('Yahoo disattivato dopo troppi errori');
+  let j = null, lastErr;
+  for (const host of ['query1', 'query2']) {
+    try {
+      const url = `https://${host}.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=1wk&range=11y`;
+      j = await (await get(url, {}, 1, 15000)).json();
+      break;
+    } catch (e) { lastErr = e; }
+  }
+  if (!j) {
+    if (++yahooErrors >= 5) { yahooOff = true; console.log('Yahoo non risponde: da qui beta manuale e niente FV storico'); }
+    throw lastErr;
+  }
+  yahooErrors = 0;
   const res = j.chart && j.chart.result && j.chart.result[0];
   if (!res || !res.timestamp) return [];
   const off = (res.meta && res.meta.gmtoffset) || 0, c = res.indicators.quote[0].close;
@@ -93,9 +107,9 @@ async function main() {
     let r;
     if (!f) r = { status: 'simbolo_non_trovato' };
     else {
-      let weekly = [];
-      try { weekly = await yahooWeekly(e.yf || t); } catch (ex) { /* beta manuale, niente FV storico */ }
-      try { r = E.compute(f, cpi, rf, null, weekly, bench, weekly, today); r.settimane = weekly.length; }
+      let weekly = [], yerr = null;
+      try { weekly = await yahooWeekly(e.yf || t); } catch (ex) { yerr = String(ex.message).slice(0, 120); }
+      try { r = E.compute(f, cpi, rf, null, weekly, bench, weekly, today); r.settimane = weekly.length; if (yerr) r.prezzi = 'Yahoo: ' + yerr; }
       catch (ex) { r = { status: 'errore', errore: String(ex.message).slice(0, 200) }; }
       if (f.close != null) e.price = r2(f.close, f.close < 10 ? 3 : 2);
     }
@@ -109,7 +123,7 @@ async function main() {
       if (r.status === 'ok') ok++;
     }
     console.log(`${t.padEnd(6)} ${String(r.status).padEnd(20)} FV ${r.fv} [${r.fv_low} – ${r.fv_high}] MKT ${r.fv_mkt} STO ${r.fv_sto} beta ${r.beta}`);
-    await sleep(250);
+    await sleep(150);
   }
   data.fv_updated = report.run;
   fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n');

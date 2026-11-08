@@ -16,14 +16,16 @@ on:
 permissions:
   contents: write
 
-# Evita che due workflow scrivano data.json nello stesso momento
+# Evita che due workflow scrivano data.json nello stesso momento;
+# un nuovo calcolo dei fair value sostituisce quello eventualmente ancora in corso
 concurrency:
   group: data-json
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   compute-fv:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
