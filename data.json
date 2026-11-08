@@ -4,7 +4,7 @@
   "db": {
     "DIA": {
       "name": "DiaSorin",
-      "fv": 85.0,
+      "fv": 85,
       "price": 82.64,
       "curr": "€",
       "ex": "MIL",
@@ -17,7 +17,8 @@
         "eps": "2.90",
         "mcap": "4.4B",
         "rev": "+3.2%"
-      }
+      },
+      "tv": "MIL:DIA"
     },
     "ERG": {
       "name": "ERG S.p.A.",
@@ -34,11 +35,12 @@
         "eps": "1.68",
         "mcap": "3.5B",
         "rev": "+5.1%"
-      }
+      },
+      "tv": "MIL:ERG"
     },
     "RACE": {
       "name": "Ferrari",
-      "fv": 300.0,
+      "fv": 300,
       "price": 373.85,
       "curr": "€",
       "ex": "MIL",
@@ -51,11 +53,12 @@
         "eps": "6.22",
         "mcap": "88B",
         "rev": "+17%"
-      }
+      },
+      "tv": "MIL:RACE"
     },
     "GOOG": {
       "name": "Alphabet",
-      "fv": 290.0,
+      "fv": 290,
       "price": 283.93,
       "curr": "$",
       "ex": "NASDAQ",
@@ -68,11 +71,12 @@
         "eps": "6.97",
         "mcap": "2.1T",
         "rev": "+13%"
-      }
+      },
+      "tv": "NASDAQ:GOOG"
     },
     "MC": {
       "name": "LVMH",
-      "fv": 600.0,
+      "fv": 600,
       "price": 408.75,
       "curr": "€",
       "ex": "EPA",
@@ -90,12 +94,12 @@
     },
     "ADBE": {
       "name": "Adobe",
-      "fv": 300.0,
+      "fv": 300,
       "price": 239.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADBE",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -103,11 +107,12 @@
         "eps": "8.30",
         "mcap": "160B",
         "rev": "+10%"
-      }
+      },
+      "tv": "NASDAQ:ADBE"
     },
     "INTU": {
       "name": "Intuit",
-      "fv": 700.0,
+      "fv": 700,
       "price": 341.5,
       "curr": "$",
       "ex": "NASDAQ",
@@ -120,11 +125,12 @@
         "eps": "9.05",
         "mcap": "135B",
         "rev": "+12%"
-      }
+      },
+      "tv": "NASDAQ:INTU"
     },
     "QCOM": {
       "name": "Qualcomm",
-      "fv": 180.0,
+      "fv": 180,
       "price": 165.41,
       "curr": "$",
       "ex": "NASDAQ",
@@ -137,11 +143,12 @@
         "eps": "6.78",
         "mcap": "191B",
         "rev": "+5%"
-      }
+      },
+      "tv": "NASDAQ:QCOM"
     },
     "STLAM": {
       "name": "Stellantis",
-      "fv": 18.0,
+      "fv": 18,
       "price": 4.02,
       "curr": "€",
       "ex": "MIL",
@@ -154,11 +161,12 @@
         "eps": "5.40",
         "mcap": "64B",
         "rev": "-2%"
-      }
+      },
+      "tv": "MIL:STLAM"
     },
     "SAP": {
       "name": "SAP SE",
-      "fv": 220.0,
+      "fv": 220,
       "price": 210.75,
       "curr": "€",
       "ex": "XETR",
@@ -171,11 +179,12 @@
         "eps": "6.85",
         "mcap": "238B",
         "rev": "+11%"
-      }
+      },
+      "tv": "XETR:SAP"
     },
     "AAPL": {
       "name": "Apple Inc.",
-      "fv": 253.0,
+      "fv": 253,
       "price": 342.37,
       "curr": "$",
       "ex": "NASDAQ",
@@ -188,7 +197,8 @@
         "eps": "6.14",
         "mcap": "2.8T",
         "rev": "+2.1%"
-      }
+      },
+      "tv": "NASDAQ:AAPL"
     },
     "MSFT": {
       "name": "Microsoft",
@@ -205,16 +215,17 @@
         "eps": "11.6",
         "mcap": "3.0T",
         "rev": "+15%"
-      }
+      },
+      "tv": "NASDAQ:MSFT"
     },
     "AMZN": {
       "name": "Amazon",
-      "fv": 199.0,
+      "fv": 199,
       "price": 259.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMZN",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -222,7 +233,8 @@
         "eps": "4.44",
         "mcap": "1.9T",
         "rev": "+12%"
-      }
+      },
+      "tv": "NASDAQ:AMZN"
     },
     "NVDA": {
       "name": "Nvidia",
@@ -239,7 +251,8 @@
         "eps": "1.59",
         "mcap": "2.9T",
         "rev": "+265%"
-      }
+      },
+      "tv": "NASDAQ:NVDA"
     },
     "A2A": {
       "name": "A2A S.p.A.",
@@ -250,51 +263,56 @@
       "yf": "A2A.MI",
       "divYield": 4.8,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:A2A"
     },
     "ADM": {
       "name": "Archer-Daniels",
-      "fv": 53.0,
+      "fv": 53,
       "price": 69.97,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ADM",
       "divYield": 3.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:ADM"
     },
     "ADP": {
       "name": "Auto Data Proc.",
-      "fv": 312.0,
+      "fv": 312,
       "price": 303.35,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADP",
       "divYield": 1.9,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:ADP"
     },
     "ADSK": {
       "name": "Autodesk Inc.",
-      "fv": 339.0,
+      "fv": 339,
       "price": 261.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADSK",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:ADSK"
     },
     "AMAT": {
       "name": "Applied Materials",
-      "fv": 233.0,
+      "fv": 233,
       "price": 332.71,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMAT",
       "divYield": 0.7,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:AMAT"
     },
     "AMD": {
       "name": "AMD",
@@ -303,31 +321,34 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMD",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:AMD"
     },
     "ASML": {
       "name": "ASML Holding",
-      "fv": 904.0,
+      "fv": 904,
       "price": 1424.75,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ASML",
       "divYield": 0.85,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:ASML"
     },
     "AXP": {
       "name": "American Express",
-      "fv": 332.0,
+      "fv": 332,
       "price": 320.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AXP",
       "divYield": 1.1,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:AXP"
     },
     "BAC": {
       "name": "Bank of America",
@@ -338,7 +359,8 @@
       "yf": "BAC",
       "divYield": 2.2,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:BAC"
     },
     "BAYN": {
       "name": "Bayer AG",
@@ -349,29 +371,32 @@
       "yf": "BAYN.DE",
       "divYield": 4.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "XETR:BAYN"
     },
     "BATS": {
       "name": "Brit. Am. Tobacco",
-      "fv": 4656.0,
-      "price": 4567.0,
+      "fv": 4656,
+      "price": 4567,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
       "divYield": 9.2,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "LSE:BATS"
     },
     "BC": {
       "name": "Brunswick Corp",
-      "fv": 88.0,
+      "fv": 88,
       "price": 77.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BC",
       "divYield": 1.7,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:BC"
     },
     "BNG": {
       "name": "Bunge Global",
@@ -394,29 +419,32 @@
       "yf": "BRE.MI",
       "divYield": 2.1,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:BRE"
     },
     "BRK.B": {
       "name": "Berkshire Hath.",
-      "fv": 511.0,
+      "fv": 511,
       "price": 570.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BRK-B",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:BRK.B"
     },
     "CAT": {
       "name": "Caterpillar",
-      "fv": 404.0,
+      "fv": 404,
       "price": 558.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CAT",
       "divYield": 1.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:CAT"
     },
     "CE": {
       "name": "Celanese",
@@ -433,7 +461,8 @@
         "eps": "-5.21",
         "mcap": "4.4B",
         "rev": "-8%"
-      }
+      },
+      "tv": "NYSE:CE"
     },
     "CNC": {
       "name": "Centene",
@@ -442,20 +471,22 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNC",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:CNC"
     },
     "COST": {
       "name": "Costco Wholesale",
-      "fv": 851.0,
+      "fv": 851,
       "price": 1053.56,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "COST",
       "divYield": 0.6,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:COST"
     },
     "CPR": {
       "name": "Campari",
@@ -466,7 +497,8 @@
       "yf": "CPR.MI",
       "divYield": 0.9,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:CPR"
     },
     "CRM": {
       "name": "Salesforce",
@@ -477,7 +509,8 @@
       "yf": "CRM",
       "divYield": 0.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:CRM"
     },
     "CVX": {
       "name": "Chevron",
@@ -488,7 +521,8 @@
       "yf": "CVX",
       "divYield": 4.1,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:CVX"
     },
     "DDOG": {
       "name": "Datadog",
@@ -497,9 +531,10 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DDOG",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:DDOG"
     },
     "ENI": {
       "name": "Eni S.p.A.",
@@ -510,7 +545,8 @@
       "yf": "ENI.MI",
       "divYield": 6.2,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:ENI"
     },
     "ENEL": {
       "name": "Enel S.p.A.",
@@ -521,7 +557,8 @@
       "yf": "ENEL.MI",
       "divYield": 6.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:ENEL"
     },
     "G": {
       "name": "Assic. Generali",
@@ -532,18 +569,20 @@
       "yf": "G.MI",
       "divYield": 5.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:G"
     },
     "IBM": {
       "name": "IBM",
-      "fv": 231.0,
-      "price": 245.0,
+      "fv": 231,
+      "price": 245,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IBM",
       "divYield": 3.2,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:IBM"
     },
     "INTC": {
       "name": "Intel",
@@ -554,7 +593,8 @@
       "yf": "INTC",
       "divYield": 1.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NASDAQ:INTC"
     },
     "IP": {
       "name": "International Paper",
@@ -563,9 +603,10 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "IP",
-      "divYield": 4.0,
+      "divYield": 4,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:IP"
     },
     "ISP": {
       "name": "Intesa Sanpaolo",
@@ -576,7 +617,8 @@
       "yf": "ISP.MI",
       "divYield": 8.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:ISP"
     },
     "LDO": {
       "name": "Leonardo S.p.A.",
@@ -587,7 +629,8 @@
       "yf": "LDO.MI",
       "divYield": 1.8,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:LDO"
     },
     "LULU": {
       "name": "Lululemon",
@@ -596,7 +639,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LULU",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -604,7 +647,8 @@
         "eps": "7.80",
         "mcap": "11B",
         "rev": "+3%"
-      }
+      },
+      "tv": "NASDAQ:LULU"
     },
     "MA": {
       "name": "Mastercard",
@@ -615,7 +659,8 @@
       "yf": "MA",
       "divYield": 0.5,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:MA"
     },
     "MONC": {
       "name": "Moncler",
@@ -626,7 +671,8 @@
       "yf": "MONC.MI",
       "divYield": 1.8,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "MIL:MONC"
     },
     "OXY": {
       "name": "Occidental Petroleum",
@@ -637,16 +683,17 @@
       "yf": "OXY",
       "divYield": 1.2,
       "videoID": null,
-      "updated": "2026-11-06"
+      "updated": "2026-11-06",
+      "tv": "NYSE:OXY"
     },
     "TTD": {
       "name": "The Trade Desk",
-      "fv": 18.0,
+      "fv": 18,
       "price": 12.93,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTD",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -654,11 +701,12 @@
         "eps": "0.84",
         "mcap": "6.1B",
         "rev": "+8%"
-      }
+      },
+      "tv": "NASDAQ:TTD"
     },
     "TRI": {
       "name": "Thomson Reuters",
-      "fv": 135.0,
+      "fv": 135,
       "price": 112.57,
       "curr": "$",
       "ex": "NASDAQ",
@@ -676,7 +724,7 @@
     },
     "PFE": {
       "name": "Pfizer",
-      "fv": 35.0,
+      "fv": 35,
       "price": 29.39,
       "curr": "$",
       "ex": "NYSE",
@@ -689,16 +737,17 @@
         "eps": "0.76",
         "mcap": "171B",
         "rev": "-8%"
-      }
+      },
+      "tv": "NYSE:PFE"
     },
     "BSX": {
       "name": "Boston Scientific",
-      "fv": 72.0,
+      "fv": 72,
       "price": 42.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BSX",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -706,16 +755,17 @@
         "eps": "2.47",
         "mcap": "66B",
         "rev": "+12%"
-      }
+      },
+      "tv": "NYSE:BSX"
     },
     "BLDR": {
       "name": "Builders FirstSource",
-      "fv": 80.0,
+      "fv": 80,
       "price": 62.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLDR",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -723,16 +773,17 @@
         "eps": "0.92",
         "mcap": "6.1B",
         "rev": "-15%"
-      }
+      },
+      "tv": "NYSE:BLDR"
     },
     "CPRT": {
       "name": "Copart",
-      "fv": 40.0,
+      "fv": 40,
       "price": 31.95,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CPRT",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -740,11 +791,12 @@
         "eps": "1.55",
         "mcap": "26.9B",
         "rev": "+5%"
-      }
+      },
+      "tv": "NASDAQ:CPRT"
     },
     "EL": {
       "name": "EssilorLuxottica",
-      "fv": 200.0,
+      "fv": 200,
       "price": 193.8,
       "curr": "€",
       "ex": "EURONEXT",
@@ -757,11 +809,12 @@
         "eps": "5.35",
         "mcap": "84B",
         "rev": "+5%"
-      }
+      },
+      "tv": "EURONEXT:EL"
     },
     "BR": {
       "name": "Broadridge Financial",
-      "fv": 220.0,
+      "fv": 220,
       "price": 190.4,
       "curr": "$",
       "ex": "NYSE",
@@ -774,11 +827,12 @@
         "eps": "9.62",
         "mcap": "20.7B",
         "rev": "+7%"
-      }
+      },
+      "tv": "NYSE:BR"
     },
     "BF.B": {
       "name": "Brown-Forman B",
-      "fv": 42.0,
+      "fv": 42,
       "price": 30.58,
       "curr": "$",
       "ex": "NYSE",
@@ -791,16 +845,17 @@
         "eps": "1.55",
         "mcap": "13.6B",
         "rev": "-5%"
-      }
+      },
+      "tv": "NYSE:BF.B"
     },
     "PDD": {
       "name": "PDD Holdings",
-      "fv": 110.0,
+      "fv": 110,
       "price": 83.03,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PDD",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -808,16 +863,17 @@
         "eps": "9.02",
         "mcap": "112B",
         "rev": "+25%"
-      }
+      },
+      "tv": "NASDAQ:PDD"
     },
     "FUN": {
       "name": "Six Flags Entertain.",
-      "fv": 15.0,
-      "price": 10.0,
+      "fv": 15,
+      "price": 10,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FUN",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -825,11 +881,12 @@
         "eps": "-17.32",
         "mcap": "693M",
         "rev": "-3%"
-      }
+      },
+      "tv": "NYSE:FUN"
     },
     "FMC": {
       "name": "FMC Corporation",
-      "fv": 20.0,
+      "fv": 20,
       "price": 5.63,
       "curr": "$",
       "ex": "NYSE",
@@ -842,7 +899,8 @@
         "eps": "-22.04",
         "mcap": "785M",
         "rev": "-12%"
-      }
+      },
+      "tv": "NYSE:FMC"
     },
     "SGBS": {
       "name": "Sprott Gold Miners",
@@ -851,7 +909,7 @@
       "curr": "$",
       "ex": "LSE",
       "yf": "SGBS.L",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-06",
       "fund": {
@@ -859,16 +917,17 @@
         "eps": "N/D",
         "mcap": "N/D",
         "rev": "N/D"
-      }
+      },
+      "tv": "LSE:SGBS"
     },
     "NFLX": {
       "name": "Netflix",
-      "fv": 78.0,
+      "fv": 78,
       "price": 63.41,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NFLX",
-      "divYield": 0.0,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-08",
       "fund": {
@@ -876,7 +935,1334 @@
         "eps": "3.46",
         "mcap": "260B",
         "rev": "+15%"
-      }
+      },
+      "tv": "NASDAQ:NFLX"
+    },
+    "RHM": {
+      "name": "Rheinmetall AG",
+      "fv": null,
+      "price": 1019,
+      "curr": "€",
+      "ex": "XETR",
+      "yf": "RHM.DE",
+      "divYield": 1,
+      "videoID": null,
+      "fund": {
+        "pe": "66.1",
+        "eps": "15.42",
+        "mcap": "48B",
+        "rev": "N/D"
+      },
+      "tv": "XETR:RHM"
+    },
+    "GXI": {
+      "name": "Gerresheimer AG",
+      "fv": null,
+      "price": 31.34,
+      "curr": "€",
+      "ex": "XETR",
+      "yf": "GXI.DE",
+      "divYield": 1.5,
+      "videoID": null,
+      "fund": {
+        "pe": "N/D",
+        "eps": "-11.60",
+        "mcap": "1B",
+        "rev": "N/D"
+      },
+      "tv": "XETR:GXI"
+    },
+    "NOC": {
+      "name": "Northrop Grumman",
+      "fv": null,
+      "price": 551.44,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "NOC",
+      "divYield": 1.7,
+      "videoID": null,
+      "fund": {
+        "pe": "17.4",
+        "eps": "31.77",
+        "mcap": "78B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:NOC"
+    },
+    "RTX": {
+      "name": "RTX Corp",
+      "fv": null,
+      "price": 191.01,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "RTX",
+      "divYield": 2.1,
+      "videoID": null,
+      "fund": {
+        "pe": "31.0",
+        "eps": "6.16",
+        "mcap": "258B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:RTX"
+    },
+    "LMT": {
+      "name": "Lockheed Martin",
+      "fv": null,
+      "price": 604.18,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "LMT",
+      "divYield": 2.8,
+      "videoID": null,
+      "fund": {
+        "pe": "21.5",
+        "eps": "28.15",
+        "mcap": "140B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:LMT"
+    },
+    "GD": {
+      "name": "General Dynamics",
+      "fv": null,
+      "price": 349.36,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "GD",
+      "divYield": 2.1,
+      "videoID": null,
+      "fund": {
+        "pe": "21.3",
+        "eps": "16.40",
+        "mcap": "95B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:GD"
+    },
+    "HWM": {
+      "name": "Howmet Aerospace",
+      "fv": null,
+      "price": 185.91,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "HWM",
+      "divYield": 0.4,
+      "videoID": null,
+      "fund": {
+        "pe": "40.1",
+        "eps": "4.64",
+        "mcap": "74B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:HWM"
+    },
+    "HON": {
+      "name": "Honeywell",
+      "fv": null,
+      "price": 221.15,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "HON",
+      "divYield": 2.2,
+      "videoID": null,
+      "fund": {
+        "pe": "9.4",
+        "eps": "23.41",
+        "mcap": "70B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:HON"
+    },
+    "BA": {
+      "name": "Boeing",
+      "fv": null,
+      "price": 188.35,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "BA",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "85.8",
+        "eps": "2.20",
+        "mcap": "149B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:BA"
+    },
+    "UNP": {
+      "name": "Union Pacific",
+      "fv": null,
+      "price": 292.87,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "UNP",
+      "divYield": 2.3,
+      "videoID": null,
+      "fund": {
+        "pe": "22.8",
+        "eps": "12.83",
+        "mcap": "174B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:UNP"
+    },
+    "UPS": {
+      "name": "UPS",
+      "fv": null,
+      "price": 101.06,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "UPS",
+      "divYield": 4.8,
+      "videoID": null,
+      "fund": {
+        "pe": "18.8",
+        "eps": "5.37",
+        "mcap": "86B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:UPS"
+    },
+    "FDX": {
+      "name": "FedEx",
+      "fv": null,
+      "price": 298.72,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "FDX",
+      "divYield": 2,
+      "videoID": null,
+      "fund": {
+        "pe": "16.1",
+        "eps": "18.54",
+        "mcap": "71B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:FDX"
+    },
+    "DE": {
+      "name": "Deere & Company",
+      "fv": null,
+      "price": 646.15,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "DE",
+      "divYield": 1.5,
+      "videoID": null,
+      "fund": {
+        "pe": "35.9",
+        "eps": "17.99",
+        "mcap": "174B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:DE"
+    },
+    "KMI": {
+      "name": "Kinder Morgan",
+      "fv": null,
+      "price": 34.43,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "KMI",
+      "divYield": 6.2,
+      "videoID": null,
+      "fund": {
+        "pe": "21.4",
+        "eps": "1.61",
+        "mcap": "77B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:KMI"
+    },
+    "COP": {
+      "name": "ConocoPhillips",
+      "fv": null,
+      "price": 150.8,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "COP",
+      "divYield": 3,
+      "videoID": null,
+      "fund": {
+        "pe": "20.0",
+        "eps": "7.55",
+        "mcap": "181B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:COP"
+    },
+    "DVN": {
+      "name": "Devon Energy",
+      "fv": null,
+      "price": 51.39,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "DVN",
+      "divYield": 4.5,
+      "videoID": null,
+      "fund": {
+        "pe": "12.2",
+        "eps": "4.22",
+        "mcap": "57B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:DVN"
+    },
+    "SLB": {
+      "name": "Schlumberger",
+      "fv": null,
+      "price": 53.06,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "SLB",
+      "divYield": 2.8,
+      "videoID": null,
+      "fund": {
+        "pe": "25.8",
+        "eps": "2.05",
+        "mcap": "79B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:SLB"
+    },
+    "XOM": {
+      "name": "ExxonMobil",
+      "fv": null,
+      "price": 183.21,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "XOM",
+      "divYield": 3.5,
+      "videoID": null,
+      "fund": {
+        "pe": "23.6",
+        "eps": "7.77",
+        "mcap": "753B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:XOM"
+    },
+    "ABBV": {
+      "name": "AbbVie",
+      "fv": null,
+      "price": 285.64,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "ABBV",
+      "divYield": 3.6,
+      "videoID": null,
+      "fund": {
+        "pe": "80.8",
+        "eps": "3.54",
+        "mcap": "505B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:ABBV"
+    },
+    "MRK": {
+      "name": "Merck & Co",
+      "fv": null,
+      "price": 145.27,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "MRK",
+      "divYield": 2.8,
+      "videoID": null,
+      "fund": {
+        "pe": "116.1",
+        "eps": "1.25",
+        "mcap": "358B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:MRK"
+    },
+    "LLY": {
+      "name": "Eli Lilly",
+      "fv": null,
+      "price": 1273.46,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "LLY",
+      "divYield": 0.6,
+      "videoID": null,
+      "fund": {
+        "pe": "43.3",
+        "eps": "29.43",
+        "mcap": "1.2T",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:LLY"
+    },
+    "MDT": {
+      "name": "Medtronic",
+      "fv": null,
+      "price": 95.41,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "MDT",
+      "divYield": 3.3,
+      "videoID": null,
+      "fund": {
+        "pe": "23.5",
+        "eps": "4.06",
+        "mcap": "122B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:MDT"
+    },
+    "BDX": {
+      "name": "Becton Dickinson",
+      "fv": null,
+      "price": 198.91,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "BDX",
+      "divYield": 1.8,
+      "videoID": null,
+      "fund": {
+        "pe": "60.0",
+        "eps": "3.32",
+        "mcap": "54B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:BDX"
+    },
+    "DHR": {
+      "name": "Danaher",
+      "fv": null,
+      "price": 230.5,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "DHR",
+      "divYield": 0.4,
+      "videoID": null,
+      "fund": {
+        "pe": "37.7",
+        "eps": "6.11",
+        "mcap": "162B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:DHR"
+    },
+    "TMO": {
+      "name": "Thermo Fisher",
+      "fv": null,
+      "price": 673.82,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "TMO",
+      "divYield": 0.3,
+      "videoID": null,
+      "fund": {
+        "pe": "35.5",
+        "eps": "18.96",
+        "mcap": "249B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:TMO"
+    },
+    "MTD": {
+      "name": "Mettler-Toledo",
+      "fv": null,
+      "price": 1670.29,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "MTD",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "37.6",
+        "eps": "44.43",
+        "mcap": "33B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:MTD"
+    },
+    "REGN": {
+      "name": "Regeneron Pharma",
+      "fv": null,
+      "price": 805.02,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "REGN",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "19.9",
+        "eps": "40.46",
+        "mcap": "83B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:REGN"
+    },
+    "GILD": {
+      "name": "Gilead Sciences",
+      "fv": null,
+      "price": 156.04,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "GILD",
+      "divYield": 3.5,
+      "videoID": null,
+      "fund": {
+        "pe": "N/D",
+        "eps": "-2.66",
+        "mcap": "193B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:GILD"
+    },
+    "ISRG": {
+      "name": "Intuitive Surgical",
+      "fv": null,
+      "price": 452.29,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "ISRG",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "54.7",
+        "eps": "8.27",
+        "mcap": "157B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:ISRG"
+    },
+    "VRTX": {
+      "name": "Vertex Pharma",
+      "fv": null,
+      "price": 523.93,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "VRTX",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "30.5",
+        "eps": "17.19",
+        "mcap": "133B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:VRTX"
+    },
+    "ELV": {
+      "name": "Elevance Health",
+      "fv": null,
+      "price": 439.95,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "ELV",
+      "divYield": 1.4,
+      "videoID": null,
+      "fund": {
+        "pe": "18.8",
+        "eps": "23.46",
+        "mcap": "95B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:ELV"
+    },
+    "UNH": {
+      "name": "UnitedHealth",
+      "fv": null,
+      "price": 418.09,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "UNH",
+      "divYield": 1.5,
+      "videoID": null,
+      "fund": {
+        "pe": "23.9",
+        "eps": "17.52",
+        "mcap": "375B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:UNH"
+    },
+    "CVS": {
+      "name": "CVS Health",
+      "fv": null,
+      "price": 93.47,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "CVS",
+      "divYield": 4.2,
+      "videoID": null,
+      "fund": {
+        "pe": "24.7",
+        "eps": "3.79",
+        "mcap": "120B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:CVS"
+    },
+    "NVO": {
+      "name": "Novo Nordisk ADR",
+      "fv": null,
+      "price": 39.05,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "NVO",
+      "divYield": 1.5,
+      "videoID": null,
+      "fund": {
+        "pe": "9.5",
+        "eps": "4.09",
+        "mcap": "173B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:NVO"
+    },
+    "JPM": {
+      "name": "JPMorgan Chase",
+      "fv": null,
+      "price": 331.58,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "JPM",
+      "divYield": 2.2,
+      "videoID": null,
+      "fund": {
+        "pe": "13.9",
+        "eps": "23.84",
+        "mcap": "881B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:JPM"
+    },
+    "BLK": {
+      "name": "BlackRock",
+      "fv": null,
+      "price": 1118.25,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "BLK",
+      "divYield": 2.2,
+      "videoID": null,
+      "fund": {
+        "pe": "26.1",
+        "eps": "42.76",
+        "mcap": "182B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:BLK"
+    },
+    "C": {
+      "name": "Citigroup",
+      "fv": null,
+      "price": 120.62,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "C",
+      "divYield": 3.3,
+      "videoID": null,
+      "fund": {
+        "pe": "11.8",
+        "eps": "10.26",
+        "mcap": "202B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:C"
+    },
+    "GS": {
+      "name": "Goldman Sachs",
+      "fv": null,
+      "price": 875.68,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "GS",
+      "divYield": 2.5,
+      "videoID": null,
+      "fund": {
+        "pe": "12.6",
+        "eps": "69.55",
+        "mcap": "255B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:GS"
+    },
+    "V": {
+      "name": "Visa",
+      "fv": null,
+      "price": 407.92,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "V",
+      "divYield": 0.8,
+      "videoID": null,
+      "fund": {
+        "pe": "35.0",
+        "eps": "11.65",
+        "mcap": "762B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:V"
+    },
+    "MCO": {
+      "name": "Moody's Corp",
+      "fv": null,
+      "price": 483.45,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "MCO",
+      "divYield": 0.8,
+      "videoID": null,
+      "fund": {
+        "pe": "29.5",
+        "eps": "16.41",
+        "mcap": "83B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:MCO"
+    },
+    "CB": {
+      "name": "Chubb",
+      "fv": null,
+      "price": 355.11,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "CB",
+      "divYield": 1.4,
+      "videoID": null,
+      "fund": {
+        "pe": "12.4",
+        "eps": "28.57",
+        "mcap": "137B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:CB"
+    },
+    "L": {
+      "name": "Loews Corp",
+      "fv": null,
+      "price": 112.01,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "L",
+      "divYield": 0.4,
+      "videoID": null,
+      "fund": {
+        "pe": "13.7",
+        "eps": "8.16",
+        "mcap": "23B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:L"
+    },
+    "RSG": {
+      "name": "Republic Services",
+      "fv": null,
+      "price": 240.45,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "RSG",
+      "divYield": 1.3,
+      "videoID": null,
+      "fund": {
+        "pe": "34.1",
+        "eps": "7.06",
+        "mcap": "74B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:RSG"
+    },
+    "WM": {
+      "name": "Waste Management",
+      "fv": null,
+      "price": 239.38,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "WM",
+      "divYield": 1.4,
+      "videoID": null,
+      "fund": {
+        "pe": "33.9",
+        "eps": "7.06",
+        "mcap": "96B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:WM"
+    },
+    "PM": {
+      "name": "Philip Morris",
+      "fv": null,
+      "price": 199.47,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "PM",
+      "divYield": 4.6,
+      "videoID": null,
+      "fund": {
+        "pe": "29.1",
+        "eps": "6.85",
+        "mcap": "311B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:PM"
+    },
+    "PEP": {
+      "name": "PepsiCo",
+      "fv": null,
+      "price": 135.77,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "PEP",
+      "divYield": 3.3,
+      "videoID": null,
+      "fund": {
+        "pe": "17.1",
+        "eps": "7.96",
+        "mcap": "185B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:PEP"
+    },
+    "KO": {
+      "name": "Coca-Cola",
+      "fv": null,
+      "price": 92.71,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "KO",
+      "divYield": 3.1,
+      "videoID": null,
+      "fund": {
+        "pe": "27.9",
+        "eps": "3.32",
+        "mcap": "399B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:KO"
+    },
+    "AZO": {
+      "name": "AutoZone",
+      "fv": null,
+      "price": 3200.76,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "AZO",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "20.9",
+        "eps": "152.79",
+        "mcap": "52B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:AZO"
+    },
+    "MO": {
+      "name": "Altria Group",
+      "fv": null,
+      "price": 74.31,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "MO",
+      "divYield": 8.2,
+      "videoID": null,
+      "fund": {
+        "pe": "15.7",
+        "eps": "4.75",
+        "mcap": "124B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:MO"
+    },
+    "CL": {
+      "name": "Colgate-Palmolive",
+      "fv": null,
+      "price": 94.04,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "CL",
+      "divYield": 2.3,
+      "videoID": null,
+      "fund": {
+        "pe": "37.2",
+        "eps": "2.53",
+        "mcap": "75B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:CL"
+    },
+    "PG": {
+      "name": "Procter & Gamble",
+      "fv": null,
+      "price": 161.02,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "PG",
+      "divYield": 2.3,
+      "videoID": null,
+      "fund": {
+        "pe": "24.3",
+        "eps": "6.64",
+        "mcap": "373B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:PG"
+    },
+    "GIS": {
+      "name": "General Mills",
+      "fv": null,
+      "price": 34.39,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "GIS",
+      "divYield": 3.9,
+      "videoID": null,
+      "fund": {
+        "pe": "N/D",
+        "eps": "-1.67",
+        "mcap": "18B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:GIS"
+    },
+    "HD": {
+      "name": "Home Depot",
+      "fv": null,
+      "price": 319.83,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "HD",
+      "divYield": 2.4,
+      "videoID": null,
+      "fund": {
+        "pe": "22.4",
+        "eps": "14.29",
+        "mcap": "319B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:HD"
+    },
+    "ROST": {
+      "name": "Ross Stores",
+      "fv": null,
+      "price": 229.3,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "ROST",
+      "divYield": 1,
+      "videoID": null,
+      "fund": {
+        "pe": "27.7",
+        "eps": "8.28",
+        "mcap": "73B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:ROST"
+    },
+    "ORLY": {
+      "name": "O'Reilly Automotive",
+      "fv": null,
+      "price": 89.92,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "ORLY",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "28.6",
+        "eps": "3.14",
+        "mcap": "73B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:ORLY"
+    },
+    "DG": {
+      "name": "Dollar General",
+      "fv": null,
+      "price": 132.69,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "DG",
+      "divYield": 2,
+      "videoID": null,
+      "fund": {
+        "pe": "17.2",
+        "eps": "7.69",
+        "mcap": "29B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:DG"
+    },
+    "MCD": {
+      "name": "McDonald's",
+      "fv": null,
+      "price": 248.46,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "MCD",
+      "divYield": 2.4,
+      "videoID": null,
+      "fund": {
+        "pe": "20.2",
+        "eps": "12.31",
+        "mcap": "176B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:MCD"
+    },
+    "NKE": {
+      "name": "Nike",
+      "fv": null,
+      "price": 37.3,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "NKE",
+      "divYield": 2.1,
+      "videoID": null,
+      "fund": {
+        "pe": "17.9",
+        "eps": "2.09",
+        "mcap": "55B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:NKE"
+    },
+    "DIS": {
+      "name": "Walt Disney",
+      "fv": null,
+      "price": 112.52,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "DIS",
+      "divYield": 0.9,
+      "videoID": null,
+      "fund": {
+        "pe": "23.2",
+        "eps": "4.85",
+        "mcap": "194B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:DIS"
+    },
+    "VZ": {
+      "name": "Verizon",
+      "fv": null,
+      "price": 44.66,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "VZ",
+      "divYield": 6.8,
+      "videoID": null,
+      "fund": {
+        "pe": "11.6",
+        "eps": "3.84",
+        "mcap": "186B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:VZ"
+    },
+    "T": {
+      "name": "AT&T",
+      "fv": null,
+      "price": 20.93,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "T",
+      "divYield": 6.8,
+      "videoID": null,
+      "fund": {
+        "pe": "11.3",
+        "eps": "1.85",
+        "mcap": "141B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:T"
+    },
+    "CHTR": {
+      "name": "Charter Comm.",
+      "fv": null,
+      "price": 108.61,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "CHTR",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "2.8",
+        "eps": "38.49",
+        "mcap": "19B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:CHTR"
+    },
+    "TMUS": {
+      "name": "T-Mobile US",
+      "fv": null,
+      "price": 146.54,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "TMUS",
+      "divYield": 1.5,
+      "videoID": null,
+      "fund": {
+        "pe": "15.3",
+        "eps": "9.56",
+        "mcap": "157B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:TMUS"
+    },
+    "RCL": {
+      "name": "Royal Caribbean",
+      "fv": null,
+      "price": 276.48,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "RCL",
+      "divYield": 0.9,
+      "videoID": null,
+      "fund": {
+        "pe": "17.1",
+        "eps": "16.19",
+        "mcap": "74B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:RCL"
+    },
+    "META": {
+      "name": "Meta Platforms",
+      "fv": null,
+      "price": 642.62,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "META",
+      "divYield": 0.4,
+      "videoID": null,
+      "fund": {
+        "pe": "21.9",
+        "eps": "29.33",
+        "mcap": "1.6T",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:META"
+    },
+    "TSLA": {
+      "name": "Tesla",
+      "fv": null,
+      "price": 372.22,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "TSLA",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "409.4",
+        "eps": "0.91",
+        "mcap": "1.5T",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:TSLA"
+    },
+    "AVGO": {
+      "name": "Broadcom",
+      "fv": null,
+      "price": 321.68,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "AVGO",
+      "divYield": 1.3,
+      "videoID": null,
+      "fund": {
+        "pe": "41.1",
+        "eps": "7.83",
+        "mcap": "1.5T",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:AVGO"
+    },
+    "ORCL": {
+      "name": "Oracle",
+      "fv": null,
+      "price": 126.16,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "ORCL",
+      "divYield": 1,
+      "videoID": null,
+      "fund": {
+        "pe": "19.8",
+        "eps": "6.38",
+        "mcap": "381B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:ORCL"
+    },
+    "TXN": {
+      "name": "Texas Instruments",
+      "fv": null,
+      "price": 284.69,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "TXN",
+      "divYield": 2.9,
+      "videoID": null,
+      "fund": {
+        "pe": "36.9",
+        "eps": "7.71",
+        "mcap": "260B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:TXN"
+    },
+    "BKNG": {
+      "name": "Booking Holdings",
+      "fv": null,
+      "price": 155.83,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "BKNG",
+      "divYield": 0.8,
+      "videoID": null,
+      "fund": {
+        "pe": "17.2",
+        "eps": "9.04",
+        "mcap": "117B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:BKNG"
+    },
+    "SHOP": {
+      "name": "Shopify",
+      "fv": null,
+      "price": 168.68,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "SHOP",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "116.2",
+        "eps": "1.45",
+        "mcap": "217B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:SHOP"
+    },
+    "CRWD": {
+      "name": "CrowdStrike",
+      "fv": null,
+      "price": 257.57,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "CRWD",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "N/D",
+        "eps": "0.04",
+        "mcap": "264B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:CRWD"
+    },
+    "FTNT": {
+      "name": "Fortinet",
+      "fv": null,
+      "price": 179.99,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "FTNT",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "63.4",
+        "eps": "2.84",
+        "mcap": "132B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:FTNT"
+    },
+    "PLTR": {
+      "name": "Palantir",
+      "fv": null,
+      "price": 196.75,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "PLTR",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "167.7",
+        "eps": "1.17",
+        "mcap": "473B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:PLTR"
+    },
+    "PANW": {
+      "name": "Palo Alto Networks",
+      "fv": null,
+      "price": 380.55,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "PANW",
+      "divYield": 0,
+      "videoID": null,
+      "fund": {
+        "pe": "N/D",
+        "eps": "0.51",
+        "mcap": "311B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:PANW"
+    },
+    "NEE": {
+      "name": "NextEra Energy",
+      "fv": null,
+      "price": 82.1,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "NEE",
+      "divYield": 2.8,
+      "videoID": null,
+      "fund": {
+        "pe": "14.8",
+        "eps": "5.56",
+        "mcap": "172B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:NEE"
+    },
+    "CME": {
+      "name": "CME Group",
+      "fv": null,
+      "price": 305.71,
+      "curr": "$",
+      "ex": "NASDAQ",
+      "yf": "CME",
+      "divYield": 2,
+      "videoID": null,
+      "fund": {
+        "pe": "25.1",
+        "eps": "12.20",
+        "mcap": "110B",
+        "rev": "N/D"
+      },
+      "tv": "NASDAQ:CME"
+    },
+    "ACN": {
+      "name": "Accenture",
+      "fv": null,
+      "price": 249.37,
+      "curr": "$",
+      "ex": "NYSE",
+      "yf": "ACN",
+      "divYield": 1.6,
+      "videoID": null,
+      "fund": {
+        "pe": "18.4",
+        "eps": "13.57",
+        "mcap": "147B",
+        "rev": "N/D"
+      },
+      "tv": "NYSE:ACN"
     }
   },
   "aliases": {

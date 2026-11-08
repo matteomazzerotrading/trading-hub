@@ -1,6 +1,9 @@
 /*
  * fv_engine.js — formula dell'indicatore Pine Script "FAIR VALUE (dati realizzati)"
- * di matteomazzero2002 (impostazioni di default), tradotta in JavaScript.
+ * di matteomazzero2002, con le impostazioni usate sul suo grafico (layout "FV+TBO"):
+ * mediana dei margini, inflazione realizzata (CPI), margine di sicurezza 10%, beta manuale 0,95.
+ * Replica il comportamento sul grafico SETTIMANALE (10 anni di bilanci, campioni mensili
+ * presi dalle barre settimanali), come suggerito nel Pine stesso.
  *
  * Usato in due posti, con lo stesso codice:
  *   • scripts/compute_fv.mjs (GitHub Actions) → calcola i fair value e li scrive in data.json
@@ -23,9 +26,11 @@
     PREMIO_PCT: 0.03,     // premio/sconto qualità
     INFL_FIX: 0.025,      // inflazione fissa se nessun dato
     BETA_SETT: 260,       // settimane per il beta
-    BETA_MAN: 1.0,        // beta se non calcolabile
+    BETA_MAN: 0.95,       // beta se non calcolabile
     MESI_YLD: 120,        // mesi per il FCF yield storico
-    MOS: 0.0,             // margine di sicurezza sotto la banda
+    NORM_MED: true,       // mediana dei margini invece della media
+    INFL_SRC: 'realizzata', // 'realizzata' (CPI del periodo) oppure 'breakeven'
+    MOS: 0.10,            // margine di sicurezza sotto la banda
     TOLL_G: 0.01,         // tolleranza crescita implicita vs storica
     CONV_MIN: 0.7,        // conversione FCF/utile minima
     LEV_MAX: 4.0,         // debito netto massimo (anni di FCF)
@@ -90,7 +95,7 @@
     const c0 = cpiAt(cpi, win[0].avail), cn = cpiAt(cpi, s);
     const fatt0 = c0 && cn && c0 > 0 ? cn / c0 : 1;
     const revNow = win[0].rev / win[0].az * fatt0;
-    const margN = avg(marg);
+    const margN = P.NORM_MED ? median(marg) : avg(marg);
     return { fcfNorm: margN * revNow, fcfMin: Math.min(...marg) * revNow, fcfMax: Math.max(...marg) * revNow, margN, margNow: marg[0] };
   }
 
@@ -116,7 +121,8 @@
     return { beta: 0.67 * raw + 0.33, raw };
   }
 
-  // Chiusura del primo giorno di borsa di ogni mese (timeframe.change("M") sul giornaliero)
+  // Chiusura della prima barra di ogni mese (timeframe.change("M")): sul settimanale è la
+  // prima settimana che inizia nel nuovo mese, con la sua chiusura di fine settimana
   function monthFirstCloses(daily) {
     const seen = new Set(), out = [];
     for (const [d, c] of daily) { const k = d.slice(0, 7); if (!seen.has(k)) { seen.add(k); out.push([d, c]); } }
@@ -129,10 +135,10 @@
    *   cpi      [['YYYY-MM-01', v], ...]
    *   rf, be   decennale e breakeven in decimali (es. 0.0486)
    *   weeklyS / weeklyB  [['YYYY-MM-DD', close], ...] titolo e S&P 500
-   *   daily    [['YYYY-MM-DD', close], ...] almeno 11 anni (o già i primi giorni del mese)
+   *   bars     [['YYYY-MM-DD', close], ...] barre settimanali di almeno 11 anni (data = inizio settimana)
    *   today    'YYYY-MM-DD'
    */
-  function compute(f, cpi, rf, be, weeklyS, weeklyB, daily, today) {
+  function compute(f, cpi, rf, be, weeklyS, weeklyB, bars, today) {
     const res = { status: 'ok', avvisi: [] };
     const hist = annualHistory(f);
     const win = windowAt(hist, today);
@@ -157,8 +163,9 @@
 
     const c0 = cpiAt(cpi, win[0].avail), cN = cpiAt(cpi, win[n - 1].avail);
     const inflAnn = c0 && cN && cN > 0 ? Math.pow(c0 / cN, 1 / (n - 1)) - 1 : P.INFL_FIX;
-    const pi = be != null ? be : inflAnn;
-    const piSrc = be != null ? 'breakeven' : 'CPI realizzata';
+    const useBe = P.INFL_SRC === 'breakeven' && be != null;
+    const pi = useBe ? be : inflAnn;
+    const piSrc = useBe ? 'breakeven' : 'CPI realizzata';
     const spread = ke != null ? Math.max(ke - pi, P.SPREAD_MIN) : null;
 
     const earn = win.map(h => h.earn);
@@ -186,7 +193,7 @@
 
     // Fair value storico: mediana del FCF yield mensile (FCF normalizzato di allora / prezzo di allora)
     let ylds = [];
-    for (const [d, c] of monthFirstCloses(daily)) {
+    for (const [d, c] of monthFirstCloses(bars)) {
       const w = windowAt(hist, d);
       if (w.length < 4 || !(c > 0)) continue;
       const fn = fcfNormAt(w, cpi, d).fcfNorm;
@@ -200,7 +207,7 @@
     else if (ke == null) res.status = 'tasso_non_disponibile';
 
     const pct = x => (x * 100).toFixed(1).replace('.', ',') + '%';
-    if (betaSospetto) res.avvisi.push(`beta calcolato ${betaRaw.toFixed(2)}: verifica l'indice`);
+    if (betaSospetto) res.avvisi.push(`beta calcolato ${betaRaw.toFixed(2).replace('.', ',')}: verifica l'indice`);
     if (margNow < margN * 0.75) res.avvisi.push(`margine attuale ${pct(margNow)} molto sotto la media ${pct(margN)}`);
     if (conv != null && conv < P.CONV_MIN) res.avvisi.push(`FCF solo ${Math.round(conv * 100)}% dell'utile`);
     if (anniNeg > 0) res.avvisi.push(`${anniNeg} anni con FCF negativo`);

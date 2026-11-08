@@ -1,30 +1,43 @@
 name: Compute Fair Value
 
+# Fair value di tutti i titoli con la formula dell'indicatore "FAIR VALUE (dati realizzati)".
+# Ogni sera dei giorni di borsa dopo la chiusura USA, e ogni volta che cambia la formula.
 on:
   schedule:
-    # Ogni domenica alle 18:00 UTC (dopo la chiusura dei mercati settimanali)
-    - cron: '0 18 * * 0'
-  workflow_dispatch:  # consente di avviarlo manualmente dal repo
+    - cron: '20 22 * * 1-5'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fv_engine.js'
+      - 'scripts/compute_fv.mjs'
+      - '.github/workflows/compute-fv.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+# Evita che due workflow scrivano data.json nello stesso momento
+concurrency:
+  group: data-json
+  cancel-in-progress: false
 
 jobs:
   compute-fv:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
 
-      - name: Install dependencies
-        run: pip install yfinance --break-system-packages 2>/dev/null || pip install yfinance
+      - name: Calcola i fair value
+        run: node scripts/compute_fv.mjs
 
-      - name: Run FV computation
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/compute_fv.py
+      - name: Salva data.json e fv_report.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto: fair value dall'indicatore [skip ci]"
+          file_pattern: "data.json fv_report.json"
+          commit_user_name: "TradingHub Bot"
+          commit_user_email: "bot@tradinghub.local"
