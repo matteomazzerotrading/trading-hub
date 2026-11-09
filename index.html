@@ -296,6 +296,12 @@
         .faq-question { width: 100%; text-align: left; padding: 20px; background: transparent; border: none; color: #fff; font-size: 1.05em; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; }
         .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: var(--text-muted); line-height: 1.6; }
         .faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 500px; }
+        .faq-item.faq-lunga.active .faq-answer { max-height: 3000px; }
+        .leg-row { display: grid; grid-template-columns: 170px 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--border-glass); }
+        .leg-row:first-child { border-top: none; }
+        .leg-nome { color: #fff; font-weight: 700; }
+        .leg-chip { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78em; font-weight: 800; letter-spacing: 0.3px; }
+        @media (max-width: 600px) { .leg-row { grid-template-columns: 1fr; gap: 4px; } }
         .faq-item.active { border-color: rgba(0, 230, 118, 0.4); background: rgba(0, 230, 118, 0.05); }
         .faq-icon { font-size: 1.2em; transition: transform 0.3s; color: var(--brand-green); font-weight: 400;}
         .faq-item.active .faq-icon { transform: rotate(45deg); }
@@ -700,12 +706,12 @@
                         <thead>
                             <tr>
                                 <th title="Preferiti">★</th>
-                                <th onclick="sortTable('ticker')" id="th-ticker">Ticker <span class="sort-arrow">↕</span></th>
-                                <th>Azienda</th>
+                                <th onclick="sortTable('ticker')" id="th-ticker">Titolo <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('sconto')" id="th-sconto" class="sorted" title="Di quanto il prezzo è sotto (sconto) o sopra (premio) il FV pavimento; sotto, rispetto al FV di mercato">Sconto / premio <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('price')" id="th-price">Prezzo <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('fv')" id="th-fv" title="Fair value a crescita reale zero, con scenario peggiore e migliore">Pavimento <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('fv_mkt')" id="th-fv_mkt" title="Fair value se l'azienda cresce come l'economia">FV mercato <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('pos')" id="th-pos" class="sorted" title="Dove si trova il prezzo rispetto alle soglie dell'indicatore">Posizione <span class="sort-arrow">↑</span></th>
+                                <th onclick="sortTable('pos')" id="th-pos" title="Dove si trova il prezzo rispetto alle soglie dell'indicatore">Posizione <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('div')" id="th-div">Div. <span class="sort-arrow">↕</span></th>
                                 <th>Verdetto</th>
                             </tr>
@@ -971,6 +977,37 @@
                 <button class="faq-question">Che cos'è il "Fair Value"? <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
                     Il Fair Value (valore intrinseco) è una stima di quanto vale un'azienda in base ai suoi fondamentali. Uso il mio indicatore <strong>FAIR VALUE (dati realizzati)</strong>, che non fa previsioni: parte solo da bilanci già pubblicati. Prende il margine di free cash flow degli ultimi 10 anni (la mediana), lo applica ai ricavi per azione di oggi rivalutati all'inflazione e lo capitalizza al rendimento richiesto dal mercato (decennale + beta × premio per il rischio). Il risultato è il <strong>pavimento</strong>: quanto vale l'azienda se non crescesse più in termini reali. Attorno ci sono lo scenario peggiore e migliore, il fair value di mercato (se cresce come l'economia) e il fair value storico. Il verdetto confronta il prezzo con queste soglie e, sopra il fair value di mercato, con la crescita già realizzata e il ROIC. Valori aggiornati automaticamente ogni sera di borsa.
+                </div>
+            </div>
+            <div class="faq-item faq-lunga">
+                <button class="faq-question">Come leggere i fair value del mio indicatore <span class="faq-icon">+</span></button>
+                <div class="faq-answer">
+                    <div>
+                        <div class="leg-row"><div class="leg-nome">FV pavimento</div><div>Il fair value principale, la linea blu dell'indicatore. È quanto vale l'azienda se da oggi <strong>non crescesse più in termini reali</strong>: margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi di oggi e capitalizzato al rendimento richiesto (decennale + beta × premio per il rischio, al netto dell'inflazione), più la cassa per azione. È una stima prudente: non conta nessuna crescita futura.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Banda (peggiore – migliore)</div><div>Lo stesso calcolo con il margine dell'anno peggiore e di quello migliore degli ultimi 10. Più la banda è larga, più l'azienda è ciclica e la stima incerta. Se l'anno peggiore ha un free cash flow negativo, il limite basso non esiste e la banda parte da zero.</div></div>
+                        <div class="leg-row"><div class="leg-nome">FV di mercato</div><div>Quanto vale l'azienda se cresce <strong>come l'economia</strong> nel lungo periodo (convenzione usata da Damodaran per il premio per il rischio). È la soglia oltre la quale il prezzo chiede più crescita di un'azienda media.</div></div>
+                        <div class="leg-row"><div class="leg-nome">FV storico</div><div>Il prezzo che avrebbe oggi il titolo se il mercato lo pagasse al suo <strong>rendimento di free cash flow mediano degli ultimi 10 anni</strong>. Non usa tassi: dice se il titolo è caro o economico rispetto alla sua storia, non in assoluto.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Sconto / premio</div><div>Nello screener: di quanto il prezzo è sotto (<span style="color:#43a047;">sconto</span>) o sopra (<span style="color:#d32f2f;">premio</span>) il FV pavimento; sotto, lo stesso confronto con il FV di mercato. Uno sconto del 30% significa che il prezzo è il 70% del fair value.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Posizione</div><div>In quale zona si trova il prezzo rispetto alle soglie: sotto la banda, nella banda (con la percentuale: 0% = scenario peggiore, 100% = migliore), tra banda e FV di mercato, sopra il FV di mercato. Da qui nasce il verdetto.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Crescita scontata e storica</div><div>La <strong>crescita scontata</strong> è quella che il prezzo di oggi dà per scontata; la <strong>storica</strong> è quella dei ricavi per azione davvero realizzata negli ultimi anni. Se il mercato chiede molta più crescita di quella mai realizzata, il titolo è caro.</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item faq-lunga">
+                <button class="faq-question">Cosa significano i verdetti <span class="faq-icon">+</span></button>
+                <div class="faq-answer">
+                    <div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#1b5e20; background:rgba(27,94,32,0.12); border:1px solid rgba(27,94,32,0.45);">MOLTO SOTTOVALUTATA</span></div><div>Prezzo sotto anche lo scenario peggiore, con un margine di sicurezza del 10%.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#43a047; background:rgba(67,160,71,0.12); border:1px solid rgba(67,160,71,0.45);">SOTTOVALUTATA</span></div><div>Prezzo dentro la banda: il mercato lo paga come se l'azienda non dovesse più crescere. Può risultare sottovalutata anche con il prezzo un po' sopra il FV pavimento, se è sotto lo scenario migliore.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#827717; background:rgba(130,119,23,0.12); border:1px solid rgba(130,119,23,0.45);">EQUA PER UN'AZIENDA IN DECLINO</span></div><div>Prezzo in una delle due zone sopra, ma i ricavi per azione sono in calo: il prezzo basso può essere giustificato (rischio <em>value trap</em>). Sotto la banda diventa <em>molto sottovalutata, ma in declino</em>.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#546e7a; background:rgba(84,110,122,0.12); border:1px solid rgba(84,110,122,0.45);">ZONA DI EQUITÀ</span></div><div>Prezzo tra la banda e il FV di mercato: sconta meno crescita di un'azienda media.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#f9a825; background:rgba(249,168,37,0.12); border:1px solid rgba(249,168,37,0.45);">PREMIO SOSTENUTO</span></div><div>Prezzo sopra il FV di mercato, ma la crescita che chiede è già stata realizzata e il ROIC supera il rendimento richiesto: il premio è giustificato.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#ef6c00; background:rgba(239,108,0,0.12); border:1px solid rgba(239,108,0,0.45);">PREMIO DUBBIO</span></div><div>Prezzo sopra il FV di mercato con crescita realizzata, ma il ROIC non supera il rendimento richiesto: la crescita non crea valore.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#d32f2f; background:rgba(211,47,47,0.12); border:1px solid rgba(211,47,47,0.45);">SOPRAVVALUTATA</span></div><div>Prezzo sopra il FV di mercato che chiede una crescita mai realizzata in passato.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#9e9e9e; background:rgba(158,158,158,0.12); border:1px solid rgba(158,158,158,0.45);">NON VALUTABILE</span></div><div>Free cash flow normalizzato negativo, dati insufficienti, oppure prezzo sopra il FV di mercato senza una crescita storica con cui confrontarlo.</div></div>
+                        <div class="leg-row"><div class="leg-nome">⚠ Avvisi</div><div>Segnalano quando la stima è meno affidabile: free cash flow molto inferiore all'utile, anni con free cash flow negativo, debito netto elevato, margine attuale molto sotto la media, e banche e assicurazioni, per cui un modello sul free cash flow è poco significativo.</div></div>
+                    </div>
+                    <div style="margin-top:12px; font-size:0.85em;">I valori si aggiornano ogni sera di borsa con le stesse impostazioni del mio grafico. Non sono consigli di investimento.</div>
                 </div>
             </div>
             <div class="faq-item">
@@ -1385,7 +1422,7 @@
 
         // Posizione del prezzo rispetto alle soglie dell'indicatore (stesse zone del verdetto)
         function fvPosition(d, price) {
-            const p = parseFloat(price), n = x => x != null ? x.toFixed(2).replace('.', ',') : '';
+            const p = parseFloat(price), n = x => x != null ? x.toFixed(2).replace('.', ',') + (d && d.curr ? ' ' + d.curr : '') : '';
             const out = { zona: 9, ord: 9, testo: '—', sotto: '' };
             if (!d || d.fv == null || !(p > 0) || (d.ind && d.ind.status !== 'ok')) return out;
             const lo = d.fv_low, hi = d.fv_high != null ? d.fv_high : d.fv, mkt = d.fv_mkt;
@@ -1498,7 +1535,7 @@
 
         // === SCREENER ===
         let screenerData = []; let screenerOpen = false; let screenerBuilt = false;
-        let currentFilter = 'all'; let currentSort = { col: 'pos', dir: 'asc' };
+        let currentFilter = 'all'; let currentSort = { col: 'sconto', dir: 'desc' };
 
         function toggleScreener() {
             screenerOpen = !screenerOpen;
@@ -1529,7 +1566,10 @@
                     const upside = data.fv != null ? ((data.fv - livePriceNum) / livePriceNum) * 100 : null;
                     const verdict = fvVerdict(data, livePriceNum);
                     const pos = fvPosition(data, livePriceNum);
-                    return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord };
+                    const ok = data.ind ? data.ind.status === 'ok' : data.fv != null;
+                    const sconto = ok && data.fv > 0 && livePriceNum > 0 ? (1 - livePriceNum / data.fv) * 100 : null;
+                    const scontoMkt = ok && data.fv_mkt > 0 && livePriceNum > 0 ? (1 - livePriceNum / data.fv_mkt) * 100 : null;
+                    return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord, sconto, scontoMkt };
                 }));
                 screenerData.push(...chunkResults);
             }
@@ -1587,12 +1627,17 @@
                 const v = d.verdict, pos = d.posInfo, fav = watchlist.includes(d.ticker);
                 const tr = document.createElement('tr');
                 tr.onclick = () => { document.getElementById('fvInput').value = d.ticker; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV, 400); };
-                const banda = d.fv != null ? `<div style="font-size:0.75em; color:var(--text-muted);">${d.fv_low != null ? num(d.fv_low) + ' – ' + num(d.fv_high) : 'fino a ' + num(d.fv_high)}</div>` : '';
+                const cur = x => x != null ? num(x) + ' ' + d.curr : '—';
+                const banda = d.fv != null ? `<div style="font-size:0.75em; color:var(--text-muted);">${d.fv_low != null ? num(d.fv_low) + ' – ' + cur(d.fv_high) : 'fino a ' + cur(d.fv_high)}</div>` : '';
+                const sp = x => x == null ? '' : x >= 0 ? `sconto ${x.toFixed(0)}%` : `premio ${(-x).toFixed(0)}%`;
+                const scontoCell = d.sconto == null ? `<span style="color:var(--text-muted);">—</span>`
+                    : `<div style="font-weight:800; color:${d.sconto >= 0 ? '#43a047' : '#d32f2f'};">${sp(d.sconto)}</div><div style="font-size:0.75em; color:var(--text-muted);">FV mercato: ${sp(d.scontoMkt)}</div>`;
                 tr.innerHTML = `<td><button class="scr-fav" onclick="event.stopPropagation(); toggleFavorite('${d.ticker}')" title="${fav ? 'Togli dai preferiti' : 'Aggiungi ai preferiti'}" style="background:none;border:none;cursor:pointer;font-size:1.15em;color:${fav ? '#f9a825' : 'var(--text-muted)'};">${fav ? '★' : '☆'}</button></td>
-                <td class="scr-ticker">${d.ticker}</td><td class="scr-name">${d.name}</td>
-                <td class="scr-price" style="color:#fff">${num(d.price)} ${d.curr}</td>
-                <td class="scr-fv" style="color:${v.colore}">${d.fv != null ? num(d.fv) + ' ' + d.curr : '—'}${banda}</td>
-                <td class="scr-fv" style="color:var(--text-muted)">${num(d.fv_mkt)}</td>
+                <td><div class="scr-ticker">${d.ticker}</div><div class="scr-name" style="font-size:0.78em;">${d.name}</div></td>
+                <td style="line-height:1.35">${scontoCell}</td>
+                <td class="scr-price" style="color:#fff">${cur(d.price)}</td>
+                <td class="scr-fv" style="color:${v.colore}">${cur(d.fv)}${banda}</td>
+                <td class="scr-fv" style="color:var(--text-muted)">${cur(d.fv_mkt)}</td>
                 <td style="line-height:1.3"><div style="font-weight:700; color:#fff; font-size:0.9em;">${pos.testo}</div><div style="font-size:0.75em; color:var(--text-muted);">${pos.sotto}</div></td>
                 <td class="scr-div">${d.divYield ? d.divYield.toFixed(1) + '%' : '—'}</td>
                 <td><span class="scr-badge" style="${badgeStyle(v.colore)}">${v.breve}</span>${v.finanziario ? ` <span title="${AVVISO_FIN}" style="color:#f9a825; cursor:help;">⚠</span>` : ''}</td>`;
