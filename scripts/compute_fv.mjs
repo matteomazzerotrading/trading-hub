@@ -22,7 +22,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const COLS = ['close', 'currency', 'fiscal_period_fy_h', 'fiscal_period_end_fy', 'free_cash_flow_fy_h',
   'total_revenue_fy_h', 'net_income_fy_h', 'earnings_per_share_diluted_fy_h', 'total_revenue_fy',
   'cash_n_short_term_invest_fq', 'cash_n_short_term_invest_fy', 'total_debt_fq', 'total_debt_fy',
-  'return_on_invested_capital_fy', 'total_shares_outstanding'];
+  'return_on_invested_capital_fy', 'total_shares_outstanding', 'earnings_release_date', 'fiscal_period_end_fq'];
 
 async function get(url, opts = {}, tries = 3, timeoutMs = 30000) {
   let last;

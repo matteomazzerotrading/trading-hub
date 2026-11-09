@@ -12,7 +12,7 @@
  * Differenze note rispetto all'indicatore sul grafico TradingView:
  *   • ROIC medio: TradingView espone solo l'ultimo anno → si usa quello.
  *   • Azioni degli anni con EPS < 0,05: si usano le azioni attuali (il Pine usa quelle dell'anno).
- *   • Un bilancio annuale "entra" nel calcolo 45 giorni dopo la chiusura dell'esercizio.
+ *   • Ultimo bilancio: conta dalla data di pubblicazione (se non nota, chiusura + 45 giorni); i precedenti dalla chiusura.
  *   • Oscillatore z-score: non calcolato.
  */
 (function (root) {
@@ -52,25 +52,34 @@
   const avg = a => a.reduce((x, y) => x + y, 0) / a.length;
   const median = a => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 
-  // CPI come lo vede request.economic: valore del mese della data (o l'ultimo disponibile prima).
+  // CPI come lo vede request.economic: l'ultimo valore già pubblicato alla data s.
+  // Il CPI di un mese esce verso metà del mese successivo (qui: il 15).
   // cpi = [['YYYY-MM-01', valore], ...] in ordine crescente
+  const cpiRelease = m => { const d = new Date(m + 'T00:00:00Z'); d.setUTCMonth(d.getUTCMonth() + 1); d.setUTCDate(15); return iso(d); };
   function cpiAt(cpi, s) {
     if (!cpi || !cpi.length) return null;
-    const key = s.slice(0, 7) + '-01';
     let best = null;
-    for (const [m, v] of cpi) { if (m <= key) best = v; else break; }
-    return best;
+    for (const [m, v] of cpi) { if (cpiRelease(m) <= s) best = v; else break; }
+    return best != null ? best : cpi[0][1];
   }
 
   // Anni fiscali validi, più recente per primo (come 'nuovoFY' nel Pine).
   // f = riga dello screener TradingView (valori già nella valuta del titolo)
-  function annualHistory(f) {
+  // Come su TradingView: i bilanci passati contano dalla chiusura dell'esercizio, l'ultimo
+  // dalla data di pubblicazione (se non nota: chiusura + 45 giorni, mai oltre oggi).
+  function annualHistory(f, today) {
     const years = f.fiscal_period_fy_h || [];
     const fcf = f.free_cash_flow_fy_h || [], rev = f.total_revenue_fy_h || [];
     const ni = f.net_income_fy_h || [], eps = f.earnings_per_share_diluted_fy_h || [];
     const tso = f.total_shares_outstanding;
     if (!years.length || !f.fiscal_period_end_fy) return [];
     const lastEnd = iso(new Date(f.fiscal_period_end_fy * 1000));
+    let lastAvail = addDays(lastEnd, P.LAG_FY_DAYS);
+    if (f.earnings_release_date && f.fiscal_period_end_fq === f.fiscal_period_end_fy) {
+      const rel = iso(new Date(f.earnings_release_date * 1000));
+      if (rel >= lastEnd) lastAvail = rel;
+    }
+    if (today && lastAvail > today) lastAvail = today;
     // Fattore per portare i valori storici nella valuta del titolo (es. GBP → GBX = 100)
     let fact = 1;
     if (f.total_revenue_fy && rev[0]) { fact = f.total_revenue_fy / rev[0]; if (Math.abs(fact - 1) < 0.02) fact = 1; }
@@ -82,7 +91,7 @@
       if (E != null && EP != null && Math.abs(EP) > 0.05 && E / EP > 0) az = E / EP;
       if (!az || az <= 0) return;
       const end = (Number(lastEnd.slice(0, 4)) - (years[0] - y)) + lastEnd.slice(4).replace('-02-29', '-02-28');
-      out.push({ year: y, avail: addDays(end, P.LAG_FY_DAYS), fcf: F * fact, rev: R * fact, earn: E, az });
+      out.push({ year: y, avail: k === 0 ? lastAvail : end, fcf: F * fact, rev: R * fact, earn: E, az });
     });
     return out;
   }
@@ -140,7 +149,7 @@
    */
   function compute(f, cpi, rf, be, weeklyS, weeklyB, bars, today) {
     const res = { status: 'ok', avvisi: [] };
-    const hist = annualHistory(f);
+    const hist = annualHistory(f, today);
     const win = windowAt(hist, today);
     const n = win.length;
     res.anni = n;
