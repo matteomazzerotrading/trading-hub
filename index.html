@@ -565,7 +565,7 @@
                                 <div id="fvPriceBasis" style="margin-top:8px; font-size:0.78em; color:var(--text-muted); line-height:1.5; max-width:320px; margin-left:auto; margin-right:auto;"></div>
                                 <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                                     <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="wl-fv-btn" style="width: auto; padding: 8px 20px;">
-                                        ＋ Watchlist
+                                        ☆ Preferiti
                                     </button>
                                     <button onclick="toggleAlert(currentFVTicker)" class="wl-fv-btn" style="width: auto; padding: 8px 20px; border-color: var(--accent-yellow); color: var(--accent-yellow);" onmouseover="this.style.background='rgba(255,235,59,0.1)'" onmouseout="this.style.background='transparent'">
                                         🔔 Attiva Alert Drop
@@ -661,86 +661,59 @@
     <div class="container" id="screener">
         <div class="section-header">
             <h2 class="section-title">Screener <span>Titoli</span></h2>
-            <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Tutti i titoli ordinati per upside</span>
+            <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Valutazione con l'indicatore FAIR VALUE (dati realizzati)</span>
         </div>
         <div class="card" style="padding: 24px;">
             <button class="screener-toggle-btn" onclick="toggleScreener()" id="scr-toggle-btn">
-                <span>📊 Mostra tutti i titoli del database ordinati per upside</span>
+                <span>📊 Mostra tutti i titoli, dal più economico al più caro</span>
                 <span class="screener-toggle-icon" id="scr-toggle-icon">▼</span>
             </button>
 
             <div class="screener-body" id="scr-body">
                 <div class="screener-stats" id="screener-stats" style="display:none; margin-top:20px;">
                     <div class="scr-stat"><div class="scr-stat-val" id="stat-total" style="color:#fff;">—</div><div class="scr-stat-lbl">Titoli Analizzati</div></div>
-                    <div class="scr-stat"><div class="scr-stat-val" id="stat-undervalued" style="color:var(--brand-green);">—</div><div class="scr-stat-lbl">Sottovalutati</div></div>
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-undervalued" style="color:var(--brand-green);">—</div><div class="scr-stat-lbl">Sotto o nella banda</div></div>
                     <div class="scr-stat"><div class="scr-stat-val" id="stat-overvalued" style="color:var(--accent-red);">—</div><div class="scr-stat-lbl">Sopravvalutati</div></div>
                 </div>
 
                 <div class="screener-controls" style="margin-top: 20px;">
                     <button class="screener-filter-btn active" id="scr-btn-all" onclick="applyFilter('all')">Tutti</button>
-                    <button class="screener-filter-btn" id="scr-btn-under" onclick="applyFilter('under')">🟢 Sottovalutati</button>
+                    <button class="screener-filter-btn" id="scr-btn-fav" onclick="applyFilter('fav')">★ Preferiti</button>
+                    <button class="screener-filter-btn" id="scr-btn-under" onclick="applyFilter('under')">🟢 Sotto o nella banda</button>
+                    <button class="screener-filter-btn" id="scr-btn-equa" onclick="applyFilter('equa')">⚪ Equità / premio</button>
                     <button class="screener-filter-btn" id="scr-btn-over" onclick="applyFilter('over')">🔴 Sopravvalutati</button>
                     <button class="screener-filter-btn" id="scr-btn-div" onclick="applyFilter('div')">💰 Dividendo &gt;3%</button>
                     <input type="text" class="screener-search" id="scr-search" placeholder="🔍 Cerca ticker o nome..." oninput="applyFilter(currentFilter)">
                 </div>
 
+                <div style="font-size:0.78em; color:var(--text-muted); line-height:1.6; margin-top:14px;">
+                    <strong style="color:#fff;">Pavimento</strong>: valore se l'azienda non crescesse più in termini reali; sotto, la <strong style="color:#fff;">banda</strong> tra l'anno peggiore e il migliore degli ultimi 10. 
+                    <strong style="color:#fff;">FV mercato</strong>: valore se cresce come l'economia. Il verdetto segue le quattro zone dell'indicatore; clicca un titolo per il dettaglio.
+                </div>
+
                 <div class="screener-loading" id="scr-loading" style="display:none;">
-                    <div class="screener-loading-spinner"></div><div>Scaricamento prezzi live in corso...</div>
+                    <div class="screener-loading-spinner"></div><div>Caricamento...</div>
                 </div>
 
                 <div class="screener-table-wrap" id="scr-table-wrap" style="display:none;">
                     <table class="screener-table">
                         <thead>
                             <tr>
-                                <th onclick="sortTable('rank')" id="th-rank"># <span class="sort-arrow">↕</span></th>
+                                <th title="Preferiti">★</th>
                                 <th onclick="sortTable('ticker')" id="th-ticker">Ticker <span class="sort-arrow">↕</span></th>
                                 <th>Azienda</th>
-                                <th onclick="sortTable('price')" id="th-price">Prezzo Live <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('fv')" id="th-fv">Fair Value <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('upside')" id="th-upside" class="sorted">Gap FV % <span class="sort-arrow">↓</span></th>
-                                <th onclick="sortTable('div')" id="th-div">Dividendo <span class="sort-arrow">↕</span></th>
-                                <th>Segnale</th>
+                                <th onclick="sortTable('price')" id="th-price">Prezzo <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('fv')" id="th-fv" title="Fair value a crescita reale zero, con scenario peggiore e migliore">Pavimento <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('fv_mkt')" id="th-fv_mkt" title="Fair value se l'azienda cresce come l'economia">FV mercato <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('pos')" id="th-pos" class="sorted" title="Dove si trova il prezzo rispetto alle soglie dell'indicatore">Posizione <span class="sort-arrow">↑</span></th>
+                                <th onclick="sortTable('div')" id="th-div">Div. <span class="sort-arrow">↕</span></th>
+                                <th>Verdetto</th>
                             </tr>
                         </thead>
                         <tbody id="scr-tbody"></tbody>
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container" id="comparatore">
-        <div class="section-header">
-            <h2 class="section-title">Compara <span>Due Titoli</span></h2>
-            <span style="font-size: 0.82em; color: var(--text-muted);">Scopri quale ha più margine di guadagno</span>
-        </div>
-        <div class="card">
-            <div class="comp-inputs">
-                <div class="comp-input-group"><label>Primo Titolo</label><input type="text" id="compInput1" class="comp-ticker-input" placeholder="es. GOOG"></div>
-                <div class="comp-vs">VS</div>
-                <div class="comp-input-group"><label>Secondo Titolo</label><input type="text" id="compInput2" class="comp-ticker-input" placeholder="es. MSFT"></div>
-            </div>
-            <button class="comp-btn" id="compBtnAction" onclick="compareStocks()">⚖️ CONFRONTA ORA</button>
-            <div id="compError" style="display:none; color:var(--accent-red); padding:15px; text-align:center; margin-top:16px;">⚠️ Uno o entrambi i ticker non sono nel database. Controlla e riprova.</div>
-            <div id="compResult" class="comp-result">
-                <div class="comp-cards" id="compCards"></div>
-                <div class="comp-verdict" id="compVerdict"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="watchlist">
-        <div class="section-header">
-            <h2 class="section-title">La mia <span>Watchlist</span></h2>
-            <span style="color: var(--text-muted); font-size: 0.9em;" id="wl-count">0 titoli</span>
-        </div>
-        <div class="card">
-            <div class="watchlist-add-box">
-                <input type="text" id="wlInput" class="watchlist-input" placeholder="Aggiungi ticker (es. MSFT, ISP, BATS...)">
-                <button class="watchlist-add-btn" onclick="addToWatchlist()">＋ AGGIUNGI</button>
-            </div>
-            <div id="wlEmpty" class="watchlist-empty">🔍 La tua watchlist è vuota.<br><span style="font-size: 0.85em;">Cerca un ticker o aggiungilo dai risultati.</span></div>
-            <div id="wlGrid" class="watchlist-grid" style="display: none;"></div>
         </div>
     </div>
 
@@ -1396,6 +1369,8 @@
                 const v = FVEngine.verdict(d, p);
                 v.cat = FVEngine.categoria(v.key);
                 v.breve = FV_BREVE[v.key] || (d.ind.status === 'fcf_negativo' ? 'FCF NEGATIVO' : 'N/D');
+                const tk = Object.keys(db).find(k => db[k] === d);
+                if (tk && FINANZIARI.has(tk)) { v.finanziario = true; v.dettagli = [AVVISO_FIN].concat(v.dettagli); }
                 return v;
             }
             // Fallback per titoli senza dati dell'indicatore
@@ -1404,6 +1379,29 @@
             return { key: sotto ? 'sotto' : 'sopra', cat: sotto ? 'sotto' : 'sopra', titolo: sotto ? 'SOTTOVALUTATA' : 'SOPRAVVALUTATA',
                      breve: sotto ? 'SOTTOVALUTATA' : 'SOPRAVVALUTATA', sotto: 'stima manuale', colore: sotto ? '#00e676' : '#ff3d00', dettagli: [] };
         }
+        // Banche e assicurazioni: il fair value sul free cash flow è poco significativo
+        const FINANZIARI = new Set(['JPM', 'BAC', 'C', 'GS', 'ISP', 'G', 'CB', 'L', 'AXP']);
+        const AVVISO_FIN = 'modello poco affidabile per banche e assicurazioni';
+
+        // Posizione del prezzo rispetto alle soglie dell'indicatore (stesse zone del verdetto)
+        function fvPosition(d, price) {
+            const p = parseFloat(price), n = x => x != null ? x.toFixed(2).replace('.', ',') : '';
+            const out = { zona: 9, ord: 9, testo: '—', sotto: '' };
+            if (!d || d.fv == null || !(p > 0) || (d.ind && d.ind.status !== 'ok')) return out;
+            const lo = d.fv_low, hi = d.fv_high != null ? d.fv_high : d.fv, mkt = d.fv_mkt;
+            if (lo != null && hi > lo && p < lo) {
+                return { zona: 1, ord: 1 + p / lo, testo: 'Sotto la banda', sotto: `${((1 - p / lo) * 100).toFixed(0)}% sotto lo scenario peggiore` };
+            }
+            if (p <= hi) {
+                const pct = lo != null && hi > lo ? Math.max(0, (p - lo) / (hi - lo)) : null;
+                return { zona: 2, ord: 2 + (pct != null ? pct : p / hi), testo: 'Nella banda', sotto: pct != null ? `al ${Math.round(pct * 100)}% della banda` : `sotto lo scenario migliore (${n(hi)})` };
+            }
+            if (mkt == null || p <= mkt) {
+                return { zona: 3, ord: 3 + (mkt ? (p - hi) / (mkt - hi || 1) : 0), testo: 'Tra banda e FV mercato', sotto: mkt ? `${((mkt / p - 1) * 100).toFixed(0)}% sotto il FV di mercato` : '' };
+            }
+            return { zona: 4, ord: 4 + (p / mkt - 1), testo: 'Sopra FV mercato', sotto: `+${((p / mkt - 1) * 100).toFixed(0)}% sopra il FV di mercato` };
+        }
+
         function rgba(hex, a) { const n = parseInt(hex.replace('#', ''), 16); return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`; }
         function badgeStyle(c) { return `color:${c}; background:${rgba(c, 0.12)}; border:1px solid ${rgba(c, 0.45)};`; }
 
@@ -1444,9 +1442,12 @@
                 res.style.borderColor = v.key === 'na' ? "var(--border-glass)" : v.colore;
                 const vt = document.getElementById('fvVerdictText');
                 if (vt) {
-                    const dist = fvNum !== null && priceNum > 0 ? `<div style="color:#fff;">Prezzo ${priceNum > fvNum ? 'sopra' : 'sotto'} il pavimento del <strong>${Math.abs((priceNum - fvNum) / fvNum * 100).toFixed(1).replace('.', ',')}%</strong></div>` : '';
+                    const pos = fvPosition(data, priceNum);
+                    const dist = pos.zona < 9 ? `<div style="color:#fff;">Posizione: <strong>${pos.testo}</strong>${pos.sotto ? ' · ' + pos.sotto : ''}</div>` : '';
                     vt.innerHTML = (v.sotto ? `<div style="color:${v.colore}; font-weight:600;">${v.sotto}</div>` : '') + dist
-                        + v.dettagli.map(t => `<div style="color:var(--text-muted);">${t.startsWith('crescita') || t.startsWith('ROIC') ? '' : '⚠ '}${t}</div>`).join('');
+                        + v.dettagli.map(t => `<div style="color:${t === AVVISO_FIN ? '#f9a825' : 'var(--text-muted)'};">${t.startsWith('crescita') || t.startsWith('ROIC') ? '' : '⚠ '}${t}</div>`).join('');
+                    const favBtn = document.getElementById('fvAddToWatchlist');
+                    if (favBtn) favBtn.innerText = watchlist.includes(input) ? '★ Nei preferiti' : '☆ Preferiti';
                 }
 
                 // Mostra su quale prezzo è stato fatto il confronto
@@ -1497,7 +1498,7 @@
 
         // === SCREENER ===
         let screenerData = []; let screenerOpen = false; let screenerBuilt = false;
-        let currentFilter = 'all'; let currentSort = { col: 'upside', dir: 'desc' };
+        let currentFilter = 'all'; let currentSort = { col: 'pos', dir: 'asc' };
 
         function toggleScreener() {
             screenerOpen = !screenerOpen;
@@ -1507,7 +1508,7 @@
                 document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `📊 <strong>Nascondi</strong> lo Screener`;
                 if (!screenerBuilt) { buildScreenerData(); screenerBuilt = true; }
             } else {
-                document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `📊 Mostra tutti i <strong>${Object.keys(db).length}</strong> titoli del database ordinati per upside`;
+                document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `📊 Mostra tutti i <strong>${Object.keys(db).length}</strong> titoli, dal più economico al più caro`;
             }
         }
 
@@ -1527,7 +1528,8 @@
                     const livePriceNum = parseFloat(data.price);
                     const upside = data.fv != null ? ((data.fv - livePriceNum) / livePriceNum) * 100 : null;
                     const verdict = fvVerdict(data, livePriceNum);
-                    return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat };
+                    const pos = fvPosition(data, livePriceNum);
+                    return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord };
                 }));
                 screenerData.push(...chunkResults);
             }
@@ -1566,7 +1568,9 @@
             let filtered = screenerData.filter(d => {
                 if (search && !d.ticker.toLowerCase().includes(search) && !d.name.toLowerCase().includes(search)) return false;
                 if (currentFilter === 'under' && d.cat !== 'sotto') return false;
+                if (currentFilter === 'equa' && d.cat !== 'equa') return false;
                 if (currentFilter === 'over' && d.cat !== 'sopra') return false;
+                if (currentFilter === 'fav' && !watchlist.includes(d.ticker)) return false;
                 if (currentFilter === 'div' && (d.divYield || 0) < 3) return false;
                 return true;
             });
@@ -1577,111 +1581,39 @@
             document.getElementById('screener-stats').style.display = 'grid';
 
             const tbody = document.getElementById('scr-tbody'); tbody.innerHTML = '';
-            filtered.forEach((d, i) => {
-                const hasUpside = d.upside != null;
-                const isUnder = hasUpside && d.upside > 0;
-                const badge = d.verdict ? d.verdict.breve : 'N/D';
-                const bStyle = d.verdict ? badgeStyle(d.verdict.colore) : '';
-
+            if (!filtered.length) tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:var(--text-muted); padding:24px;">${currentFilter === 'fav' ? 'Nessun preferito: tocca ☆ accanto a un titolo per aggiungerlo.' : 'Nessun titolo.'}</td></tr>`;
+            const num = x => x != null ? x.toFixed(2) : '—';
+            filtered.forEach(d => {
+                const v = d.verdict, pos = d.posInfo, fav = watchlist.includes(d.ticker);
                 const tr = document.createElement('tr');
-                tr.onclick = () => { document.getElementById('fvInput').value = d.ticker; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV,400); };
-                const fvDisplay = d.fv != null ? d.fv.toFixed(2) + ' ' + d.curr : '—';
-                const fvColor = !hasUpside ? 'var(--text-muted)' : (d.verdict ? d.verdict.colore : (isUnder ? 'var(--brand-green)' : 'var(--accent-red)'));
-                const absDiff = hasUpside ? (d.fv - d.price).toFixed(2) : null;
-                const upsideDisplay = hasUpside
-                    ? `<div class="scr-upside ${isUnder?'positive':'negative'}" style="line-height:1.3">
-                        <div style="font-weight:800">${isUnder?'+':''}${d.upside.toFixed(1)}%</div>
-                        <div style="font-size:0.75em;opacity:0.75">${isUnder?'+':''}${absDiff} ${d.curr}</div>
-                       </div>`
-                    : `<span style="color:var(--text-muted);">—</span>`;
-                tr.innerHTML = `<td class="scr-rank">${i + 1}</td><td class="scr-ticker">${d.ticker}</td><td class="scr-name">${d.name}</td>
-                <td class="scr-price" style="color:var(--text-muted)">${d.price.toFixed(2)} ${d.curr}</td>
-                <td class="scr-fv" style="color:${fvColor}">${fvDisplay}</td>
-                <td>${upsideDisplay}</td>
-                <td class="scr-div">${d.divYield ? d.divYield.toFixed(1)+'%' : '—'}</td><td><span class="scr-badge" style="${bStyle}">${badge}</span></td>`;
+                tr.onclick = () => { document.getElementById('fvInput').value = d.ticker; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV, 400); };
+                const banda = d.fv != null ? `<div style="font-size:0.75em; color:var(--text-muted);">${d.fv_low != null ? num(d.fv_low) + ' – ' + num(d.fv_high) : 'fino a ' + num(d.fv_high)}</div>` : '';
+                tr.innerHTML = `<td><button class="scr-fav" onclick="event.stopPropagation(); toggleFavorite('${d.ticker}')" title="${fav ? 'Togli dai preferiti' : 'Aggiungi ai preferiti'}" style="background:none;border:none;cursor:pointer;font-size:1.15em;color:${fav ? '#f9a825' : 'var(--text-muted)'};">${fav ? '★' : '☆'}</button></td>
+                <td class="scr-ticker">${d.ticker}</td><td class="scr-name">${d.name}</td>
+                <td class="scr-price" style="color:#fff">${num(d.price)} ${d.curr}</td>
+                <td class="scr-fv" style="color:${v.colore}">${d.fv != null ? num(d.fv) + ' ' + d.curr : '—'}${banda}</td>
+                <td class="scr-fv" style="color:var(--text-muted)">${num(d.fv_mkt)}</td>
+                <td style="line-height:1.3"><div style="font-weight:700; color:#fff; font-size:0.9em;">${pos.testo}</div><div style="font-size:0.75em; color:var(--text-muted);">${pos.sotto}</div></td>
+                <td class="scr-div">${d.divYield ? d.divYield.toFixed(1) + '%' : '—'}</td>
+                <td><span class="scr-badge" style="${badgeStyle(v.colore)}">${v.breve}</span>${v.finanziario ? ` <span title="${AVVISO_FIN}" style="color:#f9a825; cursor:help;">⚠</span>` : ''}</td>`;
                 tbody.appendChild(tr);
             });
             document.getElementById('scr-loading').style.display = 'none'; document.getElementById('scr-table-wrap').style.display = 'block';
         }
 
-        // === COMPARATORE ===
-        async function compareStocks() {
-            let t1 = document.getElementById('compInput1').value.toUpperCase().trim();
-            let t2 = document.getElementById('compInput2').value.toUpperCase().trim();
-            if (aliases[t1]) t1 = aliases[t1]; if (aliases[t2]) t2 = aliases[t2];
-
-            const err = document.getElementById('compError'), result = document.getElementById('compResult'), cardsEl = document.getElementById('compCards'), verdictEl = document.getElementById('compVerdict'), btn = document.getElementById('compBtnAction');
-            err.style.display = 'none'; result.style.display = 'none';
-            if (!db[t1] || !db[t2]) { err.style.display = 'block'; return; }
-            btn.innerText = '⏳ ANALISI...'; btn.style.opacity = '0.7';
-            const d1 = db[t1], d2 = db[t2];
-            const [p1, p2] = await Promise.all([getLivePrice(d1.yf, d1.price), getLivePrice(d2.yf, d2.price)]);
-            btn.innerText = '⚖️ CONFRONTA ORA'; btn.style.opacity = '1';
-            const upOf = (d, p) => d.fv != null ? ((d.fv - p) / p) * 100 : -Infinity;
-            const up1 = upOf(d1, p1), up2 = upOf(d2, p2);
-            const winner = up1 >= up2 ? t1 : t2;
-
-            function buildCard(t, d, p, u, isW) {
-                const v = fvVerdict(d, p), color = v.colore, hasFv = d.fv != null;
-                return `<div class="comp-card ${isW ? 'winner' : 'loser'}">${isW ? '<div class="comp-winner-badge">🏆 MIGLIORE OPPORTUNITÀ</div>' : ''}
-                    <div class="comp-ticker-big">${t}</div><div class="comp-name">${d.name}</div>
-                    <div class="comp-row"><span class="comp-row-label">Prezzo Live</span><span class="comp-row-val">${parseFloat(p).toFixed(2)} ${d.curr}</span></div>
-                    <div class="comp-row"><span class="comp-row-label">FV pavimento</span><span class="comp-row-val" style="color:${color}">${hasFv ? d.fv.toFixed(2) + ' ' + d.curr : 'N/D'}</span></div>
-                    <div class="comp-row"><span class="comp-row-label">Gap FV</span><span class="comp-row-val" style="color:${color}">${hasFv ? (u > 0 ? '+' : '') + u.toFixed(1) + '%' : '—'}</span></div>
-                    <div class="comp-row"><span class="comp-row-label">Verdetto</span><span class="comp-row-val" style="color:${color}">${v.breve}</span></div>
-                </div>`;
-            }
-            cardsEl.innerHTML = buildCard(t1, d1, p1, up1, winner === t1) + buildCard(t2, d2, p2, up2, winner === t2);
-            const wUpside = winner === t1 ? up1 : up2; const isGoodDeal = wUpside > 0;
-            let verdictText = !isFinite(wUpside)
-                ? `Nessuno dei due titoli ha un fair value calcolabile con l'indicatore.`
-                : isGoodDeal
-                ? `<strong style="color:var(--brand-green)">${winner}</strong> offre il maggiore margine di sicurezza: prezzo sotto il pavimento del fair value del <strong>${wUpside.toFixed(1)}%</strong>.`
-                : `Entrambi i titoli sono sopra il pavimento del fair value. <strong>${winner}</strong> è quello più vicino (${wUpside.toFixed(1)}%).`;
-            verdictEl.innerHTML = `<div class="comp-verdict-icon">${isGoodDeal ? '💡' : '⏳'}</div><div class="comp-verdict-text"><div class="comp-verdict-title">Verdetto di Matteo</div><div class="comp-verdict-sub">${verdictText}</div></div>`;
-            result.style.display = 'block';
-        }
-
-        // === WATCHLIST ASINCRONA ===
+        // === PREFERITI (salvati nel browser; stessa chiave della vecchia watchlist) ===
         let watchlist = JSON.parse(localStorage.getItem('mm_wl') || '[]');
         function saveWatchlist() { localStorage.setItem('mm_wl', JSON.stringify(watchlist)); }
-
-        function renderWatchlist() {
-            const grid = document.getElementById('wlGrid'), empty = document.getElementById('wlEmpty');
-            document.getElementById('wl-count').innerText = watchlist.length + ' titoli';
-            if (watchlist.length === 0) { grid.style.display = 'none'; empty.style.display = 'block'; return; }
-            empty.style.display = 'none'; grid.style.display = 'grid'; grid.innerHTML = '';
-
-            watchlist.forEach(ticker => {
-                const data = db[ticker]; const card = document.createElement('div'); card.className = 'wl-item';
-                if(!data) { card.innerHTML=`<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>`; grid.appendChild(card); return; }
-                card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div><div style="text-align:center; color:var(--text-muted); font-size:0.85em; padding:10px 0;">↻ Calcolo in corso...</div>`;
-                grid.appendChild(card);
-
-                getLivePrice(data.yf, data.price).then(price => {
-                    const fvNum = data.fv != null ? parseFloat(data.fv) : null;
-                    const priceNum = parseFloat(price);
-                    const isLive = price !== data.price;
-                    const liveDot = isLive ? `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#0f0;margin-right:4px;box-shadow:0 0 6px #0f0;"></span>` : `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#888;margin-right:4px;"></span>`;
-                    let fvSection = '';
-                    const v = fvVerdict(data, priceNum);
-                    if (fvNum != null || v.key !== 'na') {
-                        const badge = `<span class="wl-badge" style="${badgeStyle(v.colore)}">${v.breve}</span>`;
-                        fvSection = `<div class="wl-fv-row"><div><div style="font-size:0.75em; color:var(--text-muted); text-transform:uppercase;">FV pavimento</div><div class="mono-font" style="font-weight:700; color:${v.colore}">${fvNum != null ? fvNum.toFixed(2) + ' ' + data.curr : 'N/D'}</div></div><div>${badge}</div></div>`;
-                    }
-                    card.innerHTML = `<div class="wl-item-header"><div><div class="wl-ticker">${ticker}</div><div class="wl-name">${data.name}</div></div><button class="wl-remove" onclick="removeFromWatchlist('${ticker}')">✕</button></div>
-                        <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px;"><span style="font-size:0.75em;color:var(--text-muted);">${liveDot}${isLive ? 'Live' : 'Statico'}</span><span class="mono-font" style="font-size:1.3em;font-weight:800;color:#fff;">${priceNum.toFixed(2)} ${data.curr}</span></div>
-                        ${fvSection}`;
-                });
-            });
+        function toggleFavorite(t) {
+            if (!t) return;
+            watchlist = watchlist.includes(t) ? watchlist.filter(x => x !== t) : [t].concat(watchlist);
+            saveWatchlist();
+            if (screenerBuilt) renderScreener();
+            const favBtn = document.getElementById('fvAddToWatchlist');
+            if (favBtn && currentFVTicker === t) favBtn.innerText = watchlist.includes(t) ? '★ Nei preferiti' : '☆ Preferiti';
         }
-        function addToWatchlist(t) {
-            let input = t || document.getElementById('wlInput').value.toUpperCase().trim(); if(aliases[input]) input = aliases[input];
-            if (!input || watchlist.includes(input)) return;
-            watchlist.unshift(input); saveWatchlist(); renderWatchlist(); document.getElementById('wlInput').value = '';
-        }
-        function addCurrentToWatchlist() { if (currentFVTicker) addToWatchlist(currentFVTicker); }
-        function removeFromWatchlist(t) { watchlist = watchlist.filter(x => x !== t); saveWatchlist(); renderWatchlist(); }
+        function addCurrentToWatchlist() { if (currentFVTicker) toggleFavorite(currentFVTicker); }
+        function renderWatchlist() { if (screenerBuilt) renderScreener(); }
 
         // === PORTAFOGLIO PERSONALE ===
         let personalPort = JSON.parse(localStorage.getItem('mm_port') || '[]');
@@ -2222,7 +2154,6 @@
             // Su smartphone testi d'esempio più corti, così non vengono tagliati
             if (window.innerWidth <= 600) {
                 const fvI = document.getElementById('fvInput'); if (fvI) fvI.placeholder = 'es. AAPL';
-                const wlI = document.getElementById('wlInput'); if (wlI) wlI.placeholder = 'es. MSFT';
             }
             renderPersonalPortfolio();
             renderIndicatorSignals();

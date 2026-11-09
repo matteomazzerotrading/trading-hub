@@ -22,7 +22,21 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const COLS = ['close', 'currency', 'fiscal_period_fy_h', 'fiscal_period_end_fy', 'free_cash_flow_fy_h',
   'total_revenue_fy_h', 'net_income_fy_h', 'earnings_per_share_diluted_fy_h', 'total_revenue_fy',
   'cash_n_short_term_invest_fq', 'cash_n_short_term_invest_fy', 'total_debt_fq', 'total_debt_fy',
-  'return_on_invested_capital_fy', 'total_shares_outstanding', 'earnings_release_date', 'fiscal_period_end_fq'];
+  'return_on_invested_capital_fy', 'total_shares_outstanding', 'earnings_release_date', 'fiscal_period_end_fq',
+  'price_earnings_ttm', 'earnings_per_share_diluted_ttm', 'market_cap_basic', 'dividends_yield_current',
+  'total_revenue_yoy_growth_ttm'];
+
+// Dati per i riquadri della scheda (P/E, EPS, capitalizzazione, crescita ricavi, dividendo)
+function fundamentals(f) {
+  const capDiv = f.currency === 'GBX' ? 100 : 1;          // capitalizzazione in pence → sterline
+  const big = x => x == null ? 'N/D' : x >= 1e12 ? (x / 1e12).toFixed(2) + 'T' : x >= 1e9 ? (x / 1e9).toFixed(1) + 'B' : (x / 1e6).toFixed(0) + 'M';
+  return {
+    pe: f.price_earnings_ttm != null && f.price_earnings_ttm > 0 ? f.price_earnings_ttm.toFixed(1) : 'N/D',
+    eps: f.earnings_per_share_diluted_ttm != null ? f.earnings_per_share_diluted_ttm.toFixed(2) : 'N/D',
+    mcap: f.market_cap_basic != null ? big(f.market_cap_basic / capDiv) : 'N/D',
+    rev: f.total_revenue_yoy_growth_ttm != null ? (f.total_revenue_yoy_growth_ttm > 0 ? '+' : '') + f.total_revenue_yoy_growth_ttm.toFixed(1) + '%' : 'N/D'
+  };
+}
 
 async function get(url, opts = {}, tries = 3, timeoutMs = 30000) {
   let last;
@@ -121,6 +135,8 @@ async function main() {
       try { r = E.compute(f, cpi, rf, null, weekly, bench, weekly, today); r.settimane = weekly.length; if (yerr) r.prezzi = 'Yahoo: ' + yerr; }
       catch (ex) { r = { status: 'errore', errore: String(ex.message).slice(0, 200) }; }
       if (f.close != null) e.price = r2(f.close, f.close < 10 ? 3 : 2);
+      e.fund = fundamentals(f);
+      if (f.dividends_yield_current != null) e.divYield = r2(f.dividends_yield_current, 2);
     }
     report.titoli[t] = r;
     if (r.status !== 'errore' && r.status !== 'simbolo_non_trovato') {

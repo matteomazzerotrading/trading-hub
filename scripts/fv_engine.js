@@ -228,7 +228,7 @@
     if (betaSospetto) res.avvisi.push(`beta calcolato ${betaRaw.toFixed(2).replace('.', ',')}: verifica l'indice`);
     if (margNow < margN * 0.75) res.avvisi.push(`margine attuale ${pct(margNow)} molto sotto la media ${pct(margN)}`);
     if (conv != null && conv < P.CONV_MIN) res.avvisi.push(`FCF solo ${Math.round(conv * 100)}% dell'utile`);
-    if (anniNeg > 0) res.avvisi.push(`${anniNeg} anni con FCF negativo`);
+    if (anniNeg > 0) res.avvisi.push(`${anniNeg} ${anniNeg === 1 ? 'anno' : 'anni'} con FCF negativo`);
     if (levAnni != null && levAnni > P.LEV_MAX) res.avvisi.push(`debito netto = ${levAnni.toFixed(1).replace('.', ',')} anni di FCF`);
 
     const r = (x, k = 4) => x == null || !isFinite(x) ? null : Number(x.toFixed(k));
