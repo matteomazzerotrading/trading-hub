@@ -149,7 +149,16 @@
    */
   function compute(f, cpi, rf, be, weeklyS, weeklyB, bars, today) {
     const res = { status: 'ok', avvisi: [] };
-    const hist = annualHistory(f, today);
+    let hist = annualHistory(f, today);
+    // Titoli quotati da meno di 10 anni: sul grafico la storia parte dalla quotazione, quindi il Pine
+    // registra solo il bilancio in vigore in quel momento (con il CPI di allora) e non quelli precedenti.
+    if (bars && bars.length) {
+      const start = bars[0][0], limite = addDays(today, -Math.round(365.25 * 10.5));
+      if (start > limite) {
+        const prima = hist.filter(h => h.avail < start), dopo = hist.filter(h => h.avail >= start);
+        hist = prima.length ? dopo.concat([Object.assign({}, prima[0], { avail: start })]) : dopo;
+      }
+    }
     const win = windowAt(hist, today);
     const n = win.length;
     res.anni = n;
