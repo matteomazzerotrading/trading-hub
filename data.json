@@ -9,14 +9,14 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "DIA.MI",
-      "divYield": 1.6,
+      "divYield": 1.57,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "27.7",
-        "eps": "2.90",
-        "mcap": "4.4B",
-        "rev": "+3.2%"
+        "pe": "30.8",
+        "eps": "2.64",
+        "mcap": "4.5B",
+        "rev": "-3.1%"
       },
       "tv": "MIL:DIA",
       "fv_low": 96.4,
@@ -47,14 +47,14 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ERG.MI",
-      "divYield": 4.1,
+      "divYield": 4.45,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "14.2",
-        "eps": "1.68",
-        "mcap": "3.5B",
-        "rev": "+5.1%"
+        "pe": "65.5",
+        "eps": "0.35",
+        "mcap": "3.4B",
+        "rev": "+4.9%"
       },
       "tv": "MIL:ERG",
       "fv_low": null,
@@ -74,7 +74,7 @@
         "marg_now": 0.2811,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 9,3 anni di FCF"
         ]
       },
@@ -88,14 +88,14 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "RACE.MI",
-      "divYield": 0.76,
+      "divYield": 0.97,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "56.6",
-        "eps": "6.22",
-        "mcap": "88B",
-        "rev": "+17%"
+        "pe": "39.1",
+        "eps": "9.52",
+        "mcap": "82.2B",
+        "rev": "+5.7%"
       },
       "tv": "MIL:RACE",
       "fv_low": 86.75,
@@ -126,14 +126,14 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GOOG",
-      "divYield": 0.15,
+      "divYield": 0.3,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "25.1",
-        "eps": "6.97",
-        "mcap": "2.1T",
-        "rev": "+13%"
+        "pe": "14.9",
+        "eps": "19.15",
+        "mcap": "3.50T",
+        "rev": "+22.2%"
       },
       "tv": "NASDAQ:GOOG",
       "fv_low": 117.35,
@@ -164,14 +164,14 @@
       "curr": "€",
       "ex": "EPA",
       "yf": "MC.PA",
-      "divYield": 1.5,
+      "divYield": 3.18,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "23.4",
-        "eps": "23.6",
-        "mcap": "275B",
-        "rev": "+8.9%"
+        "pe": "18.3",
+        "eps": "21.95",
+        "mcap": "201.3B",
+        "rev": "-3.8%"
       },
       "tv": "EURONEXT:MC",
       "fv_low": 388.75,
@@ -206,10 +206,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "28.5",
-        "eps": "8.30",
-        "mcap": "160B",
-        "rev": "+10%"
+        "pe": "13.2",
+        "eps": "17.93",
+        "mcap": "92.4B",
+        "rev": "+12.0%"
       },
       "tv": "NASDAQ:ADBE",
       "fv_low": 319.39,
@@ -240,14 +240,14 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTU",
-      "divYield": 0.65,
+      "divYield": 1.46,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "33.3",
-        "eps": "9.05",
-        "mcap": "135B",
-        "rev": "+12%"
+        "pe": "20.5",
+        "eps": "16.50",
+        "mcap": "90.4B",
+        "rev": "+13.9%"
       },
       "tv": "NASDAQ:INTU",
       "fv_low": 394.52,
@@ -278,14 +278,14 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "QCOM",
-      "divYield": 1.85,
+      "divYield": 2.19,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "26.1",
-        "eps": "6.78",
-        "mcap": "191B",
-        "rev": "+5%"
+        "pe": "13.5",
+        "eps": "12.70",
+        "mcap": "183.5B",
+        "rev": "-2.6%"
       },
       "tv": "NASDAQ:QCOM",
       "fv_low": 91.48,
@@ -316,14 +316,14 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "STLAM.MI",
-      "divYield": 6.5,
+      "divYield": 0,
       "videoID": "MpwZcg3J8BE",
       "updated": "2026-11-09",
       "fund": {
-        "pe": "3.8",
-        "eps": "5.40",
-        "mcap": "64B",
-        "rev": "-2%"
+        "pe": "N/D",
+        "eps": "N/D",
+        "mcap": "15.1B",
+        "rev": "N/D"
       },
       "tv": "MIL:STLAM",
       "fv_low": null,
@@ -359,14 +359,14 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "SAP.DE",
-      "divYield": 1.2,
+      "divYield": 1.19,
       "videoID": "Icy8DMAwDYw",
       "updated": "2026-11-09",
       "fund": {
-        "pe": "29.3",
-        "eps": "6.85",
-        "mcap": "238B",
-        "rev": "+11%"
+        "pe": "30.1",
+        "eps": "7.04",
+        "mcap": "246.1B",
+        "rev": "+7.9%"
       },
       "tv": "XETR:SAP",
       "fv_low": 74.81,
@@ -397,14 +397,14 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AAPL",
-      "divYield": 0.5,
+      "divYield": 0.31,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "28.5",
-        "eps": "6.14",
-        "mcap": "2.8T",
-        "rev": "+2.1%"
+        "pe": "39.1",
+        "eps": "8.97",
+        "mcap": "5.10T",
+        "rev": "+15.1%"
       },
       "tv": "NASDAQ:AAPL",
       "fv_low": 135.11,
@@ -435,14 +435,14 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MSFT",
-      "divYield": 0.75,
+      "divYield": 0.69,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "35.2",
-        "eps": "11.6",
-        "mcap": "3.0T",
-        "rev": "+15%"
+        "pe": "28.5",
+        "eps": "19.15",
+        "mcap": "4.05T",
+        "rev": "+17.9%"
       },
       "tv": "NASDAQ:MSFT",
       "fv_low": 170.14,
@@ -479,10 +479,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "40.5",
-        "eps": "4.44",
-        "mcap": "1.9T",
-        "rev": "+12%"
+        "pe": "21.6",
+        "eps": "12.37",
+        "mcap": "2.89T",
+        "rev": "+15.4%"
       },
       "tv": "NASDAQ:AMZN",
       "fv_low": null,
@@ -518,14 +518,14 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NVDA",
-      "divYield": 0.02,
+      "divYield": 0.28,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "75.4",
-        "eps": "1.59",
-        "mcap": "2.9T",
-        "rev": "+265%"
+        "pe": "22.6",
+        "eps": "7.91",
+        "mcap": "4.31T",
+        "rev": "+83.4%"
       },
       "tv": "NASDAQ:NVDA",
       "fv_low": 19.78,
@@ -556,7 +556,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "A2A.MI",
-      "divYield": 4.8,
+      "divYield": 4.28,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:A2A",
@@ -581,7 +581,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "11.2",
+        "eps": "0.22",
+        "mcap": "7.6B",
+        "rev": "+13.7%"
+      }
     },
     "ADM": {
       "name": "Archer-Daniels",
@@ -590,7 +596,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ADM",
-      "divYield": 3.5,
+      "divYield": 2.96,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:ADM",
@@ -617,7 +623,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "13.6",
+        "eps": "5.13",
+        "mcap": "33.2B",
+        "rev": "+1.0%"
+      }
     },
     "ADP": {
       "name": "Auto Data Proc.",
@@ -626,7 +638,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADP",
-      "divYield": 1.9,
+      "divYield": 2.24,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NASDAQ:ADP",
@@ -649,7 +661,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "26.8",
+        "eps": "11.28",
+        "mcap": "119.2B",
+        "rev": "+6.5%"
+      }
     },
     "ADSK": {
       "name": "Autodesk Inc.",
@@ -679,11 +697,17 @@
         "marg_now": 0.3346,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "34.1",
+        "eps": "7.72",
+        "mcap": "55.0B",
+        "rev": "+18.7%"
+      }
     },
     "AMAT": {
       "name": "Applied Materials",
@@ -692,7 +716,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMAT",
-      "divYield": 0.7,
+      "divYield": 0.6,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NASDAQ:AMAT",
@@ -715,7 +739,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "32.0",
+        "eps": "11.60",
+        "mcap": "294.1B",
+        "rev": "+7.8%"
+      }
     },
     "AMD": {
       "name": "AMD",
@@ -749,7 +779,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "110.5",
+        "eps": "4.60",
+        "mcap": "834.1B",
+        "rev": "+41.9%"
+      }
     },
     "ASML": {
       "name": "ASML Holding",
@@ -758,7 +794,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ASML",
-      "divYield": 0.85,
+      "divYield": 0.56,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NASDAQ:ASML",
@@ -781,7 +817,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "37.3",
+        "eps": "40.60",
+        "mcap": "546.3B",
+        "rev": "+29.0%"
+      }
     },
     "AXP": {
       "name": "American Express",
@@ -790,7 +832,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "AXP",
-      "divYield": 1.1,
+      "divYield": 1.14,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:AXP",
@@ -813,7 +855,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "18.3",
+        "eps": "17.76",
+        "mcap": "217.5B",
+        "rev": "+10.0%"
+      }
     },
     "BAC": {
       "name": "Bank of America",
@@ -822,7 +870,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BAC",
-      "divYield": 2.2,
+      "divYield": 2.35,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:BAC",
@@ -843,12 +891,18 @@
         "marg_now": 0.2235,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 14,9 anni di FCF"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "12.0",
+        "eps": "4.20",
+        "mcap": "348.8B",
+        "rev": "-0.6%"
+      }
     },
     "BAYN": {
       "name": "Bayer AG",
@@ -857,7 +911,7 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "BAYN.DE",
-      "divYield": 4.5,
+      "divYield": 0.2,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "XETR:BAYN",
@@ -883,7 +937,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "N/D",
+        "eps": "-1.47",
+        "mcap": "54.6B",
+        "rev": "-0.2%"
+      }
     },
     "BATS": {
       "name": "Brit. Am. Tobacco",
@@ -892,7 +952,7 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
-      "divYield": 9.2,
+      "divYield": 5.31,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "LSE:BATS",
@@ -919,7 +979,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "15.4",
+        "eps": "290.80",
+        "mcap": "98.1B",
+        "rev": "+0.7%"
+      }
     },
     "BC": {
       "name": "Brunswick Corp",
@@ -928,7 +994,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BC",
-      "divYield": 1.7,
+      "divYield": 2.27,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:BC",
@@ -953,7 +1019,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "24.7",
+        "eps": "3.23",
+        "mcap": "5.1B",
+        "rev": "+10.4%"
+      }
     },
     "BNG": {
       "name": "Bunge Global",
@@ -962,7 +1034,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BG",
-      "divYield": 3.1,
+      "divYield": 2.87,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:BG",
@@ -989,7 +1061,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "17.0",
+        "eps": "5.94",
+        "mcap": "19.4B",
+        "rev": "+55.5%"
+      }
     },
     "BRE": {
       "name": "Brembo",
@@ -998,7 +1076,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "BRE.MI",
-      "divYield": 2.1,
+      "divYield": 3.03,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:BRE",
@@ -1023,7 +1101,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "13.9",
+        "eps": "0.72",
+        "mcap": "5.0B",
+        "rev": "-2.6%"
+      }
     },
     "BRK.B": {
       "name": "Berkshire Hath.",
@@ -1058,7 +1142,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "16.1",
+        "eps": "35.83",
+        "mcap": "1.23T",
+        "rev": "+6.2%"
+      }
     },
     "CAT": {
       "name": "Caterpillar",
@@ -1067,7 +1157,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CAT",
-      "divYield": 1.5,
+      "divYield": 1.12,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:CAT",
@@ -1092,7 +1182,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "23.5",
+        "eps": "25.49",
+        "mcap": "274.0B",
+        "rev": "+20.3%"
+      }
     },
     "CE": {
       "name": "Celanese",
@@ -1101,14 +1197,14 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CE",
-      "divYield": 2.6,
+      "divYield": 0.26,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "N/D",
-        "eps": "-5.21",
-        "mcap": "4.4B",
-        "rev": "-8%"
+        "pe": "20.5",
+        "eps": "2.38",
+        "mcap": "5.4B",
+        "rev": "+1.4%"
       },
       "tv": "NYSE:CE",
       "fv_low": 89.67,
@@ -1163,11 +1259,17 @@
         "marg_now": 0.0222,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "23.5",
+        "eps": "2.92",
+        "mcap": "33.9B",
+        "rev": "+9.7%"
+      }
     },
     "COST": {
       "name": "Costco Wholesale",
@@ -1176,7 +1278,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "COST",
-      "divYield": 0.6,
+      "divYield": 0.54,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NASDAQ:COST",
@@ -1199,7 +1301,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "51.4",
+        "eps": "20.76",
+        "mcap": "472.5B",
+        "rev": "+10.1%"
+      }
     },
     "CPR": {
       "name": "Campari",
@@ -1208,7 +1316,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "CPR.MI",
-      "divYield": 0.9,
+      "divYield": 1.51,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:CPR",
@@ -1230,12 +1338,18 @@
         "anni": 10,
         "avvisi": [
           "FCF solo 62% dell'utile",
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 5,8 anni di FCF"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "30.0",
+        "eps": "0.22",
+        "mcap": "8.0B",
+        "rev": "-1.3%"
+      }
     },
     "CRM": {
       "name": "Salesforce",
@@ -1244,7 +1358,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CRM",
-      "divYield": 0.5,
+      "divYield": 0.81,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:CRM",
@@ -1267,7 +1381,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "19.6",
+        "eps": "10.97",
+        "mcap": "176.9B",
+        "rev": "+11.2%"
+      }
     },
     "CVX": {
       "name": "Chevron",
@@ -1276,7 +1396,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVX",
-      "divYield": 4.1,
+      "divYield": 3.32,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:CVX",
@@ -1297,11 +1417,17 @@
         "marg_now": 0.0911,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "15.4",
+        "eps": "13.67",
+        "mcap": "414.3B",
+        "rev": "+23.0%"
+      }
     },
     "DDOG": {
       "name": "Datadog",
@@ -1333,7 +1459,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "251.7",
+        "eps": "0.71",
+        "mcap": "64.9B",
+        "rev": "+33.2%"
+      }
     },
     "ENI": {
       "name": "Eni S.p.A.",
@@ -1342,7 +1474,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ENI.MI",
-      "divYield": 6.2,
+      "divYield": 4.23,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:ENI",
@@ -1364,11 +1496,17 @@
         "anni": 10,
         "avvisi": [
           "beta calcolato 0,15: verifica l'indice",
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "9.8",
+        "eps": "2.56",
+        "mcap": "73.3B",
+        "rev": "+3.9%"
+      }
     },
     "ENEL": {
       "name": "Enel S.p.A.",
@@ -1377,7 +1515,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ENEL.MI",
-      "divYield": 6.5,
+      "divYield": 5.06,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:ENEL",
@@ -1404,7 +1542,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "21.7",
+        "eps": "0.45",
+        "mcap": "96.2B",
+        "rev": "-0.1%"
+      }
     },
     "G": {
       "name": "Assic. Generali",
@@ -1413,7 +1557,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "G.MI",
-      "divYield": 5.5,
+      "divYield": 3.75,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:G",
@@ -1436,7 +1580,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "15.0",
+        "eps": "2.94",
+        "mcap": "65.8B",
+        "rev": "-8.1%"
+      }
     },
     "IBM": {
       "name": "IBM",
@@ -1445,7 +1595,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "IBM",
-      "divYield": 3.2,
+      "divYield": 2.75,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:IBM",
@@ -1470,7 +1620,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "21.0",
+        "eps": "11.72",
+        "mcap": "232.6B",
+        "rev": "+6.8%"
+      }
     },
     "INTC": {
       "name": "Intel",
@@ -1479,7 +1635,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTC",
-      "divYield": 1.5,
+      "divYield": 0,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NASDAQ:INTC",
@@ -1506,7 +1662,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "N/D",
+        "eps": "-2.39",
+        "mcap": "315.6B",
+        "rev": "+12.1%"
+      }
     },
     "IP": {
       "name": "International Paper",
@@ -1515,7 +1677,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "IP",
-      "divYield": 4,
+      "divYield": 5.36,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:IP",
@@ -1537,12 +1699,18 @@
         "anni": 10,
         "avvisi": [
           "margine attuale -0,7% molto sotto la media 5,8%",
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 8,1 anni di FCF"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "N/D",
+        "eps": "-6.47",
+        "mcap": "18.8B",
+        "rev": "+3.0%"
+      }
     },
     "ISP": {
       "name": "Intesa Sanpaolo",
@@ -1551,7 +1719,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ISP.MI",
-      "divYield": 8.5,
+      "divYield": 6.09,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:ISP",
@@ -1577,7 +1745,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "11.5",
+        "eps": "0.55",
+        "mcap": "106.9B",
+        "rev": "-5.7%"
+      }
     },
     "LDO": {
       "name": "Leonardo S.p.A.",
@@ -1586,7 +1760,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "LDO.MI",
-      "divYield": 1.8,
+      "divYield": 1.31,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:LDO",
@@ -1608,12 +1782,18 @@
         "anni": 10,
         "avvisi": [
           "FCF solo 54% dell'utile",
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 7,4 anni di FCF"
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "25.8",
+        "eps": "1.95",
+        "mcap": "27.6B",
+        "rev": "+10.1%"
+      }
     },
     "LULU": {
       "name": "Lululemon",
@@ -1626,10 +1806,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "12.1",
-        "eps": "7.80",
-        "mcap": "11B",
-        "rev": "+3%"
+        "pe": "9.2",
+        "eps": "12.20",
+        "mcap": "13.0B",
+        "rev": "+1.7%"
       },
       "tv": "NASDAQ:LULU",
       "fv_low": 79.05,
@@ -1662,7 +1842,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MA",
-      "divYield": 0.5,
+      "divYield": 0.53,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:MA",
@@ -1685,7 +1865,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "34.3",
+        "eps": "19.12",
+        "mcap": "571.3B",
+        "rev": "+15.3%"
+      }
     },
     "MONC": {
       "name": "Moncler",
@@ -1694,7 +1880,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "MONC.MI",
-      "divYield": 1.8,
+      "divYield": 3.09,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "MIL:MONC",
@@ -1717,7 +1903,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "19.1",
+        "eps": "2.35",
+        "mcap": "12.3B",
+        "rev": "+3.0%"
+      }
     },
     "OXY": {
       "name": "Occidental Petroleum",
@@ -1726,7 +1918,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "OXY",
-      "divYield": 1.2,
+      "divYield": 1.84,
       "videoID": null,
       "updated": "2026-11-09",
       "tv": "NYSE:OXY",
@@ -1749,7 +1941,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-09",
+      "fund": {
+        "pe": "16.5",
+        "eps": "3.38",
+        "mcap": "55.7B",
+        "rev": "-10.7%"
+      }
     },
     "TTD": {
       "name": "The Trade Desk",
@@ -1762,10 +1960,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "15.4",
+        "pe": "17.7",
         "eps": "0.84",
-        "mcap": "6.1B",
-        "rev": "+8%"
+        "mcap": "7.1B",
+        "rev": "+11.6%"
       },
       "tv": "NASDAQ:TTD",
       "fv_low": 6.25,
@@ -1796,14 +1994,14 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TRI",
-      "divYield": 2.05,
+      "divYield": 2.23,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "33.5",
-        "eps": "3.81",
-        "mcap": "74B",
-        "rev": "+7%"
+        "pe": "31.1",
+        "eps": "3.48",
+        "mcap": "46.9B",
+        "rev": "+3.6%"
       },
       "tv": "NASDAQ:TRI",
       "fv_low": 15.74,
@@ -1834,14 +2032,14 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PFE",
-      "divYield": 5.73,
+      "divYield": 5.85,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "39.8",
-        "eps": "0.76",
-        "mcap": "171B",
-        "rev": "-8%"
+        "pe": "41.8",
+        "eps": "0.70",
+        "mcap": "166.6B",
+        "rev": "+1.3%"
       },
       "tv": "NYSE:PFE",
       "fv_low": 24.25,
@@ -1878,10 +2076,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "18.5",
-        "eps": "2.47",
-        "mcap": "66B",
-        "rev": "+12%"
+        "pe": "18.6",
+        "eps": "2.36",
+        "mcap": "63.8B",
+        "rev": "+8.9%"
       },
       "tv": "NYSE:BSX",
       "fv_low": null,
@@ -1901,7 +2099,7 @@
         "marg_now": 0.1822,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 4,6 anni di FCF"
         ]
       },
@@ -1919,10 +2117,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "61.8",
-        "eps": "0.92",
-        "mcap": "6.1B",
-        "rev": "-15%"
+        "pe": "174.8",
+        "eps": "0.38",
+        "mcap": "7.1B",
+        "rev": "-8.3%"
       },
       "tv": "NYSE:BLDR",
       "fv_low": 35.37,
@@ -1959,10 +2157,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "18.7",
+        "pe": "20.9",
         "eps": "1.55",
-        "mcap": "26.9B",
-        "rev": "+5%"
+        "mcap": "30.1B",
+        "rev": "+0.4%"
       },
       "tv": "NASDAQ:CPRT",
       "fv_low": 17.75,
@@ -1995,14 +2193,14 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "EL.PA",
-      "divYield": 2.21,
+      "divYield": 2.06,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "33.9",
+        "pe": "35.6",
         "eps": "5.35",
-        "mcap": "84B",
-        "rev": "+5%"
+        "mcap": "89.7B",
+        "rev": "+7.5%"
       },
       "tv": "EURONEXT:EL",
       "fv_low": 160.08,
@@ -2033,14 +2231,14 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BR",
-      "divYield": 2.19,
+      "divYield": 2.11,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "19.0",
-        "eps": "9.62",
-        "mcap": "20.7B",
-        "rev": "+7%"
+        "pe": "21.2",
+        "eps": "9.05",
+        "mcap": "21.8B",
+        "rev": "+7.1%"
       },
       "tv": "NYSE:BR",
       "fv_low": 100.26,
@@ -2071,14 +2269,14 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BF-B",
-      "divYield": 3.14,
+      "divYield": 3.02,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "19.0",
+        "pe": "19.6",
         "eps": "1.55",
-        "mcap": "13.6B",
-        "rev": "-5%"
+        "mcap": "14.1B",
+        "rev": "-0.2%"
       },
       "tv": "NYSE:BF.B",
       "fv_low": 20.33,
@@ -2113,10 +2311,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "8.8",
+        "pe": "8.9",
         "eps": "9.02",
-        "mcap": "112B",
-        "rev": "+25%"
+        "mcap": "118.2B",
+        "rev": "+13.5%"
       },
       "tv": "NASDAQ:PDD",
       "fv_low": 196.84,
@@ -2154,9 +2352,9 @@
       "updated": "2026-11-09",
       "fund": {
         "pe": "N/D",
-        "eps": "-17.32",
-        "mcap": "693M",
-        "rev": "-3%"
+        "eps": "-9.14",
+        "mcap": "1.1B",
+        "rev": "-7.1%"
       },
       "tv": "NYSE:FUN",
       "fv_low": null,
@@ -2191,14 +2389,14 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "FMC",
-      "divYield": 6.34,
+      "divYield": 5.68,
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
         "pe": "N/D",
-        "eps": "-22.04",
-        "mcap": "785M",
-        "rev": "-12%"
+        "eps": "-33.05",
+        "mcap": "842M",
+        "rev": "-22.0%"
       },
       "tv": "NYSE:FMC",
       "fv_low": null,
@@ -2275,10 +2473,10 @@
       "videoID": null,
       "updated": "2026-11-09",
       "fund": {
-        "pe": "18.3",
+        "pe": "18.5",
         "eps": "3.46",
-        "mcap": "260B",
-        "rev": "+15%"
+        "mcap": "262.6B",
+        "rev": "+15.4%"
       },
       "tv": "NASDAQ:NFLX",
       "fv_low": null,
@@ -2313,13 +2511,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "RHM.DE",
-      "divYield": 1,
+      "divYield": 1.42,
       "videoID": null,
       "fund": {
-        "pe": "66.1",
-        "eps": "15.42",
-        "mcap": "48B",
-        "rev": "N/D"
+        "pe": "45.8",
+        "eps": "18.45",
+        "mcap": "37.9B",
+        "rev": "-1.8%"
       },
       "tv": "XETR:RHM",
       "fv_low": null,
@@ -2354,13 +2552,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "GXI.DE",
-      "divYield": 1.5,
+      "divYield": 0.13,
       "videoID": null,
       "fund": {
         "pe": "N/D",
         "eps": "-11.60",
-        "mcap": "1B",
-        "rev": "N/D"
+        "mcap": "1.1B",
+        "rev": "+8.9%"
       },
       "tv": "XETR:GXI",
       "fv_low": null,
@@ -2397,13 +2595,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOC",
-      "divYield": 1.7,
+      "divYield": 1.82,
       "videoID": null,
       "fund": {
-        "pe": "17.4",
+        "pe": "17.0",
         "eps": "31.77",
-        "mcap": "78B",
-        "rev": "N/D"
+        "mcap": "76.6B",
+        "rev": "+6.5%"
       },
       "tv": "NYSE:NOC",
       "fv_low": 365.94,
@@ -2438,13 +2636,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "RTX",
-      "divYield": 2.1,
+      "divYield": 1.49,
       "videoID": null,
       "fund": {
-        "pe": "31.0",
+        "pe": "31.9",
         "eps": "6.16",
-        "mcap": "258B",
-        "rev": "N/D"
+        "mcap": "264.9B",
+        "rev": "+11.6%"
       },
       "tv": "NYSE:RTX",
       "fv_low": 56.1,
@@ -2478,13 +2676,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "LMT",
-      "divYield": 2.8,
+      "divYield": 2.43,
       "videoID": null,
       "fund": {
-        "pe": "21.5",
+        "pe": "20.9",
         "eps": "28.15",
-        "mcap": "140B",
-        "rev": "N/D"
+        "mcap": "135.9B",
+        "rev": "+7.9%"
       },
       "tv": "NYSE:LMT",
       "fv_low": 320.85,
@@ -2516,13 +2714,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GD",
-      "divYield": 2.1,
+      "divYield": 1.77,
       "videoID": null,
       "fund": {
         "pe": "21.3",
-        "eps": "16.40",
-        "mcap": "95B",
-        "rev": "N/D"
+        "eps": "17.01",
+        "mcap": "97.8B",
+        "rev": "+9.7%"
       },
       "tv": "NYSE:GD",
       "fv_low": 252.61,
@@ -2554,13 +2752,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HWM",
-      "divYield": 0.4,
+      "divYield": 0.24,
       "videoID": null,
       "fund": {
-        "pe": "40.1",
-        "eps": "4.64",
-        "mcap": "74B",
-        "rev": "N/D"
+        "pe": "42.4",
+        "eps": "5.11",
+        "mcap": "86.0B",
+        "rev": "+22.0%"
       },
       "tv": "NYSE:HWM",
       "fv_low": null,
@@ -2596,13 +2794,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
-      "divYield": 2.2,
+      "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "9.4",
+        "pe": "9.8",
         "eps": "23.41",
-        "mcap": "70B",
-        "rev": "N/D"
+        "mcap": "72.7B",
+        "rev": "-17.4%"
       },
       "tv": "NASDAQ:HON",
       "fv_low": 287.44,
@@ -2637,10 +2835,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "85.8",
-        "eps": "2.20",
-        "mcap": "149B",
-        "rev": "N/D"
+        "pe": "19.0",
+        "eps": "9.08",
+        "mcap": "136.6B",
+        "rev": "+17.5%"
       },
       "tv": "NYSE:BA",
       "fv_low": null,
@@ -2676,13 +2874,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNP",
-      "divYield": 2.3,
+      "divYield": 1.92,
       "videoID": null,
       "fund": {
-        "pe": "22.8",
+        "pe": "23.2",
         "eps": "12.83",
-        "mcap": "174B",
-        "rev": "N/D"
+        "mcap": "176.5B",
+        "rev": "+7.4%"
       },
       "tv": "NYSE:UNP",
       "fv_low": 182.66,
@@ -2711,29 +2909,29 @@
     },
     "UPS": {
       "name": "UPS",
-      "fv": 122.82,
+      "fv": 126.21,
       "price": 110.96,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UPS",
-      "divYield": 4.8,
+      "divYield": 6.06,
       "videoID": null,
       "fund": {
-        "pe": "18.8",
-        "eps": "5.37",
-        "mcap": "86B",
-        "rev": "N/D"
+        "pe": "21.4",
+        "eps": "5.19",
+        "mcap": "94.5B",
+        "rev": "+2.3%"
       },
       "tv": "NYSE:UPS",
       "fv_low": null,
-      "fv_high": 224.9,
-      "fv_mkt": 169.66,
-      "fv_sto": null,
+      "fv_high": 231.3,
+      "fv_mkt": 176.35,
+      "fv_sto": 119.26,
       "ind": {
         "status": "ok",
-        "ke": 0.089,
+        "ke": 0.0874,
         "pi": 0.0333,
-        "beta": 0.95,
+        "beta": 0.912,
         "fcf_norm": 6.3838,
         "cassa_az": 8.0435,
         "g_hist": 0.0482,
@@ -2742,7 +2940,7 @@
         "marg_now": 0.0538,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 4,3 anni di FCF"
         ]
       },
@@ -2757,12 +2955,12 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "FDX",
-      "divYield": 2,
+      "divYield": 1.88,
       "videoID": null,
       "fund": {
-        "pe": "16.1",
-        "eps": "18.54",
-        "mcap": "71B",
+        "pe": "N/D",
+        "eps": "N/D",
+        "mcap": "74.7B",
         "rev": "N/D"
       },
       "tv": "NYSE:FDX",
@@ -2799,13 +2997,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DE",
-      "divYield": 1.5,
+      "divYield": 0.96,
       "videoID": null,
       "fund": {
-        "pe": "35.9",
+        "pe": "38.4",
         "eps": "17.99",
-        "mcap": "174B",
-        "rev": "N/D"
+        "mcap": "186.4B",
+        "rev": "+8.0%"
       },
       "tv": "NYSE:DE",
       "fv_low": null,
@@ -2841,13 +3039,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "KMI",
-      "divYield": 6.2,
+      "divYield": 3.94,
       "videoID": null,
       "fund": {
-        "pe": "21.4",
+        "pe": "19.0",
         "eps": "1.61",
-        "mcap": "77B",
-        "rev": "N/D"
+        "mcap": "68.1B",
+        "rev": "+12.2%"
       },
       "tv": "NYSE:KMI",
       "fv_low": 25.67,
@@ -2881,13 +3079,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "COP",
-      "divYield": 3,
+      "divYield": 2.47,
       "videoID": null,
       "fund": {
-        "pe": "20.0",
-        "eps": "7.55",
-        "mcap": "181B",
-        "rev": "N/D"
+        "pe": "14.1",
+        "eps": "9.50",
+        "mcap": "159.0B",
+        "rev": "+13.5%"
       },
       "tv": "NYSE:COP",
       "fv_low": null,
@@ -2907,7 +3105,7 @@
         "marg_now": 0.1234,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
@@ -2921,13 +3119,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DVN",
-      "divYield": 4.5,
+      "divYield": 2.65,
       "videoID": null,
       "fund": {
-        "pe": "12.2",
-        "eps": "4.22",
-        "mcap": "57B",
-        "rev": "N/D"
+        "pe": "10.6",
+        "eps": "4.01",
+        "mcap": "46.6B",
+        "rev": "+38.3%"
       },
       "tv": "NYSE:DVN",
       "fv_low": null,
@@ -2963,13 +3161,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "SLB",
-      "divYield": 2.8,
+      "divYield": 2.34,
       "videoID": null,
       "fund": {
-        "pe": "25.8",
+        "pe": "24.5",
         "eps": "2.05",
-        "mcap": "79B",
-        "rev": "N/D"
+        "mcap": "74.4B",
+        "rev": "+4.6%"
       },
       "tv": "NYSE:SLB",
       "fv_low": 43.1,
@@ -3001,13 +3199,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "XOM",
-      "divYield": 3.5,
+      "divYield": 2.48,
       "videoID": null,
       "fund": {
-        "pe": "23.6",
-        "eps": "7.77",
-        "mcap": "753B",
-        "rev": "N/D"
+        "pe": "16.9",
+        "eps": "9.73",
+        "mcap": "672.0B",
+        "rev": "+21.2%"
       },
       "tv": "NYSE:XOM",
       "fv_low": null,
@@ -3028,7 +3226,7 @@
         "anni": 10,
         "avvisi": [
           "beta calcolato 0,29: verifica l'indice",
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
@@ -3042,13 +3240,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABBV",
-      "divYield": 3.6,
+      "divYield": 2.38,
       "videoID": null,
       "fund": {
-        "pe": "80.8",
-        "eps": "3.54",
-        "mcap": "505B",
-        "rev": "N/D"
+        "pe": "50.5",
+        "eps": "5.81",
+        "mcap": "518.4B",
+        "rev": "+10.7%"
       },
       "tv": "NYSE:ABBV",
       "fv_low": 251.26,
@@ -3082,13 +3280,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MRK",
-      "divYield": 2.8,
+      "divYield": 2.32,
       "videoID": null,
       "fund": {
-        "pe": "116.1",
-        "eps": "1.25",
-        "mcap": "358B",
-        "rev": "N/D"
+        "pe": "151.9",
+        "eps": "0.98",
+        "mcap": "366.7B",
+        "rev": "+5.2%"
       },
       "tv": "NYSE:MRK",
       "fv_low": 95.01,
@@ -3122,13 +3320,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "LLY",
-      "divYield": 0.6,
+      "divYield": 0.49,
       "videoID": null,
       "fund": {
-        "pe": "43.3",
-        "eps": "29.43",
-        "mcap": "1.2T",
-        "rev": "N/D"
+        "pe": "46.4",
+        "eps": "30.44",
+        "mcap": "1.33T",
+        "rev": "+45.5%"
       },
       "tv": "NYSE:LLY",
       "fv_low": 47.71,
@@ -3160,13 +3358,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MDT",
-      "divYield": 3.3,
+      "divYield": 2.81,
       "videoID": null,
       "fund": {
-        "pe": "23.5",
+        "pe": "25.3",
         "eps": "4.06",
-        "mcap": "122B",
-        "rev": "N/D"
+        "mcap": "131.5B",
+        "rev": "+9.8%"
       },
       "tv": "NYSE:MDT",
       "fv_low": 94.83,
@@ -3198,13 +3396,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BDX",
-      "divYield": 1.8,
+      "divYield": 1.98,
       "videoID": null,
       "fund": {
-        "pe": "60.0",
-        "eps": "3.32",
-        "mcap": "54B",
-        "rev": "N/D"
+        "pe": "52.0",
+        "eps": "4.14",
+        "mcap": "58.6B",
+        "rev": "-7.4%"
       },
       "tv": "NYSE:BDX",
       "fv_low": 156.33,
@@ -3238,13 +3436,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DHR",
-      "divYield": 0.4,
+      "divYield": 0.66,
       "videoID": null,
       "fund": {
-        "pe": "37.7",
+        "pe": "38.5",
         "eps": "6.11",
-        "mcap": "162B",
-        "rev": "N/D"
+        "mcap": "165.4B",
+        "rev": "+5.5%"
       },
       "tv": "NYSE:DHR",
       "fv_low": 107.41,
@@ -3276,13 +3474,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "TMO",
-      "divYield": 0.3,
+      "divYield": 0.26,
       "videoID": null,
       "fund": {
-        "pe": "35.5",
-        "eps": "18.96",
-        "mcap": "249B",
-        "rev": "N/D"
+        "pe": "38.1",
+        "eps": "18.95",
+        "mcap": "267.4B",
+        "rev": "+8.3%"
       },
       "tv": "NYSE:TMO",
       "fv_low": 365.21,
@@ -3319,10 +3517,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "37.6",
-        "eps": "44.43",
-        "mcap": "33B",
-        "rev": "N/D"
+        "pe": "38.2",
+        "eps": "46.14",
+        "mcap": "35.3B",
+        "rev": "+6.5%"
       },
       "tv": "NYSE:MTD",
       "fv_low": 444.17,
@@ -3354,13 +3552,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "REGN",
-      "divYield": 0,
+      "divYield": 0.41,
       "videoID": null,
       "fund": {
-        "pe": "19.9",
-        "eps": "40.46",
-        "mcap": "83B",
-        "rev": "N/D"
+        "pe": "20.3",
+        "eps": "45.30",
+        "mcap": "95.2B",
+        "rev": "+18.6%"
       },
       "tv": "NASDAQ:REGN",
       "fv_low": 633.1,
@@ -3392,13 +3590,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GILD",
-      "divYield": 3.5,
+      "divYield": 1.95,
       "videoID": null,
       "fund": {
         "pe": "N/D",
-        "eps": "-2.66",
-        "mcap": "193B",
-        "rev": "N/D"
+        "eps": "-3.15",
+        "mcap": "210.0B",
+        "rev": "+6.9%"
       },
       "tv": "NASDAQ:GILD",
       "fv_low": 177.48,
@@ -3433,10 +3631,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "54.7",
+        "pe": "55.7",
         "eps": "8.27",
-        "mcap": "157B",
-        "rev": "N/D"
+        "mcap": "159.7B",
+        "rev": "+20.5%"
       },
       "tv": "NASDAQ:ISRG",
       "fv_low": 59.47,
@@ -3471,10 +3669,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "30.5",
-        "eps": "17.19",
-        "mcap": "133B",
-        "rev": "N/D"
+        "pe": "35.4",
+        "eps": "15.55",
+        "mcap": "139.7B",
+        "rev": "+11.0%"
       },
       "tv": "NASDAQ:VRTX",
       "fv_low": null,
@@ -3494,7 +3692,7 @@
         "marg_now": 0.2645,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
@@ -3508,13 +3706,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ELV",
-      "divYield": 1.4,
+      "divYield": 1.61,
       "videoID": null,
       "fund": {
-        "pe": "18.8",
+        "pe": "17.8",
         "eps": "23.46",
-        "mcap": "95B",
-        "rev": "N/D"
+        "mcap": "90.4B",
+        "rev": "+3.6%"
       },
       "tv": "NYSE:ELV",
       "fv_low": 370.39,
@@ -3548,13 +3746,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNH",
-      "divYield": 1.5,
+      "divYield": 2.3,
       "videoID": null,
       "fund": {
-        "pe": "23.9",
+        "pe": "22.7",
         "eps": "17.52",
-        "mcap": "375B",
-        "rev": "N/D"
+        "mcap": "356.3B",
+        "rev": "+3.3%"
       },
       "tv": "NYSE:UNH",
       "fv_low": 473,
@@ -3588,13 +3786,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVS",
-      "divYield": 4.2,
+      "divYield": 3.17,
       "videoID": null,
       "fund": {
-        "pe": "24.7",
-        "eps": "3.79",
-        "mcap": "120B",
-        "rev": "N/D"
+        "pe": "9.9",
+        "eps": "8.60",
+        "mcap": "109.1B",
+        "rev": "+6.8%"
       },
       "tv": "NYSE:CVS",
       "fv_low": 140.87,
@@ -3628,13 +3826,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NVO",
-      "divYield": 1.5,
+      "divYield": 3.05,
       "videoID": null,
       "fund": {
-        "pe": "9.5",
-        "eps": "4.09",
-        "mcap": "173B",
-        "rev": "N/D"
+        "pe": "10.4",
+        "eps": "3.97",
+        "mcap": "177.5B",
+        "rev": "+11.2%"
       },
       "tv": "NYSE:NVO",
       "fv_low": 45.17,
@@ -3668,13 +3866,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "JPM",
-      "divYield": 2.2,
+      "divYield": 1.84,
       "videoID": null,
       "fund": {
-        "pe": "13.9",
+        "pe": "14.4",
         "eps": "23.84",
-        "mcap": "881B",
-        "rev": "N/D"
+        "mcap": "908.4B",
+        "rev": "+8.9%"
       },
       "tv": "NYSE:JPM",
       "fv_low": null,
@@ -3694,7 +3892,7 @@
         "marg_now": 0.3614,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo",
+          "1 anno con FCF negativo",
           "debito netto = 11,5 anni di FCF"
         ]
       },
@@ -3709,13 +3907,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLK",
-      "divYield": 2.2,
+      "divYield": 1.9,
       "videoID": null,
       "fund": {
-        "pe": "26.1",
-        "eps": "42.76",
-        "mcap": "182B",
-        "rev": "N/D"
+        "pe": "28.7",
+        "eps": "42.27",
+        "mcap": "197.4B",
+        "rev": "+24.2%"
       },
       "tv": "NYSE:BLK",
       "fv_low": 475.37,
@@ -3749,13 +3947,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "C",
-      "divYield": 3.3,
+      "divYield": 2.07,
       "videoID": null,
       "fund": {
-        "pe": "11.8",
+        "pe": "11.9",
         "eps": "10.26",
-        "mcap": "202B",
-        "rev": "N/D"
+        "mcap": "204.6B",
+        "rev": "+14.2%"
       },
       "tv": "NYSE:C",
       "fv_low": null,
@@ -3790,13 +3988,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GS",
-      "divYield": 2.5,
+      "divYield": 2.08,
       "videoID": null,
       "fund": {
-        "pe": "12.6",
+        "pe": "13.0",
         "eps": "69.55",
-        "mcap": "255B",
-        "rev": "N/D"
+        "mcap": "261.4B",
+        "rev": "+12.0%"
       },
       "tv": "NYSE:GS",
       "fv_low": null,
@@ -3831,13 +4029,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "V",
-      "divYield": 0.8,
+      "divYield": 0.63,
       "videoID": null,
       "fund": {
-        "pe": "35.0",
-        "eps": "11.65",
-        "mcap": "762B",
-        "rev": "N/D"
+        "pe": "34.5",
+        "eps": "12.22",
+        "mcap": "784.5B",
+        "rev": "+14.8%"
       },
       "tv": "NYSE:V",
       "fv_low": 234.83,
@@ -3872,10 +4070,10 @@
       "divYield": 0.8,
       "videoID": null,
       "fund": {
-        "pe": "29.5",
+        "pe": "31.1",
         "eps": "16.41",
-        "mcap": "83B",
-        "rev": "N/D"
+        "mcap": "88.1B",
+        "rev": "+9.0%"
       },
       "tv": "NYSE:MCO",
       "fv_low": 127.31,
@@ -3907,13 +4105,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CB",
-      "divYield": 1.4,
+      "divYield": 1.09,
       "videoID": null,
       "fund": {
-        "pe": "12.4",
+        "pe": "12.7",
         "eps": "28.57",
-        "mcap": "137B",
-        "rev": "N/D"
+        "mcap": "138.9B",
+        "rev": "+5.9%"
       },
       "tv": "NYSE:CB",
       "fv_low": 572.88,
@@ -3945,13 +4143,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "L",
-      "divYield": 0.4,
+      "divYield": 0.23,
       "videoID": null,
       "fund": {
-        "pe": "13.7",
-        "eps": "8.16",
-        "mcap": "23B",
-        "rev": "N/D"
+        "pe": "15.2",
+        "eps": "7.23",
+        "mcap": "22.2B",
+        "rev": "+2.8%"
       },
       "tv": "NYSE:L",
       "fv_low": 177.45,
@@ -3983,13 +4181,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "RSG",
-      "divYield": 1.3,
+      "divYield": 1.03,
       "videoID": null,
       "fund": {
         "pe": "34.1",
-        "eps": "7.06",
-        "mcap": "74B",
-        "rev": "N/D"
+        "eps": "7.23",
+        "mcap": "75.2B",
+        "rev": "+4.5%"
       },
       "tv": "NYSE:RSG",
       "fv_low": 135.57,
@@ -4023,13 +4221,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "WM",
-      "divYield": 1.4,
+      "divYield": 1.55,
       "videoID": null,
       "fund": {
-        "pe": "33.9",
-        "eps": "7.06",
-        "mcap": "96B",
-        "rev": "N/D"
+        "pe": "31.0",
+        "eps": "7.62",
+        "mcap": "94.1B",
+        "rev": "+5.2%"
       },
       "tv": "NYSE:WM",
       "fv_low": 164.03,
@@ -4064,13 +4262,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PM",
-      "divYield": 4.6,
+      "divYield": 3.04,
       "videoID": null,
       "fund": {
-        "pe": "29.1",
+        "pe": "28.2",
         "eps": "6.85",
-        "mcap": "311B",
-        "rev": "N/D"
+        "mcap": "301.0B",
+        "rev": "+7.9%"
       },
       "tv": "NYSE:PM",
       "fv_low": 170.58,
@@ -4102,13 +4300,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PEP",
-      "divYield": 3.3,
+      "divYield": 4.11,
       "videoID": null,
       "fund": {
-        "pe": "17.1",
+        "pe": "17.8",
         "eps": "7.96",
-        "mcap": "185B",
-        "rev": "N/D"
+        "mcap": "193.3B",
+        "rev": "+6.4%"
       },
       "tv": "NASDAQ:PEP",
       "fv_low": 137.62,
@@ -4143,13 +4341,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "KO",
-      "divYield": 3.1,
+      "divYield": 2.2,
       "videoID": null,
       "fund": {
-        "pe": "27.9",
-        "eps": "3.32",
-        "mcap": "399B",
-        "rev": "N/D"
+        "pe": "28.3",
+        "eps": "3.39",
+        "mcap": "413.1B",
+        "rev": "+7.7%"
       },
       "tv": "NYSE:KO",
       "fv_low": 36.31,
@@ -4186,10 +4384,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "20.9",
+        "pe": "21.3",
         "eps": "152.79",
-        "mcap": "52B",
-        "rev": "N/D"
+        "mcap": "52.3B",
+        "rev": "+7.4%"
       },
       "tv": "NYSE:AZO",
       "fv_low": 2713.28,
@@ -4224,13 +4422,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MO",
-      "divYield": 8.2,
+      "divYield": 5.64,
       "videoID": null,
       "fund": {
         "pe": "15.7",
-        "eps": "4.75",
-        "mcap": "124B",
-        "rev": "N/D"
+        "eps": "4.84",
+        "mcap": "126.1B",
+        "rev": "+2.4%"
       },
       "tv": "NYSE:MO",
       "fv_low": 69.47,
@@ -4264,13 +4462,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CL",
-      "divYield": 2.3,
+      "divYield": 2.19,
       "videoID": null,
       "fund": {
-        "pe": "37.2",
-        "eps": "2.53",
-        "mcap": "75B",
-        "rev": "N/D"
+        "pe": "38.3",
+        "eps": "2.56",
+        "mcap": "77.9B",
+        "rev": "+5.9%"
       },
       "tv": "NYSE:CL",
       "fv_low": 74.22,
@@ -4304,13 +4502,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PG",
-      "divYield": 2.3,
+      "divYield": 2.61,
       "videoID": null,
       "fund": {
-        "pe": "24.3",
+        "pe": "25.4",
         "eps": "6.64",
-        "mcap": "373B",
-        "rev": "N/D"
+        "mcap": "390.1B",
+        "rev": "+3.5%"
       },
       "tv": "NYSE:PG",
       "fv_low": 150.12,
@@ -4342,13 +4540,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GIS",
-      "divYield": 3.9,
+      "divYield": 6.87,
       "videoID": null,
       "fund": {
         "pe": "N/D",
         "eps": "-1.67",
-        "mcap": "18B",
-        "rev": "N/D"
+        "mcap": "18.6B",
+        "rev": "-4.5%"
       },
       "tv": "NYSE:GIS",
       "fv_low": 108.06,
@@ -4384,13 +4582,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HD",
-      "divYield": 2.4,
+      "divYield": 2.7,
       "videoID": null,
       "fund": {
-        "pe": "22.4",
+        "pe": "24.7",
         "eps": "14.29",
-        "mcap": "319B",
-        "rev": "N/D"
+        "mcap": "352.6B",
+        "rev": "+2.5%"
       },
       "tv": "NYSE:HD",
       "fv_low": 250.04,
@@ -4422,13 +4620,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
-      "divYield": 1,
+      "divYield": 0.75,
       "videoID": null,
       "fund": {
-        "pe": "27.7",
+        "pe": "28.6",
         "eps": "8.28",
-        "mcap": "73B",
-        "rev": "N/D"
+        "mcap": "75.7B",
+        "rev": "+14.0%"
       },
       "tv": "NASDAQ:ROST",
       "fv_low": 92.22,
@@ -4463,10 +4661,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "28.6",
-        "eps": "3.14",
-        "mcap": "73B",
-        "rev": "N/D"
+        "pe": "27.5",
+        "eps": "3.26",
+        "mcap": "72.2B",
+        "rev": "+8.7%"
       },
       "tv": "NASDAQ:ORLY",
       "fv_low": 48.5,
@@ -4501,13 +4699,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DG",
-      "divYield": 2,
+      "divYield": 1.76,
       "videoID": null,
       "fund": {
-        "pe": "17.2",
+        "pe": "17.8",
         "eps": "7.69",
-        "mcap": "29B",
-        "rev": "N/D"
+        "mcap": "30.2B",
+        "rev": "+4.8%"
       },
       "tv": "NYSE:DG",
       "fv_low": 65.51,
@@ -4541,13 +4739,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCD",
-      "divYield": 2.4,
+      "divYield": 2.69,
       "videoID": null,
       "fund": {
-        "pe": "20.2",
-        "eps": "12.31",
-        "mcap": "176B",
-        "rev": "N/D"
+        "pe": "22.3",
+        "eps": "12.64",
+        "mcap": "199.2B",
+        "rev": "+5.8%"
       },
       "tv": "NYSE:MCD",
       "fv_low": 160.72,
@@ -4581,13 +4779,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NKE",
-      "divYield": 2.1,
+      "divYield": 4.25,
       "videoID": null,
       "fund": {
-        "pe": "17.9",
+        "pe": "19.1",
         "eps": "2.09",
-        "mcap": "55B",
-        "rev": "N/D"
+        "mcap": "59.2B",
+        "rev": "-1.4%"
       },
       "tv": "NYSE:NKE",
       "fv_low": 26.82,
@@ -4621,13 +4819,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DIS",
-      "divYield": 0.9,
+      "divYield": 1.28,
       "videoID": null,
       "fund": {
-        "pe": "23.2",
+        "pe": "24.6",
         "eps": "4.85",
-        "mcap": "194B",
-        "rev": "N/D"
+        "mcap": "205.7B",
+        "rev": "+5.3%"
       },
       "tv": "NYSE:DIS",
       "fv_low": 15.34,
@@ -4661,13 +4859,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "VZ",
-      "divYield": 6.8,
+      "divYield": 6.16,
       "videoID": null,
       "fund": {
-        "pe": "11.6",
-        "eps": "3.84",
-        "mcap": "186B",
-        "rev": "N/D"
+        "pe": "11.8",
+        "eps": "3.92",
+        "mcap": "190.9B",
+        "rev": "+1.4%"
       },
       "tv": "NYSE:VZ",
       "fv_low": 43.18,
@@ -4702,13 +4900,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "T",
-      "divYield": 6.8,
+      "divYield": 5.13,
       "videoID": null,
       "fund": {
-        "pe": "11.3",
+        "pe": "11.8",
         "eps": "1.85",
-        "mcap": "141B",
-        "rev": "N/D"
+        "mcap": "146.9B",
+        "rev": "+3.5%"
       },
       "tv": "NYSE:T",
       "fv_low": 51.8,
@@ -4746,10 +4944,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "2.8",
-        "eps": "38.49",
-        "mcap": "19B",
-        "rev": "N/D"
+        "pe": "12.5",
+        "eps": "9.66",
+        "mcap": "21.2B",
+        "rev": "+1.0%"
       },
       "tv": "NASDAQ:CHTR",
       "fv_low": 471.12,
@@ -4783,13 +4981,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TMUS",
-      "divYield": 1.5,
+      "divYield": 2.52,
       "videoID": null,
       "fund": {
-        "pe": "15.3",
-        "eps": "9.56",
-        "mcap": "157B",
-        "rev": "N/D"
+        "pe": "16.3",
+        "eps": "10.37",
+        "mcap": "178.7B",
+        "rev": "+9.3%"
       },
       "tv": "NASDAQ:TMUS",
       "fv_low": null,
@@ -4824,13 +5022,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "RCL",
-      "divYield": 0.9,
+      "divYield": 1.68,
       "videoID": null,
       "fund": {
-        "pe": "17.1",
-        "eps": "16.19",
-        "mcap": "74B",
-        "rev": "N/D"
+        "pe": "20.0",
+        "eps": "16.89",
+        "mcap": "90.1B",
+        "rev": "+9.7%"
       },
       "tv": "NYSE:RCL",
       "fv_low": null,
@@ -4866,13 +5064,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "META",
-      "divYield": 0.4,
+      "divYield": 0.34,
       "videoID": null,
       "fund": {
         "pe": "21.9",
         "eps": "29.33",
-        "mcap": "1.6T",
-        "rev": "N/D"
+        "mcap": "1.64T",
+        "rev": "+27.5%"
       },
       "tv": "NASDAQ:META",
       "fv_low": 236.68,
@@ -4909,10 +5107,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "409.4",
+        "pe": "415.9",
         "eps": "0.91",
-        "mcap": "1.5T",
-        "rev": "N/D"
+        "mcap": "1.49T",
+        "rev": "+8.3%"
       },
       "tv": "NASDAQ:TSLA",
       "fv_low": null,
@@ -4947,13 +5145,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AVGO",
-      "divYield": 1.3,
+      "divYield": 0.89,
       "videoID": null,
       "fund": {
-        "pe": "41.1",
+        "pe": "40.8",
         "eps": "7.83",
-        "mcap": "1.5T",
-        "rev": "N/D"
+        "mcap": "1.53T",
+        "rev": "+48.7%"
       },
       "tv": "NASDAQ:AVGO",
       "fv_low": 41.1,
@@ -4985,13 +5183,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ORCL",
-      "divYield": 1,
+      "divYield": 1.72,
       "videoID": null,
       "fund": {
-        "pe": "19.8",
+        "pe": "18.8",
         "eps": "6.38",
-        "mcap": "381B",
-        "rev": "N/D"
+        "mcap": "362.2B",
+        "rev": "+21.6%"
       },
       "tv": "NYSE:ORCL",
       "fv_low": null,
@@ -5028,13 +5226,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TXN",
-      "divYield": 2.9,
+      "divYield": 2.08,
       "videoID": null,
       "fund": {
-        "pe": "36.9",
+        "pe": "38.4",
         "eps": "7.71",
-        "mcap": "260B",
-        "rev": "N/D"
+        "mcap": "270.2B",
+        "rev": "+20.3%"
       },
       "tv": "NASDAQ:TXN",
       "fv_low": 34.25,
@@ -5068,13 +5266,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKNG",
-      "divYield": 0.8,
+      "divYield": 1.02,
       "videoID": null,
       "fund": {
-        "pe": "17.2",
-        "eps": "9.04",
-        "mcap": "117B",
-        "rev": "N/D"
+        "pe": "17.6",
+        "eps": "9.27",
+        "mcap": "121.6B",
+        "rev": "+8.0%"
       },
       "tv": "NASDAQ:BKNG",
       "fv_low": null,
@@ -5094,7 +5292,7 @@
         "marg_now": 0.3376,
         "anni": 10,
         "avvisi": [
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
@@ -5111,10 +5309,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "116.2",
-        "eps": "1.45",
-        "mcap": "217B",
-        "rev": "N/D"
+        "pe": "94.7",
+        "eps": "1.61",
+        "mcap": "195.6B",
+        "rev": "+28.7%"
       },
       "tv": "NASDAQ:SHOP",
       "fv_low": null,
@@ -5151,10 +5349,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "N/D",
+        "pe": "6402.8",
         "eps": "0.04",
-        "mcap": "264B",
-        "rev": "N/D"
+        "mcap": "234.1B",
+        "rev": "+24.3%"
       },
       "tv": "NASDAQ:CRWD",
       "fv_low": null,
@@ -5174,7 +5372,7 @@
         "marg_now": 0.258,
         "anni": 8,
         "avvisi": [
-          "1 anni con FCF negativo"
+          "1 anno con FCF negativo"
         ]
       },
       "fv_source": "indicatore",
@@ -5191,10 +5389,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "63.4",
-        "eps": "2.84",
-        "mcap": "132B",
-        "rev": "N/D"
+        "pe": "39.9",
+        "eps": "3.07",
+        "mcap": "90.0B",
+        "rev": "+20.2%"
       },
       "tv": "NASDAQ:FTNT",
       "fv_low": 37.63,
@@ -5229,10 +5427,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "167.7",
-        "eps": "1.17",
-        "mcap": "473B",
-        "rev": "N/D"
+        "pe": "118.6",
+        "eps": "1.43",
+        "mcap": "407.7B",
+        "rev": "+87.1%"
       },
       "tv": "NASDAQ:PLTR",
       "fv_low": null,
@@ -5269,10 +5467,10 @@
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "N/D",
+        "pe": "645.6",
         "eps": "0.51",
-        "mcap": "311B",
-        "rev": "N/D"
+        "mcap": "270.9B",
+        "rev": "+24.5%"
       },
       "tv": "NASDAQ:PANW",
       "fv_low": 65.07,
@@ -5307,10 +5505,10 @@
       "divYield": 2.8,
       "videoID": null,
       "fund": {
-        "pe": "14.8",
+        "pe": "15.6",
         "eps": "5.56",
-        "mcap": "172B",
-        "rev": "N/D"
+        "mcap": "182.2B",
+        "rev": "+13.5%"
       },
       "tv": "NYSE:NEE",
       "fv_low": null,
@@ -5346,13 +5544,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CME",
-      "divYield": 2,
+      "divYield": 3.69,
       "videoID": null,
       "fund": {
-        "pe": "25.1",
+        "pe": "25.0",
         "eps": "12.20",
-        "mcap": "110B",
-        "rev": "N/D"
+        "mcap": "109.0B",
+        "rev": "+9.0%"
       },
       "tv": "NASDAQ:CME",
       "fv_low": 233.24,
@@ -5384,13 +5582,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ACN",
-      "divYield": 1.6,
+      "divYield": 2.53,
       "videoID": null,
       "fund": {
-        "pe": "18.4",
+        "pe": "18.8",
         "eps": "13.57",
-        "mcap": "147B",
-        "rev": "N/D"
+        "mcap": "150.3B",
+        "rev": "+6.5%"
       },
       "tv": "NYSE:ACN",
       "fv_low": 309.42,
@@ -5424,5 +5622,5 @@
     ".INTU": "INTU",
     ".QCOM": "QCOM"
   },
-  "fv_updated": "2026-11-09T23:06:45.849Z"
+  "fv_updated": "2026-11-09T23:14:25.079Z"
 }

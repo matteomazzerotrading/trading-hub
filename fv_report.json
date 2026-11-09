@@ -1,5 +1,5 @@
 {
- "run": "2026-11-09T23:06:45.849Z",
+ "run": "2026-11-09T23:14:25.079Z",
  "rf": 0.04884,
  "cpi_ultimo": [
   "2026-09-01",
@@ -64,7 +64,7 @@
   "ERG": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 9,3 anni di FCF"
    ],
    "anni": 10,
@@ -613,7 +613,7 @@
   "ADSK": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 178.36,
@@ -782,7 +782,7 @@
   "BAC": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 14,9 anni di FCF"
    ],
    "anni": 10,
@@ -1105,7 +1105,7 @@
   "CNC": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 228.33,
@@ -1174,7 +1174,7 @@
    "status": "ok",
    "avvisi": [
     "FCF solo 62% dell'utile",
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 5,8 anni di FCF"
    ],
    "anni": 10,
@@ -1243,7 +1243,7 @@
   "CVX": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 243.32,
@@ -1312,7 +1312,7 @@
    "status": "ok",
    "avvisi": [
     "beta calcolato 0,15: verifica l'indice",
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 56.17,
@@ -1490,7 +1490,7 @@
    "status": "ok",
    "avvisi": [
     "margine attuale -0,7% molto sotto la media 5,8%",
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 8,1 anni di FCF"
    ],
    "anni": 10,
@@ -1563,7 +1563,7 @@
    "status": "ok",
    "avvisi": [
     "FCF solo 54% dell'utile",
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 7,4 anni di FCF"
    ],
    "anni": 10,
@@ -1834,7 +1834,7 @@
   "BSX": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 4,6 anni di FCF"
    ],
    "anni": 10,
@@ -2544,23 +2544,23 @@
   "UPS": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 4,3 anni di FCF"
    ],
    "anni": 10,
-   "fv": 122.82,
+   "fv": 126.21,
    "fv_low": null,
-   "fv_high": 224.9,
-   "fv_mkt": 169.66,
-   "fv_sto": null,
-   "ke": 0.089,
+   "fv_high": 231.3,
+   "fv_mkt": 176.35,
+   "fv_sto": 119.26,
+   "ke": 0.0874,
    "rf": 0.0488,
-   "beta": 0.95,
-   "beta_raw": null,
+   "beta": 0.912,
+   "beta_raw": 0.869,
    "pi": 0.0333,
    "pi_src": "CPI realizzata",
-   "spread": 0.0557,
-   "spread_mkt": 0.0402,
+   "spread": 0.0541,
+   "spread_mkt": 0.0386,
    "fcf_norm": 6.3838,
    "marg_n": 0.0589,
    "marg_now": 0.0538,
@@ -2573,10 +2573,9 @@
    "conv": 0.8093,
    "roic_m": 0.1339,
    "anni_neg": 1,
-   "mesi_yld": 0,
+   "mesi_yld": 120,
    "anno_ultimo_bilancio": 2025,
-   "settimane": 0,
-   "prezzi": "Yahoo: https://query2.finance.yahoo.com/v8/finance/chart/UPS?interval=1wk&range=11y: HTTP 429"
+   "settimane": 575
   },
   "FDX": {
    "status": "ok",
@@ -2690,7 +2689,7 @@
   "COP": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 177.87,
@@ -2796,7 +2795,7 @@
    "status": "ok",
    "avvisi": [
     "beta calcolato 0,29: verifica l'indice",
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 151.81,
@@ -3202,7 +3201,7 @@
   "VRTX": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 405.87,
@@ -3377,7 +3376,7 @@
   "JPM": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo",
+    "1 anno con FCF negativo",
     "debito netto = 11,5 anni di FCF"
    ],
    "anni": 10,
@@ -4602,7 +4601,7 @@
   "BKNG": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 10,
    "fv": 214.17,
@@ -4672,7 +4671,7 @@
   "CRWD": {
    "status": "ok",
    "avvisi": [
-    "1 anni con FCF negativo"
+    "1 anno con FCF negativo"
    ],
    "anni": 8,
    "fv": 23.84,
