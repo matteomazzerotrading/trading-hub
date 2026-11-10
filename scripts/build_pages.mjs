@@ -186,12 +186,12 @@ ${svgBanda(d, close)}
     corpo += `<h2>Quanto è affidabile questa stima</h2><p>Affidabilità <strong style="color:${AFF[aff.livello][0]}">${aff.livello}</strong>. ${aff.motivi.length
       ? 'Elementi che rendono il modello meno adatto a questo titolo:' : 'Non ci sono elementi che rendono il modello poco adatto a questo titolo: flussi di cassa regolari, debito contenuto e margini in linea con la storia.'}</p>`;
     if (aff.motivi.length) corpo += `<ul class="warn">${aff.motivi.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
-<p class="mu">Il modello parte dal margine di free cash flow tipico degli ultimi 10 anni e somma la cassa senza sottrarre il debito: più elementi compaiono qui, più il fair value va letto con cautela.</p>`;
+<p class="mu">Il modello parte dal margine di free cash flow tipico degli ultimi 10 anni e non sottrae il debito (gli interessi sono già nei flussi): più elementi compaiono qui, più il fair value va letto con cautela.</p>`;
     corpo += `<h2>Dati di base</h2><div class="grid">
 ${box('Rendimento richiesto (Ke)', ind.ke != null ? (ind.ke * 100).toFixed(1).replace('.', ',') + '%' : '—', `beta ${ind.beta != null ? String(ind.beta).replace('.', ',') : '—'}`)}
-${box('Decennale ' + ((E.PAESI[ind.paese] || E.PAESI.US).nome), ind.rf != null ? (ind.rf * 100).toFixed(2).replace('.', ',') + '%' : '—', `inflazione media ${ind.pi != null ? (ind.pi * 100).toFixed(1).replace('.', ',') + '%' : '—'}`)}
+${box('Decennale', ind.rf != null ? (ind.rf * 100).toFixed(2).replace('.', ',') + '%' : '—', `${(E.PAESI[ind.paese] || E.PAESI.US).rfNome} · inflazione attesa ${ind.pi != null ? (ind.pi * 100).toFixed(1).replace('.', ',') + '%' : '—'}`)}
 ${box('FCF normalizzato', ind.fcf_norm != null ? `${num(ind.fcf_norm)} ${c}` : '—', 'per azione')}
-${box('Cassa', ind.cassa_az != null ? `${num(ind.cassa_az)} ${c}` : '—', 'per azione')}
+${box('Cassa netta', ind.cassa_az != null ? `${num(ind.cassa_az)} ${c}` : '—', 'per azione, se supera il debito')}
 ${box('Dividendo', d.divYield > 0 ? num(d.divYield) + '%' : '—', 'rendimento annuo')}
 ${box('P/E', d.fund && d.fund.pe && d.fund.pe !== 'N/D' ? String(d.fund.pe).replace('.', ',') : '—', 'ultimi 12 mesi')}
 ${box('Capitalizzazione', cap(d.fund && d.fund.mcap), d.curr)}
@@ -208,7 +208,7 @@ ${corpo}
 <a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>
 ${simili(t, d)}
 <h2>Il metodo in breve</h2>
-<p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione, più la cassa per azione. Decennale e inflazione sono quelli del paese in cui il titolo è quotato. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
+<p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione attesa, più la cassa che eccede il debito. Il decennale è quello della valuta del titolo (Bund per l'area euro) e l'inflazione attesa è l'obiettivo della banca centrale. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
 ` + foot;
 }
 

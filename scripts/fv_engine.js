@@ -21,7 +21,7 @@
   // ── Input dell'indicatore (default del Pine Script) ──────────────────────────
   const P = {
     ERP: 0.0423,          // premio per il rischio implicito (Damodaran) — aggiornalo quando cambia
-    SPREAD_MIN: 0.02,     // spread minimo Ke − inflazione
+    SPREAD_MIN: 0.035,    // rendimento reale minimo richiesto (Ke − inflazione attesa)
     ANNI: 10,             // anni fiscali massimi
     PREMIO_PCT: 0.03,     // premio/sconto qualità
     INFL_FIX: 0.025,      // inflazione fissa se nessun dato
@@ -38,8 +38,8 @@
     // ── Opzioni del modello (i valori qui sono quelli in uso; compute() accetta sostituzioni) ──
     MARG: 'mediana',      // 'mediana' = margine tipico dei 10 anni; 'prudente' = il più basso tra quello e la media degli ultimi 3
     BANDA: 'minmax',      // 'minmax' = anno peggiore/migliore; 'quartili' = 25° e 75° percentile dei margini
-    PI_ATTESA: null,      // inflazione attesa per la capitalizzazione (es. 0.02); null = inflazione realizzata
-    CASSA: 'lorda',       // 'lorda' = tutta la cassa; 'netta' = cassa meno debito, solo se positiva
+    PI_ATTESA: 0.02,      // inflazione attesa per la capitalizzazione (obiettivo della banca centrale); null = inflazione realizzata
+    CASSA: 'netta',       // 'netta' = cassa meno debito, solo se positiva; 'lorda' = tutta la cassa
     H: 0,                 // anni di crescita in esaurimento per il fair value centrale (modello H); 0 = non calcolato
     G_CAP: 0.04,          // tetto alla crescita reale usata nel fair value centrale
     ROIC_GATE: true,      // crescita riconosciuta solo se ROIC > Ke
@@ -66,11 +66,14 @@
   // Il CPI di un mese esce verso metà del mese successivo (qui: il 15).
   // cpi = [['YYYY-MM-01', valore], ...] in ordine crescente
   const cpiRelease = m => { const d = new Date(m + 'T00:00:00Z'); d.setUTCMonth(d.getUTCMonth() + 1); d.setUTCDate(15); return iso(d); };
+  const _relCache = new WeakMap();                 // date di pubblicazione già calcolate, per serie
   function cpiAt(cpi, s) {
     if (!cpi || !cpi.length) return null;
-    let best = null;
-    for (const [m, v] of cpi) { if (cpiRelease(m) <= s) best = v; else break; }
-    return best != null ? best : cpi[0][1];
+    let rel = _relCache.get(cpi);
+    if (!rel || rel.length !== cpi.length) { rel = cpi.map(r => cpiRelease(r[0])); _relCache.set(cpi, rel); }
+    let lo = 0, hi = rel.length - 1, best = -1;      // ultimo valore con pubblicazione <= s
+    while (lo <= hi) { const m = (lo + hi) >> 1; if (rel[m] <= s) { best = m; lo = m + 1; } else hi = m - 1; }
+    return best >= 0 ? cpi[best][1] : cpi[0][1];
   }
 
   // Anni fiscali validi, più recente per primo (come 'nuovoFY' nel Pine).
@@ -89,7 +92,9 @@
       const rel = iso(new Date(f.earnings_release_date * 1000));
       if (rel >= lastEnd) lastAvail = rel;
     }
-    if (today && lastAvail > today) lastAvail = today;
+    // Bilancio appena chiuso e non ancora pubblicato: conta da oggi. Non vale per date precedenti alla chiusura
+    // (calcoli a una data passata): in quel caso l'ultimo bilancio resta fuori dalla finestra.
+    if (today && lastAvail > today && today >= lastEnd) lastAvail = today;
     // Fattore per portare i valori storici nella valuta del titolo (es. GBP → GBX = 100)
     let fact = 1;
     if (f.total_revenue_fy && rev[0]) { fact = f.total_revenue_fy / rev[0]; if (Math.abs(fact - 1) < 0.02) fact = 1; }
@@ -396,15 +401,17 @@
   }
 
   // ── Tassi e inflazione del paese di quotazione ───────────────────────────────
+  // Decennale privo di rischio della VALUTA (per l'area euro il Bund) e inflazione attesa = obiettivo della banca centrale.
+  // L'indice dei prezzi del paese (yoy) serve solo a rivalutare i ricavi e a misurare la crescita reale passata.
   const PAESI = {
-    US: { nome: 'Stati Uniti', rf: 'TVC:US10Y' },
-    IT: { nome: 'Italia', rf: 'TVC:IT10Y', yoy: 'ECONOMICS:ITIRYY' },
-    DE: { nome: 'Germania', rf: 'TVC:DE10Y', yoy: 'ECONOMICS:DEIRYY' },
-    FR: { nome: 'Francia', rf: 'TVC:FR10Y', yoy: 'ECONOMICS:FRIRYY' },
-    ES: { nome: 'Spagna', rf: 'TVC:ES10Y', yoy: 'ECONOMICS:ESIRYY' },
-    NL: { nome: 'Paesi Bassi', rf: 'TVC:NL10Y', yoy: 'ECONOMICS:NLIRYY' },
-    GB: { nome: 'Regno Unito', rf: 'TVC:GB10Y', yoy: 'ECONOMICS:GBIRYY' },
-    CH: { nome: 'Svizzera', rf: 'TVC:CH10Y', yoy: 'ECONOMICS:CHIRYY' }
+    US: { nome: 'Stati Uniti', rf: 'TVC:US10Y', rfNome: 'Treasury USA', piAttesa: 0.02 },
+    IT: { nome: 'Italia', rf: 'TVC:DE10Y', rfNome: 'Bund (area euro)', piAttesa: 0.02, yoy: 'ECONOMICS:ITIRYY' },
+    DE: { nome: 'Germania', rf: 'TVC:DE10Y', rfNome: 'Bund (area euro)', piAttesa: 0.02, yoy: 'ECONOMICS:DEIRYY' },
+    FR: { nome: 'Francia', rf: 'TVC:DE10Y', rfNome: 'Bund (area euro)', piAttesa: 0.02, yoy: 'ECONOMICS:FRIRYY' },
+    ES: { nome: 'Spagna', rf: 'TVC:DE10Y', rfNome: 'Bund (area euro)', piAttesa: 0.02, yoy: 'ECONOMICS:ESIRYY' },
+    NL: { nome: 'Paesi Bassi', rf: 'TVC:DE10Y', rfNome: 'Bund (area euro)', piAttesa: 0.02, yoy: 'ECONOMICS:NLIRYY' },
+    GB: { nome: 'Regno Unito', rf: 'TVC:GB10Y', rfNome: 'Gilt britannico', piAttesa: 0.02, yoy: 'ECONOMICS:GBIRYY' },
+    CH: { nome: 'Svizzera', rf: 'TVC:CH10Y', rfNome: 'Confederazione svizzera', piAttesa: 0.01, yoy: 'ECONOMICS:CHIRYY' }
   };
   // Paese in cui il titolo è quotato (come syminfo.country nel Pine)
   function paese(d) {

@@ -164,7 +164,7 @@ async function main() {
       try { weekly = await weeklyOf(e.yf || t); } catch (ex) { yerr = String(ex.message).slice(0, 120); }
       // Tassi e inflazione del paese di quotazione; se mancano, quelli USA
       const cod = E.paese(e), rfP = rfPaesi[cod] != null ? rfPaesi[cod] : rf, cpiP = cpiPaesi[cod] || cpi;
-      try { r = E.compute(f, cpiP, rfP, null, weekly, bench, weekly, today); r.settimane = weekly.length; r.paese = rfPaesi[cod] != null && cpiPaesi[cod] ? cod : 'US'; if (yerr) r.prezzi = 'Yahoo: ' + yerr; }
+      try { r = E.compute(f, cpiP, rfP, null, weekly, bench, weekly, today, { PI_ATTESA: E.PAESI[cod].piAttesa }); r.settimane = weekly.length; r.paese = rfPaesi[cod] != null && cpiPaesi[cod] ? cod : 'US'; if (yerr) r.prezzi = 'Yahoo: ' + yerr; }
       catch (ex) { r = { status: 'errore', errore: String(ex.message).slice(0, 200) }; }
       if (f.close != null) e.price = r2(f.close, f.close < 10 ? 3 : 2);
       e.fund = fundamentals(f);
