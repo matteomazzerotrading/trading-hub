@@ -1,26 +1,4 @@
 {
  "aggiornato": "2026-11-10T18:22:32.329Z",
- "cambi": [
-  {
-   "data": "2026-11-10",
-   "t": "LR",
-   "nome": "Legrand",
-   "da": "sotto",
-   "a": "equita"
-  },
-  {
-   "data": "2026-11-10",
-   "t": "SIE",
-   "nome": "Siemens",
-   "da": "equita",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-10",
-   "t": "IBE",
-   "nome": "Iberdrola",
-   "da": "premio_dubbio",
-   "a": "premio_sostenuto"
-  }
- ]
+ "cambi": []
 }
