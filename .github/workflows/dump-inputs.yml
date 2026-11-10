@@ -1,12 +1,12 @@
 name: Dump Inputs
 
 # Scarica i dati storici (bilanci, prezzi, tassi) per la verifica sul passato della formula del fair value.
-# Si avvia solo a mano; i dati restano come allegato dell'esecuzione, non entrano nel repository.
+# Si avvia solo a mano; i dati finiscono nel ramo separato 'backtest-data', non nel ramo principale del sito.
 on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   dump:
@@ -26,8 +26,13 @@ jobs:
         run: |
           pip install yfinance --quiet
           python scripts/dump_market.py
-      - uses: actions/upload-artifact@v4
-        with:
-          name: backtest-inputs
-          path: backtest_inputs
-          retention-days: 5
+      - name: Salva i dati nel ramo backtest-data
+        run: |
+          gzip -9 backtest_inputs/*.json
+          git config user.name "TradingHub Bot"
+          git config user.email "bot@tradinghub.local"
+          git checkout --orphan backtest-data
+          git rm -rf --cached . > /dev/null
+          git add -f backtest_inputs
+          git commit -qm "Dati per la verifica sul passato [skip ci]"
+          git push -f origin backtest-data

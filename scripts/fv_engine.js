@@ -34,8 +34,18 @@
     TOLL_G: 0.01,         // tolleranza crescita implicita vs storica
     CONV_MIN: 0.7,        // conversione FCF/utile minima
     LEV_MAX: 4.0,         // debito netto massimo (anni di FCF)
-    LAG_FY_DAYS: 45       // giorni tra chiusura esercizio e pubblicazione
+    LAG_FY_DAYS: 45,      // giorni tra chiusura esercizio e pubblicazione
+    // ── Opzioni del modello (i valori qui sono quelli in uso; compute() accetta sostituzioni) ──
+    MARG: 'mediana',      // 'mediana' = margine tipico dei 10 anni; 'prudente' = il più basso tra quello e la media degli ultimi 3
+    BANDA: 'minmax',      // 'minmax' = anno peggiore/migliore; 'quartili' = 25° e 75° percentile dei margini
+    PI_ATTESA: null,      // inflazione attesa per la capitalizzazione (es. 0.02); null = inflazione realizzata
+    CASSA: 'lorda',       // 'lorda' = tutta la cassa; 'netta' = cassa meno debito, solo se positiva
+    H: 0,                 // anni di crescita in esaurimento per il fair value centrale (modello H); 0 = non calcolato
+    G_CAP: 0.04,          // tetto alla crescita reale usata nel fair value centrale
+    ROIC_GATE: true,      // crescita riconosciuta solo se ROIC > Ke
+    BETA_MIN: null        // beta minimo dopo la correzione di Blume (null = nessuno)
   };
+  const quantile = (a, q) => { const s = [...a].sort((x, y) => x - y), pos = (s.length - 1) * q, lo = Math.floor(pos), hi = Math.ceil(pos); return s[lo] + (s[hi] - s[lo]) * (pos - lo); };
 
   // ── Date (stringhe ISO 'YYYY-MM-DD') ─────────────────────────────────────────
   const iso = d => d.toISOString().slice(0, 10);
@@ -99,13 +109,17 @@
   const windowAt = (hist, s) => hist.filter(h => h.avail <= s).slice(0, P.ANNI);
 
   // FCF normalizzato (metodo margine × ricavi per azione attuali rivalutati al CPI)
-  function fcfNormAt(win, cpi, s) {
+  function fcfNormAt(win, cpi, s, O) {
+    O = O || P;
     const marg = win.map(h => h.fcf / h.rev);
     const c0 = cpiAt(cpi, win[0].avail), cn = cpiAt(cpi, s);
     const fatt0 = c0 && cn && c0 > 0 ? cn / c0 : 1;
     const revNow = win[0].rev / win[0].az * fatt0;
-    const margN = P.NORM_MED ? median(marg) : avg(marg);
-    return { fcfNorm: margN * revNow, fcfMin: Math.min(...marg) * revNow, fcfMax: Math.max(...marg) * revNow, margN, margNow: marg[0] };
+    let margN = O.NORM_MED ? median(marg) : avg(marg);
+    if (O.MARG === 'prudente' && marg.length >= 3) margN = Math.min(margN, avg(marg.slice(0, 3)));
+    let lo = Math.min(...marg), hi = Math.max(...marg);
+    if (O.BANDA === 'quartili') { lo = Math.min(quantile(marg, 0.25), margN); hi = Math.max(quantile(marg, 0.75), margN); }
+    return { fcfNorm: margN * revNow, fcfMin: lo * revNow, fcfMax: hi * revNow, margN, margNow: marg[0] };
   }
 
   // Beta dai rendimenti settimanali delle ultime 260 settimane chiuse vs S&P 500, con Blume
@@ -147,7 +161,8 @@
    *   bars     [['YYYY-MM-DD', close], ...] barre settimanali di almeno 11 anni (data = inizio settimana)
    *   today    'YYYY-MM-DD'
    */
-  function compute(f, cpi, rf, be, weeklyS, weeklyB, bars, today) {
+  function compute(f, cpi, rf, be, weeklyS, weeklyB, bars, today, opts) {
+    const O = Object.assign({}, P, opts || {});
     const res = { status: 'ok', avvisi: [] };
     let hist = annualHistory(f, today);
     // Titoli quotati da meno di 10 anni: sul grafico la storia parte dalla quotazione, quindi il Pine
@@ -166,10 +181,11 @@
 
     const { beta: bCalc, raw: betaRaw } = betaFrom(weeklyS, weeklyB);
     const betaSospetto = betaRaw != null && (betaRaw < 0.3 || betaRaw > 3);
-    const beta = bCalc != null ? bCalc : P.BETA_MAN;
-    const ke = rf != null ? rf + beta * P.ERP : null;
+    let beta = bCalc != null ? bCalc : O.BETA_MAN;
+    if (O.BETA_MIN != null && beta < O.BETA_MIN) beta = O.BETA_MIN;
+    const ke = rf != null ? rf + beta * O.ERP : null;
 
-    const { fcfNorm, fcfMin, fcfMax, margN, margNow } = fcfNormAt(win, cpi, today);
+    const { fcfNorm, fcfMin, fcfMax, margN, margNow } = fcfNormAt(win, cpi, today, O);
 
     const fcfps = win.map(h => h.fcf / h.az), revps = win.map(h => h.rev / h.az);
     const anniNeg = fcfps.filter(x => x < 0).length;
@@ -180,11 +196,11 @@
     const gHist = gRev;
 
     const c0 = cpiAt(cpi, win[0].avail), cN = cpiAt(cpi, win[n - 1].avail);
-    const inflAnn = c0 && cN && cN > 0 ? Math.pow(c0 / cN, 1 / (n - 1)) - 1 : P.INFL_FIX;
-    const useBe = P.INFL_SRC === 'breakeven' && be != null;
-    const pi = useBe ? be : inflAnn;
-    const piSrc = useBe ? 'breakeven' : 'CPI realizzata';
-    const spread = ke != null ? Math.max(ke - pi, P.SPREAD_MIN) : null;
+    const inflAnn = c0 && cN && cN > 0 ? Math.pow(c0 / cN, 1 / (n - 1)) - 1 : O.INFL_FIX;
+    const useBe = O.INFL_SRC === 'breakeven' && be != null;
+    const pi = O.PI_ATTESA != null ? O.PI_ATTESA : useBe ? be : inflAnn;
+    const piSrc = O.PI_ATTESA != null ? 'attesa' : useBe ? 'breakeven' : 'CPI realizzata';
+    const spread = ke != null ? Math.max(ke - pi, O.SPREAD_MIN) : null;
 
     const earn = win.map(h => h.earn);
     const sumNI = earn.reduce((a, e) => a + (e != null ? e : 0), 0);
@@ -194,19 +210,26 @@
     const cash = f.cash_n_short_term_invest_fq != null ? f.cash_n_short_term_invest_fq : f.cash_n_short_term_invest_fy;
     const debt = f.total_debt_fq != null ? f.total_debt_fq : f.total_debt_fy;
     const az0 = win[0].az;
-    const cassaAz = cash != null && az0 > 0 ? cash / az0 : 0;
+    const cassaUtile = O.CASSA === 'netta' ? Math.max((cash || 0) - (debt || 0), 0) : cash;
+    const cassaAz = cassaUtile != null && az0 > 0 ? cassaUtile / az0 : 0;
     const debnet = (debt || 0) - (cash || 0);
     const levAnni = fcfNorm > 0 ? (debnet / az0) / fcfNorm : null;
 
     let qual;
     const avgRev = avg(win.slice(1).map(h => h.rev));
-    if (earn.some(e => e == null)) qual = -P.PREMIO_PCT;
-    else qual = win[0].rev > avgRev && earn[0] > avg(earn.slice(1)) ? P.PREMIO_PCT : -P.PREMIO_PCT;
+    if (earn.some(e => e == null)) qual = -O.PREMIO_PCT;
+    else qual = win[0].rev > avgRev && earn[0] > avg(earn.slice(1)) ? O.PREMIO_PCT : -O.PREMIO_PCT;
 
     const capitalizza = x => x > 0 && spread ? x * (1 + pi) / spread : null;
     const valore = x => { const c = capitalizza(x); return c != null ? c * (1 + qual) + cassaAz : null; };
     const fv = valore(fcfNorm), fvLow = valore(fcfMin), fvHigh = valore(fcfMax);
-    const spreadMkt = rf != null ? Math.max(beta * P.ERP, P.SPREAD_MIN) : null;
+    // Fair value centrale (modello H): la crescita reale storica dei ricavi per azione, entro un tetto e solo se
+    // il ROIC supera il Ke, si esaurisce in modo lineare in 2·H anni. Con crescita zero coincide con il pavimento.
+    const gReale = gHist != null ? (1 + gHist) / (1 + inflAnn) - 1 : null;
+    let gStar = gReale != null ? Math.min(Math.max(gReale, 0), O.G_CAP) : 0;
+    if (O.ROIC_GATE && roicM != null && ke != null && roicM <= ke) gStar = 0;
+    const fvC = O.H > 0 ? valore(fcfNorm * (1 + O.H * gStar)) : null;
+    const spreadMkt = rf != null ? Math.max(beta * O.ERP, O.SPREAD_MIN) : null;
     const fvMkt = fcfNorm > 0 && spreadMkt ? fcfNorm * (1 + rf) / spreadMkt * (1 + qual) + cassaAz : null;
 
     // Fair value storico: mediana del FCF yield mensile (FCF normalizzato di allora / prezzo di allora)
@@ -214,10 +237,10 @@
     for (const [d, c] of monthFirstCloses(bars)) {
       const w = windowAt(hist, d);
       if (w.length < 4 || !(c > 0)) continue;
-      const fn = fcfNormAt(w, cpi, d).fcfNorm;
+      const fn = fcfNormAt(w, cpi, d, O).fcfNorm;
       if (fn > 0) ylds.push(fn / c);
     }
-    ylds = ylds.slice(-P.MESI_YLD);
+    ylds = ylds.slice(-O.MESI_YLD);
     const yldMed = ylds.length >= 36 ? median(ylds) : null;
     const fvSto = yldMed && yldMed > 0 ? fcfNorm / yldMed : null;
 
@@ -227,13 +250,13 @@
     const pct = x => (x * 100).toFixed(1).replace('.', ',') + '%';
     if (betaSospetto) res.avvisi.push(`beta calcolato ${betaRaw.toFixed(2).replace('.', ',')}: verifica l'indice`);
     if (margNow < margN * 0.75) res.avvisi.push(`margine attuale ${pct(margNow)} molto sotto la media ${pct(margN)}`);
-    if (conv != null && conv < P.CONV_MIN) res.avvisi.push(`FCF solo ${Math.round(conv * 100)}% dell'utile`);
+    if (conv != null && conv < O.CONV_MIN) res.avvisi.push(`FCF solo ${Math.round(conv * 100)}% dell'utile`);
     if (anniNeg > 0) res.avvisi.push(`${anniNeg} ${anniNeg === 1 ? 'anno' : 'anni'} con FCF negativo`);
-    if (levAnni != null && levAnni > P.LEV_MAX) res.avvisi.push(`debito netto = ${levAnni.toFixed(1).replace('.', ',')} anni di FCF`);
+    if (levAnni != null && levAnni > O.LEV_MAX) res.avvisi.push(`debito netto = ${levAnni.toFixed(1).replace('.', ',')} anni di FCF`);
 
     const r = (x, k = 4) => x == null || !isFinite(x) ? null : Number(x.toFixed(k));
     Object.assign(res, {
-      fv: r(fv, 2), fv_low: r(fvLow, 2), fv_high: r(fvHigh, 2), fv_mkt: r(fvMkt, 2), fv_sto: r(fvSto, 2),
+      fv: r(fv, 2), fv_low: r(fvLow, 2), fv_high: r(fvHigh, 2), fv_mkt: r(fvMkt, 2), fv_sto: r(fvSto, 2), fv_c: r(fvC, 2), g_star: r(gStar),
       ke: r(ke), rf: r(rf), beta: r(beta, 3), beta_raw: r(betaRaw, 3), pi: r(pi), pi_src: piSrc,
       spread: r(spread), spread_mkt: r(spreadMkt), fcf_norm: r(fcfNorm, 4), marg_n: r(margN), marg_now: r(margNow),
       cassa_az: r(cassaAz, 4), lev_anni: r(levAnni, 2), qual, g_hist: r(gHist), g_fcf: r(gFcf),
