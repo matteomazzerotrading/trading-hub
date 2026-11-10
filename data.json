@@ -4,8 +4,8 @@
   "db": {
     "DIA": {
       "name": "DiaSorin",
-      "fv": 115.37,
-      "price": 82.64,
+      "fv": 115.74,
+      "price": 81.38,
       "curr": "€",
       "ex": "MIL",
       "yf": "DIA.MI",
@@ -19,13 +19,13 @@
         "rev": "-3.1%"
       },
       "tv": "MIL:DIA",
-      "fv_low": 96.4,
-      "fv_high": 135.33,
-      "fv_mkt": 169.95,
+      "fv_low": 96.71,
+      "fv_high": 135.76,
+      "fv_mkt": 169.92,
       "fv_sto": 172.07,
       "ind": {
         "status": "ok",
-        "ke": 0.0827,
+        "ke": 0.0825,
         "pi": 0.0333,
         "beta": 0.8,
         "fcf_norm": 5.5786,
@@ -38,12 +38,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "ERG": {
       "name": "ERG S.p.A.",
-      "fv": 45.86,
-      "price": 22.46,
+      "fv": 46.04,
+      "price": 23.12,
       "curr": "€",
       "ex": "MIL",
       "yf": "ERG.MI",
@@ -58,12 +58,12 @@
       },
       "tv": "MIL:ERG",
       "fv_low": null,
-      "fv_high": 110.83,
-      "fv_mkt": 76.08,
+      "fv_high": 111.28,
+      "fv_mkt": 76.07,
       "fv_sto": 33.59,
       "ind": {
         "status": "ok",
-        "ke": 0.0716,
+        "ke": 0.0714,
         "pi": 0.0333,
         "beta": 0.538,
         "fcf_norm": 1.6292,
@@ -79,12 +79,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "RACE": {
       "name": "Ferrari",
-      "fv": 202.93,
-      "price": 373.85,
+      "fv": 203.55,
+      "price": 372.4,
       "curr": "€",
       "ex": "MIL",
       "yf": "RACE.MI",
@@ -98,13 +98,13 @@
         "rev": "+5.7%"
       },
       "tv": "MIL:RACE",
-      "fv_low": 86.75,
-      "fv_high": 247.49,
-      "fv_mkt": 294.73,
+      "fv_low": 87,
+      "fv_high": 248.25,
+      "fv_mkt": 294.69,
       "fv_sto": 491.56,
       "ind": {
         "status": "ok",
-        "ke": 0.0831,
+        "ke": 0.083,
         "pi": 0.0333,
         "beta": 0.811,
         "fcf_norm": 9.0453,
@@ -117,11 +117,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "GOOG": {
       "name": "Alphabet",
-      "fv": 144.77,
+      "fv": 145.08,
       "price": 286.01,
       "curr": "$",
       "ex": "NASDAQ",
@@ -136,13 +136,13 @@
         "rev": "+22.2%"
       },
       "tv": "NASDAQ:GOOG",
-      "fv_low": 117.35,
-      "fv_high": 186.83,
-      "fv_mkt": 187.15,
+      "fv_low": 117.59,
+      "fv_high": 187.25,
+      "fv_mkt": 187.12,
       "fv_sto": 212.27,
       "ind": {
         "status": "ok",
-        "ke": 0.0968,
+        "ke": 0.0967,
         "pi": 0.0333,
         "beta": 1.134,
         "fcf_norm": 7.3483,
@@ -155,12 +155,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "MC": {
       "name": "LVMH",
-      "fv": 577.81,
-      "price": 408.75,
+      "fv": 579.46,
+      "price": 402.45,
       "curr": "€",
       "ex": "EPA",
       "yf": "MC.PA",
@@ -174,13 +174,13 @@
         "rev": "-3.8%"
       },
       "tv": "EURONEXT:MC",
-      "fv_low": 388.75,
-      "fv_high": 857.55,
-      "fv_mkt": 815.55,
+      "fv_low": 389.84,
+      "fv_high": 860.05,
+      "fv_mkt": 815.43,
       "fv_sto": 895.51,
       "ind": {
         "status": "ok",
-        "ke": 0.0869,
+        "ke": 0.0868,
         "pi": 0.0333,
         "beta": 0.901,
         "fcf_norm": 27.8927,
@@ -193,11 +193,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "ADBE": {
       "name": "Adobe",
-      "fv": 366.28,
+      "fv": 367.11,
       "price": 237.32,
       "curr": "$",
       "ex": "NASDAQ",
@@ -212,13 +212,13 @@
         "rev": "+12.0%"
       },
       "tv": "NASDAQ:ADBE",
-      "fv_low": 319.39,
-      "fv_high": 403.1,
-      "fv_mkt": 477.8,
+      "fv_low": 320.1,
+      "fv_high": 404.01,
+      "fv_mkt": 477.73,
       "fv_sto": 897.11,
       "ind": {
         "status": "ok",
-        "ke": 0.1019,
+        "ke": 0.1017,
         "pi": 0.0331,
         "beta": 1.255,
         "fcf_norm": 22.8215,
@@ -231,11 +231,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "INTU": {
       "name": "Intuit",
-      "fv": 473.87,
+      "fv": 475.07,
       "price": 338.23,
       "curr": "$",
       "ex": "NASDAQ",
@@ -250,13 +250,13 @@
         "rev": "+13.9%"
       },
       "tv": "NASDAQ:INTU",
-      "fv_low": 394.52,
-      "fv_high": 585.89,
-      "fv_mkt": 616.3,
+      "fv_low": 395.51,
+      "fv_high": 587.4,
+      "fv_mkt": 616.21,
       "fv_sto": 893.87,
       "ind": {
         "status": "ok",
-        "ke": 0.0948,
+        "ke": 0.0946,
         "pi": 0.035,
         "beta": 1.086,
         "fcf_norm": 25.1094,
@@ -269,11 +269,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "QCOM": {
       "name": "Qualcomm",
-      "fv": 146.99,
+      "fv": 147.31,
       "price": 171.47,
       "curr": "$",
       "ex": "NASDAQ",
@@ -288,13 +288,13 @@
         "rev": "-2.6%"
       },
       "tv": "NASDAQ:QCOM",
-      "fv_low": 91.48,
-      "fv_high": 183.83,
-      "fv_mkt": 181.04,
+      "fv_low": 91.67,
+      "fv_high": 184.23,
+      "fv_mkt": 181.01,
       "fv_sto": 151.77,
       "ind": {
         "status": "ok",
-        "ke": 0.106,
+        "ke": 0.1059,
         "pi": 0.0358,
         "beta": 1.352,
         "fcf_norm": 9.208,
@@ -307,12 +307,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "STLAM": {
       "name": "Stellantis",
-      "fv": 51.97,
-      "price": 4.02,
+      "fv": 52.09,
+      "price": 3.958,
       "curr": "€",
       "ex": "MIL",
       "yf": "STLAM.MI",
@@ -327,12 +327,12 @@
       },
       "tv": "MIL:STLAM",
       "fv_low": null,
-      "fv_high": 77.79,
-      "fv_mkt": 68.59,
+      "fv_high": 77.98,
+      "fv_mkt": 68.58,
       "fv_sto": 17.52,
       "ind": {
         "status": "ok",
-        "ke": 0.09,
+        "ke": 0.0898,
         "pi": 0.0333,
         "beta": 0.973,
         "fcf_norm": 2.3573,
@@ -350,12 +350,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "SAP": {
       "name": "SAP SE",
-      "fv": 120.02,
-      "price": 210.75,
+      "fv": 120.38,
+      "price": 211.65,
       "curr": "€",
       "ex": "XETR",
       "yf": "SAP.DE",
@@ -369,13 +369,13 @@
         "rev": "+7.9%"
       },
       "tv": "XETR:SAP",
-      "fv_low": 74.81,
-      "fv_high": 168.35,
-      "fv_mkt": 172.48,
+      "fv_low": 75.02,
+      "fv_high": 168.86,
+      "fv_mkt": 172.45,
       "fv_sto": 157.01,
       "ind": {
         "status": "ok",
-        "ke": 0.0837,
+        "ke": 0.0835,
         "pi": 0.0333,
         "beta": 0.824,
         "fcf_norm": 5.3078,
@@ -388,11 +388,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "AAPL": {
       "name": "Apple Inc.",
-      "fv": 154.58,
+      "fv": 154.99,
       "price": 350.69,
       "curr": "$",
       "ex": "NASDAQ",
@@ -407,13 +407,13 @@
         "rev": "+15.1%"
       },
       "tv": "NASDAQ:AAPL",
-      "fv_low": 135.11,
-      "fv_high": 170.53,
-      "fv_mkt": 199.65,
+      "fv_low": 135.47,
+      "fv_high": 170.98,
+      "fv_mkt": 199.62,
       "fv_sto": 226.3,
       "ind": {
         "status": "ok",
-        "ke": 0.095,
+        "ke": 0.0948,
         "pi": 0.0358,
         "beta": 1.09,
         "fcf_norm": 8.3585,
@@ -426,11 +426,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "MSFT": {
       "name": "Microsoft",
-      "fv": 251.46,
+      "fv": 252.11,
       "price": 545.18,
       "curr": "$",
       "ex": "NASDAQ",
@@ -445,13 +445,13 @@
         "rev": "+17.9%"
       },
       "tv": "NASDAQ:MSFT",
-      "fv_low": 170.14,
-      "fv_high": 275.73,
-      "fv_mkt": 327.67,
+      "fv_low": 170.58,
+      "fv_high": 276.45,
+      "fv_mkt": 327.62,
       "fv_sto": 494.14,
       "ind": {
         "status": "ok",
-        "ke": 0.095,
+        "ke": 0.0949,
         "pi": 0.0351,
         "beta": 1.092,
         "fcf_norm": 13.6348,
@@ -466,11 +466,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "AMZN": {
       "name": "Amazon",
-      "fv": 66.83,
+      "fv": 66.96,
       "price": 266.93,
       "curr": "$",
       "ex": "NASDAQ",
@@ -486,12 +486,12 @@
       },
       "tv": "NASDAQ:AMZN",
       "fv_low": null,
-      "fv_high": 91.19,
-      "fv_mkt": 83.81,
+      "fv_high": 91.37,
+      "fv_mkt": 83.8,
       "fv_sto": 227.82,
       "ind": {
         "status": "ok",
-        "ke": 0.1037,
+        "ke": 0.1035,
         "pi": 0.0333,
         "beta": 1.296,
         "fcf_norm": 3.7036,
@@ -509,11 +509,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "NVDA": {
       "name": "Nvidia",
-      "fv": 37.57,
+      "fv": 37.64,
       "price": 178.67,
       "curr": "$",
       "ex": "NASDAQ",
@@ -528,13 +528,13 @@
         "rev": "+83.4%"
       },
       "tv": "NASDAQ:NVDA",
-      "fv_low": 19.78,
-      "fv_high": 56.02,
-      "fv_mkt": 44.94,
+      "fv_low": 19.81,
+      "fv_high": 56.11,
+      "fv_mkt": 44.93,
       "fv_sto": 259.29,
       "ind": {
         "status": "ok",
-        "ke": 0.121,
+        "ke": 0.1209,
         "pi": 0.0342,
         "beta": 1.707,
         "fcf_norm": 2.7321,
@@ -547,12 +547,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "A2A": {
       "name": "A2A S.p.A.",
-      "fv": 8.43,
-      "price": 2.432,
+      "fv": 8.46,
+      "price": 2.44,
       "curr": "€",
       "ex": "MIL",
       "yf": "A2A.MI",
@@ -560,13 +560,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "MIL:A2A",
-      "fv_low": 3.85,
-      "fv_high": 15.75,
+      "fv_low": 3.87,
+      "fv_high": 15.82,
       "fv_mkt": 13.77,
       "fv_sto": 2.23,
       "ind": {
         "status": "ok",
-        "ke": 0.0728,
+        "ke": 0.0727,
         "pi": 0.0333,
         "beta": 0.567,
         "fcf_norm": 0.2945,
@@ -581,7 +581,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "11.2",
         "eps": "0.22",
@@ -591,7 +591,7 @@
     },
     "ADM": {
       "name": "Archer-Daniels",
-      "fv": 61.41,
+      "fv": 61.6,
       "price": 69.84,
       "curr": "$",
       "ex": "NYSE",
@@ -601,12 +601,12 @@
       "updated": "2026-11-10",
       "tv": "NYSE:ADM",
       "fv_low": null,
-      "fv_high": 275.86,
-      "fv_mkt": 92.02,
+      "fv_high": 276.87,
+      "fv_mkt": 92,
       "fv_sto": 52.13,
       "ind": {
         "status": "ok",
-        "ke": 0.075,
+        "ke": 0.0748,
         "pi": 0.0333,
         "beta": 0.618,
         "fcf_norm": 2.0581,
@@ -623,7 +623,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "13.6",
         "eps": "5.13",
@@ -633,7 +633,7 @@
     },
     "ADP": {
       "name": "Auto Data Proc.",
-      "fv": 245.48,
+      "fv": 246.27,
       "price": 302.06,
       "curr": "$",
       "ex": "NASDAQ",
@@ -642,13 +642,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NASDAQ:ADP",
-      "fv_low": 193.65,
-      "fv_high": 299.08,
-      "fv_mkt": 344.29,
+      "fv_low": 194.27,
+      "fv_high": 300.05,
+      "fv_mkt": 344.24,
       "fv_sto": 333.56,
       "ind": {
         "status": "ok",
-        "ke": 0.0833,
+        "ke": 0.0831,
         "pi": 0.0351,
         "beta": 0.813,
         "fcf_norm": 10.702,
@@ -661,7 +661,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "26.8",
         "eps": "11.28",
@@ -671,7 +671,7 @@
     },
     "ADSK": {
       "name": "Autodesk Inc.",
-      "fv": 178.36,
+      "fv": 178.73,
       "price": 263.35,
       "curr": "$",
       "ex": "NASDAQ",
@@ -681,12 +681,12 @@
       "updated": "2026-11-10",
       "tv": "NASDAQ:ADSK",
       "fv_low": null,
-      "fv_high": 244.4,
-      "fv_mkt": 224.56,
+      "fv_high": 244.93,
+      "fv_mkt": 224.52,
       "fv_sto": 490.77,
       "ind": {
         "status": "ok",
-        "ke": 0.1025,
+        "ke": 0.1024,
         "pi": 0.0342,
         "beta": 1.27,
         "fcf_norm": 10.2027,
@@ -701,7 +701,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "34.1",
         "eps": "7.72",
@@ -711,7 +711,7 @@
     },
     "AMAT": {
       "name": "Applied Materials",
-      "fv": 110.41,
+      "fv": 110.6,
       "price": 370.55,
       "curr": "$",
       "ex": "NASDAQ",
@@ -720,13 +720,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NASDAQ:AMAT",
-      "fv_low": 99.13,
-      "fv_high": 151.64,
-      "fv_mkt": 136.36,
+      "fv_low": 99.31,
+      "fv_high": 151.92,
+      "fv_mkt": 136.34,
       "fv_sto": 179.32,
       "ind": {
         "status": "ok",
-        "ke": 0.1128,
+        "ke": 0.1126,
         "pi": 0.0333,
         "beta": 1.512,
         "fcf_norm": 7.3961,
@@ -739,7 +739,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "32.0",
         "eps": "11.60",
@@ -749,7 +749,7 @@
     },
     "AMD": {
       "name": "AMD",
-      "fv": 27.75,
+      "fv": 27.79,
       "price": 508.58,
       "curr": "$",
       "ex": "NASDAQ",
@@ -759,12 +759,12 @@
       "updated": "2026-11-10",
       "tv": "NASDAQ:AMD",
       "fv_low": null,
-      "fv_high": 64.65,
-      "fv_mkt": 32.24,
+      "fv_high": 64.75,
+      "fv_mkt": 32.23,
       "fv_sto": null,
       "ind": {
         "status": "ok",
-        "ke": 0.1167,
+        "ke": 0.1166,
         "pi": 0.0333,
         "beta": 1.605,
         "fcf_norm": 1.4201,
@@ -779,7 +779,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "110.5",
         "eps": "4.60",
@@ -789,7 +789,7 @@
     },
     "ASML": {
       "name": "ASML Holding",
-      "fv": 367.7,
+      "fv": 368.38,
       "price": 1513.25,
       "curr": "$",
       "ex": "NASDAQ",
@@ -798,13 +798,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NASDAQ:ASML",
-      "fv_low": 197.95,
-      "fv_high": 757.25,
-      "fv_mkt": 456.47,
+      "fv_low": 198.28,
+      "fv_high": 758.73,
+      "fv_mkt": 456.41,
       "fv_sto": 1249.48,
       "ind": {
         "status": "ok",
-        "ke": 0.1111,
+        "ke": 0.111,
         "pi": 0.0333,
         "beta": 1.473,
         "fcf_norm": 24.1765,
@@ -817,7 +817,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "37.3",
         "eps": "40.60",
@@ -827,7 +827,7 @@
     },
     "AXP": {
       "name": "American Express",
-      "fv": 512.11,
+      "fv": 513.24,
       "price": 324.31,
       "curr": "$",
       "ex": "NYSE",
@@ -836,13 +836,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:AXP",
-      "fv_low": 276.38,
-      "fv_high": 750.61,
-      "fv_mkt": 666.18,
+      "fv_low": 276.92,
+      "fv_high": 752.34,
+      "fv_mkt": 666.08,
       "fv_sto": 263.27,
       "ind": {
         "status": "ok",
-        "ke": 0.0971,
+        "ke": 0.097,
         "pi": 0.0333,
         "beta": 1.142,
         "fcf_norm": 27.0212,
@@ -855,7 +855,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "18.3",
         "eps": "17.76",
@@ -865,7 +865,7 @@
     },
     "BAC": {
       "name": "Bank of America",
-      "fv": 103.77,
+      "fv": 104.04,
       "price": 50.55,
       "curr": "$",
       "ex": "NYSE",
@@ -875,12 +875,12 @@
       "updated": "2026-11-10",
       "tv": "NYSE:BAC",
       "fv_low": null,
-      "fv_high": 309.64,
-      "fv_mkt": 141.49,
+      "fv_high": 310.46,
+      "fv_mkt": 141.47,
       "fv_sto": 52.19,
       "ind": {
         "status": "ok",
-        "ke": 0.0942,
+        "ke": 0.094,
         "pi": 0.0333,
         "beta": 1.071,
         "fcf_norm": 5.9358,
@@ -896,7 +896,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "12.0",
         "eps": "4.20",
@@ -906,8 +906,8 @@
     },
     "BAYN": {
       "name": "Bayer AG",
-      "fv": 88.13,
-      "price": 55.58,
+      "fv": 88.45,
+      "price": 56.62,
       "curr": "€",
       "ex": "XETR",
       "yf": "BAYN.DE",
@@ -915,13 +915,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "XETR:BAYN",
-      "fv_low": 43.27,
-      "fv_high": 213.79,
-      "fv_mkt": 141.66,
+      "fv_low": 43.41,
+      "fv_high": 214.63,
+      "fv_mkt": 141.64,
       "fv_sto": 44.74,
       "ind": {
         "status": "ok",
-        "ke": 0.0726,
+        "ke": 0.0724,
         "pi": 0.0333,
         "beta": 0.561,
         "fcf_norm": 3.0866,
@@ -937,7 +937,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "N/D",
         "eps": "-1.47",
@@ -947,8 +947,8 @@
     },
     "BATS": {
       "name": "Brit. Am. Tobacco",
-      "fv": 13474.67,
-      "price": 4567.0,
+      "fv": 13588.31,
+      "price": 4477,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
@@ -956,15 +956,15 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "LSE:BATS",
-      "fv_low": 7746.64,
-      "fv_high": 14830.86,
-      "fv_mkt": 19617.7,
+      "fv_low": 7811.55,
+      "fv_high": 14956.03,
+      "fv_mkt": 19614.73,
       "fv_sto": 4110.36,
       "ind": {
         "status": "ok",
-        "ke": 0.062,
+        "ke": 0.0618,
         "pi": 0.0333,
-        "beta": 0.312,
+        "beta": 0.31,
         "fcf_norm": 361.0556,
         "cassa_az": 115.1877,
         "g_hist": 0.043,
@@ -979,7 +979,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "15.4",
         "eps": "290.80",
@@ -989,7 +989,7 @@
     },
     "BC": {
       "name": "Brunswick Corp",
-      "fv": 73.48,
+      "fv": 73.66,
       "price": 79.68,
       "curr": "$",
       "ex": "NYSE",
@@ -998,13 +998,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:BC",
-      "fv_low": 43.31,
-      "fv_high": 194.88,
-      "fv_mkt": 97.56,
+      "fv_low": 43.41,
+      "fv_high": 195.37,
+      "fv_mkt": 97.55,
       "fv_sto": 115.3,
       "ind": {
         "status": "ok",
-        "ke": 0.0963,
+        "ke": 0.0961,
         "pi": 0.0333,
         "beta": 1.122,
         "fcf_norm": 4.3537,
@@ -1019,7 +1019,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "24.7",
         "eps": "3.23",
@@ -1039,12 +1039,12 @@
       "updated": "2026-11-10",
       "tv": "NYSE:BG",
       "fv_low": null,
-      "fv_high": 441.77,
+      "fv_high": 443.68,
       "fv_mkt": null,
       "fv_sto": null,
       "ind": {
         "status": "fcf_negativo",
-        "ke": 0.0699,
+        "ke": 0.0698,
         "pi": 0.0333,
         "beta": 0.499,
         "fcf_norm": -14.5893,
@@ -1061,7 +1061,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "17.0",
         "eps": "5.94",
@@ -1071,8 +1071,8 @@
     },
     "BRE": {
       "name": "Brembo",
-      "fv": 14.79,
-      "price": 9.9,
+      "fv": 14.84,
+      "price": 10,
       "curr": "€",
       "ex": "MIL",
       "yf": "BRE.MI",
@@ -1080,13 +1080,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "MIL:BRE",
-      "fv_low": 5.46,
-      "fv_high": 20.4,
+      "fv_low": 5.48,
+      "fv_high": 20.46,
       "fv_mkt": 20.83,
       "fv_sto": 14.56,
       "ind": {
         "status": "ok",
-        "ke": 0.0839,
+        "ke": 0.0837,
         "pi": 0.0333,
         "beta": 0.828,
         "fcf_norm": 0.6545,
@@ -1101,7 +1101,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "13.9",
         "eps": "0.72",
@@ -1111,7 +1111,7 @@
     },
     "BRK.B": {
       "name": "Berkshire Hath.",
-      "fv": 544.76,
+      "fv": 546.04,
       "price": 575.25,
       "curr": "$",
       "ex": "NYSE",
@@ -1120,13 +1120,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:BRK.B",
-      "fv_low": 303.39,
-      "fv_high": 757.24,
-      "fv_mkt": 739.74,
+      "fv_low": 303.83,
+      "fv_high": 759.26,
+      "fv_mkt": 739.65,
       "fv_sto": 411.92,
       "ind": {
         "status": "ok",
-        "ke": 0.0797,
+        "ke": 0.0795,
         "pi": 0.0333,
         "beta": 0.729,
         "fcf_norm": 16.1209,
@@ -1142,7 +1142,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "16.1",
         "eps": "35.83",
@@ -1152,7 +1152,7 @@
     },
     "CAT": {
       "name": "Caterpillar",
-      "fv": 256.88,
+      "fv": 257.53,
       "price": 598.88,
       "curr": "$",
       "ex": "NYSE",
@@ -1161,13 +1161,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:CAT",
-      "fv_low": 194.69,
-      "fv_high": 407.13,
-      "fv_mkt": 347.29,
+      "fv_low": 195.17,
+      "fv_high": 408.19,
+      "fv_mkt": 347.24,
       "fv_sto": 377.76,
       "ind": {
         "status": "ok",
-        "ke": 0.0925,
+        "ke": 0.0924,
         "pi": 0.0333,
         "beta": 1.033,
         "fcf_norm": 13.3651,
@@ -1182,7 +1182,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "23.5",
         "eps": "25.49",
@@ -1192,7 +1192,7 @@
     },
     "CE": {
       "name": "Celanese",
-      "fv": 201.81,
+      "fv": 202.3,
       "price": 48.75,
       "curr": "$",
       "ex": "NYSE",
@@ -1207,13 +1207,13 @@
         "rev": "+1.4%"
       },
       "tv": "NYSE:CE",
-      "fv_low": 89.67,
-      "fv_high": 271.01,
-      "fv_mkt": 270.77,
+      "fv_low": 89.88,
+      "fv_high": 271.69,
+      "fv_mkt": 270.73,
       "fv_sto": 315.83,
       "ind": {
         "status": "ok",
-        "ke": 0.0941,
+        "ke": 0.0939,
         "pi": 0.0333,
         "beta": 1.069,
         "fcf_norm": 11.4871,
@@ -1229,11 +1229,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "CNC": {
       "name": "Centene",
-      "fv": 228.33,
+      "fv": 229.17,
       "price": 68.54,
       "curr": "$",
       "ex": "NYSE",
@@ -1243,12 +1243,12 @@
       "updated": "2026-11-10",
       "tv": "NYSE:CNC",
       "fv_low": null,
-      "fv_high": 444.99,
-      "fv_mkt": 360.49,
+      "fv_high": 446.63,
+      "fv_mkt": 360.43,
       "fv_sto": 109.56,
       "ind": {
         "status": "ok",
-        "ke": 0.0769,
+        "ke": 0.0767,
         "pi": 0.0333,
         "beta": 0.662,
         "fcf_norm": 9.9263,
@@ -1263,7 +1263,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "23.5",
         "eps": "2.92",
@@ -1273,7 +1273,7 @@
     },
     "COST": {
       "name": "Costco Wholesale",
-      "fv": 470.56,
+      "fv": 471.98,
       "price": 1066.18,
       "curr": "$",
       "ex": "NASDAQ",
@@ -1282,13 +1282,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NASDAQ:COST",
-      "fv_low": 283.94,
-      "fv_high": 603.09,
-      "fv_mkt": 642.14,
+      "fv_low": 284.74,
+      "fv_high": 604.95,
+      "fv_mkt": 642.05,
       "fv_sto": 991.33,
       "ind": {
         "status": "ok",
-        "ke": 0.0833,
+        "ke": 0.0831,
         "pi": 0.0355,
         "beta": 0.815,
         "fcf_norm": 18.9527,
@@ -1301,7 +1301,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "51.4",
         "eps": "20.76",
@@ -1311,8 +1311,8 @@
     },
     "CPR": {
       "name": "Campari",
-      "fv": 7.8,
-      "price": 6.64,
+      "fv": 7.82,
+      "price": 6.718,
       "curr": "€",
       "ex": "MIL",
       "yf": "CPR.MI",
@@ -1321,12 +1321,12 @@
       "updated": "2026-11-10",
       "tv": "MIL:CPR",
       "fv_low": null,
-      "fv_high": 10.61,
+      "fv_high": 10.65,
       "fv_mkt": 12.25,
       "fv_sto": 11.02,
       "ind": {
         "status": "ok",
-        "ke": 0.075,
+        "ke": 0.0749,
         "pi": 0.0333,
         "beta": 0.62,
         "fcf_norm": 0.2828,
@@ -1343,7 +1343,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "30.0",
         "eps": "0.22",
@@ -1353,7 +1353,7 @@
     },
     "CRM": {
       "name": "Salesforce",
-      "fv": 159.76,
+      "fv": 160.11,
       "price": 214.94,
       "curr": "$",
       "ex": "NYSE",
@@ -1362,13 +1362,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:CRM",
-      "fv_low": 147.4,
-      "fv_high": 256,
-      "fv_mkt": 203.12,
+      "fv_low": 147.72,
+      "fv_high": 256.58,
+      "fv_mkt": 203.1,
       "fv_sto": 409.34,
       "ind": {
         "status": "ok",
-        "ke": 0.102,
+        "ke": 0.1018,
         "pi": 0.0342,
         "beta": 1.257,
         "fcf_norm": 9.4083,
@@ -1381,7 +1381,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "19.6",
         "eps": "10.97",
@@ -1391,7 +1391,7 @@
     },
     "CVX": {
       "name": "Chevron",
-      "fv": 243.32,
+      "fv": 244.25,
       "price": 210.78,
       "curr": "$",
       "ex": "NYSE",
@@ -1401,12 +1401,12 @@
       "updated": "2026-11-10",
       "tv": "NYSE:CVX",
       "fv_low": null,
-      "fv_high": 424.75,
-      "fv_mkt": 394.3,
+      "fv_high": 426.39,
+      "fv_mkt": 394.24,
       "fv_sto": 439.66,
       "ind": {
         "status": "ok",
-        "ke": 0.0742,
+        "ke": 0.074,
         "pi": 0.0333,
         "beta": 0.598,
         "fcf_norm": 9.6344,
@@ -1421,7 +1421,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "15.4",
         "eps": "13.67",
@@ -1431,7 +1431,7 @@
     },
     "DDOG": {
       "name": "Datadog",
-      "fv": 47.63,
+      "fv": 47.69,
       "price": 179.62,
       "curr": "$",
       "ex": "NASDAQ",
@@ -1440,13 +1440,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NASDAQ:DDOG",
-      "fv_low": 15.18,
-      "fv_high": 55.99,
+      "fv_low": 15.19,
+      "fv_high": 56.07,
       "fv_mkt": 56.05,
       "fv_sto": 236.02,
       "ind": {
         "status": "ok",
-        "ke": 0.1121,
+        "ke": 0.1119,
         "pi": 0.0339,
         "beta": 1.495,
         "fcf_norm": 2.4389,
@@ -1459,7 +1459,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "251.7",
         "eps": "0.71",
@@ -1469,8 +1469,8 @@
     },
     "ENI": {
       "name": "Eni S.p.A.",
-      "fv": 56.17,
-      "price": 25.05,
+      "fv": 56.41,
+      "price": 24.98,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENI.MI",
@@ -1479,12 +1479,12 @@
       "updated": "2026-11-10",
       "tv": "MIL:ENI",
       "fv_low": null,
-      "fv_high": 92.49,
-      "fv_mkt": 91.57,
+      "fv_high": 92.9,
+      "fv_mkt": 91.56,
       "fv_sto": 48.77,
       "ind": {
         "status": "ok",
-        "ke": 0.0671,
+        "ke": 0.0669,
         "pi": 0.0333,
         "beta": 0.431,
         "fcf_norm": 1.6703,
@@ -1500,7 +1500,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "9.8",
         "eps": "2.56",
@@ -1510,8 +1510,8 @@
     },
     "ENEL": {
       "name": "Enel S.p.A.",
-      "fv": 8.39,
-      "price": 9.693,
+      "fv": 8.42,
+      "price": 9.861,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENEL.MI",
@@ -1520,12 +1520,12 @@
       "updated": "2026-11-10",
       "tv": "MIL:ENEL",
       "fv_low": null,
-      "fv_high": 14.66,
+      "fv_high": 14.72,
       "fv_mkt": 13.77,
       "fv_sto": 5.93,
       "ind": {
         "status": "ok",
-        "ke": 0.0726,
+        "ke": 0.0724,
         "pi": 0.0333,
         "beta": 0.562,
         "fcf_norm": 0.3108,
@@ -1542,7 +1542,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "21.7",
         "eps": "0.45",
@@ -1552,8 +1552,8 @@
     },
     "G": {
       "name": "Assic. Generali",
-      "fv": 256.58,
-      "price": 43.73,
+      "fv": 257.69,
+      "price": 44.17,
       "curr": "€",
       "ex": "MIL",
       "yf": "G.MI",
@@ -1561,13 +1561,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "MIL:G",
-      "fv_low": 27.03,
-      "fv_high": 354.88,
-      "fv_mkt": 376.48,
+      "fv_low": 27.15,
+      "fv_high": 356.41,
+      "fv_mkt": 376.42,
       "fv_sto": 16.84,
       "ind": {
         "status": "ok",
-        "ke": 0.0744,
+        "ke": 0.0743,
         "pi": 0.0373,
         "beta": 0.605,
         "fcf_norm": 9.4665,
@@ -1580,7 +1580,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "15.0",
         "eps": "2.94",
@@ -1590,7 +1590,7 @@
     },
     "IBM": {
       "name": "IBM",
-      "fv": 271.2,
+      "fv": 272.03,
       "price": 246.11,
       "curr": "$",
       "ex": "NYSE",
@@ -1599,13 +1599,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:IBM",
-      "fv_low": 232.69,
-      "fv_high": 430.7,
-      "fv_mkt": 394.13,
+      "fv_low": 233.4,
+      "fv_high": 432.04,
+      "fv_mkt": 394.07,
       "fv_sto": 164.4,
       "ind": {
         "status": "ok",
-        "ke": 0.0833,
+        "ke": 0.0831,
         "pi": 0.0333,
         "beta": 0.814,
         "fcf_norm": 12.9431,
@@ -1620,7 +1620,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "21.0",
         "eps": "11.72",
@@ -1630,7 +1630,7 @@
     },
     "INTC": {
       "name": "Intel",
-      "fv": 34.7,
+      "fv": 34.74,
       "price": 59.37,
       "curr": "$",
       "ex": "NASDAQ",
@@ -1640,12 +1640,12 @@
       "updated": "2026-11-10",
       "tv": "NASDAQ:INTC",
       "fv_low": null,
-      "fv_high": 55,
+      "fv_high": 55.09,
       "fv_mkt": 40.94,
       "fv_sto": 27.11,
       "ind": {
         "status": "ok",
-        "ke": 0.1098,
+        "ke": 0.1096,
         "pi": 0.0333,
         "beta": 1.441,
         "fcf_norm": 1.739,
@@ -1662,7 +1662,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "N/D",
         "eps": "-2.39",
@@ -1672,7 +1672,7 @@
     },
     "IP": {
       "name": "International Paper",
-      "fv": 55.84,
+      "fv": 56,
       "price": 35.53,
       "curr": "$",
       "ex": "NYSE",
@@ -1682,12 +1682,12 @@
       "updated": "2026-11-10",
       "tv": "NYSE:IP",
       "fv_low": null,
-      "fv_high": 123.93,
-      "fv_mkt": 79.89,
+      "fv_high": 124.3,
+      "fv_mkt": 79.88,
       "fv_sto": 38.78,
       "ind": {
         "status": "ok",
-        "ke": 0.0857,
+        "ke": 0.0855,
         "pi": 0.0333,
         "beta": 0.871,
         "fcf_norm": 2.8355,
@@ -1704,7 +1704,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "N/D",
         "eps": "-6.47",
@@ -1714,8 +1714,8 @@
     },
     "ISP": {
       "name": "Intesa Sanpaolo",
-      "fv": 18.31,
-      "price": 6.177,
+      "fv": 18.37,
+      "price": 6.353,
       "curr": "€",
       "ex": "MIL",
       "yf": "ISP.MI",
@@ -1724,12 +1724,12 @@
       "updated": "2026-11-10",
       "tv": "MIL:ISP",
       "fv_low": null,
-      "fv_high": 68.25,
+      "fv_high": 68.47,
       "fv_mkt": 27.15,
       "fv_sto": 3.35,
       "ind": {
         "status": "ok",
-        "ke": 0.0826,
+        "ke": 0.0825,
         "pi": 0.0333,
         "beta": 0.798,
         "fcf_norm": 0.8489,
@@ -1745,7 +1745,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "11.5",
         "eps": "0.55",
@@ -1755,8 +1755,8 @@
     },
     "LDO": {
       "name": "Leonardo S.p.A.",
-      "fv": 24.32,
-      "price": 48.07,
+      "fv": 24.41,
+      "price": 50.43,
       "curr": "€",
       "ex": "MIL",
       "yf": "LDO.MI",
@@ -1765,12 +1765,12 @@
       "updated": "2026-11-10",
       "tv": "MIL:LDO",
       "fv_low": null,
-      "fv_high": 50.13,
+      "fv_high": 50.33,
       "fv_mkt": 40.08,
       "fv_sto": 65.21,
       "ind": {
         "status": "ok",
-        "ke": 0.072,
+        "ke": 0.0718,
         "pi": 0.0333,
         "beta": 0.547,
         "fcf_norm": 0.8225,
@@ -1787,7 +1787,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "25.8",
         "eps": "1.95",
@@ -1797,7 +1797,7 @@
     },
     "LULU": {
       "name": "Lululemon",
-      "fv": 224.67,
+      "fv": 225.22,
       "price": 112.53,
       "curr": "$",
       "ex": "NASDAQ",
@@ -1812,13 +1812,13 @@
         "rev": "+1.7%"
       },
       "tv": "NASDAQ:LULU",
-      "fv_low": 79.05,
-      "fv_high": 296.62,
-      "fv_mkt": 295.22,
+      "fv_low": 79.22,
+      "fv_high": 297.37,
+      "fv_mkt": 295.17,
       "fv_sto": 636.34,
       "ind": {
         "status": "ok",
-        "ke": 0.0956,
+        "ke": 0.0955,
         "pi": 0.0342,
         "beta": 1.106,
         "fcf_norm": 12.2846,
@@ -1833,11 +1833,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "MA": {
       "name": "Mastercard",
-      "fv": 342.56,
+      "fv": 343.53,
       "price": 655.81,
       "curr": "$",
       "ex": "NYSE",
@@ -1846,13 +1846,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:MA",
-      "fv_low": 303.97,
-      "fv_high": 393.06,
-      "fv_mkt": 482.45,
+      "fv_low": 304.84,
+      "fv_high": 394.19,
+      "fv_mkt": 482.38,
       "fv_sto": 693.74,
       "ind": {
         "status": "ok",
-        "ke": 0.0875,
+        "ke": 0.0874,
         "pi": 0.0333,
         "beta": 0.914,
         "fcf_norm": 16.8355,
@@ -1865,7 +1865,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "34.3",
         "eps": "19.12",
@@ -1875,8 +1875,8 @@
     },
     "MONC": {
       "name": "Moncler",
-      "fv": 57.85,
-      "price": 45.37,
+      "fv": 58.01,
+      "price": 44.79,
       "curr": "€",
       "ex": "MIL",
       "yf": "MONC.MI",
@@ -1884,13 +1884,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "MIL:MONC",
-      "fv_low": 45.68,
-      "fv_high": 84.81,
-      "fv_mkt": 80.99,
+      "fv_low": 45.81,
+      "fv_high": 85.06,
+      "fv_mkt": 80.98,
       "fv_sto": 98.33,
       "ind": {
         "status": "ok",
-        "ke": 0.0885,
+        "ke": 0.0883,
         "pi": 0.0333,
         "beta": 0.937,
         "fcf_norm": 2.9023,
@@ -1903,7 +1903,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "19.1",
         "eps": "2.35",
@@ -1913,7 +1913,7 @@
     },
     "OXY": {
       "name": "Occidental Petroleum",
-      "fv": 76.45,
+      "fv": 76.74,
       "price": 55.76,
       "curr": "$",
       "ex": "NYSE",
@@ -1922,13 +1922,13 @@
       "videoID": null,
       "updated": "2026-11-10",
       "tv": "NYSE:OXY",
-      "fv_low": 24.16,
-      "fv_high": 140.35,
-      "fv_mkt": 122.34,
+      "fv_low": 24.24,
+      "fv_high": 140.88,
+      "fv_mkt": 122.32,
       "fv_sto": 54.7,
       "ind": {
         "status": "ok",
-        "ke": 0.0748,
+        "ke": 0.0746,
         "pi": 0.0333,
         "beta": 0.613,
         "fcf_norm": 2.8659,
@@ -1941,7 +1941,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "fund": {
         "pe": "16.5",
         "eps": "3.38",
@@ -1951,7 +1951,7 @@
     },
     "TTD": {
       "name": "The Trade Desk",
-      "fv": 26.81,
+      "fv": 26.86,
       "price": 14.93,
       "curr": "$",
       "ex": "NASDAQ",
@@ -1966,13 +1966,13 @@
         "rev": "+11.6%"
       },
       "tv": "NASDAQ:TTD",
-      "fv_low": 6.25,
-      "fv_high": 37.67,
-      "fv_mkt": 33.58,
+      "fv_low": 6.26,
+      "fv_high": 37.74,
+      "fv_mkt": 33.57,
       "fv_sto": 214.46,
       "ind": {
         "status": "ok",
-        "ke": 0.1075,
+        "ke": 0.1073,
         "pi": 0.0333,
         "beta": 1.386,
         "fcf_norm": 1.6587,
@@ -1985,11 +1985,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "TRI": {
       "name": "Thomson Reuters",
-      "fv": 101.58,
+      "fv": 101.92,
       "price": 108.3,
       "curr": "$",
       "ex": "NASDAQ",
@@ -2004,13 +2004,13 @@
         "rev": "+3.6%"
       },
       "tv": "NASDAQ:TRI",
-      "fv_low": 15.74,
-      "fv_high": 139.31,
-      "fv_mkt": 153.43,
+      "fv_low": 15.78,
+      "fv_high": 139.78,
+      "fv_mkt": 153.41,
       "fv_sto": 222.7,
       "ind": {
         "status": "ok",
-        "ke": 0.0797,
+        "ke": 0.0796,
         "pi": 0.0333,
         "beta": 0.73,
         "fcf_norm": 4.564,
@@ -2023,11 +2023,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "PFE": {
       "name": "Pfizer",
-      "fv": 73.25,
+      "fv": 73.52,
       "price": 29.23,
       "curr": "$",
       "ex": "NYSE",
@@ -2042,13 +2042,13 @@
         "rev": "+1.3%"
       },
       "tv": "NYSE:PFE",
-      "fv_low": 24.25,
-      "fv_high": 101.83,
-      "fv_mkt": 116.43,
+      "fv_low": 24.33,
+      "fv_high": 102.21,
+      "fv_mkt": 116.42,
       "fv_sto": 37.05,
       "ind": {
         "status": "ok",
-        "ke": 0.0754,
+        "ke": 0.0752,
         "pi": 0.0333,
         "beta": 0.627,
         "fcf_norm": 2.9715,
@@ -2063,11 +2063,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "BSX": {
       "name": "Boston Scientific",
-      "fv": 34.62,
+      "fv": 34.73,
       "price": 44.02,
       "curr": "$",
       "ex": "NYSE",
@@ -2083,12 +2083,12 @@
       },
       "tv": "NYSE:BSX",
       "fv_low": null,
-      "fv_high": 53.11,
-      "fv_mkt": 50.19,
+      "fv_high": 53.27,
+      "fv_mkt": 50.18,
       "fv_sto": 86.46,
       "ind": {
         "status": "ok",
-        "ke": 0.0847,
+        "ke": 0.0846,
         "pi": 0.0333,
         "beta": 0.848,
         "fcf_norm": 1.6518,
@@ -2104,11 +2104,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "BLDR": {
       "name": "Builders FirstSource",
-      "fv": 116.59,
+      "fv": 116.86,
       "price": 65.97,
       "curr": "$",
       "ex": "NYSE",
@@ -2123,13 +2123,13 @@
         "rev": "-8.3%"
       },
       "tv": "NYSE:BLDR",
-      "fv_low": 35.37,
-      "fv_high": 303.47,
-      "fv_mkt": 153.97,
+      "fv_low": 35.45,
+      "fv_high": 304.19,
+      "fv_mkt": 153.95,
       "fv_sto": 275.67,
       "ind": {
         "status": "ok",
-        "ke": 0.1003,
+        "ke": 0.1001,
         "pi": 0.0333,
         "beta": 1.216,
         "fcf_norm": 7.7617,
@@ -2144,11 +2144,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "CPRT": {
       "name": "Copart",
-      "fv": 26.2,
+      "fv": 26.26,
       "price": 32.45,
       "curr": "$",
       "ex": "NASDAQ",
@@ -2163,13 +2163,13 @@
         "rev": "+0.4%"
       },
       "tv": "NASDAQ:CPRT",
-      "fv_low": 17.75,
-      "fv_high": 31.21,
+      "fv_low": 17.79,
+      "fv_high": 31.29,
       "fv_mkt": 34.04,
       "fv_sto": 65.87,
       "ind": {
         "status": "ok",
-        "ke": 0.0887,
+        "ke": 0.0885,
         "pi": 0.035,
         "beta": 0.942,
         "fcf_norm": 1.0825,
@@ -2184,12 +2184,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "EL": {
       "name": "EssilorLuxottica",
-      "fv": 201.21,
-      "price": 193.8,
+      "fv": 201.86,
+      "price": 190.6,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "EL.PA",
@@ -2203,13 +2203,13 @@
         "rev": "+7.5%"
       },
       "tv": "EURONEXT:EL",
-      "fv_low": 160.08,
-      "fv_high": 252.17,
-      "fv_mkt": 298.61,
+      "fv_low": 160.6,
+      "fv_high": 252.99,
+      "fv_mkt": 298.56,
       "fv_sto": 221.19,
       "ind": {
         "status": "ok",
-        "ke": 0.0818,
+        "ke": 0.0816,
         "pi": 0.0333,
         "beta": 0.779,
         "fcf_norm": 8.9833,
@@ -2222,11 +2222,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "BR": {
       "name": "Broadridge Financial",
-      "fv": 175.98,
+      "fv": 176.53,
       "price": 192.34,
       "curr": "$",
       "ex": "NYSE",
@@ -2241,13 +2241,13 @@
         "rev": "+7.1%"
       },
       "tv": "NYSE:BR",
-      "fv_low": 100.26,
-      "fv_high": 233.92,
-      "fv_mkt": 243.33,
+      "fv_low": 100.57,
+      "fv_high": 234.66,
+      "fv_mkt": 243.29,
       "fv_sto": 216.94,
       "ind": {
         "status": "ok",
-        "ke": 0.0859,
+        "ke": 0.0857,
         "pi": 0.0351,
         "beta": 0.875,
         "fcf_norm": 8.2577,
@@ -2260,11 +2260,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "BF.B": {
       "name": "Brown-Forman B",
-      "fv": 35.9,
+      "fv": 36.03,
       "price": 30.37,
       "curr": "$",
       "ex": "NYSE",
@@ -2279,13 +2279,13 @@
         "rev": "-0.2%"
       },
       "tv": "NYSE:BF.B",
-      "fv_low": 20.33,
-      "fv_high": 44.88,
-      "fv_mkt": 52.3,
+      "fv_low": 20.4,
+      "fv_high": 45.04,
+      "fv_mkt": 52.29,
       "fv_sto": 65.77,
       "ind": {
         "status": "ok",
-        "ke": 0.0792,
+        "ke": 0.0791,
         "pi": 0.0353,
         "beta": 0.719,
         "fcf_norm": 1.5425,
@@ -2298,11 +2298,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "PDD": {
       "name": "PDD Holdings",
-      "fv": 352.99,
+      "fv": 353.87,
       "price": 80.5,
       "curr": "$",
       "ex": "NASDAQ",
@@ -2317,13 +2317,13 @@
         "rev": "+13.5%"
       },
       "tv": "NASDAQ:PDD",
-      "fv_low": 196.84,
-      "fv_high": 535.66,
-      "fv_mkt": 494.01,
+      "fv_low": 197.26,
+      "fv_high": 537.07,
+      "fv_mkt": 493.94,
       "fv_sto": 185.09,
       "ind": {
         "status": "ok",
-        "ke": 0.0867,
+        "ke": 0.0865,
         "pi": 0.0319,
         "beta": 0.895,
         "fcf_norm": 15.4506,
@@ -2338,11 +2338,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "FUN": {
       "name": "Six Flags Entertain.",
-      "fv": 47.95,
+      "fv": 48.08,
       "price": 10.76,
       "curr": "$",
       "ex": "NYSE",
@@ -2358,12 +2358,12 @@
       },
       "tv": "NYSE:FUN",
       "fv_low": null,
-      "fv_high": 87.41,
-      "fv_mkt": 65.55,
+      "fv_high": 87.64,
+      "fv_mkt": 65.54,
       "fv_sto": 35.2,
       "ind": {
         "status": "ok",
-        "ke": 0.0911,
+        "ke": 0.0909,
         "pi": 0.0333,
         "beta": 0.999,
         "fcf_norm": 2.613,
@@ -2380,11 +2380,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "FMC": {
       "name": "FMC Corporation",
-      "fv": 53.46,
+      "fv": 53.61,
       "price": 5.41,
       "curr": "$",
       "ex": "NYSE",
@@ -2400,12 +2400,12 @@
       },
       "tv": "NYSE:FMC",
       "fv_low": null,
-      "fv_high": 94.29,
-      "fv_mkt": 74.63,
+      "fv_high": 94.56,
+      "fv_mkt": 74.62,
       "fv_sto": 99.65,
       "ind": {
         "status": "ok",
-        "ke": 0.0856,
+        "ke": 0.0854,
         "pi": 0.0333,
         "beta": 0.869,
         "fcf_norm": 2.4827,
@@ -2422,7 +2422,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "SGBS": {
       "name": "Sprott Gold Miners",
@@ -2460,11 +2460,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "NFLX": {
       "name": "Netflix",
-      "fv": 5.78,
+      "fv": 5.79,
       "price": 63.95,
       "curr": "$",
       "ex": "NASDAQ",
@@ -2480,12 +2480,12 @@
       },
       "tv": "NASDAQ:NFLX",
       "fv_low": null,
-      "fv_high": 36.62,
-      "fv_mkt": 6.98,
+      "fv_high": 36.7,
+      "fv_mkt": 6.97,
       "fv_sto": 46.42,
       "ind": {
         "status": "ok",
-        "ke": 0.1027,
+        "ke": 0.1025,
         "pi": 0.0333,
         "beta": 1.273,
         "fcf_norm": 0.2533,
@@ -2502,12 +2502,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09"
+      "fv_updated": "2026-11-10"
     },
     "RHM": {
       "name": "Rheinmetall AG",
-      "fv": 310.05,
-      "price": 812.7,
+      "fv": 311.24,
+      "price": 845.4,
       "curr": "€",
       "ex": "XETR",
       "yf": "RHM.DE",
@@ -2521,12 +2521,12 @@
       },
       "tv": "XETR:RHM",
       "fv_low": null,
-      "fv_high": 862.92,
-      "fv_mkt": 504.53,
+      "fv_high": 866.32,
+      "fv_mkt": 504.45,
       "fv_sto": 488.28,
       "ind": {
         "status": "ok",
-        "ke": 0.0735,
+        "ke": 0.0733,
         "pi": 0.0333,
         "beta": 0.582,
         "fcf_norm": 11.1813,
@@ -2542,13 +2542,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "GXI": {
       "name": "Gerresheimer AG",
-      "fv": 22.4,
-      "price": 31.2,
+      "fv": 22.46,
+      "price": 31,
       "curr": "€",
       "ex": "XETR",
       "yf": "GXI.DE",
@@ -2562,12 +2562,12 @@
       },
       "tv": "XETR:GXI",
       "fv_low": null,
-      "fv_high": 203.44,
+      "fv_high": 204.05,
       "fv_mkt": 30.35,
       "fv_sto": 33.28,
       "ind": {
         "status": "ok",
-        "ke": 0.0853,
+        "ke": 0.0851,
         "pi": 0.0331,
         "beta": 0.862,
         "fcf_norm": 0.9134,
@@ -2585,12 +2585,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "NOC": {
       "name": "Northrop Grumman",
-      "fv": 628.74,
+      "fv": 631.28,
       "price": 539.07,
       "curr": "$",
       "ex": "NYSE",
@@ -2604,13 +2604,13 @@
         "rev": "+6.5%"
       },
       "tv": "NYSE:NOC",
-      "fv_low": 365.94,
-      "fv_high": 786.64,
-      "fv_mkt": 1061.17,
+      "fv_low": 367.38,
+      "fv_high": 789.85,
+      "fv_mkt": 1061.02,
       "fv_sto": 533.66,
       "ind": {
         "status": "ok",
-        "ke": 0.0713,
+        "ke": 0.0712,
         "pi": 0.0333,
         "beta": 0.532,
         "fcf_norm": 21.5439,
@@ -2626,12 +2626,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "RTX": {
       "name": "RTX Corp",
-      "fv": 122.14,
+      "fv": 122.53,
       "price": 196.31,
       "curr": "$",
       "ex": "NYSE",
@@ -2645,13 +2645,13 @@
         "rev": "+11.6%"
       },
       "tv": "NYSE:RTX",
-      "fv_low": 56.1,
-      "fv_high": 245.31,
-      "fv_mkt": 182.16,
+      "fv_low": 56.27,
+      "fv_high": 246.13,
+      "fv_mkt": 182.14,
       "fv_sto": 113.09,
       "ind": {
         "status": "ok",
-        "ke": 0.0801,
+        "ke": 0.0799,
         "pi": 0.0333,
         "beta": 0.739,
         "fcf_norm": 5.0758,
@@ -2666,12 +2666,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "LMT": {
       "name": "Lockheed Martin",
-      "fv": 815.61,
+      "fv": 818.84,
       "price": 588.19,
       "curr": "$",
       "ex": "NYSE",
@@ -2685,13 +2685,13 @@
         "rev": "+7.9%"
       },
       "tv": "NYSE:LMT",
-      "fv_low": 320.85,
-      "fv_high": 1005.77,
-      "fv_mkt": 1354.46,
+      "fv_low": 322.06,
+      "fv_high": 1009.78,
+      "fv_mkt": 1354.26,
       "fv_sto": 620.78,
       "ind": {
         "status": "ok",
-        "ke": 0.0725,
+        "ke": 0.0724,
         "pi": 0.0333,
         "beta": 0.56,
         "fcf_norm": 30.9316,
@@ -2704,12 +2704,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "GD": {
       "name": "General Dynamics",
-      "fv": 369.81,
+      "fv": 371.05,
       "price": 362.07,
       "curr": "$",
       "ex": "NYSE",
@@ -2723,13 +2723,13 @@
         "rev": "+9.7%"
       },
       "tv": "NYSE:GD",
-      "fv_low": 252.61,
-      "fv_high": 536.13,
-      "fv_mkt": 560.26,
+      "fv_low": 253.44,
+      "fv_high": 537.96,
+      "fv_mkt": 560.18,
       "fv_sto": 327.19,
       "ind": {
         "status": "ok",
-        "ke": 0.079,
+        "ke": 0.0789,
         "pi": 0.0333,
         "beta": 0.713,
         "fcf_norm": 15.1997,
@@ -2742,12 +2742,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "HWM": {
       "name": "Howmet Aerospace",
-      "fv": 6.36,
+      "fv": 6.37,
       "price": 216.24,
       "curr": "$",
       "ex": "NYSE",
@@ -2762,12 +2762,12 @@
       },
       "tv": "NYSE:HWM",
       "fv_low": null,
-      "fv_high": 60.93,
+      "fv_high": 61.09,
       "fv_mkt": 8.2,
       "fv_sto": null,
       "ind": {
         "status": "ok",
-        "ke": 0.0947,
+        "ke": 0.0946,
         "pi": 0.0333,
         "beta": 1.085,
         "fcf_norm": 0.3135,
@@ -2784,13 +2784,13 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "HON": {
       "name": "Honeywell",
-      "fv": 353.1,
-      "price": 229.0,
+      "fv": 354.15,
+      "price": 229,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
@@ -2803,13 +2803,13 @@
         "rev": "-17.4%"
       },
       "tv": "NASDAQ:HON",
-      "fv_low": 287.44,
-      "fv_high": 414.38,
-      "fv_mkt": 508.13,
+      "fv_low": 288.29,
+      "fv_high": 415.63,
+      "fv_mkt": 508.05,
       "fv_sto": 242.92,
       "ind": {
         "status": "ok",
-        "ke": 0.084,
+        "ke": 0.0838,
         "pi": 0.0333,
         "beta": 0.831,
         "fcf_norm": 16.8909,
@@ -2822,12 +2822,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "BA": {
       "name": "Boeing",
-      "fv": 34.27,
+      "fv": 34.29,
       "price": 172.38,
       "curr": "$",
       "ex": "NYSE",
@@ -2842,12 +2842,12 @@
       },
       "tv": "NYSE:BA",
       "fv_low": null,
-      "fv_high": 249.6,
+      "fv_high": 250.16,
       "fv_mkt": 38.03,
       "fv_sto": 19.48,
       "ind": {
         "status": "ok",
-        "ke": 0.0984,
+        "ke": 0.0983,
         "pi": 0.0333,
         "beta": 1.173,
         "fcf_norm": 0.6913,
@@ -2864,12 +2864,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "UNP": {
       "name": "Union Pacific",
-      "fv": 222.72,
+      "fv": 223.44,
       "price": 297.01,
       "curr": "$",
       "ex": "NYSE",
@@ -2883,13 +2883,13 @@
         "rev": "+7.4%"
       },
       "tv": "NYSE:UNP",
-      "fv_low": 182.66,
-      "fv_high": 276.54,
-      "fv_mkt": 331.25,
+      "fv_low": 183.25,
+      "fv_high": 277.44,
+      "fv_mkt": 331.2,
       "fv_sto": 367.01,
       "ind": {
         "status": "ok",
-        "ke": 0.0815,
+        "ke": 0.0813,
         "pi": 0.0333,
         "beta": 0.772,
         "fcf_norm": 9.8519,
@@ -2904,12 +2904,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "UPS": {
       "name": "UPS",
-      "fv": 126.21,
+      "fv": 126.56,
       "price": 110.96,
       "curr": "$",
       "ex": "NYSE",
@@ -2924,12 +2924,12 @@
       },
       "tv": "NYSE:UPS",
       "fv_low": null,
-      "fv_high": 231.3,
-      "fv_mkt": 176.35,
+      "fv_high": 231.96,
+      "fv_mkt": 176.33,
       "fv_sto": 119.26,
       "ind": {
         "status": "ok",
-        "ke": 0.0874,
+        "ke": 0.0873,
         "pi": 0.0333,
         "beta": 0.912,
         "fcf_norm": 6.3838,
@@ -2945,12 +2945,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "FDX": {
       "name": "FedEx",
-      "fv": 294.76,
+      "fv": 295.5,
       "price": 318.84,
       "curr": "$",
       "ex": "NYSE",
@@ -2965,12 +2965,12 @@
       },
       "tv": "NYSE:FDX",
       "fv_low": null,
-      "fv_high": 475.42,
-      "fv_mkt": 383.1,
+      "fv_high": 476.7,
+      "fv_mkt": 383.05,
       "fv_sto": 427.35,
       "ind": {
         "status": "ok",
-        "ke": 0.089,
+        "ke": 0.0888,
         "pi": 0.0352,
         "beta": 0.949,
         "fcf_norm": 12.4916,
@@ -2987,12 +2987,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "DE": {
       "name": "Deere & Company",
-      "fv": 212.65,
+      "fv": 213.18,
       "price": 691.28,
       "curr": "$",
       "ex": "NYSE",
@@ -3007,12 +3007,12 @@
       },
       "tv": "NYSE:DE",
       "fv_low": null,
-      "fv_high": 522.88,
-      "fv_mkt": 291.07,
+      "fv_high": 524.37,
+      "fv_mkt": 291.03,
       "fv_sto": 608.86,
       "ind": {
         "status": "ok",
-        "ke": 0.0853,
+        "ke": 0.0851,
         "pi": 0.0333,
         "beta": 0.862,
         "fcf_norm": 8.5464,
@@ -3029,12 +3029,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "KMI": {
       "name": "Kinder Morgan",
-      "fv": 39.17,
+      "fv": 39.31,
       "price": 30.57,
       "curr": "$",
       "ex": "NYSE",
@@ -3048,13 +3048,13 @@
         "rev": "+12.2%"
       },
       "tv": "NYSE:KMI",
-      "fv_low": 25.67,
-      "fv_high": 55.94,
-      "fv_mkt": 61.65,
+      "fv_low": 25.76,
+      "fv_high": 56.15,
+      "fv_mkt": 61.64,
       "fv_sto": 32.3,
       "ind": {
         "status": "ok",
-        "ke": 0.0768,
+        "ke": 0.0766,
         "pi": 0.0333,
         "beta": 0.661,
         "fcf_norm": 1.5835,
@@ -3069,12 +3069,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "COP": {
       "name": "ConocoPhillips",
-      "fv": 177.87,
+      "fv": 178.5,
       "price": 134.47,
       "curr": "$",
       "ex": "NYSE",
@@ -3089,12 +3089,12 @@
       },
       "tv": "NYSE:COP",
       "fv_low": null,
-      "fv_high": 310.81,
-      "fv_mkt": 276.93,
+      "fv_high": 311.93,
+      "fv_mkt": 276.89,
       "fv_sto": 1124.9,
       "ind": {
         "status": "ok",
-        "ke": 0.0767,
+        "ke": 0.0765,
         "pi": 0.0333,
         "beta": 0.657,
         "fcf_norm": 6.9255,
@@ -3109,12 +3109,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "DVN": {
       "name": "Devon Energy",
-      "fv": 35.5,
+      "fv": 35.62,
       "price": 42.4,
       "curr": "$",
       "ex": "NYSE",
@@ -3129,12 +3129,12 @@
       },
       "tv": "NYSE:DVN",
       "fv_low": null,
-      "fv_high": 136.99,
+      "fv_high": 137.47,
       "fv_mkt": 53.99,
       "fv_sto": 73.05,
       "ind": {
         "status": "ok",
-        "ke": 0.0795,
+        "ke": 0.0793,
         "pi": 0.0333,
         "beta": 0.724,
         "fcf_norm": 1.5123,
@@ -3151,12 +3151,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "SLB": {
       "name": "Schlumberger",
-      "fv": 69.32,
+      "fv": 69.53,
       "price": 50.38,
       "curr": "$",
       "ex": "NYSE",
@@ -3170,13 +3170,13 @@
         "rev": "+4.6%"
       },
       "tv": "NYSE:SLB",
-      "fv_low": 43.1,
-      "fv_high": 85.84,
-      "fv_mkt": 100.57,
+      "fv_low": 43.23,
+      "fv_high": 86.11,
+      "fv_mkt": 100.55,
       "fv_sto": 50.66,
       "ind": {
         "status": "ok",
-        "ke": 0.0837,
+        "ke": 0.0836,
         "pi": 0.0333,
         "beta": 0.825,
         "fcf_norm": 3.1697,
@@ -3189,12 +3189,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "XOM": {
       "name": "ExxonMobil",
-      "fv": 151.81,
+      "fv": 152.44,
       "price": 164.73,
       "curr": "$",
       "ex": "NYSE",
@@ -3209,12 +3209,12 @@
       },
       "tv": "NYSE:XOM",
       "fv_low": null,
-      "fv_high": 325.3,
-      "fv_mkt": 260.57,
+      "fv_high": 326.68,
+      "fv_mkt": 260.54,
       "fv_sto": 167.4,
       "ind": {
         "status": "ok",
-        "ke": 0.0709,
+        "ke": 0.0708,
         "pi": 0.0333,
         "beta": 0.522,
         "fcf_norm": 5.2701,
@@ -3230,12 +3230,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "ABBV": {
       "name": "AbbVie",
-      "fv": 365.54,
+      "fv": 367.08,
       "price": 293.3,
       "curr": "$",
       "ex": "NYSE",
@@ -3249,13 +3249,13 @@
         "rev": "+10.7%"
       },
       "tv": "NYSE:ABBV",
-      "fv_low": 251.26,
-      "fv_high": 406.19,
-      "fv_mkt": 629.38,
+      "fv_low": 252.31,
+      "fv_high": 407.9,
+      "fv_mkt": 629.29,
       "fv_sto": 188.65,
       "ind": {
         "status": "ok",
-        "ke": 0.0708,
+        "ke": 0.0706,
         "pi": 0.0333,
         "beta": 0.519,
         "fcf_norm": 13.4592,
@@ -3270,12 +3270,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "MRK": {
       "name": "Merck & Co",
-      "fv": 160.87,
+      "fv": 161.57,
       "price": 148.76,
       "curr": "$",
       "ex": "NYSE",
@@ -3289,13 +3289,13 @@
         "rev": "+5.2%"
       },
       "tv": "NYSE:MRK",
-      "fv_low": 95.01,
-      "fv_high": 229.72,
-      "fv_mkt": 285.14,
+      "fv_low": 95.42,
+      "fv_high": 230.74,
+      "fv_mkt": 285.1,
       "fv_sto": 114.38,
       "ind": {
         "status": "ok",
-        "ke": 0.0692,
+        "ke": 0.069,
         "pi": 0.0333,
         "beta": 0.481,
         "fcf_norm": 5.2946,
@@ -3310,12 +3310,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "LLY": {
       "name": "Eli Lilly",
-      "fv": 335.79,
+      "fv": 336.99,
       "price": 1411.95,
       "curr": "$",
       "ex": "NYSE",
@@ -3329,13 +3329,13 @@
         "rev": "+45.5%"
       },
       "tv": "NYSE:LLY",
-      "fv_low": 47.71,
-      "fv_high": 387.96,
-      "fv_mkt": 523.82,
+      "fv_low": 47.86,
+      "fv_high": 389.35,
+      "fv_mkt": 523.74,
       "fv_sto": 590.25,
       "ind": {
         "status": "ok",
-        "ke": 0.0773,
+        "ke": 0.0772,
         "pi": 0.0333,
         "beta": 0.674,
         "fcf_norm": 13.6764,
@@ -3348,12 +3348,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "MDT": {
       "name": "Medtronic",
-      "fv": 124.5,
+      "fv": 124.96,
       "price": 102.79,
       "curr": "$",
       "ex": "NYSE",
@@ -3367,13 +3367,13 @@
         "rev": "+9.8%"
       },
       "tv": "NYSE:MDT",
-      "fv_low": 94.83,
-      "fv_high": 158.62,
-      "fv_mkt": 183.45,
+      "fv_low": 95.17,
+      "fv_high": 159.2,
+      "fv_mkt": 183.42,
       "fv_sto": 91.14,
       "ind": {
         "status": "ok",
-        "ke": 0.077,
+        "ke": 0.0769,
         "pi": 0.0353,
         "beta": 0.667,
         "fcf_norm": 4.6111,
@@ -3386,12 +3386,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "BDX": {
       "name": "Becton Dickinson",
-      "fv": 250.59,
+      "fv": 251.58,
       "price": 215.25,
       "curr": "$",
       "ex": "NYSE",
@@ -3405,13 +3405,13 @@
         "rev": "-7.4%"
       },
       "tv": "NYSE:BDX",
-      "fv_low": 156.33,
-      "fv_high": 316.74,
-      "fv_mkt": 373.73,
+      "fv_low": 156.94,
+      "fv_high": 317.99,
+      "fv_mkt": 373.67,
       "fv_sto": 207.66,
       "ind": {
         "status": "ok",
-        "ke": 0.076,
+        "ke": 0.0759,
         "pi": 0.0358,
         "beta": 0.642,
         "fcf_norm": 9.8863,
@@ -3426,12 +3426,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "DHR": {
       "name": "Danaher",
-      "fv": 146.99,
+      "fv": 147.38,
       "price": 235.12,
       "curr": "$",
       "ex": "NYSE",
@@ -3445,13 +3445,13 @@
         "rev": "+5.5%"
       },
       "tv": "NYSE:DHR",
-      "fv_low": 107.41,
-      "fv_high": 185.15,
-      "fv_mkt": 203.33,
+      "fv_low": 107.7,
+      "fv_high": 185.66,
+      "fv_mkt": 203.3,
       "fv_sto": 239.63,
       "ind": {
         "status": "ok",
-        "ke": 0.0893,
+        "ke": 0.0892,
         "pi": 0.0333,
         "beta": 0.957,
         "fcf_norm": 7.7752,
@@ -3464,12 +3464,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "TMO": {
       "name": "Thermo Fisher",
-      "fv": 411.68,
+      "fv": 412.88,
       "price": 721.63,
       "curr": "$",
       "ex": "NYSE",
@@ -3483,13 +3483,13 @@
         "rev": "+8.3%"
       },
       "tv": "NYSE:TMO",
-      "fv_low": 365.21,
-      "fv_high": 538.97,
-      "fv_mkt": 585.54,
+      "fv_low": 366.27,
+      "fv_high": 540.56,
+      "fv_mkt": 585.45,
       "fv_sto": 630.13,
       "ind": {
         "status": "ok",
-        "ke": 0.0861,
+        "ke": 0.0859,
         "pi": 0.0333,
         "beta": 0.88,
         "fcf_norm": 19.6171,
@@ -3504,12 +3504,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "MTD": {
       "name": "Mettler-Toledo",
-      "fv": 684.89,
+      "fv": 686.66,
       "price": 1762.28,
       "curr": "$",
       "ex": "NYSE",
@@ -3523,13 +3523,13 @@
         "rev": "+6.5%"
       },
       "tv": "NYSE:MTD",
-      "fv_low": 444.17,
-      "fv_high": 791.06,
-      "fv_mkt": 926.76,
+      "fv_low": 445.31,
+      "fv_high": 793.09,
+      "fv_mkt": 926.62,
       "fv_sto": 2061.09,
       "ind": {
         "status": "ok",
-        "ke": 0.0954,
+        "ke": 0.0952,
         "pi": 0.0333,
         "beta": 1.1,
         "fcf_norm": 39.8113,
@@ -3542,12 +3542,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "REGN": {
       "name": "Regeneron Pharma",
-      "fv": 947.18,
+      "fv": 950.12,
       "price": 919.96,
       "curr": "$",
       "ex": "NASDAQ",
@@ -3561,13 +3561,13 @@
         "rev": "+18.6%"
       },
       "tv": "NASDAQ:REGN",
-      "fv_low": 633.1,
-      "fv_high": 1348.02,
-      "fv_mkt": 1392.33,
+      "fv_low": 634.97,
+      "fv_high": 1352.33,
+      "fv_mkt": 1392.13,
       "fv_sto": 1310.71,
       "ind": {
         "status": "ok",
-        "ke": 0.0803,
+        "ke": 0.0802,
         "pi": 0.0333,
         "beta": 0.744,
         "fcf_norm": 38.0733,
@@ -3580,12 +3580,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "GILD": {
       "name": "Gilead Sciences",
-      "fv": 223.27,
+      "fv": 224.11,
       "price": 169.32,
       "curr": "$",
       "ex": "NASDAQ",
@@ -3599,13 +3599,13 @@
         "rev": "+6.9%"
       },
       "tv": "NASDAQ:GILD",
-      "fv_low": 177.48,
-      "fv_high": 341.83,
-      "fv_mkt": 358.05,
+      "fv_low": 178.14,
+      "fv_high": 343.12,
+      "fv_mkt": 358,
       "fv_sto": 77.65,
       "ind": {
         "status": "ok",
-        "ke": 0.0749,
+        "ke": 0.0747,
         "pi": 0.0333,
         "beta": 0.616,
         "fcf_norm": 8.4814,
@@ -3618,12 +3618,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "ISRG": {
       "name": "Intuitive Surgical",
-      "fv": 131.38,
+      "fv": 131.67,
       "price": 460.56,
       "curr": "$",
       "ex": "NASDAQ",
@@ -3637,13 +3637,13 @@
         "rev": "+20.5%"
       },
       "tv": "NASDAQ:ISRG",
-      "fv_low": 59.47,
-      "fv_high": 178.95,
-      "fv_mkt": 170.1,
+      "fv_low": 59.58,
+      "fv_high": 179.35,
+      "fv_mkt": 170.07,
       "fv_sto": 452.93,
       "ind": {
         "status": "ok",
-        "ke": 0.1003,
+        "ke": 0.1001,
         "pi": 0.0333,
         "beta": 1.216,
         "fcf_norm": 7.5616,
@@ -3656,12 +3656,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "VRTX": {
       "name": "Vertex Pharma",
-      "fv": 405.87,
+      "fv": 407.25,
       "price": 550.87,
       "curr": "$",
       "ex": "NASDAQ",
@@ -3676,12 +3676,12 @@
       },
       "tv": "NASDAQ:VRTX",
       "fv_low": null,
-      "fv_high": 585.2,
-      "fv_mkt": 619.55,
+      "fv_high": 587.22,
+      "fv_mkt": 619.45,
       "fv_sto": 579.12,
       "ind": {
         "status": "ok",
-        "ke": 0.0778,
+        "ke": 0.0777,
         "pi": 0.0333,
         "beta": 0.685,
         "fcf_norm": 15.958,
@@ -3696,12 +3696,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "ELV": {
       "name": "Elevance Health",
-      "fv": 895.55,
+      "fv": 898.96,
       "price": 418.25,
       "curr": "$",
       "ex": "NYSE",
@@ -3715,13 +3715,13 @@
         "rev": "+3.6%"
       },
       "tv": "NYSE:ELV",
-      "fv_low": 370.39,
-      "fv_high": 1843.24,
-      "fv_mkt": 1439.54,
+      "fv_low": 371.8,
+      "fv_high": 1850.25,
+      "fv_mkt": 1439.32,
       "fv_sto": 645.48,
       "ind": {
         "status": "ok",
-        "ke": 0.0755,
+        "ke": 0.0753,
         "pi": 0.0333,
         "beta": 0.63,
         "fcf_norm": 35.5278,
@@ -3736,12 +3736,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "UNH": {
       "name": "UnitedHealth",
-      "fv": 843,
+      "fv": 846.49,
       "price": 397.62,
       "curr": "$",
       "ex": "NYSE",
@@ -3755,13 +3755,13 @@
         "rev": "+3.3%"
       },
       "tv": "NYSE:UNH",
-      "fv_low": 473,
-      "fv_high": 1030.6,
-      "fv_mkt": 1426.68,
+      "fv_low": 474.95,
+      "fv_high": 1034.86,
+      "fv_mkt": 1426.46,
       "fv_sto": 684.73,
       "ind": {
         "status": "ok",
-        "ke": 0.0722,
+        "ke": 0.072,
         "pi": 0.0333,
         "beta": 0.551,
         "fcf_norm": 32.6992,
@@ -3776,12 +3776,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "CVS": {
       "name": "CVS Health",
-      "fv": 299.3,
+      "fv": 300.37,
       "price": 85.25,
       "curr": "$",
       "ex": "NYSE",
@@ -3795,13 +3795,13 @@
         "rev": "+6.8%"
       },
       "tv": "NYSE:CVS",
-      "fv_low": 140.87,
-      "fv_high": 422.1,
-      "fv_mkt": 467.2,
+      "fv_low": 141.35,
+      "fv_high": 423.63,
+      "fv_mkt": 467.13,
       "fv_sto": 111.17,
       "ind": {
         "status": "ok",
-        "ke": 0.0766,
+        "ke": 0.0764,
         "pi": 0.0333,
         "beta": 0.656,
         "fcf_norm": 12.4325,
@@ -3816,12 +3816,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "NVO": {
       "name": "Novo Nordisk ADR",
-      "fv": 76.82,
+      "fv": 77.06,
       "price": 41.38,
       "curr": "$",
       "ex": "NYSE",
@@ -3835,13 +3835,13 @@
         "rev": "+11.2%"
       },
       "tv": "NYSE:NVO",
-      "fv_low": 45.17,
-      "fv_high": 87.76,
-      "fv_mkt": 111.59,
+      "fv_low": 45.31,
+      "fv_high": 88.03,
+      "fv_mkt": 111.57,
       "fv_sto": 97.91,
       "ind": {
         "status": "ok",
-        "ke": 0.0842,
+        "ke": 0.084,
         "pi": 0.0333,
         "beta": 0.835,
         "fcf_norm": 3.5979,
@@ -3856,12 +3856,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "JPM": {
       "name": "JPMorgan Chase",
-      "fv": 712.9,
+      "fv": 714.87,
       "price": 342.08,
       "curr": "$",
       "ex": "NYSE",
@@ -3876,12 +3876,12 @@
       },
       "tv": "NYSE:JPM",
       "fv_low": null,
-      "fv_high": 1200.53,
-      "fv_mkt": 988.39,
+      "fv_high": 1203.85,
+      "fv_mkt": 988.24,
       "fv_sto": 393.87,
       "ind": {
         "status": "ok",
-        "ke": 0.0914,
+        "ke": 0.0912,
         "pi": 0.0333,
         "beta": 1.005,
         "fcf_norm": 38.9093,
@@ -3897,12 +3897,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "BLK": {
       "name": "BlackRock",
-      "fv": 641.25,
+      "fv": 642.59,
       "price": 1214.71,
       "curr": "$",
       "ex": "NYSE",
@@ -3916,13 +3916,13 @@
         "rev": "+24.2%"
       },
       "tv": "NYSE:BLK",
-      "fv_low": 475.37,
-      "fv_high": 851.53,
-      "fv_mkt": 821.29,
+      "fv_low": 476.31,
+      "fv_high": 853.37,
+      "fv_mkt": 821.17,
       "fv_sto": 816.42,
       "ind": {
         "status": "ok",
-        "ke": 0.1003,
+        "ke": 0.1002,
         "pi": 0.0333,
         "beta": 1.217,
         "fcf_norm": 35.2353,
@@ -3937,12 +3937,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "C": {
       "name": "Citigroup",
-      "fv": 224.22,
+      "fv": 224.8,
       "price": 121.97,
       "curr": "$",
       "ex": "NYSE",
@@ -3957,12 +3957,12 @@
       },
       "tv": "NYSE:C",
       "fv_low": null,
-      "fv_high": 1231.28,
-      "fv_mkt": 303.3,
+      "fv_high": 1234.45,
+      "fv_mkt": 303.26,
       "fv_sto": 111.43,
       "ind": {
         "status": "ok",
-        "ke": 0.0956,
+        "ke": 0.0955,
         "pi": 0.0333,
         "beta": 1.106,
         "fcf_norm": 13.1337,
@@ -3978,12 +3978,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "GS": {
       "name": "Goldman Sachs",
-      "fv": 1300.79,
+      "fv": 1304.05,
       "price": 906.22,
       "curr": "$",
       "ex": "NYSE",
@@ -3998,12 +3998,12 @@
       },
       "tv": "NYSE:GS",
       "fv_low": null,
-      "fv_high": 10259.03,
-      "fv_mkt": 1744.39,
+      "fv_high": 10284.74,
+      "fv_mkt": 1744.12,
       "fv_sto": 955.56,
       "ind": {
         "status": "ok",
-        "ke": 0.0973,
+        "ke": 0.0971,
         "pi": 0.0333,
         "beta": 1.145,
         "fcf_norm": 78.2376,
@@ -4019,12 +4019,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "V": {
       "name": "Visa",
-      "fv": 279.32,
+      "fv": 280.18,
       "price": 422.16,
       "curr": "$",
       "ex": "NYSE",
@@ -4038,13 +4038,13 @@
         "rev": "+14.8%"
       },
       "tv": "NYSE:V",
-      "fv_low": 234.83,
-      "fv_high": 319.37,
-      "fv_mkt": 378.63,
+      "fv_low": 235.55,
+      "fv_high": 320.36,
+      "fv_mkt": 378.58,
       "fv_sto": 495.82,
       "ind": {
         "status": "ok",
-        "ke": 0.0862,
+        "ke": 0.086,
         "pi": 0.0358,
         "beta": 0.882,
         "fcf_norm": 12.7924,
@@ -4057,12 +4057,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "MCO": {
       "name": "Moody's Corp",
-      "fv": 243.57,
+      "fv": 244.16,
       "price": 511.08,
       "curr": "$",
       "ex": "NYSE",
@@ -4076,13 +4076,13 @@
         "rev": "+9.0%"
       },
       "tv": "NYSE:MCO",
-      "fv_low": 127.31,
-      "fv_high": 293.92,
-      "fv_mkt": 324.56,
+      "fv_low": 127.61,
+      "fv_high": 294.64,
+      "fv_mkt": 324.51,
       "fv_sto": 464.36,
       "ind": {
         "status": "ok",
-        "ke": 0.0967,
+        "ke": 0.0965,
         "pi": 0.0333,
         "beta": 1.131,
         "fcf_norm": 13.9691,
@@ -4095,12 +4095,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "CB": {
       "name": "Chubb",
-      "fv": 1067.85,
+      "fv": 1072.14,
       "price": 363.45,
       "curr": "$",
       "ex": "NYSE",
@@ -4114,13 +4114,13 @@
         "rev": "+5.9%"
       },
       "tv": "NYSE:CB",
-      "fv_low": 572.88,
-      "fv_high": 1294.2,
-      "fv_mkt": 1772.62,
+      "fv_low": 575.18,
+      "fv_high": 1299.39,
+      "fv_mkt": 1772.35,
       "fv_sto": 370.41,
       "ind": {
         "status": "ok",
-        "ke": 0.0733,
+        "ke": 0.0732,
         "pi": 0.0333,
         "beta": 0.579,
         "fcf_norm": 40.1832,
@@ -4133,12 +4133,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "L": {
       "name": "Loews Corp",
-      "fv": 294.79,
+      "fv": 295.86,
       "price": 109.94,
       "curr": "$",
       "ex": "NYSE",
@@ -4152,13 +4152,13 @@
         "rev": "+2.8%"
       },
       "tv": "NYSE:L",
-      "fv_low": 177.45,
-      "fv_high": 394.22,
-      "fv_mkt": 462.85,
+      "fv_low": 178.1,
+      "fv_high": 395.66,
+      "fv_mkt": 462.78,
       "fv_sto": 126.56,
       "ind": {
         "status": "ok",
-        "ke": 0.0773,
+        "ke": 0.0771,
         "pi": 0.0333,
         "beta": 0.673,
         "fcf_norm": 12.1905,
@@ -4171,12 +4171,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "RSG": {
       "name": "Republic Services",
-      "fv": 187.86,
+      "fv": 188.61,
       "price": 246.78,
       "curr": "$",
       "ex": "NYSE",
@@ -4190,13 +4190,13 @@
         "rev": "+4.5%"
       },
       "tv": "NYSE:RSG",
-      "fv_low": 135.57,
-      "fv_high": 214.52,
-      "fv_mkt": 312.57,
+      "fv_low": 136.11,
+      "fv_high": 215.39,
+      "fv_mkt": 312.52,
       "fv_sto": 235.1,
       "ind": {
         "status": "ok",
-        "ke": 0.0731,
+        "ke": 0.073,
         "pi": 0.0333,
         "beta": 0.575,
         "fcf_norm": 7.0252,
@@ -4211,12 +4211,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "WM": {
       "name": "Waste Management",
-      "fv": 212.65,
+      "fv": 213.55,
       "price": 236.61,
       "curr": "$",
       "ex": "NYSE",
@@ -4230,13 +4230,13 @@
         "rev": "+5.2%"
       },
       "tv": "NYSE:WM",
-      "fv_low": 164.03,
-      "fv_high": 249.01,
-      "fv_mkt": 367,
+      "fv_low": 164.73,
+      "fv_high": 250.07,
+      "fv_mkt": 366.94,
       "fv_sto": 234.16,
       "ind": {
         "status": "ok",
-        "ke": 0.071,
+        "ke": 0.0708,
         "pi": 0.0333,
         "beta": 0.524,
         "fcf_norm": 7.5122,
@@ -4252,12 +4252,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "PM": {
       "name": "Philip Morris",
-      "fv": 210.43,
+      "fv": 211.28,
       "price": 193.12,
       "curr": "$",
       "ex": "NYSE",
@@ -4271,13 +4271,13 @@
         "rev": "+7.9%"
       },
       "tv": "NYSE:PM",
-      "fv_low": 170.58,
-      "fv_high": 268.99,
-      "fv_mkt": 352.79,
+      "fv_low": 171.27,
+      "fv_high": 270.08,
+      "fv_mkt": 352.74,
       "fv_sto": 132.86,
       "ind": {
         "status": "ok",
-        "ke": 0.0722,
+        "ke": 0.0721,
         "pi": 0.0333,
         "beta": 0.553,
         "fcf_norm": 7.5409,
@@ -4290,12 +4290,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "PEP": {
       "name": "PepsiCo",
-      "fv": 182.41,
+      "fv": 183.15,
       "price": 141.88,
       "curr": "$",
       "ex": "NASDAQ",
@@ -4309,13 +4309,13 @@
         "rev": "+6.4%"
       },
       "tv": "NASDAQ:PEP",
-      "fv_low": 137.62,
-      "fv_high": 242.23,
-      "fv_mkt": 308.14,
+      "fv_low": 138.16,
+      "fv_high": 243.22,
+      "fv_mkt": 308.09,
       "fv_sto": 164.77,
       "ind": {
         "status": "ok",
-        "ke": 0.0712,
+        "ke": 0.071,
         "pi": 0.0333,
         "beta": 0.529,
         "fcf_norm": 6.2092,
@@ -4331,12 +4331,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "KO": {
       "name": "Coca-Cola",
-      "fv": 66.41,
+      "fv": 66.67,
       "price": 96.03,
       "curr": "$",
       "ex": "NYSE",
@@ -4350,13 +4350,13 @@
         "rev": "+7.7%"
       },
       "tv": "NYSE:KO",
-      "fv_low": 36.31,
-      "fv_high": 96.94,
-      "fv_mkt": 109.91,
+      "fv_low": 36.45,
+      "fv_high": 97.33,
+      "fv_mkt": 109.9,
       "fv_sto": 75.57,
       "ind": {
         "status": "ok",
-        "ke": 0.0721,
+        "ke": 0.0719,
         "pi": 0.0333,
         "beta": 0.549,
         "fcf_norm": 2.2792,
@@ -4371,12 +4371,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "AZO": {
       "name": "AutoZone",
-      "fv": 3948.51,
+      "fv": 3963.22,
       "price": 3251.27,
       "curr": "$",
       "ex": "NYSE",
@@ -4390,13 +4390,13 @@
         "rev": "+7.4%"
       },
       "tv": "NYSE:AZO",
-      "fv_low": 2713.28,
-      "fv_high": 5993.75,
-      "fv_mkt": 5801.91,
+      "fv_low": 2723.36,
+      "fv_high": 6016.12,
+      "fv_mkt": 5801.03,
       "fv_sto": 3630.65,
       "ind": {
         "status": "ok",
-        "ke": 0.0784,
+        "ke": 0.0782,
         "pi": 0.0355,
         "beta": 0.698,
         "fcf_norm": 157.9491,
@@ -4412,12 +4412,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "MO": {
       "name": "Altria Group",
-      "fv": 143.94,
+      "fv": 144.61,
       "price": 75.81,
       "curr": "$",
       "ex": "NYSE",
@@ -4431,13 +4431,13 @@
         "rev": "+2.4%"
       },
       "tv": "NYSE:MO",
-      "fv_low": 69.47,
-      "fv_high": 165.95,
-      "fv_mkt": 248.59,
+      "fv_low": 69.79,
+      "fv_high": 166.72,
+      "fv_mkt": 248.56,
       "fv_sto": 76.39,
       "ind": {
         "status": "ok",
-        "ke": 0.0675,
+        "ke": 0.0673,
         "pi": 0.0333,
         "beta": 0.44,
         "fcf_norm": 4.8554,
@@ -4452,12 +4452,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "CL": {
       "name": "Colgate-Palmolive",
-      "fv": 119.29,
+      "fv": 119.79,
       "price": 97.94,
       "curr": "$",
       "ex": "NYSE",
@@ -4471,13 +4471,13 @@
         "rev": "+5.9%"
       },
       "tv": "NYSE:CL",
-      "fv_low": 74.22,
-      "fv_high": 142.16,
-      "fv_mkt": 205.37,
+      "fv_low": 74.53,
+      "fv_high": 142.76,
+      "fv_mkt": 205.34,
       "fv_sto": 105.47,
       "ind": {
         "status": "ok",
-        "ke": 0.0708,
+        "ke": 0.0707,
         "pi": 0.0333,
         "beta": 0.519,
         "fcf_norm": 4.3926,
@@ -4492,12 +4492,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "PG": {
       "name": "Procter & Gamble",
-      "fv": 177.68,
+      "fv": 178.39,
       "price": 168.32,
       "curr": "$",
       "ex": "NYSE",
@@ -4511,13 +4511,13 @@
         "rev": "+3.5%"
       },
       "tv": "NYSE:PG",
-      "fv_low": 150.12,
-      "fv_high": 210.75,
-      "fv_mkt": 275.05,
+      "fv_low": 150.72,
+      "fv_high": 211.6,
+      "fv_mkt": 275.01,
       "fv_sto": 170.19,
       "ind": {
         "status": "ok",
-        "ke": 0.0738,
+        "ke": 0.0737,
         "pi": 0.0351,
         "beta": 0.591,
         "fcf_norm": 6.2207,
@@ -4530,12 +4530,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "GIS": {
       "name": "General Mills",
-      "fv": 159.93,
+      "fv": 160.82,
       "price": 34.88,
       "curr": "$",
       "ex": "NYSE",
@@ -4549,13 +4549,13 @@
         "rev": "-4.5%"
       },
       "tv": "NYSE:GIS",
-      "fv_low": 108.06,
-      "fv_high": 222.47,
-      "fv_mkt": 231.07,
+      "fv_low": 108.67,
+      "fv_high": 223.72,
+      "fv_mkt": 231.04,
       "fv_sto": 78.96,
       "ind": {
         "status": "ok",
-        "ke": 0.0638,
+        "ke": 0.0636,
         "pi": 0.0352,
         "beta": 0.354,
         "fcf_norm": 4.5267,
@@ -4572,12 +4572,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "HD": {
       "name": "Home Depot",
-      "fv": 338.41,
+      "fv": 339.42,
       "price": 353.42,
       "curr": "$",
       "ex": "NYSE",
@@ -4591,13 +4591,13 @@
         "rev": "+2.5%"
       },
       "tv": "NYSE:HD",
-      "fv_low": 250.04,
-      "fv_high": 422.91,
-      "fv_mkt": 471.42,
+      "fv_low": 250.78,
+      "fv_high": 424.18,
+      "fv_mkt": 471.35,
       "fv_sto": 431.45,
       "ind": {
         "status": "ok",
-        "ke": 0.0878,
+        "ke": 0.0876,
         "pi": 0.0342,
         "beta": 0.92,
         "fcf_norm": 16.9059,
@@ -4610,13 +4610,13 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "ROST": {
       "name": "Ross Stores",
-      "fv": 148.49,
-      "price": 237.0,
+      "fv": 148.9,
+      "price": 237,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
@@ -4629,13 +4629,13 @@
         "rev": "+14.0%"
       },
       "tv": "NASDAQ:ROST",
-      "fv_low": 92.22,
-      "fv_high": 222.64,
-      "fv_mkt": 201.33,
+      "fv_low": 92.46,
+      "fv_high": 223.26,
+      "fv_mkt": 201.3,
       "fv_sto": 217.1,
       "ind": {
         "status": "ok",
-        "ke": 0.0882,
+        "ke": 0.0881,
         "pi": 0.0342,
         "beta": 0.931,
         "fcf_norm": 6.8585,
@@ -4648,12 +4648,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "ORLY": {
       "name": "O'Reilly Automotive",
-      "fv": 67.45,
+      "fv": 67.7,
       "price": 89.79,
       "curr": "$",
       "ex": "NASDAQ",
@@ -4667,13 +4667,13 @@
         "rev": "+8.7%"
       },
       "tv": "NASDAQ:ORLY",
-      "fv_low": 48.5,
-      "fv_high": 111.99,
-      "fv_mkt": 107.62,
+      "fv_low": 48.68,
+      "fv_high": 112.41,
+      "fv_mkt": 107.6,
       "fv_sto": 86.77,
       "ind": {
         "status": "ok",
-        "ke": 0.0759,
+        "ke": 0.0758,
         "pi": 0.0333,
         "beta": 0.641,
         "fcf_norm": 2.6949,
@@ -4689,12 +4689,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "DG": {
       "name": "Dollar General",
-      "fv": 271.46,
+      "fv": 272.57,
       "price": 136.68,
       "curr": "$",
       "ex": "NYSE",
@@ -4708,13 +4708,13 @@
         "rev": "+4.8%"
       },
       "tv": "NYSE:DG",
-      "fv_low": 65.51,
-      "fv_high": 446.52,
-      "fv_mkt": 439.87,
+      "fv_low": 65.76,
+      "fv_high": 448.36,
+      "fv_mkt": 439.81,
       "fv_sto": 293.42,
       "ind": {
         "status": "ok",
-        "ke": 0.0727,
+        "ke": 0.0725,
         "pi": 0.0342,
         "beta": 0.563,
         "fcf_norm": 10.1281,
@@ -4729,12 +4729,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "MCD": {
       "name": "McDonald's",
-      "fv": 246.17,
+      "fv": 247.1,
       "price": 281.44,
       "curr": "$",
       "ex": "NYSE",
@@ -4748,13 +4748,13 @@
         "rev": "+5.8%"
       },
       "tv": "NYSE:MCD",
-      "fv_low": 160.72,
-      "fv_high": 301.86,
-      "fv_mkt": 394.24,
+      "fv_low": 161.33,
+      "fv_high": 303,
+      "fv_mkt": 394.18,
       "fv_sto": 379.99,
       "ind": {
         "status": "ok",
-        "ke": 0.0756,
+        "ke": 0.0754,
         "pi": 0.0333,
         "beta": 0.632,
         "fcf_norm": 9.7185,
@@ -4769,12 +4769,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "NKE": {
       "name": "Nike",
-      "fv": 59.4,
+      "fv": 59.56,
       "price": 39.88,
       "curr": "$",
       "ex": "NYSE",
@@ -4788,13 +4788,13 @@
         "rev": "-1.4%"
       },
       "tv": "NYSE:NKE",
-      "fv_low": 26.82,
-      "fv_high": 81.53,
-      "fv_mkt": 77.56,
+      "fv_low": 26.88,
+      "fv_high": 81.75,
+      "fv_mkt": 77.55,
       "fv_sto": 118,
       "ind": {
         "status": "ok",
-        "ke": 0.0913,
+        "ke": 0.0911,
         "pi": 0.0352,
         "beta": 1.004,
         "fcf_norm": 3.0005,
@@ -4809,12 +4809,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "DIS": {
       "name": "Walt Disney",
-      "fv": 75.61,
+      "fv": 75.8,
       "price": 119.12,
       "curr": "$",
       "ex": "NYSE",
@@ -4828,13 +4828,13 @@
         "rev": "+5.3%"
       },
       "tv": "NYSE:DIS",
-      "fv_low": 15.34,
-      "fv_high": 163.69,
-      "fv_mkt": 101.93,
+      "fv_low": 15.37,
+      "fv_high": 164.13,
+      "fv_mkt": 101.92,
       "fv_sto": 103.1,
       "ind": {
         "status": "ok",
-        "ke": 0.0928,
+        "ke": 0.0927,
         "pi": 0.0338,
         "beta": 1.04,
         "fcf_norm": 4.0331,
@@ -4849,12 +4849,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "VZ": {
       "name": "Verizon",
-      "fv": 129.85,
+      "fv": 130.42,
       "price": 46.06,
       "curr": "$",
       "ex": "NYSE",
@@ -4868,13 +4868,13 @@
         "rev": "+1.4%"
       },
       "tv": "NYSE:VZ",
-      "fv_low": 43.18,
-      "fv_high": 173.33,
-      "fv_mkt": 229.74,
+      "fv_low": 43.37,
+      "fv_high": 174.09,
+      "fv_mkt": 229.7,
       "fv_sto": 55,
       "ind": {
         "status": "ok",
-        "ke": 0.0696,
+        "ke": 0.0694,
         "pi": 0.0333,
         "beta": 0.491,
         "fcf_norm": 4.6653,
@@ -4890,12 +4890,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "T": {
       "name": "AT&T",
-      "fv": 76.54,
+      "fv": 76.86,
       "price": 21.8,
       "curr": "$",
       "ex": "NYSE",
@@ -4909,13 +4909,13 @@
         "rev": "+3.5%"
       },
       "tv": "NYSE:T",
-      "fv_low": 51.8,
-      "fv_high": 98.12,
-      "fv_mkt": 132.57,
+      "fv_low": 52.01,
+      "fv_high": 98.54,
+      "fv_mkt": 132.55,
       "fv_sto": 24.83,
       "ind": {
         "status": "ok",
-        "ke": 0.0704,
+        "ke": 0.0703,
         "pi": 0.0333,
         "beta": 0.51,
         "fcf_norm": 2.7779,
@@ -4931,12 +4931,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "CHTR": {
       "name": "Charter Comm.",
-      "fv": 713.19,
+      "fv": 715.3,
       "price": 121.2,
       "curr": "$",
       "ex": "NASDAQ",
@@ -4950,13 +4950,13 @@
         "rev": "+1.0%"
       },
       "tv": "NASDAQ:CHTR",
-      "fv_low": 471.12,
-      "fv_high": 1358.29,
-      "fv_mkt": 1014.2,
+      "fv_low": 472.5,
+      "fv_high": 1362.3,
+      "fv_mkt": 1014.05,
       "fv_sto": 1170.84,
       "ind": {
         "status": "ok",
-        "ke": 0.0874,
+        "ke": 0.0872,
         "pi": 0.0333,
         "beta": 0.911,
         "fcf_norm": 36.0342,
@@ -4971,12 +4971,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "TMUS": {
       "name": "T-Mobile US",
-      "fv": 78.62,
+      "fv": 78.9,
       "price": 168.71,
       "curr": "$",
       "ex": "NASDAQ",
@@ -4991,12 +4991,12 @@
       },
       "tv": "NASDAQ:TMUS",
       "fv_low": null,
-      "fv_high": 353.78,
-      "fv_mkt": 121.49,
+      "fv_high": 355.08,
+      "fv_mkt": 121.47,
       "fv_sto": 316.61,
       "ind": {
         "status": "ok",
-        "ke": 0.0766,
+        "ke": 0.0764,
         "pi": 0.0333,
         "beta": 0.656,
         "fcf_norm": 2.9854,
@@ -5012,12 +5012,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "RCL": {
       "name": "Royal Caribbean",
-      "fv": 24.71,
+      "fv": 24.76,
       "price": 336.98,
       "curr": "$",
       "ex": "NYSE",
@@ -5032,12 +5032,12 @@
       },
       "tv": "NYSE:RCL",
       "fv_low": null,
-      "fv_high": 259.4,
-      "fv_mkt": 30.81,
+      "fv_high": 259.95,
+      "fv_mkt": 30.8,
       "fv_sto": 495.23,
       "ind": {
         "status": "ok",
-        "ke": 0.108,
+        "ke": 0.1078,
         "pi": 0.0333,
         "beta": 1.397,
         "fcf_norm": 1.515,
@@ -5054,12 +5054,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "META": {
       "name": "Meta Platforms",
-      "fv": 423.44,
+      "fv": 424.35,
       "price": 641.37,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5073,13 +5073,13 @@
         "rev": "+27.5%"
       },
       "tv": "NASDAQ:META",
-      "fv_low": 236.68,
-      "fv_high": 570.54,
-      "fv_mkt": 544.88,
+      "fv_low": 237.15,
+      "fv_high": 571.79,
+      "fv_mkt": 544.8,
       "fv_sto": 807.78,
       "ind": {
         "status": "ok",
-        "ke": 0.1023,
+        "ke": 0.1021,
         "pi": 0.0333,
         "beta": 1.264,
         "fcf_norm": 25.3716,
@@ -5094,12 +5094,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "TSLA": {
       "name": "Tesla",
-      "fv": 27.22,
+      "fv": 27.25,
       "price": 378.05,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5114,12 +5114,12 @@
       },
       "tv": "NASDAQ:TSLA",
       "fv_low": null,
-      "fv_high": 44.18,
+      "fv_high": 44.24,
       "fv_mkt": 30.74,
       "fv_sto": null,
       "ind": {
         "status": "ok",
-        "ke": 0.1167,
+        "ke": 0.1166,
         "pi": 0.0333,
         "beta": 1.605,
         "fcf_norm": 1.1823,
@@ -5135,12 +5135,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "AVGO": {
       "name": "Broadcom",
-      "fv": 78.98,
+      "fv": 79.12,
       "price": 319.48,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5154,13 +5154,13 @@
         "rev": "+48.7%"
       },
       "tv": "NASDAQ:AVGO",
-      "fv_low": 41.1,
-      "fv_high": 92.63,
-      "fv_mkt": 97.77,
+      "fv_low": 41.17,
+      "fv_high": 92.8,
+      "fv_mkt": 97.75,
       "fv_sto": 183.59,
       "ind": {
         "status": "ok",
-        "ke": 0.115,
+        "ke": 0.1149,
         "pi": 0.0333,
         "beta": 1.565,
         "fcf_norm": 5.6881,
@@ -5173,12 +5173,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "ORCL": {
       "name": "Oracle",
-      "fv": 108.75,
+      "fv": 108.98,
       "price": 119.79,
       "curr": "$",
       "ex": "NYSE",
@@ -5193,12 +5193,12 @@
       },
       "tv": "NYSE:ORCL",
       "fv_low": null,
-      "fv_high": 140.95,
-      "fv_mkt": 134.92,
+      "fv_high": 141.26,
+      "fv_mkt": 134.9,
       "fv_sto": 101.16,
       "ind": {
         "status": "ok",
-        "ke": 0.102,
+        "ke": 0.1019,
         "pi": 0.0352,
         "beta": 1.257,
         "fcf_norm": 6.018,
@@ -5216,12 +5216,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "TXN": {
       "name": "Texas Instruments",
-      "fv": 110.47,
+      "fv": 110.74,
       "price": 295.73,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5235,13 +5235,13 @@
         "rev": "+20.3%"
       },
       "tv": "NASDAQ:TXN",
-      "fv_low": 34.25,
-      "fv_high": 141.63,
-      "fv_mkt": 147.03,
+      "fv_low": 34.32,
+      "fv_high": 141.97,
+      "fv_mkt": 147.01,
       "fv_sto": 189.08,
       "ind": {
         "status": "ok",
-        "ke": 0.0946,
+        "ke": 0.0945,
         "pi": 0.0333,
         "beta": 1.083,
         "fcf_norm": 6.2163,
@@ -5256,12 +5256,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "BKNG": {
       "name": "Booking Holdings",
-      "fv": 214.17,
+      "fv": 214.67,
       "price": 163.49,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5276,12 +5276,12 @@
       },
       "tv": "NASDAQ:BKNG",
       "fv_low": null,
-      "fv_high": 229.97,
-      "fv_mkt": 282.09,
+      "fv_high": 230.5,
+      "fv_mkt": 282.05,
       "fv_sto": 244.91,
       "ind": {
         "status": "ok",
-        "ke": 0.0961,
+        "ke": 0.096,
         "pi": 0.0333,
         "beta": 1.118,
         "fcf_norm": 11.4828,
@@ -5296,12 +5296,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "SHOP": {
       "name": "Shopify",
-      "fv": 8.76,
+      "fv": 8.77,
       "price": 152.06,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5316,12 +5316,12 @@
       },
       "tv": "NASDAQ:SHOP",
       "fv_low": null,
-      "fv_high": 20.9,
+      "fv_high": 20.93,
       "fv_mkt": 9.76,
       "fv_sto": null,
       "ind": {
         "status": "ok",
-        "ke": 0.137,
+        "ke": 0.1368,
         "pi": 0.0333,
         "beta": 2.084,
         "fcf_norm": 0.5019,
@@ -5336,12 +5336,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "CRWD": {
       "name": "CrowdStrike",
-      "fv": 23.84,
+      "fv": 23.88,
       "price": 228.58,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5356,12 +5356,12 @@
       },
       "tv": "NASDAQ:CRWD",
       "fv_low": null,
-      "fv_high": 27.04,
+      "fv_high": 27.09,
       "fv_mkt": 28.03,
       "fv_sto": 126.42,
       "ind": {
         "status": "ok",
-        "ke": 0.1116,
+        "ke": 0.1114,
         "pi": 0.0358,
         "beta": 1.484,
         "fcf_norm": 1.4158,
@@ -5376,12 +5376,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "FTNT": {
       "name": "Fortinet",
-      "fv": 53.21,
+      "fv": 53.32,
       "price": 122.47,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5395,13 +5395,13 @@
         "rev": "+20.2%"
       },
       "tv": "NASDAQ:FTNT",
-      "fv_low": 37.63,
-      "fv_high": 59.29,
-      "fv_mkt": 67.91,
+      "fv_low": 37.71,
+      "fv_high": 59.41,
+      "fv_mkt": 67.9,
       "fv_sto": 100.89,
       "ind": {
         "status": "ok",
-        "ke": 0.1018,
+        "ke": 0.1017,
         "pi": 0.0333,
         "beta": 1.252,
         "fcf_norm": 3.0224,
@@ -5414,12 +5414,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "PLTR": {
       "name": "Palantir",
-      "fv": 8.73,
+      "fv": 8.74,
       "price": 169.2,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5434,12 +5434,12 @@
       },
       "tv": "NASDAQ:PLTR",
       "fv_low": null,
-      "fv_high": 14.51,
+      "fv_high": 14.53,
       "fv_mkt": 9.48,
       "fv_sto": null,
       "ind": {
         "status": "ok",
-        "ke": 0.125,
+        "ke": 0.1249,
         "pi": 0.0374,
         "beta": 1.802,
         "fcf_norm": 0.3779,
@@ -5454,12 +5454,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "PANW": {
       "name": "Palo Alto Networks",
-      "fv": 97.06,
+      "fv": 97.3,
       "price": 330.89,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5473,13 +5473,13 @@
         "rev": "+24.5%"
       },
       "tv": "NASDAQ:PANW",
-      "fv_low": 65.07,
-      "fv_high": 107.21,
-      "fv_mkt": 124.36,
+      "fv_low": 65.22,
+      "fv_high": 107.47,
+      "fv_mkt": 124.34,
       "fv_sto": 201.84,
       "ind": {
         "status": "ok",
-        "ke": 0.0988,
+        "ke": 0.0987,
         "pi": 0.035,
         "beta": 1.182,
         "fcf_norm": 5.5682,
@@ -5492,12 +5492,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "NEE": {
       "name": "NextEra Energy",
-      "fv": 24.67,
+      "fv": 24.75,
       "price": 86.86,
       "curr": "$",
       "ex": "NYSE",
@@ -5512,12 +5512,12 @@
       },
       "tv": "NYSE:NEE",
       "fv_low": null,
-      "fv_high": 64.72,
+      "fv_high": 64.94,
       "fv_mkt": 36.9,
       "fv_sto": 80.52,
       "ind": {
         "status": "ok",
-        "ke": 0.0778,
+        "ke": 0.0777,
         "pi": 0.0333,
         "beta": 0.685,
         "fcf_norm": 0.9142,
@@ -5534,12 +5534,12 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "CME": {
       "name": "CME Group",
-      "fv": 268.28,
+      "fv": 269.34,
       "price": 304.52,
       "curr": "$",
       "ex": "NASDAQ",
@@ -5553,13 +5553,13 @@
         "rev": "+9.0%"
       },
       "tv": "NASDAQ:CME",
-      "fv_low": 233.24,
-      "fv_high": 329.39,
-      "fv_mkt": 443.86,
+      "fv_low": 234.16,
+      "fv_high": 330.7,
+      "fv_mkt": 443.79,
       "fv_sto": 309.7,
       "ind": {
         "status": "ok",
-        "ke": 0.0729,
+        "ke": 0.0728,
         "pi": 0.0333,
         "beta": 0.57,
         "fcf_norm": 9.7562,
@@ -5572,12 +5572,12 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     },
     "ACN": {
       "name": "Accenture",
-      "fv": 358.35,
+      "fv": 359.35,
       "price": 254.37,
       "curr": "$",
       "ex": "NYSE",
@@ -5591,13 +5591,13 @@
         "rev": "+6.5%"
       },
       "tv": "NYSE:ACN",
-      "fv_low": 309.42,
-      "fv_high": 429.85,
-      "fv_mkt": 474.72,
+      "fv_low": 310.28,
+      "fv_high": 431.06,
+      "fv_mkt": 474.65,
       "fv_sto": 401.07,
       "ind": {
         "status": "ok",
-        "ke": 0.0897,
+        "ke": 0.0895,
         "pi": 0.0355,
         "beta": 0.965,
         "fcf_norm": 17.1489,
@@ -5610,7 +5610,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-09",
+      "fv_updated": "2026-11-10",
       "updated": "2026-11-10"
     }
   },
@@ -5622,5 +5622,5 @@
     ".INTU": "INTU",
     ".QCOM": "QCOM"
   },
-  "fv_updated": "2026-11-09T23:14:25.079Z"
+  "fv_updated": "2026-11-10T04:09:19.275Z"
 }
