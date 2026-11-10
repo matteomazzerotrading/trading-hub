@@ -173,7 +173,7 @@ ${corpo}
 
 function paginaIndice(righe) {
   const agg = dataIt(data.fv_updated ? data.fv_updated.slice(0, 10) : righe[0] && righe[0].d.fv_updated);
-  const title = 'Fair value di oltre 140 azioni, aggiornati ogni giorno | Matteo Mazzero';
+  const title = `Fair value di oltre ${Math.floor(righe.length / 50) * 50} azioni, aggiornati ogni giorno | Matteo Mazzero`;
   const desc = `Elenco dei fair value di ${righe.length} azioni italiane, europee e americane calcolati con l'indicatore FAIR VALUE (dati realizzati): pavimento, fair value di mercato, potenziale ed esito del modello. Aggiornato al ${agg}.`;
   const tr = righe.map(({ t, d, v, pt }) => `<tr><td><a href="${slug(t)}.html"><strong>${esc(t)}</strong></a>${held.has(t) ? ' 💼' : ''}<br><span class="mu">${esc(d.name)}</span></td>
 <td class="n">${num(d.price)} ${d.curr}</td><td class="n">${d.fv != null ? num(d.fv) + ' ' + d.curr : '—'}</td><td class="n">${d.fv_mkt != null ? num(d.fv_mkt) + ' ' + d.curr : '—'}</td>
