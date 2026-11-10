@@ -21,7 +21,7 @@ try { held = new Set((JSON.parse(fs.readFileSync(path.join(ROOT, 'portfolio.json
 
 const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-const num = x => x == null ? '—' : Number(x).toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const num = x => x == null ? '—' : Number(x).toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
 const pc = x => x == null ? '—' : (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 0 }) + '%';
 const dataIt = iso => iso ? new Date(iso + 'T12:00:00Z').toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
 const sigle = s => s.replace(/\bfcf\b/gi, 'FCF').replace(/\bfv\b/gi, 'FV');
