@@ -1,0 +1,48 @@
+name: Compute Patterns
+
+# Pattern Scanner su tutti i titoli: ogni sera dei giorni di borsa, dopo il calcolo dei fair value.
+on:
+  schedule:
+    - cron: '50 22 * * 1-5'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/compute_patterns.mjs'
+      - 'scripts/fetch_daily.py'
+      - '.github/workflows/compute-patterns.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: patterns
+  cancel-in-progress: true
+
+jobs:
+  patterns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Scarica le chiusure giornaliere
+        run: |
+          pip install yfinance --quiet
+          python scripts/fetch_daily.py
+      - name: Calcola i pattern
+        run: node scripts/compute_patterns.mjs
+      - name: Allinea al ramo principale
+        run: git pull --rebase --autostash
+      - name: Salva i risultati
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto: pattern scanner [skip ci]"
+          file_pattern: "patterns.json patterns_detail.json"
+          commit_user_name: "TradingHub Bot"
+          commit_user_email: "bot@tradinghub.local"

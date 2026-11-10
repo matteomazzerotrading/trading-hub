@@ -2,3 +2,4 @@ market_data.json
 __pycache__/
 backtest_inputs/
 market_daily.json
+daily.json
