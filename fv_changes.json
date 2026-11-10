@@ -1,4 +1,292 @@
 {
- "aggiornato": "2026-11-10T19:24:46.896Z",
- "cambi": []
+ "aggiornato": "2026-11-10T19:55:47.990Z",
+ "cambi": [
+  {
+   "data": "2026-11-10",
+   "t": "ADM",
+   "nome": "Archer-Daniels",
+   "da": "sotto",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "BRK.B",
+   "nome": "Berkshire Hath.",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "ENEL",
+   "nome": "Enel S.p.A.",
+   "da": "sotto",
+   "a": "sopra"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "TRI",
+   "nome": "Thomson Reuters",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "BSX",
+   "nome": "Boston Scientific",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "BR",
+   "nome": "Broadridge Financial",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "ABBV",
+   "nome": "AbbVie",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "VRTX",
+   "nome": "Vertex Pharma",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "WM",
+   "nome": "Waste Management",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "KO",
+   "nome": "Coca-Cola",
+   "da": "equita",
+   "a": "sopra"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "PG",
+   "nome": "Procter & Gamble",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "HD",
+   "nome": "Home Depot",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "ORLY",
+   "nome": "O'Reilly Automotive",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "MCD",
+   "nome": "McDonald's",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "ORCL",
+   "nome": "Oracle",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "CME",
+   "nome": "CME Group",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "AI",
+   "nome": "Air Liquide",
+   "da": "sopra",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "LR",
+   "nome": "Legrand",
+   "da": "equita",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "SIE",
+   "nome": "Siemens",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "MTX",
+   "nome": "MTU Aero Engines",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "SY1",
+   "nome": "Symrise",
+   "da": "sotto",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "CFR",
+   "nome": "Richemont",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "GIVN",
+   "nome": "Givaudan",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "AZN",
+   "nome": "AstraZeneca",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "CSCO",
+   "nome": "Cisco",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "WDAY",
+   "nome": "Workday",
+   "da": "sotto",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "PAYX",
+   "nome": "Paychex",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "ULTA",
+   "nome": "Ulta Beauty",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "EBAY",
+   "nome": "eBay",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "FICO",
+   "nome": "Fair Isaac (FICO)",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "ICE",
+   "nome": "Intercontinental Exchange",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "JNJ",
+   "nome": "Johnson & Johnson",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "ABT",
+   "nome": "Abbott Laboratories",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "YUM",
+   "nome": "Yum! Brands",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "CHD",
+   "nome": "Church & Dwight",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "TJX",
+   "nome": "TJX Companies",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "CMI",
+   "nome": "Cummins",
+   "da": "sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "OTIS",
+   "nome": "Otis Worldwide",
+   "da": "molto_sotto",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "PSX",
+   "nome": "Phillips 66",
+   "da": "sotto",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "VST",
+   "nome": "Vistra",
+   "da": "sotto",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-10",
+   "t": "CNI",
+   "nome": "Canadian National Railway",
+   "da": "sotto",
+   "a": "equita"
+  }
+ ]
 }
