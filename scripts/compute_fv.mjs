@@ -156,7 +156,9 @@ async function main() {
       if (r.status === 'ok') ok++;
       // Cambio di esito (sottovalutata / equità / sopravvalutata) rispetto al calcolo precedente
       const dopo = e.price > 0 ? catDi(e) : null;
-      if (prima && dopo && prima.cat !== 'na' && dopo.cat !== 'na' && prima.cat !== dopo.cat)
+      // Non si registra se il prezzo è a meno del 2% da una soglia: basterebbe un'oscillazione per tornare indietro
+      const vicino = [e.fv_low != null ? e.fv_low * (1 - E.P.MOS) : null, e.fv_high, e.fv_mkt].some(x => x > 0 && Math.abs(e.price / x - 1) < 0.02);
+      if (prima && dopo && prima.cat !== 'na' && dopo.cat !== 'na' && prima.cat !== dopo.cat && !vicino)
         cambi.push({ data: today, t, nome: e.name, da: prima.key, a: dopo.key });
     }
     console.log(`${t.padEnd(6)} ${String(r.status).padEnd(20)} FV ${r.fv} [${r.fv_low} – ${r.fv_high}] MKT ${r.fv_mkt} STO ${r.fv_sto} beta ${r.beta}`);

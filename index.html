@@ -1416,6 +1416,7 @@
                     const pt = FVEngine.potenziale(data, priceNum), aff = FVEngine.affidabilita(input, data);
                     const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 0 }) + '%';
                     const dist = (pos.zona < 9 ? `<div style="color:#fff;">Posizione: <strong>${pos.testo}</strong>${pos.sotto ? ' · ' + pos.sotto : ''}</div>` : '')
+                        + (FVEngine.notaVerdetto(data, priceNum, v.key) ? `<div style="color:#f9a825;">⚠ ${FVEngine.notaVerdetto(data, priceNum, v.key)}</div>` : '')
                         + (aff.livello ? `<div style="color:#fff;" title="${aff.motivi.join(' · ')}">Affidabilità della stima: <strong style="color:${AFF_COL[aff.livello]};">${aff.livello}</strong></div>` : '')
                         + (pt.pot != null ? `<div style="color:#fff;">Potenziale: <strong style="color:${pt.pot >= 0 ? '#43a047' : '#d32f2f'};">${pcs(pt.pot)}</strong> su FV ${pt.rif}${pt.potMkt != null ? ' · ' + pcs(pt.potMkt) + ' su FV mercato' : ''}</div>` : '')
                         + (pt.pot != null && ((v.cat === 'sotto' && pt.pot < 0) || (v.cat === 'sopra' && pt.pot > 0)) ? `<div style="color:var(--text-muted);">Esito e potenziale qui non coincidono: il primo guarda ai tassi di oggi, il secondo anche alla storia del titolo. Valutazione meno netta.</div>` : '');

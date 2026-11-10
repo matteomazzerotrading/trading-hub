@@ -364,7 +364,16 @@
     if (avv.some(a => a.startsWith('beta calcolato'))) add(1, 'beta molto basso: il rendimento richiesto potrebbe essere sottostimato');
     if (ind.anni != null && ind.anni < 8) add(1, 'meno di 8 anni di bilanci disponibili');
     if (d.fv_sto > 0 && d.fv > 0 && Math.max(d.fv, d.fv_sto) / Math.min(d.fv, d.fv_sto) > 2) add(1, 'fair value pavimento e storico molto distanti tra loro');
+    if (d.fv_high > 0 && d.fv_mkt > 0 && d.fv_high > 1.5 * d.fv_mkt) add(2, 'banda molto larga: lo scenario migliore supera di molto il fair value di mercato (margini molto variabili)');
     return { livello: punti <= 1 ? 'alta' : punti <= 3 ? 'media' : 'bassa', punti, motivi };
+  }
+
+  // Caso limite del verdetto: il prezzo è sopra il fair value di mercato ma risulta "sottovalutata"
+  // perché lo scenario migliore della banda (anno con il margine più alto) è ancora più in alto.
+  function notaVerdetto(d, close, key) {
+    if (categoria(key) === 'sotto' && d && d.fv_mkt > 0 && close > d.fv_mkt)
+      return 'Il prezzo è sopra il fair value di mercato: risulta in questa zona solo perché lo scenario migliore della banda è molto alto. Esito da leggere con cautela.';
+    return '';
   }
 
   // Settori di TradingView in italiano
@@ -378,7 +387,7 @@
   };
   const mercato = d => d.ex === 'MIL' ? 'it' : (d.ex === 'NYSE' || d.ex === 'NASDAQ') ? 'us' : 'eu';
 
-  const api = { P, compute, verdict, categoria, potenziale, posizione, affidabilita, SETTORI, mercato, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
+  const api = { P, compute, verdict, categoria, potenziale, posizione, affidabilita, notaVerdetto, SETTORI, mercato, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.FVEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -178,6 +178,8 @@ ${svgBanda(d, close)}
 <h2>Come leggere il risultato</h2>
 <p>${frasePosizione(t, d, v, pos, close)}</p>
 <p>Esito del modello: <strong style="color:${v.colore}">${esc(basso(v.titolo))}</strong>${v.sotto ? ` (${esc(v.sotto)})` : ''}. ${pt.pot != null ? `Per arrivare al più basso tra fair value pavimento e storico (${num(pt.fvRif)} ${c}) il prezzo dovrebbe ${pt.pot >= 0 ? 'salire' : 'scendere'} del ${Math.abs(pt.pot).toLocaleString('it-IT', { maximumFractionDigits: 0 })}%.` : ''}</p>`;
+    const nv = E.notaVerdetto(d, close, v.key);
+    if (nv) corpo += `<p class="mu" style="color:#f9a825">⚠ ${esc(nv)}</p>`;
     const cat = E.categoria(v.key);
     if (pt.pot != null && ((cat === 'sotto' && pt.pot < 0) || (cat === 'sopra' && pt.pot > 0)))
       corpo += `<p class="mu">Le due letture qui non coincidono: l'esito guarda ai tassi di oggi (la banda a crescita zero), il potenziale tiene conto anche di come il mercato ha prezzato il titolo negli ultimi 10 anni (fair value storico). Quando divergono, la valutazione è meno netta.</p>`;
