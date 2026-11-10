@@ -16,6 +16,7 @@ const E = require('./fv_engine.js');
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DATA = path.join(ROOT, 'data.json');
 const REPORT = path.join(ROOT, 'fv_report.json');
+const CHANGES = path.join(ROOT, 'fv_changes.json');
 const UA = { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -24,7 +25,7 @@ const COLS = ['close', 'currency', 'fiscal_period_fy_h', 'fiscal_period_end_fy',
   'cash_n_short_term_invest_fq', 'cash_n_short_term_invest_fy', 'total_debt_fq', 'total_debt_fy',
   'return_on_invested_capital_fy', 'total_shares_outstanding', 'earnings_release_date', 'fiscal_period_end_fq',
   'price_earnings_ttm', 'earnings_per_share_diluted_ttm', 'market_cap_basic', 'dividends_yield_current',
-  'total_revenue_yoy_growth_ttm'];
+  'total_revenue_yoy_growth_ttm', 'sector', 'earnings_release_next_date'];
 
 // Dati per i riquadri della scheda (P/E, EPS, capitalizzazione, crescita ricavi, dividendo)
 function fundamentals(f) {
@@ -125,8 +126,11 @@ async function main() {
   const report = { run: new Date().toISOString(), rf, cpi_ultimo: cpi[cpi.length - 1] || null, fonti: md.fonti || {},
     sp500_settimane: bench.length, parametri: E.P, titoli: {} };
   let ok = 0;
+  const cambi = [];
+  const catDi = en => { const k = E.verdict(en, Number(en.price)).key; return { key: k, cat: E.categoria(k) }; };
   for (const [t, e] of tickers) {
     const f = fund[e.tv];
+    const prima = e.ind && e.price > 0 ? catDi(e) : null;        // esito prima dell'aggiornamento
     let r;
     if (!f) r = { status: 'simbolo_non_trovato' };
     else {
@@ -137,6 +141,10 @@ async function main() {
       if (f.close != null) e.price = r2(f.close, f.close < 10 ? 3 : 2);
       e.fund = fundamentals(f);
       if (f.dividends_yield_current != null) e.divYield = r2(f.dividends_yield_current, 2);
+      if (f.sector) e.settore = E.SETTORI[f.sector] || f.sector;
+      // Prossima trimestrale (solo se futura)
+      const en = f.earnings_release_next_date;
+      e.earn_next = en && en * 1000 > Date.now() - 86400000 ? new Date(en * 1000).toISOString().slice(0, 10) : null;
     }
     report.titoli[t] = r;
     if (r.status !== 'errore' && r.status !== 'simbolo_non_trovato') {
@@ -146,6 +154,10 @@ async function main() {
       e.fv_source = 'indicatore';
       e.fv_updated = today;
       if (r.status === 'ok') ok++;
+      // Cambio di esito (sottovalutata / equità / sopravvalutata) rispetto al calcolo precedente
+      const dopo = e.price > 0 ? catDi(e) : null;
+      if (prima && dopo && prima.cat !== 'na' && dopo.cat !== 'na' && prima.cat !== dopo.cat)
+        cambi.push({ data: today, t, nome: e.name, da: prima.key, a: dopo.key });
     }
     console.log(`${t.padEnd(6)} ${String(r.status).padEnd(20)} FV ${r.fv} [${r.fv_low} – ${r.fv_high}] MKT ${r.fv_mkt} STO ${r.fv_sto} beta ${r.beta}`);
     if (!(md.weekly && md.weekly[e.yf || t])) await sleep(150);
@@ -153,6 +165,12 @@ async function main() {
   data.fv_updated = report.run;
   fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n');
   fs.writeFileSync(REPORT, JSON.stringify(report, null, 1) + '\n');
+  // Registro dei cambi di esito: i più recenti in cima, al massimo 300; un solo cambio al giorno per titolo
+  let reg = [];
+  try { reg = JSON.parse(fs.readFileSync(CHANGES, 'utf8')).cambi || []; } catch (e) {}
+  reg = cambi.concat(reg.filter(x => !cambi.some(c => c.t === x.t && c.data === x.data))).slice(0, 300);
+  fs.writeFileSync(CHANGES, JSON.stringify({ aggiornato: report.run, cambi: reg }, null, 1) + '\n');
+  console.log(`Cambi di esito in questo calcolo: ${cambi.length}`);
   console.log(`\nFatto: ${ok}/${tickers.length} titoli con fair value calcolato.`);
 }
 

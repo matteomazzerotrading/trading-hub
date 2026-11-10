@@ -30,12 +30,15 @@ h2{color:#fff;font-size:1.15em;margin:34px 0 10px}
 .mu{color:var(--mu);font-size:.9em}
 .badge{display:inline-block;padding:5px 14px;border-radius:8px;font-weight:800;font-size:.85em;letter-spacing:.3px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px 22px;margin-top:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
 .box{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
 .box .l{font-size:.72em;text-transform:uppercase;letter-spacing:1px;color:var(--mu)}
 .box .v{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;font-size:1.08em;font-weight:700;color:#fff;margin-top:4px}
 .box .s{font-size:.78em;color:var(--mu);margin-top:2px}
 ul{padding-left:20px;margin:8px 0}.warn li{color:#f9a825}
+.dia{margin-top:18px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 10px 6px}.dia svg{width:100%;height:auto;display:block}.dia-n{display:none}@media(max-width:600px){.dia-w{display:none}.dia-n{display:block}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chips a{border:1px solid var(--bd);border-radius:20px;padding:5px 12px;font-size:.85em;background:var(--card)}
+.aff{display:inline-block;padding:3px 10px;border-radius:6px;font-size:.78em;font-weight:700;margin-left:8px;vertical-align:middle}
 .cta{display:inline-block;margin-top:18px;background:var(--gr);color:#000;font-weight:800;padding:12px 22px;border-radius:10px}
 .cta:hover{text-decoration:none;opacity:.9}
 .held{display:inline-block;font-size:.75em;font-weight:700;color:#80cbc4;background:rgba(128,203,196,.1);border:1px solid rgba(128,203,196,.35);border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:middle}
@@ -48,8 +51,8 @@ footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--bd);color:var
 <div class="wrap">
 <div class="top"><a class="logo" href="../">MM<span>Trading</span></a><span><a href="../">Home</a> · <a href="./">Tutti i fair value</a> · <a href="../#faq">Come leggere i valori</a></span></div>
 <h1>Fair value di Wabtec (WAB)</h1>
-<p class="mu">Aggiornato al 10 novembre 2026 · calcolato con il mio indicatore FAIR VALUE (dati realizzati) su TradingView</p>
-<p><span class="badge" style="color:#ef6c00;background:#ef6c001f;border:1px solid #ef6c0073">PREMIO DUBBIO</span></p>
+<p class="mu">Stati Uniti · aggiornato al 10 novembre 2026 · calcolato con il mio indicatore FAIR VALUE (dati realizzati) su TradingView</p>
+<p><span class="badge" style="color:#ef6c00;background:#ef6c001f;border:1px solid #ef6c0073">PREMIO DUBBIO</span><span class="aff" style="color:#43a047;border:1px solid #43a04773">Affidabilità della stima: alta</span></p>
 <div class="grid">
 <div class="box"><div class="l">Prezzo</div><div class="v">299,27 $</div><div class="s">al 10 novembre 2026</div></div>
 <div class="box"><div class="l">FV pavimento</div><div class="v">133,63 $</div><div class="s">crescita reale zero</div></div>
@@ -58,10 +61,11 @@ footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--bd);color:var
 <div class="box"><div class="l">FV storico</div><div class="v">162,31 $</div><div class="s">ai multipli medi di 10 anni</div></div>
 <div class="box"><div class="l">Potenziale</div><div class="v">−55%</div><div class="s">sul FV pavimento · −37% sul FV di mercato</div></div>
 </div>
+<div class="dia"><div class="dia-w"><svg viewBox="0 0 820 153" role="img" aria-label="Prezzo e fair value di Wabtec sulla stessa scala"><rect x="20" y="59" width="780" height="6" rx="3" fill="#23272e"/><rect x="103.4" y="50" width="391.6" height="24" rx="5" fill="#42a5f5" fill-opacity=".22" stroke="#42a5f5" stroke-opacity=".5"/><text x="299.2" y="42" fill="#8b93a6" font-size="12" text-anchor="middle">banda peggiore – migliore</text><line x1="342.5" y1="49" x2="342.5" y2="83" stroke="#42a5f5" stroke-width="2.5"/><text x="342.5" y="96" fill="#42a5f5" font-size="13" font-weight="500" text-anchor="middle">FV pavimento 133,63</text><line x1="411.7" y1="49" x2="411.7" y2="102" stroke="#ba68c8" stroke-width="2.5"/><text x="411.7" y="115" fill="#ba68c8" font-size="13" font-weight="500" text-anchor="middle">FV storico 162,31</text><line x1="476.9" y1="49" x2="476.9" y2="121" stroke="#b0bec5" stroke-width="2.5"/><text x="476.9" y="134" fill="#b0bec5" font-size="13" font-weight="500" text-anchor="middle">FV mercato 189,33</text><path d="M734.2 47h16l-8 13z" fill="#fff"/><line x1="742.2" y1="58" x2="742.2" y2="83" stroke="#fff" stroke-width="2"/><text x="742.2" y="96" fill="#ffffff" font-size="13" font-weight="700" text-anchor="end">Prezzo 299,27</text></svg></div><div class="dia-n"><svg viewBox="0 0 380 172" role="img" aria-label="Prezzo e fair value di Wabtec sulla stessa scala"><rect x="20" y="59" width="340" height="6" rx="3" fill="#23272e"/><rect x="56.3" y="50" width="170.7" height="24" rx="5" fill="#42a5f5" fill-opacity=".22" stroke="#42a5f5" stroke-opacity=".5"/><text x="141.7" y="42" fill="#8b93a6" font-size="12" text-anchor="middle">banda peggiore – migliore</text><line x1="160.6" y1="49" x2="160.6" y2="83" stroke="#42a5f5" stroke-width="2.5"/><text x="160.6" y="96" fill="#42a5f5" font-size="13" font-weight="500" text-anchor="middle">FV pavimento 133,63</text><line x1="190.7" y1="49" x2="190.7" y2="102" stroke="#ba68c8" stroke-width="2.5"/><text x="190.7" y="115" fill="#ba68c8" font-size="13" font-weight="500" text-anchor="middle">FV storico 162,31</text><line x1="219.2" y1="49" x2="219.2" y2="121" stroke="#b0bec5" stroke-width="2.5"/><text x="219.2" y="134" fill="#b0bec5" font-size="13" font-weight="500" text-anchor="middle">FV mercato 189,33</text><path d="M326.8 47h16l-8 13z" fill="#fff"/><line x1="334.8" y1="58" x2="334.8" y2="140" stroke="#fff" stroke-width="2"/><text x="334.8" y="153" fill="#ffffff" font-size="13" font-weight="700" text-anchor="end">Prezzo 299,27</text></svg></div></div>
 <h2>Come leggere il risultato</h2>
 <p>Al prezzo di <strong>299,27 $</strong>, Wabtec quota sopra il fair value di mercato (189,33 $): il prezzo chiede una crescita superiore a quella dell'economia.</p>
-<p>Esito del modello: <strong style="color:#ef6c00">premio dubbio</strong> (crescita realizzata ma ROIC ≤ Ke). Per arrivare al più basso tra fair value pavimento e storico (133,63 $) il prezzo dovrebbe scendere del 55%.</p><p class="mu">crescita scontata 6,6% | storica 8,2% · ROIC 7,9% vs Ke 9,2%. La crescita scontata è quella che il prezzo di oggi dà per acquisita; la storica è quella dei ricavi per azione realizzata negli ultimi anni.</p><h2>Avvisi sull'affidabilità della stima</h2><ul class="warn"><li>debito netto = 5,1 anni di FCF</li></ul>
-<p class="mu">Il modello parte dal margine di free cash flow tipico degli ultimi 10 anni e somma la cassa senza sottrarre il debito: quando compaiono questi avvisi il fair value va letto con più cautela.</p><h2>Dati di base</h2><div class="grid">
+<p>Esito del modello: <strong style="color:#ef6c00">premio dubbio</strong> (crescita realizzata ma ROIC ≤ Ke). Per arrivare al più basso tra fair value pavimento e storico (133,63 $) il prezzo dovrebbe scendere del 55%.</p><p class="mu">crescita scontata 6,6% | storica 8,2% · ROIC 7,9% vs Ke 9,2%. La crescita scontata è quella che il prezzo di oggi dà per acquisita; la storica è quella dei ricavi per azione realizzata negli ultimi anni.</p><h2>Quanto è affidabile questa stima</h2><p>Affidabilità <strong style="color:#43a047">alta</strong>. Elementi che rendono il modello meno adatto a questo titolo:</p><ul class="warn"><li>debito netto elevato (5,1 anni di free cash flow), non sottratto dal fair value</li></ul>
+<p class="mu">Il modello parte dal margine di free cash flow tipico degli ultimi 10 anni e somma la cassa senza sottrarre il debito: più elementi compaiono qui, più il fair value va letto con cautela.</p><h2>Dati di base</h2><div class="grid">
 <div class="box"><div class="l">Rendimento richiesto (Ke)</div><div class="v">9,2%</div><div class="s">beta 0,983</div></div>
 <div class="box"><div class="l">FCF normalizzato</div><div class="v">7,17 $</div><div class="s">per azione</div></div>
 <div class="box"><div class="l">Cassa</div><div class="v">2,86 $</div><div class="s">per azione</div></div>
@@ -70,6 +74,7 @@ footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--bd);color:var
 <div class="box"><div class="l">Capitalizzazione</div><div class="v">50,2 mld</div><div class="s">$</div></div>
 </div>
 <a class="cta" href="../?t=WAB">Apri la scheda con il prezzo aggiornato →</a>
+
 <h2>Il metodo in breve</h2>
 <p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione, più la cassa per azione. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
 

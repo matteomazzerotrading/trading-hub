@@ -42,12 +42,15 @@ h2{color:#fff;font-size:1.15em;margin:34px 0 10px}
 .mu{color:var(--mu);font-size:.9em}
 .badge{display:inline-block;padding:5px 14px;border-radius:8px;font-weight:800;font-size:.85em;letter-spacing:.3px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px 22px;margin-top:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
 .box{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
 .box .l{font-size:.72em;text-transform:uppercase;letter-spacing:1px;color:var(--mu)}
 .box .v{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;font-size:1.08em;font-weight:700;color:#fff;margin-top:4px}
 .box .s{font-size:.78em;color:var(--mu);margin-top:2px}
 ul{padding-left:20px;margin:8px 0}.warn li{color:#f9a825}
+.dia{margin-top:18px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 10px 6px}.dia svg{width:100%;height:auto;display:block}.dia-n{display:none}@media(max-width:600px){.dia-w{display:none}.dia-n{display:block}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chips a{border:1px solid var(--bd);border-radius:20px;padding:5px 12px;font-size:.85em;background:var(--card)}
+.aff{display:inline-block;padding:3px 10px;border-radius:6px;font-size:.78em;font-weight:700;margin-left:8px;vertical-align:middle}
 .cta{display:inline-block;margin-top:18px;background:var(--gr);color:#000;font-weight:800;padding:12px 22px;border-radius:10px}
 .cta:hover{text-decoration:none;opacity:.9}
 .held{display:inline-block;font-size:.75em;font-weight:700;color:#80cbc4;background:rgba(128,203,196,.1);border:1px solid rgba(128,203,196,.35);border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:middle}
@@ -94,6 +97,30 @@ const foot = `
 </html>
 `;
 
+const AFF = { alta: ['#43a047', 'Affidabilità della stima: alta'], media: ['#f9a825', 'Affidabilità della stima: media'], bassa: ['#ef6c00', 'Affidabilità della stima: bassa'] };
+
+// Diagramma: prezzo e fair value sulla stessa scala
+function svgUno(d, close, W, righe) {
+  const H = 96 + righe * 19, L = 20, R = 20, y = 62;
+  const punti = [['Prezzo', close, '#ffffff'], ['FV pavimento', d.fv, '#42a5f5'], ['FV mercato', d.fv_mkt, '#b0bec5'], ['FV storico', d.fv_sto > 0 ? d.fv_sto : null, '#ba68c8']].filter(p => p[1] > 0);
+  const max = Math.max(...punti.map(p => p[1]), d.fv_high || 0) * 1.08;
+  const x = v => L + (W - L - R) * Math.min(1, Math.max(0, v / max));
+  const lo = d.fv_low != null ? Math.max(0, d.fv_low) : 0, hi = d.fv_high != null ? d.fv_high : d.fv;
+  let out = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Prezzo e fair value di ${esc(d.name)} sulla stessa scala"><rect x="${L}" y="${y - 3}" width="${W - L - R}" height="6" rx="3" fill="#23272e"/>`;
+  out += `<rect x="${x(lo).toFixed(1)}" y="${y - 12}" width="${Math.max(2, x(hi) - x(lo)).toFixed(1)}" height="24" rx="5" fill="#42a5f5" fill-opacity=".22" stroke="#42a5f5" stroke-opacity=".5"/>`;
+  out += `<text x="${((x(lo) + x(hi)) / 2).toFixed(1)}" y="${y - 20}" fill="#8b93a6" font-size="12" text-anchor="middle">banda peggiore – migliore</text>`;
+  punti.slice().sort((a, b) => a[1] - b[1]).forEach((p, i) => {
+    const px = x(p[1]), ty = y + 34 + (i % righe) * 19, prezzo = p[0] === 'Prezzo';
+    const anc = px < 100 ? 'start' : px > W - 100 ? 'end' : 'middle';
+    out += prezzo ? `<path d="M${(px - 8).toFixed(1)} ${y - 15}h16l-8 13z" fill="#fff"/><line x1="${px.toFixed(1)}" y1="${y - 4}" x2="${px.toFixed(1)}" y2="${ty - 13}" stroke="#fff" stroke-width="2"/>`
+                  : `<line x1="${px.toFixed(1)}" y1="${y - 13}" x2="${px.toFixed(1)}" y2="${ty - 13}" stroke="${p[2]}" stroke-width="2.5"/>`;
+    out += `<text x="${px.toFixed(1)}" y="${ty}" fill="${p[2]}" font-size="13" font-weight="${prezzo ? 700 : 500}" text-anchor="${anc}">${p[0]} ${num(p[1])}</text>`;
+  });
+  return out + '</svg>';
+}
+// Versione larga per computer e stretta per smartphone (scritte leggibili in entrambi i casi)
+const svgBanda = (d, close) => `<div class="dia"><div class="dia-w">${svgUno(d, close, 820, 3)}</div><div class="dia-n">${svgUno(d, close, 380, 4)}</div></div>`;
+
 // Frase che descrive dove si trova il prezzo rispetto alle soglie
 function frasePosizione(t, d, v, pos, close) {
   const c = d.curr, nome = esc(d.name);
@@ -108,11 +135,21 @@ function frasePosizione(t, d, v, pos, close) {
   return '';
 }
 
+// Altri titoli dello stesso settore (prima quelli dello stesso mercato): collegamenti utili a chi legge e ai motori di ricerca
+function simili(t, d) {
+  if (!d.settore) return '';
+  const altri = Object.keys(db).filter(x => x !== t && db[x].settore === d.settore && db[x].price > 0)
+    .sort((a, b) => (E.mercato(db[a]) === E.mercato(d) ? 0 : 1) - (E.mercato(db[b]) === E.mercato(d) ? 0 : 1) || a.localeCompare(b)).slice(0, 10);
+  if (!altri.length) return '';
+  return `<h2>Altri titoli del settore ${esc(d.settore)}</h2><div class="chips">${altri.map(x => `<a href="${slug(x)}.html">${esc(db[x].name)}</a>`).join('')}</div>`;
+}
+
 function paginaTitolo(t, d) {
   const close = Number(d.price), c = d.curr, ind = d.ind || {};
   const v = E.verdict(d, close), pos = E.posizione(d, close), pt = E.potenziale(d, close);
   const ok = ind.status === 'ok' && d.fv != null;
   const fin = E.FINANZIARI.includes(t);
+  const aff = E.affidabilita(t, d);
   const agg = dataIt(d.fv_updated);
   const url = `${SITE}titoli/${slug(t)}.html`;
   const title = ok ? `Fair value di ${d.name} (${t}): ${num(d.fv)} ${c} | Matteo Mazzero`
@@ -137,6 +174,7 @@ ${box('FV di mercato', `${num(d.fv_mkt)} ${c}`, "se cresce come l'economia")}
 ${box('FV storico', d.fv_sto ? `${num(d.fv_sto)} ${c}` : '—', 'ai multipli medi di 10 anni')}
 ${box('Potenziale', pc(pt.pot), pt.rif ? `sul FV ${pt.rif} · ${pc(pt.potMkt)} sul FV di mercato` : '')}
 </div>
+${svgBanda(d, close)}
 <h2>Come leggere il risultato</h2>
 <p>${frasePosizione(t, d, v, pos, close)}</p>
 <p>Esito del modello: <strong style="color:${v.colore}">${esc(basso(v.titolo))}</strong>${v.sotto ? ` (${esc(v.sotto)})` : ''}. ${pt.pot != null ? `Per arrivare al più basso tra fair value pavimento e storico (${num(pt.fvRif)} ${c}) il prezzo dovrebbe ${pt.pot >= 0 ? 'salire' : 'scendere'} del ${Math.abs(pt.pot).toLocaleString('it-IT', { maximumFractionDigits: 0 })}%.` : ''}</p>`;
@@ -145,9 +183,10 @@ ${box('Potenziale', pc(pt.pot), pt.rif ? `sul FV ${pt.rif} · ${pc(pt.potMkt)} s
       corpo += `<p class="mu">Le due letture qui non coincidono: l'esito guarda ai tassi di oggi (la banda a crescita zero), il potenziale tiene conto anche di come il mercato ha prezzato il titolo negli ultimi 10 anni (fair value storico). Quando divergono, la valutazione è meno netta.</p>`;
     const det = v.dettagli.filter(x => x.startsWith('crescita') || x.startsWith('ROIC'));
     if (det.length) corpo += `<p class="mu">${det.map(esc).join(' · ')}. La crescita scontata è quella che il prezzo di oggi dà per acquisita; la storica è quella dei ricavi per azione realizzata negli ultimi anni.</p>`;
-    const avv = (fin ? [E.AVVISO_FIN] : []).concat(ind.avvisi || []);
-    if (avv.length) corpo += `<h2>Avvisi sull'affidabilità della stima</h2><ul class="warn">${avv.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
-<p class="mu">Il modello parte dal margine di free cash flow tipico degli ultimi 10 anni e somma la cassa senza sottrarre il debito: quando compaiono questi avvisi il fair value va letto con più cautela.</p>`;
+    corpo += `<h2>Quanto è affidabile questa stima</h2><p>Affidabilità <strong style="color:${AFF[aff.livello][0]}">${aff.livello}</strong>. ${aff.motivi.length
+      ? 'Elementi che rendono il modello meno adatto a questo titolo:' : 'Non ci sono elementi che rendono il modello poco adatto a questo titolo: flussi di cassa regolari, debito contenuto e margini in linea con la storia.'}</p>`;
+    if (aff.motivi.length) corpo += `<ul class="warn">${aff.motivi.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
+<p class="mu">Il modello parte dal margine di free cash flow tipico degli ultimi 10 anni e somma la cassa senza sottrarre il debito: più elementi compaiono qui, più il fair value va letto con cautela.</p>`;
     corpo += `<h2>Dati di base</h2><div class="grid">
 ${box('Rendimento richiesto (Ke)', ind.ke != null ? (ind.ke * 100).toFixed(1).replace('.', ',') + '%' : '—', `beta ${ind.beta != null ? String(ind.beta).replace('.', ',') : '—'}`)}
 ${box('FCF normalizzato', ind.fcf_norm != null ? `${num(ind.fcf_norm)} ${c}` : '—', 'per azione')}
@@ -162,10 +201,11 @@ Per ${esc(d.name)} il modello non produce un fair value: ${ind.status === 'fcf_n
   }
 
   return head(title, desc, url, ld) + `<h1>Fair value di ${esc(d.name)} (${esc(t)})${held.has(t) ? '<span class="held">💼 nel mio portafoglio</span>' : ''}</h1>
-<p class="mu">Aggiornato al ${agg} · calcolato con il mio indicatore FAIR VALUE (dati realizzati) su TradingView</p>
-<p><span class="badge" style="color:${v.colore};background:${v.colore}1f;border:1px solid ${v.colore}73">${esc(v.titolo)}</span></p>
+<p class="mu">${d.settore ? esc(d.settore) + ' · ' : ''}${{ it: 'Borsa Italiana', eu: 'Europa', us: 'Stati Uniti' }[E.mercato(d)]} · aggiornato al ${agg} · calcolato con il mio indicatore FAIR VALUE (dati realizzati) su TradingView${d.earn_next ? ` · prossima trimestrale: ${dataIt(d.earn_next)}` : ''}</p>
+<p><span class="badge" style="color:${v.colore};background:${v.colore}1f;border:1px solid ${v.colore}73">${esc(v.titolo)}</span>${aff.livello ? `<span class="aff" style="color:${AFF[aff.livello][0]};border:1px solid ${AFF[aff.livello][0]}73">${AFF[aff.livello][1]}</span>` : ''}</p>
 ${corpo}
 <a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>
+${simili(t, d)}
 <h2>Il metodo in breve</h2>
 <p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione, più la cassa per azione. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
 ` + foot;

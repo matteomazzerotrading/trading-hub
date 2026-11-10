@@ -54,6 +54,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: fair value dall'indicatore [skip ci]"
-          file_pattern: "data.json fv_report.json titoli sitemap.xml"
+          file_pattern: "data.json fv_report.json fv_changes.json titoli sitemap.xml"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"

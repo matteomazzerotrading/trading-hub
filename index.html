@@ -260,7 +260,23 @@
         .faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 500px; }
         .faq-item.faq-lunga.active .faq-answer { max-height: 3000px; }
         * { scrollbar-color: rgba(255,255,255,0.22) transparent; scrollbar-width: thin; }
-        #scr-mkt { flex: 0 0 auto; min-width: 0; }
+        #scr-mkt, #scr-sec { flex: 0 0 auto; min-width: 0; }
+        #scr-sec option { background: #14171c; color: #fff; }
+        .mkt-overview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+        .mkt-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: 0.2s; }
+        .mkt-card:hover { border-color: rgba(0,230,118,0.35); }
+        .mkt-card .t { font-weight: 700; color: #fff; font-size: 0.95em; }
+        .mkt-card .n { font-family: 'JetBrains Mono', monospace; font-size: 1.35em; font-weight: 800; margin-top: 6px; }
+        .mkt-card .s { font-size: 0.78em; color: var(--text-muted); margin-top: 2px; line-height: 1.45; }
+        .mkt-bar { height: 6px; border-radius: 3px; overflow: hidden; display: flex; margin-top: 10px; background: rgba(255,255,255,0.06); }
+        .aff-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+        .cambi-box { margin-bottom: 16px; font-size: 0.85em; }
+        .cambi-box summary { cursor: pointer; color: #fff; font-weight: 700; }
+        .cambio { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-top: 1px solid var(--border-glass); flex-wrap: wrap; }
+        .cambio .d { color: var(--text-muted); font-size: 0.85em; min-width: 62px; }
+        .cambio a { color: #fff; font-weight: 700; text-decoration: none; cursor: pointer; }
+        .scr-check { display: inline-flex; align-items: center; gap: 7px; font-size: 0.85em; color: var(--text-muted); cursor: pointer; white-space: nowrap; }
+        @media (max-width: 700px) { .mkt-overview { grid-template-columns: 1fr; } #screener-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
         #scr-mkt option { background: #14171c; color: #fff; }
         .held-tag { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.3px; color: #80cbc4; background: rgba(128,203,196,0.1); border: 1px solid rgba(128,203,196,0.35); border-radius: 5px; padding: 1px 6px; vertical-align: middle; white-space: nowrap; font-family: 'Inter', sans-serif; }
         .about-box { max-width: 760px; margin: 28px auto 0; display: flex; gap: 18px; align-items: center; text-align: left; background: var(--bg-glass); border: 1px solid var(--border-glass); border-radius: 16px; padding: 20px 24px; }
@@ -581,6 +597,7 @@
                 <div class="card" style="padding: 0; overflow: hidden;">
                     <div style="padding: 20px 20px 0;">
                         <h3 style="margin:0 0 16px;">Posizioni</h3>
+                        <div id="port-earnings" style="display:none; font-size:0.82em; color:var(--text-muted); line-height:1.7; margin:-6px 0 14px;"></div>
                     </div>
                     <div style="overflow-x: auto;">
                         <table style="width:100%; border-collapse:collapse; font-size:0.85em;">
@@ -609,7 +626,8 @@
             <div class="fv-interface">
                 <div class="fv-search-box">
                     <span style="color: var(--brand-green); font-size: 1.2em;">🔍</span>
-                    <input type="text" id="fvInput" class="fv-input-main" aria-label="Cerca un titolo per ticker" placeholder="Cerca per ticker o nome (es. AAPL, Enel, Nestlé...)">
+                    <datalist id="lista-titoli"></datalist>
+                    <input type="text" id="fvInput" class="fv-input-main" list="lista-titoli" autocomplete="off" aria-label="Cerca un titolo per ticker o nome" placeholder="Cerca per ticker o nome (es. AAPL, Enel, Nestlé...)">
                     <button id="calcBtn" onclick="calculateFV()" class="fv-search-btn">ANALIZZA</button>
                 </div>
                 
@@ -633,6 +651,7 @@
                                     <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="wl-fv-btn" style="width: auto; padding: 8px 20px;">
                                         ☆ Preferiti
                                     </button>
+                                    <button id="fvShare" onclick="copiaLink(this)" class="wl-fv-btn" style="width: auto; padding: 8px 20px;" title="Copia il link diretto a questa scheda">🔗 Copia link</button>
                                     <button onclick="toggleAlert(currentFVTicker)" class="wl-fv-btn" style="width: auto; padding: 8px 20px; border-color: var(--accent-yellow); color: var(--accent-yellow);" onmouseover="this.style.background='rgba(255,235,59,0.1)'" onmouseout="this.style.background='transparent'">
                                         🔔 Attiva Alert Drop
                                     </button>
@@ -708,6 +727,12 @@
             <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Valutazione con l'indicatore FAIR VALUE (dati realizzati)</span>
         </div>
         <div class="card" style="padding: 24px;">
+            <div style="font-size:0.78em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:10px;">Come valuta i mercati il modello, oggi</div>
+            <div class="mkt-overview" id="mkt-overview"></div>
+            <details class="cambi-box" id="cambi-box" style="display:none;">
+                <summary>🔄 Ultimi cambi di esito <span id="cambi-n" style="color:var(--text-muted); font-weight:400;"></span></summary>
+                <div id="cambi-lista"></div>
+            </details>
             <button class="screener-toggle-btn" onclick="toggleScreener()" id="scr-toggle-btn">
                 <span>📊 Mostra tutti i titoli, dal più economico al più caro</span>
                 <span class="screener-toggle-icon" id="scr-toggle-icon">▼</span>
@@ -734,6 +759,11 @@
                         <option value="eu">🇪🇺 Resto d'Europa</option>
                         <option value="us">🇺🇸 Stati Uniti</option>
                     </select>
+                    <select id="scr-sec" class="screener-search" aria-label="Filtra per settore" onchange="applyFilter(currentFilter)" style="max-width:210px; cursor:pointer;">
+                        <option value="">Tutti i settori</option>
+                    </select>
+                    <label class="scr-check" title="Nasconde i titoli per cui il modello è poco adatto (affidabilità bassa)"><input type="checkbox" id="scr-aff" onchange="applyFilter(currentFilter)"> Solo stime affidabili</label>
+                    <button class="screener-filter-btn" onclick="scaricaCsv()" title="Scarica i titoli filtrati in un file CSV">⬇ CSV</button>
                     <input type="text" class="screener-search" id="scr-search" aria-label="Cerca nello screener per ticker o nome" placeholder="🔍 Cerca ticker o nome..." oninput="applyFilter(currentFilter)">
                 </div>
 
@@ -805,7 +835,7 @@
 
         <div class="card">
             <div class="pers-port-inputs">
-                <div class="form-group"><label class="form-label" for="mypTicker">Ticker</label><input type="text" id="mypTicker" class="form-input" placeholder="Es. AAPL" style="text-transform:uppercase;"></div>
+                <div class="form-group"><label class="form-label" for="mypTicker">Ticker</label><input type="text" id="mypTicker" list="lista-titoli" autocomplete="off" class="form-input" placeholder="Es. AAPL" style="text-transform:uppercase;"></div>
                 <div class="form-group"><label class="form-label" for="mypQty">Quantità</label><input type="number" id="mypQty" class="form-input" placeholder="Es. 10" step="0.1"></div>
                 <div class="form-group"><label class="form-label" for="mypPrice">Prezzo Medio</label><input type="number" id="mypPrice" class="form-input" placeholder="Es. 150.50" step="0.01"></div>
                 <button class="btn-primary" onclick="addPersonalPosition()" style="margin-top:24px; padding: 15px 20px;">＋ AGGIUNGI</button>
@@ -988,6 +1018,7 @@
                         <div class="leg-row"><div class="leg-nome">FV di mercato</div><div>Quanto vale l'azienda se cresce <strong>come l'economia</strong> nel lungo periodo (convenzione usata da Damodaran per il premio per il rischio). È la soglia oltre la quale il prezzo chiede più crescita di un'azienda media.</div></div>
                         <div class="leg-row"><div class="leg-nome">FV storico</div><div>Il prezzo che avrebbe oggi il titolo se il mercato lo pagasse al suo <strong>rendimento di free cash flow mediano degli ultimi 10 anni</strong>. Non usa tassi: dice se il titolo è caro o economico rispetto alla sua storia, non in assoluto.</div></div>
                         <div class="leg-row"><div class="leg-nome">Potenziale</div><div>Nello screener: quanto dovrebbe <span style="color:#43a047;">salire (+)</span> o <span style="color:#d32f2f;">scendere (−)</span> il prezzo per arrivare al fair value, cioè FV ÷ prezzo − 1. Per prudenza si usa il <strong>più basso tra FV pavimento e FV storico</strong> (l'etichetta dice quale): un titolo risulta conveniente solo se lo è sia rispetto ai tassi di oggi sia rispetto alla sua storia. Sotto, lo stesso calcolo sul FV di mercato. Esempio: prezzo 80 e FV 100 danno +25%; prezzo 125 e FV 100 danno −20%. Un potenziale molto alto di solito indica un'azienda con margini crollati rispetto alla sua storia (<span style="color:#f9a825;">⚠ margine in calo</span>): il modello presume che tornino alla media, quindi va letto con cautela. Se esito e potenziale non coincidono (per esempio "sottovalutata" con potenziale negativo), i due metodi danno letture diverse e la valutazione è meno netta.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Affidabilità della stima</div><div>Indica quanto il modello è adatto al titolo: <span style="color:#43a047;">alta</span>, <span style="color:#f9a825;">media</span> o <span style="color:#ef6c00;">bassa</span>. Scende quando ci sono anni con free cash flow negativo, margini crollati rispetto alla storia, molto debito (che il fair value non sottrae), utili che non diventano cassa, un beta molto basso, oppure quando fair value pavimento e storico sono molto distanti. Banche e assicurazioni hanno sempre affidabilità bassa. Nello screener puoi nascondere le stime poco affidabili.</div></div>
                         <div class="leg-row"><div class="leg-nome">Posizione</div><div>In quale zona si trova il prezzo rispetto alle soglie: sotto la banda, nella banda (con la percentuale: 0% = scenario peggiore, 100% = migliore), tra banda e FV di mercato, sopra il FV di mercato. Da qui nasce il verdetto.</div></div>
                         <div class="leg-row"><div class="leg-nome">Crescita scontata e storica</div><div>La <strong>crescita scontata</strong> è quella che il prezzo di oggi dà per scontata; la <strong>storica</strong> è quella dei ricavi per azione davvero realizzata negli ultimi anni. Se il mercato chiede molta più crescita di quella mai realizzata, il titolo è caro.</div></div>
                     </div>
@@ -1311,6 +1342,19 @@
             return base ? base + (anno ? ' ' + anno : '') : p.ticker;
         }
 
+        // Affidabilità della stima (calcolata in fv_engine.js): colori ed etichette
+        const AFF_COL = { alta: '#43a047', media: '#f9a825', bassa: '#ef6c00' };
+        const AFF_TXT = { alta: 'affidabile', media: 'da leggere con cautela', bassa: 'poco affidabile' };
+
+        // Copia negli appunti il link diretto alla scheda del titolo aperto
+        async function copiaLink(btn) {
+            if (!currentFVTicker) return;
+            const url = location.origin + location.pathname + '?t=' + encodeURIComponent(currentFVTicker);
+            try { await navigator.clipboard.writeText(url); btn.innerText = '✓ Link copiato'; }
+            catch (e) { btn.innerText = url.replace(/^https?:\/\//, ''); }
+            setTimeout(() => { btn.innerText = '🔗 Copia link'; }, 2500);
+        }
+
         // Titoli che ho nel mio portafoglio reale (portfolio.json): segnalati per trasparenza
         function inPortafoglio(t) { return !!(portfolioData && (portfolioData.positions || []).some(p => p.ticker === t)); }
         const HELD_TAG = '<span class="held-tag" title="Titolo presente nel mio portafoglio reale">💼 in portafoglio</span>';
@@ -1348,7 +1392,8 @@
 
                 currentFVTicker = input;
                 document.getElementById('fvName').innerText = data.name;
-                document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo →</a>`;
+                const trim = data.earn_next && new Date(data.earn_next + 'T23:59:59') >= new Date() ? ' · trimestrale il ' + new Date(data.earn_next + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }) : '';
+                document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<span style="font-size:0.78em; color:var(--text-muted);">${data.settore ? data.settore + ' · ' : ''}${trim ? trim.slice(3) + ' · ' : ''}</span><a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo →</a>`;
                 document.getElementById('fvValue').innerText = data.fv != null ? data.fv.toFixed(2) + " " + data.curr : "N/D";
                 document.getElementById('fvDividend').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
 
@@ -1368,9 +1413,10 @@
                 const vt = document.getElementById('fvVerdictText');
                 if (vt) {
                     const pos = fvPosition(data, priceNum);
-                    const pt = FVEngine.potenziale(data, priceNum);
+                    const pt = FVEngine.potenziale(data, priceNum), aff = FVEngine.affidabilita(input, data);
                     const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 0 }) + '%';
                     const dist = (pos.zona < 9 ? `<div style="color:#fff;">Posizione: <strong>${pos.testo}</strong>${pos.sotto ? ' · ' + pos.sotto : ''}</div>` : '')
+                        + (aff.livello ? `<div style="color:#fff;" title="${aff.motivi.join(' · ')}">Affidabilità della stima: <strong style="color:${AFF_COL[aff.livello]};">${aff.livello}</strong></div>` : '')
                         + (pt.pot != null ? `<div style="color:#fff;">Potenziale: <strong style="color:${pt.pot >= 0 ? '#43a047' : '#d32f2f'};">${pcs(pt.pot)}</strong> su FV ${pt.rif}${pt.potMkt != null ? ' · ' + pcs(pt.potMkt) + ' su FV mercato' : ''}</div>` : '')
                         + (pt.pot != null && ((v.cat === 'sotto' && pt.pot < 0) || (v.cat === 'sopra' && pt.pot > 0)) ? `<div style="color:var(--text-muted);">Esito e potenziale qui non coincidono: il primo guarda ai tassi di oggi, il secondo anche alla storia del titolo. Valutazione meno netta.</div>` : '');
                     vt.innerHTML = (v.sotto ? `<div style="color:${v.colore}; font-weight:600;">${v.sotto}</div>` : '') + dist
@@ -1462,12 +1508,69 @@
                     const pos = fvPosition(data, livePriceNum);
                     // Potenziale = FV / prezzo − 1, con FV = il più basso tra pavimento e storico (stima prudente)
                     const pt = FVEngine.potenziale(data, livePriceNum);
-                    return { ticker, ...data, price: livePriceNum, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord, pot: pt.pot, potMkt: pt.potMkt, potRif: pt.rif };
+                    return { ticker, ...data, price: livePriceNum, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord, pot: pt.pot, potMkt: pt.potMkt, potRif: pt.rif, aff: FVEngine.affidabilita(ticker, data) };
                 }));
                 screenerData.push(...chunkResults);
             }
-            sortScreener(); renderScreener();
+            // Elenco dei settori presenti
+            const sec = document.getElementById('scr-sec');
+            if (sec && sec.options.length <= 1) [...new Set(screenerData.map(d => d.settore).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'it')).forEach(s => sec.add(new Option(s, s)));
+            sortScreener(); renderScreener(); renderOverview();
         }
+
+        // Panoramica: per ogni mercato, quanti titoli sono sotto/equi/sopra e il potenziale mediano (solo stime non a bassa affidabilità)
+        function renderOverview() {
+            const box = document.getElementById('mkt-overview'); if (!box) return;
+            const med = a => { if (!a.length) return null; const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+            const pcs = x => x == null ? '—' : (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(0) + '%';
+            box.innerHTML = [['it', '🇮🇹 Italia'], ['eu', "🇪🇺 Resto d'Europa"], ['us', '🇺🇸 Stati Uniti']].map(([k, nome]) => {
+                const v = screenerData.filter(d => FVEngine.mercato(d) === k && d.cat !== 'na');
+                const n = c => v.filter(d => d.cat === c).length, tot = v.length || 1;
+                const m = med(v.filter(d => d.pot != null && d.aff.livello !== 'bassa').map(d => d.pot));
+                return `<div class="mkt-card" onclick="apriMercato('${k}')" title="Apri lo screener su questo mercato">
+                    <div class="t">${nome} <span style="color:var(--text-muted); font-weight:400; font-size:0.85em;">· ${v.length} titoli</span></div>
+                    <div class="n" style="color:${m == null ? 'var(--text-muted)' : m >= 0 ? '#43a047' : '#d32f2f'};">${pcs(m)}</div>
+                    <div class="s">potenziale mediano</div>
+                    <div class="mkt-bar"><div style="width:${n('sotto') / tot * 100}%; background:#43a047;"></div><div style="width:${n('equa') / tot * 100}%; background:#78909c;"></div><div style="width:${n('sopra') / tot * 100}%; background:#d32f2f;"></div></div>
+                    <div class="s">${Math.round(n('sotto') / tot * 100)}% sotto o nella banda · ${Math.round(n('equa') / tot * 100)}% equità o premio · ${Math.round(n('sopra') / tot * 100)}% sopravvalutati</div>
+                </div>`;
+            }).join('');
+        }
+        function apriMercato(k) {
+            document.getElementById('scr-mkt').value = k;
+            if (!screenerOpen) toggleScreener();
+            applyFilter('all');
+            document.getElementById('scr-toggle-btn').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Ultimi cambi di esito registrati dal calcolo serale (fv_changes.json)
+        async function loadCambi() {
+            const j = await fetchJson('fv_changes.json');
+            const cambi = (j && j.cambi || []).filter(c => db[c.t]).slice(0, 25);
+            if (!cambi.length) return;
+            const nome = k => (FV_BREVE[k] || k).toLowerCase();
+            document.getElementById('cambi-lista').innerHTML = cambi.map(c => {
+                const d = new Date(c.data + 'T12:00:00');
+                const su = FVEngine.categoria(c.a) === 'sotto' || (FVEngine.categoria(c.a) === 'equa' && FVEngine.categoria(c.da) === 'sopra');
+                return `<div class="cambio"><span class="d">${d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })}</span><a onclick="apriTitolo('${c.t}')">${c.t}</a><span style="color:var(--text-muted);">${db[c.t].name}</span><span>da ${nome(c.da)} a <strong style="color:${su ? '#43a047' : '#d32f2f'};">${nome(c.a)}</strong></span></div>`;
+            }).join('');
+            document.getElementById('cambi-n').innerText = '(' + cambi.length + ')';
+            document.getElementById('cambi-box').style.display = '';
+        }
+        function apriTitolo(t) { document.getElementById('fvInput').value = t; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV, 300); }
+
+        // Scarica i titoli attualmente filtrati in formato CSV (separatore ; e virgola decimale, per Excel in italiano)
+        function scaricaCsv() {
+            const n = x => x == null || !isFinite(x) ? '' : String(Math.round(x * 100) / 100).replace('.', ',');
+            const righe = [['Ticker', 'Nome', 'Mercato', 'Settore', 'Valuta', 'Prezzo', 'FV pavimento', 'Banda bassa', 'Banda alta', 'FV mercato', 'FV storico', 'Potenziale %', 'Esito', 'Affidabilita', 'Dividendo %']]
+                .concat(screenerFiltrati.map(d => [d.ticker, d.name, { it: 'Italia', eu: 'Europa', us: 'USA' }[FVEngine.mercato(d)], d.settore || '', d.curr, n(d.price), n(d.fv), n(d.fv_low), n(d.fv_high), n(d.fv_mkt), n(d.fv_sto), n(d.pot), d.verdict.breve, d.aff.livello || '', n(d.divYield)]));
+            const csv = '\ufeff' + righe.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(';')).join('\r\n');
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+            a.download = 'fair-value-' + new Date().toISOString().slice(0, 10) + '.csv';
+            document.body.appendChild(a); a.click(); a.remove();
+        }
+        let screenerFiltrati = [];
 
         function sortScreener() {
             const { col, dir } = currentSort;
@@ -1499,10 +1602,14 @@
         function renderScreener() {
             const search = document.getElementById('scr-search').value.toLowerCase();
             const mkt = (document.getElementById('scr-mkt') || {}).value || '';
+            const sec = (document.getElementById('scr-sec') || {}).value || '';
+            const soloAff = (document.getElementById('scr-aff') || {}).checked;
             const mercatoDi = d => d.ex === 'MIL' ? 'it' : (d.ex === 'NYSE' || d.ex === 'NASDAQ') ? 'us' : 'eu';
             let filtered = screenerData.filter(d => {
                 if (search && !d.ticker.toLowerCase().includes(search) && !d.name.toLowerCase().includes(search)) return false;
                 if (mkt && mercatoDi(d) !== mkt) return false;
+                if (sec && d.settore !== sec) return false;
+                if (soloAff && d.aff.livello !== 'alta' && d.aff.livello !== 'media') return false;
                 if (currentFilter === 'under' && d.cat !== 'sotto') return false;
                 if (currentFilter === 'equa' && d.cat !== 'equa') return false;
                 if (currentFilter === 'over' && d.cat !== 'sopra') return false;
@@ -1512,6 +1619,7 @@
                 return true;
             });
 
+            screenerFiltrati = filtered;
             document.getElementById('stat-total').innerText = screenerData.length;
             document.getElementById('stat-undervalued').innerText = screenerData.filter(d => d.cat === 'sotto').length;
             document.getElementById('stat-overvalued').innerText = screenerData.filter(d => d.cat === 'sopra').length;
@@ -1540,7 +1648,7 @@
                 <td class="scr-fv" style="color:var(--text-muted)">${cur(d.fv_mkt)}</td>
                 <td style="line-height:1.3"><div style="font-weight:700; color:#fff; font-size:0.9em;">${pos.testo}</div><div style="font-size:0.75em; color:var(--text-muted);">${pos.sotto}</div></td>
                 <td class="scr-div">${d.divYield ? d.divYield.toFixed(1) + '%' : '—'}</td>
-                <td><span class="scr-badge" style="${badgeStyle(v.colore)}">${v.breve}</span>${v.finanziario ? ` <span title="${AVVISO_FIN}" style="color:#f9a825; cursor:help;">⚠</span>` : ''}</td>`;
+                <td style="line-height:1.5"><span class="scr-badge" style="${badgeStyle(v.colore)}">${v.breve}</span>${d.aff.livello ? `<div style="font-size:0.72em; color:var(--text-muted); white-space:nowrap; cursor:help;" title="${d.aff.motivi.length ? d.aff.motivi.join(' · ') : 'Nessun elemento critico: flussi di cassa regolari, debito contenuto, margini in linea con la storia'}"><span class="aff-dot" style="background:${AFF_COL[d.aff.livello]};"></span>stima ${AFF_TXT[d.aff.livello]}</div>` : ''}</td>`;
                 tbody.appendChild(tr);
             });
             document.getElementById('scr-loading').style.display = 'none'; document.getElementById('scr-table-wrap').style.display = 'block';
@@ -1698,6 +1806,18 @@
             }
 
             // Positions table
+            // Prossime trimestrali dei titoli in portafoglio (date aggiornate ogni sera)
+            const pe = document.getElementById('port-earnings');
+            if (pe && pd && pd.positions) {
+                const oggi = new Date(); oggi.setHours(0, 0, 0, 0);
+                const prossime = pd.positions.filter(p => db[p.ticker] && db[p.ticker].earn_next)
+                    .map(p => ({ t: p.ticker, d: new Date(db[p.ticker].earn_next + 'T12:00:00') }))
+                    .filter(x => x.d >= oggi).sort((a, b) => a.d - b.d).slice(0, 6);
+                if (prossime.length) {
+                    pe.innerHTML = '📅 <strong style="color:#fff;">Prossime trimestrali:</strong> ' + prossime.map(x => `<a onclick="apriTitolo('${x.t}')" style="color:var(--brand-green); cursor:pointer;">${x.t}</a> ${x.d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })}`).join(' · ');
+                    pe.style.display = '';
+                }
+            }
             const tbody = document.getElementById('port-positions-tbody');
             if (tbody && pd && pd.positions) {
                 tbody.innerHTML = pd.positions.map((p, i) => {
@@ -2114,6 +2234,10 @@
             }
             renderPersonalPortfolio();
             renderIndicatorSignals();
+            // Suggerimenti di ricerca, panoramica dei mercati e cambi di esito
+            document.getElementById('lista-titoli').innerHTML = Object.keys(db).sort().map(t => `<option value="${t}">${String(db[t].name).replace(/"/g, '&quot;')}</option>`).join('');
+            if (!screenerBuilt) { screenerBuilt = true; buildScreenerData(); }
+            loadCambi();
             document.querySelectorAll('[data-yt]').forEach(w => { w.style.cssText = 'position:absolute; inset:0;'; ytFacade(w, w.dataset.yt, w.dataset.ytTitle); });
             loadSentiment();
             renderPortfolio();

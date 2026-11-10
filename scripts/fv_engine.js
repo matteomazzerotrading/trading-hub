@@ -341,7 +341,44 @@
     return { zona: 4, ord: 4 + (p / mkt - 1), testo: 'Sopra FV mercato', sotto: `+${((p / mkt - 1) * 100).toFixed(0)}% sopra il FV di mercato` };
   }
 
-  const api = { P, compute, verdict, categoria, potenziale, posizione, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
+  /*
+   * Affidabilità della stima: quanto ci si può fidare del fair value di questo titolo.
+   * Ogni condizione che rende il modello meno adatto aggiunge punti; 0-1 = alta, 2-3 = media, 4 o più = bassa.
+   */
+  function affidabilita(ticker, d) {
+    const ind = d && d.ind;
+    if (!d || d.fv == null || !ind || ind.status !== 'ok') return { livello: null, punti: null, motivi: [] };
+    const avv = ind.avvisi || [], motivi = [];
+    let punti = 0;
+    const add = (n, testo) => { punti += n; motivi.push(testo); };
+    if (FINANZIARI.includes(ticker)) add(3, 'banca o assicurazione: il free cash flow è poco significativo');
+    if (avv.some(a => a.startsWith('margine attuale'))) add(2, 'margine attuale molto sotto la media storica');
+    const neg = avv.map(a => a.match(/^(\d+) ann[oi] con FCF negativo/)).find(Boolean);
+    if (neg) add(Number(neg[1]) >= 3 ? 2 : 1, neg[1] + (neg[1] === '1' ? ' anno' : ' anni') + ' su 10 con free cash flow negativo');
+    const deb = avv.map(a => a.match(/^debito netto = ([\d,]+) anni di FCF/)).find(Boolean);
+    if (deb) {
+      const anni = parseFloat(deb[1].replace(',', '.'));
+      add(anni >= 15 ? 4 : anni >= 8 ? 2 : 1, 'debito netto elevato (' + deb[1] + ' anni di free cash flow), non sottratto dal fair value');
+    }
+    if (avv.some(a => a.startsWith('FCF solo'))) add(1, "free cash flow molto inferiore all'utile");
+    if (avv.some(a => a.startsWith('beta calcolato'))) add(1, 'beta molto basso: il rendimento richiesto potrebbe essere sottostimato');
+    if (ind.anni != null && ind.anni < 8) add(1, 'meno di 8 anni di bilanci disponibili');
+    if (d.fv_sto > 0 && d.fv > 0 && Math.max(d.fv, d.fv_sto) / Math.min(d.fv, d.fv_sto) > 2) add(1, 'fair value pavimento e storico molto distanti tra loro');
+    return { livello: punti <= 1 ? 'alta' : punti <= 3 ? 'media' : 'bassa', punti, motivi };
+  }
+
+  // Settori di TradingView in italiano
+  const SETTORI = {
+    'Health Technology': 'Farmaci e dispositivi medici', 'Health Services': 'Servizi sanitari', 'Utilities': 'Utility',
+    'Consumer Durables': 'Beni durevoli e auto', 'Consumer Non-Durables': 'Beni di consumo', 'Technology Services': 'Software e servizi IT',
+    'Electronic Technology': 'Tecnologia e semiconduttori', 'Retail Trade': 'Commercio al dettaglio', 'Process Industries': 'Chimica e materiali',
+    'Producer Manufacturing': 'Industria', 'Finance': 'Finanza', 'Energy Minerals': 'Energia', 'Consumer Services': 'Servizi ai consumatori',
+    'Transportation': 'Trasporti', 'Industrial Services': 'Servizi industriali', 'Commercial Services': 'Servizi alle imprese',
+    'Communications': 'Telecomunicazioni', 'Non-Energy Minerals': 'Materie prime', 'Distribution Services': 'Distribuzione', 'Miscellaneous': 'Altro'
+  };
+  const mercato = d => d.ex === 'MIL' ? 'it' : (d.ex === 'NYSE' || d.ex === 'NASDAQ') ? 'us' : 'eu';
+
+  const api = { P, compute, verdict, categoria, potenziale, posizione, affidabilita, SETTORI, mercato, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.FVEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
