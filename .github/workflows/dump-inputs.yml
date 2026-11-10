@@ -1,0 +1,33 @@
+name: Dump Inputs
+
+# Scarica i dati storici (bilanci, prezzi, tassi) per la verifica sul passato della formula del fair value.
+# Si avvia solo a mano; i dati restano come allegato dell'esecuzione, non entrano nel repository.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Bilanci
+        run: node scripts/dump_inputs.mjs
+      - name: Prezzi, decennale e CPI
+        run: |
+          pip install yfinance --quiet
+          python scripts/dump_market.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backtest-inputs
+          path: backtest_inputs
+          retention-days: 5
