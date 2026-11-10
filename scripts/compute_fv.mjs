@@ -17,6 +17,7 @@ const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DATA = path.join(ROOT, 'data.json');
 const REPORT = path.join(ROOT, 'fv_report.json');
 const CHANGES = path.join(ROOT, 'fv_changes.json');
+const CPI_PAESI = path.join(ROOT, 'cpi_paesi.json');
 const UA = { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -60,6 +61,13 @@ async function tvScan(symbols) {
     for (const row of j.data || []) out[row.s] = Object.fromEntries(COLS.map((c, k) => [c, row.d[k]]));
   }
   return out;
+}
+
+// Ultimo valore e mese di riferimento di una serie economica (es. ECONOMICS:ITIRYY)
+async function tvUltimo(symbol) {
+  const j = await (await get('https://scanner.tradingview.com/symbol?symbol=' + encodeURIComponent(symbol) + '&fields=close,time&no_404=true')).json();
+  if (!j || j.close == null || !j.time) return null;
+  return { mese: new Date(j.time * 1000).toISOString().slice(0, 7) + '-01', valore: j.close };
 }
 
 async function tvClose(symbol) {
@@ -121,6 +129,24 @@ async function main() {
   if (!cpi.length) { try { cpi = await fredCpi(); } catch (e) { console.log('CPI non disponibile:', e.message); } }
   let bench = [];
   try { bench = await weeklyOf('^GSPC'); } catch (e) { console.log('S&P 500 non disponibile:', e.message); }
+  // Decennale e inflazione del paese di quotazione: tasso da TradingView, indice dei prezzi ricostruito dall'inflazione annua
+  let paesi = { yoy: {} };
+  try { paesi = JSON.parse(fs.readFileSync(CPI_PAESI, 'utf8')); } catch (e) { console.log('cpi_paesi.json non leggibile:', e.message); }
+  const rfPaesi = { US: rf }, cpiPaesi = { US: cpi };
+  for (const [cod, p] of Object.entries(E.PAESI)) {
+    if (cod === 'US') continue;
+    try { const x = await tvClose(p.rf); if (x != null) rfPaesi[cod] = x / 100; } catch (e) { console.log(`Decennale ${cod} non disponibile:`, e.message); }
+    const serie = paesi.yoy[cod] || (paesi.yoy[cod] = []);
+    try {
+      const u = await tvUltimo(p.yoy);
+      const ultimo = serie.length ? serie[serie.length - 1][0] : '';
+      if (u && u.mese > ultimo) serie.push([u.mese, u.valore]);
+      else if (u && u.mese === ultimo) serie[serie.length - 1][1] = u.valore;      // eventuale revisione
+    } catch (e) { console.log(`Inflazione ${cod} non aggiornata:`, e.message); }
+    if (serie.length > 24) cpiPaesi[cod] = E.indiceDaYoy(serie);
+    console.log(`${cod}: decennale ${rfPaesi[cod]}  inflazione fino a ${serie.length ? serie[serie.length - 1].join(' = ') : 'n.d.'}`);
+  }
+  fs.writeFileSync(CPI_PAESI, JSON.stringify(paesi) + '\n');
   console.log(`Decennale ${rf}  CPI ultimo ${JSON.stringify(cpi[cpi.length - 1])}  S&P 500 ${bench.length} settimane`);
 
   const report = { run: new Date().toISOString(), rf, cpi_ultimo: cpi[cpi.length - 1] || null, fonti: md.fonti || {},
@@ -136,7 +162,9 @@ async function main() {
     else {
       let weekly = [], yerr = null;
       try { weekly = await weeklyOf(e.yf || t); } catch (ex) { yerr = String(ex.message).slice(0, 120); }
-      try { r = E.compute(f, cpi, rf, null, weekly, bench, weekly, today); r.settimane = weekly.length; if (yerr) r.prezzi = 'Yahoo: ' + yerr; }
+      // Tassi e inflazione del paese di quotazione; se mancano, quelli USA
+      const cod = E.paese(e), rfP = rfPaesi[cod] != null ? rfPaesi[cod] : rf, cpiP = cpiPaesi[cod] || cpi;
+      try { r = E.compute(f, cpiP, rfP, null, weekly, bench, weekly, today); r.settimane = weekly.length; r.paese = rfPaesi[cod] != null && cpiPaesi[cod] ? cod : 'US'; if (yerr) r.prezzi = 'Yahoo: ' + yerr; }
       catch (ex) { r = { status: 'errore', errore: String(ex.message).slice(0, 200) }; }
       if (f.close != null) e.price = r2(f.close, f.close < 10 ? 3 : 2);
       e.fund = fundamentals(f);
@@ -149,7 +177,7 @@ async function main() {
     report.titoli[t] = r;
     if (r.status !== 'errore' && r.status !== 'simbolo_non_trovato') {
       for (const k of ['fv', 'fv_low', 'fv_high', 'fv_mkt', 'fv_sto']) e[k] = r[k] != null ? r[k] : null;
-      e.ind = Object.fromEntries(['status', 'ke', 'pi', 'beta', 'fcf_norm', 'cassa_az', 'g_hist', 'roic_m',
+      e.ind = Object.fromEntries(['status', 'paese', 'rf', 'ke', 'pi', 'beta', 'fcf_norm', 'cassa_az', 'g_hist', 'roic_m',
         'marg_n', 'marg_now', 'anni', 'avvisi'].map(k => [k, r[k] != null ? r[k] : null]));
       e.fv_source = 'indicatore';
       e.fv_updated = today;

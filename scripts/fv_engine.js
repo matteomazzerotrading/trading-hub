@@ -263,7 +263,10 @@
     const gImpl = fcfNorm > 0 && ke != null && pOp > 0 ? (ke * pOp - fcfNorm) / (pOp + fcfNorm) : null;
     out.gImpl = gImpl;
     const hasBand = d.fv_low != null && d.fv_high != null && d.fv_high > d.fv_low;
-    const sogliaSu = d.fv_high != null ? d.fv_high : d.fv;
+    // Soglia alta della zona "sottovalutata": lo scenario migliore della banda, ma mai oltre il fair value di mercato
+    // (se il FV di mercato è sotto il pavimento, cosa possibile con tassi reali negativi, vale il pavimento)
+    const hiBanda = d.fv_high != null ? d.fv_high : d.fv;
+    const sogliaSu = d.fv_mkt != null ? Math.min(hiBanda, Math.max(d.fv_mkt, d.fv)) : hiBanda;
     const roicOk = ind.roic_m != null && ke != null && ind.roic_m > ke;
     const declino = gHist != null && gHist < 0;
     const det = [`crescita scontata ${pct(gImpl)} | storica ${pct(gHist)}`];
@@ -331,12 +334,13 @@
     if (lo != null && hi > lo && p < lo) {
       return { zona: 1, ord: 1 + p / lo, testo: 'Sotto la banda', sotto: `${((1 - p / lo) * 100).toFixed(0)}% sotto lo scenario peggiore` };
     }
-    if (p <= hi) {
+    const soglia = mkt != null ? Math.min(hi, Math.max(mkt, d.fv)) : hi;      // come nel verdetto
+    if (p <= soglia) {
       const pct = lo != null && hi > lo ? Math.max(0, (p - lo) / (hi - lo)) : null;
       return { zona: 2, ord: 2 + (pct != null ? pct : p / hi), testo: 'Nella banda', sotto: pct != null ? `al ${Math.round(pct * 100)}% della banda` : `sotto lo scenario migliore (${n(hi)})` };
     }
     if (mkt == null || p <= mkt) {
-      return { zona: 3, ord: 3 + (mkt ? (p - hi) / (mkt - hi || 1) : 0), testo: 'Tra banda e FV mercato', sotto: mkt ? `${((mkt / p - 1) * 100).toFixed(0)}% sotto il FV di mercato` : '' };
+      return { zona: 3, ord: 3 + (mkt && mkt > hi ? (p - hi) / (mkt - hi) : 0), testo: 'Tra banda e FV mercato', sotto: mkt ? `${((mkt / p - 1) * 100).toFixed(0)}% sotto il FV di mercato` : '' };
     }
     return { zona: 4, ord: 4 + (p / mkt - 1), testo: 'Sopra FV mercato', sotto: `+${((p / mkt - 1) * 100).toFixed(0)}% sopra il FV di mercato` };
   }
@@ -368,12 +372,50 @@
     return { livello: punti <= 1 ? 'alta' : punti <= 3 ? 'media' : 'bassa', punti, motivi };
   }
 
-  // Caso limite del verdetto: il prezzo è sopra il fair value di mercato ma risulta "sottovalutata"
-  // perché lo scenario migliore della banda (anno con il margine più alto) è ancora più in alto.
-  function notaVerdetto(d, close, key) {
-    if (categoria(key) === 'sotto' && d && d.fv_mkt > 0 && close > d.fv_mkt)
-      return 'Il prezzo è sopra il fair value di mercato: risulta in questa zona solo perché lo scenario migliore della banda è molto alto. Esito da leggere con cautela.';
-    return '';
+  // ── Tassi e inflazione del paese di quotazione ───────────────────────────────
+  const PAESI = {
+    US: { nome: 'Stati Uniti', rf: 'TVC:US10Y' },
+    IT: { nome: 'Italia', rf: 'TVC:IT10Y', yoy: 'ECONOMICS:ITIRYY' },
+    DE: { nome: 'Germania', rf: 'TVC:DE10Y', yoy: 'ECONOMICS:DEIRYY' },
+    FR: { nome: 'Francia', rf: 'TVC:FR10Y', yoy: 'ECONOMICS:FRIRYY' },
+    ES: { nome: 'Spagna', rf: 'TVC:ES10Y', yoy: 'ECONOMICS:ESIRYY' },
+    NL: { nome: 'Paesi Bassi', rf: 'TVC:NL10Y', yoy: 'ECONOMICS:NLIRYY' },
+    GB: { nome: 'Regno Unito', rf: 'TVC:GB10Y', yoy: 'ECONOMICS:GBIRYY' },
+    CH: { nome: 'Svizzera', rf: 'TVC:CH10Y', yoy: 'ECONOMICS:CHIRYY' }
+  };
+  // Paese in cui il titolo è quotato (come syminfo.country nel Pine)
+  function paese(d) {
+    const ex = d && d.ex, yf = (d && d.yf) || '';
+    if (ex === 'MIL') return 'IT';
+    if (ex === 'XETR') return 'DE';
+    if (ex === 'BME') return 'ES';
+    if (ex === 'SIX') return 'CH';
+    if (ex === 'LSE') return 'GB';
+    if (ex === 'EURONEXT' || ex === 'EPA') return yf.endsWith('.AS') ? 'NL' : 'FR';
+    return 'US';
+  }
+  /*
+   * Indice dei prezzi ricostruito dall'inflazione annua (YoY): indice[m] = indice[m − 12] × (1 + YoY[m]).
+   * Si usa per i paesi diversi dagli USA perché le serie CPI nazionali cambiano base (es. Italia a gennaio 2026)
+   * e il salto falserebbe i rapporti; l'inflazione annua non ne risente. I 12 mesi iniziali partono da 100;
+   * un mese mancante riusa l'ultimo YoY noto. Stessa costruzione nel Pine.
+   * yoy = [['YYYY-MM-01', percento], ...] in ordine crescente → [['YYYY-MM-01', indice], ...]
+   */
+  function indiceDaYoy(yoy) {
+    if (!yoy || !yoy.length) return [];
+    const mesi = s => Number(s.slice(0, 4)) * 12 + Number(s.slice(5, 7)) - 1;
+    const iso = m => String(Math.floor(m / 12)).padStart(4, '0') + '-' + String(m % 12 + 1).padStart(2, '0') + '-01';
+    const coda = new Array(12).fill(100), out = [];
+    let prec = mesi(yoy[0][0]) - 1;
+    for (const [d, v] of yoy) {
+      const m = mesi(d);
+      for (let k = prec + 1; k <= m; k++) {            // i mesi saltati riusano lo stesso YoY
+        const val = coda.shift() * (1 + v / 100);
+        coda.push(val); out.push([iso(k), val]);
+      }
+      prec = m;
+    }
+    return out;
   }
 
   // Settori di TradingView in italiano
@@ -387,7 +429,7 @@
   };
   const mercato = d => d.ex === 'MIL' ? 'it' : (d.ex === 'NYSE' || d.ex === 'NASDAQ') ? 'us' : 'eu';
 
-  const api = { P, compute, verdict, categoria, potenziale, posizione, affidabilita, notaVerdetto, SETTORI, mercato, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
+  const api = { P, compute, verdict, categoria, potenziale, posizione, affidabilita, PAESI, paese, indiceDaYoy, SETTORI, mercato, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.FVEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

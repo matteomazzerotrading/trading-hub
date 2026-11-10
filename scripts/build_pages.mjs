@@ -178,8 +178,6 @@ ${svgBanda(d, close)}
 <h2>Come leggere il risultato</h2>
 <p>${frasePosizione(t, d, v, pos, close)}</p>
 <p>Esito del modello: <strong style="color:${v.colore}">${esc(basso(v.titolo))}</strong>${v.sotto ? ` (${esc(v.sotto)})` : ''}. ${pt.pot != null ? `Per arrivare al più basso tra fair value pavimento e storico (${num(pt.fvRif)} ${c}) il prezzo dovrebbe ${pt.pot >= 0 ? 'salire' : 'scendere'} del ${Math.abs(pt.pot).toLocaleString('it-IT', { maximumFractionDigits: 0 })}%.` : ''}</p>`;
-    const nv = E.notaVerdetto(d, close, v.key);
-    if (nv) corpo += `<p class="mu" style="color:#f9a825">⚠ ${esc(nv)}</p>`;
     const cat = E.categoria(v.key);
     if (pt.pot != null && ((cat === 'sotto' && pt.pot < 0) || (cat === 'sopra' && pt.pot > 0)))
       corpo += `<p class="mu">Le due letture qui non coincidono: l'esito guarda ai tassi di oggi (la banda a crescita zero), il potenziale tiene conto anche di come il mercato ha prezzato il titolo negli ultimi 10 anni (fair value storico). Quando divergono, la valutazione è meno netta.</p>`;
@@ -191,6 +189,7 @@ ${svgBanda(d, close)}
 <p class="mu">Il modello parte dal margine di free cash flow tipico degli ultimi 10 anni e somma la cassa senza sottrarre il debito: più elementi compaiono qui, più il fair value va letto con cautela.</p>`;
     corpo += `<h2>Dati di base</h2><div class="grid">
 ${box('Rendimento richiesto (Ke)', ind.ke != null ? (ind.ke * 100).toFixed(1).replace('.', ',') + '%' : '—', `beta ${ind.beta != null ? String(ind.beta).replace('.', ',') : '—'}`)}
+${box('Decennale ' + ((E.PAESI[ind.paese] || E.PAESI.US).nome), ind.rf != null ? (ind.rf * 100).toFixed(2).replace('.', ',') + '%' : '—', `inflazione media ${ind.pi != null ? (ind.pi * 100).toFixed(1).replace('.', ',') + '%' : '—'}`)}
 ${box('FCF normalizzato', ind.fcf_norm != null ? `${num(ind.fcf_norm)} ${c}` : '—', 'per azione')}
 ${box('Cassa', ind.cassa_az != null ? `${num(ind.cassa_az)} ${c}` : '—', 'per azione')}
 ${box('Dividendo', d.divYield > 0 ? num(d.divYield) + '%' : '—', 'rendimento annuo')}
@@ -209,7 +208,7 @@ ${corpo}
 <a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>
 ${simili(t, d)}
 <h2>Il metodo in breve</h2>
-<p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione, più la cassa per azione. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
+<p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione, più la cassa per azione. Decennale e inflazione sono quelli del paese in cui il titolo è quotato. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
 ` + foot;
 }
 
