@@ -11,6 +11,7 @@ on:
       - 'scripts/fv_engine.js'
       - 'scripts/compute_fv.mjs'
       - 'scripts/fetch_market_data.py'
+      - 'scripts/build_pages.mjs'
       - '.github/workflows/compute-fv.yml'
   workflow_dispatch:
 
@@ -46,10 +47,13 @@ jobs:
       - name: Calcola i fair value
         run: node scripts/compute_fv.mjs
 
-      - name: Salva data.json e fv_report.json
+      - name: Genera le pagine dei singoli titoli e la sitemap
+        run: node scripts/build_pages.mjs
+
+      - name: Salva dati, pagine dei titoli e sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: fair value dall'indicatore [skip ci]"
-          file_pattern: "data.json fv_report.json"
+          file_pattern: "data.json fv_report.json titoli sitemap.xml"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"

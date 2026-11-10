@@ -6,17 +6,18 @@
     <meta name="google-site-verification" content="PTS9SUOR6N4D8w4c5nPyoJ4butJPvLUxiUeqb54e_tU" />
     <meta name="google-site-verification" content="1PW5QFH96F08lpZntsIWsUmduvUkt-a9WKNjeiENB-Y" />
     <title>Matteo Mazzero | Trading Hub – Fair Value, Portafoglio e Analisi</title>
-    <meta name="description" content="Il trading hub di Matteo Mazzero: fair value delle azioni in tempo reale, il mio portafoglio reale, screener, segnali e analisi dei mercati.">
+    <meta name="description" content="Il trading hub di Matteo Mazzero: fair value di oltre 140 azioni aggiornati ogni giorno, il mio portafoglio reale, screener e analisi dei mercati.">
     <link rel="canonical" href="https://matteomazzerotrading.github.io/trading-hub/">
     <meta name="author" content="Matteo Mazzero">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#050505">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <!-- Anteprima quando il link viene condiviso (WhatsApp, LinkedIn, Telegram, Facebook, X) -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
     <meta property="og:site_name" content="Matteo Mazzero | Trading Hub">
     <meta property="og:title" content="Matteo Mazzero | Trading Hub – Fair Value, Portafoglio e Analisi">
-    <meta property="og:description" content="Il trading hub di Matteo Mazzero: fair value delle azioni in tempo reale, il mio portafoglio reale, screener, segnali e analisi dei mercati.">
+    <meta property="og:description" content="Il trading hub di Matteo Mazzero: fair value di oltre 140 azioni aggiornati ogni giorno, il mio portafoglio reale, screener e analisi dei mercati.">
     <meta property="og:url" content="https://matteomazzerotrading.github.io/trading-hub/">
     <meta property="og:image" content="https://matteomazzerotrading.github.io/trading-hub/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -24,7 +25,7 @@
     <meta property="og:image:alt" content="Matteo Mazzero - Trading Hub: fair value, portafoglio reale e analisi dei mercati">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Matteo Mazzero | Trading Hub – Fair Value, Portafoglio e Analisi">
-    <meta name="twitter:description" content="Il trading hub di Matteo Mazzero: fair value delle azioni in tempo reale, il mio portafoglio reale, screener, segnali e analisi dei mercati.">
+    <meta name="twitter:description" content="Il trading hub di Matteo Mazzero: fair value di oltre 140 azioni aggiornati ogni giorno, il mio portafoglio reale, screener e analisi dei mercati.">
     <meta name="twitter:image" content="https://matteomazzerotrading.github.io/trading-hub/og-image.png">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[
@@ -180,8 +181,6 @@
         .scr-rank { font-family: 'JetBrains Mono', monospace; font-size: 0.8em; color: var(--text-muted); font-weight: 700; text-align: center; }
         .scr-ticker { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #fff; font-size: 1em; letter-spacing: 0.5px; }
         .scr-name { color: var(--text-muted); font-size: 0.82em; }
-        .scr-upside.positive { color: var(--brand-green); font-weight: bold; }
-        .scr-upside.negative { color: var(--accent-red); font-weight: bold; }
         .scr-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.72em; font-weight: 800; letter-spacing: 0.3px; }
         .scr-badge.buy { background: rgba(0,230,118,0.12); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.3); }
         .scr-badge.sell { background: rgba(255,61,0,0.12); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.3); }
@@ -207,34 +206,6 @@
         @keyframes spin { to { transform: rotate(360deg); } }
 
         /* === COMPARATORE === */
-        .comp-inputs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin-bottom: 24px; }
-        .comp-input-group { display: flex; flex-direction: column; gap: 8px; }
-        .comp-input-group label { font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
-        .comp-ticker-input { background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: #fff; padding: 14px 18px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 1.1em; font-weight: 700; outline: none; text-transform: uppercase; transition: border-color 0.2s; text-align: center; letter-spacing: 2px; }
-        .comp-ticker-input:focus { border-color: var(--brand-green); }
-        .comp-vs { font-family: 'JetBrains Mono', monospace; font-size: 1.4em; font-weight: 800; color: var(--text-muted); text-align: center; }
-        .comp-btn { width: 100%; background: var(--brand-green); color: #000; border: none; padding: 14px; border-radius: 10px; font-weight: 800; font-size: 1em; cursor: pointer; transition: 0.3s; letter-spacing: 0.5px; }
-        .comp-btn:hover { box-shadow: 0 0 20px var(--brand-glow); }
-        .comp-result { display: none; margin-top: 24px; animation: slideUp 0.5s ease; }
-        .comp-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
-        .comp-card { border-radius: 14px; padding: 24px; border: 2px solid var(--border-glass); background: rgba(255,255,255,0.02); transition: 0.3s; position: relative; overflow: hidden; }
-        .comp-card.winner { border-color: var(--brand-green); background: rgba(0,230,118,0.05); }
-        .comp-card.loser { border-color: rgba(255,61,0,0.4); background: rgba(255,61,0,0.03); }
-        .comp-winner-badge { position: absolute; top: 14px; right: 14px; background: var(--brand-green); color: #000; font-size: 0.7em; font-weight: 800; padding: 4px 10px; border-radius: 12px; letter-spacing: 0.5px; }
-        .comp-ticker-big { font-family: 'JetBrains Mono', monospace; font-size: 2em; font-weight: 800; color: #fff; margin-bottom: 2px; }
-        .comp-name { font-size: 0.82em; color: var(--text-muted); margin-bottom: 20px; }
-        .comp-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-glass); }
-        .comp-row:last-child { border-bottom: none; }
-        .comp-row-label { font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); }
-        .comp-row-val { font-family: 'JetBrains Mono', monospace; font-size: 0.95em; font-weight: 700; }
-        .comp-upside-bar { margin-top: 16px; }
-        .comp-upside-track { height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; margin-top: 6px; overflow: hidden; }
-        .comp-upside-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
-        .comp-verdict { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
-        .comp-verdict-icon { font-size: 2.2em; }
-        .comp-verdict-text { flex: 1; }
-        .comp-verdict-title { font-size: 1em; font-weight: 800; color: #fff; margin-bottom: 4px; }
-        .comp-verdict-sub { font-size: 0.85em; color: var(--text-muted); line-height: 1.5; }
 
         /* === WATCHLIST E PORTAFOGLIO PERSONALE === */
         .watchlist-add-box { display: flex; gap: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid var(--border-glass); margin-bottom: 24px; }
@@ -242,15 +213,6 @@
         .watchlist-add-btn { background: var(--brand-green); color: #000; border: none; padding: 0 28px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 0.95em; }
         .watchlist-add-btn:hover { box-shadow: 0 0 18px var(--brand-glow); }
         .watchlist-empty { text-align: center; color: var(--text-muted); padding: 40px 20px; font-size: 0.95em; border: 2px dashed var(--border-glass); border-radius: 12px; }
-        .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-        .wl-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; transition: 0.3s; animation: slideUp 0.4s ease; position: relative; }
-        .wl-item:hover { border-color: rgba(0, 230, 118, 0.35); transform: translateY(-3px); }
-        .wl-item-header { display: flex; justify-content: space-between; align-items: flex-start; }
-        .wl-ticker { font-family: 'JetBrains Mono', monospace; font-size: 1.2em; font-weight: 700; color: #fff; letter-spacing: 1px; }
-        .wl-name { font-size: 0.8em; color: var(--text-muted); margin-top: 2px; }
-        .wl-remove { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.1em; padding: 2px 6px; border-radius: 6px; transition: 0.2s; line-height: 1; }
-        .wl-remove:hover { background: rgba(255,61,0,0.15); color: var(--accent-red); }
-        .wl-fv-row { display: flex; justify-content: space-between; align-items: center; }
         .wl-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.72em; font-weight: 800; letter-spacing: 0.5px; }
         .wl-badge.green { background: rgba(0,230,118,0.1); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.3); }
         .wl-badge.red { background: rgba(255,61,0,0.1); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.3); }
@@ -297,6 +259,17 @@
         .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: var(--text-muted); line-height: 1.6; }
         .faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 500px; }
         .faq-item.faq-lunga.active .faq-answer { max-height: 3000px; }
+        .held-tag { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.3px; color: #80cbc4; background: rgba(128,203,196,0.1); border: 1px solid rgba(128,203,196,0.35); border-radius: 5px; padding: 1px 6px; vertical-align: middle; white-space: nowrap; font-family: 'Inter', sans-serif; }
+        .about-box { max-width: 760px; margin: 28px auto 0; display: flex; gap: 18px; align-items: center; text-align: left; background: var(--bg-glass); border: 1px solid var(--border-glass); border-radius: 16px; padding: 20px 24px; }
+        .about-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-green), #00b894); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3em; color: #000; }
+        .about-text { color: #cfd3da; font-size: 0.95em; line-height: 1.6; }
+        .about-links { margin-top: 10px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.88em; font-weight: 700; }
+        .about-links a { color: var(--brand-green); text-decoration: none; }
+        .pensieri-archivio { margin-top: 14px; font-size: 0.88em; }
+        .pensieri-archivio summary { cursor: pointer; color: var(--brand-green); font-weight: 700; }
+        .pensiero-vecchio { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-glass); color: #c4c8cf; line-height: 1.65; white-space: pre-wrap; }
+        .pensiero-vecchio .data { display: block; font-size: 0.8em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        @media (max-width: 600px) { .about-box { flex-direction: column; text-align: center; padding: 18px; } .about-links { justify-content: center; } }
         .leg-row { display: grid; grid-template-columns: 170px 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--border-glass); }
         .leg-row:first-child { border-top: none; }
         .leg-nome { color: #fff; font-weight: 700; }
@@ -331,9 +304,8 @@
 
         @media (max-width: 900px) {
             /* Layout grids → single column */
-            .portfolio-grid, .news-layout, .tools-grid, .request-form, .comp-cards, .comp-inputs, .signals-layout { grid-template-columns: minmax(0, 1fr); }
+            .portfolio-grid, .news-layout, .tools-grid, .request-form, .signals-layout { grid-template-columns: minmax(0, 1fr); }
             .portfolio-grid > *, .news-layout > *, .tools-grid > *, .signals-layout > * { min-width: 0; }
-            .comp-vs { display: none; }
             /* KPI cards → 2 per row instead of stacked vertically */
             .kpi-container { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
             /* Screener stats → 3 columns (mantieni leggibilità) */
@@ -341,7 +313,6 @@
             /* FV result card inner layout → colonna */
             .fv-result-card > div > div { flex-direction: column; gap: 30px; }
             .btn-primary { grid-column: span 1; }
-            .watchlist-grid { grid-template-columns: 1fr 1fr; }
             /* Navbar → padding ridotto */
             .nav-links { display: none; }
             .nav-hamburger { display: block; min-height: 44px; min-width: 44px; }
@@ -369,7 +340,6 @@
             .screener-search { min-width: 0; flex: 1 1 100%; }
             .fv-input-main { font-size: 1em; }
             /* Watchlist e fundamentals */
-            .watchlist-grid { grid-template-columns: 1fr; }
             .fundamentals-grid { grid-template-columns: 1fr 1fr; }
             /* Font sizes più piccoli */
             .section-title { font-size: 1.3em; }
@@ -394,8 +364,6 @@
             .screener-filter-btn { padding: 7px 12px; font-size: 0.8em; }
             .screener-controls { gap: 6px; }
             /* Comparatore ticker */
-            .comp-ticker-big { font-size: 1.4em; }
-            .comp-card { padding: 16px; }
             /* Perf KPI bar */
             .perf-kpi-item { min-width: 0; flex: 1 1 calc(50% - 10px); padding: 10px 12px; }
             .kpi-card .fv-label { overflow-wrap: anywhere; }
@@ -441,6 +409,10 @@
         @media (max-width: 768px) { .editorial-grid { grid-template-columns: 1fr; } }
 
         .yt-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; }
+        .yt-facade { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: #000 center / cover no-repeat; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+        .yt-facade::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.28); border-radius: 12px; }
+        .yt-facade .yt-play { position: relative; width: 68px; height: 48px; border-radius: 12px; background: rgba(220,0,0,0.92); color: #fff; font-size: 1.3em; display: flex; align-items: center; justify-content: center; }
+        .yt-facade .yt-note { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-size: 0.7em; color: rgba(255,255,255,0.75); font-family: 'Inter', sans-serif; }
         .yt-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
         .yt-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9em; gap: 10px; }
         .yt-title { margin-top: 12px; font-size: 0.95em; font-weight: 600; color: #e0e0e0; line-height: 1.4; }
@@ -463,31 +435,31 @@
         <a href="#" class="navbar-logo">MM<span>Trading</span></a>
         <div class="nav-links">
             <a href="#editoriale" class="nav-link">Editoriale</a>
+            <a href="#portfolio" class="nav-link">Il mio portafoglio</a>
             <a href="#fv-section" class="nav-link">Fair Value</a>
-            <a href="#indicatore" class="nav-link">Segnali</a>
             <a href="#screener" class="nav-link">Screener</a>
-            <a href="#total-watchlist" class="nav-link">Watchlist TOTAL</a>
-            <a href="#myportfolio" class="nav-link">Portafoglio</a>
+            <a href="#indicatore" class="nav-link nav-segnali" style="display:none;">Segnali</a>
+            <a href="#myportfolio" class="nav-link">Simula il tuo</a>
             <a href="#strumenti" class="nav-link">Strumenti</a>
-            <a href="#portfolio" class="nav-link">Portfolio TV</a>
+            <a href="#total-watchlist" class="nav-link">Watchlist</a>
         </div>
-        <button class="nav-hamburger" onclick="toggleMobileNav()" id="nav-hamburger-btn">☰</button>
+        <button class="nav-hamburger" onclick="toggleMobileNav()" id="nav-hamburger-btn" aria-label="Apri il menu">☰</button>
     </nav>
     <!-- Mobile nav overlay -->
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
         <a href="#editoriale" class="nav-link" onclick="closeMobileNav()">✍️ Editoriale</a>
+        <a href="#portfolio" class="nav-link" onclick="closeMobileNav()">📈 Il mio portafoglio</a>
         <a href="#fv-section" class="nav-link" onclick="closeMobileNav()">📊 Fair Value</a>
-        <a href="#indicatore" class="nav-link" onclick="closeMobileNav()">📡 Segnali</a>
         <a href="#screener" class="nav-link" onclick="closeMobileNav()">🔍 Screener</a>
-        <a href="#total-watchlist" class="nav-link" onclick="closeMobileNav()">👁️ Watchlist TOTAL</a>
-        <a href="#myportfolio" class="nav-link" onclick="closeMobileNav()">💼 Portafoglio</a>
+        <a href="#indicatore" class="nav-link nav-segnali" style="display:none;" onclick="closeMobileNav()">📡 Segnali</a>
+        <a href="#myportfolio" class="nav-link" onclick="closeMobileNav()">💼 Simula il tuo</a>
         <a href="#strumenti" class="nav-link" onclick="closeMobileNav()">🛠️ Strumenti</a>
-        <a href="#portfolio" class="nav-link" onclick="closeMobileNav()">📈 Portfolio TV</a>
+        <a href="#total-watchlist" class="nav-link" onclick="closeMobileNav()">👁️ Watchlist</a>
     </div>
 
     <div class="tradingview-widget-container" style="margin-top: 0;">
         <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js">
         { "symbols": [ { "proName": "SP:SPX", "title": "S&P 500" }, { "proName": "NASDAQ:NDX", "title": "Nasdaq 100" }, { "proName": "FTSE:FTSEMIB", "title": "FTSE MIB" }, { "proName": "TVC:GOLD", "title": "Gold" }, { "proName": "TVC:USOIL", "title": "WTI" }, { "proName": "FX:EURUSD", "title": "EUR/USD" }, { "proName": "NASDAQ:NVDA", "title": "Nvidia" }, { "proName": "NASDAQ:AAPL", "title": "Apple" }, { "proName": "NASDAQ:MSFT", "title": "Microsoft" }, { "proName": "NASDAQ:META", "title": "Meta" }, { "proName": "NYSE:BRK.B", "title": "Berkshire" }, { "proName": "MIL:RACE", "title": "Ferrari" }, { "proName": "XETR:SAP", "title": "SAP" }, { "proName": "NYSE:JPM", "title": "JPMorgan" }, { "proName": "NASDAQ:AMZN", "title": "Amazon" } ], "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "it" }
         </script>
     </div>
@@ -497,15 +469,25 @@
             Il mio <span style="color: var(--brand-green);">Trading Hub</span>
         </h1>
         <p style="color: var(--text-muted); font-size: 1.2em; max-width: 600px; margin: 10px auto 0;">
-            Analisi trasparente, gestione del tuo portafoglio e valutazioni di Fair Value in tempo reale.
+            Il mio portafoglio reale, i fair value di oltre 140 azioni aggiornati ogni giorno e le mie analisi dei mercati.
         </p>
+        <div class="about-box">
+            <div class="about-avatar" aria-hidden="true">MM</div>
+            <div>
+                <div class="about-text"><strong style="color:#fff;">Sono Matteo Mazzero</strong>, consulente finanziario e trader. Qui investo i miei soldi alla luce del sole: trovi il mio portafoglio reale con ogni posizione, i fair value che calcolo con il mio indicatore su TradingView e le analisi che pubblico su YouTube.</div>
+                <div class="about-links">
+                    <a href="#portfolio">Guarda il mio portafoglio →</a>
+                    <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener">Canale YouTube →</a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- ===== EDITORIALE ===== -->
     <div class="container" id="editoriale">
         <div class="section-header">
             <h2 class="section-title">✍️ <span>Editoriale</span></h2>
-            <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" style="font-size:0.82em; color:var(--brand-green); text-decoration:none; font-weight:700;">▶ Canale YouTube →</a>
+            <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="font-size:0.82em; color:var(--brand-green); text-decoration:none; font-weight:700;">▶ Canale YouTube →</a>
         </div>
         <div class="editorial-grid">
 
@@ -537,321 +519,24 @@
                     <div class="pensiero-text" id="pensiero-text">Caricamento...</div>
                     <div class="pensiero-week" id="pensiero-week"></div>
                 </div>
+                <details class="pensieri-archivio" id="pensieri-archivio" style="display:none;">
+                    <summary>Pensieri precedenti</summary>
+                    <div id="pensieri-lista"></div>
+                </details>
             </div>
 
-        </div>
-    </div>
-
-    <div class="container" id="fv-section">
-        <div class="section-header">
-            <h2 class="section-title">Ricerca <span>Fair Value</span></h2>
-        </div>
-        <div class="card">
-            <div class="fv-interface">
-                <div class="fv-search-box">
-                    <span style="color: var(--brand-green); font-size: 1.2em;">🔍</span>
-                    <input type="text" id="fvInput" class="fv-input-main" placeholder="Cerca un'azienda (es. AAPL, ENEL, GOOG...)">
-                    <button id="calcBtn" onclick="calculateFV()" class="fv-search-btn">ANALIZZA</button>
-                </div>
-                
-                <div id="fvError" style="display:none; color: var(--accent-red); padding: 15px; text-align: center;">
-                    ⚠️ Titolo non presente nel database o ticker errato.
-                </div>
-                
-                <div id="fvResult" class="card fv-result-card" style="padding: 0; overflow: hidden;">
-                    <div style="padding: 30px;">
-                        <h3 id="fvName" style="margin-top: 0; color: #fff; font-size: 1.8em; text-align: center; margin-bottom: 30px;">Nome Azienda</h3>
-                        
-                        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; align-items: center;">
-                            <div style="text-align: center; flex: 1; min-width: 200px;">
-                                <div class="fv-label">Fair Value · pavimento</div>
-                                <div id="fvValue" class="fv-value-big mono-font">---</div>
-                                <div id="fvStatus" class="wl-badge" style="margin-top:10px; padding: 6px 18px; font-size: 0.85em;">---</div>
-                                <div id="fvVerdictText" style="margin-top:8px; font-size:0.82em; line-height:1.55; max-width:340px; margin-left:auto; margin-right:auto;"></div>
-                                <div id="fvPriceBasis" style="margin-top:8px; font-size:0.78em; color:var(--text-muted); line-height:1.5; max-width:320px; margin-left:auto; margin-right:auto;"></div>
-                                <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                                    <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="wl-fv-btn" style="width: auto; padding: 8px 20px;">
-                                        ☆ Preferiti
-                                    </button>
-                                    <button onclick="toggleAlert(currentFVTicker)" class="wl-fv-btn" style="width: auto; padding: 8px 20px; border-color: var(--accent-yellow); color: var(--accent-yellow);" onmouseover="this.style.background='rgba(255,235,59,0.1)'" onmouseout="this.style.background='transparent'">
-                                        🔔 Attiva Alert Drop
-                                    </button>
-                                </div>
-                            </div>
-                            <div style="text-align: center; flex: 1; min-width: 150px; border-left: 1px solid var(--border-glass); border-right: 1px solid var(--border-glass); padding: 0 15px;">
-                                <div class="fv-label">Dividend Yield</div>
-                                <div id="fvDividend" class="fv-value-medium mono-font">---</div>
-                                <div style="font-size: 0.85em; color: var(--text-muted); margin-top: 5px;">Rendimento Annuo</div>
-                            </div>
-                            <div style="text-align: center; flex: 1; min-width: 220px;">
-                                <div class="fv-label">Prezzo Attuale (Live)</div>
-                                <div id="mini-chart-container" style="height: 120px; margin-top: 10px;"></div>
-                            </div>
-                        </div>
-
-                        <div class="fundamentals-grid" id="fv-fundamentals">
-                            <div class="fund-box"><div class="fund-val" id="fund-pe">--</div><div class="fund-lbl">P/E Ratio</div></div>
-                            <div class="fund-box"><div class="fund-val" id="fund-eps">--</div><div class="fund-lbl">EPS (Utili)</div></div>
-                            <div class="fund-box"><div class="fund-val" id="fund-mcap">--</div><div class="fund-lbl">Market Cap</div></div>
-                            <div class="fund-box"><div class="fund-val" id="fund-div">--</div><div class="fund-lbl">Dividendo</div></div>
-                        </div>
-
-                        <!-- FV band dall'indicatore Pine Script -->
-                        <div id="fv-band-row" style="display:none; margin-top:18px; background:rgba(0,230,118,0.04); border:1px solid rgba(0,230,118,0.15); border-radius:12px; padding:16px 20px;">
-                            <div id="fv-band-title" style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:12px;">📊 Indicatore FAIR VALUE (dati realizzati)</div>
-                            <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-around;">
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">Peggiore</div>
-                                    <div id="fv-band-low" class="mono-font" style="font-size:1.1em; color:#ef9a9a;">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:110px;">
-                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--brand-green); margin-bottom:4px;">FV Pavimento</div>
-                                    <div id="fv-band-main" class="mono-font" style="font-size:1.3em; font-weight:800; color:var(--brand-green);">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">FV Mercato</div>
-                                    <div id="fv-band-mkt" class="mono-font" style="font-size:1.1em; color:#80cbc4;">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">FV Storico</div>
-                                    <div id="fv-band-sto" class="mono-font" style="font-size:1.1em; color:#ffcc80;">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">Migliore</div>
-                                    <div id="fv-band-high" class="mono-font" style="font-size:1.1em; color:#a5d6a7;">—</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="smart-video-box" class="smart-video-container">
-                            <div style="text-align: center; margin-bottom: 15px;">
-                                <span style="background: var(--brand-green); color: #000; padding: 5px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8em;">VIDEO CORRELATO</span>
-                                <h4 style="margin: 10px 0 0 0; color: #fff;">La mia analisi completa su questo titolo</h4>
-                            </div>
-                            <div style="position:relative; cursor:pointer; border-radius:12px; overflow:hidden; background:#111;" onclick="openVideoExternal()">
-                                <img id="smart-video-thumb" src="" style="width:100%; display:block; min-height:160px; object-fit:cover; border-radius:12px;" alt="Anteprima video YouTube">
-                                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.25);">
-                                    <div style="background:rgba(200,0,0,0.92); border-radius:50%; width:54px; height:54px; display:flex; align-items:center; justify-content:center; font-size:1.3em; box-shadow:0 4px 20px rgba(0,0,0,0.5);">▶</div>
-                                </div>
-                            </div>
-                            <a id="smart-video-link" href="#" target="_blank" rel="noopener" style="display:block; text-align:center; margin-top:12px; color:var(--brand-green); font-weight:600; text-decoration:none; font-size:0.88em;">📺 Guarda l'analisi completa su YouTube →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="indicatore">
-        <div class="section-header">
-            <h2 class="section-title">Segnali <span>Indicatore Premium</span></h2>
-            <span style="font-size: 0.82em; color: var(--text-muted);">Gli ultimi setup generati dal mio algoritmo su <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" style="color: var(--brand-green); text-decoration: none;">TradingView</a></span>
-        </div>
-        <div class="card">
-            <div class="signals-layout">
-                <div>
-                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">⏱️ Ultimi Setup Live</h3>
-                    <div class="signal-list" id="signal-list-container">
-                        </div>
-                </div>
-                <div>
-                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">🧠 Come usare l'Indicatore</h3>
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/yTvn64m3Ruo" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="screener">
-        <div class="section-header">
-            <h2 class="section-title">Screener <span>Titoli</span></h2>
-            <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Valutazione con l'indicatore FAIR VALUE (dati realizzati)</span>
-        </div>
-        <div class="card" style="padding: 24px;">
-            <button class="screener-toggle-btn" onclick="toggleScreener()" id="scr-toggle-btn">
-                <span>📊 Mostra tutti i titoli, dal più economico al più caro</span>
-                <span class="screener-toggle-icon" id="scr-toggle-icon">▼</span>
-            </button>
-
-            <div class="screener-body" id="scr-body">
-                <div class="screener-stats" id="screener-stats" style="display:none; margin-top:20px;">
-                    <div class="scr-stat"><div class="scr-stat-val" id="stat-total" style="color:#fff;">—</div><div class="scr-stat-lbl">Titoli Analizzati</div></div>
-                    <div class="scr-stat"><div class="scr-stat-val" id="stat-undervalued" style="color:var(--brand-green);">—</div><div class="scr-stat-lbl">Sotto o nella banda</div></div>
-                    <div class="scr-stat"><div class="scr-stat-val" id="stat-overvalued" style="color:var(--accent-red);">—</div><div class="scr-stat-lbl">Sopravvalutati</div></div>
-                </div>
-
-                <div class="screener-controls" style="margin-top: 20px;">
-                    <button class="screener-filter-btn active" id="scr-btn-all" onclick="applyFilter('all')">Tutti</button>
-                    <button class="screener-filter-btn" id="scr-btn-fav" onclick="applyFilter('fav')">★ Preferiti</button>
-                    <button class="screener-filter-btn" id="scr-btn-under" onclick="applyFilter('under')">🟢 Sotto o nella banda</button>
-                    <button class="screener-filter-btn" id="scr-btn-equa" onclick="applyFilter('equa')">⚪ Equità / premio</button>
-                    <button class="screener-filter-btn" id="scr-btn-over" onclick="applyFilter('over')">🔴 Sopravvalutati</button>
-                    <button class="screener-filter-btn" id="scr-btn-div" onclick="applyFilter('div')">💰 Dividendo &gt;3%</button>
-                    <input type="text" class="screener-search" id="scr-search" placeholder="🔍 Cerca ticker o nome..." oninput="applyFilter(currentFilter)">
-                </div>
-
-                <div style="font-size:0.78em; color:var(--text-muted); line-height:1.6; margin-top:14px;">
-                    <strong style="color:#fff;">Pavimento</strong>: valore se l'azienda non crescesse più in termini reali; sotto, la <strong style="color:#fff;">banda</strong> tra l'anno peggiore e il migliore degli ultimi 10. 
-                    <strong style="color:#fff;">FV mercato</strong>: valore se cresce come l'economia. Il verdetto segue le quattro zone dell'indicatore; clicca un titolo per il dettaglio.
-                </div>
-
-                <div class="screener-loading" id="scr-loading" style="display:none;">
-                    <div class="screener-loading-spinner"></div><div>Caricamento...</div>
-                </div>
-
-                <div class="screener-table-wrap" id="scr-table-wrap" style="display:none;">
-                    <table class="screener-table">
-                        <thead>
-                            <tr>
-                                <th title="Preferiti">★</th>
-                                <th onclick="sortTable('ticker')" id="th-ticker">Titolo <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('pot')" id="th-pot" class="sorted" title="Quanto dovrebbe salire (+) o scendere (−) il prezzo per arrivare al più basso tra FV pavimento e FV storico; sotto, per arrivare al FV di mercato">Potenziale <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('price')" id="th-price">Prezzo <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('fv')" id="th-fv" title="Fair value a crescita reale zero, con scenario peggiore e migliore">Pavimento <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('fv_mkt')" id="th-fv_mkt" title="Fair value se l'azienda cresce come l'economia">FV mercato <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('pos')" id="th-pos" title="Dove si trova il prezzo rispetto alle soglie dell'indicatore">Posizione <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('div')" id="th-div">Div. <span class="sort-arrow">↕</span></th>
-                                <th>Verdetto</th>
-                            </tr>
-                        </thead>
-                        <tbody id="scr-tbody"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="myportfolio">
-        <div class="section-header">
-            <h2 class="section-title">Il tuo <span>Portafoglio</span></h2>
-            <span style="color: var(--text-muted); font-size: 0.9em;">Monitora le tue posizioni live</span>
-        </div>
-        
-        <div class="kpi-container">
-            <div class="kpi-card"><div class="fv-label">Valore Investito</div><div class="kpi-val mono-font" id="myp-invested">0.00 €</div></div>
-            <div class="kpi-card"><div class="fv-label">Controvalore Live</div><div class="kpi-val mono-font" id="myp-current">0.00 €</div></div>
-            <div class="kpi-card"><div class="fv-label">P&L Totale</div><div class="kpi-val mono-font" id="myp-pl" style="color:#fff;">0.00 €</div></div>
-        </div>
-
-        <div class="card">
-            <div class="pers-port-inputs">
-                <div class="form-group"><label class="form-label">Ticker</label><input type="text" id="mypTicker" class="form-input" placeholder="Es. AAPL" style="text-transform:uppercase;"></div>
-                <div class="form-group"><label class="form-label">Quantità</label><input type="number" id="mypQty" class="form-input" placeholder="Es. 10" step="0.1"></div>
-                <div class="form-group"><label class="form-label">Prezzo Medio</label><input type="number" id="mypPrice" class="form-input" placeholder="Es. 150.50" step="0.01"></div>
-                <button class="btn-primary" onclick="addPersonalPosition()" style="margin-top:24px; padding: 15px 20px;">＋ AGGIUNGI</button>
-            </div>
-
-            <div id="mypLoading" style="display:none; text-align:center; padding:20px; color:var(--text-muted);">↻ Aggiornamento prezzi live in corso...</div>
-
-            <div class="screener-table-wrap" id="mypTableWrap" style="display:none;">
-                <table class="screener-table pers-table">
-                    <thead>
-                        <tr>
-                            <th>Ticker</th>
-                            <th>Q.tà</th>
-                            <th>PMC</th>
-                            <th>Prezzo Live</th>
-                            <th>P&L Monetario</th>
-                            <th>P&L %</th>
-                            <th>Status FV</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="mypBody"></tbody>
-                </table>
-            </div>
-            <div id="mypEmpty" class="watchlist-empty" style="margin-top: 10px;">💼 Il tuo portafoglio è vuoto. Inizia aggiungendo un titolo qui sopra.</div>
-        </div>
-    </div>
-
-    <div class="container" id="strumenti">
-        <div class="section-header">
-            <h2 class="section-title">Strumenti <span>Operativi</span></h2>
-        </div>
-        <div class="tools-grid">
-            <div class="card">
-                <h3 style="margin-top:0; color:#fff;">📈 Calcolatore PAC</h3>
-                <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Scopri l'effetto palla di neve sui tuoi investimenti a lungo termine.</p>
-                <div class="form-group"><label class="form-label">Capitale Iniziale (€)</label><input type="number" id="pacInit" class="form-input" value="1000"></div>
-                <div class="form-group"><label class="form-label">Versamento Mensile (€)</label><input type="number" id="pacMonthly" class="form-input" value="200"></div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group"><label class="form-label">Anni</label><input type="number" id="pacYears" class="form-input" value="10"></div>
-                    <div class="form-group"><label class="form-label">Rendimento Annuo Stimato (%)</label><input type="number" id="pacRate" class="form-input" value="8"></div>
-                </div>
-                <button onclick="calculatePAC()" class="btn-primary" style="margin-top: 10px;">CALCOLA PAC</button>
-                <div id="pacResult" class="tool-result-box">
-                    <div class="fv-label">Capitale Finale Stimato</div>
-                    <div id="pacTotal" class="tool-result-val">---</div>
-                    <div class="tool-result-sub">Di cui <strong id="pacInvested" style="color:#fff;">---</strong> versati e <strong id="pacInterest" style="color:var(--brand-green);">---</strong> di interessi.</div>
-                    <div style="height: 200px; margin-top: 20px;"><canvas id="pacChartCanvas"></canvas></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 style="margin-top:0; color:#fff;">🛡️ Calcolatore Position Sizing</h3>
-                <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Calcola esattamente quante azioni comprare per non sforare il tuo limite di rischio.</p>
-                <div class="form-group"><label class="form-label">Capitale Totale sul Conto (€)</label><input type="number" id="psCap" class="form-input" value="5000"></div>
-                <div class="form-group"><label class="form-label">Rischio Massimo per Trade (%)</label><input type="number" id="psRisk" class="form-input" value="1" step="0.1"></div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group"><label class="form-label">Prezzo di Entrata (€)</label><input type="number" id="psEntry" class="form-input" placeholder="Es. 150.50" step="0.01"></div>
-                    <div class="form-group"><label class="form-label">Prezzo Stop Loss (€)</label><input type="number" id="psStop" class="form-input" placeholder="Es. 140.00" step="0.01"></div>
-                </div>
-                <button onclick="calculatePosition()" class="btn-primary" style="margin-top: 10px;">CALCOLA SIZE</button>
-                <div id="psResult" class="tool-result-box" style="border-color: rgba(41, 98, 255, 0.3); background: rgba(41, 98, 255, 0.05);">
-                    <div class="fv-label">Azioni da Comprare</div>
-                    <div id="psShares" class="tool-result-val" style="color: var(--accent-blue);">---</div>
-                    <div class="tool-result-sub" style="margin-top: 10px; text-align: left; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px;">
-                        • Rischio monetario (Se scatta SL): <strong id="psRiskEuro" style="color:var(--accent-red);">---</strong><br>
-                        • Esborso totale richiesto: <strong id="psTotalCost" style="color:#fff;">---</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Strumenti che uso (link affiliato TradingView) -->
-        <div class="card affiliate-card" style="margin-top: 30px;">
-            <div class="affiliate-inner">
-                <div class="affiliate-text">
-                    <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
-                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📊 TradingView</h3>
-                    <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
-                        È la piattaforma su cui faccio tutte le mie analisi: i grafici, gli screener, il portafoglio e l'indicatore che genera i segnali di questo sito sono costruiti lì.
-                        Puoi iniziare con il piano gratuito e passare a un piano a pagamento solo se ti serve.
-                    </p>
-                </div>
-                <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" class="btn-primary affiliate-btn">Prova TradingView →</a>
-            </div>
-            <p class="affiliate-note">Link affiliato: se ti abboni a un piano a pagamento partendo da qui ricevo una piccola commissione, senza alcun costo aggiuntivo per te.</p>
-        </div>
-        <div class="card affiliate-card" style="margin-top: 20px;">
-            <div class="affiliate-inner">
-                <div class="affiliate-text">
-                    <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
-                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📈 Investing.com e InvestingPro</h3>
-                    <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
-                        La uso da quasi 7 anni per seguire i mercati in tempo reale quando non sono a casa, costruire le mie watchlist e controllare i dati finanziari del giorno.
-                        Con InvestingPro approfondisco le analisi fondamentali dei titoli, il fair value, le notizie riservate agli abbonati e le reazioni alle trimestrali.
-                    </p>
-                    <div class="promo-code">Codice sconto: <span class="promo-code-val mono-font" id="promoCodeInv">mazzeropro</span>
-                        <button type="button" class="promo-copy-btn" onclick="copyPromoCode('promoCodeInv', this)">Copia</button>
-                    </div>
-                </div>
-                <a href="https://www.investing-referral.com/mazzeropro/" target="_blank" rel="sponsored noopener" class="btn-primary affiliate-btn">Prova InvestingPro →</a>
-            </div>
-            <p class="affiliate-note">Link affiliato: se ti abboni partendo da qui ricevo una piccola commissione, senza alcun costo aggiuntivo per te.</p>
         </div>
     </div>
 
     <div class="container" id="portfolio">
         <div class="section-header">
-            <h2 class="section-title">Portafoglio <span>TradingView</span></h2>
+            <h2 class="section-title">Il mio <span>Portafoglio</span></h2>
             <span id="port-updated-badge" style="font-size:0.8em; color:var(--text-muted); background:rgba(255,255,255,0.05); padding:4px 12px; border-radius:20px; border:1px solid var(--border-glass);">—</span>
         </div>
         <div class="kpi-container">
             <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono-font" id="port-total">—</div></div>
             <div class="kpi-card"><div class="fv-label">P&amp;L Non Realizzato</div><div class="kpi-val mono-font" id="port-unreal">—</div></div>
-            <div class="kpi-card"><div class="fv-label">Rendimento Annuo</div><div class="kpi-val mono-font" id="port-annual">—</div></div>
+            <div class="kpi-card"><div class="fv-label">Da inizio anno</div><div class="kpi-val mono-font" id="port-annual">—</div><div id="port-annual-sub" style="font-size:0.75em; color:var(--text-muted); margin-top:4px;"></div></div>
             <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono-font" id="port-count">—</div></div>
         </div>
         <div class="portfolio-grid">
@@ -913,6 +598,311 @@
         </div>
     </div>
 
+    <div class="container" id="fv-section">
+        <div class="section-header">
+            <h2 class="section-title">Ricerca <span>Fair Value</span></h2>
+        </div>
+        <div class="card">
+            <div class="fv-interface">
+                <div class="fv-search-box">
+                    <span style="color: var(--brand-green); font-size: 1.2em;">🔍</span>
+                    <input type="text" id="fvInput" class="fv-input-main" aria-label="Cerca un titolo per ticker" placeholder="Cerca un'azienda (es. AAPL, ENEL, GOOG...)">
+                    <button id="calcBtn" onclick="calculateFV()" class="fv-search-btn">ANALIZZA</button>
+                </div>
+                
+                <div id="fvError" style="display:none; color: var(--accent-red); padding: 15px; text-align: center;">
+                    ⚠️ Titolo non presente nel database o ticker errato.
+                </div>
+                
+                <div id="fvResult" class="card fv-result-card" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 30px;">
+                        <h3 id="fvName" style="margin-top: 0; color: #fff; font-size: 1.8em; text-align: center; margin-bottom: 8px;">Nome Azienda</h3>
+                        <div id="fvHeld" style="text-align:center; min-height: 22px; margin-bottom: 20px;"></div>
+                        
+                        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; align-items: center;">
+                            <div style="text-align: center; flex: 1; min-width: 200px;">
+                                <div class="fv-label">Fair Value · pavimento</div>
+                                <div id="fvValue" class="fv-value-big mono-font">---</div>
+                                <div id="fvStatus" class="wl-badge" style="margin-top:10px; padding: 6px 18px; font-size: 0.85em;">---</div>
+                                <div id="fvVerdictText" style="margin-top:8px; font-size:0.82em; line-height:1.55; max-width:340px; margin-left:auto; margin-right:auto;"></div>
+                                <div id="fvPriceBasis" style="margin-top:8px; font-size:0.78em; color:var(--text-muted); line-height:1.5; max-width:320px; margin-left:auto; margin-right:auto;"></div>
+                                <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                    <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="wl-fv-btn" style="width: auto; padding: 8px 20px;">
+                                        ☆ Preferiti
+                                    </button>
+                                    <button onclick="toggleAlert(currentFVTicker)" class="wl-fv-btn" style="width: auto; padding: 8px 20px; border-color: var(--accent-yellow); color: var(--accent-yellow);" onmouseover="this.style.background='rgba(255,235,59,0.1)'" onmouseout="this.style.background='transparent'">
+                                        🔔 Attiva Alert Drop
+                                    </button>
+                                </div>
+                            </div>
+                            <div style="text-align: center; flex: 1; min-width: 150px; border-left: 1px solid var(--border-glass); border-right: 1px solid var(--border-glass); padding: 0 15px;">
+                                <div class="fv-label">Dividend Yield</div>
+                                <div id="fvDividend" class="fv-value-medium mono-font">---</div>
+                                <div style="font-size: 0.85em; color: var(--text-muted); margin-top: 5px;">Rendimento Annuo</div>
+                            </div>
+                            <div style="text-align: center; flex: 1; min-width: 220px;">
+                                <div class="fv-label">Prezzo attuale</div>
+                                <div id="mini-chart-container" style="height: 120px; margin-top: 10px;"></div>
+                            </div>
+                        </div>
+
+                        <div class="fundamentals-grid" id="fv-fundamentals">
+                            <div class="fund-box"><div class="fund-val" id="fund-pe">--</div><div class="fund-lbl">P/E Ratio</div></div>
+                            <div class="fund-box"><div class="fund-val" id="fund-eps">--</div><div class="fund-lbl">EPS (Utili)</div></div>
+                            <div class="fund-box"><div class="fund-val" id="fund-mcap">--</div><div class="fund-lbl">Market Cap</div></div>
+                            <div class="fund-box"><div class="fund-val" id="fund-div">--</div><div class="fund-lbl">Dividendo</div></div>
+                        </div>
+
+                        <!-- FV band dall'indicatore Pine Script -->
+                        <div id="fv-band-row" style="display:none; margin-top:18px; background:rgba(0,230,118,0.04); border:1px solid rgba(0,230,118,0.15); border-radius:12px; padding:16px 20px;">
+                            <div id="fv-band-title" style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:12px;">📊 Indicatore FAIR VALUE (dati realizzati)</div>
+                            <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-around;">
+                                <div style="text-align:center; min-width:100px;">
+                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">Peggiore</div>
+                                    <div id="fv-band-low" class="mono-font" style="font-size:1.1em; color:#ef9a9a;">—</div>
+                                </div>
+                                <div style="text-align:center; min-width:110px;">
+                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--brand-green); margin-bottom:4px;">FV Pavimento</div>
+                                    <div id="fv-band-main" class="mono-font" style="font-size:1.3em; font-weight:800; color:var(--brand-green);">—</div>
+                                </div>
+                                <div style="text-align:center; min-width:100px;">
+                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">FV Mercato</div>
+                                    <div id="fv-band-mkt" class="mono-font" style="font-size:1.1em; color:#80cbc4;">—</div>
+                                </div>
+                                <div style="text-align:center; min-width:100px;">
+                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">FV Storico</div>
+                                    <div id="fv-band-sto" class="mono-font" style="font-size:1.1em; color:#ffcc80;">—</div>
+                                </div>
+                                <div style="text-align:center; min-width:100px;">
+                                    <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:4px;">Migliore</div>
+                                    <div id="fv-band-high" class="mono-font" style="font-size:1.1em; color:#a5d6a7;">—</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="smart-video-box" class="smart-video-container">
+                            <div style="text-align: center; margin-bottom: 15px;">
+                                <span style="background: var(--brand-green); color: #000; padding: 5px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8em;">VIDEO CORRELATO</span>
+                                <h4 style="margin: 10px 0 0 0; color: #fff;">La mia analisi completa su questo titolo</h4>
+                            </div>
+                            <div style="position:relative; cursor:pointer; border-radius:12px; overflow:hidden; background:#111;" onclick="openVideoExternal()">
+                                <img id="smart-video-thumb" src="" style="width:100%; display:block; min-height:160px; object-fit:cover; border-radius:12px;" alt="Anteprima video YouTube">
+                                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.25);">
+                                    <div style="background:rgba(200,0,0,0.92); border-radius:50%; width:54px; height:54px; display:flex; align-items:center; justify-content:center; font-size:1.3em; box-shadow:0 4px 20px rgba(0,0,0,0.5);">▶</div>
+                                </div>
+                            </div>
+                            <a id="smart-video-link" href="#" target="_blank" rel="noopener" style="display:block; text-align:center; margin-top:12px; color:var(--brand-green); font-weight:600; text-decoration:none; font-size:0.88em;">📺 Guarda l'analisi completa su YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="screener">
+        <div class="section-header">
+            <h2 class="section-title">Screener <span>Titoli</span></h2>
+            <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Valutazione con l'indicatore FAIR VALUE (dati realizzati)</span>
+        </div>
+        <div class="card" style="padding: 24px;">
+            <button class="screener-toggle-btn" onclick="toggleScreener()" id="scr-toggle-btn">
+                <span>📊 Mostra tutti i titoli, dal più economico al più caro</span>
+                <span class="screener-toggle-icon" id="scr-toggle-icon">▼</span>
+            </button>
+
+            <div class="screener-body" id="scr-body">
+                <div class="screener-stats" id="screener-stats" style="display:none; margin-top:20px;">
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-total" style="color:#fff;">—</div><div class="scr-stat-lbl">Titoli Analizzati</div></div>
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-undervalued" style="color:var(--brand-green);">—</div><div class="scr-stat-lbl">Sotto o nella banda</div></div>
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-overvalued" style="color:var(--accent-red);">—</div><div class="scr-stat-lbl">Sopravvalutati</div></div>
+                </div>
+
+                <div class="screener-controls" style="margin-top: 20px;">
+                    <button class="screener-filter-btn active" id="scr-btn-all" onclick="applyFilter('all')">Tutti</button>
+                    <button class="screener-filter-btn" id="scr-btn-fav" onclick="applyFilter('fav')">★ Preferiti</button>
+                    <button class="screener-filter-btn" id="scr-btn-mine" onclick="applyFilter('mine')">💼 Nel mio portafoglio</button>
+                    <button class="screener-filter-btn" id="scr-btn-under" onclick="applyFilter('under')">🟢 Sotto o nella banda</button>
+                    <button class="screener-filter-btn" id="scr-btn-equa" onclick="applyFilter('equa')">⚪ Equità / premio</button>
+                    <button class="screener-filter-btn" id="scr-btn-over" onclick="applyFilter('over')">🔴 Sopravvalutati</button>
+                    <button class="screener-filter-btn" id="scr-btn-div" onclick="applyFilter('div')">💰 Dividendo &gt;3%</button>
+                    <input type="text" class="screener-search" id="scr-search" aria-label="Cerca nello screener per ticker o nome" placeholder="🔍 Cerca ticker o nome..." oninput="applyFilter(currentFilter)">
+                </div>
+
+                <div style="font-size:0.78em; color:var(--text-muted); line-height:1.6; margin-top:14px;">
+                    <strong style="color:#fff;">Pavimento</strong>: valore se l'azienda non crescesse più in termini reali; sotto, la <strong style="color:#fff;">banda</strong> tra l'anno peggiore e il migliore degli ultimi 10. 
+                    <strong style="color:#fff;">FV mercato</strong>: valore se cresce come l'economia. <strong style="color:#fff;">Potenziale</strong>: quanto dovrebbe muoversi il prezzo per arrivare al più basso tra FV pavimento e FV storico. Il verdetto segue le quattro zone dell'indicatore; clicca un titolo per il dettaglio.<br>
+                    Prezzi TradingView ritardati di 15 minuti. <span class="held-tag">💼 in portafoglio</span> indica i titoli che possiedo. I ★ preferiti restano salvati solo in questo browser. <a href="#faq" style="color:var(--brand-green);">Come leggere i valori</a> · <a href="titoli/" style="color:var(--brand-green);">Tutti i fair value, una pagina per titolo</a>
+                </div>
+
+                <div class="screener-loading" id="scr-loading" style="display:none;">
+                    <div class="screener-loading-spinner"></div><div>Caricamento...</div>
+                </div>
+
+                <div class="screener-table-wrap" id="scr-table-wrap" style="display:none;">
+                    <table class="screener-table">
+                        <thead>
+                            <tr>
+                                <th title="Preferiti">★</th>
+                                <th onclick="sortTable('ticker')" id="th-ticker">Titolo <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('pot')" id="th-pot" class="sorted" title="Quanto dovrebbe salire (+) o scendere (−) il prezzo per arrivare al più basso tra FV pavimento e FV storico; sotto, per arrivare al FV di mercato">Potenziale <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('price')" id="th-price">Prezzo <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('fv')" id="th-fv" title="Fair value a crescita reale zero, con scenario peggiore e migliore">Pavimento <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('fv_mkt')" id="th-fv_mkt" title="Fair value se l'azienda cresce come l'economia">FV mercato <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('pos')" id="th-pos" title="Dove si trova il prezzo rispetto alle soglie dell'indicatore">Posizione <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('div')" id="th-div">Div. <span class="sort-arrow">↕</span></th>
+                                <th>Verdetto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scr-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="indicatore" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title">Segnali <span>Indicatore Premium</span></h2>
+            <span style="font-size: 0.82em; color: var(--text-muted);">Gli ultimi setup generati dal mio algoritmo su <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" style="color: var(--brand-green); text-decoration: none;">TradingView</a></span>
+        </div>
+        <div class="card">
+            <div class="signals-layout">
+                <div>
+                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">⏱️ Ultimi Setup Live</h3>
+                    <div class="signal-list" id="signal-list-container">
+                        </div>
+                </div>
+                <div>
+                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">🧠 Come usare l'Indicatore</h3>
+                    <div class="video-responsive">
+                        <div data-yt="yTvn64m3Ruo" data-yt-title="Come usare l'indicatore"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="myportfolio">
+        <div class="section-header">
+            <h2 class="section-title">Simula il tuo <span>Portafoglio</span></h2>
+            <span style="color: var(--text-muted); font-size: 0.9em;">Inserisci le tue posizioni e seguile con i prezzi aggiornati</span>
+        </div>
+        
+        <div class="kpi-container">
+            <div class="kpi-card"><div class="fv-label">Valore Investito</div><div class="kpi-val mono-font" id="myp-invested">0.00 €</div></div>
+            <div class="kpi-card"><div class="fv-label">Controvalore attuale</div><div class="kpi-val mono-font" id="myp-current">0.00 €</div></div>
+            <div class="kpi-card"><div class="fv-label">P&L Totale</div><div class="kpi-val mono-font" id="myp-pl" style="color:#fff;">0.00 €</div></div>
+        </div>
+
+        <div class="card">
+            <div class="pers-port-inputs">
+                <div class="form-group"><label class="form-label" for="mypTicker">Ticker</label><input type="text" id="mypTicker" class="form-input" placeholder="Es. AAPL" style="text-transform:uppercase;"></div>
+                <div class="form-group"><label class="form-label" for="mypQty">Quantità</label><input type="number" id="mypQty" class="form-input" placeholder="Es. 10" step="0.1"></div>
+                <div class="form-group"><label class="form-label" for="mypPrice">Prezzo Medio</label><input type="number" id="mypPrice" class="form-input" placeholder="Es. 150.50" step="0.01"></div>
+                <button class="btn-primary" onclick="addPersonalPosition()" style="margin-top:24px; padding: 15px 20px;">＋ AGGIUNGI</button>
+            </div>
+
+            <div id="mypLoading" style="display:none; text-align:center; padding:20px; color:var(--text-muted);">↻ Aggiornamento prezzi in corso...</div>
+
+            <div class="screener-table-wrap" id="mypTableWrap" style="display:none;">
+                <table class="screener-table pers-table">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Q.tà</th>
+                            <th>PMC</th>
+                            <th>Prezzo attuale</th>
+                            <th>P&L Monetario</th>
+                            <th>P&L %</th>
+                            <th>Status FV</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="mypBody"></tbody>
+                </table>
+            </div>
+            <div id="mypEmpty" class="watchlist-empty" style="margin-top: 10px;">💼 Il tuo portafoglio è vuoto. Inizia aggiungendo un titolo qui sopra.</div>
+            <div style="margin-top:14px; font-size:0.8em; color:var(--text-muted);">🔒 Le posizioni restano salvate solo in questo browser: non vengono inviate a nessuno e non si ritrovano su un altro dispositivo. Funziona con i titoli presenti nello screener.</div>
+        </div>
+    </div>
+
+    <div class="container" id="strumenti">
+        <div class="section-header">
+            <h2 class="section-title">Strumenti <span>Operativi</span></h2>
+        </div>
+        <div class="tools-grid">
+            <div class="card">
+                <h3 style="margin-top:0; color:#fff;">📈 Calcolatore PAC</h3>
+                <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Scopri l'effetto palla di neve sui tuoi investimenti a lungo termine.</p>
+                <div class="form-group"><label class="form-label" for="pacInit">Capitale Iniziale (€)</label><input type="number" id="pacInit" class="form-input" value="1000"></div>
+                <div class="form-group"><label class="form-label" for="pacMonthly">Versamento Mensile (€)</label><input type="number" id="pacMonthly" class="form-input" value="200"></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group"><label class="form-label" for="pacYears">Anni</label><input type="number" id="pacYears" class="form-input" value="10"></div>
+                    <div class="form-group"><label class="form-label" for="pacRate">Rendimento Annuo Stimato (%)</label><input type="number" id="pacRate" class="form-input" value="8"></div>
+                </div>
+                <button onclick="calculatePAC()" class="btn-primary" style="margin-top: 10px;">CALCOLA PAC</button>
+                <div id="pacResult" class="tool-result-box">
+                    <div class="fv-label">Capitale Finale Stimato</div>
+                    <div id="pacTotal" class="tool-result-val">---</div>
+                    <div class="tool-result-sub">Di cui <strong id="pacInvested" style="color:#fff;">---</strong> versati e <strong id="pacInterest" style="color:var(--brand-green);">---</strong> di interessi.</div>
+                    <div style="height: 200px; margin-top: 20px;"><canvas id="pacChartCanvas"></canvas></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top:0; color:#fff;">🛡️ Calcolatore Position Sizing</h3>
+                <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Calcola esattamente quante azioni comprare per non sforare il tuo limite di rischio.</p>
+                <div class="form-group"><label class="form-label" for="psCap">Capitale Totale sul Conto (€)</label><input type="number" id="psCap" class="form-input" value="5000"></div>
+                <div class="form-group"><label class="form-label" for="psRisk">Rischio Massimo per Trade (%)</label><input type="number" id="psRisk" class="form-input" value="1" step="0.1"></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group"><label class="form-label" for="psEntry">Prezzo di Entrata (€)</label><input type="number" id="psEntry" class="form-input" placeholder="Es. 150.50" step="0.01"></div>
+                    <div class="form-group"><label class="form-label" for="psStop">Prezzo Stop Loss (€)</label><input type="number" id="psStop" class="form-input" placeholder="Es. 140.00" step="0.01"></div>
+                </div>
+                <button onclick="calculatePosition()" class="btn-primary" style="margin-top: 10px;">CALCOLA SIZE</button>
+                <div id="psResult" class="tool-result-box" style="border-color: rgba(41, 98, 255, 0.3); background: rgba(41, 98, 255, 0.05);">
+                    <div class="fv-label">Azioni da Comprare</div>
+                    <div id="psShares" class="tool-result-val" style="color: var(--accent-blue);">---</div>
+                    <div class="tool-result-sub" style="margin-top: 10px; text-align: left; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px;">
+                        • Rischio monetario (Se scatta SL): <strong id="psRiskEuro" style="color:var(--accent-red);">---</strong><br>
+                        • Esborso totale richiesto: <strong id="psTotalCost" style="color:#fff;">---</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Strumenti che uso (link affiliato TradingView) -->
+        <div class="card affiliate-card" style="margin-top: 30px;">
+            <div class="affiliate-inner">
+                <div class="affiliate-text">
+                    <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
+                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📊 TradingView</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
+                        È la piattaforma su cui faccio tutte le mie analisi: i grafici, gli screener, il portafoglio e l'indicatore che genera i segnali di questo sito sono costruiti lì.
+                        Puoi iniziare con il piano gratuito e passare a un piano a pagamento solo se ti serve.
+                    </p>
+                </div>
+                <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" class="btn-primary affiliate-btn">Prova TradingView →</a>
+            </div>
+            <p class="affiliate-note">Link affiliato: se ti abboni a un piano a pagamento partendo da qui ricevo una piccola commissione, senza alcun costo aggiuntivo per te.</p>
+        </div>
+        <div class="card affiliate-card" style="margin-top: 20px;">
+            <div class="affiliate-inner">
+                <div class="affiliate-text">
+                    <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
+                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📈 Investing.com e InvestingPro</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
+                        La uso da quasi 7 anni per seguire i mercati in tempo reale quando non sono a casa, costruire le mie watchlist e controllare i dati finanziari del giorno.
+                        Con InvestingPro approfondisco le analisi fondamentali dei titoli, il fair value, le notizie riservate agli abbonati e le reazioni alle trimestrali.
+                    </p>
+                    <div class="promo-code">Codice sconto: <span class="promo-code-val mono-font" id="promoCodeInv">mazzeropro</span>
+                        <button type="button" class="promo-copy-btn" onclick="copyPromoCode('promoCodeInv', this)">Copia</button>
+                    </div>
+                </div>
+                <a href="https://www.investing-referral.com/mazzeropro/" target="_blank" rel="sponsored noopener" class="btn-primary affiliate-btn">Prova InvestingPro →</a>
+            </div>
+            <p class="affiliate-note">Link affiliato: se ti abboni partendo da qui ricevo una piccola commissione, senza alcun costo aggiuntivo per te.</p>
+        </div>
+    </div>
+
     <div class="container" id="news">
         <div class="section-header">
             <h2 class="section-title">News & <span>Sentiment</span></h2>
@@ -925,7 +915,7 @@
                     <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📰 Ultime Notizie</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+                        <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js">
                         { "feedMode": "all_symbols", "isTransparent": true, "displayMode": "regular", "width": "100%", "height": 450, "colorTheme": "dark", "locale": "it" }
                         </script>
                     </div>
@@ -934,7 +924,7 @@
                     <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🌍 Panoramica Mercati</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                        <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
                         { "colorTheme": "dark", "dateRange": "1D", "showChart": false, "locale": "it", "width": "100%", "height": 350, "isTransparent": true, "showSymbolLogo": true, "showFloatingTooltip": false, "tabs": [ { "title": "Indici", "symbols": [ { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" }, { "s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100" }, { "s": "MIL:FTSEMIB", "d": "FTSE MIB" } ] }, { "title": "Commodities", "symbols": [ { "s": "CME_MINI:ES1!", "d": "S&P 500 Futures" }, { "s": "NYMEX:CL1!", "d": "Crude Oil" }, { "s": "TVC:GOLD", "d": "Gold" } ] }, { "title": "Forex", "symbols": [ { "s": "FX:EURUSD" }, { "s": "FX:GBPUSD" } ] } ] }
                         </script>
                     </div>
@@ -943,23 +933,24 @@
 
             <div style="display: flex; flex-direction: column; gap: 24px;">
                 <div class="card">
-                    <h3 style="margin: 0 0 5px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🧭 Market Sentiment (US)</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85em;">Indicatore di Paura e Avidità del mercato azionario.</p>
+                    <h3 style="margin: 0 0 5px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🧭 Termometro del mercato (USA)</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85em;">Volatilità attesa sull'S&amp;P 500 (indice VIX): più è alta, più il mercato ha paura.</p>
                     <div class="sentiment-bar">
-                        <div class="sentiment-needle" style="left: 72%;"></div> 
+                        <div class="sentiment-needle" id="sent-needle" style="display:none;"></div>
                     </div>
                     <div class="sentiment-labels">
-                        <span style="color: var(--accent-red);">Extreme Fear</span>
-                        <span>Neutral</span>
-                        <span style="color: var(--brand-green);">Extreme Greed</span>
+                        <span style="color: var(--accent-red);">Paura</span>
+                        <span>Normale</span>
+                        <span style="color: var(--brand-green);">Calma</span>
                     </div>
-                    <div style="text-align: center; margin-top: 15px; font-size: 1.5em; font-weight: 800; color: var(--brand-green);">Greed (72)</div>
+                    <div id="sent-label" style="text-align: center; margin-top: 15px; font-size: 1.5em; font-weight: 800; color: var(--text-muted);">—</div>
+                    <div id="sent-note" style="text-align: center; margin-top: 6px; font-size: 0.8em; color: var(--text-muted);">Caricamento…</div>
                 </div>
                 <div class="card" style="padding: 20px 20px 0 20px;">
                     <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📅 Calendario Macro</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+                        <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-events.js">
                         { "colorTheme": "dark", "isTransparent": true, "width": "100%", "height": 340, "locale": "it", "importanceFilter": "0,1", "countryFilter": "us,eu,it,de" }
                         </script>
                     </div>
@@ -987,7 +978,7 @@
                         <div class="leg-row"><div class="leg-nome">Banda (peggiore – migliore)</div><div>Lo stesso calcolo con il margine dell'anno peggiore e di quello migliore degli ultimi 10. Più la banda è larga, più l'azienda è ciclica e la stima incerta. Se l'anno peggiore ha un free cash flow negativo, il limite basso non esiste e la banda parte da zero.</div></div>
                         <div class="leg-row"><div class="leg-nome">FV di mercato</div><div>Quanto vale l'azienda se cresce <strong>come l'economia</strong> nel lungo periodo (convenzione usata da Damodaran per il premio per il rischio). È la soglia oltre la quale il prezzo chiede più crescita di un'azienda media.</div></div>
                         <div class="leg-row"><div class="leg-nome">FV storico</div><div>Il prezzo che avrebbe oggi il titolo se il mercato lo pagasse al suo <strong>rendimento di free cash flow mediano degli ultimi 10 anni</strong>. Non usa tassi: dice se il titolo è caro o economico rispetto alla sua storia, non in assoluto.</div></div>
-                        <div class="leg-row"><div class="leg-nome">Potenziale</div><div>Nello screener: quanto dovrebbe <span style="color:#43a047;">salire (+)</span> o <span style="color:#d32f2f;">scendere (−)</span> il prezzo per arrivare al fair value, cioè FV ÷ prezzo − 1. Per prudenza si usa il <strong>più basso tra FV pavimento e FV storico</strong> (l'etichetta dice quale): un titolo risulta conveniente solo se lo è sia rispetto ai tassi di oggi sia rispetto alla sua storia. Sotto, lo stesso calcolo sul FV di mercato. Esempio: prezzo 80 e FV 100 danno +25%; prezzo 125 e FV 100 danno −20%. Un potenziale molto alto di solito indica un'azienda con margini crollati rispetto alla sua storia (<span style="color:#f9a825;">⚠ margine in calo</span>): il modello presume che tornino alla media, quindi va letto con cautela.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Potenziale</div><div>Nello screener: quanto dovrebbe <span style="color:#43a047;">salire (+)</span> o <span style="color:#d32f2f;">scendere (−)</span> il prezzo per arrivare al fair value, cioè FV ÷ prezzo − 1. Per prudenza si usa il <strong>più basso tra FV pavimento e FV storico</strong> (l'etichetta dice quale): un titolo risulta conveniente solo se lo è sia rispetto ai tassi di oggi sia rispetto alla sua storia. Sotto, lo stesso calcolo sul FV di mercato. Esempio: prezzo 80 e FV 100 danno +25%; prezzo 125 e FV 100 danno −20%. Un potenziale molto alto di solito indica un'azienda con margini crollati rispetto alla sua storia (<span style="color:#f9a825;">⚠ margine in calo</span>): il modello presume che tornino alla media, quindi va letto con cautela. Se esito e potenziale non coincidono (per esempio "sottovalutata" con potenziale negativo), i due metodi danno letture diverse e la valutazione è meno netta.</div></div>
                         <div class="leg-row"><div class="leg-nome">Posizione</div><div>In quale zona si trova il prezzo rispetto alle soglie: sotto la banda, nella banda (con la percentuale: 0% = scenario peggiore, 100% = migliore), tra banda e FV di mercato, sopra il FV di mercato. Da qui nasce il verdetto.</div></div>
                         <div class="leg-row"><div class="leg-nome">Crescita scontata e storica</div><div>La <strong>crescita scontata</strong> è quella che il prezzo di oggi dà per scontata; la <strong>storica</strong> è quella dei ricavi per azione davvero realizzata negli ultimi anni. Se il mercato chiede molta più crescita di quella mai realizzata, il titolo è caro.</div></div>
                     </div>
@@ -1027,7 +1018,7 @@
 
     <div class="container" id="total-watchlist">
         <div class="section-header">
-            <h2 class="section-title">Watchlist <span>TOTAL</span></h2>
+            <h2 class="section-title">Watchlist <span>completa</span></h2>
             <span class="live-badge">LIVE</span>
         </div>
 
@@ -1041,10 +1032,10 @@
         </div>
 
         <!-- AZIONI -->
-        <div id="wl-tab-azioni" class="card" style="padding:0; overflow:hidden;">
+        <div id="wl-tab-azioni" class="card" style="padding:0; overflow-x:hidden; overflow-y:auto; max-height:640px;">
             <div class="tradingview-widget-container" style="height:4800px;">
                 <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js">
                 { "width": "100%", "height": 4800, "symbolsGroups": [{ "name": "Difesa & Industria", "symbols": [{"name":"XETR:RHM"},{"name":"XETR:GXI"},{"name":"MIL:LDO"},{"name":"NYSE:NOC"},{"name":"NYSE:RTX"},{"name":"NYSE:LMT"},{"name":"NYSE:GD"},{"name":"NYSE:HWM"},{"name":"NYSE:CAT"},{"name":"NYSE:DE"},{"name":"NYSE:UPS"},{"name":"NYSE:FDX"},{"name":"NYSE:HON","displayName":"HON"},{"name":"NYSE:BA"},{"name":"NYSE:UNP"}]},{"name":"Energia & Commodities", "symbols":[{"name":"NYSE:KMI"},{"name":"NYSE:COP"},{"name":"NYSE:DVN"},{"name":"NYSE:CVX"},{"name":"NYSE:XOM"},{"name":"NYSE:SLB"}]},{"name":"Pharma & Salute","symbols":[{"name":"NYSE:ABBV"},{"name":"NYSE:MRK"},{"name":"NYSE:PFE"},{"name":"NYSE:LLY"},{"name":"NYSE:MDT"},{"name":"NYSE:BSX"},{"name":"NYSE:BDX"},{"name":"NYSE:DHR"},{"name":"NYSE:TMO"},{"name":"NYSE:MTD"},{"name":"NASDAQ:REGN"},{"name":"NASDAQ:GILD"},{"name":"NASDAQ:ISRG"},{"name":"NASDAQ:VRTX"},{"name":"NYSE:ELV"},{"name":"NYSE:UNH"},{"name":"NYSE:CVS"}]},{"name":"Finance & Insurance","symbols":[{"name":"NYSE:JPM"},{"name":"NYSE:BLK"},{"name":"NYSE:BRK.B"},{"name":"NYSE:C"},{"name":"NYSE:BAC"},{"name":"NYSE:GS"},{"name":"NYSE:AXP"},{"name":"NYSE:V"},{"name":"NYSE:MA"},{"name":"NYSE:MCO"},{"name":"NYSE:CB"},{"name":"NYSE:L"},{"name":"NYSE:RSG"},{"name":"NYSE:WM"}]},{"name":"Consumer & Retail","symbols":[{"name":"NYSE:PM"},{"name":"NASDAQ:PEP"},{"name":"NYSE:KO"},{"name":"NYSE:AZO"},{"name":"NYSE:MO"},{"name":"NYSE:CL"},{"name":"NYSE:PG"},{"name":"NYSE:GIS"},{"name":"NYSE:HD"},{"name":"NASDAQ:COST"},{"name":"NASDAQ:ROST"},{"name":"NASDAQ:ORLY"},{"name":"NYSE:DG"},{"name":"NYSE:MCD"},{"name":"NYSE:NKE"},{"name":"NYSE:DIS"},{"name":"NYSE:VZ"},{"name":"NYSE:T"},{"name":"NYSE:CHTR"},{"name":"NASDAQ:TMUS"}]},{"name":"Tech & Growth","symbols":[{"name":"NASDAQ:AAPL"},{"name":"NASDAQ:MSFT"},{"name":"NASDAQ:AMZN"},{"name":"NASDAQ:NVDA"},{"name":"NASDAQ:GOOG"},{"name":"NASDAQ:META"},{"name":"NASDAQ:TSLA"},{"name":"NASDAQ:AVGO"},{"name":"NYSE:ORCL"},{"name":"NYSE:CRM"},{"name":"NASDAQ:ADBE"},{"name":"NASDAQ:INTU"},{"name":"NASDAQ:TXN"},{"name":"NASDAQ:AMAT"},{"name":"NASDAQ:BKNG"},{"name":"NASDAQ:SHOP"},{"name":"NASDAQ:TTD"},{"name":"NASDAQ:CRWD"},{"name":"NASDAQ:FTNT"},{"name":"NASDAQ:PLTR"},{"name":"NASDAQ:PANW"},{"name":"NASDAQ:DDOG"},{"name":"NASDAQ:LULU"},{"name":"NASDAQ:CPRT"},{"name":"NYSE:IBM"},{"name":"NASDAQ:ISRG"}]},{"name":"Italia & Europa","symbols":[{"name":"MIL:RACE"},{"name":"MIL:CPR"},{"name":"XETR:SAP"},{"name":"EURONEXT:EL"},{"name":"NYSE:FMC"},{"name":"NYSE:CE"},{"name":"NYSE:BR"},{"name":"NYSE:HWM"},{"name":"NYSE:ACN"},{"name":"NYSE:NEE"},{"name":"NASDAQ:TRI"},{"name":"NASDAQ:CME"},{"name":"NASDAQ:ADP"},{"name":"NYSE:WM"},{"name":"NYSE:BLDR"},{"name":"NYSE:RCL"},{"name":"NYSE:NVO"}]}], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
                 </script>
             </div>
@@ -1054,7 +1045,7 @@
         <div id="wl-tab-etf" class="card" style="padding:0; overflow:hidden; display:none;">
             <div class="tradingview-widget-container" style="height:400px;">
                 <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js">
                 { "width": "100%", "height": 400, "symbolsGroups": [{ "name": "ETF & Fondi", "symbols": [{"name":"AMEX:SPY","displayName":"SPY — S&P 500"},{"name":"NASDAQ:QQQ","displayName":"QQQ — Nasdaq 100"},{"name":"AMEX:IWM","displayName":"IWM — Russell 2000"},{"name":"AMEX:EEM","displayName":"EEM — Emerging Markets"},{"name":"AMEX:XLK","displayName":"XLK — Tech"},{"name":"AMEX:XLE","displayName":"XLE — Energy"},{"name":"AMEX:XLP","displayName":"XLP — Consumer Staples"},{"name":"AMEX:XLF","displayName":"XLF — Financials"},{"name":"NASDAQ:TLT","displayName":"TLT — 20Y Treasury"},{"name":"AMEX:GLD","displayName":"GLD — Gold ETF"},{"name":"NASDAQ:PAYX","displayName":"PAYX — Paychex"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
                 </script>
             </div>
@@ -1064,7 +1055,7 @@
         <div id="wl-tab-indici" class="card" style="padding:0; overflow:hidden; display:none;">
             <div class="tradingview-widget-container" style="height:280px;">
                 <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js">
                 { "width": "100%", "height": 280, "symbolsGroups": [{ "name": "Indici Globali", "symbols": [{"name":"SP:SPX","displayName":"S&P 500"},{"name":"NASDAQ:NDX","displayName":"Nasdaq 100"},{"name":"TVC:DJI","displayName":"Dow Jones"},{"name":"XETR:DAX","displayName":"DAX"},{"name":"FTSE:FTSEMIB","displayName":"FTSE MIB"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
                 </script>
             </div>
@@ -1074,7 +1065,7 @@
         <div id="wl-tab-materie" class="card" style="padding:0; overflow:hidden; display:none;">
             <div class="tradingview-widget-container" style="height:250px;">
                 <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js">
                 { "width": "100%", "height": 250, "symbolsGroups": [{ "name": "Materie Prime", "symbols": [{"name":"TVC:GOLD","displayName":"Gold"},{"name":"TVC:SILVER","displayName":"Silver"},{"name":"TVC:USOIL","displayName":"WTI Crude"},{"name":"ICEUS:CC1!","displayName":"Cocoa"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
                 </script>
             </div>
@@ -1084,7 +1075,7 @@
         <div id="wl-tab-obbligazioni" class="card" style="padding:0; overflow:hidden; display:none;">
             <div class="tradingview-widget-container" style="height:220px;">
                 <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js">
                 { "width": "100%", "height": 220, "symbolsGroups": [{ "name": "Obbligazioni", "symbols": [{"name":"CBOT:ZB1!","displayName":"US 30Y Bond Futures"},{"name":"NASDAQ:TLT","displayName":"TLT — 20Y US Treasury ETF"},{"name":"MUN:IT548098","displayName":"BTP 2,15% set 2052"},{"name":"MUN:IT542523","displayName":"BTP 1,7% set 2051"}] }], "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "it" }
                 </script>
             </div>
@@ -1092,157 +1083,13 @@
     </div>
 
     <footer>
-        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView e Investing.com sono link affiliati. <br><br> <a href="disclaimer.html">Leggi il Disclaimer</a></p>
+        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView e Investing.com sono link affiliati. <br><br> <a href="disclaimer.html">Disclaimer</a> · <a href="privacy.html">Privacy</a> · <a href="titoli/">Tutti i fair value</a></p>
     </footer>
 
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // === 1. DATABASE — caricato da data.json (con fallback inline) ===
+        // === 1. DATABASE — caricato da data.json ===
         // Per aggiornare FV o prezzi: modifica data.json nel repo GitHub, non questo file.
-        let db = {
-            "DIA": { name: "DiaSorin", fv: 85.00, price: 79.72, curr: "€", ex: "MIL", yf: "DIA.MI", divYield: 1.60, videoID: null, fund: {pe: "30.2", eps: "2.64", mcap: "4B", rev: "N/D"} },
-            "ERG": { name: "ERG S.p.A.", fv: 28.50, price: 21.88, curr: "€", ex: "MIL", yf: "ERG.MI", divYield: 4.10, videoID: null, fund: {pe: "62.0", eps: "0.35", mcap: "3B", rev: "N/D"} },
-            "RACE": { name: "Ferrari", fv: 300.00, price: 349.5, curr: "€", ex: "MIL", yf: "RACE.MI", divYield: 0.76, videoID: null, fund: {pe: "37.9", eps: "9.22", mcap: "77B", rev: "N/D"} },
-            "GOOG": { name: "Alphabet", fv: 290.00, price: 317.28, curr: "$", ex: "NASDAQ", yf: "GOOG", divYield: 0.15, videoID: null, fund: {pe: "15.9", eps: "19.91", mcap: "3.9T", rev: "N/D"} },
-            "MC": { name: "LVMH", fv: 600.00, price: 383, curr: "€", ex: "EPA", yf: "MC.PA", divYield: 1.50, videoID: null, fund: {pe: "17.4", eps: "21.95", mcap: "189B", rev: "N/D"} },
-            "ADBE": { name: "Adobe", fv: 300.00, price: 263.82, curr: "$", ex: "NASDAQ", yf: "ADBE", divYield: 0.00, videoID: null, fund: {pe: "14.7", eps: "17.93", mcap: "103B", rev: "N/D"} },
-            "INTU": { name: "Intuit", fv: 700.00, price: 343.39, curr: "$", ex: "NASDAQ", yf: "INTU", divYield: 0.65, videoID: null, fund: {pe: "20.8", eps: "16.50", mcap: "92B", rev: "N/D"} },
-            "QCOM": { name: "Qualcomm", fv: 180.00, price: 175.91, curr: "$", ex: "NASDAQ", yf: "QCOM", divYield: 1.85, videoID: null, fund: {pe: "20.4", eps: "8.64", mcap: "188B", rev: "N/D"} },
-            "STLAM": { name: "Stellantis", fv: 18.00, price: 3.555, curr: "€", ex: "MIL", yf: "STLAM.MI", divYield: 6.50, videoID: "MpwZcg3J8BE", fund: {pe: "N/D", eps: "N/D", mcap: "13B", rev: "N/D"} },
-            "SAP": { name: "SAP SE", fv: 220.00, price: 214.4, curr: "€", ex: "XETR", yf: "SAP.DE", divYield: 1.20, videoID: "Icy8DMAwDYw", fund: {pe: "30.4", eps: "7.04", mcap: "250B", rev: "N/D"} },
-            "AAPL": { name: "Apple Inc.", fv: 253.00, price: 347.725, curr: "$", ex: "NASDAQ", yf: "AAPL", divYield: 0.50, videoID: null, fund: {pe: "39.9", eps: "8.72", mcap: "5.1T", rev: "N/D"} },
-            "MSFT": { name: "Microsoft", fv: 461.22, price: 524.51, curr: "$", ex: "NASDAQ", yf: "MSFT", divYield: 0.75, videoID: null, fund: {pe: "29.2", eps: "17.95", mcap: "3.9T", rev: "N/D"} },
-            "AMZN": { name: "Amazon", fv: 199.00, price: 248.0, curr: "$", ex: "NASDAQ", yf: "AMZN", divYield: 0.00, videoID: null, fund: {pe: "19.9", eps: "12.43", mcap: "2.7T", rev: "N/D"} },
-            "NVDA": { name: "Nvidia", fv: 163.11, price: 210.96, curr: "$", ex: "NASDAQ", yf: "NVDA", divYield: 0.02, videoID: null, fund: {pe: "26.7", eps: "7.91", mcap: "5.1T", rev: "N/D"} },
-            "A2A": { name: "A2A S.p.A.", fv: 2.45, price: 2.436, curr: "€", ex: "MIL", yf: "A2A.MI", divYield: 4.80, fund: {pe: "11.2", eps: "0.22", mcap: "8B", rev: "N/D"}, videoID: null },
-            "ADM": { name: "Archer-Daniels", fv: 53.00, price: 80.14, curr: "$", ex: "NYSE", yf: "ADM", divYield: 3.50, fund: {pe: "21.9", eps: "3.65", mcap: "39B", rev: "N/D"}, videoID: null },
-            "ADP": { name: "Auto Data Proc.", fv: 312.00, price: 304.16, curr: "$", ex: "NASDAQ", yf: "ADP", divYield: 1.90, fund: {pe: "27.8", eps: "10.94", mcap: "121B", rev: "N/D"}, videoID: null },
-            "ADSK": { name: "Autodesk Inc.", fv: 339.00, price: 252.2, curr: "$", ex: "NASDAQ", yf: "ADSK", divYield: 0.00, fund: {pe: "32.7", eps: "7.72", mcap: "53B", rev: "N/D"}, videoID: null },
-            "AMAT": { name: "Applied Materials", fv: 233.00, price: 377.24, curr: "$", ex: "NASDAQ", yf: "AMAT", divYield: 0.70, fund: {pe: "32.5", eps: "11.60", mcap: "299B", rev: "N/D"}, videoID: null },
-            "AMD": { name: "AMD", fv: 145.60, price: 516.79, curr: "$", ex: "NASDAQ", yf: "AMD", divYield: 0.00, fund: {pe: "132.6", eps: "3.90", mcap: "844B", rev: "N/D"}, videoID: null },
-            "ASML": { name: "ASML Holding", fv: 904.00, price: 1571.8, curr: "$", ex: "NASDAQ", yf: "ASML", divYield: 0.85, fund: {pe: "38.7", eps: "40.60", mcap: "603B", rev: "N/D"}, videoID: null },
-            "AXP": { name: "American Express", fv: 332.00, price: 313.22, curr: "$", ex: "NYSE", yf: "AXP", divYield: 1.10, fund: {pe: "17.6", eps: "17.76", mcap: "212B", rev: "N/D"}, videoID: null },
-            "BAC": { name: "Bank of America", fv: 59.85, price: 50.56, curr: "$", ex: "NYSE", yf: "BAC", divYield: 2.20, fund: {pe: "12.1", eps: "4.19", mcap: "350B", rev: "N/D"}, videoID: null },
-            "BAYN": { name: "Bayer AG", fv: 44.12, price: 43.98, curr: "€", ex: "XETR", yf: "BAYN.DE", divYield: 4.50, fund: {pe: "N/D", eps: "-1.77", mcap: "43B", rev: "N/D"}, videoID: null },
-            "BATS": { name: "Brit. Am. Tobacco", fv: 4656.00, price: 4432, curr: "GBp", ex: "LSE", yf: "BATS.L", divYield: 9.20, fund: {pe: "15.2", eps: "2.91", mcap: "95B", rev: "N/D"}, videoID: null },
-            "BC": { name: "Brunswick Corp", fv: 88.00, price: 65.88, curr: "$", ex: "NYSE", yf: "BC", divYield: 1.70, fund: {pe: "N/D", eps: "-1.30", mcap: "4B", rev: "N/D"}, videoID: null },
-            "BNG": { name: "Bunge Global", fv: 46.31, price: 105.00, curr: "$", ex: "NYSE", yf: "BG", divYield: 3.10, videoID: null, fund: {pe: "N/D", eps: "N/D", mcap: "N/D", rev: "N/D"} },
-            "BRE": { name: "Brembo", fv: 14.93, price: 9.795, curr: "€", ex: "MIL", yf: "BRE.MI", divYield: 2.10, fund: {pe: "13.6", eps: "0.72", mcap: "5B", rev: "N/D"}, videoID: null },
-            "BRK.B": { name: "Berkshire Hath.", fv: 511.00, price: 542.19, curr: "$", ex: "NYSE", yf: "BRK-B", divYield: 0.00, fund: {pe: "13.6", eps: "39.77", mcap: "1.2T", rev: "N/D"}, videoID: null },
-            "CAT": { name: "Caterpillar", fv: 404.00, price: 687.0, curr: "$", ex: "NYSE", yf: "CAT", divYield: 1.50, fund: {pe: "29.6", eps: "23.25", mcap: "316B", rev: "N/D"}, videoID: null },
-            "CE": { name: "Celanese", fv: 105.56, price: 47.71, curr: "$", ex: "NYSE", yf: "CE", divYield: 2.60, fund: {pe: "N/D", eps: "-10.68", mcap: "5B", rev: "N/D"}, videoID: null },
-            "CNC": { name: "Centene", fv: 102.66, price: 70.17, curr: "$", ex: "NYSE", yf: "CNC", divYield: 0.00, fund: {pe: "N/D", eps: "-10.44", mcap: "35B", rev: "N/D"}, videoID: null },
-            "COST": { name: "Costco Wholesale", fv: 851.00, price: 1003.32, curr: "$", ex: "NASDAQ", yf: "COST", divYield: 0.60, fund: {pe: "48.3", eps: "20.76", mcap: "445B", rev: "N/D"}, videoID: null },
-            "CPR": { name: "Campari", fv: 8.95, price: 6.708, curr: "€", ex: "MIL", yf: "CPR.MI", divYield: 0.90, fund: {pe: "29.9", eps: "0.22", mcap: "8B", rev: "N/D"}, videoID: null },
-            "CRM": { name: "Salesforce", fv: 325.48, price: 248.57, curr: "$", ex: "NYSE", yf: "CRM", divYield: 0.50, fund: {pe: "22.6", eps: "10.97", mcap: "205B", rev: "N/D"}, videoID: null },
-            "CVX": { name: "Chevron", fv: 181.66, price: 233.21, curr: "$", ex: "NYSE", yf: "CVX", divYield: 4.10, fund: {pe: "22.4", eps: "10.43", mcap: "461B", rev: "N/D"}, videoID: null },
-            "DDOG": { name: "Datadog", fv: 129.62, price: 269.65, curr: "$", ex: "NASDAQ", yf: "DDOG", divYield: 0.00, fund: {pe: "N/D", eps: "0.49", mcap: "97B", rev: "N/D"}, videoID: null },
-            "ENI": { name: "Eni S.p.A.", fv: 21.29, price: 27.65, curr: "€", ex: "MIL", yf: "ENI.MI", divYield: 6.20, fund: {pe: "10.8", eps: "2.56", mcap: "81B", rev: "N/D"}, videoID: null },
-            "ENEL": { name: "Enel S.p.A.", fv: 4.85, price: 9.218, curr: "€", ex: "MIL", yf: "ENEL.MI", divYield: 6.50, fund: {pe: "20.3", eps: "0.45", mcap: "91B", rev: "N/D"}, videoID: null },
-            "G": { name: "Assic. Generali", fv: 50.63, price: 42.1, curr: "€", ex: "MIL", yf: "G.MI", divYield: 5.50, fund: {pe: "14.3", eps: "2.94", mcap: "63B", rev: "N/D"}, videoID: null },
-            "IBM": { name: "IBM", fv: 231.00, price: 253.56, curr: "$", ex: "NYSE", yf: "IBM", divYield: 3.20, fund: {pe: "21.6", eps: "11.72", mcap: "240B", rev: "N/D"}, videoID: null },
-            "INTC": { name: "Intel", fv: 35.29, price: 86.96, curr: "$", ex: "NASDAQ", yf: "INTC", divYield: 1.50, fund: {pe: "N/D", eps: "-2.12", mcap: "460B", rev: "N/D"}, videoID: null },
-            "IP": { name: "International Paper", fv: 48.02, price: 33.19, curr: "$", ex: "NYSE", yf: "IP", divYield: 4.00, fund: {pe: "N/D", eps: "-6.48", mcap: "18B", rev: "N/D"}, videoID: null },
-            "ISP": { name: "Intesa Sanpaolo", fv: 7.22, price: 5.86, curr: "€", ex: "MIL", yf: "ISP.MI", divYield: 8.50, fund: {pe: "10.7", eps: "0.55", mcap: "101B", rev: "N/D"}, videoID: null },
-            "LDO": { name: "Leonardo S.p.A.", fv: 26.65, price: 48.46, curr: "€", ex: "MIL", yf: "LDO.MI", divYield: 1.80, fund: {pe: "24.8", eps: "1.95", mcap: "28B", rev: "N/D"}, videoID: null },
-            "LULU": { name: "Lululemon", fv: 465.80, price: 99.01, curr: "$", ex: "NASDAQ", yf: "LULU", divYield: 0.00, fund: {pe: "8.1", eps: "12.20", mcap: "11B", rev: "N/D"}, videoID: null },
-            "MA": { name: "Mastercard", fv: 500.65, price: 623.6, curr: "$", ex: "NYSE", yf: "MA", divYield: 0.50, fund: {pe: "34.3", eps: "18.18", mcap: "546B", rev: "N/D"}, videoID: null },
-            "MONC": { name: "Moncler", fv: 74.93, price: 42.66, curr: "€", ex: "MIL", yf: "MONC.MI", divYield: 1.80, fund: {pe: "18.2", eps: "2.35", mcap: "12B", rev: "N/D"}, videoID: null },
-            "OXY": { name: "Occidental Petroleum", fv: 77.70, price: 64.17, curr: "$", ex: "NYSE", yf: "OXY", divYield: 1.20, fund: {pe: "19.0", eps: "3.38", mcap: "64B", rev: "N/D"}, videoID: null },
-            // ── Difesa & Aerospazio ──────────────────────────────────────────
-            "RHM": { name: "Rheinmetall AG",       fv: null, price: 1019.0, curr: "€", ex: "XETR",     yf: "RHM.DE",  divYield: 1.0,  videoID: null, fund: {pe: "66.1", eps: "15.42", mcap: "48B", rev: "N/D"} },
-            "GXI": { name: "Gerresheimer AG",      fv: null,  price: 31.34,  curr: "€", ex: "XETR",     yf: "GXI.DE",  divYield: 1.5,  videoID: null, fund: {pe: "N/D", eps: "-11.60", mcap: "1B", rev: "N/D"} },
-            "NOC": { name: "Northrop Grumman",     fv: null, price: 551.44, curr: "$", ex: "NYSE",      yf: "NOC",     divYield: 1.7,  videoID: null, fund: {pe: "17.4", eps: "31.77", mcap: "78B", rev: "N/D"} },
-            "RTX": { name: "RTX Corp",             fv: null, price: 191.01, curr: "$", ex: "NYSE",      yf: "RTX",     divYield: 2.1,  videoID: null, fund: {pe: "31.0", eps: "6.16", mcap: "258B", rev: "N/D"} },
-            "LMT": { name: "Lockheed Martin",      fv: null, price: 604.18, curr: "$", ex: "NYSE",      yf: "LMT",     divYield: 2.8,  videoID: null, fund: {pe: "21.5", eps: "28.15", mcap: "140B", rev: "N/D"} },
-            "GD": { name: "General Dynamics",     fv: null, price: 349.36, curr: "$", ex: "NYSE",      yf: "GD",      divYield: 2.1,  videoID: null, fund: {pe: "21.3", eps: "16.40", mcap: "95B", rev: "N/D"} },
-            "HWM": { name: "Howmet Aerospace",     fv: null, price: 185.91, curr: "$", ex: "NYSE",      yf: "HWM",     divYield: 0.4,  videoID: null, fund: {pe: "40.1", eps: "4.64", mcap: "74B", rev: "N/D"} },
-            "HON": { name: "Honeywell",            fv: null, price: 221.15, curr: "$", ex: "NASDAQ",    yf: "HON",     divYield: 2.2,  videoID: null, fund: {pe: "9.4", eps: "23.41", mcap: "70B", rev: "N/D"} },
-            "BA": { name: "Boeing",               fv: null, price: 188.35, curr: "$", ex: "NYSE",      yf: "BA",      divYield: 0.0,  videoID: null, fund: {pe: "85.8", eps: "2.20", mcap: "149B", rev: "N/D"} },
-            "UNP": { name: "Union Pacific",        fv: null, price: 292.87, curr: "$", ex: "NYSE",      yf: "UNP",     divYield: 2.3,  videoID: null, fund: {pe: "22.8", eps: "12.83", mcap: "174B", rev: "N/D"} },
-            "UPS": { name: "UPS",                  fv: null, price: 101.06, curr: "$", ex: "NYSE",      yf: "UPS",     divYield: 4.8,  videoID: null, fund: {pe: "18.8", eps: "5.37", mcap: "86B", rev: "N/D"} },
-            "FDX": { name: "FedEx",                fv: null, price: 298.72, curr: "$", ex: "NYSE",      yf: "FDX",     divYield: 2.0,  videoID: null, fund: {pe: "16.1", eps: "18.54", mcap: "71B", rev: "N/D"} },
-            "DE": { name: "Deere & Company",      fv: null, price: 646.15, curr: "$", ex: "NYSE",      yf: "DE",      divYield: 1.5,  videoID: null, fund: {pe: "35.9", eps: "17.99", mcap: "174B", rev: "N/D"} },
-            // ── Energia & Petrolio ───────────────────────────────────────────
-            "KMI": { name: "Kinder Morgan",        fv: null,  price: 34.43,  curr: "$", ex: "NYSE",      yf: "KMI",     divYield: 6.2,  videoID: null, fund: {pe: "21.4", eps: "1.61", mcap: "77B", rev: "N/D"} },
-            "COP": { name: "ConocoPhillips",       fv: null, price: 150.8, curr: "$", ex: "NYSE",      yf: "COP",     divYield: 3.0,  videoID: null, fund: {pe: "20.0", eps: "7.55", mcap: "181B", rev: "N/D"} },
-            "DVN": { name: "Devon Energy",         fv: null,  price: 51.39,  curr: "$", ex: "NYSE",      yf: "DVN",     divYield: 4.5,  videoID: null, fund: {pe: "12.2", eps: "4.22", mcap: "57B", rev: "N/D"} },
-            "SLB": { name: "Schlumberger",         fv: null,  price: 53.06,  curr: "$", ex: "NYSE",      yf: "SLB",     divYield: 2.8,  videoID: null, fund: {pe: "25.8", eps: "2.05", mcap: "79B", rev: "N/D"} },
-            "XOM": { name: "ExxonMobil",           fv: null, price: 183.21, curr: "$", ex: "NYSE",      yf: "XOM",     divYield: 3.5,  videoID: null, fund: {pe: "23.6", eps: "7.77", mcap: "753B", rev: "N/D"} },
-            // ── Pharma & Salute ──────────────────────────────────────────────
-            "ABBV": { name: "AbbVie",               fv: null, price: 285.64, curr: "$", ex: "NYSE",      yf: "ABBV",    divYield: 3.6,  videoID: null, fund: {pe: "80.8", eps: "3.54", mcap: "505B", rev: "N/D"} },
-            "MRK": { name: "Merck & Co",           fv: null, price: 145.27, curr: "$", ex: "NYSE",      yf: "MRK",     divYield: 2.8,  videoID: null, fund: {pe: "116.1", eps: "1.25", mcap: "358B", rev: "N/D"} },
-            "PFE": { name: "Pfizer",               fv: null,  price: 30.03,  curr: "$", ex: "NYSE",      yf: "PFE",     divYield: 6.4,  videoID: null, fund: {pe: "39.8", eps: "0.76", mcap: "171B", rev: "N/D"} },
-            "LLY": { name: "Eli Lilly",            fv: null, price: 1273.46, curr: "$", ex: "NYSE",      yf: "LLY",     divYield: 0.6,  videoID: null, fund: {pe: "43.3", eps: "29.43", mcap: "1.2T", rev: "N/D"} },
-            "MDT": { name: "Medtronic",            fv: null,  price: 95.41,  curr: "$", ex: "NYSE",      yf: "MDT",     divYield: 3.3,  videoID: null, fund: {pe: "23.5", eps: "4.06", mcap: "122B", rev: "N/D"} },
-            "BSX": { name: "Boston Scientific",    fv: null,  price: 45.69,  curr: "$", ex: "NYSE",      yf: "BSX",     divYield: 0.0,  videoID: null, fund: {pe: "18.5", eps: "2.47", mcap: "66B", rev: "N/D"} },
-            "BDX": { name: "Becton Dickinson",     fv: null, price: 198.91, curr: "$", ex: "NYSE",      yf: "BDX",     divYield: 1.8,  videoID: null, fund: {pe: "60.0", eps: "3.32", mcap: "54B", rev: "N/D"} },
-            "DHR": { name: "Danaher",              fv: null, price: 230.5, curr: "$", ex: "NYSE",      yf: "DHR",     divYield: 0.4,  videoID: null, fund: {pe: "37.7", eps: "6.11", mcap: "162B", rev: "N/D"} },
-            "TMO": { name: "Thermo Fisher",        fv: null, price: 673.82, curr: "$", ex: "NYSE",      yf: "TMO",     divYield: 0.3,  videoID: null, fund: {pe: "35.5", eps: "18.96", mcap: "249B", rev: "N/D"} },
-            "MTD": { name: "Mettler-Toledo",       fv: null,price: 1670.29,curr: "$", ex: "NYSE",      yf: "MTD",     divYield: 0.0,  videoID: null, fund: {pe: "37.6", eps: "44.43", mcap: "33B", rev: "N/D"} },
-            "REGN": { name: "Regeneron Pharma",     fv: null,price: 805.02, curr: "$", ex: "NASDAQ",    yf: "REGN",    divYield: 0.0,  videoID: null, fund: {pe: "19.9", eps: "40.46", mcap: "83B", rev: "N/D"} },
-            "GILD": { name: "Gilead Sciences",      fv: null,  price: 156.04,  curr: "$", ex: "NASDAQ",    yf: "GILD",    divYield: 3.5,  videoID: null, fund: {pe: "N/D", eps: "-2.66", mcap: "193B", rev: "N/D"} },
-            "ISRG": { name: "Intuitive Surgical",   fv: null, price: 452.29, curr: "$", ex: "NASDAQ",    yf: "ISRG",    divYield: 0.0,  videoID: null, fund: {pe: "54.7", eps: "8.27", mcap: "157B", rev: "N/D"} },
-            "VRTX": { name: "Vertex Pharma",        fv: null, price: 523.93, curr: "$", ex: "NASDAQ",    yf: "VRTX",    divYield: 0.0,  videoID: null, fund: {pe: "30.5", eps: "17.19", mcap: "133B", rev: "N/D"} },
-            "ELV": { name: "Elevance Health",      fv: null, price: 439.95, curr: "$", ex: "NYSE",      yf: "ELV",     divYield: 1.4,  videoID: null, fund: {pe: "18.8", eps: "23.46", mcap: "95B", rev: "N/D"} },
-            "UNH": { name: "UnitedHealth",         fv: null, price: 418.09, curr: "$", ex: "NYSE",      yf: "UNH",     divYield: 1.5,  videoID: null, fund: {pe: "23.9", eps: "17.52", mcap: "375B", rev: "N/D"} },
-            "CVS": { name: "CVS Health",           fv: null,  price: 93.47,  curr: "$", ex: "NYSE",      yf: "CVS",     divYield: 4.2,  videoID: null, fund: {pe: "24.7", eps: "3.79", mcap: "120B", rev: "N/D"} },
-            "NVO": { name: "Novo Nordisk ADR",     fv: null, price: 39.05, curr: "$", ex: "NYSE",      yf: "NVO",     divYield: 1.5,  videoID: null, fund: {pe: "9.5", eps: "4.09", mcap: "173B", rev: "N/D"} },
-            // ── Finance & Insurance ──────────────────────────────────────────
-            "JPM": { name: "JPMorgan Chase",       fv: null, price: 331.58, curr: "$", ex: "NYSE",      yf: "JPM",     divYield: 2.2,  videoID: null, fund: {pe: "13.9", eps: "23.84", mcap: "881B", rev: "N/D"} },
-            "BLK": { name: "BlackRock",            fv: null,price: 1118.25, curr: "$", ex: "NYSE",      yf: "BLK",     divYield: 2.2,  videoID: null, fund: {pe: "26.1", eps: "42.76", mcap: "182B", rev: "N/D"} },
-            "C": { name: "Citigroup",            fv: null,  price: 120.62,  curr: "$", ex: "NYSE",      yf: "C",       divYield: 3.3,  videoID: null, fund: {pe: "11.8", eps: "10.26", mcap: "202B", rev: "N/D"} },
-            "GS": { name: "Goldman Sachs",        fv: null, price: 875.68, curr: "$", ex: "NYSE",      yf: "GS",      divYield: 2.5,  videoID: null, fund: {pe: "12.6", eps: "69.55", mcap: "255B", rev: "N/D"} },
-            "V": { name: "Visa",                 fv: null, price: 407.92, curr: "$", ex: "NYSE",      yf: "V",       divYield: 0.8,  videoID: null, fund: {pe: "35.0", eps: "11.65", mcap: "762B", rev: "N/D"} },
-            "MCO": { name: "Moody's Corp",         fv: null, price: 483.45, curr: "$", ex: "NYSE",      yf: "MCO",     divYield: 0.8,  videoID: null, fund: {pe: "29.5", eps: "16.41", mcap: "83B", rev: "N/D"} },
-            "CB": { name: "Chubb",                fv: null, price: 355.11, curr: "$", ex: "NYSE",      yf: "CB",      divYield: 1.4,  videoID: null, fund: {pe: "12.4", eps: "28.57", mcap: "137B", rev: "N/D"} },
-            "L": { name: "Loews Corp",           fv: null,  price: 112.01,  curr: "$", ex: "NYSE",      yf: "L",       divYield: 0.4,  videoID: null, fund: {pe: "13.7", eps: "8.16", mcap: "23B", rev: "N/D"} },
-            "RSG": { name: "Republic Services",    fv: null, price: 240.45, curr: "$", ex: "NYSE",      yf: "RSG",     divYield: 1.3,  videoID: null, fund: {pe: "34.1", eps: "7.06", mcap: "74B", rev: "N/D"} },
-            "WM": { name: "Waste Management",     fv: null, price: 239.38, curr: "$", ex: "NYSE",      yf: "WM",      divYield: 1.4,  videoID: null, fund: {pe: "33.9", eps: "7.06", mcap: "96B", rev: "N/D"} },
-            // ── Consumer & Retail ────────────────────────────────────────────
-            "PM": { name: "Philip Morris",        fv: null, price: 199.47, curr: "$", ex: "NYSE",      yf: "PM",      divYield: 4.6,  videoID: null, fund: {pe: "29.1", eps: "6.85", mcap: "311B", rev: "N/D"} },
-            "PEP": { name: "PepsiCo",              fv: null, price: 135.77, curr: "$", ex: "NASDAQ",    yf: "PEP",     divYield: 3.3,  videoID: null, fund: {pe: "17.1", eps: "7.96", mcap: "185B", rev: "N/D"} },
-            "KO": { name: "Coca-Cola",            fv: null,  price: 92.71,  curr: "$", ex: "NYSE",      yf: "KO",      divYield: 3.1,  videoID: null, fund: {pe: "27.9", eps: "3.32", mcap: "399B", rev: "N/D"} },
-            "AZO": { name: "AutoZone",             fv: null,price: 3200.76,curr: "$", ex: "NYSE",      yf: "AZO",     divYield: 0.0,  videoID: null, fund: {pe: "20.9", eps: "152.79", mcap: "52B", rev: "N/D"} },
-            "MO": { name: "Altria Group",         fv: null,  price: 74.31,  curr: "$", ex: "NYSE",      yf: "MO",      divYield: 8.2,  videoID: null, fund: {pe: "15.7", eps: "4.75", mcap: "124B", rev: "N/D"} },
-            "CL": { name: "Colgate-Palmolive",    fv: null,  price: 94.04,  curr: "$", ex: "NYSE",      yf: "CL",      divYield: 2.3,  videoID: null, fund: {pe: "37.2", eps: "2.53", mcap: "75B", rev: "N/D"} },
-            "PG": { name: "Procter & Gamble",     fv: null, price: 161.02, curr: "$", ex: "NYSE",      yf: "PG",      divYield: 2.3,  videoID: null, fund: {pe: "24.3", eps: "6.64", mcap: "373B", rev: "N/D"} },
-            "GIS": { name: "General Mills",        fv: null,  price: 34.39,  curr: "$", ex: "NYSE",      yf: "GIS",     divYield: 3.9,  videoID: null, fund: {pe: "N/D", eps: "-1.67", mcap: "18B", rev: "N/D"} },
-            "HD": { name: "Home Depot",           fv: null, price: 319.83, curr: "$", ex: "NYSE",      yf: "HD",      divYield: 2.4,  videoID: null, fund: {pe: "22.4", eps: "14.29", mcap: "319B", rev: "N/D"} },
-            "ROST": { name: "Ross Stores",          fv: null, price: 229.3, curr: "$", ex: "NASDAQ",    yf: "ROST",    divYield: 1.0,  videoID: null, fund: {pe: "27.7", eps: "8.28", mcap: "73B", rev: "N/D"} },
-            "ORLY": { name: "O'Reilly Automotive",  fv: null,price: 89.92,curr: "$", ex: "NASDAQ",    yf: "ORLY",    divYield: 0.0,  videoID: null, fund: {pe: "28.6", eps: "3.14", mcap: "73B", rev: "N/D"} },
-            "DG": { name: "Dollar General",       fv: null, price: 132.69,  curr: "$", ex: "NYSE",      yf: "DG",      divYield: 2.0,  videoID: null, fund: {pe: "17.2", eps: "7.69", mcap: "29B", rev: "N/D"} },
-            "MCD": { name: "McDonald's",           fv: null, price: 248.46, curr: "$", ex: "NYSE",      yf: "MCD",     divYield: 2.4,  videoID: null, fund: {pe: "20.2", eps: "12.31", mcap: "176B", rev: "N/D"} },
-            "NKE": { name: "Nike",                 fv: null, price: 37.3,  curr: "$", ex: "NYSE",      yf: "NKE",     divYield: 2.1,  videoID: null, fund: {pe: "17.9", eps: "2.09", mcap: "55B", rev: "N/D"} },
-            "DIS": { name: "Walt Disney",          fv: null, price: 112.52, curr: "$", ex: "NYSE",      yf: "DIS",     divYield: 0.9,  videoID: null, fund: {pe: "23.2", eps: "4.85", mcap: "194B", rev: "N/D"} },
-            "VZ": { name: "Verizon",              fv: null,  price: 44.66,  curr: "$", ex: "NYSE",      yf: "VZ",      divYield: 6.8,  videoID: null, fund: {pe: "11.6", eps: "3.84", mcap: "186B", rev: "N/D"} },
-            "T": { name: "AT&T",                 fv: null,  price: 20.93,  curr: "$", ex: "NYSE",      yf: "T",       divYield: 6.8,  videoID: null, fund: {pe: "11.3", eps: "1.85", mcap: "141B", rev: "N/D"} },
-            "CHTR": { name: "Charter Comm.",        fv: null, price: 108.61, curr: "$", ex: "NASDAQ",    yf: "CHTR",    divYield: 0.0,  videoID: null, fund: {pe: "2.8", eps: "38.49", mcap: "19B", rev: "N/D"} },
-            "TMUS": { name: "T-Mobile US",          fv: null, price: 146.54, curr: "$", ex: "NASDAQ",    yf: "TMUS",    divYield: 1.5,  videoID: null, fund: {pe: "15.3", eps: "9.56", mcap: "157B", rev: "N/D"} },
-            "RCL": { name: "Royal Caribbean",      fv: null, price: 276.48, curr: "$", ex: "NYSE",      yf: "RCL",     divYield: 0.9,  videoID: null, fund: {pe: "17.1", eps: "16.19", mcap: "74B", rev: "N/D"} },
-            "BLDR": { name: "Builders FirstSource", fv: null, price: 56.85, curr: "$", ex: "NYSE",      yf: "BLDR",    divYield: 0.0,  videoID: null, fund: {pe: "61.8", eps: "0.92", mcap: "6B", rev: "N/D"} },
-            // ── Tech & Growth ────────────────────────────────────────────────
-            "META": { name: "Meta Platforms",       fv: null, price: 642.62, curr: "$", ex: "NASDAQ",    yf: "META",    divYield: 0.4,  videoID: null, fund: {pe: "21.9", eps: "29.33", mcap: "1.6T", rev: "N/D"} },
-            "TSLA": { name: "Tesla",                fv: null, price: 372.22, curr: "$", ex: "NASDAQ",    yf: "TSLA",    divYield: 0.0,  videoID: null, fund: {pe: "409.4", eps: "0.91", mcap: "1.5T", rev: "N/D"} },
-            "AVGO": { name: "Broadcom",             fv: null, price: 321.68, curr: "$", ex: "NASDAQ",    yf: "AVGO",    divYield: 1.3,  videoID: null, fund: {pe: "41.1", eps: "7.83", mcap: "1.5T", rev: "N/D"} },
-            "ORCL": { name: "Oracle",               fv: null, price: 126.16, curr: "$", ex: "NYSE",      yf: "ORCL",    divYield: 1.0,  videoID: null, fund: {pe: "19.8", eps: "6.38", mcap: "381B", rev: "N/D"} },
-            "TXN": { name: "Texas Instruments",    fv: null, price: 284.69, curr: "$", ex: "NASDAQ",    yf: "TXN",     divYield: 2.9,  videoID: null, fund: {pe: "36.9", eps: "7.71", mcap: "260B", rev: "N/D"} },
-            "BKNG": { name: "Booking Holdings",     fv: null,price: 155.83,curr: "$", ex: "NASDAQ",    yf: "BKNG",    divYield: 0.8,  videoID: null, fund: {pe: "17.2", eps: "9.04", mcap: "117B", rev: "N/D"} },
-            "SHOP": { name: "Shopify",              fv: null,  price: 168.68,  curr: "$", ex: "NASDAQ",    yf: "SHOP",    divYield: 0.0,  videoID: null, fund: {pe: "116.2", eps: "1.45", mcap: "217B", rev: "N/D"} },
-            "TTD": { name: "The Trade Desk",       fv: null, price: 13.0,  curr: "$", ex: "NASDAQ",    yf: "TTD",     divYield: 0.0,  videoID: null, fund: {pe: "15.4", eps: "0.84", mcap: "6B", rev: "N/D"} },
-            "CRWD": { name: "CrowdStrike",          fv: null, price: 257.57, curr: "$", ex: "NASDAQ",    yf: "CRWD",    divYield: 0.0,  videoID: null, fund: {pe: "N/D", eps: "0.04", mcap: "264B", rev: "N/D"} },
-            "FTNT": { name: "Fortinet",             fv: null,  price: 179.99,  curr: "$", ex: "NASDAQ",    yf: "FTNT",    divYield: 0.0,  videoID: null, fund: {pe: "63.4", eps: "2.84", mcap: "132B", rev: "N/D"} },
-            "PLTR": { name: "Palantir",             fv: null,  price: 196.75,  curr: "$", ex: "NASDAQ",    yf: "PLTR",    divYield: 0.0,  videoID: null, fund: {pe: "167.7", eps: "1.17", mcap: "473B", rev: "N/D"} },
-            "PANW": { name: "Palo Alto Networks",   fv: null, price: 380.55, curr: "$", ex: "NASDAQ",    yf: "PANW",    divYield: 0.0,  videoID: null, fund: {pe: "N/D", eps: "0.51", mcap: "311B", rev: "N/D"} },
-            "CPRT": { name: "Copart",               fv: null,  price: 29.0,  curr: "$", ex: "NASDAQ",    yf: "CPRT",    divYield: 0.0,  videoID: null, fund: {pe: "18.7", eps: "1.55", mcap: "27B", rev: "N/D"} },
-            // ── Finanza & Business Services ──────────────────────────────────
-            "NEE": { name: "NextEra Energy",       fv: null,  price: 82.1,  curr: "$", ex: "NYSE",      yf: "NEE",     divYield: 2.8,  videoID: null, fund: {pe: "14.8", eps: "5.56", mcap: "172B", rev: "N/D"} },
-            "TRI": { name: "Thomson Reuters",      fv: null, price: 123.17, curr: "$", ex: "NASDAQ",    yf: "TRI",     divYield: 1.2,  videoID: null, fund: {pe: "34.0", eps: "3.63", mcap: "53B", rev: "N/D"} },
-            "CME": { name: "CME Group",            fv: null, price: 305.71, curr: "$", ex: "NASDAQ",    yf: "CME",     divYield: 2.0,  videoID: null, fund: {pe: "25.1", eps: "12.20", mcap: "110B", rev: "N/D"} },
-            "ACN": { name: "Accenture",            fv: null, price: 249.37, curr: "$", ex: "NYSE",      yf: "ACN",     divYield: 1.6,  videoID: null, fund: {pe: "18.4", eps: "13.57", mcap: "147B", rev: "N/D"} },
-            // ── Europa ───────────────────────────────────────────────────────
-            "EL": { name: "EssilorLuxottica",     fv: null, price: 181.2, curr: "€", ex: "EURONEXT",  yf: "EL.PA",   divYield: 1.2,  videoID: null, fund: {pe: "33.9", eps: "5.35", mcap: "84B", rev: "N/D"} }
-        };
+        let db = {};
 
         // Segnali — caricati live da signals.json (aggiornato da TradingView via webhook)
         let indicatorSignals = [];
@@ -1255,28 +1102,23 @@
         const DATA_BASE = 'https://raw.githubusercontent.com/matteomazzerotrading/trading-hub/main/';
         let portfolioData = null;
 
-        async function loadRemoteData() {
-            try {
-                const [dataRes, sigRes, portRes] = await Promise.allSettled([
-                    fetch(DATA_BASE + 'data.json?v=' + Date.now()),
-                    fetch(DATA_BASE + 'signals.json?v=' + Date.now()),
-                    fetch(DATA_BASE + 'portfolio.json?v=' + Date.now())
-                ]);
-                if (dataRes.status === 'fulfilled' && dataRes.value.ok) {
-                    const d = await dataRes.value.json();
-                    if (d.db) Object.assign(db, d.db);
-                    if (d.aliases) Object.assign(aliases, d.aliases);
-                }
-                if (sigRes.status === 'fulfilled' && sigRes.value.ok) {
-                    const s = await sigRes.value.json();
-                    if (Array.isArray(s.signals)) indicatorSignals = s.signals;
-                }
-                if (portRes.status === 'fulfilled' && portRes.value.ok) {
-                    portfolioData = await portRes.value.json();
-                }
-            } catch(e) {
-                console.warn('[TradingHub] Dati remoti non disponibili, uso cache locale.');
+        // Legge un file di dati: prima dal repository (sempre l'ultima versione), poi dalla copia pubblicata con il sito
+        async function fetchJson(name) {
+            for (const base of [DATA_BASE, '']) {
+                try {
+                    const r = await fetch(base + name + '?v=' + Date.now(), { signal: AbortSignal.timeout(10000) });
+                    if (r.ok) return await r.json();
+                } catch (e) {}
             }
+            return null;
+        }
+        async function loadRemoteData() {
+            const [d, s, p] = await Promise.all([fetchJson('data.json'), fetchJson('signals.json'), fetchJson('portfolio.json')]);
+            if (d && d.db) Object.assign(db, d.db);
+            if (d && d.aliases) Object.assign(aliases, d.aliases);
+            if (s && Array.isArray(s.signals)) indicatorSignals = s.signals;
+            if (p) portfolioData = p;
+            if (!d) console.warn('[TradingHub] Dati non disponibili.');
         }
 
         // === NOTIFICHE TOAST ===
@@ -1317,29 +1159,37 @@
             }
         }
 
-        // === FETCH LIVE PREZZO ===
+        // === PREZZI AGGIORNATI ===
+        // Una sola richiesta allo screener pubblico di TradingView per tutti i titoli (prezzi ritardati di 15 minuti).
+        // Se non risponde si usa l'ultimo prezzo salvato in data.json.
         const _priceCache = {};
+        let _tvPricesTs = 0, _tvPromise = null;
+        function loadTvPrices() {
+            if (Date.now() - _tvPricesTs < 120000) return Promise.resolve();
+            if (_tvPromise) return _tvPromise;
+            _tvPromise = (async () => {
+                try {
+                    const byTv = {};
+                    Object.values(db).forEach(e => { if (e.tv && e.yf) byTv[e.tv] = e.yf; });
+                    const r = await fetch('https://scanner.tradingview.com/global/scan', {
+                        method: 'POST', headers: { 'Content-Type': 'text/plain' },
+                        body: JSON.stringify({ symbols: { tickers: Object.keys(byTv) }, columns: ['close'] }),
+                        signal: AbortSignal.timeout(6000)
+                    });
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    const j = await r.json(), now = Date.now();
+                    (j.data || []).forEach(row => { if (row.d && row.d[0] > 0 && byTv[row.s]) _priceCache[byTv[row.s]] = { price: row.d[0], ts: now }; });
+                    _tvPricesTs = now;
+                } catch (e) { console.warn('[TradingHub] Prezzi aggiornati non disponibili, uso quelli salvati.'); }
+                finally { _tvPromise = null; }
+            })();
+            return _tvPromise;
+        }
         async function getLivePrice(yfTicker, fallbackPrice) {
             if (!yfTicker) return fallbackPrice;
-            const now = Date.now();
-            if (_priceCache[yfTicker] && (now - _priceCache[yfTicker].ts) < 300000) return _priceCache[yfTicker].price;
-            const proxies = [
-                t => `https://api.allorigins.win/get?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+t)}`,
-                t => `https://api.allorigins.win/get?url=${encodeURIComponent('https://query2.finance.yahoo.com/v8/finance/chart/'+t)}`,
-                t => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+t)}`
-            ];
-            for (const makeUrl of proxies) {
-                try {
-                    const resp = await fetch(makeUrl(yfTicker), { signal: AbortSignal.timeout(5000) });
-                    if (!resp.ok) continue;
-                    const raw = await resp.json();
-                    const contents = raw.contents !== undefined ? raw.contents : raw;
-                    const j = typeof contents === 'string' ? JSON.parse(contents) : contents;
-                    const price = j?.chart?.result?.[0]?.meta?.regularMarketPrice;
-                    if (price) { _priceCache[yfTicker] = { price, ts: now }; return price; }
-                } catch (e) { continue; }
-            }
-            return fallbackPrice;
+            await loadTvPrices();
+            const c = _priceCache[yfTicker];
+            return c && (Date.now() - c.ts) < 600000 ? c.price : fallbackPrice;
         }
 
         // Come getLivePrice, ma dice anche se il prezzo è live o è quello salvato in data.json
@@ -1350,18 +1200,41 @@
             return { price: parseFloat(p), live: isLive };
         }
 
+        // === TERMOMETRO DEL MERCATO: VIX e S&P 500 rispetto alla media a 200 giorni (TradingView, dati ritardati) ===
+        async function loadSentiment() {
+            const lab = document.getElementById('sent-label'), note = document.getElementById('sent-note'), needle = document.getElementById('sent-needle');
+            if (!lab) return;
+            try {
+                const q = (s, f) => fetch('https://scanner.tradingview.com/symbol?symbol=' + encodeURIComponent(s) + '&fields=' + f + '&no_404=true', { signal: AbortSignal.timeout(6000) }).then(r => r.json());
+                const [vix, spx] = await Promise.all([q('CBOE:VIX', 'close'), q('SP:SPX', 'close,SMA200')]);
+                const v = vix && vix.close;
+                if (!(v > 0)) throw new Error('VIX non disponibile');
+                const stato = v >= 30 ? ['Paura', '#ff3d00'] : v >= 20 ? ['Tensione', '#ffb300'] : v >= 15 ? ['Normale', '#cddc39'] : ['Calma', '#00e676'];
+                // Posizione sulla barra: VIX 40 o più = tutto a sinistra (paura), VIX 10 o meno = tutto a destra (calma)
+                needle.style.left = Math.max(2, Math.min(98, (40 - v) / 30 * 100)).toFixed(0) + '%';
+                needle.style.display = '';
+                lab.innerText = stato[0] + ' · VIX ' + v.toFixed(1).replace('.', ',');
+                lab.style.color = stato[1];
+                let extra = '';
+                if (spx && spx.close > 0 && spx.SMA200 > 0) {
+                    const d = (spx.close / spx.SMA200 - 1) * 100;
+                    extra = `S&P 500 ${d >= 0 ? 'sopra' : 'sotto'} la media a 200 giorni del ${Math.abs(d).toFixed(1).replace('.', ',')}% · `;
+                }
+                note.innerText = extra + 'dati TradingView ritardati';
+            } catch (e) {
+                lab.innerText = '—'; note.innerText = 'Dato non disponibile in questo momento';
+            }
+        }
+
         // === CARICAMENTO SEGNALI INDICATORE ===
         function renderIndicatorSignals() {
             const list = document.getElementById('signal-list-container');
             if(!list) return;
-            if (!indicatorSignals || indicatorSignals.length === 0) {
-                list.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:30px 20px;">
-                    <div style="font-size:2.5em; margin-bottom:10px;">📡</div>
-                    <div style="font-weight:700; color:#fff; margin-bottom:6px;">In attesa di segnali</div>
-                    <div style="font-size:0.85em; line-height:1.5;">I segnali BUY/SELL appariranno qui automaticamente non appena TradingView invierà un alert tramite webhook.</div>
-                </div>`;
-                return;
-            }
+            // Senza segnali la sezione (e la voce di menu) resta nascosta
+            const haSegnali = Array.isArray(indicatorSignals) && indicatorSignals.length > 0;
+            document.getElementById('indicatore').style.display = haSegnali ? '' : 'none';
+            document.querySelectorAll('.nav-segnali').forEach(a => a.style.display = haSegnali ? '' : 'none');
+            if (!haSegnali) { list.innerHTML = ''; return; }
             // Mostra più recenti prima, max 8
             const sorted = [...indicatorSignals].reverse().slice(0, 8);
             let html = '';
@@ -1417,27 +1290,15 @@
                      breve: sotto ? 'SOTTOVALUTATA' : 'SOPRAVVALUTATA', sotto: 'stima manuale', colore: sotto ? '#00e676' : '#ff3d00', dettagli: [] };
         }
         // Banche e assicurazioni: il fair value sul free cash flow è poco significativo
-        const FINANZIARI = new Set(['JPM', 'BAC', 'C', 'GS', 'ISP', 'G', 'CB', 'L', 'AXP']);
-        const AVVISO_FIN = 'modello poco affidabile per banche e assicurazioni';
+        const FINANZIARI = new Set(FVEngine.FINANZIARI);
+        const AVVISO_FIN = FVEngine.AVVISO_FIN;
+
+        // Titoli che ho nel mio portafoglio reale (portfolio.json): segnalati per trasparenza
+        function inPortafoglio(t) { return !!(portfolioData && (portfolioData.positions || []).some(p => p.ticker === t)); }
+        const HELD_TAG = '<span class="held-tag" title="Titolo presente nel mio portafoglio reale">💼 in portafoglio</span>';
 
         // Posizione del prezzo rispetto alle soglie dell'indicatore (stesse zone del verdetto)
-        function fvPosition(d, price) {
-            const p = parseFloat(price), n = x => x != null ? x.toFixed(2).replace('.', ',') + (d && d.curr ? ' ' + d.curr : '') : '';
-            const out = { zona: 9, ord: 9, testo: '—', sotto: '' };
-            if (!d || d.fv == null || !(p > 0) || (d.ind && d.ind.status !== 'ok')) return out;
-            const lo = d.fv_low, hi = d.fv_high != null ? d.fv_high : d.fv, mkt = d.fv_mkt;
-            if (lo != null && hi > lo && p < lo) {
-                return { zona: 1, ord: 1 + p / lo, testo: 'Sotto la banda', sotto: `${((1 - p / lo) * 100).toFixed(0)}% sotto lo scenario peggiore` };
-            }
-            if (p <= hi) {
-                const pct = lo != null && hi > lo ? Math.max(0, (p - lo) / (hi - lo)) : null;
-                return { zona: 2, ord: 2 + (pct != null ? pct : p / hi), testo: 'Nella banda', sotto: pct != null ? `al ${Math.round(pct * 100)}% della banda` : `sotto lo scenario migliore (${n(hi)})` };
-            }
-            if (mkt == null || p <= mkt) {
-                return { zona: 3, ord: 3 + (mkt ? (p - hi) / (mkt - hi || 1) : 0), testo: 'Tra banda e FV mercato', sotto: mkt ? `${((mkt / p - 1) * 100).toFixed(0)}% sotto il FV di mercato` : '' };
-            }
-            return { zona: 4, ord: 4 + (p / mkt - 1), testo: 'Sopra FV mercato', sotto: `+${((p / mkt - 1) * 100).toFixed(0)}% sopra il FV di mercato` };
-        }
+        function fvPosition(d, price) { return FVEngine.posizione(d, parseFloat(price)); }
 
         function rgba(hex, a) { const n = parseInt(hex.replace('#', ''), 16); return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`; }
         function badgeStyle(c) { return `color:${c}; background:${rgba(c, 0.12)}; border:1px solid ${rgba(c, 0.45)};`; }
@@ -1461,6 +1322,7 @@
 
                 currentFVTicker = input;
                 document.getElementById('fvName').innerText = data.name;
+                document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo →</a>`;
                 document.getElementById('fvValue').innerText = data.fv != null ? data.fv.toFixed(2) + " " + data.curr : "N/D";
                 document.getElementById('fvDividend').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
 
@@ -1480,7 +1342,11 @@
                 const vt = document.getElementById('fvVerdictText');
                 if (vt) {
                     const pos = fvPosition(data, priceNum);
-                    const dist = pos.zona < 9 ? `<div style="color:#fff;">Posizione: <strong>${pos.testo}</strong>${pos.sotto ? ' · ' + pos.sotto : ''}</div>` : '';
+                    const pt = FVEngine.potenziale(data, priceNum);
+                    const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 0 }) + '%';
+                    const dist = (pos.zona < 9 ? `<div style="color:#fff;">Posizione: <strong>${pos.testo}</strong>${pos.sotto ? ' · ' + pos.sotto : ''}</div>` : '')
+                        + (pt.pot != null ? `<div style="color:#fff;">Potenziale: <strong style="color:${pt.pot >= 0 ? '#43a047' : '#d32f2f'};">${pcs(pt.pot)}</strong> su FV ${pt.rif}${pt.potMkt != null ? ' · ' + pcs(pt.potMkt) + ' su FV mercato' : ''}</div>` : '')
+                        + (pt.pot != null && ((v.cat === 'sotto' && pt.pot < 0) || (v.cat === 'sopra' && pt.pot > 0)) ? `<div style="color:var(--text-muted);">Esito e potenziale qui non coincidono: il primo guarda ai tassi di oggi, il secondo anche alla storia del titolo. Valutazione meno netta.</div>` : '');
                     vt.innerHTML = (v.sotto ? `<div style="color:${v.colore}; font-weight:600;">${v.sotto}</div>` : '') + dist
                         + v.dettagli.map(t => `<div style="color:${t === AVVISO_FIN ? '#f9a825' : 'var(--text-muted)'};">${t.startsWith('crescita') || t.startsWith('ROIC') ? '' : '⚠ '}${t}</div>`).join('');
                     const favBtn = document.getElementById('fvAddToWatchlist');
@@ -1493,10 +1359,11 @@
                     if (fvNum === null || isNaN(priceNum)) {
                         basis.innerHTML = '';
                     } else if (priceInfo.live) {
-                        basis.innerHTML = `Confronto sul prezzo live: <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong>`;
+                        basis.innerHTML = `Confronto sul prezzo di mercato: <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong> <span title="Fonte TradingView">(ritardato di 15 minuti)</span>`;
                     } else {
-                        const upd = data.updated ? new Date(data.updated + 'T12:00:00').toLocaleDateString('it-IT', {day:'2-digit', month:'2-digit', year:'numeric'}) : 'data sconosciuta';
-                        basis.innerHTML = `⚠️ Prezzo live non disponibile: confronto sull'ultimo prezzo salvato <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong> (${upd}). Se diverso dal prezzo qui accanto, fa fede quello.`;
+                        const updSrc = data.updated || data.fv_updated;
+                        const upd = updSrc ? new Date(updSrc + 'T12:00:00').toLocaleDateString('it-IT', {day:'2-digit', month:'2-digit', year:'numeric'}) : 'data non indicata';
+                        basis.innerHTML = `⚠️ Prezzo aggiornato non disponibile: confronto sull'ultimo prezzo salvato <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong> (${upd}). Se diverso dal prezzo qui accanto, fa fede quello.`;
                     }
                 }
 
@@ -1553,8 +1420,8 @@
             document.getElementById('scr-table-wrap').style.display = 'none';
             document.getElementById('scr-loading').style.display = 'flex';
             
-            // Prezzi salvati in data.json (aggiornati ogni 2 ore nei giorni di borsa): lo screener si apre subito
-            // invece di aspettare 141 richieste di prezzo live tramite proxy pubblici, spesso lente o rifiutate.
+            // Prezzi di tutti i titoli con una sola richiesta (ritardati di 15 minuti); se manca, ultimo prezzo salvato
+            await loadTvPrices();
             const entries = Object.entries(db);
             screenerData = [];
             
@@ -1562,18 +1429,13 @@
             for (let i = 0; i < entries.length; i += chunkSize) {
                 const chunk = entries.slice(i, i + chunkSize);
                 const chunkResults = await Promise.all(chunk.map(async ([ticker, data]) => {
-                    const livePriceNum = parseFloat(data.price);
-                    const upside = data.fv != null ? ((data.fv - livePriceNum) / livePriceNum) * 100 : null;
+                    const c = data.yf && _priceCache[data.yf];
+                    const livePriceNum = parseFloat(c ? c.price : data.price);
                     const verdict = fvVerdict(data, livePriceNum);
                     const pos = fvPosition(data, livePriceNum);
-                    const ok = data.ind ? data.ind.status === 'ok' : data.fv != null;
                     // Potenziale = FV / prezzo − 1, con FV = il più basso tra pavimento e storico (stima prudente)
-                    const usaSto = data.fv_sto > 0 && data.fv_sto < data.fv;
-                    const fvRif = usaSto ? data.fv_sto : data.fv;
-                    const potRif = usaSto ? 'storico' : 'pavimento';
-                    const pot = ok && fvRif > 0 && livePriceNum > 0 ? (fvRif / livePriceNum - 1) * 100 : null;
-                    const potMkt = ok && data.fv_mkt > 0 && livePriceNum > 0 ? (data.fv_mkt / livePriceNum - 1) * 100 : null;
-                    return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord, pot, potMkt, potRif };
+                    const pt = FVEngine.potenziale(data, livePriceNum);
+                    return { ticker, ...data, price: livePriceNum, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord, pot: pt.pot, potMkt: pt.potMkt, potRif: pt.rif };
                 }));
                 screenerData.push(...chunkResults);
             }
@@ -1615,6 +1477,7 @@
                 if (currentFilter === 'equa' && d.cat !== 'equa') return false;
                 if (currentFilter === 'over' && d.cat !== 'sopra') return false;
                 if (currentFilter === 'fav' && !watchlist.includes(d.ticker)) return false;
+                if (currentFilter === 'mine' && !inPortafoglio(d.ticker)) return false;
                 if (currentFilter === 'div' && (d.divYield || 0) < 3) return false;
                 return true;
             });
@@ -1640,7 +1503,7 @@
                     : `<div style="font-weight:800; color:${d.pot >= 0 ? '#43a047' : '#d32f2f'};">${pc(d.pot)} <span style="font-size:0.7em; font-weight:600; color:var(--text-muted);" title="FV ${d.potRif}: ${cur(d.potRif === 'storico' ? d.fv_sto : d.fv)}">su FV ${d.potRif}</span></div><div style="font-size:0.75em; color:var(--text-muted);">FV mercato: ${pc(d.potMkt)}</div>`
                       + (margAvv ? `<div style="font-size:0.72em; color:#f9a825;" title="${avv.join(' · ')}">⚠ margine in calo</div>` : '');
                 tr.innerHTML = `<td><button class="scr-fav" onclick="event.stopPropagation(); toggleFavorite('${d.ticker}')" title="${fav ? 'Togli dai preferiti' : 'Aggiungi ai preferiti'}" style="background:none;border:none;cursor:pointer;font-size:1.15em;color:${fav ? '#f9a825' : 'var(--text-muted)'};">${fav ? '★' : '☆'}</button></td>
-                <td><div class="scr-ticker">${d.ticker}</div><div class="scr-name" style="font-size:0.78em;">${d.name}</div></td>
+                <td><div class="scr-ticker">${d.ticker}${inPortafoglio(d.ticker) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${d.name}</div></td>
                 <td style="line-height:1.35">${scontoCell}</td>
                 <td class="scr-price" style="color:#fff">${cur(d.price)}</td>
                 <td class="scr-fv" style="color:${v.colore}">${cur(d.fv)}${banda}</td>
@@ -1750,9 +1613,14 @@
                 const unreal = document.getElementById('port-unreal');
                 unreal.innerText = fmtUSD(s.unrealized_pl_usd) + ' (' + s.unrealized_pl_pct.toFixed(2) + '%)';
                 unreal.style.color = s.unrealized_pl_usd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
+                // Rendimento da inizio anno (YTD) e a 1 anno, come li calcola TradingView sul valore del portafoglio
                 const annual = document.getElementById('port-annual');
-                annual.innerText = (s.annualized_return_pct >= 0 ? '+' : '') + s.annualized_return_pct.toFixed(2) + '%';
-                annual.style.color = s.annualized_return_pct >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
+                const per = pd.periods || {}, ytd = per.YTD ? per.YTD.pl_pct : s.annualized_return_pct;
+                const sgn = x => (x >= 0 ? '+' : '') + x.toFixed(2).replace('.', ',') + '%';
+                annual.innerText = sgn(ytd);
+                annual.style.color = ytd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
+                const sub = document.getElementById('port-annual-sub');
+                if (sub && per['1Y']) sub.innerText = 'ultimi 12 mesi: ' + sgn(per['1Y'].pl_pct);
                 document.getElementById('port-count').innerText = (pd.positions || []).length;
                 document.getElementById('port-updated-badge').innerText = '📅 ' + pd.updated;
             }
@@ -2090,6 +1958,25 @@
                 // Fallback: resta il testo scritto in index.html
                 if (el) el.textContent = el.textContent.trim();
             }
+            // Archivio: pensieri.json viene aggiornato da solo ogni volta che cambia pensiero.json
+            try {
+                const r = await fetch(DATA_BASE + 'pensieri.json?v=' + Date.now(), { cache: 'no-store' });
+                if (!r.ok) return;
+                const corrente = el ? el.textContent.trim() : '';
+                const vecchi = ((await r.json()).pensieri || []).filter(x => x.testo && String(x.testo).trim() !== corrente);
+                if (!vecchi.length) return;
+                const lista = document.getElementById('pensieri-lista');
+                lista.innerHTML = '';
+                vecchi.slice(0, 30).forEach(x => {
+                    const d = new Date(x.data + 'T12:00:00');
+                    const box = document.createElement('div'); box.className = 'pensiero-vecchio';
+                    const dt = document.createElement('span'); dt.className = 'data';
+                    dt.textContent = isNaN(d) ? '' : d.toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'});
+                    box.appendChild(dt); box.appendChild(document.createTextNode(String(x.testo).trim()));
+                    lista.appendChild(box);
+                });
+                document.getElementById('pensieri-archivio').style.display = '';
+            } catch(e) {}
         }
 
         // === DATA PENSIERO AUTOMATICA ===
@@ -2121,22 +2008,7 @@
                 }
             } catch(e) {}
 
-            function parseRssXml(xml) {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(xml, 'application/xml');
-                const entry = doc.querySelector('entry');
-                if (!entry) return null;
-                const vidIdEl = entry.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015', 'videoId')[0];
-                const videoId = vidIdEl ? vidIdEl.textContent.trim() : (entry.querySelector('id')?.textContent || '').split(':').pop();
-                const title = entry.querySelector('title')?.textContent || '';
-                const published = entry.querySelector('published')?.textContent || '';
-                const dateStr = published ? new Date(published).toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'}) : '';
-                return videoId ? { videoId, title, dateStr } : null;
-            }
-
-            const RSS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
-
-            // Metodo 1: latest_video.json aggiornato dal GitHub Action (fonte più affidabile)
+            // latest_video.json è aggiornato ogni 6 ore dal GitHub Action
             try {
                 const r = await fetch(DATA_BASE + 'latest_video.json?v=' + Date.now(), { signal: AbortSignal.timeout(8000) });
                 if (r.ok) {
@@ -2150,50 +2022,53 @@
                 }
             } catch(e) {}
 
-            // Metodo 2: rss2json.com (JSON nativo, niente XML parsing)
-            try {
-                const r = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS_URL), { signal: AbortSignal.timeout(10000) });
-                if (r.ok) {
-                    const d = await r.json();
-                    if (d.status === 'ok' && d.items && d.items[0]) {
-                        const item = d.items[0];
-                        const videoId = (item.link || item.guid || '').split('v=').pop().split('&')[0];
-                        const title = item.title || '';
-                        const dateStr = item.pubDate ? new Date(item.pubDate).toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'}) : '';
-                        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({videoId, title, dateStr, ts: Date.now()})); } catch(e) {}
-                        injectYouTube(videoId, title, dateStr);
-                        return;
-                    }
-                }
-            } catch(e) {}
-
-            // Metodo 3: allorigins.win con XML parsing
-            try {
-                const r = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(RSS_URL), { signal: AbortSignal.timeout(12000) });
-                if (r.ok) {
-                    const d = await r.json();
-                    const result = parseRssXml(d.contents || '');
-                    if (result) {
-                        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({...result, ts: Date.now()})); } catch(e) {}
-                        injectYouTube(result.videoId, result.title, result.dateStr);
-                        return;
-                    }
-                }
-            } catch(e) {}
-
             // Fallback
             const wrap = document.getElementById('yt-embed-wrap');
             if (wrap) wrap.innerHTML = '<div class="yt-loading"><span style="font-size:1.5em">📺</span><span>Video non disponibile al momento</span></div>';
             document.getElementById('yt-title').innerText = '';
             document.getElementById('yt-meta').innerText = '';
         }
+        // Anteprima del video: il lettore di YouTube (versione senza cookie) viene caricato solo quando si preme play
+        function ytFacade(wrap, videoId, title) {
+            if (!wrap || !/^[\w-]{6,20}$/.test(videoId || '')) return;
+            wrap.innerHTML = '';
+            const b = document.createElement('button');
+            b.type = 'button'; b.className = 'yt-facade';
+            b.setAttribute('aria-label', 'Riproduci il video' + (title ? ': ' + title : ''));
+            b.style.backgroundImage = `url(https://i.ytimg.com/vi/${videoId}/hqdefault.jpg)`;
+            b.innerHTML = '<span class="yt-play">▶</span><span class="yt-note">Premendo play il video viene caricato da YouTube</span>';
+            b.onclick = () => {
+                const f = document.createElement('iframe');
+                f.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
+                f.title = title || 'Video YouTube'; f.allowFullscreen = true;
+                f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                f.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:12px;';
+                wrap.innerHTML = ''; wrap.appendChild(f);
+            };
+            wrap.appendChild(b);
+        }
         function injectYouTube(videoId, title, dateStr) {
-            const wrap = document.getElementById('yt-embed-wrap');
-            if (!wrap) return;
-            wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>';
+            ytFacade(document.getElementById('yt-embed-wrap'), videoId, title);
             document.getElementById('yt-title').innerText = title;
             document.getElementById('yt-meta').innerText = dateStr ? 'Pubblicato il ' + dateStr : '';
         }
+
+        // Riquadri TradingView: caricati solo quando stanno per entrare nello schermo
+        (function () {
+            const avvia = s => {
+                const sc = document.createElement('script');
+                sc.type = 'text/javascript'; sc.src = s.dataset.src; sc.async = true; sc.innerHTML = s.textContent;
+                s.replaceWith(sc);
+            };
+            const scripts = [...document.querySelectorAll('script.tv-lazy')];
+            if (!('IntersectionObserver' in window)) { scripts.forEach(avvia); return; }
+            const io = new IntersectionObserver(es => es.forEach(e => {
+                if (!e.isIntersecting) return;
+                io.unobserve(e.target);
+                e.target.querySelectorAll(':scope > script.tv-lazy').forEach(avvia);
+            }), { rootMargin: '600px 0px' });
+            scripts.forEach(s => io.observe(s.parentElement));
+        })();
 
         // === INIT ALL ===
         window.onload = async function() {
@@ -2209,28 +2084,35 @@
             }
             renderPersonalPortfolio();
             renderIndicatorSignals();
+            document.querySelectorAll('[data-yt]').forEach(w => { w.style.cssText = 'position:absolute; inset:0;'; ytFacade(w, w.dataset.yt, w.dataset.ytTitle); });
+            loadSentiment();
             renderPortfolio();
             renderPerfChart();
 
             setTimeout(checkAlertsOnLoad, 1500);
 
+            // Apertura diretta della scheda da un link del tipo ?t=ENEL
+            try {
+                const tq = (new URLSearchParams(location.search).get('t') || '').toUpperCase().trim();
+                if (tq && (db[tq] || aliases[tq])) {
+                    document.getElementById('fvInput').value = tq;
+                    document.getElementById('fv-section').scrollIntoView();
+                    calculateFV();
+                }
+            } catch(e) {}
+
             // Auto-refresh prezzi ogni 5 minuti
             setInterval(() => {
-                Object.keys(_priceCache).forEach(k => delete _priceCache[k]); // svuota cache
+                _tvPricesTs = 0; // forza un nuovo scarico dei prezzi
                 renderWatchlist();
                 renderPersonalPortfolio();
             }, 300000);
 
-            // Bug 1 fix: guard against missing container
-            const tvContainer = document.getElementById('tv_chart_container');
-            if (tvContainer) {
-                new TradingView.widget({ "autosize": true, "symbol": "MIL:FTSEMIB", "interval": "D", "timezone": "Europe/Rome", "theme": "dark", "style": "1", "locale": "it", "enable_publishing": false, "backgroundColor": "#050505", "gridColor": "#1f1f1f", "container_id": "tv_chart_container" });
-            }
         };
 
         // Bug 3 fix: scroll spy — highlight active nav link
         (function() {
-            const sections = ['editoriale','fv-section','indicatore','screener','comparatore','watchlist','total-watchlist','myportfolio','strumenti','portfolio','news'];
+            const sections = ['editoriale','portfolio','fv-section','screener','indicatore','myportfolio','strumenti','news','faq','total-watchlist'];
             const navLinks = document.querySelectorAll('.nav-link');
             let ticking = false;
             window.addEventListener('scroll', function() {
@@ -2240,7 +2122,7 @@
                         let current = '';
                         sections.forEach(function(id) {
                             const el = document.getElementById(id);
-                            if (el && scrollY >= el.offsetTop - 130) current = id;
+                            if (el && el.offsetParent !== null && scrollY >= el.offsetTop - 130) current = id;
                         });
                         navLinks.forEach(function(l) {
                             l.classList.toggle('active', l.getAttribute('href') === '#' + current);

@@ -302,7 +302,46 @@
     : ['sopra', 'premio_dubbio'].includes(key) ? 'sopra'
     : ['equita', 'premio_sostenuto', 'sopra_nd'].includes(key) ? 'equa' : 'na';
 
-  const api = { P, compute, verdict, categoria, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
+  // Banche e assicurazioni: un fair value sul free cash flow è poco significativo
+  const FINANZIARI = ['JPM', 'BAC', 'C', 'GS', 'ISP', 'G', 'CB', 'L', 'AXP'];
+  const AVVISO_FIN = 'modello poco affidabile per banche e assicurazioni';
+
+  /*
+   * Potenziale = FV / prezzo − 1, in %. Per prudenza il fair value di riferimento è il più basso
+   * tra pavimento e storico; potMkt è lo stesso calcolo sul fair value di mercato.
+   */
+  function potenziale(d, close) {
+    const out = { pot: null, potMkt: null, rif: null, fvRif: null };
+    const ok = d && (d.ind ? d.ind.status === 'ok' : d.fv != null);
+    if (!ok || !(close > 0)) return out;
+    const usaSto = d.fv_sto > 0 && d.fv_sto < d.fv;
+    out.fvRif = usaSto ? d.fv_sto : d.fv;
+    out.rif = usaSto ? 'storico' : 'pavimento';
+    if (out.fvRif > 0) out.pot = (out.fvRif / close - 1) * 100;
+    if (d.fv_mkt > 0) out.potMkt = (d.fv_mkt / close - 1) * 100;
+    return out;
+  }
+
+  // Posizione del prezzo rispetto alle soglie dell'indicatore (stesse zone del verdetto)
+  function posizione(d, close) {
+    const p = Number(close), n = x => x != null ? x.toFixed(2).replace('.', ',') + (d && d.curr ? ' ' + d.curr : '') : '';
+    const out = { zona: 9, ord: 9, testo: '—', sotto: '' };
+    if (!d || d.fv == null || !(p > 0) || (d.ind && d.ind.status !== 'ok')) return out;
+    const lo = d.fv_low, hi = d.fv_high != null ? d.fv_high : d.fv, mkt = d.fv_mkt;
+    if (lo != null && hi > lo && p < lo) {
+      return { zona: 1, ord: 1 + p / lo, testo: 'Sotto la banda', sotto: `${((1 - p / lo) * 100).toFixed(0)}% sotto lo scenario peggiore` };
+    }
+    if (p <= hi) {
+      const pct = lo != null && hi > lo ? Math.max(0, (p - lo) / (hi - lo)) : null;
+      return { zona: 2, ord: 2 + (pct != null ? pct : p / hi), testo: 'Nella banda', sotto: pct != null ? `al ${Math.round(pct * 100)}% della banda` : `sotto lo scenario migliore (${n(hi)})` };
+    }
+    if (mkt == null || p <= mkt) {
+      return { zona: 3, ord: 3 + (mkt ? (p - hi) / (mkt - hi || 1) : 0), testo: 'Tra banda e FV mercato', sotto: mkt ? `${((mkt / p - 1) * 100).toFixed(0)}% sotto il FV di mercato` : '' };
+    }
+    return { zona: 4, ord: 4 + (p / mkt - 1), testo: 'Sopra FV mercato', sotto: `+${((p / mkt - 1) * 100).toFixed(0)}% sopra il FV di mercato` };
+  }
+
+  const api = { P, compute, verdict, categoria, potenziale, posizione, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.FVEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -1,0 +1,33 @@
+name: Archivia Pensiero
+
+# Ogni volta che pensiero.json cambia, il pensiero viene aggiunto all'archivio pensieri.json
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pensiero.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Aggiorna pensieri.json
+        run: python scripts/archive_pensiero.py
+
+      - name: Salva pensieri.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto: archivio pensieri [skip ci]"
+          file_pattern: "pensieri.json"
+          commit_user_name: "TradingHub Bot"
+          commit_user_email: "bot@tradinghub.local"
