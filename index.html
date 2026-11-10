@@ -278,6 +278,14 @@
         .scr-check { display: inline-flex; align-items: center; gap: 7px; font-size: 0.85em; color: var(--text-muted); cursor: pointer; white-space: nowrap; }
         @media (max-width: 700px) { .mkt-overview { grid-template-columns: 1fr; } #screener-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
         #scr-mkt option { background: #14171c; color: #fff; }
+        .tbo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .tbo-grid .card { padding: 22px; }
+        .tbo-grid h3 { margin: 0 0 8px; color: #fff; font-size: 1.05em; }
+        .tbo-grid p { margin: 0; color: var(--text-muted); font-size: 0.92em; line-height: 1.65; }
+        .pat-chart-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+        .pat-leg { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.8em; color: var(--text-muted); margin-top: 10px; }
+        .pat-leg i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; border-radius: 2px; }
+        @media (max-width: 800px) { .tbo-grid { grid-template-columns: 1fr; } }
         .held-tag { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.3px; color: #80cbc4; background: rgba(128,203,196,0.1); border: 1px solid rgba(128,203,196,0.35); border-radius: 5px; padding: 1px 6px; vertical-align: middle; white-space: nowrap; font-family: 'Inter', sans-serif; }
         .about-box { max-width: 760px; margin: 28px auto 0; display: flex; gap: 18px; align-items: center; text-align: left; background: var(--bg-glass); border: 1px solid var(--border-glass); border-radius: 16px; padding: 20px 24px; }
         .about-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-green), #00b894); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3em; color: #000; }
@@ -457,6 +465,8 @@
             <a href="#portfolio" class="nav-link">Il mio portafoglio</a>
             <a href="#fv-section" class="nav-link">Fair Value</a>
             <a href="#screener" class="nav-link">Screener</a>
+            <a href="#pattern" class="nav-link">Pattern</a>
+            <a href="#tbo" class="nav-link">TBO</a>
             <a href="#indicatore" class="nav-link nav-segnali" style="display:none;">Segnali</a>
             <a href="#myportfolio" class="nav-link">Simula il tuo</a>
             <a href="#strumenti" class="nav-link">Strumenti</a>
@@ -470,6 +480,8 @@
         <a href="#portfolio" class="nav-link" onclick="closeMobileNav()">📈 Il mio portafoglio</a>
         <a href="#fv-section" class="nav-link" onclick="closeMobileNav()">📊 Fair Value</a>
         <a href="#screener" class="nav-link" onclick="closeMobileNav()">🔍 Screener</a>
+        <a href="#pattern" class="nav-link" onclick="closeMobileNav()">🧩 Pattern Scanner</a>
+        <a href="#tbo" class="nav-link" onclick="closeMobileNav()">🫖 TBO Strategy</a>
         <a href="#indicatore" class="nav-link nav-segnali" style="display:none;" onclick="closeMobileNav()">📡 Segnali</a>
         <a href="#myportfolio" class="nav-link" onclick="closeMobileNav()">💼 Simula il tuo</a>
         <a href="#strumenti" class="nav-link" onclick="closeMobileNav()">🛠️ Strumenti</a>
@@ -796,6 +808,77 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container" id="pattern">
+        <div class="section-header">
+            <h2 class="section-title">Pattern <span>Scanner</span></h2>
+            <span style="color: var(--text-muted); font-size: 0.9em;">Il periodo del passato più simile all'andamento di oggi, titolo per titolo</span>
+        </div>
+        <div class="card" style="padding: 20px;">
+            <p style="margin: 0 0 16px; color: var(--text-muted); font-size: 0.92em; line-height: 1.65;">È il mio indicatore <strong style="color:#fff;">MM Pattern Scanner</strong> di TradingView, calcolato ogni sera su tutti i titoli. Confronta le ultime 171 sedute con gli ultimi 12 anni di storia dello stesso titolo e trova il periodo più somigliante; poi mostra che cosa accadde nelle 252 sedute successive, riportato al prezzo di oggi. <strong style="color:#fff;">Non è una previsione</strong>: è un confronto con il passato, e due andamenti simili possono proseguire in modi opposti.</p>
+            <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:14px;">
+                <select id="pat-mkt" class="screener-search" aria-label="Filtra per mercato" onchange="renderPatterns()" style="max-width:170px; cursor:pointer; flex:0 0 auto;">
+                    <option value="">Tutti i mercati</option>
+                    <option value="it">🇮🇹 Italia</option>
+                    <option value="eu">🇪🇺 Resto d'Europa</option>
+                    <option value="us">🇺🇸 Stati Uniti</option>
+                </select>
+                <label class="scr-check" title="Mostra solo i titoli per cui esiste un periodo con somiglianza di almeno il 90%"><input type="checkbox" id="pat-solo" checked onchange="renderPatterns()"> Solo somiglianza di almeno 90%</label>
+                <label class="scr-check"><input type="checkbox" id="pat-mine" onchange="renderPatterns()"> 💼 Nel mio portafoglio</label>
+                <input type="text" class="screener-search" id="pat-search" aria-label="Cerca nel Pattern Scanner per ticker o nome" placeholder="Cerca ticker o nome..." oninput="renderPatterns()">
+            </div>
+            <div class="pat-chart-box" id="pat-chart-box" style="display:none;">
+                <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:baseline;">
+                    <strong id="pat-chart-title" style="color:#fff;"></strong>
+                    <span id="pat-chart-sub" style="font-size:0.85em; color:var(--text-muted);"></span>
+                </div>
+                <div style="position:relative; height:300px; margin-top:10px;"><canvas id="patChart" aria-label="Andamento attuale, periodo storico simile e proseguimento storico"></canvas></div>
+                <div class="pat-leg"><span><i style="background:#ff9800;"></i>Ultime 171 sedute</span><span><i style="background:#42a5f5;"></i>Periodo storico più simile (riportato al prezzo di oggi)</span><span><i style="background:#e040fb;"></i>Che cosa accadde dopo quel periodo</span></div>
+            </div>
+            <div class="screener-table-wrap" id="pat-table-wrap">
+                <table class="screener-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortPatterns('ticker')">Titolo <span class="sort-arrow">↕</span></th>
+                            <th onclick="sortPatterns('r')" title="Correlazione tra l'andamento delle ultime 171 sedute e il periodo storico trovato">Somiglianza <span class="sort-arrow">↕</span></th>
+                            <th>Periodo simile</th>
+                            <th onclick="sortPatterns('var')" title="Variazione del prezzo nelle sedute successive al periodo simile">Che cosa accadde dopo <span class="sort-arrow">↕</span></th>
+                            <th title="Punto più basso e più alto toccati in quelle sedute, rispetto al prezzo di partenza">Minimo / massimo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pat-tbody"><tr><td colspan="5" style="text-align:center; padding:24px; color:var(--text-muted);">Caricamento…</td></tr></tbody>
+                </table>
+            </div>
+            <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:12px; font-size:0.8em; color:var(--text-muted);">
+                <span id="pat-note"></span>
+                <a id="pat-more" onclick="patTutti = !patTutti; renderPatterns()" style="color:var(--brand-green); cursor:pointer; font-weight:700;"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="tbo">
+        <div class="section-header">
+            <h2 class="section-title">TBO <span>Strategy</span></h2>
+            <span style="color: var(--text-muted); font-size: 0.9em;">La strategia che uso sul grafico giornaliero</span>
+        </div>
+        <div class="tbo-grid">
+            <div class="card">
+                <h3>📏 Che cosa misura</h3>
+                <p>Nasce dal mio <strong style="color:#fff;">Tea Bottle Oscillator</strong>. Per ogni seduta guarda dove si è chiuso il prezzo rispetto al minimo e al massimo del giorno, e ne ricava quanta parte del movimento è stata dei compratori e quanta dei venditori. Confronta poi questa forza con la sua media di pochi giorni e con quella dell'ultimo mese.</p>
+            </div>
+            <div class="card">
+                <h3>🎯 Che cosa cerca</h3>
+                <p>Lavora solo al rialzo. Rileva un <strong style="color:#fff;">setup rialzista</strong> quando, dopo una fase di debolezza, la forza dei compratori torna con decisione in una singola seduta, e una <strong style="color:#fff;">condizione di uscita</strong> quando accade l'opposto dopo una fase di forza. In uscita riduce gran parte della posizione, non tutta.</p>
+            </div>
+            <div class="card">
+                <h3>🧭 Come la uso</h3>
+                <p>Sul grafico giornaliero di TradingView, per decidere <em>quando</em> muovermi su titoli che ho già scelto guardando il fair value. Non la seguo in automatico: è un supporto alle mie decisioni, che racconto nel pensiero della settimana e sul canale YouTube.</p>
+            </div>
+        </div>
+        <div class="card" style="padding: 18px 22px; margin-top: 16px; font-size: 0.88em; color: var(--text-muted); line-height: 1.65;">
+            Le regole della strategia non sono pubbliche e su questo sito non pubblico i singoli setup: non è un servizio di segnali e non costituisce consulenza finanziaria. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Segui le mie operazioni su YouTube →</a>
         </div>
     </div>
 
@@ -1551,6 +1634,73 @@
             document.getElementById('scr-toggle-btn').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // === PATTERN SCANNER (patterns.json, calcolato ogni sera da scripts/compute_patterns.mjs) ===
+        let patData = null, patDettaglio = null, patSort = { col: 'r', dir: 'desc' }, patTutti = false, patChart = null;
+        async function loadPatterns() {
+            patData = await fetchJson('patterns.json');
+            renderPatterns();
+        }
+        function sortPatterns(col) {
+            patSort = { col, dir: patSort.col === col && patSort.dir === 'desc' ? 'asc' : 'desc' };
+            renderPatterns();
+        }
+        function renderPatterns() {
+            const tbody = document.getElementById('pat-tbody'); if (!tbody) return;
+            if (!patData || !patData.titoli) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:24px; color:var(--text-muted);">Dati non ancora disponibili.</td></tr>'; return; }
+            const q = document.getElementById('pat-search').value.toLowerCase(), mkt = document.getElementById('pat-mkt').value;
+            const solo = document.getElementById('pat-solo').checked, mine = document.getElementById('pat-mine').checked;
+            let righe = Object.entries(patData.titoli).filter(([t]) => db[t]).map(([t, p]) => ({ ticker: t, name: db[t].name, ...p }))
+                .filter(d => (!solo || d.ok) && (!mine || inPortafoglio(d.ticker)) && (!mkt || FVEngine.mercato(db[d.ticker]) === mkt)
+                    && (!q || d.ticker.toLowerCase().includes(q) || d.name.toLowerCase().includes(q)));
+            const k = patSort.col, s = patSort.dir === 'asc' ? 1 : -1;
+            righe.sort((a, b) => k === 'ticker' ? s * a.ticker.localeCompare(b.ticker) : s * (a[k] - b[k]));
+            const tot = righe.length, mostra = patTutti ? righe : righe.slice(0, 15);
+            const mese = iso => new Date(iso + 'T12:00:00').toLocaleDateString('it-IT', { month: 'short', year: 'numeric' });
+            const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + '%';
+            tbody.innerHTML = mostra.length ? mostra.map(d => `<tr onclick="apriPattern('${d.ticker}')" style="cursor:pointer;" title="Mostra il grafico">
+                <td><div class="scr-ticker">${d.ticker}${inPortafoglio(d.ticker) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${d.name}</div></td>
+                <td class="mono-font" style="font-weight:800; color:${d.ok ? '#fff' : 'var(--text-muted)'};">${(d.r * 100).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</td>
+                <td style="white-space:nowrap;">${mese(d.dal)} – ${mese(d.al)}</td>
+                <td style="line-height:1.35;"><div class="mono-font" style="font-weight:800; color:${d.var >= 0 ? '#43a047' : '#d32f2f'};">${pcs(d.var)}</div><div style="font-size:0.75em; color:var(--text-muted);">in ${d.sedute} sedute</div></td>
+                <td class="mono-font" style="white-space:nowrap; color:var(--text-muted);">${pcs(d.min)} / ${pcs(d.max)}</td></tr>`).join('')
+                : '<tr><td colspan="5" style="text-align:center; padding:24px; color:var(--text-muted);">Nessun titolo con questi filtri.</td></tr>';
+            const quando = patData.aggiornato ? new Date(patData.aggiornato).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+            const nOk = Object.values(patData.titoli).filter(p => p.ok).length;
+            document.getElementById('pat-note').innerText = `Aggiornato il ${quando} · ${nOk} titoli su ${Object.keys(patData.titoli).length} hanno un periodo con somiglianza di almeno il 90% · clicca un titolo per il grafico`;
+            const more = document.getElementById('pat-more');
+            more.innerText = tot > 15 ? (patTutti ? 'Mostra solo i primi 15' : `Mostra tutti (${tot})`) : '';
+        }
+        async function apriPattern(t) {
+            if (!patDettaglio) patDettaglio = await fetchJson('patterns_detail.json');
+            const d = patDettaglio && patDettaglio.titoli && patDettaglio.titoli[t], p = patData.titoli[t];
+            const box = document.getElementById('pat-chart-box');
+            if (!d || !p) return;
+            box.style.display = '';
+            const mese = iso => new Date(iso + 'T12:00:00').toLocaleDateString('it-IT', { month: 'long', year: 'numeric' });
+            document.getElementById('pat-chart-title').innerText = `${db[t].name} (${t})`;
+            document.getElementById('pat-chart-sub').innerText = `Somiglianza ${(p.r * 100).toFixed(1).replace('.', ',')}% con ${mese(p.dal)} – ${mese(p.al)}` + (p.ok ? '' : ' · sotto la soglia del 90%');
+            // Asse in sedute: da −170 a 0 l'andamento attuale e quello storico, da 0 in poi il proseguimento storico
+            const L = patData.parametri.LUNGHEZZA, n = d.att.length;
+            const xs = i => Math.round(-(L - 1) + i * (L - 1) / (n - 1));
+            const att = d.att.map((y, i) => ({ x: xs(i), y })), sto = d.sto.map((y, i) => ({ x: xs(i), y }));
+            const pro = [{ x: 0, y: d.att[n - 1] }].concat(d.pro.map((y, i) => ({ x: Math.round((i + 1) * p.sedute / d.pro.length), y })));
+            if (patChart) patChart.destroy();
+            patChart = new Chart(document.getElementById('patChart'), {
+                type: 'line',
+                data: { datasets: [
+                    { label: 'Ultime sedute', data: att, borderColor: '#ff9800', borderWidth: 2, pointRadius: 0, tension: 0.15 },
+                    { label: 'Periodo storico simile', data: sto, borderColor: '#42a5f5', borderWidth: 1.5, pointRadius: 0, tension: 0.15 },
+                    { label: 'Che cosa accadde dopo', data: pro, borderColor: '#e040fb', borderWidth: 2, borderDash: [6, 4], pointRadius: 0, tension: 0.15 }
+                ] },
+                options: { responsive: true, maintainAspectRatio: false, animation: false, parsing: false,
+                    interaction: { mode: 'nearest', intersect: false },
+                    plugins: { legend: { display: false }, tooltip: { callbacks: { title: i => (i[0].parsed.x <= 0 ? `${-i[0].parsed.x} sedute fa` : `${i[0].parsed.x} sedute dopo`), label: i => `${i.dataset.label}: ${i.parsed.y.toLocaleString('it-IT', { maximumFractionDigits: 2 })} ${db[t].curr}` } } },
+                    scales: { x: { type: 'linear', ticks: { color: '#8b93a6', callback: v => v === 0 ? 'oggi' : v }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'sedute', color: '#8b93a6' } },
+                              y: { ticks: { color: '#8b93a6' }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
+            });
+            box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
         // Ultimi cambi di esito registrati dal calcolo serale (fv_changes.json)
         async function loadCambi() {
             const j = await fetchJson('fv_changes.json');
@@ -2246,6 +2396,7 @@
             document.getElementById('lista-titoli').innerHTML = Object.keys(db).sort().map(t => `<option value="${t}">${String(db[t].name).replace(/"/g, '&quot;')}</option>`).join('');
             if (!screenerBuilt) { screenerBuilt = true; buildScreenerData(); }
             loadCambi();
+            loadPatterns();
             document.querySelectorAll('[data-yt]').forEach(w => { w.style.cssText = 'position:absolute; inset:0;'; ytFacade(w, w.dataset.yt, w.dataset.ytTitle); });
             loadSentiment();
             renderPortfolio();
@@ -2274,7 +2425,7 @@
 
         // Bug 3 fix: scroll spy — highlight active nav link
         (function() {
-            const sections = ['editoriale','portfolio','fv-section','screener','indicatore','myportfolio','strumenti','news','faq','total-watchlist'];
+            const sections = ['editoriale','portfolio','fv-section','screener','pattern','tbo','indicatore','myportfolio','strumenti','news','faq','total-watchlist'];
             const navLinks = document.querySelectorAll('.nav-link');
             let ticking = false;
             window.addEventListener('scroll', function() {
