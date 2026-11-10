@@ -707,7 +707,7 @@
                             <tr>
                                 <th title="Preferiti">★</th>
                                 <th onclick="sortTable('ticker')" id="th-ticker">Titolo <span class="sort-arrow">↕</span></th>
-                                <th onclick="sortTable('pot')" id="th-pot" class="sorted" title="Quanto dovrebbe salire (+) o scendere (−) il prezzo per arrivare al FV pavimento; sotto, per arrivare al FV di mercato">Potenziale <span class="sort-arrow">↕</span></th>
+                                <th onclick="sortTable('pot')" id="th-pot" class="sorted" title="Quanto dovrebbe salire (+) o scendere (−) il prezzo per arrivare al più basso tra FV pavimento e FV storico; sotto, per arrivare al FV di mercato">Potenziale <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('price')" id="th-price">Prezzo <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('fv')" id="th-fv" title="Fair value a crescita reale zero, con scenario peggiore e migliore">Pavimento <span class="sort-arrow">↕</span></th>
                                 <th onclick="sortTable('fv_mkt')" id="th-fv_mkt" title="Fair value se l'azienda cresce come l'economia">FV mercato <span class="sort-arrow">↕</span></th>
@@ -987,7 +987,7 @@
                         <div class="leg-row"><div class="leg-nome">Banda (peggiore – migliore)</div><div>Lo stesso calcolo con il margine dell'anno peggiore e di quello migliore degli ultimi 10. Più la banda è larga, più l'azienda è ciclica e la stima incerta. Se l'anno peggiore ha un free cash flow negativo, il limite basso non esiste e la banda parte da zero.</div></div>
                         <div class="leg-row"><div class="leg-nome">FV di mercato</div><div>Quanto vale l'azienda se cresce <strong>come l'economia</strong> nel lungo periodo (convenzione usata da Damodaran per il premio per il rischio). È la soglia oltre la quale il prezzo chiede più crescita di un'azienda media.</div></div>
                         <div class="leg-row"><div class="leg-nome">FV storico</div><div>Il prezzo che avrebbe oggi il titolo se il mercato lo pagasse al suo <strong>rendimento di free cash flow mediano degli ultimi 10 anni</strong>. Non usa tassi: dice se il titolo è caro o economico rispetto alla sua storia, non in assoluto.</div></div>
-                        <div class="leg-row"><div class="leg-nome">Potenziale</div><div>Nello screener: quanto dovrebbe <span style="color:#43a047;">salire (+)</span> o <span style="color:#d32f2f;">scendere (−)</span> il prezzo per arrivare al FV pavimento, cioè FV ÷ prezzo − 1; sotto, lo stesso calcolo sul FV di mercato. Esempio: prezzo 80 e FV 100 danno +25%; prezzo 125 e FV 100 danno −20%. Un potenziale molto alto di solito indica un'azienda con margini crollati rispetto alla sua storia (<span style="color:#f9a825;">⚠ margine in calo</span>): il modello presume che tornino alla media, quindi va letto con cautela.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Potenziale</div><div>Nello screener: quanto dovrebbe <span style="color:#43a047;">salire (+)</span> o <span style="color:#d32f2f;">scendere (−)</span> il prezzo per arrivare al fair value, cioè FV ÷ prezzo − 1. Per prudenza si usa il <strong>più basso tra FV pavimento e FV storico</strong> (l'etichetta dice quale): un titolo risulta conveniente solo se lo è sia rispetto ai tassi di oggi sia rispetto alla sua storia. Sotto, lo stesso calcolo sul FV di mercato. Esempio: prezzo 80 e FV 100 danno +25%; prezzo 125 e FV 100 danno −20%. Un potenziale molto alto di solito indica un'azienda con margini crollati rispetto alla sua storia (<span style="color:#f9a825;">⚠ margine in calo</span>): il modello presume che tornino alla media, quindi va letto con cautela.</div></div>
                         <div class="leg-row"><div class="leg-nome">Posizione</div><div>In quale zona si trova il prezzo rispetto alle soglie: sotto la banda, nella banda (con la percentuale: 0% = scenario peggiore, 100% = migliore), tra banda e FV di mercato, sopra il FV di mercato. Da qui nasce il verdetto.</div></div>
                         <div class="leg-row"><div class="leg-nome">Crescita scontata e storica</div><div>La <strong>crescita scontata</strong> è quella che il prezzo di oggi dà per scontata; la <strong>storica</strong> è quella dei ricavi per azione davvero realizzata negli ultimi anni. Se il mercato chiede molta più crescita di quella mai realizzata, il titolo è caro.</div></div>
                     </div>
@@ -1567,10 +1567,13 @@
                     const verdict = fvVerdict(data, livePriceNum);
                     const pos = fvPosition(data, livePriceNum);
                     const ok = data.ind ? data.ind.status === 'ok' : data.fv != null;
-                    // Potenziale = FV / prezzo − 1 (quanto deve muoversi il prezzo per arrivare al fair value)
-                    const pot = ok && data.fv > 0 && livePriceNum > 0 ? (data.fv / livePriceNum - 1) * 100 : null;
+                    // Potenziale = FV / prezzo − 1, con FV = il più basso tra pavimento e storico (stima prudente)
+                    const usaSto = data.fv_sto > 0 && data.fv_sto < data.fv;
+                    const fvRif = usaSto ? data.fv_sto : data.fv;
+                    const potRif = usaSto ? 'storico' : 'pavimento';
+                    const pot = ok && fvRif > 0 && livePriceNum > 0 ? (fvRif / livePriceNum - 1) * 100 : null;
                     const potMkt = ok && data.fv_mkt > 0 && livePriceNum > 0 ? (data.fv_mkt / livePriceNum - 1) * 100 : null;
-                    return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord, pot, potMkt };
+                    return { ticker, ...data, price: livePriceNum, upside, verdict, cat: verdict.cat, posInfo: pos, pos: pos.ord, pot, potMkt, potRif };
                 }));
                 screenerData.push(...chunkResults);
             }
@@ -1634,7 +1637,7 @@
                 const avv = (d.ind && d.ind.avvisi) || [];
                 const margAvv = avv.find(a => a.startsWith('margine attuale'));
                 const scontoCell = d.pot == null ? `<span style="color:var(--text-muted);">—</span>`
-                    : `<div style="font-weight:800; color:${d.pot >= 0 ? '#43a047' : '#d32f2f'};">${pc(d.pot)}</div><div style="font-size:0.75em; color:var(--text-muted);">FV mercato: ${pc(d.potMkt)}</div>`
+                    : `<div style="font-weight:800; color:${d.pot >= 0 ? '#43a047' : '#d32f2f'};">${pc(d.pot)} <span style="font-size:0.7em; font-weight:600; color:var(--text-muted);" title="FV ${d.potRif}: ${cur(d.potRif === 'storico' ? d.fv_sto : d.fv)}">su FV ${d.potRif}</span></div><div style="font-size:0.75em; color:var(--text-muted);">FV mercato: ${pc(d.potMkt)}</div>`
                       + (margAvv ? `<div style="font-size:0.72em; color:#f9a825;" title="${avv.join(' · ')}">⚠ margine in calo</div>` : '');
                 tr.innerHTML = `<td><button class="scr-fav" onclick="event.stopPropagation(); toggleFavorite('${d.ticker}')" title="${fav ? 'Togli dai preferiti' : 'Aggiungi ai preferiti'}" style="background:none;border:none;cursor:pointer;font-size:1.15em;color:${fav ? '#f9a825' : 'var(--text-muted)'};">${fav ? '★' : '☆'}</button></td>
                 <td><div class="scr-ticker">${d.ticker}</div><div class="scr-name" style="font-size:0.78em;">${d.name}</div></td>
