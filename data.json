@@ -1,17 +1,17 @@
 {
   "_comment": "Aggiorna qui i Fair Value senza toccare index.html. Le chiavi in 'db' fanno override dei valori nell'HTML. I prezzi vengono aggiornati automaticamente dal GitHub Action giornaliero.",
-  "prices_updated": "2026-11-09T16:58:05Z",
+  "prices_updated": "2026-11-10T00:32:46Z",
   "db": {
     "DIA": {
       "name": "DiaSorin",
       "fv": 115.37,
-      "price": 81.38,
+      "price": 82.64,
       "curr": "€",
       "ex": "MIL",
       "yf": "DIA.MI",
       "divYield": 1.57,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "30.8",
         "eps": "2.64",
@@ -43,13 +43,13 @@
     "ERG": {
       "name": "ERG S.p.A.",
       "fv": 45.86,
-      "price": 23.12,
+      "price": 22.46,
       "curr": "€",
       "ex": "MIL",
       "yf": "ERG.MI",
       "divYield": 4.45,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "65.5",
         "eps": "0.35",
@@ -84,13 +84,13 @@
     "RACE": {
       "name": "Ferrari",
       "fv": 202.93,
-      "price": 372.4,
+      "price": 373.85,
       "curr": "€",
       "ex": "MIL",
       "yf": "RACE.MI",
       "divYield": 0.97,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "39.1",
         "eps": "9.52",
@@ -128,7 +128,7 @@
       "yf": "GOOG",
       "divYield": 0.3,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "14.9",
         "eps": "19.15",
@@ -160,13 +160,13 @@
     "MC": {
       "name": "LVMH",
       "fv": 577.81,
-      "price": 402.45,
+      "price": 408.75,
       "curr": "€",
       "ex": "EPA",
       "yf": "MC.PA",
       "divYield": 3.18,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "18.3",
         "eps": "21.95",
@@ -204,7 +204,7 @@
       "yf": "ADBE",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "13.2",
         "eps": "17.93",
@@ -242,7 +242,7 @@
       "yf": "INTU",
       "divYield": 1.46,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "20.5",
         "eps": "16.50",
@@ -280,7 +280,7 @@
       "yf": "QCOM",
       "divYield": 2.19,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "13.5",
         "eps": "12.70",
@@ -312,13 +312,13 @@
     "STLAM": {
       "name": "Stellantis",
       "fv": 51.97,
-      "price": 3.958,
+      "price": 4.02,
       "curr": "€",
       "ex": "MIL",
       "yf": "STLAM.MI",
       "divYield": 0,
       "videoID": "MpwZcg3J8BE",
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
@@ -355,13 +355,13 @@
     "SAP": {
       "name": "SAP SE",
       "fv": 120.02,
-      "price": 211.65,
+      "price": 210.75,
       "curr": "€",
       "ex": "XETR",
       "yf": "SAP.DE",
       "divYield": 1.19,
       "videoID": "Icy8DMAwDYw",
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "30.1",
         "eps": "7.04",
@@ -399,7 +399,7 @@
       "yf": "AAPL",
       "divYield": 0.31,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "39.1",
         "eps": "8.97",
@@ -437,7 +437,7 @@
       "yf": "MSFT",
       "divYield": 0.69,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "28.5",
         "eps": "19.15",
@@ -477,7 +477,7 @@
       "yf": "AMZN",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "21.6",
         "eps": "12.37",
@@ -520,7 +520,7 @@
       "yf": "NVDA",
       "divYield": 0.28,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "22.6",
         "eps": "7.91",
@@ -552,13 +552,13 @@
     "A2A": {
       "name": "A2A S.p.A.",
       "fv": 8.43,
-      "price": 2.44,
+      "price": 2.432,
       "curr": "€",
       "ex": "MIL",
       "yf": "A2A.MI",
       "divYield": 4.28,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:A2A",
       "fv_low": 3.85,
       "fv_high": 15.75,
@@ -598,7 +598,7 @@
       "yf": "ADM",
       "divYield": 2.96,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:ADM",
       "fv_low": null,
       "fv_high": 275.86,
@@ -640,7 +640,7 @@
       "yf": "ADP",
       "divYield": 2.24,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:ADP",
       "fv_low": 193.65,
       "fv_high": 299.08,
@@ -678,7 +678,7 @@
       "yf": "ADSK",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:ADSK",
       "fv_low": null,
       "fv_high": 244.4,
@@ -718,7 +718,7 @@
       "yf": "AMAT",
       "divYield": 0.6,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:AMAT",
       "fv_low": 99.13,
       "fv_high": 151.64,
@@ -756,7 +756,7 @@
       "yf": "AMD",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:AMD",
       "fv_low": null,
       "fv_high": 64.65,
@@ -796,7 +796,7 @@
       "yf": "ASML",
       "divYield": 0.56,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:ASML",
       "fv_low": 197.95,
       "fv_high": 757.25,
@@ -834,7 +834,7 @@
       "yf": "AXP",
       "divYield": 1.14,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:AXP",
       "fv_low": 276.38,
       "fv_high": 750.61,
@@ -872,7 +872,7 @@
       "yf": "BAC",
       "divYield": 2.35,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:BAC",
       "fv_low": null,
       "fv_high": 309.64,
@@ -907,13 +907,13 @@
     "BAYN": {
       "name": "Bayer AG",
       "fv": 88.13,
-      "price": 56.62,
+      "price": 55.58,
       "curr": "€",
       "ex": "XETR",
       "yf": "BAYN.DE",
       "divYield": 0.2,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "XETR:BAYN",
       "fv_low": 43.27,
       "fv_high": 213.79,
@@ -948,13 +948,13 @@
     "BATS": {
       "name": "Brit. Am. Tobacco",
       "fv": 13474.67,
-      "price": 4477,
+      "price": 4567.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
       "divYield": 5.31,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "LSE:BATS",
       "fv_low": 7746.64,
       "fv_high": 14830.86,
@@ -996,7 +996,7 @@
       "yf": "BC",
       "divYield": 2.27,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:BC",
       "fv_low": 43.31,
       "fv_high": 194.88,
@@ -1036,7 +1036,7 @@
       "yf": "BG",
       "divYield": 2.87,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:BG",
       "fv_low": null,
       "fv_high": 441.77,
@@ -1072,13 +1072,13 @@
     "BRE": {
       "name": "Brembo",
       "fv": 14.79,
-      "price": 10,
+      "price": 9.9,
       "curr": "€",
       "ex": "MIL",
       "yf": "BRE.MI",
       "divYield": 3.03,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:BRE",
       "fv_low": 5.46,
       "fv_high": 20.4,
@@ -1118,7 +1118,7 @@
       "yf": "BRK-B",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:BRK.B",
       "fv_low": 303.39,
       "fv_high": 757.24,
@@ -1159,7 +1159,7 @@
       "yf": "CAT",
       "divYield": 1.12,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:CAT",
       "fv_low": 194.69,
       "fv_high": 407.13,
@@ -1199,7 +1199,7 @@
       "yf": "CE",
       "divYield": 0.26,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "20.5",
         "eps": "2.38",
@@ -1240,7 +1240,7 @@
       "yf": "CNC",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:CNC",
       "fv_low": null,
       "fv_high": 444.99,
@@ -1280,7 +1280,7 @@
       "yf": "COST",
       "divYield": 0.54,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:COST",
       "fv_low": 283.94,
       "fv_high": 603.09,
@@ -1312,13 +1312,13 @@
     "CPR": {
       "name": "Campari",
       "fv": 7.8,
-      "price": 6.718,
+      "price": 6.64,
       "curr": "€",
       "ex": "MIL",
       "yf": "CPR.MI",
       "divYield": 1.51,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:CPR",
       "fv_low": null,
       "fv_high": 10.61,
@@ -1360,7 +1360,7 @@
       "yf": "CRM",
       "divYield": 0.81,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:CRM",
       "fv_low": 147.4,
       "fv_high": 256,
@@ -1398,7 +1398,7 @@
       "yf": "CVX",
       "divYield": 3.32,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:CVX",
       "fv_low": null,
       "fv_high": 424.75,
@@ -1438,7 +1438,7 @@
       "yf": "DDOG",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:DDOG",
       "fv_low": 15.18,
       "fv_high": 55.99,
@@ -1470,13 +1470,13 @@
     "ENI": {
       "name": "Eni S.p.A.",
       "fv": 56.17,
-      "price": 24.98,
+      "price": 25.05,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENI.MI",
       "divYield": 4.23,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:ENI",
       "fv_low": null,
       "fv_high": 92.49,
@@ -1511,13 +1511,13 @@
     "ENEL": {
       "name": "Enel S.p.A.",
       "fv": 8.39,
-      "price": 9.861,
+      "price": 9.693,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENEL.MI",
       "divYield": 5.06,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:ENEL",
       "fv_low": null,
       "fv_high": 14.66,
@@ -1553,13 +1553,13 @@
     "G": {
       "name": "Assic. Generali",
       "fv": 256.58,
-      "price": 44.17,
+      "price": 43.73,
       "curr": "€",
       "ex": "MIL",
       "yf": "G.MI",
       "divYield": 3.75,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:G",
       "fv_low": 27.03,
       "fv_high": 354.88,
@@ -1597,7 +1597,7 @@
       "yf": "IBM",
       "divYield": 2.75,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:IBM",
       "fv_low": 232.69,
       "fv_high": 430.7,
@@ -1637,7 +1637,7 @@
       "yf": "INTC",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NASDAQ:INTC",
       "fv_low": null,
       "fv_high": 55,
@@ -1679,7 +1679,7 @@
       "yf": "IP",
       "divYield": 5.36,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:IP",
       "fv_low": null,
       "fv_high": 123.93,
@@ -1715,13 +1715,13 @@
     "ISP": {
       "name": "Intesa Sanpaolo",
       "fv": 18.31,
-      "price": 6.353,
+      "price": 6.177,
       "curr": "€",
       "ex": "MIL",
       "yf": "ISP.MI",
       "divYield": 6.09,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:ISP",
       "fv_low": null,
       "fv_high": 68.25,
@@ -1756,13 +1756,13 @@
     "LDO": {
       "name": "Leonardo S.p.A.",
       "fv": 24.32,
-      "price": 50.43,
+      "price": 48.07,
       "curr": "€",
       "ex": "MIL",
       "yf": "LDO.MI",
       "divYield": 1.31,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:LDO",
       "fv_low": null,
       "fv_high": 50.13,
@@ -1804,7 +1804,7 @@
       "yf": "LULU",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "9.2",
         "eps": "12.20",
@@ -1844,7 +1844,7 @@
       "yf": "MA",
       "divYield": 0.53,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:MA",
       "fv_low": 303.97,
       "fv_high": 393.06,
@@ -1876,13 +1876,13 @@
     "MONC": {
       "name": "Moncler",
       "fv": 57.85,
-      "price": 44.79,
+      "price": 45.37,
       "curr": "€",
       "ex": "MIL",
       "yf": "MONC.MI",
       "divYield": 3.09,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "MIL:MONC",
       "fv_low": 45.68,
       "fv_high": 84.81,
@@ -1920,7 +1920,7 @@
       "yf": "OXY",
       "divYield": 1.84,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "tv": "NYSE:OXY",
       "fv_low": 24.16,
       "fv_high": 140.35,
@@ -1958,7 +1958,7 @@
       "yf": "TTD",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "17.7",
         "eps": "0.84",
@@ -1996,7 +1996,7 @@
       "yf": "TRI",
       "divYield": 2.23,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "31.1",
         "eps": "3.48",
@@ -2034,7 +2034,7 @@
       "yf": "PFE",
       "divYield": 5.85,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "41.8",
         "eps": "0.70",
@@ -2074,7 +2074,7 @@
       "yf": "BSX",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "18.6",
         "eps": "2.36",
@@ -2115,7 +2115,7 @@
       "yf": "BLDR",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "174.8",
         "eps": "0.38",
@@ -2155,7 +2155,7 @@
       "yf": "CPRT",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "20.9",
         "eps": "1.55",
@@ -2189,13 +2189,13 @@
     "EL": {
       "name": "EssilorLuxottica",
       "fv": 201.21,
-      "price": 190.6,
+      "price": 193.8,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "EL.PA",
       "divYield": 2.06,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "35.6",
         "eps": "5.35",
@@ -2233,7 +2233,7 @@
       "yf": "BR",
       "divYield": 2.11,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "21.2",
         "eps": "9.05",
@@ -2271,7 +2271,7 @@
       "yf": "BF-B",
       "divYield": 3.02,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "19.6",
         "eps": "1.55",
@@ -2309,7 +2309,7 @@
       "yf": "PDD",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "8.9",
         "eps": "9.02",
@@ -2349,7 +2349,7 @@
       "yf": "FUN",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "N/D",
         "eps": "-9.14",
@@ -2391,7 +2391,7 @@
       "yf": "FMC",
       "divYield": 5.68,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "N/D",
         "eps": "-33.05",
@@ -2433,7 +2433,7 @@
       "yf": "SGBS.L",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
@@ -2471,7 +2471,7 @@
       "yf": "NFLX",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "fund": {
         "pe": "18.5",
         "eps": "3.46",
@@ -2507,7 +2507,7 @@
     "RHM": {
       "name": "Rheinmetall AG",
       "fv": 310.05,
-      "price": 845.4,
+      "price": 812.7,
       "curr": "€",
       "ex": "XETR",
       "yf": "RHM.DE",
@@ -2543,12 +2543,12 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "GXI": {
       "name": "Gerresheimer AG",
       "fv": 22.4,
-      "price": 31,
+      "price": 31.2,
       "curr": "€",
       "ex": "XETR",
       "yf": "GXI.DE",
@@ -2586,7 +2586,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "NOC": {
       "name": "Northrop Grumman",
@@ -2627,7 +2627,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "RTX": {
       "name": "RTX Corp",
@@ -2667,7 +2667,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "LMT": {
       "name": "Lockheed Martin",
@@ -2705,7 +2705,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "GD": {
       "name": "General Dynamics",
@@ -2743,7 +2743,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "HWM": {
       "name": "Howmet Aerospace",
@@ -2785,12 +2785,12 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "HON": {
       "name": "Honeywell",
       "fv": 353.1,
-      "price": 229,
+      "price": 229.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
@@ -2823,7 +2823,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "BA": {
       "name": "Boeing",
@@ -2865,7 +2865,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "UNP": {
       "name": "Union Pacific",
@@ -2905,7 +2905,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "UPS": {
       "name": "UPS",
@@ -2946,7 +2946,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "FDX": {
       "name": "FedEx",
@@ -2988,7 +2988,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "DE": {
       "name": "Deere & Company",
@@ -3030,7 +3030,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "KMI": {
       "name": "Kinder Morgan",
@@ -3070,7 +3070,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "COP": {
       "name": "ConocoPhillips",
@@ -3110,7 +3110,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "DVN": {
       "name": "Devon Energy",
@@ -3152,7 +3152,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "SLB": {
       "name": "Schlumberger",
@@ -3190,7 +3190,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "XOM": {
       "name": "ExxonMobil",
@@ -3231,7 +3231,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "ABBV": {
       "name": "AbbVie",
@@ -3271,7 +3271,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "MRK": {
       "name": "Merck & Co",
@@ -3311,7 +3311,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "LLY": {
       "name": "Eli Lilly",
@@ -3349,7 +3349,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "MDT": {
       "name": "Medtronic",
@@ -3387,7 +3387,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "BDX": {
       "name": "Becton Dickinson",
@@ -3427,7 +3427,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "DHR": {
       "name": "Danaher",
@@ -3465,7 +3465,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "TMO": {
       "name": "Thermo Fisher",
@@ -3505,7 +3505,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "MTD": {
       "name": "Mettler-Toledo",
@@ -3543,7 +3543,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "REGN": {
       "name": "Regeneron Pharma",
@@ -3581,7 +3581,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "GILD": {
       "name": "Gilead Sciences",
@@ -3619,7 +3619,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "ISRG": {
       "name": "Intuitive Surgical",
@@ -3657,7 +3657,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "VRTX": {
       "name": "Vertex Pharma",
@@ -3697,7 +3697,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "ELV": {
       "name": "Elevance Health",
@@ -3737,7 +3737,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "UNH": {
       "name": "UnitedHealth",
@@ -3777,7 +3777,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "CVS": {
       "name": "CVS Health",
@@ -3817,7 +3817,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "NVO": {
       "name": "Novo Nordisk ADR",
@@ -3857,7 +3857,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "JPM": {
       "name": "JPMorgan Chase",
@@ -3898,7 +3898,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "BLK": {
       "name": "BlackRock",
@@ -3938,7 +3938,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "C": {
       "name": "Citigroup",
@@ -3979,7 +3979,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "GS": {
       "name": "Goldman Sachs",
@@ -4020,7 +4020,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "V": {
       "name": "Visa",
@@ -4058,7 +4058,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "MCO": {
       "name": "Moody's Corp",
@@ -4096,7 +4096,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "CB": {
       "name": "Chubb",
@@ -4134,7 +4134,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "L": {
       "name": "Loews Corp",
@@ -4172,7 +4172,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "RSG": {
       "name": "Republic Services",
@@ -4212,7 +4212,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "WM": {
       "name": "Waste Management",
@@ -4253,7 +4253,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "PM": {
       "name": "Philip Morris",
@@ -4291,7 +4291,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "PEP": {
       "name": "PepsiCo",
@@ -4332,7 +4332,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "KO": {
       "name": "Coca-Cola",
@@ -4372,7 +4372,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "AZO": {
       "name": "AutoZone",
@@ -4413,7 +4413,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "MO": {
       "name": "Altria Group",
@@ -4453,7 +4453,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "CL": {
       "name": "Colgate-Palmolive",
@@ -4493,7 +4493,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "PG": {
       "name": "Procter & Gamble",
@@ -4531,7 +4531,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "GIS": {
       "name": "General Mills",
@@ -4573,7 +4573,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "HD": {
       "name": "Home Depot",
@@ -4611,12 +4611,12 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "ROST": {
       "name": "Ross Stores",
       "fv": 148.49,
-      "price": 237,
+      "price": 237.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
@@ -4649,7 +4649,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "ORLY": {
       "name": "O'Reilly Automotive",
@@ -4690,7 +4690,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "DG": {
       "name": "Dollar General",
@@ -4730,7 +4730,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "MCD": {
       "name": "McDonald's",
@@ -4770,7 +4770,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "NKE": {
       "name": "Nike",
@@ -4810,7 +4810,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "DIS": {
       "name": "Walt Disney",
@@ -4850,7 +4850,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "VZ": {
       "name": "Verizon",
@@ -4891,7 +4891,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "T": {
       "name": "AT&T",
@@ -4932,7 +4932,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "CHTR": {
       "name": "Charter Comm.",
@@ -4972,7 +4972,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "TMUS": {
       "name": "T-Mobile US",
@@ -5013,7 +5013,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "RCL": {
       "name": "Royal Caribbean",
@@ -5055,7 +5055,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "META": {
       "name": "Meta Platforms",
@@ -5095,7 +5095,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "TSLA": {
       "name": "Tesla",
@@ -5136,7 +5136,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "AVGO": {
       "name": "Broadcom",
@@ -5174,7 +5174,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "ORCL": {
       "name": "Oracle",
@@ -5217,7 +5217,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "TXN": {
       "name": "Texas Instruments",
@@ -5257,7 +5257,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "BKNG": {
       "name": "Booking Holdings",
@@ -5297,7 +5297,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "SHOP": {
       "name": "Shopify",
@@ -5337,7 +5337,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "CRWD": {
       "name": "CrowdStrike",
@@ -5377,7 +5377,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "FTNT": {
       "name": "Fortinet",
@@ -5415,7 +5415,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "PLTR": {
       "name": "Palantir",
@@ -5455,7 +5455,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "PANW": {
       "name": "Palo Alto Networks",
@@ -5493,7 +5493,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "NEE": {
       "name": "NextEra Energy",
@@ -5535,7 +5535,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "CME": {
       "name": "CME Group",
@@ -5573,7 +5573,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     },
     "ACN": {
       "name": "Accenture",
@@ -5611,7 +5611,7 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-09",
-      "updated": "2026-11-09"
+      "updated": "2026-11-10"
     }
   },
   "aliases": {
