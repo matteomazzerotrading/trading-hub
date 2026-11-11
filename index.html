@@ -877,7 +877,7 @@
             </div>
             <div class="card">
                 <h3>🎯 Che cosa cerca</h3>
-                <p>Lavora solo al rialzo. Rileva un <strong style="color:#fff;">setup rialzista</strong> quando, dopo una fase di debolezza, la forza dei compratori torna con decisione in una singola seduta, e una <strong style="color:#fff;">condizione di uscita</strong> quando accade l'opposto dopo una fase di forza. In uscita riduce gran parte della posizione, non tutta.</p>
+                <p>Lavora solo al rialzo. Dà un segnale <strong style="color:#fff;">Compra</strong> quando, dopo una fase di debolezza, la forza dei compratori torna con decisione in una singola seduta, e un'<strong style="color:#fff;">Operazione chiusa all'80%</strong> quando accade l'opposto dopo una fase di forza: in uscita vende gran parte della posizione, non tutta. Compra a più riprese, finché ha liquidità da investire.</p>
             </div>
             <div class="card">
                 <h3>🧭 Come la uso</h3>
@@ -886,11 +886,11 @@
         </div>
         <div class="card" style="padding: 20px; margin-top: 16px;" id="tbo-segnali">
             <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:baseline; margin-bottom:12px;">
-                <h3 style="margin:0; color:#fff; font-size:1.1em;">🗓️ I setup della settimana</h3>
+                <h3 style="margin:0; color:#fff; font-size:1.1em;">🗓️ I segnali della settimana</h3>
                 <span id="tbo-periodo" style="font-size:0.85em; color:var(--text-muted);"></span>
             </div>
             <div class="tbo-avviso">
-                <strong>⚠️ Non sono consigli di acquisto.</strong> Sono soltanto gli spunti da cui parto io stesso quando valuto se comprare un titolo: prima di muovermi guardo il fair value, i conti della società e il resto del mio portafoglio, e la maggior parte dei setup la scarto. Un setup non dice che il prezzo salirà e non tiene conto della tua situazione: <strong>non è consulenza finanziaria né una raccomandazione personalizzata</strong>, e ogni decisione di investimento resta tua. <a href="disclaimer.html">Leggi il disclaimer →</a>
+                <strong>⚠️ Non sono consigli di acquisto.</strong> Sono soltanto gli spunti da cui parto io stesso quando valuto se comprare un titolo: prima di muovermi guardo il fair value, i conti della società e il resto del mio portafoglio, e la maggior parte dei segnali la scarto. Un segnale non dice che il prezzo salirà e non tiene conto della tua situazione: <strong>non è consulenza finanziaria né una raccomandazione personalizzata</strong>, e ogni decisione di investimento resta tua. <a href="disclaimer.html">Leggi il disclaimer →</a>
             </div>
             <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0;">
                 <select id="tbo-sett" class="screener-search" aria-label="Scegli la settimana" onchange="tboTutti = false; renderTbo()" style="max-width:200px; cursor:pointer; flex:0 0 auto;">
@@ -903,8 +903,12 @@
                     <option value="eu">🇪🇺 Resto d'Europa</option>
                     <option value="us">🇺🇸 Stati Uniti</option>
                 </select>
+                <select id="tbo-tipo" class="screener-search" aria-label="Filtra per tipo di segnale" onchange="renderTbo()" style="max-width:210px; cursor:pointer; flex:0 0 auto;">
+                    <option value="">Compra e chiusure</option>
+                    <option value="c">Solo Compra</option>
+                    <option value="x">Solo chiusure all'80%</option>
+                </select>
                 <label class="scr-check" title="Mostra solo i titoli che il mio fair value giudica sottovalutati"><input type="checkbox" id="tbo-sotto" onchange="renderTbo()"> Solo sottovalutati per il fair value</label>
-                <label class="scr-check" title="Aggiunge all'elenco i titoli su cui la strategia ha rilevato una condizione di uscita"><input type="checkbox" id="tbo-uscite" onchange="renderTbo()"> Anche le condizioni di uscita</label>
             </div>
             <div class="screener-table-wrap">
                 <table class="screener-table">
@@ -912,8 +916,8 @@
                         <tr>
                             <th>Seduta</th>
                             <th>Titolo</th>
-                            <th title="Setup rialzista: la forza dei compratori è tornata dopo una fase di debolezza. Condizione di uscita: l'opposto, dopo una fase di forza.">Che cosa ha rilevato</th>
-                            <th title="Prezzo di chiusura della seduta in cui la strategia ha rilevato il setup">Chiusura di quel giorno</th>
+                            <th title="Compra: la strategia apre un nuovo acquisto. Chiusa all'80%: vende l'80% della posizione che ha sul titolo.">Segnale</th>
+                            <th title="Prezzo di chiusura della seduta del segnale: è il prezzo a cui la strategia esegue l'ordine">Chiusura di quel giorno</th>
                             <th title="Variazione dal prezzo di chiusura di quel giorno all'ultimo prezzo disponibile">Da allora</th>
                             <th title="Il giudizio del mio fair value sul prezzo attuale: clicca il titolo per l'analisi">Fair value</th>
                         </tr>
@@ -925,7 +929,7 @@
                 <span id="tbo-note"></span>
                 <a id="tbo-more" onclick="tboTutti = !tboTutti; renderTbo()" style="color:var(--brand-green); cursor:pointer; font-weight:700;"></a>
             </div>
-            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Le regole della strategia restano private: qui vedi solo l'esito, calcolato ogni sera a mercati chiusi sulle barre giornaliere di tutti i titoli della watchlist. I prezzi usati per il calcolo arrivano da una fonte diversa da TradingView, quindi in qualche caso l'elenco può differire da quello che vedo sul mio grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
+            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Sono gli stessi segnali che la strategia mostra sul mio grafico giornaliero di TradingView. <strong style="color:#ccc;">Compra</strong> compare solo quando la strategia ha ancora liquidità da investire sul titolo (ogni acquisto impegna il 10% del capitale): se è già tutta investita non compra più, anche se le condizioni ci sarebbero. <strong style="color:#ccc;">Chiusa all'80%</strong> vuol dire che vende l'80% della posizione. Le regole restano private: qui vedi solo l'esito, aggiornato ogni sera a mercati chiusi partendo dallo stato letto da TradingView; i prezzi del calcolo serale arrivano da una fonte diversa, quindi in qualche caso l'elenco può differire dal grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
         </div>
     </div>
 
@@ -1632,7 +1636,7 @@
             
             // Prezzi di tutti i titoli con una sola richiesta (ritardati di 15 minuti); se manca, ultimo prezzo salvato
             await loadTvPrices();
-            renderTbo();   // la colonna "Da allora" dei setup TBO usa gli stessi prezzi
+            renderTbo();   // la colonna "Da allora" dei segnali TBO usa gli stessi prezzi
             // Solo i titoli che hanno già un prezzo (quelli appena aggiunti lo ricevono al primo calcolo serale)
             const entries = Object.entries(db).filter(([, e]) => parseFloat(e.price) > 0 || (e.yf && _priceCache[e.yf]));
             screenerData = [];
@@ -1749,8 +1753,8 @@
             box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        // === SETUP TBO DELLA SETTIMANA (tbo_signals.json, calcolato ogni sera da scripts/compute_tbo.mjs) ===
-        // Il file contiene solo l'esito: titolo, seduta, tipo ('s' setup rialzista, 'u' condizione di uscita) e chiusura.
+        // === SEGNALI TBO DELLA SETTIMANA (tbo_signals.json, aggiornato ogni sera da scripts/compute_tbo.mjs) ===
+        // Il file contiene solo l'esito: titolo, seduta, tipo ('c' compra, 'x' operazione chiusa all'80%) e chiusura.
         let tboData = null, tboTutti = false;
         async function loadTbo() {
             tboData = await fetchJson('tbo_signals.json');
@@ -1767,9 +1771,9 @@
             lun.setDate(lun.getDate() - 7 * quale);
             const ven = new Date(lun); ven.setDate(ven.getDate() + 4);
             const dal = iso(lun), al = iso(new Date(lun.getFullYear(), lun.getMonth(), lun.getDate() + 6));
-            const mkt = document.getElementById('tbo-mkt').value, uscite = document.getElementById('tbo-uscite').checked, sotto = document.getElementById('tbo-sotto').checked;
+            const mkt = document.getElementById('tbo-mkt').value, tipo = document.getElementById('tbo-tipo').value, sotto = document.getElementById('tbo-sotto').checked;
             const prezzo = e => { const c = e.yf && _priceCache[e.yf]; return parseFloat(c ? c.price : e.price); };
-            const righe = tboData.segnali.filter(r => db[r.t] && r.d >= dal && r.d <= al && (uscite || r.k === 's'))
+            const righe = tboData.segnali.filter(r => db[r.t] && r.d >= dal && r.d <= al && (r.k === 'c' || r.k === 'x') && (!tipo || r.k === tipo))
                 .map(r => { const e = db[r.t], p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 ? fvVerdict(e, p) : null }; })
                 .filter(r => (!mkt || FVEngine.mercato(r.e) === mkt) && (!sotto || (r.v && r.v.cat === 'sotto')));
             const tot = righe.length, mostra = tboTutti ? righe : righe.slice(0, 15);
@@ -1780,18 +1784,18 @@
                 return `<tr onclick="apriTitolo('${r.t}')" style="cursor:pointer;" title="Apri l'analisi del fair value">
                 <td style="white-space:nowrap;">${giorno(r.d)}</td>
                 <td><div class="scr-ticker">${r.t}${inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${r.e.name}</div></td>
-                <td><span class="scr-badge ${r.k === 's' ? 'buy' : 'watch'}" style="white-space:nowrap;">${r.k === 's' ? 'SETUP RIALZISTA' : 'CONDIZIONE DI USCITA'}</span></td>
+                <td><span class="scr-badge ${r.k === 'c' ? 'buy' : 'watch'}" style="white-space:nowrap;">${r.k === 'c' ? 'COMPRA' : 'CHIUSA ALL\'80%'}</span></td>
                 <td class="mono-font" style="white-space:nowrap;">${num(r.p0)} ${r.e.curr}</td>
                 <td class="mono-font" style="white-space:nowrap; font-weight:800; color:${da == null ? 'var(--text-muted)' : da >= 0 ? '#43a047' : '#d32f2f'};">${da == null ? '—' : pcs(da)}</td>
                 <td>${r.v && r.v.key !== 'na' ? `<span class="scr-badge" style="${badgeStyle(r.v.colore)}">${r.v.breve}</span>` : '<span style="color:var(--text-muted);">—</span>'}</td></tr>`;
             }).join('')
                 : vuoto(tboData.ultima_seduta < dal
                     ? (quale ? 'Nessun dato per questa settimana.' : 'Ancora nessuna seduta chiusa questa settimana: l\'elenco si aggiorna ogni sera a mercati chiusi. Intanto puoi guardare la settimana scorsa.')
-                    : 'Nessun setup con questi filtri.');
+                    : (tboData.segnali.some(r => r.d >= dal && r.d <= al) ? 'Nessun segnale con questi filtri.' : 'Nessun segnale in questa settimana: la strategia non ha comprato né chiuso posizioni sui titoli seguiti.'));
             const corto = { day: 'numeric', month: 'long' };
             document.getElementById('tbo-periodo').innerText = `da lunedì ${giorno(dal, corto)} a venerdì ${giorno(iso(ven), corto)}`;
-            const nS = tboData.segnali.filter(r => r.k === 's' && r.d >= dal && r.d <= al && db[r.t]).length;
-            document.getElementById('tbo-note').innerText = `Aggiornato alla seduta di ${giorno(tboData.ultima_seduta, { weekday: 'long', day: 'numeric', month: 'long' })} · ${nS} setup rialzist${nS === 1 ? 'a' : 'i'} nella settimana su ${tboData.titoli} titoli · clicca un titolo per il suo fair value`;
+            const inSett = k => tboData.segnali.filter(r => r.k === k && r.d >= dal && r.d <= al && db[r.t]).length, nC = inSett('c'), nX = inSett('x');
+            document.getElementById('tbo-note').innerText = `Aggiornato alla seduta di ${giorno(tboData.ultima_seduta, { weekday: 'long', day: 'numeric', month: 'long' })} · nella settimana ${nC} “compra” e ${nX} chiusur${nX === 1 ? 'a' : 'e'} all'80% su ${tboData.titoli} titoli · clicca un titolo per il suo fair value`;
             const more = document.getElementById('tbo-more');
             more.innerText = tot > 15 ? (tboTutti ? 'Mostra solo i primi 15' : `Mostra tutti (${tot})`) : '';
         }

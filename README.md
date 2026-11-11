@@ -25,11 +25,13 @@ Sito personale di **Matteo Mazzero**: il mio portafoglio reale, i fair value di 
 | Archivio dei pensieri | `pensieri.json` | Da solo, quando cambia `pensiero.json` (workflow *Archivia Pensiero*) |
 | Portafoglio | `portfolio.json` | Ogni sera dei giorni di borsa, con `scripts/portfolio_online.py`; `history` è lo storico giornaliero (valore, rendimento %, profitto) |
 | Pattern Scanner | `patterns.json`, `patterns_detail.json` | Ogni sera dei giorni di borsa (workflow *Compute Patterns*) |
-| Setup della TBO Strategy | `tbo_signals.json` | Nello stesso workflow, solo se esiste il segreto `TBO_RULES` |
+| Segnali della TBO Strategy (Compra, chiusa all'80%) | `tbo_signals.json`, `tbo_state.json` | Nello stesso workflow, solo se esiste il segreto `TBO_RULES` |
 
-Le regole della TBO Strategy **non sono in questo repository**: `scripts/compute_tbo.mjs` contiene solo il contorno
-(lettura delle barre, date, scrittura del file) e riceve le regole dal segreto `TBO_RULES` delle GitHub Actions
-(Settings → Secrets and variables → Actions), che contiene il modulo JavaScript in base64.
+Le regole della TBO Strategy **non sono in questo repository**: `scripts/compute_tbo.mjs` contiene solo la contabilità
+della posizione (10% del capitale per acquisto, al massimo 12 acquisti, uscita dell'80%) e riceve le regole dal segreto
+`TBO_RULES` delle GitHub Actions (Settings → Secrets and variables → Actions), che contiene il modulo JavaScript in base64.
+`tbo_state.json` è lo stato della strategia titolo per titolo (acquisti aperti e liquidità), letto da TradingView e poi
+fatto avanzare una seduta alla volta: se col tempo si scosta dal grafico va riletto da TradingView.
 
 Sul sito i prezzi usati per i confronti arrivano da TradingView con 15 minuti di ritardo.
 
