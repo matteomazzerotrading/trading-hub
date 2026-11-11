@@ -4,6 +4,12 @@ name: Dump Inputs
 # Si avvia solo a mano; i dati finiscono nel ramo separato 'backtest-data', non nel ramo principale del sito.
 on:
   workflow_dispatch:
+    inputs:
+      cosa:
+        description: "bilanci = dati per la verifica del fair value; giornalieri = ultime 420 barre giornaliere di tutti i titoli"
+        type: choice
+        options: [bilanci, giornalieri]
+        default: bilanci
 
 permissions:
   contents: write
@@ -21,8 +27,15 @@ jobs:
         with:
           python-version: '3.11'
       - name: Bilanci
+        if: inputs.cosa != 'giornalieri'
         run: node scripts/dump_inputs.mjs
+      - name: Barre giornaliere
+        if: inputs.cosa == 'giornalieri'
+        run: |
+          pip install yfinance --quiet
+          python scripts/fetch_daily.py coda
       - name: Prezzi, decennale e CPI
+        if: inputs.cosa != 'giornalieri'
         run: |
           pip install yfinance --quiet
           python scripts/dump_market.py
