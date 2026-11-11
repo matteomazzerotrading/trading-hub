@@ -1773,7 +1773,7 @@
                 .map(r => { const e = db[r.t], p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 ? fvVerdict(e, p) : null }; })
                 .filter(r => (!mkt || FVEngine.mercato(r.e) === mkt) && (!sotto || (r.v && r.v.cat === 'sotto')));
             const tot = righe.length, mostra = tboTutti ? righe : righe.slice(0, 15);
-            const num = x => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            const num = x => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
             tbody.innerHTML = mostra.length ? mostra.map(r => {
                 const da = r.p > 0 && r.p0 > 0 ? (r.p / r.p0 - 1) * 100 : null;
@@ -2177,7 +2177,7 @@
             const isPositive = esito >= 0;
             const color = isPositive ? '#00e676' : '#ff3d00';
             const pct = (x, dec = 2) => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + '%';
-            const usd = (x, segno) => (segno ? (x >= 0 ? '+' : '−') : (x < 0 ? '−' : '')) + '$' + Math.abs(Math.round(x)).toLocaleString('it-IT');
+            const usd = (x, segno) => (segno ? (x >= 0 ? '+' : '−') : (x < 0 ? '−' : '')) + '$' + Math.abs(Math.round(x)).toLocaleString('it-IT', { useGrouping: 'always' });
 
             if (perfChartInstance) { perfChartInstance.destroy(); perfChartInstance = null; }
             const ctx = document.getElementById('perfChart').getContext('2d');
