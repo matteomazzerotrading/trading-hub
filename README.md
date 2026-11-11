@@ -23,7 +23,13 @@ Sito personale di **Matteo Mazzero**: il mio portafoglio reale, i fair value di 
 | Ultimo video | `latest_video.json` | Ogni 6 ore (workflow *Update YouTube*) |
 | Pensiero della settimana | `pensiero.json` | A mano: basta modificare testo e data |
 | Archivio dei pensieri | `pensieri.json` | Da solo, quando cambia `pensiero.json` (workflow *Archivia Pensiero*) |
-| Portafoglio | `portfolio.json` | Con `scripts/portfolio_online.py` |
+| Portafoglio | `portfolio.json` | Ogni sera dei giorni di borsa, con `scripts/portfolio_online.py`; `history` è lo storico giornaliero (valore, rendimento %, profitto) |
+| Pattern Scanner | `patterns.json`, `patterns_detail.json` | Ogni sera dei giorni di borsa (workflow *Compute Patterns*) |
+| Setup della TBO Strategy | `tbo_signals.json` | Nello stesso workflow, solo se esiste il segreto `TBO_RULES` |
+
+Le regole della TBO Strategy **non sono in questo repository**: `scripts/compute_tbo.mjs` contiene solo il contorno
+(lettura delle barre, date, scrittura del file) e riceve le regole dal segreto `TBO_RULES` delle GitHub Actions
+(Settings → Secrets and variables → Actions), che contiene il modulo JavaScript in base64.
 
 Sul sito i prezzi usati per i confronti arrivano da TradingView con 15 minuti di ritardo.
 

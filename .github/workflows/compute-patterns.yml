@@ -1,6 +1,8 @@
 name: Compute Patterns
 
-# Pattern Scanner su tutti i titoli: ogni sera dei giorni di borsa, dopo il calcolo dei fair value.
+# Pattern Scanner e segnali della TBO Strategy su tutti i titoli: ogni sera dei giorni di borsa, a mercati chiusi,
+# dopo il calcolo dei fair value. Le regole della TBO non sono nel repository: arrivano dal segreto TBO_RULES
+# (il modulo JavaScript in base64); se il segreto manca, i segnali TBO non vengono aggiornati.
 on:
   schedule:
     - cron: '50 22 * * 1-5'
@@ -8,6 +10,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/compute_patterns.mjs'
+      - 'scripts/compute_tbo.mjs'
       - 'scripts/fetch_daily.py'
       - '.github/workflows/compute-patterns.yml'
   workflow_dispatch:
@@ -31,18 +34,28 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Scarica le chiusure giornaliere
+      - name: Scarica le barre giornaliere
         run: |
           pip install yfinance --quiet
           python scripts/fetch_daily.py
       - name: Calcola i pattern
         run: node scripts/compute_patterns.mjs
+      - name: Segnali della TBO Strategy
+        continue-on-error: true
+        env:
+          TBO_RULES: ${{ secrets.TBO_RULES }}
+        run: |
+          if [ -z "$TBO_RULES" ]; then echo "Segreto TBO_RULES non impostato: i segnali TBO non vengono aggiornati."; exit 0; fi
+          mkdir -p scripts/private
+          printf '%s' "$TBO_RULES" | tr -d ' \r\n' | base64 -d > scripts/private/tbo_rules.mjs 2>/dev/null
+          node scripts/compute_tbo.mjs
+          rm -rf scripts/private
       - name: Allinea al ramo principale
         run: git pull --rebase --autostash
       - name: Salva i risultati
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto: pattern scanner [skip ci]"
-          file_pattern: "patterns.json patterns_detail.json"
+          commit_message: "Auto: pattern scanner e segnali TBO [skip ci]"
+          file_pattern: "patterns.json patterns_detail.json tbo_signals.json"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"

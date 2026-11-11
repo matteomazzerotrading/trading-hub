@@ -285,6 +285,9 @@
         .pat-chart-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
         .pat-leg { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.8em; color: var(--text-muted); margin-top: 10px; }
         .pat-leg i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; border-radius: 2px; }
+        .tbo-avviso { background: rgba(255,235,59,0.07); border: 1px solid rgba(255,235,59,0.35); border-left: 4px solid var(--accent-yellow); border-radius: 10px; padding: 14px 16px; font-size: 0.9em; line-height: 1.65; color: #e6e6e6; }
+        .tbo-avviso strong { color: #fff; }
+        .tbo-avviso a { color: var(--accent-yellow); font-weight: 700; white-space: nowrap; }
         @media (max-width: 800px) { .tbo-grid { grid-template-columns: 1fr; } }
         .held-tag { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.3px; color: #80cbc4; background: rgba(128,203,196,0.1); border: 1px solid rgba(128,203,196,0.35); border-radius: 5px; padding: 1px 6px; vertical-align: middle; white-space: nowrap; font-family: 'Inter', sans-serif; }
         .about-box { max-width: 760px; margin: 28px auto 0; display: flex; gap: 18px; align-items: center; text-align: left; background: var(--bg-glass); border: 1px solid var(--border-glass); border-radius: 16px; padding: 20px 24px; }
@@ -585,23 +588,27 @@
                 <div class="card" style="padding:20px;" id="perf-chart-card">
                     <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
                         <h3 style="margin:0; font-size:0.95em; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">📈 Andamento Storico</h3>
+                        <div style="display:flex; gap:6px; flex-wrap:wrap;" id="perf-mode-btns">
+                            <button class="perf-period-btn perf-mode-btn active" onclick="setPerfMode('perf',this)" title="Rendimento percentuale, al netto dei versamenti">Rendimento</button>
+                            <button class="perf-period-btn perf-mode-btn" onclick="setPerfMode('value',this)" title="Valore del portafoglio in dollari, versamenti compresi">Valore</button>
+                        </div>
                         <div style="display:flex; gap:6px; flex-wrap:wrap;" id="perf-period-btns">
-                            <button class="perf-period-btn" onclick="setPerfPeriod('1M',this)">1M</button>
-                            <button class="perf-period-btn" onclick="setPerfPeriod('3M',this)">3M</button>
-                            <button class="perf-period-btn" onclick="setPerfPeriod('6M',this)">6M</button>
-                            <button class="perf-period-btn active" onclick="setPerfPeriod('1Y',this)">1Y</button>
-                            <button class="perf-period-btn" onclick="setPerfPeriod('ALL',this)">ALL</button>
+                            <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('1M',this)">1M</button>
+                            <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('3M',this)">3M</button>
+                            <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('6M',this)">6M</button>
+                            <button class="perf-period-btn perf-per-btn active" onclick="setPerfPeriod('1Y',this)">1Y</button>
+                            <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('ALL',this)">ALL</button>
                         </div>
                     </div>
-                    <div id="perf-chart-placeholder" style="text-align:center; color:var(--text-muted); padding:24px 10px;">
-                        <div style="font-size:2em; margin-bottom:8px;">📊</div>
-                        <div style="font-weight:600; color:#fff; margin-bottom:8px; font-size:0.9em;">Storico non disponibile</div>
-                        <div style="font-size:0.78em; line-height:1.7; max-width:280px; margin:0 auto;">Aggiungi un array <code style="background:rgba(255,255,255,0.08); padding:1px 5px; border-radius:3px;">history</code> a <strong>portfolio.json</strong>:<br><code style="background:rgba(255,255,255,0.08); padding:2px 6px; border-radius:3px; font-size:0.92em;">[{"date":"Gen 24","value":42000}]</code></div>
+                    <div id="perf-chart-placeholder" style="text-align:center; color:var(--text-muted); padding:24px 10px; display:none;">
+                        <div style="font-weight:600; color:#fff; margin-bottom:6px; font-size:0.9em;">Storico non disponibile</div>
+                        <div style="font-size:0.8em;">I dati dell'andamento non sono stati caricati. Riprova tra poco.</div>
                     </div>
                     <div id="perf-chart-wrap" style="display:none; position:relative; height:220px;">
                         <canvas id="perfChart"></canvas>
                     </div>
                     <div class="perf-kpi-bar" id="perf-kpi-bar" style="margin-top:14px;"></div>
+                    <p id="perf-note" style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);"></p>
                 </div>
             </div>
             <!-- Tabella posizioni + widget TradingView -->
@@ -877,8 +884,48 @@
                 <p>Sul grafico giornaliero di TradingView, per decidere <em>quando</em> muovermi su titoli che ho già scelto guardando il fair value. Non la seguo in automatico: è un supporto alle mie decisioni, che racconto nel pensiero della settimana e sul canale YouTube.</p>
             </div>
         </div>
-        <div class="card" style="padding: 18px 22px; margin-top: 16px; font-size: 0.88em; color: var(--text-muted); line-height: 1.65;">
-            Le regole della strategia non sono pubbliche e su questo sito non pubblico i singoli setup: non è un servizio di segnali e non costituisce consulenza finanziaria. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Segui le mie operazioni su YouTube →</a>
+        <div class="card" style="padding: 20px; margin-top: 16px;" id="tbo-segnali">
+            <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:baseline; margin-bottom:12px;">
+                <h3 style="margin:0; color:#fff; font-size:1.1em;">🗓️ I setup della settimana</h3>
+                <span id="tbo-periodo" style="font-size:0.85em; color:var(--text-muted);"></span>
+            </div>
+            <div class="tbo-avviso">
+                <strong>⚠️ Non sono consigli di acquisto.</strong> Sono soltanto gli spunti da cui parto io stesso quando valuto se comprare un titolo: prima di muovermi guardo il fair value, i conti della società e il resto del mio portafoglio, e la maggior parte dei setup la scarto. Un setup non dice che il prezzo salirà e non tiene conto della tua situazione: <strong>non è consulenza finanziaria né una raccomandazione personalizzata</strong>, e ogni decisione di investimento resta tua. <a href="disclaimer.html">Leggi il disclaimer →</a>
+            </div>
+            <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0;">
+                <select id="tbo-sett" class="screener-search" aria-label="Scegli la settimana" onchange="tboTutti = false; renderTbo()" style="max-width:200px; cursor:pointer; flex:0 0 auto;">
+                    <option value="0">Settimana in corso</option>
+                    <option value="1">Settimana scorsa</option>
+                </select>
+                <select id="tbo-mkt" class="screener-search" aria-label="Filtra per mercato" onchange="renderTbo()" style="max-width:170px; cursor:pointer; flex:0 0 auto;">
+                    <option value="">Tutti i mercati</option>
+                    <option value="it">🇮🇹 Italia</option>
+                    <option value="eu">🇪🇺 Resto d'Europa</option>
+                    <option value="us">🇺🇸 Stati Uniti</option>
+                </select>
+                <label class="scr-check" title="Mostra solo i titoli che il mio fair value giudica sottovalutati"><input type="checkbox" id="tbo-sotto" onchange="renderTbo()"> Solo sottovalutati per il fair value</label>
+                <label class="scr-check" title="Aggiunge all'elenco i titoli su cui la strategia ha rilevato una condizione di uscita"><input type="checkbox" id="tbo-uscite" onchange="renderTbo()"> Anche le condizioni di uscita</label>
+            </div>
+            <div class="screener-table-wrap">
+                <table class="screener-table">
+                    <thead>
+                        <tr>
+                            <th>Seduta</th>
+                            <th>Titolo</th>
+                            <th title="Setup rialzista: la forza dei compratori è tornata dopo una fase di debolezza. Condizione di uscita: l'opposto, dopo una fase di forza.">Che cosa ha rilevato</th>
+                            <th title="Prezzo di chiusura della seduta in cui la strategia ha rilevato il setup">Chiusura di quel giorno</th>
+                            <th title="Variazione dal prezzo di chiusura di quel giorno all'ultimo prezzo disponibile">Da allora</th>
+                            <th title="Il giudizio del mio fair value sul prezzo attuale: clicca il titolo per l'analisi">Fair value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbo-tbody"><tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">Caricamento…</td></tr></tbody>
+                </table>
+            </div>
+            <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:12px; font-size:0.8em; color:var(--text-muted);">
+                <span id="tbo-note"></span>
+                <a id="tbo-more" onclick="tboTutti = !tboTutti; renderTbo()" style="color:var(--brand-green); cursor:pointer; font-weight:700;"></a>
+            </div>
+            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Le regole della strategia restano private: qui vedi solo l'esito, calcolato ogni sera a mercati chiusi sulle barre giornaliere di tutti i titoli della watchlist. I prezzi usati per il calcolo arrivano da una fonte diversa da TradingView, quindi in qualche caso l'elenco può differire da quello che vedo sul mio grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
         </div>
     </div>
 
@@ -1585,6 +1632,7 @@
             
             // Prezzi di tutti i titoli con una sola richiesta (ritardati di 15 minuti); se manca, ultimo prezzo salvato
             await loadTvPrices();
+            renderTbo();   // la colonna "Da allora" dei setup TBO usa gli stessi prezzi
             // Solo i titoli che hanno già un prezzo (quelli appena aggiunti lo ricevono al primo calcolo serale)
             const entries = Object.entries(db).filter(([, e]) => parseFloat(e.price) > 0 || (e.yf && _priceCache[e.yf]));
             screenerData = [];
@@ -1699,6 +1747,53 @@
                               y: { ticks: { color: '#8b93a6' }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
             });
             box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // === SETUP TBO DELLA SETTIMANA (tbo_signals.json, calcolato ogni sera da scripts/compute_tbo.mjs) ===
+        // Il file contiene solo l'esito: titolo, seduta, tipo ('s' setup rialzista, 'u' condizione di uscita) e chiusura.
+        let tboData = null, tboTutti = false;
+        async function loadTbo() {
+            tboData = await fetchJson('tbo_signals.json');
+            renderTbo();
+        }
+        function renderTbo() {
+            const tbody = document.getElementById('tbo-tbody'); if (!tbody) return;
+            const vuoto = msg => `<tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">${msg}</td></tr>`;
+            if (!tboData || !tboData.segnali) { tbody.innerHTML = vuoto('Dati non ancora disponibili.'); return; }
+            const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            const giorno = (s, o) => new Date(s + 'T12:00:00').toLocaleDateString('it-IT', o || { weekday: 'short', day: 'numeric', month: 'short' });
+            const lun = new Date(); lun.setHours(12, 0, 0, 0); lun.setDate(lun.getDate() - (lun.getDay() + 6) % 7);
+            const quale = +document.getElementById('tbo-sett').value;
+            lun.setDate(lun.getDate() - 7 * quale);
+            const ven = new Date(lun); ven.setDate(ven.getDate() + 4);
+            const dal = iso(lun), al = iso(new Date(lun.getFullYear(), lun.getMonth(), lun.getDate() + 6));
+            const mkt = document.getElementById('tbo-mkt').value, uscite = document.getElementById('tbo-uscite').checked, sotto = document.getElementById('tbo-sotto').checked;
+            const prezzo = e => { const c = e.yf && _priceCache[e.yf]; return parseFloat(c ? c.price : e.price); };
+            const righe = tboData.segnali.filter(r => db[r.t] && r.d >= dal && r.d <= al && (uscite || r.k === 's'))
+                .map(r => { const e = db[r.t], p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 ? fvVerdict(e, p) : null }; })
+                .filter(r => (!mkt || FVEngine.mercato(r.e) === mkt) && (!sotto || (r.v && r.v.cat === 'sotto')));
+            const tot = righe.length, mostra = tboTutti ? righe : righe.slice(0, 15);
+            const num = x => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+            tbody.innerHTML = mostra.length ? mostra.map(r => {
+                const da = r.p > 0 && r.p0 > 0 ? (r.p / r.p0 - 1) * 100 : null;
+                return `<tr onclick="apriTitolo('${r.t}')" style="cursor:pointer;" title="Apri l'analisi del fair value">
+                <td style="white-space:nowrap;">${giorno(r.d)}</td>
+                <td><div class="scr-ticker">${r.t}${inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${r.e.name}</div></td>
+                <td><span class="scr-badge ${r.k === 's' ? 'buy' : 'watch'}" style="white-space:nowrap;">${r.k === 's' ? 'SETUP RIALZISTA' : 'CONDIZIONE DI USCITA'}</span></td>
+                <td class="mono-font" style="white-space:nowrap;">${num(r.p0)} ${r.e.curr}</td>
+                <td class="mono-font" style="white-space:nowrap; font-weight:800; color:${da == null ? 'var(--text-muted)' : da >= 0 ? '#43a047' : '#d32f2f'};">${da == null ? '—' : pcs(da)}</td>
+                <td>${r.v && r.v.key !== 'na' ? `<span class="scr-badge" style="${badgeStyle(r.v.colore)}">${r.v.breve}</span>` : '<span style="color:var(--text-muted);">—</span>'}</td></tr>`;
+            }).join('')
+                : vuoto(tboData.ultima_seduta < dal
+                    ? (quale ? 'Nessun dato per questa settimana.' : 'Ancora nessuna seduta chiusa questa settimana: l\'elenco si aggiorna ogni sera a mercati chiusi. Intanto puoi guardare la settimana scorsa.')
+                    : 'Nessun setup con questi filtri.');
+            const corto = { day: 'numeric', month: 'long' };
+            document.getElementById('tbo-periodo').innerText = `da lunedì ${giorno(dal, corto)} a venerdì ${giorno(iso(ven), corto)}`;
+            const nS = tboData.segnali.filter(r => r.k === 's' && r.d >= dal && r.d <= al && db[r.t]).length;
+            document.getElementById('tbo-note').innerText = `Aggiornato alla seduta di ${giorno(tboData.ultima_seduta, { weekday: 'long', day: 'numeric', month: 'long' })} · ${nS} setup rialzist${nS === 1 ? 'a' : 'i'} nella settimana su ${tboData.titoli} titoli · clicca un titolo per il suo fair value`;
+            const more = document.getElementById('tbo-more');
+            more.innerText = tot > 15 ? (tboTutti ? 'Mostra solo i primi 15' : `Mostra tutti (${tot})`) : '';
         }
 
         // Ultimi cambi di esito registrati dal calcolo serale (fv_changes.json)
@@ -1909,14 +2004,17 @@
                 const unreal = document.getElementById('port-unreal');
                 unreal.innerText = fmtUSD(s.unrealized_pl_usd) + ' (' + s.unrealized_pl_pct.toFixed(2) + '%)';
                 unreal.style.color = s.unrealized_pl_usd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
-                // Rendimento da inizio anno (YTD) e a 1 anno, come li calcola TradingView sul valore del portafoglio
+                // Rendimento da inizio anno e degli ultimi 12 mesi: dallo storico giornaliero (stesso calcolo del grafico); in mancanza, i periodi di TradingView
                 const annual = document.getElementById('port-annual');
-                const per = pd.periods || {}, ytd = per.YTD ? per.YTD.pl_pct : s.annualized_return_pct;
-                const sgn = x => (x >= 0 ? '+' : '') + x.toFixed(2).replace('.', ',') + '%';
+                const per = pd.periods || {}, pts = perfPoints();
+                const daStorico = k => { const P = perfPeriodo(pts, k); return P && P.conPerf ? P.rend : null; };
+                const ytd = daStorico('YTD') ?? (per.YTD ? per.YTD.pl_pct : s.annualized_return_pct);
+                const anno = daStorico('1Y') ?? (per['1Y'] ? per['1Y'].pl_pct : null);
+                const sgn = x => (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2).replace('.', ',') + '%';
                 annual.innerText = sgn(ytd);
                 annual.style.color = ytd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
                 const sub = document.getElementById('port-annual-sub');
-                if (sub && per['1Y']) sub.innerText = 'ultimi 12 mesi: ' + sgn(per['1Y'].pl_pct);
+                if (sub && anno != null) sub.innerText = 'ultimi 12 mesi: ' + sgn(anno);
                 document.getElementById('port-count').innerText = (pd.positions || []).length;
                 document.getElementById('port-updated-badge').innerText = '📅 ' + pd.updated;
             }
@@ -1999,178 +2097,94 @@
 
         function setPerfPeriod(period, btn) {
             currentPerfPeriod = period;
-            document.querySelectorAll('.perf-period-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.perf-per-btn').forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+            renderPerfChart();
+        }
+        let currentPerfMode = 'perf';
+        function setPerfMode(mode, btn) {
+            currentPerfMode = mode;
+            document.querySelectorAll('.perf-mode-btn').forEach(b => b.classList.remove('active'));
             if(btn) btn.classList.add('active');
             renderPerfChart();
         }
 
-        // Dati storici reali portafoglio (USD, dati reali da TradingView)
-        // Fonte: TradingView portfolio 64b3546145c9469581c8eacaa9b898fe — Directa Investments + Unicredit
-        // Valore attuale: 14,054.73 USD | Profitto totale: -433.27 USD (-2.84%) — aggiornato 25 Ott 26
-        const PORTFOLIO_HISTORY_REAL = [
-  { date: "1 Dic 24", value: 14488.0 },
-  { date: "8 Dic 24", value: 14475.87 },
-  { date: "15 Dic 24", value: 14463.73 },
-  { date: "22 Dic 24", value: 14451.6 },
-  { date: "29 Dic 24", value: 14439.47 },
-  { date: "5 Gen 25", value: 14427.33 },
-  { date: "12 Gen 25", value: 14415.2 },
-  { date: "19 Gen 25", value: 14394.52 },
-  { date: "26 Gen 25", value: 14367.42 },
-  { date: "2 Feb 25", value: 14340.32 },
-  { date: "9 Feb 25", value: 14313.23 },
-  { date: "16 Feb 25", value: 14279.5 },
-  { date: "23 Feb 25", value: 14206.0 },
-  { date: "2 Mar 25", value: 14132.5 },
-  { date: "9 Mar 25", value: 13894.29 },
-  { date: "16 Mar 25", value: 13442.86 },
-  { date: "23 Mar 25", value: 13487.86 },
-  { date: "30 Mar 25", value: 13572.86 },
-  { date: "6 Apr 25", value: 13757.86 },
-  { date: "13 Apr 25", value: 13938.57 },
-  { date: "20 Apr 25", value: 14108.57 },
-  { date: "27 Apr 25", value: 14250.0 },
-  { date: "4 Mag 25", value: 14320.0 },
-  { date: "11 Mag 25", value: 14390.0 },
-  { date: "18 Mag 25", value: 14460.0 },
-  { date: "25 Mag 25", value: 14530.0 },
-  { date: "1 Giu 25", value: 14572.9 },
-  { date: "8 Giu 25", value: 14615.81 },
-  { date: "15 Giu 25", value: 14658.71 },
-  { date: "22 Giu 25", value: 14701.61 },
-  { date: "29 Giu 25", value: 14741.33 },
-  { date: "6 Lug 25", value: 14778.67 },
-  { date: "13 Lug 25", value: 14816.0 },
-  { date: "20 Lug 25", value: 14853.33 },
-  { date: "27 Lug 25", value: 14900.0 },
-  { date: "3 Ago 25", value: 14970.0 },
-  { date: "10 Ago 25", value: 15040.0 },
-  { date: "17 Ago 25", value: 15075.81 },
-  { date: "24 Ago 25", value: 15026.13 },
-  { date: "31 Ago 25", value: 14976.45 },
-  { date: "7 Set 25", value: 14926.77 },
-  { date: "14 Set 25", value: 14877.1 },
-  { date: "21 Set 25", value: 14801.0 },
-  { date: "28 Set 25", value: 14720.5 },
-  { date: "5 Ott 25", value: 14640.0 },
-  { date: "12 Ott 25", value: 14601.31 },
-  { date: "19 Ott 25", value: 14562.62 },
-  { date: "26 Ott 25", value: 14520.91 },
-  { date: "2 Nov 25", value: 14461.09 },
-  { date: "9 Nov 25", value: 14401.27 },
-  { date: "16 Nov 25", value: 14346.25 },
-  { date: "23 Nov 25", value: 14320.0 },
-  { date: "30 Nov 25", value: 14293.75 },
-  { date: "7 Dic 25", value: 14341.0 },
-  { date: "14 Dic 25", value: 14400.5 },
-  { date: "21 Dic 25", value: 14460.0 },
-  { date: "28 Dic 25", value: 14486.18 },
-  { date: "4 Gen 26", value: 14486.82 },
-  { date: "11 Gen 26", value: 14453.41 },
-  { date: "18 Gen 26", value: 14420.0 },
-  { date: "25 Gen 26", value: 14383.33 },
-  { date: "1 Feb 26", value: 14346.67 },
-  { date: "8 Feb 26", value: 14310.0 },
-  { date: "15 Feb 26", value: 14250.0 },
-  { date: "22 Feb 26", value: 14190.0 },
-  { date: "1 Mar 26", value: 14145.0 },
-  { date: "8 Mar 26", value: 14100.0 },
-  { date: "15 Mar 26", value: 14140.0 },
-  { date: "22 Mar 26", value: 14180.0 },
-  { date: "29 Mar 26", value: 14215.0 },
-  { date: "5 Apr 26", value: 14250.0 },
-  { date: "12 Apr 26", value: 14292.88 },
-  { date: "19 Apr 26", value: 14335.75 },
-  { date: "26 Apr 26", value: 14374.33 },
-  { date: "3 Mag 26", value: 14387.17 },
-  { date: "10 Mag 26", value: 14400.0 },
-  { date: "17 Mag 26", value: 14414.0 },
-  { date: "24 Mag 26", value: 14428.0 },
-  { date: "31 Mag 26", value: 14443.85 },
-  { date: "7 Giu 26", value: 14460.0 },
-  { date: "14 Giu 26", value: 14450.0 },
-  { date: "21 Giu 26", value: 14440.0 },
-  { date: "28 Giu 26", value: 14410.0 },
-  { date: "5 Lug 26", value: 14380.0 },
-  { date: "12 Lug 26", value: 14278.47 },
-  { date: "19 Lug 26", value: 14176.93 },
-  { date: "26 Lug 26", value: 14062.41 },
-  { date: "2 Ago 26", value: 13870.0 },
-  { date: "9 Ago 26", value: 13775.0 },
-  { date: "16 Ago 26", value: 13680.0 },
-  { date: "23 Ago 26", value: 13600.0 },
-  { date: "30 Ago 26", value: 13520.0 },
-  { date: "6 Set 26", value: 13465.0 },
-  { date: "13 Set 26", value: 13410.0 },
-  { date: "20 Set 26", value: 13384.92 },
-  { date: "27 Set 26", value: 13355.6 },
-  { date: "4 Ott 26", value: 13315.7 },
-  { date: "11 Ott 26", value: 13297.14 },
-  { date: "14 Ott 26", value: 13502.68 },
-  { date: "25 Ott 26", value: 14054.73 },
-];
+        // Storico giornaliero del portafoglio (portfolio.json → history), dalla serie ufficiale di TradingView:
+        //   value = valore in USD (liquidità e nuovi versamenti compresi)
+        //   perf  = rendimento totale % dall'inizio, al netto dei versamenti
+        //   pl    = profitto totale in USD dall'inizio
+        // Il rendimento di un periodo è (1+perf_fine)/(1+perf_inizio)−1: si legge sulla linea "Rendimento",
+        // non sulla variazione del valore, che sale anche quando viene aggiunto capitale.
+        const PERF_MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+        function perfPoints() {
+            const history = (portfolioData && portfolioData.history) || [];
+            return history.map(p => {
+                const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(p.date || '');
+                return m ? { d: new Date(+m[1], +m[2] - 1, +m[3]), v: Number(p.value) || 0,
+                             perf: p.perf == null ? null : Number(p.perf), pl: p.pl == null ? null : Number(p.pl) } : null;
+            }).filter(p => p && p.v > 0);
+        }
+        // Periodo: 'ALL' = dall'inizio; 'YTD' = dall'ultima seduta dell'anno scorso; altrimenti gli ultimi N mesi di calendario.
+        function perfPeriodo(points, period) {
+            if (points.length < 2) return null;
+            const last = points[points.length - 1];
+            let i0 = 0, dallInizio = period === 'ALL';
+            if (!dallInizio) {
+                const from = new Date(last.d);
+                if (period === 'YTD') { from.setMonth(0); from.setDate(0); }
+                else from.setMonth(from.getMonth() - ({ '1M': 1, '3M': 3, '6M': 6, '1Y': 12 }[period] || 12));
+                let i = -1;
+                for (let k = 0; k < points.length; k++) { if (points[k].d <= from) i = k; else break; }
+                if (i < 0) dallInizio = true; else i0 = i;       // il portafoglio è più giovane del periodo
+            }
+            const slice = points.slice(i0), a = slice[0];
+            const conPerf = slice.every(p => p.perf != null && p.pl != null);
+            const out = { slice, last, start: a, dallInizio, conPerf };
+            if (conPerf) {
+                const base = dallInizio ? 0 : a.perf;
+                out.serie = slice.map(p => ((1 + p.perf / 100) / (1 + base / 100) - 1) * 100);
+                out.rend = out.serie[out.serie.length - 1];
+                out.pl = last.pl - (dallInizio ? 0 : a.pl);
+                out.versamenti = dallInizio ? last.v - last.pl : (last.v - a.v) - out.pl;
+            }
+            return out;
+        }
 
         function renderPerfChart() {
             const placeholder = document.getElementById('perf-chart-placeholder');
             const wrap = document.getElementById('perf-chart-wrap');
             const kpiBar = document.getElementById('perf-kpi-bar');
+            const note = document.getElementById('perf-note');
             if (!placeholder || !wrap) return;
-
-            // Usa dati remoti se disponibili, altrimenti fallback su dati reali hardcoded
-            const history = (portfolioData && portfolioData.history && portfolioData.history.length >= 2)
-                ? portfolioData.history
-                : PORTFOLIO_HISTORY_REAL;
-            if (!history || history.length < 2) {
+            const P = perfPeriodo(perfPoints(), currentPerfPeriod);
+            if (!P || P.slice.length < 2) {
                 placeholder.style.display = 'block';
                 wrap.style.display = 'none';
                 if (kpiBar) kpiBar.innerHTML = '';
+                if (note) note.textContent = '';
                 return;
             }
-
-            // Date: "2026-11-06" (portfolio.json) oppure "6 Nov 26" (storico hardcoded).
-            // Punti settimanali e giornalieri possono convivere: il periodo si taglia per data, non per numero di punti.
-            const MESI = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
-            const toDate = s => {
-                let m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
-                if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
-                m = /^(\d{1,2}) (\w{3}) (\d{2})$/.exec(s);
-                if (m && MESI.includes(m[2])) return new Date(2000 + +m[3], MESI.indexOf(m[2]), +m[1]);
-                return null;
-            };
-            const points = history.map(p => ({
-                d: toDate(p.date),
-                label: p.date,
-                v: Number(p.value ?? p.total_value_usd) || 0
-            })).filter(p => p.v > 0);
-            const monthsMap = { '1M': 1, '3M': 3, '6M': 6, '1Y': 12 };
-            let slice = points;
-            const last = points.length ? points[points.length - 1].d : null;
-            if (monthsMap[currentPerfPeriod] && last && points.every(p => p.d)) {
-                const from = new Date(last);
-                from.setMonth(from.getMonth() - monthsMap[currentPerfPeriod]);
-                // include l'ultimo punto prima dell'inizio, così la variazione copre tutto il periodo
-                const i = points.findIndex(p => p.d >= from);
-                slice = points.slice(Math.max(0, i - 1));
-            }
-            if (slice.length < 2) { wrap.style.display = 'none'; return; }
-
             placeholder.style.display = 'none';
             wrap.style.display = 'block';
+            const modeBtns = document.getElementById('perf-mode-btns');
+            if (modeBtns) modeBtns.style.display = P.conPerf ? 'flex' : 'none';
+            const mode = P.conPerf ? currentPerfMode : 'value';
 
-            const labels = slice.map(p => p.d ? `${p.d.getDate()} ${MESI[p.d.getMonth()]} ${String(p.d.getFullYear()).slice(2)}` : p.label);
-            const values = slice.map(p => p.v);
-            const startVal = values[0];
-            const endVal = values[values.length - 1];
-            const change = endVal - startVal;
-            const changePct = startVal > 0 ? ((change / startVal) * 100).toFixed(2) : '0.00';
-            const isPositive = change >= 0;
+            const giorno = d => `${d.getDate()} ${PERF_MESI[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
+            const labels = P.slice.map(p => giorno(p.d));
+            const values = mode === 'perf' ? P.serie : P.slice.map(p => p.v);
+            const esito = P.conPerf ? P.rend : P.last.v - P.start.v;
+            const isPositive = esito >= 0;
             const color = isPositive ? '#00e676' : '#ff3d00';
+            const pct = (x, dec = 2) => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + '%';
+            const usd = (x, segno) => (segno ? (x >= 0 ? '+' : '−') : (x < 0 ? '−' : '')) + '$' + Math.abs(Math.round(x)).toLocaleString('it-IT');
 
             if (perfChartInstance) { perfChartInstance.destroy(); perfChartInstance = null; }
             const ctx = document.getElementById('perfChart').getContext('2d');
             const gradient = ctx.createLinearGradient(0, 0, 0, 220);
             gradient.addColorStop(0, isPositive ? 'rgba(0,230,118,0.22)' : 'rgba(255,61,0,0.22)');
             gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            const pochi = P.slice.length <= 30;
 
             perfChartInstance = new Chart(ctx, {
                 type: 'line',
@@ -2181,48 +2195,55 @@
                         borderColor: color,
                         backgroundColor: gradient,
                         borderWidth: 2,
-                        pointRadius: slice.length <= 6 ? 4 : 2,
-                        pointHoverRadius: 6,
+                        pointRadius: pochi ? 2 : 0,
+                        pointHoverRadius: 5,
+                        pointHitRadius: 8,
                         pointBackgroundColor: color,
-                        fill: true,
-                        tension: 0.4
+                        fill: mode === 'perf' ? 'origin' : true,
+                        tension: 0.15
                     }]
                 },
                 options: {
                     responsive: true, maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: { display: false },
                         tooltip: {
                             backgroundColor: 'rgba(5,5,5,0.9)',
                             borderColor: color, borderWidth: 1,
-                            titleColor: '#fff', bodyColor: '#aaa',
-                            callbacks: { label: c => ' $' + c.parsed.y.toLocaleString('en-US') }
+                            titleColor: '#fff', bodyColor: '#aaa', displayColors: false,
+                            callbacks: { label: c => mode === 'perf'
+                                ? ['Rendimento: ' + pct(c.parsed.y), 'Valore: ' + usd(P.slice[c.dataIndex].v)]
+                                : ['Valore: ' + usd(c.parsed.y)].concat(P.conPerf ? ['Rendimento: ' + pct(P.serie[c.dataIndex])] : []) }
                         }
                     },
                     scales: {
-                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#555', font: { size: 10 } } },
-                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#555', font: { size: 10 }, callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v) } }
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#666', font: { size: 10 }, maxTicksLimit: 6, maxRotation: 0, autoSkipPadding: 16 } },
+                        y: { grid: { color: c => (mode === 'perf' && c.tick && c.tick.value === 0) ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.05)' },
+                             ticks: { color: '#666', font: { size: 10 }, callback: v => mode === 'perf'
+                                ? (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + '%'
+                                : '$' + (v >= 1000 ? (v / 1000).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + 'k' : v) } }
                     }
                 }
             });
 
-            if (kpiBar) kpiBar.innerHTML = `
+            const dal = (P.dallInizio ? 'dall\'inizio · ' : 'dal ') + giorno(P.start.d);
+            const kpi = (label, val, col, sub) => `
                 <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">Variazione</div>
-                    <div class="perf-kpi-val" style="color:${color};">${isPositive?'+':''}${changePct}%</div>
-                </div>
-                <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">Inizio periodo</div>
-                    <div class="perf-kpi-val">$${Math.round(startVal).toLocaleString('en-US')}</div>
-                </div>
-                <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">Valore attuale</div>
-                    <div class="perf-kpi-val">$${Math.round(endVal).toLocaleString('en-US')}</div>
-                </div>
-                <div class="perf-kpi-item">
-                    <div class="perf-kpi-label">P&L periodo</div>
-                    <div class="perf-kpi-val" style="color:${color};">${isPositive?'+':''}$${Math.abs(Math.round(change)).toLocaleString('en-US')}</div>
+                    <div class="perf-kpi-label">${label}</div>
+                    <div class="perf-kpi-val"${col ? ` style="color:${col};"` : ''}>${val}</div>
+                    ${sub ? `<div style="font-size:0.7em; color:var(--text-muted); margin-top:3px;">${sub}</div>` : ''}
                 </div>`;
+            if (kpiBar) kpiBar.innerHTML = P.conPerf
+                ? kpi('Rendimento', pct(P.rend), color, dal)
+                  + kpi('Guadagno / perdita', usd(P.pl, true), P.pl >= 0 ? '#00e676' : '#ff3d00', 'in dollari, ' + (P.dallInizio ? 'dall\'inizio' : 'nel periodo'))
+                  + kpi(P.dallInizio ? 'Capitale versato' : 'Versamenti netti', !P.dallInizio && Math.abs(P.versamenti) < 1 ? 'nessuno' : usd(P.versamenti, !P.dallInizio), null, P.dallInizio ? 'totale, dall\'inizio' : 'nuovo capitale nel periodo')
+                  + kpi('Valore attuale', usd(P.last.v), null, 'al ' + giorno(P.last.d))
+                : kpi('Variazione del valore', usd(P.last.v - P.start.v, true), color, dal + ' · versamenti compresi')
+                  + kpi('Valore attuale', usd(P.last.v), null, 'al ' + giorno(P.last.d));
+            if (note) note.textContent = P.conPerf
+                ? 'Dati giornalieri di TradingView sull\'intero portafoglio, liquidità compresa. Il rendimento è al netto dei versamenti: il valore in dollari sale anche quando aggiungo capitale, quindi non misura da solo come sta andando il portafoglio. Rendimento e guadagno in dollari possono avere segno diverso, perché il primo non dipende da quando ho versato il capitale e il secondo sì.'
+                : 'Valore del portafoglio in dollari, versamenti compresi.';
         }
 
         // === MOBILE NAV ===
@@ -2397,6 +2418,7 @@
             if (!screenerBuilt) { screenerBuilt = true; buildScreenerData(); }
             loadCambi();
             loadPatterns();
+            loadTbo();
             document.querySelectorAll('[data-yt]').forEach(w => { w.style.cssText = 'position:absolute; inset:0;'; ytFacade(w, w.dataset.yt, w.dataset.ytTitle); });
             loadSentiment();
             renderPortfolio();

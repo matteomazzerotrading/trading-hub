@@ -3,3 +3,4 @@ __pycache__/
 backtest_inputs/
 market_daily.json
 daily.json
+scripts/private/

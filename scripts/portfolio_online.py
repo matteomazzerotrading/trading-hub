@@ -52,9 +52,13 @@ def load():
 
 
 def save(d):
+    # `history` ha un punto per ogni seduta: lo si scrive compatto, una riga per punto
+    hist = d.get('history') or []
+    text = json.dumps({**d, 'history': '@@HISTORY@@'}, ensure_ascii=False, indent=2)
+    rows = ',\n'.join('    ' + json.dumps(h, ensure_ascii=False) for h in hist)
+    text = text.replace('"@@HISTORY@@"', '[\n' + rows + '\n  ]' if hist else '[]')
     with open(FILE, 'w', encoding='utf-8') as f:
-        json.dump(d, f, ensure_ascii=False, indent=2)
-        f.write('\n')
+        f.write(text + '\n')
 
 
 def load_prices(path):
@@ -68,9 +72,17 @@ def load_prices(path):
 
 
 def add_history(d, value, source):
+    """Punto di oggi: valore, rendimento totale % (al netto dei versamenti, come lo calcola TradingView)
+    e profitto totale in USD. Il grafico del sito usa `perf` per il rendimento e `value` per il valore."""
     day = today().isoformat()
     h = d.setdefault('history', [])
-    point = {'date': day, 'value': round(value, 2), 'source': source}
+    s = d.get('summary', {})
+    point = {'date': day, 'value': round(value, 2)}
+    if s.get('total_pl_pct') is not None:
+        point['perf'] = s['total_pl_pct']
+    if s.get('total_pl_usd') is not None:
+        point['pl'] = s['total_pl_usd']
+    point['source'] = source
     if h and h[-1].get('date') == day:
         h[-1] = point
     else:
@@ -98,7 +110,6 @@ def cmd_snapshot(path):
         'periods': json.loads(json.dumps(d.get('periods', {}))),
         # base dei rendimenti %, ricavata dai valori TradingView
         'unrealized_base': s['unrealized_pl_usd'] / (s['unrealized_pl_pct'] / 100) if s['unrealized_pl_pct'] else None,
-        'total_base': s['total_pl_usd'] / (s['total_pl_pct'] / 100) if s['total_pl_pct'] else None,
         'positions': {
             p['ticker']: {
                 'price': prices[sym(p)]['close'],
@@ -159,8 +170,10 @@ def cmd_online(path):
     s['total_pl_usd'] = round(s0['total_pl_usd'] + delta, 2)
     if snap.get('unrealized_base'):
         s['unrealized_pl_pct'] = round(s['unrealized_pl_usd'] / snap['unrealized_base'] * 100, 2)
-    if snap.get('total_base'):
-        s['total_pl_pct'] = round(s['total_pl_usd'] / snap['total_base'] * 100, 2)
+    # Rendimento totale %: quello di TradingView alla fotografia, concatenato con la variazione da allora.
+    # (Il rapporto profitto/percentuale non è una base affidabile: vicino allo zero cambia perfino segno.)
+    var = delta / s0['total_value_usd'] if s0['total_value_usd'] else 0
+    s['total_pl_pct'] = round(((1 + s0['total_pl_pct'] / 100) * (1 + var) - 1) * 100, 2)
     # realized_pl, dividends, cash, annualized_return restano quelli dell'ultimo dato TradingView
 
     # periodi: valore TradingView dello snapshot + variazione da allora (stima)
@@ -168,10 +181,8 @@ def cmd_online(path):
         per = d.setdefault('periods', {}).setdefault(k, {})
         if 'pl_usd' in v:
             per['pl_usd'] = round(v['pl_usd'] + delta, 2)
-        if 'pl_pct' in v and v.get('pl_usd'):
-            base = v['pl_usd'] / (v['pl_pct'] / 100) if v['pl_pct'] else None
-            if base:
-                per['pl_pct'] = round(per['pl_usd'] / base * 100, 2)
+        if 'pl_pct' in v:
+            per['pl_pct'] = round(((1 + v['pl_pct'] / 100) * (1 + var) - 1) * 100, 2)
 
     # allocazione per tipologia (campo `class` di ogni posizione, come in TradingView)
     for a in d.get('allocation', []):
