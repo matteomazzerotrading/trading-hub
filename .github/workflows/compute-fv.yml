@@ -12,10 +12,6 @@ on:
       - 'scripts/compute_fv.mjs'
       - 'scripts/fetch_market_data.py'
       - 'scripts/build_pages.mjs'
-      - 'scripts/compute_signals.mjs'
-      - 'scripts/tbo_engine.js'
-      - 'scripts/pattern_engine.js'
-      - 'scripts/fetch_daily.py'
       - '.github/workflows/compute-fv.yml'
   workflow_dispatch:
 
@@ -54,19 +50,14 @@ jobs:
       - name: Genera le pagine dei singoli titoli e la sitemap
         run: node scripts/build_pages.mjs
 
-      # Segnali TBO e MM Pattern Scanner: se questa parte fallisce i fair value vengono salvati lo stesso
-      - name: Scarica i prezzi giornalieri
-        continue-on-error: true
-        run: python scripts/fetch_daily.py
-
-      - name: Calcola segnali TBO e pattern
-        continue-on-error: true
-        run: node scripts/compute_signals.mjs
+      # Un altro workflow può aver scritto nel frattempo (prezzi, pattern): ci si riallinea prima di salvare
+      - name: Allinea al ramo principale
+        run: git pull --rebase --autostash
 
       - name: Salva dati, pagine dei titoli e sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: fair value dall'indicatore [skip ci]"
-          file_pattern: "data.json fv_report.json fv_changes.json cpi_paesi.json segnali.json pattern.json titoli sitemap.xml"
+          file_pattern: "data.json fv_report.json fv_changes.json cpi_paesi.json titoli sitemap.xml"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"
