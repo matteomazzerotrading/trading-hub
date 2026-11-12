@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-12T03:03:30.126Z",
+ "aggiornato": "2026-11-12T21:36:24.873Z",
  "cambi": [
+  {
+   "data": "2026-11-12",
+   "t": "CRM",
+   "nome": "Salesforce",
+   "da": "premio_sostenuto",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-12",
+   "t": "MAR",
+   "nome": "Marriott",
+   "da": "premio_sostenuto",
+   "a": "sopra"
+  },
   {
    "data": "2026-11-10",
    "t": "ADM",
