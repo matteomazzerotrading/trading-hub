@@ -276,7 +276,7 @@
    *   d     = voce di data.json (fv, fv_low, fv_high, fv_mkt + d.ind con ke, pi, fcf_norm, cassa_az, g_hist, roic_m, status, avvisi)
    *   close = prezzo attuale
    * Ritorna { key, titolo, sotto, colore, dettagli[], gImpl } — key: 'molto_sotto' | 'sotto' | 'equa_declino'
-   *   | 'molto_sotto_declino' | 'equita' | 'sopra' | 'premio_sostenuto' | 'premio_dubbio' | 'sopra_nd' | 'na'
+   *   | 'molto_sotto_declino' | 'banda' | 'equita' | 'sopra' | 'premio_sostenuto' | 'premio_dubbio' | 'sopra_nd' | 'na'
    */
   function verdict(d, close) {
     const ind = d.ind || {};
@@ -290,6 +290,9 @@
     const pOp = close - cassa;
     const gImpl = fcfNorm > 0 && ke != null && pOp > 0 ? (ke * pOp - fcfNorm) / (pOp + fcfNorm) : null;
     out.gImpl = gImpl;
+    // "Sottovalutata" solo se il prezzo è sotto la stima prudente: il più basso tra pavimento e fair value storico,
+    // lo stesso riferimento del potenziale. Così esito e potenziale non possono più contraddirsi.
+    const sogliaSotto = d.fv_sto > 0 ? Math.min(d.fv, d.fv_sto) : d.fv;
     const hasBand = d.fv_low != null && d.fv_high != null && d.fv_high > d.fv_low;
     // Soglia alta della zona "sottovalutata": lo scenario migliore della banda, ma mai oltre il fair value di mercato
     // (se il FV di mercato è sotto il pavimento, cosa possibile con tassi reali negativi, vale il pavimento)
@@ -300,10 +303,14 @@
     const det = [`crescita scontata ${pct(gImpl)} | storica ${pct(gHist)}`];
     const detRoic = `ROIC ${pct(ind.roic_m)} vs Ke ${pct(ke)}`;
 
-    if (hasBand && close < d.fv_low * (1 - P.MOS)) {
+    if (hasBand && close < d.fv_low * (1 - P.MOS) && close <= sogliaSotto) {
       Object.assign(out, declino
         ? { key: 'molto_sotto_declino', titolo: 'MOLTO SOTTOVALUTATA, MA IN DECLINO', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#827717' }
         : { key: 'molto_sotto', titolo: 'MOLTO SOTTOVALUTATA', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#1b5e20' });
+    } else if (close > sogliaSotto && close <= sogliaSu) {
+      // Dentro la banda ma sopra la stima prudente: non è "sottovalutata" (il potenziale sarebbe negativo)
+      Object.assign(out, { key: 'banda', titolo: 'NELLA BANDA DEL FAIR VALUE', sotto: 'sopra la stima prudente, entro lo scenario migliore', colore: '#00897b' });
+      if (declino) det.push('in calo: rischio value trap');
     } else if (close <= sogliaSu) {
       Object.assign(out, declino
         ? { key: 'equa_declino', titolo: "EQUA PER UN'AZIENDA IN DECLINO", sotto: 'prezzata come se non crescesse più', colore: '#827717' }
@@ -331,7 +338,7 @@
   // Categoria semplice per screener e filtri
   const categoria = key => ['molto_sotto', 'sotto', 'molto_sotto_declino', 'equa_declino'].includes(key) ? 'sotto'
     : ['sopra', 'premio_dubbio'].includes(key) ? 'sopra'
-    : ['equita', 'premio_sostenuto', 'sopra_nd'].includes(key) ? 'equa' : 'na';
+    : ['banda', 'equita', 'premio_sostenuto', 'sopra_nd'].includes(key) ? 'equa' : 'na';
 
   // Banche e assicurazioni: un fair value sul free cash flow è poco significativo
   const FINANZIARI = ['JPM', 'BAC', 'C', 'GS', 'ISP', 'G', 'CB', 'L', 'AXP'];

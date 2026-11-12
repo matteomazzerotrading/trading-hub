@@ -78,6 +78,44 @@ export function confronto(serie, sedute) {
   return n ? { sedute, acquisti: n, positivi_pct: Math.round(pos / n * 1000) / 10, rendimento_mediano_pct: Math.round(camp[camp.length >> 1] * 1000) / 10 } : null;
 }
 
+// La domanda che conta: i segnali individuano momenti migliori degli altri? Per ogni orizzonte si confronta il
+// rendimento dopo una condizione di acquisto (o di uscita) con quello di un giorno qualsiasi sugli stessi titoli,
+// e la strategia completa con il semplice "compra e tieni" titolo per titolo. S = [{ s: barre, r: segnali }].
+export function efficacia(S) {
+  const media = a => a.reduce((x, y) => x + y, 0) / a.length, mediana = a => { const b = [...a].sort((x, y) => x - y); return b[b.length >> 1]; };
+  const pc = x => Math.round(x * 1000) / 10, INIZIO = 260;
+  const orizzonti = [[21, 1], [63, 3], [126, 6], [252, 12]].map(([h, mesi]) => {
+    const g = { q: [0, 0, 0], c: [0, 0, 0], u: [0, 0, 0] };            // somma, positivi, numero
+    for (const { s, r } of S) for (let i = INIZIO; i + h < s.c.length; i++) {
+      const y = s.c[i + h] / s.c[i] - 1;
+      for (const k of ['q', r.setup[i] ? 'c' : null, r.uscita[i] ? 'u' : null]) if (k) { g[k][0] += y; if (y > 0) g[k][1]++; g[k][2]++; }
+    }
+    const f = x => (x[2] ? { media_pct: pc(x[0] / x[2]), positivi_pct: pc(x[1] / x[2]), casi: x[2] } : null);
+    return { sedute: h, mesi, qualsiasi: f(g.q), acquisto: f(g.c), uscita: f(g.u) };
+  });
+  // Strategia completa contro "compra e tieni" (solo titoli con almeno 12 anni di barre)
+  const righe = [];
+  for (const { s, r } of S) {
+    const n = s.c.length; if (n < 3000) continue;
+    let cash = 1e6, picco = 1e6, dd = 0, espo = 0, bp = s.c[INIZIO], bdd = 0, k = 0; const lotti = [];
+    for (let i = INIZIO; i < n; i++) {
+      const C = s.c[i], Q = lotti.reduce((a, b) => a + b, 0);
+      if (r.setup[i] && lotti.length < IMP.MAX_ACQUISTI) { const m = Math.floor(IMP.QUOTA * (cash + Q * C) / C); if (m >= 1 && m * C <= cash) { lotti.push(m); cash -= m * C; } }
+      else if (r.uscita[i] && Q > 0) { let v = Math.max(1, Math.floor(IMP.CHIUSURA * Q)); cash += v * C; while (v > 0 && lotti.length) { const t = Math.min(v, lotti[0]); lotti[0] -= t; v -= t; if (!lotti[0]) lotti.shift(); } }
+      const q = lotti.reduce((a, b) => a + b, 0), eq = cash + q * C;
+      espo += q * C / eq; k++;
+      if (eq > picco) picco = eq; dd = Math.min(dd, eq / picco - 1);
+      if (C > bp) bp = C; bdd = Math.min(bdd, C / bp - 1);
+    }
+    const anni = k / 252, fin = cash + lotti.reduce((a, b) => a + b, 0) * s.c[n - 1];
+    righe.push({ st: Math.pow(fin / 1e6, 1 / anni) - 1, bh: Math.pow(s.c[n - 1] / s.c[INIZIO], 1 / anni) - 1, espo: espo / k, dd, bdd });
+  }
+  const tieni = righe.length > 20 ? { titoli: righe.length, strategia_annuo_pct: pc(mediana(righe.map(x => x.st))), tieni_annuo_pct: pc(mediana(righe.map(x => x.bh))),
+    investito_pct: pc(mediana(righe.map(x => x.espo))), ribasso_strategia_pct: pc(mediana(righe.map(x => x.dd))), ribasso_tieni_pct: pc(mediana(righe.map(x => x.bdd))),
+    meglio_pct: pc(righe.filter(x => x.st > x.bh).length / righe.length) } : null;
+  return { orizzonti, tieni };
+}
+
 // Statistiche d'insieme su tutti i titoli (tbo_stats.json)
 export function statistiche(perTitolo, dal, al) {
   const ch = perTitolo.flatMap(x => x.chiuse), ap = perTitolo.flatMap(x => x.aperte);
@@ -119,19 +157,20 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 
   // Track record: tutta la storia scaricata, titolo per titolo (solo se le barre coprono almeno 6 anni)
   try {
-    const per = [], serie = []; let dal = '9999', al = '';
+    const per = [], serie = [], coppie = []; let dal = '9999', al = '';
     for (const [t, e] of Object.entries(db)) {
       const b = e.tv && daily[e.yf || t];
       if (!b || !b.h || b.d.length < 1500) continue;
       let n = b.d.length; if (b.d[n - 1] === oggi && !chiuso(e.yf || t)) n--;
       const s = { d: b.d.slice(0, n), o: b.o.slice(0, n), h: b.h.slice(0, n), l: b.l.slice(0, n), c: b.c.slice(0, n) };
       const r = segnali(s); if (!r || !r.setup || !r.uscita) continue;
-      per.push(storicoOperazioni(s, r)); serie.push(s);
+      per.push(storicoOperazioni(s, r)); serie.push(s); coppie.push({ s, r });
       if (s.d[0] < dal) dal = s.d[0]; if (s.d.at(-1) > al) al = s.d.at(-1);
     }
     if (per.length > 50) {
       const st = statistiche(per, dal, al);
       st.confronto = confronto(serie, Math.round(st.chiuse.durata_mediana_giorni * 252 / 365));
+      st.efficacia = efficacia(coppie);
       fs.writeFileSync(path.join(ROOT, 'tbo_stats.json'), JSON.stringify({ aggiornato: ora.toISOString(), ...st }) + '\n');
       console.log(`Track record TBO: ${per.length} titoli dal ${dal} al ${al}`);
     }

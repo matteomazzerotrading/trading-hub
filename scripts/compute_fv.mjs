@@ -20,6 +20,7 @@ const REPORT = path.join(ROOT, 'fv_report.json');
 const CHANGES = path.join(ROOT, 'fv_changes.json');
 const CPI_PAESI = path.join(ROOT, 'cpi_paesi.json');
 const HISTORY = path.join(ROOT, 'fv_history.json');
+const MACRO = path.join(ROOT, 'macro.json');
 const UA = { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -149,6 +150,9 @@ async function main() {
     console.log(`${cod}: decennale ${rfPaesi[cod]}  inflazione fino a ${serie.length ? serie[serie.length - 1].join(' = ') : 'n.d.'}`);
   }
   fs.writeFileSync(CPI_PAESI, JSON.stringify(paesi) + '\n');
+  // Decennali e CPI USA per il calcolo fatto nel browser sui titoli fuori elenco (index.html, fvFuoriElenco)
+  if (rf != null && cpi.length > 120)
+    fs.writeFileSync(MACRO, JSON.stringify({ aggiornato: new Date().toISOString(), rf: rfPaesi, cpi_us: cpi.slice(-330) }) + '\n');
   console.log(`Decennale ${rf}  CPI ultimo ${JSON.stringify(cpi[cpi.length - 1])}  S&P 500 ${bench.length} settimane`);
 
   const report = { run: new Date().toISOString(), rf, cpi_ultimo: cpi[cpi.length - 1] || null, fonti: md.fonti || {},

@@ -973,6 +973,15 @@
         <div class="card" style="padding: 20px; margin-top: 16px; display:none;" id="tbo-stats">
             <h3 style="margin:0 0 4px; color:#fff; font-size:1.1em;">📒 Track record della strategia</h3>
             <div id="tbo-stats-sub" style="font-size:0.85em; color:var(--text-muted); margin-bottom:14px;"></div>
+            <div id="tbo-eff" style="display:none; margin-bottom:18px;">
+                <div id="tbo-eff-sintesi" style="background:rgba(255,255,255,0.04); border:1px solid var(--border-glass); border-left:4px solid var(--brand-green); border-radius:10px; padding:14px 16px; font-size:0.95em; line-height:1.65; color:#eee;"></div>
+                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">1 · Che cosa succede dopo un segnale, rispetto a un giorno qualsiasi</div>
+                <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Dopo</th><th>Giorno qualsiasi</th><th>Dopo un “compra”</th><th>Differenza</th><th>Dopo una condizione di uscita</th></tr></thead><tbody id="tbo-eff-righe"></tbody></table></div>
+                <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Rendimento medio del titolo e, tra parentesi, quota di casi finiti in guadagno. “Compra” qui è ogni seduta in cui scatta la condizione di acquisto. Se il segnale sceglie bene il momento, la colonna “compra” deve stare sopra il giorno qualsiasi e quella di uscita sotto.</div>
+                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">2 · La strategia completa contro il semplice “compra e tieni”</div>
+                <div class="mini-kpi" id="tbo-eff-tieni"></div>
+                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">3 · Il registro delle operazioni</div>
+            </div>
             <div class="mini-kpi" id="tbo-stats-kpi"></div>
             <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">Acquisti ancora aperti (non venduti)</div>
             <div class="mini-kpi" id="tbo-stats-aperte"></div>
@@ -1223,8 +1232,9 @@
                 <div class="faq-answer">
                     <div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#1b5e20; background:rgba(27,94,32,0.12); border:1px solid rgba(27,94,32,0.45);">MOLTO SOTTOVALUTATA</span></div><div>Prezzo sotto anche lo scenario peggiore, con un margine di sicurezza del 10%.</div></div>
-                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#43a047; background:rgba(67,160,71,0.12); border:1px solid rgba(67,160,71,0.45);">SOTTOVALUTATA</span></div><div>Prezzo dentro la banda <strong>e sotto il FV di mercato</strong>: il mercato lo paga come se l'azienda non dovesse più crescere. Può risultare sottovalutata anche con il prezzo un po' sopra il FV pavimento, se è sotto sia lo scenario migliore sia il FV di mercato.</div></div>
-                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#827717; background:rgba(130,119,23,0.12); border:1px solid rgba(130,119,23,0.45);">EQUA PER UN'AZIENDA IN DECLINO</span></div><div>Prezzo in una delle due zone sopra, ma i ricavi per azione sono in calo: il prezzo basso può essere giustificato (rischio <em>value trap</em>). Sotto la banda diventa <em>molto sottovalutata, ma in declino</em>.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#43a047; background:rgba(67,160,71,0.12); border:1px solid rgba(67,160,71,0.45);">SOTTOVALUTATA</span></div><div>Prezzo <strong>sotto la stima prudente</strong>, cioè sotto il più basso tra FV pavimento e FV storico: è lo stesso riferimento del potenziale, quindi una sottovalutata ha sempre potenziale positivo.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#00897b; background:rgba(0,137,123,0.12); border:1px solid rgba(0,137,123,0.45);">NELLA BANDA DEL FAIR VALUE</span></div><div>Prezzo sopra la stima prudente ma ancora entro lo scenario migliore e sotto il FV di mercato: non è caro, ma non c'è margine rispetto alla stima.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#827717; background:rgba(130,119,23,0.12); border:1px solid rgba(130,119,23,0.45);">EQUA PER UN'AZIENDA IN DECLINO</span></div><div>Prezzo sotto la stima prudente, ma i ricavi per azione sono in calo: il prezzo basso può essere giustificato (rischio <em>value trap</em>). Sotto la banda diventa <em>molto sottovalutata, ma in declino</em>.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#546e7a; background:rgba(84,110,122,0.12); border:1px solid rgba(84,110,122,0.45);">ZONA DI EQUITÀ</span></div><div>Prezzo tra la banda e il FV di mercato: sconta meno crescita di un'azienda media.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#f9a825; background:rgba(249,168,37,0.12); border:1px solid rgba(249,168,37,0.45);">PREMIO SOSTENUTO</span></div><div>Prezzo sopra il FV di mercato, ma la crescita che chiede è già stata realizzata e il ROIC supera il rendimento richiesto: il premio è giustificato.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#ef6c00; background:rgba(239,108,0,0.12); border:1px solid rgba(239,108,0,0.45);">PREMIO DUBBIO</span></div><div>Prezzo sopra il FV di mercato con crescita realizzata, ma il ROIC non supera il rendimento richiesto: la crescita non crea valore.</div></div>
@@ -1531,7 +1541,7 @@
         }
         // === VERDETTO DELL'INDICATORE (stessa logica del Pine "FAIR VALUE (dati realizzati)") ===
         const FV_BREVE = { molto_sotto: 'MOLTO SOTTOVALUTATA', sotto: 'SOTTOVALUTATA', molto_sotto_declino: 'SOTTOV. IN DECLINO',
-            equa_declino: 'EQUA (IN DECLINO)', equita: 'ZONA DI EQUITÀ', sopra: 'SOPRAVVALUTATA', premio_sostenuto: 'PREMIO SOSTENUTO',
+            equa_declino: 'EQUA (IN DECLINO)', banda: 'NELLA BANDA', equita: 'ZONA DI EQUITÀ', sopra: 'SOPRAVVALUTATA', premio_sostenuto: 'PREMIO SOSTENUTO',
             premio_dubbio: 'PREMIO DUBBIO', sopra_nd: 'SOPRA FV MERCATO' };
         function fvVerdict(d, price) {
             const p = parseFloat(price);
@@ -1613,7 +1623,8 @@
                 currentFVTicker = input;
                 document.getElementById('fvName').innerText = data.name;
                 const trim = data.earn_next && new Date(data.earn_next + 'T23:59:59') >= new Date() ? ' · trimestrale il ' + new Date(data.earn_next + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }) : '';
-                document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<span style="font-size:0.78em; color:var(--text-muted);">${data.settore ? data.settore + ' · ' : ''}${trim ? trim.slice(3) + ' · ' : ''}</span><a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo →</a>`;
+                document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<span style="font-size:0.78em; color:var(--text-muted);">${data.settore ? data.settore + ' · ' : ''}${trim ? trim.slice(3) + ' · ' : ''}</span>` + (data.fuori ? '<span style="font-size:0.78em; color:var(--accent-yellow);">fuori dal mio elenco: fair value calcolato ora</span>'
+                    : `<a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo →</a>`);
                 document.getElementById('fvValue').innerText = data.fv != null ? data.fv.toFixed(2) + " " + data.curr : "N/D";
                 document.getElementById('fvDividend').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
 
@@ -2400,7 +2411,7 @@
                         <div><strong style="color:#fff; font-size:1.15em;">${esc(x.description)}</strong> <span class="mono-font" style="color:var(--text-muted);">${esc(x.s)}</span></div>
                         <span style="font-size:0.8em; color:var(--text-muted);">${esc([x.sector, x.country].filter(Boolean).join(' · '))}</span>
                     </div>
-                    <div style="margin:8px 0 14px; font-size:0.85em; color:var(--accent-yellow);">Non è tra i titoli che seguo: qui trovi solo i dati di base, senza fair value e senza verdetto.</div>
+                    <div style="margin:8px 0 14px; font-size:0.85em; color:var(--accent-yellow);">Non è tra i titoli che seguo: ecco i dati di base, mentre provo a calcolare il fair value.</div>
                     <div class="mini-kpi">
                         ${voce('Prezzo', x.close != null ? itNum(x.close) + ' ' + esc(x.currency || '') : nd)}
                         ${voce('P/E', x.price_earnings_ttm > 0 ? itNum(x.price_earnings_ttm, 1) : nd, 'Prezzo diviso gli utili degli ultimi 12 mesi')}
@@ -2411,10 +2422,60 @@
                         ${voce('Ricavi, ultimo anno', x.total_revenue_yoy_growth_ttm != null ? itPct(x.total_revenue_yoy_growth_ttm) : nd, 'Crescita dei ricavi degli ultimi 12 mesi sui 12 precedenti')}
                     </div>
                     ${altri.length ? `<div style="margin-top:12px; font-size:0.82em; color:var(--text-muted);">Altri risultati: ${altri.map(y => `<a data-s="${esc(y.s)}" style="color:var(--brand-green); cursor:pointer; margin-right:10px;">${esc(y.description)} (${esc(y.s)})</a>`).join('')}</div>` : ''}
+                    <div id="fvx-stato" style="margin-top:12px; font-size:0.88em; color:#ddd;"></div>
                     <div style="margin-top:10px; font-size:0.74em; color:var(--text-muted);">Fonte: TradingView, prezzi ritardati. <a href="https://it.tradingview.com/symbols/${encodeURIComponent(x.s.replace(':', '-'))}/?aff_id=158356" target="_blank" rel="noopener sponsored" style="color:var(--brand-green);">Apri il grafico su TradingView →</a></div>`;
                 box.querySelectorAll('a[data-s]').forEach(a => a.onclick = () => mostra(righe.find(y => y.s === a.dataset.s)));
+                fvFuoriElenco(x);
             };
             mostra(righe[0]);
+        }
+
+        // Fair value di un titolo fuori elenco, calcolato nel browser con lo stesso motore (scripts/fv_engine.js):
+        // bilanci dallo screener di TradingView, decennale e CPI da macro.json e cpi_paesi.json. Mancano i prezzi
+        // storici, quindi niente fair value storico e beta preso da TradingView (5 anni) invece che calcolato.
+        const FVX_COLS = ['close', 'currency', 'fiscal_period_fy_h', 'fiscal_period_end_fy', 'free_cash_flow_fy_h', 'total_revenue_fy_h', 'net_income_fy_h',
+            'earnings_per_share_diluted_fy_h', 'total_revenue_fy', 'cash_n_short_term_invest_fq', 'cash_n_short_term_invest_fy', 'total_debt_fq', 'total_debt_fy',
+            'return_on_invested_capital_fy', 'total_shares_outstanding', 'earnings_release_date', 'fiscal_period_end_fq', 'price_earnings_ttm',
+            'earnings_per_share_diluted_ttm', 'market_cap_basic', 'dividends_yield_current', 'total_revenue_yoy_growth_ttm', 'sector', 'earnings_release_next_date', 'beta_5_year', 'beta_1_year'];
+        let fvxMacro, fvxPaesi;
+        async function fvFuoriElenco(x) {
+            const stato = () => document.getElementById('fvx-stato'), dici = m => { const el = stato(); if (el) el.innerHTML = m; };
+            dici('⏳ Calcolo il fair value…');
+            try {
+                if (fvxMacro === undefined) [fvxMacro, fvxPaesi] = await Promise.all([fetchJson('macro.json'), fetchJson('cpi_paesi.json')]);
+                if (!fvxMacro || !fvxMacro.cpi_us || !fvxMacro.rf) throw new Error('dati su tassi e inflazione non disponibili');
+                const r = await fetch('https://scanner.tradingview.com/global/scan', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, signal: AbortSignal.timeout(12000),
+                    body: JSON.stringify({ symbols: { tickers: [x.s] }, columns: FVX_COLS, price_conversion: { to_symbol: true } }) });
+                const riga = ((await r.json()).data || [])[0];
+                if (!riga) throw new Error('bilanci non disponibili');
+                const f = Object.fromEntries(FVX_COLS.map((c, k) => [c, riga.d[k]]));
+                const [ex, tk] = x.s.split(':');
+                const cod = FVEngine.paese({ ex, yf: '' }), paese = FVEngine.PAESI[cod];
+                const serie = cod !== 'US' && fvxPaesi && fvxPaesi.yoy && fvxPaesi.yoy[cod];
+                const cpiP = serie && serie.length > 24 ? FVEngine.indiceDaYoy(serie) : null;
+                const usaPaese = fvxMacro.rf[cod] != null && (cod === 'US' || cpiP);
+                const beta = [f.beta_5_year, f.beta_1_year].find(b => b > 0.2 && b < 3);
+                const opts = { PI_ATTESA: paese.piAttesa }; if (beta) opts.BETA_MAN = beta;
+                const res = FVEngine.compute(f, usaPaese && cpiP ? cpiP : fvxMacro.cpi_us, usaPaese ? fvxMacro.rf[cod] : fvxMacro.rf.US, null, [], [], [], new Date().toISOString().slice(0, 10), opts);
+                if (res.status !== 'ok' || !(res.fv > 0)) {
+                    const perche = { fcf_negativo: 'il free cash flow normalizzato è negativo, quindi il modello non è applicabile', dati_insufficienti: 'non ci sono abbastanza anni di bilanci' }[res.status] || 'i dati non bastano';
+                    return dici(`<strong style="color:#fff;">Fair value non calcolabile:</strong> ${perche}.`);
+                }
+                const valute = { EUR: '€', USD: '$', GBX: 'GBp', CHF: 'CHF' }, fuoriArea = !['USD', 'EUR', 'GBX', 'CHF'].includes(f.currency);
+                const big = v => v >= 1e12 ? (v / 1e12).toFixed(2) + 'T' : v >= 1e9 ? (v / 1e9).toFixed(1) + 'B' : (v / 1e6).toFixed(0) + 'M';
+                const avvisi = (res.avvisi || []).concat(['calcolato ora, senza storico dei prezzi: beta ' + (beta ? 'di TradingView' : 'fisso') + ' e nessun fair value storico'],
+                    fuoriArea ? ['valuta fuori dalle aree coperte: usati decennale e inflazione degli Stati Uniti'] : []);
+                const chiave = tk.toUpperCase();
+                db[chiave] = { name: x.description, fuori: true, tv: x.s, ex, yf: null, curr: valute[f.currency] || f.currency || '', price: f.close,
+                    fv: res.fv, fv_low: res.fv_low, fv_high: res.fv_high, fv_mkt: res.fv_mkt, fv_sto: null, divYield: f.dividends_yield_current || 0,
+                    settore: FVEngine.SETTORI[f.sector] || f.sector || '', fv_updated: new Date().toISOString().slice(0, 10), fv_source: 'browser',
+                    fund: { pe: f.price_earnings_ttm > 0 ? f.price_earnings_ttm.toFixed(1) : 'N/D', eps: f.earnings_per_share_diluted_ttm != null ? f.earnings_per_share_diluted_ttm.toFixed(2) : 'N/D',
+                        mcap: f.market_cap_basic != null ? big(f.market_cap_basic / (f.currency === 'GBX' ? 100 : 1)) : 'N/D' },
+                    ind: { status: 'ok', paese: usaPaese ? cod : 'US', rf: res.rf, ke: res.ke, pi: res.pi, beta: res.beta, fcf_norm: res.fcf_norm, cassa_az: res.cassa_az, g_hist: res.g_hist,
+                        roic_m: res.roic_m, marg_n: res.marg_n, marg_now: res.marg_now, anni: res.anni, avvisi } };
+                document.getElementById('fvInput').value = chiave;
+                await calculateFV();
+            } catch (e) { dici('Fair value non calcolato: ' + esc(e.message) + '.'); }
         }
 
         // === RISCHIO DEL PORTAFOGLIO: volatilità e massimo ribasso dallo storico, correlazioni da portfolio_risk.json ===
@@ -2472,6 +2533,25 @@
             const k = S.confronto;
             document.getElementById('tbo-stats-confronto').innerHTML = k ? `<strong style="color:#fff;">Il termine di paragone.</strong> Comprare gli stessi titoli in un giorno qualsiasi e tenerli ${mesi} mesi sarebbe finito in guadagno nel <strong>${itNum(k.positivi_pct, 1)}%</strong> dei casi, con un rendimento mediano del <strong>${itPct(k.rendimento_mediano_pct)}</strong>. Le operazioni chiuse dalla strategia hanno fatto <strong>${itNum(c.vincenti_pct, 1)}%</strong> e <strong>${itPct(c.rendimento_mediano_pct)}</strong>, ma nel conto non entrano gli acquisti ancora aperti, che sono quelli andati peggio.` : '';
             document.getElementById('tbo-stats-anni').innerHTML = (S.per_anno || []).slice().reverse().map(y => `<tr><td>${y.anno}</td><td class="mono-font">${int(y.operazioni)}</td><td class="mono-font">${itNum(y.vincenti_pct, 1)}%</td><td class="mono-font">${itPct(y.rendimento_mediano_pct)}</td></tr>`).join('');
+            const Ef = S.efficacia;
+            if (Ef && Ef.orizzonti && Ef.orizzonti.length) {
+                const cella = o => o ? `${itPct(o.media_pct)} <span style="color:var(--text-muted);">(${itNum(o.positivi_pct, 0)}%)</span>` : '—';
+                document.getElementById('tbo-eff-righe').innerHTML = Ef.orizzonti.map(o => { const d = o.acquisto && o.qualsiasi ? o.acquisto.media_pct - o.qualsiasi.media_pct : null;
+                    return `<tr><td>${o.mesi} ${o.mesi === 1 ? 'mese' : 'mesi'}</td><td class="mono-font">${cella(o.qualsiasi)}</td><td class="mono-font">${cella(o.acquisto)}</td><td class="mono-font" style="font-weight:800; color:${d == null || Math.abs(d) < 0.5 ? '#bbb' : d > 0 ? '#43a047' : '#d32f2f'};">${d == null ? '—' : itPct(d) .replace('%', ' punti')}</td><td class="mono-font">${cella(o.uscita)}</td></tr>`; }).join('');
+                const u = Ef.orizzonti[Ef.orizzonti.length - 1], sei = Ef.orizzonti.find(o => o.mesi === 6) || u;
+                const diff = sei.acquisto.media_pct - sei.qualsiasi.media_pct, T = Ef.tieni;
+                const esito = Math.abs(diff) < 1 ? `<strong style="color:#fff;">In breve: nei dati di questi anni i segnali non hanno scelto momenti migliori della media.</strong> Sei mesi dopo un “compra” i titoli hanno reso in media ${itPct(sei.acquisto.media_pct)}, contro ${itPct(sei.qualsiasi.media_pct)} di un giorno qualsiasi: la differenza è troppo piccola per contare.`
+                    : diff > 0 ? `<strong style="color:#fff;">In breve: dopo un “compra” i titoli hanno reso più della media.</strong> A sei mesi ${itPct(sei.acquisto.media_pct)} contro ${itPct(sei.qualsiasi.media_pct)} di un giorno qualsiasi.`
+                    : `<strong style="color:#fff;">In breve: dopo un “compra” i titoli hanno reso meno della media.</strong> A sei mesi ${itPct(sei.acquisto.media_pct)} contro ${itPct(sei.qualsiasi.media_pct)} di un giorno qualsiasi.`;
+                document.getElementById('tbo-eff-sintesi').innerHTML = esito + (T ? ` Applicata per intero, la strategia ha reso il ${itNum(T.strategia_annuo_pct, 1)}% l'anno contro il ${itNum(T.tieni_annuo_pct, 1)}% del compra e tieni, restando investita in media per il ${itNum(T.investito_pct, 0)}% del capitale: in pratica ha seguito il titolo con un po' meno esposizione. La quota alta di operazioni vincenti qui sotto viene dai mercati in salita e dal fatto che le posizioni in perdita non vengono chiuse, non dalla scelta del momento.` : '');
+                if (T) document.getElementById('tbo-eff-tieni').innerHTML =
+                    voce('Strategia', itPct(T.strategia_annuo_pct) + ' l\'anno', `mediana su ${T.titoli} titoli`)
+                    + voce('Compra e tieni', itPct(T.tieni_annuo_pct) + ' l\'anno', 'stessi titoli, stesso periodo')
+                    + voce('Capitale investito', itNum(T.investito_pct, 0) + '%', 'in media, con la strategia')
+                    + voce('Ribasso massimo', itPct(T.ribasso_strategia_pct, 0), `compra e tieni: ${itPct(T.ribasso_tieni_pct, 0)}`)
+                    + voce('Titoli dove batte il compra e tieni', itNum(T.meglio_pct, 0) + '%', 'per rendimento annuo');
+                document.getElementById('tbo-eff').style.display = 'block';
+            }
             card.style.display = 'block';
         }
 
