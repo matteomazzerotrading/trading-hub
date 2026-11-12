@@ -4,6 +4,8 @@ fetch_market_data.py — scarica i dati di mercato per il calcolo dei fair value
 
   • Prezzi settimanali di 11 anni di tutti i titoli + S&P 500  → yfinance
     (yfinance si presenta a Yahoo come un browser: le richieste dirette da GitHub vengono rifiutate)
+  • Rendimento dei decennali nel tempo, per lo storico del fair value: USA settimanale (^TNX, yfinance);
+    Germania, Regno Unito e Svizzera mensili → FRED (serie OCSE IRLTLT01xxM156N)
   • CPI USA mensile (CPI-U non destagionalizzato, la stessa serie di ECONOMICS:USCPI)
     → FRED (CPIAUCNS), in alternativa BLS (CUUR0000SA0)
 """
@@ -25,6 +27,14 @@ def cpi_fred():
     return out
 
 
+def decennale_fred(paese):
+    """Rendimento mensile del decennale (in %) dalla serie OCSE su FRED: paese = DE, GB o CH."""
+    req = urllib.request.Request(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id=IRLTLT01{paese}M156N", headers=UA)
+    txt = urllib.request.urlopen(req, timeout=30).read().decode()
+    return [[r[0][:10], float(r[1])] for r in csv.reader(io.StringIO(txt))
+            if len(r) == 2 and r[0][:4].isdigit() and r[1] not in (".", "") and r[0] >= "2015"]
+
+
 def cpi_bls():
     out = {}
     this = date.today().year
@@ -42,8 +52,16 @@ def cpi_bls():
 
 def main():
     data = json.load(open(os.path.join(ROOT, "data.json"), encoding="utf-8"))
-    symbols = sorted({e.get("yf") or t for t, e in data["db"].items() if e.get("tv")} | {"^GSPC"})
-    result = {"weekly": {}, "cpi": [], "fonti": {}}
+    symbols = sorted({e.get("yf") or t for t, e in data["db"].items() if e.get("tv")} | {"^GSPC", "^TNX"})
+    result = {"weekly": {}, "cpi": [], "rf_hist": {}, "fonti": {}}
+
+    # Decennali nel tempo (solo per lo storico del fair value)
+    for paese in ("DE", "GB", "CH"):
+        try:
+            result["rf_hist"][paese] = decennale_fred(paese)
+        except Exception as e:
+            print(f"Decennale storico {paese} non disponibile: {e}")
+    print("Decennali storici:", {k: (len(v), v[-1]) for k, v in result["rf_hist"].items() if v})
 
     # CPI
     for name, fn in (("FRED", cpi_fred), ("BLS", cpi_bls)):

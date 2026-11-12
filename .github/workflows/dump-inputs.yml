@@ -8,7 +8,7 @@ on:
       cosa:
         description: "bilanci = dati per la verifica del fair value; giornalieri = ultime 420 barre giornaliere di tutti i titoli"
         type: choice
-        options: [bilanci, giornalieri]
+        options: [bilanci, giornalieri, storia]
         default: bilanci
 
 permissions:
@@ -27,15 +27,15 @@ jobs:
         with:
           python-version: '3.11'
       - name: Bilanci
-        if: inputs.cosa != 'giornalieri'
+        if: inputs.cosa == 'bilanci'
         run: node scripts/dump_inputs.mjs
       - name: Barre giornaliere
-        if: inputs.cosa == 'giornalieri'
+        if: inputs.cosa != 'bilanci'
         run: |
           pip install yfinance --quiet
-          python scripts/fetch_daily.py coda
+          python scripts/fetch_daily.py ${{ inputs.cosa == 'storia' && 'storia' || 'coda' }}
       - name: Prezzi, decennale e CPI
-        if: inputs.cosa != 'giornalieri'
+        if: inputs.cosa == 'bilanci'
         run: |
           pip install yfinance --quiet
           python scripts/dump_market.py

@@ -13,11 +13,13 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const E = require('./fv_engine.js');
+import { storicoFv, fineTrimestri, valAt } from './fv_history.mjs';
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DATA = path.join(ROOT, 'data.json');
 const REPORT = path.join(ROOT, 'fv_report.json');
 const CHANGES = path.join(ROOT, 'fv_changes.json');
 const CPI_PAESI = path.join(ROOT, 'cpi_paesi.json');
+const HISTORY = path.join(ROOT, 'fv_history.json');
 const UA = { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -153,6 +155,15 @@ async function main() {
     sp500_settimane: bench.length, parametri: E.P, titoli: {} };
   let ok = 0;
   const cambi = [];
+  // Storico del fair value: decennale di allora (USA: ^TNX settimanale; Germania, Regno Unito, Svizzera: serie
+  // mensili OCSE). Se la serie di un paese manca si usa il suo decennale di oggi per tutte le date.
+  const trimestri = fineTrimestri(today), storico = {};
+  const tnx = (md.weekly && md.weekly['^TNX']) || [], rfHist = md.rf_hist || {};
+  const rfAllora = cod => {
+    const g = cod === 'US' ? null : cod === 'GB' || cod === 'CH' ? cod : 'DE';
+    const serie = g ? rfHist[g] : tnx;
+    return D => { const v = serie && serie.length ? valAt(serie, D) : null; return v != null ? v / 100 : (rfPaesi[cod] != null ? rfPaesi[cod] : rf); };
+  };
   const catDi = en => { const k = E.verdict(en, Number(en.price)).key; return { key: k, cat: E.categoria(k) }; };
   for (const [t, e] of tickers) {
     const f = fund[e.tv];
@@ -182,6 +193,14 @@ async function main() {
       e.fv_source = 'indicatore';
       e.fv_updated = today;
       if (r.status === 'ok') ok++;
+      if (r.status === 'ok' && r.fv > 0 && e.price > 0 && md.weekly && md.weekly[e.yf || t]) {
+        const cod = E.paese(e), usaPaese = r.paese === cod;
+        try {
+          const s = storicoFv(f, md.weekly[e.yf || t], bench, usaPaese ? (cpiPaesi[cod] || cpi) : cpi, rfAllora(usaPaese ? cod : 'US'),
+            trimestri, { PI_ATTESA: E.PAESI[cod].piAttesa });
+          if (s.fv.filter(x => x != null).length >= 4) storico[t] = { fv: [...s.fv, r.fv], p: [...s.p, e.price] };
+        } catch (ex) {}
+      }
       // Cambio di esito (sottovalutata / equità / sopravvalutata) rispetto al calcolo precedente
       const dopo = e.price > 0 ? catDi(e) : null;
       // Non si registra se il prezzo è a meno del 2% da una soglia: basterebbe un'oscillazione per tornare indietro
@@ -200,6 +219,9 @@ async function main() {
   try { reg = JSON.parse(fs.readFileSync(CHANGES, 'utf8')).cambi || []; } catch (e) {}
   reg = cambi.concat(reg.filter(x => !cambi.some(c => c.t === x.t && c.data === x.data))).slice(0, 300);
   fs.writeFileSync(CHANGES, JSON.stringify({ aggiornato: report.run, cambi: reg }, null, 1) + '\n');
+  if (Object.keys(storico).length > 50)
+    fs.writeFileSync(HISTORY, JSON.stringify({ aggiornato: report.run, date: [...trimestri, today], titoli: storico }) + '\n');
+  console.log(`Storico del fair value: ${Object.keys(storico).length} titoli, ${trimestri.length + 1} date`);
   console.log(`Cambi di esito in questo calcolo: ${cambi.length}`);
   console.log(`\nFatto: ${ok}/${tickers.length} titoli con fair value calcolato.`);
 }
