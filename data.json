@@ -1,6 +1,6 @@
 {
   "_comment": "Aggiorna qui i Fair Value senza toccare index.html. Le chiavi in 'db' fanno override dei valori nell'HTML. I prezzi vengono aggiornati automaticamente dal GitHub Action giornaliero.",
-  "prices_updated": "2026-11-12T15:41:23Z",
+  "prices_updated": "2026-11-12T22:31:00Z",
   "db": {
     "DIA": {
       "name": "DiaSorin",
@@ -344,7 +344,7 @@
     "STLAM": {
       "name": "Stellantis",
       "fv": 42.77,
-      "price": 3.557,
+      "price": 3.556,
       "curr": "€",
       "ex": "MIL",
       "yf": "STLAM.MI",
@@ -475,7 +475,7 @@
     "MSFT": {
       "name": "Microsoft",
       "fv": 184.83,
-      "price": 523,
+      "price": 523.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MSFT",
@@ -1044,7 +1044,7 @@
     "BATS": {
       "name": "Brit. Am. Tobacco",
       "fv": 8171.45,
-      "price": 4603,
+      "price": 4603.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
@@ -2365,7 +2365,7 @@
     "CPRT": {
       "name": "Copart",
       "fv": 20.58,
-      "price": 32,
+      "price": 32.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CPRT",
@@ -4597,7 +4597,7 @@
     "RSG": {
       "name": "Republic Services",
       "fv": 132.67,
-      "price": 253,
+      "price": 253.0,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RSG",
@@ -7244,7 +7244,7 @@
     "DAN": {
       "name": "Danieli",
       "fv": 78.97,
-      "price": 54,
+      "price": 54.0,
       "curr": "€",
       "ex": "MIL",
       "yf": "DAN.MI",
@@ -8200,7 +8200,7 @@
     "ADYEN": {
       "name": "Adyen",
       "fv": 637.4,
-      "price": 868,
+      "price": 868.0,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ADYEN.AS",
@@ -8465,7 +8465,7 @@
     "UMG": {
       "name": "Universal Music Group",
       "fv": 18.63,
-      "price": 17.18,
+      "price": 17.17,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "UMG.AS",
@@ -8687,7 +8687,7 @@
     "MBG": {
       "name": "Mercedes-Benz",
       "fv": 246.73,
-      "price": 40.7,
+      "price": 40.69,
       "curr": "€",
       "ex": "XETR",
       "yf": "MBG.DE",
@@ -9929,7 +9929,7 @@
     "LONN": {
       "name": "Lonza",
       "fv": 52.75,
-      "price": 666,
+      "price": 666.0,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "LONN.SW",
@@ -9976,7 +9976,7 @@
     "GIVN": {
       "name": "Givaudan",
       "fv": 3370.87,
-      "price": 4091,
+      "price": 4091.0,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "GIVN.SW",
@@ -10065,7 +10065,7 @@
     "SHEL": {
       "name": "Shell",
       "fv": 5534.39,
-      "price": 3665,
+      "price": 3665.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "SHEL.L",
@@ -10110,7 +10110,7 @@
     "AZN": {
       "name": "AstraZeneca",
       "fv": 8598.6,
-      "price": 13930,
+      "price": 13930.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AZN.L",
@@ -10154,7 +10154,7 @@
     "GSK": {
       "name": "GSK",
       "fv": 3183.85,
-      "price": 1901,
+      "price": 1901.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "GSK.L",
@@ -10242,7 +10242,7 @@
     "BP": {
       "name": "BP",
       "fv": 919.23,
-      "price": 567,
+      "price": 567.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BP.L",
@@ -10287,7 +10287,7 @@
     "RIO": {
       "name": "Rio Tinto",
       "fv": 7697.7,
-      "price": 6325,
+      "price": 6325.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RIO.L",
@@ -10331,7 +10331,7 @@
     "REL": {
       "name": "RELX",
       "fv": 2586.66,
-      "price": 3019,
+      "price": 3019.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "REL.L",
@@ -10417,7 +10417,7 @@
     "RKT": {
       "name": "Reckitt",
       "fv": 7588.49,
-      "price": 5668,
+      "price": 5668.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RKT.L",
@@ -10548,7 +10548,7 @@
     "NG": {
       "name": "National Grid",
       "fv": null,
-      "price": 1267,
+      "price": 1267.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "NG.L",
@@ -10595,7 +10595,7 @@
     "TSCO": {
       "name": "Tesco",
       "fv": 626.14,
-      "price": 552,
+      "price": 552.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "TSCO.L",
@@ -10641,7 +10641,7 @@
     "EXPN": {
       "name": "Experian",
       "fv": 2580.13,
-      "price": 2964,
+      "price": 2964.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "EXPN.L",
@@ -10683,7 +10683,7 @@
     "AAL": {
       "name": "Anglo American",
       "fv": 1732.95,
-      "price": 3828,
+      "price": 3828.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AAL.L",
@@ -16775,7 +16775,7 @@
     "TDG": {
       "name": "TransDigm",
       "fv": 451.24,
-      "price": 1203,
+      "price": 1203.0,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TDG",
