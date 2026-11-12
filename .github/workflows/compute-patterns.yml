@@ -11,6 +11,7 @@ on:
     paths:
       - 'scripts/compute_patterns.mjs'
       - 'scripts/compute_tbo.mjs'
+      - 'scripts/compute_risk.mjs'
       - 'scripts/fetch_daily.py'
       - '.github/workflows/compute-patterns.yml'
   workflow_dispatch:
@@ -50,12 +51,15 @@ jobs:
           printf '%s' "$TBO_RULES" | tr -d ' \r\n' | base64 -d > scripts/private/tbo_rules.mjs 2>/dev/null
           node scripts/compute_tbo.mjs
           rm -rf scripts/private
+      - name: Correlazione tra i titoli del portafoglio
+        continue-on-error: true
+        run: node scripts/compute_risk.mjs
       - name: Allinea al ramo principale
         run: git pull --rebase --autostash
       - name: Salva i risultati
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: pattern scanner e segnali TBO [skip ci]"
-          file_pattern: "patterns.json patterns_detail.json tbo_signals.json tbo_state.json"
+          file_pattern: "patterns.json patterns_detail.json tbo_signals.json tbo_state.json tbo_stats.json portfolio_risk.json"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"

@@ -287,6 +287,23 @@
         .pat-leg i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; border-radius: 2px; }
         .tbo-avviso { background: rgba(255,235,59,0.07); border: 1px solid rgba(255,235,59,0.35); border-left: 4px solid var(--accent-yellow); border-radius: 10px; padding: 14px 16px; font-size: 0.9em; line-height: 1.65; color: #e6e6e6; }
         .tbo-avviso strong { color: #fff; }
+        .sez-nascosta { display: none !important; }
+        .mini-kpi { display: flex; gap: 12px; flex-wrap: wrap; }
+        .mini-kpi > div { flex: 1 1 150px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px 16px; }
+        .mini-kpi .l { font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .mini-kpi .v { font-family: 'JetBrains Mono', monospace; font-size: 1.25em; font-weight: 800; color: #fff; margin-top: 4px; }
+        .mini-kpi .s { font-size: 0.72em; color: var(--text-muted); margin-top: 3px; line-height: 1.45; }
+        @media (max-width: 600px) { .mini-kpi { gap: 8px; } .mini-kpi > div { flex: 1 1 calc(50% - 4px); min-width: 0; padding: 10px 12px; } .mini-kpi .v { font-size: 1.1em; } }
+        .corr-tab { border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+        .corr-tab td, .corr-tab th { width: 30px; height: 26px; text-align: center; padding: 0; color: #ddd; }
+        .corr-tab th { color: var(--text-muted); font-weight: 600; font-size: 9px; }
+        .corr-tab th.r { text-align: right; padding-right: 6px; width: 44px; }
+        .lay-riga { display: flex; align-items: center; gap: 10px; padding: 9px 4px; border-bottom: 1px solid var(--border-glass); }
+        .lay-riga label { flex: 1; cursor: pointer; color: #fff; font-size: 0.95em; }
+        .lay-riga button { background: rgba(255,255,255,0.06); border: 1px solid var(--border-glass); color: #fff; border-radius: 8px; width: 34px; height: 30px; cursor: pointer; }
+        .lay-riga button:disabled { opacity: 0.25; cursor: default; }
+        .dati-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); color: #fff; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-size: 0.85em; font-weight: 600; }
+        .dati-btn:hover { border-color: var(--brand-green); }
         .tbo-avviso a { color: var(--accent-yellow); font-weight: 700; white-space: nowrap; }
         @media (max-width: 800px) { .tbo-grid { grid-template-columns: 1fr; } }
         .held-tag { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.3px; color: #80cbc4; background: rgba(128,203,196,0.1); border: 1px solid rgba(128,203,196,0.35); border-radius: 5px; padding: 1px 6px; vertical-align: middle; white-space: nowrap; font-family: 'Inter', sans-serif; }
@@ -474,6 +491,7 @@
             <a href="#myportfolio" class="nav-link">Simula il tuo</a>
             <a href="#strumenti" class="nav-link">Strumenti</a>
             <a href="#total-watchlist" class="nav-link">Watchlist</a>
+            <a class="nav-link" id="nav-personalizza" onclick="apriLayout()" title="Scegli quali sezioni vedere e in che ordine" style="cursor:pointer;">⚙️ Personalizza</a>
         </div>
         <button class="nav-hamburger" onclick="toggleMobileNav()" id="nav-hamburger-btn" aria-label="Apri il menu">☰</button>
     </nav>
@@ -489,6 +507,7 @@
         <a href="#myportfolio" class="nav-link" onclick="closeMobileNav()">💼 Simula il tuo</a>
         <a href="#strumenti" class="nav-link" onclick="closeMobileNav()">🛠️ Strumenti</a>
         <a href="#total-watchlist" class="nav-link" onclick="closeMobileNav()">👁️ Watchlist</a>
+        <a class="nav-link" id="nav-personalizza-m" onclick="closeMobileNav(); apriLayout()" style="cursor:pointer;">⚙️ Personalizza la pagina</a>
     </div>
 
     <div class="tradingview-widget-container" style="margin-top: 0;">
@@ -609,6 +628,16 @@
                     </div>
                     <div class="perf-kpi-bar" id="perf-kpi-bar" style="margin-top:14px;"></div>
                     <p id="perf-note" style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);"></p>
+                    <div id="risk-box" style="display:none; margin-top:18px; padding-top:16px; border-top:1px solid var(--border-glass);">
+                        <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:10px;">⚖️ Quanto rischio c'è dentro</div>
+                        <div class="mini-kpi" id="risk-kpi"></div>
+                        <details id="risk-corr-box" style="display:none; margin-top:12px;">
+                            <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Mostra la correlazione tra i titoli</summary>
+                            <div id="risk-corr-testo" style="margin:10px 0; font-size:0.85em; color:#ddd; line-height:1.6;"></div>
+                            <div style="overflow-x:auto;" id="risk-corr-tab"></div>
+                        </details>
+                        <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);"><strong style="color:#ccc;">Volatilità</strong>: di quanto oscilla il rendimento in un anno tipico (più è alta, più il percorso è accidentato). <strong style="color:#ccc;">Massimo ribasso</strong>: la discesa più profonda da un massimo al minimo successivo. <strong style="color:#ccc;">Correlazione</strong>: quanto i titoli si muovono insieme, da −1 a +1; più è bassa, più il portafoglio è diversificato davvero. Fino a inizio 2026 una buona parte del portafoglio era liquidità, e questo ha tenuto bassi i primi numeri.</p>
+                    </div>
                 </div>
             </div>
             <!-- Tabella posizioni + widget TradingView -->
@@ -651,8 +680,9 @@
                 </div>
                 
                 <div id="fvError" style="display:none; color: var(--accent-red); padding: 15px; text-align: center;">
-                    ⚠️ Titolo non presente nel database o ticker errato.
+                    ⚠️ Nessun titolo trovato con questo nome o ticker.
                 </div>
+                <div id="fvExtra" style="display:none; margin-top:16px; border:1px solid var(--border-glass); border-radius:14px; padding:18px 20px;"></div>
                 
                 <div id="fvResult" class="card fv-result-card" style="padding: 0; overflow: hidden;">
                     <div style="padding: 30px;">
@@ -719,6 +749,14 @@
                                     <div id="fv-band-high" class="mono-font" style="font-size:1.1em; color:#a5d6a7;">—</div>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Storico del fair value rispetto al prezzo -->
+                        <div id="fv-hist-row" style="display:none; margin-top:18px; border:1px solid var(--border-glass); border-radius:12px; padding:16px 20px;">
+                            <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:10px;">📈 Fair value e prezzo negli ultimi 6 anni</div>
+                            <div style="position:relative; height:220px;"><canvas id="fvHistChart"></canvas></div>
+                            <div id="fv-hist-testo" style="margin-top:10px; font-size:0.88em; color:#ddd; line-height:1.6;"></div>
+                            <div style="margin-top:6px; font-size:0.74em; color:var(--text-muted); line-height:1.6;">Il fair value (pavimento) è ricalcolato a ogni fine trimestre con i soli dati disponibili allora: bilanci già pubblicati, decennale e inflazione di quel momento. Cassa e debito sono noti solo a oggi e restano fuori dai punti passati, perciò l'ultimo punto può staccarsi un po' dalla linea. Il fair value si muove con i conti della società e con i tassi: quando sale nel tempo, di solito sono i fondamentali a migliorare; quando i tassi salgono, a parità di conti scende.</div>
                         </div>
 
                         <div id="smart-video-box" class="smart-video-container">
@@ -930,6 +968,20 @@
                 <a id="tbo-more" onclick="tboTutti = !tboTutti; renderTbo()" style="color:var(--brand-green); cursor:pointer; font-weight:700;"></a>
             </div>
             <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Sono gli stessi segnali che la strategia mostra sul mio grafico giornaliero di TradingView. <strong style="color:#ccc;">Compra</strong> compare solo quando la strategia ha ancora liquidità da investire sul titolo (ogni acquisto impegna il 10% del capitale): se è già tutta investita non compra più, anche se le condizioni ci sarebbero. <strong style="color:#ccc;">Chiusa all'80%</strong> vuol dire che vende l'80% della posizione. Le regole restano private: qui vedi solo l'esito, aggiornato ogni sera a mercati chiusi partendo dallo stato letto da TradingView; i prezzi del calcolo serale arrivano da una fonte diversa, quindi in qualche caso l'elenco può differire dal grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
+        </div>
+
+        <div class="card" style="padding: 20px; margin-top: 16px; display:none;" id="tbo-stats">
+            <h3 style="margin:0 0 4px; color:#fff; font-size:1.1em;">📒 Track record della strategia</h3>
+            <div id="tbo-stats-sub" style="font-size:0.85em; color:var(--text-muted); margin-bottom:14px;"></div>
+            <div class="mini-kpi" id="tbo-stats-kpi"></div>
+            <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">Acquisti ancora aperti (non venduti)</div>
+            <div class="mini-kpi" id="tbo-stats-aperte"></div>
+            <div id="tbo-stats-confronto" style="margin-top:14px; font-size:0.9em; color:#ddd; line-height:1.65;"></div>
+            <details style="margin-top:12px;">
+                <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Anno per anno</summary>
+                <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Anno di chiusura</th><th>Operazioni chiuse</th><th>Vincenti</th><th>Rendimento mediano</th></tr></thead><tbody id="tbo-stats-anni"></tbody></table></div>
+            </details>
+            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;"><strong style="color:#ccc;">Come leggerlo.</strong> È una simulazione: la strategia viene fatta ripartire da zero su ogni titolo dell'elenco con le stesse impostazioni del mio grafico, e ogni coppia acquisto-vendita conta come un'operazione, come nel registro di TradingView. Tre cautele: la strategia non ha stop, quindi gli acquisti andati male non vengono chiusi e restano tra quelli aperti, il che gonfia la quota di operazioni vincenti; i titoli sono quelli che seguo oggi, cioè società che in questi anni sono sopravvissute e spesso cresciute; il periodo è stato in gran parte di mercati in salita. I risultati passati non dicono nulla di certo su quelli futuri.</p>
         </div>
     </div>
 
@@ -1264,6 +1316,32 @@
         </div>
     </div>
 
+    <div class="container" id="i-miei-dati" style="padding-top:10px; padding-bottom:10px;">
+        <div class="card" style="padding:16px 20px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+            <div style="flex:1 1 260px; font-size:0.85em; color:var(--text-muted); line-height:1.55;"><strong style="color:#fff;">I tuoi dati restano nel tuo browser.</strong> Preferiti, portafoglio simulato e ordine delle sezioni si perdono se svuoti la cache o cambi dispositivo: scarica una copia e ricaricala quando serve.</div>
+            <button class="dati-btn" onclick="esportaDati()">💾 Scarica una copia</button>
+            <button class="dati-btn" onclick="document.getElementById('dati-file').click()">📂 Ricarica da file</button>
+            <button class="dati-btn" onclick="apriLayout()">⚙️ Personalizza la pagina</button>
+            <input type="file" id="dati-file" accept="application/json,.json" style="display:none;" onchange="importaDati(this)">
+            <div id="dati-esito" style="flex-basis:100%; font-size:0.85em; color:var(--brand-green); display:none;"></div>
+        </div>
+    </div>
+
+    <div id="lay-modale" style="display:none; position:fixed; inset:0; z-index:3000; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; padding:16px;" onclick="if(event.target===this) chiudiLayout()">
+        <div style="background:#111; border:1px solid var(--border-glass); border-radius:16px; width:100%; max-width:440px; max-height:88vh; overflow:auto; padding:20px;" role="dialog" aria-label="Personalizza la pagina">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <h3 style="margin:0; color:#fff;">⚙️ Personalizza la pagina</h3>
+                <button onclick="chiudiLayout()" aria-label="Chiudi" style="background:none; border:none; color:#fff; font-size:1.4em; cursor:pointer;">✕</button>
+            </div>
+            <p style="margin:0 0 10px; font-size:0.85em; color:var(--text-muted); line-height:1.5;">Togli la spunta alle sezioni che non ti servono e usa le frecce per metterle nell'ordine che preferisci. La scelta resta salvata in questo browser.</p>
+            <div id="lay-lista"></div>
+            <div style="display:flex; gap:10px; justify-content:space-between; margin-top:16px;">
+                <button class="dati-btn" onclick="ripristinaLayout()">Ripristina</button>
+                <button class="dati-btn" style="border-color:var(--brand-green); color:var(--brand-green);" onclick="chiudiLayout()">Fatto</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView e Investing.com sono link affiliati. <br><br> <a href="disclaimer.html">Disclaimer</a> · <a href="privacy.html">Privacy</a> · <a href="titoli/">Tutti i fair value</a></p>
     </footer>
@@ -1523,7 +1601,7 @@
             const miniChart = document.getElementById('mini-chart-container'), smartVideo = document.getElementById('smart-video-box');
             const btn = document.getElementById('calcBtn');
 
-            res.style.display = "none"; err.style.display = "none"; miniChart.innerHTML = ""; smartVideo.style.display = "none"; currentFVTicker = null; currentVideoID = null;
+            res.style.display = "none"; err.style.display = "none"; document.getElementById('fvExtra').style.display = "none"; miniChart.innerHTML = ""; smartVideo.style.display = "none"; currentFVTicker = null; currentVideoID = null;
 
             if (db[input]) {
                 const data = db[input];
@@ -1610,7 +1688,8 @@
                 }
 
                 res.style.display = "block";
-            } else { err.style.display = "block"; }
+                renderFvHist(input);
+            } else { cercaFuoriElenco(input); }
         }
         document.getElementById("fvInput").addEventListener("keypress", e => { if (e.key === "Enter") { e.preventDefault(); calculateFV(); } });
 
@@ -1759,6 +1838,7 @@
         async function loadTbo() {
             tboData = await fetchJson('tbo_signals.json');
             renderTbo();
+            renderTboStats(await fetchJson('tbo_stats.json'));
         }
         function renderTbo() {
             const tbody = document.getElementById('tbo-tbody'); if (!tbody) return;
@@ -2245,10 +2325,234 @@
                   + kpi('Valore attuale', usd(P.last.v), null, 'al ' + giorno(P.last.d))
                 : kpi('Variazione del valore', usd(P.last.v - P.start.v, true), color, dal + ' · versamenti compresi')
                   + kpi('Valore attuale', usd(P.last.v), null, 'al ' + giorno(P.last.d));
+            renderRisk();
             if (note) note.textContent = P.conPerf
                 ? 'Dati giornalieri di TradingView sull\'intero portafoglio, liquidità compresa. Il rendimento è al netto dei versamenti: il valore in dollari sale anche quando aggiungo capitale, quindi non misura da solo come sta andando il portafoglio. Rendimento e guadagno in dollari possono avere segno diverso, perché il primo non dipende da quando ho versato il capitale e il secondo sì.'
                 : 'Valore del portafoglio in dollari, versamenti compresi.';
         }
+
+        // === STORICO DEL FAIR VALUE (fv_history.json, scritto dal calcolo serale) ===
+        const itNum = (x, d = 2) => x.toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: 'always' });
+        const itPct = (x, d = 1) => (x >= 0 ? '+' : '−') + itNum(Math.abs(x), d) + '%';
+        const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        let fvHist = null, fvHistChart = null, fvHistRichiesto = null;
+        async function renderFvHist(t) {
+            const row = document.getElementById('fv-hist-row'); if (!row) return;
+            row.style.display = 'none'; fvHistRichiesto = t;
+            if (!fvHist) fvHist = (await fetchJson('fv_history.json')) || { date: [], titoli: {} };
+            const s = fvHist.titoli && fvHist.titoli[t];
+            if (fvHistRichiesto !== t || !s || typeof Chart === 'undefined') return;
+            const idx = s.fv.map((v, i) => (v != null && s.p[i] != null ? i : -1)).filter(i => i >= 0);
+            if (idx.length < 4) return;
+            const i0 = idx[0], date = fvHist.date.slice(i0), fv = s.fv.slice(i0), p = s.p.slice(i0), curr = db[t] ? db[t].curr : '';
+            const et = d => { const [y, m] = d.split('-'); return PERF_MESI[+m - 1] + ' ' + y.slice(2); };
+            row.style.display = 'block';
+            if (fvHistChart) { fvHistChart.destroy(); fvHistChart = null; }
+            fvHistChart = new Chart(document.getElementById('fvHistChart').getContext('2d'), {
+                type: 'line',
+                data: { labels: date.map(et), datasets: [
+                    { label: 'Prezzo', data: p, borderColor: '#e0e0e0', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.2, spanGaps: true },
+                    { label: 'Fair value', data: fv, borderColor: '#00e676', backgroundColor: 'rgba(0,230,118,0.10)', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.2, spanGaps: true, fill: true } ] },
+                options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+                    plugins: { legend: { labels: { color: '#bbb', boxWidth: 14, font: { size: 11 } } },
+                        tooltip: { backgroundColor: 'rgba(5,5,5,0.9)', titleColor: '#fff', bodyColor: '#ccc', callbacks: { label: c => c.dataset.label + ': ' + (c.parsed.y == null ? 'n.d.' : itNum(c.parsed.y) + ' ' + curr) } } },
+                    scales: { x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#666', font: { size: 10 }, maxTicksLimit: 7, maxRotation: 0 } },
+                              y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#666', font: { size: 10 } } } } }
+            });
+            const n = fv.length - 1, dFv = (fv[n] / fv[0] - 1) * 100, dP = (p[n] / p[0] - 1) * 100;
+            const lettura = dFv <= 0 ? 'la stima di valore non è cresciuta' + (dP > 0 ? ', il prezzo è salito da solo' : '')
+                : dP > dFv ? 'il prezzo è salito più della stima di valore, quindi il titolo è diventato più caro'
+                : dP >= 0 ? 'la stima di valore è cresciuta più del prezzo, quindi il titolo è diventato più conveniente'
+                : 'la stima di valore è cresciuta mentre il prezzo scendeva';
+            document.getElementById('fv-hist-testo').innerHTML = `Da ${et(date[0])} il fair value è passato da <strong>${itNum(fv[0])}</strong> a <strong>${itNum(fv[n])} ${esc(curr)}</strong> (<strong style="color:${dFv >= 0 ? '#43a047' : '#d32f2f'};">${itPct(dFv, 0)}</strong>) e il prezzo da ${itNum(p[0])} a ${itNum(p[n])} (${itPct(dP, 0)}): ${lettura}.`;
+        }
+
+        // === TITOLI FUORI ELENCO: dati di base dallo screener pubblico di TradingView ===
+        async function cercaFuoriElenco(q) {
+            const box = document.getElementById('fvExtra'), err = document.getElementById('fvError');
+            q = String(q || '').trim();
+            if (q.length < 1 || q.length > 40) { err.style.display = 'block'; return; }
+            box.style.display = 'block';
+            box.innerHTML = '<div style="color:var(--text-muted); text-align:center;">Non è tra i titoli che seguo: cerco i dati di base…</div>';
+            const cols = ['name', 'description', 'close', 'currency', 'exchange', 'price_earnings_ttm', 'enterprise_value_ebitda_ttm', 'dividends_yield_current',
+                'market_cap_basic', 'sector', 'price_book_fq', 'total_revenue_yoy_growth_ttm', 'country'];
+            const scan = async primo => {
+                const body = JSON.stringify({ filter: [primo, { left: 'type', operation: 'in_range', right: ['stock', 'dr', 'fund'] }, { left: 'is_primary', operation: 'equal', right: true }],
+                    columns: cols, sort: { sortBy: 'market_cap_basic', sortOrder: 'desc' }, range: [0, 6] });
+                const r = await fetch('https://scanner.tradingview.com/global/scan', { method: 'POST', body, headers: { 'Content-Type': 'text/plain' }, signal: AbortSignal.timeout(10000) });
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return ((await r.json()).data || []).map(x => ({ s: x.s, ...Object.fromEntries(cols.map((c, k) => [c, x.d[k]])) }));
+            };
+            let righe = [];
+            try {
+                righe = await scan({ left: 'name', operation: 'equal', right: q.toUpperCase() });
+                if (!righe.length && q.length >= 3) righe = await scan({ left: 'description', operation: 'match', right: q });
+            } catch (e) { box.style.display = 'none'; err.style.display = 'block'; err.textContent = '⚠️ Ricerca non riuscita: riprova tra poco.'; return; }
+            if (!righe.length) { box.style.display = 'none'; err.textContent = '⚠️ Nessun titolo trovato con questo nome o ticker.'; err.style.display = 'block'; return; }
+            const mostra = x => {
+                const nd = '<span style="color:var(--text-muted);">n.d.</span>';
+                const cap = x.market_cap_basic != null ? x.market_cap_basic / (x.currency === 'GBX' ? 100 : 1) : null;
+                const grande = v => v >= 1e12 ? itNum(v / 1e12, 2) + ' bilioni' : v >= 1e9 ? itNum(v / 1e9, 1) + ' mld' : itNum(v / 1e6, 0) + ' mln';
+                const voce = (l, v, tip) => `<div title="${tip || ''}"><div class="l">${l}</div><div class="v">${v}</div></div>`;
+                const altri = righe.filter(y => y.s !== x.s);
+                box.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:baseline;">
+                        <div><strong style="color:#fff; font-size:1.15em;">${esc(x.description)}</strong> <span class="mono-font" style="color:var(--text-muted);">${esc(x.s)}</span></div>
+                        <span style="font-size:0.8em; color:var(--text-muted);">${esc([x.sector, x.country].filter(Boolean).join(' · '))}</span>
+                    </div>
+                    <div style="margin:8px 0 14px; font-size:0.85em; color:var(--accent-yellow);">Non è tra i titoli che seguo: qui trovi solo i dati di base, senza fair value e senza verdetto.</div>
+                    <div class="mini-kpi">
+                        ${voce('Prezzo', x.close != null ? itNum(x.close) + ' ' + esc(x.currency || '') : nd)}
+                        ${voce('P/E', x.price_earnings_ttm > 0 ? itNum(x.price_earnings_ttm, 1) : nd, 'Prezzo diviso gli utili degli ultimi 12 mesi')}
+                        ${voce('EV/EBITDA', x.enterprise_value_ebitda_ttm > 0 ? itNum(x.enterprise_value_ebitda_ttm, 1) : nd, 'Valore d\'impresa (capitalizzazione più debito netto) diviso il margine operativo lordo')}
+                        ${voce('Dividendo', x.dividends_yield_current > 0 ? itNum(x.dividends_yield_current, 2) + '%' : '—', 'Rendimento da dividendo sul prezzo attuale')}
+                        ${voce('Prezzo / patrimonio', x.price_book_fq > 0 ? itNum(x.price_book_fq, 1) : nd, 'Prezzo diviso il patrimonio netto per azione')}
+                        ${voce('Capitalizzazione', cap != null ? grande(cap) + ' ' + esc(x.currency === 'GBX' ? 'GBP' : x.currency || '') : nd)}
+                        ${voce('Ricavi, ultimo anno', x.total_revenue_yoy_growth_ttm != null ? itPct(x.total_revenue_yoy_growth_ttm) : nd, 'Crescita dei ricavi degli ultimi 12 mesi sui 12 precedenti')}
+                    </div>
+                    ${altri.length ? `<div style="margin-top:12px; font-size:0.82em; color:var(--text-muted);">Altri risultati: ${altri.map(y => `<a data-s="${esc(y.s)}" style="color:var(--brand-green); cursor:pointer; margin-right:10px;">${esc(y.description)} (${esc(y.s)})</a>`).join('')}</div>` : ''}
+                    <div style="margin-top:10px; font-size:0.74em; color:var(--text-muted);">Fonte: TradingView, prezzi ritardati. <a href="https://it.tradingview.com/symbols/${encodeURIComponent(x.s.replace(':', '-'))}/?aff_id=158356" target="_blank" rel="noopener sponsored" style="color:var(--brand-green);">Apri il grafico su TradingView →</a></div>`;
+                box.querySelectorAll('a[data-s]').forEach(a => a.onclick = () => mostra(righe.find(y => y.s === a.dataset.s)));
+            };
+            mostra(righe[0]);
+        }
+
+        // === RISCHIO DEL PORTAFOGLIO: volatilità e massimo ribasso dallo storico, correlazioni da portfolio_risk.json ===
+        let riskCorr, riskFatto = false;
+        async function renderRisk() {
+            const box = document.getElementById('risk-box'); if (!box || riskFatto) return;
+            const pts = perfPoints().filter(p => p.perf != null);
+            if (pts.length < 60) return;
+            riskFatto = true;
+            const idx = pts.map(p => 1 + p.perf / 100), rend = idx.slice(1).map((v, i) => v / idx[i] - 1);
+            const ult = rend.slice(-252), m = ult.reduce((a, b) => a + b, 0) / ult.length;
+            const vol = Math.sqrt(ult.reduce((a, b) => a + (b - m) ** 2, 0) / (ult.length - 1)) * Math.sqrt(252) * 100;
+            let picco = idx[0], iPicco = 0, dd = 0, ddDa = 0, ddA = 0;
+            idx.forEach((v, i) => { if (v > picco) { picco = v; iPicco = i; } const x = v / picco - 1; if (x < dd) { dd = x; ddDa = iPicco; ddA = i; } });
+            const ora = idx[idx.length - 1] / Math.max(...idx) - 1;
+            const g = d => `${d.getDate()} ${PERF_MESI[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
+            const peggio = Math.min(...rend), iPeggio = rend.indexOf(peggio) + 1;
+            const voce = (l, v, s) => `<div><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`;
+            const kpi = document.getElementById('risk-kpi');
+            const base = voce('Volatilità annua', itNum(vol, 1) + '%', 'sugli ultimi 12 mesi')
+                + voce('Massimo ribasso', '−' + itNum(-dd * 100, 1) + '%', `dal ${g(pts[ddDa].d)} al ${g(pts[ddA].d)}`)
+                + voce('Distanza dal massimo', ora > -0.0005 ? 'sui massimi' : '−' + itNum(-ora * 100, 1) + '%', 'oggi, rispetto al punto più alto')
+                + voce('Giornata peggiore', '−' + itNum(-peggio * 100, 1) + '%', g(pts[iPeggio].d));
+            kpi.innerHTML = base; box.style.display = 'block';
+            if (riskCorr === undefined) riskCorr = await fetchJson('portfolio_risk.json');
+            const R = riskCorr; if (!R || !R.corr || !R.titoli) return;
+            kpi.innerHTML = base + voce('Correlazione media', itNum(R.media, 2), `tra i ${R.titoli.length} titoli azionari, pesata`);
+            const cop = (a, b, c) => `<strong>${esc(a)}</strong> e <strong>${esc(b)}</strong> (${itNum(c, 2)})`;
+            document.getElementById('risk-corr-testo').innerHTML = `Rendimenti settimanali delle ultime ${R.settimane} settimane, titoli azionari (${itNum(R.coperto, 0)}% del portafoglio; le obbligazioni non sono comprese). I più legati: ${R.piu.map(x => cop(...x)).join(', ')}. I meno legati: ${R.meno.map(x => cop(...x)).join(', ')}.`;
+            const col = c => c >= 0 ? `rgba(255,82,82,${Math.min(1, c) * 0.85})` : `rgba(64,196,255,${Math.min(1, -c) * 0.85})`;
+            document.getElementById('risk-corr-tab').innerHTML = '<table class="corr-tab"><tr><th></th>' + R.titoli.map(t => `<th>${esc(t)}</th>`).join('') + '</tr>'
+                + R.titoli.map((t, i) => `<tr><th class="r">${esc(t)}</th>` + R.corr[i].map((c, j) => i === j ? '<td style="color:#555;">·</td>'
+                    : `<td style="background:${col(c)};" title="${esc(t)} / ${esc(R.titoli[j])}: ${itNum(c, 2)}">${Math.round(c * 100)}</td>`).join('') + '</tr>').join('') + '</table>';
+            document.getElementById('risk-corr-box').style.display = 'block';
+        }
+
+        // === TRACK RECORD DELLA TBO (tbo_stats.json) ===
+        function renderTboStats(S) {
+            const card = document.getElementById('tbo-stats'); if (!card || !S || !S.chiuse || !S.chiuse.operazioni) return;
+            const c = S.chiuse, a = S.aperte, int = x => x.toLocaleString('it-IT', { useGrouping: 'always' });
+            const anno = s => s.slice(0, 4), mesi = Math.round(c.durata_mediana_giorni / 30.4);
+            const voce = (l, v, s, col) => `<div><div class="l">${l}</div><div class="v"${col ? ` style="color:${col};"` : ''}>${v}</div><div class="s">${s}</div></div>`;
+            document.getElementById('tbo-stats-sub').innerText = `Simulazione dal ${anno(S.dal)} al ${anno(S.al)} su ${S.titoli} titoli dell'elenco, con le impostazioni del mio grafico`;
+            document.getElementById('tbo-stats-kpi').innerHTML =
+                voce('Operazioni chiuse', int(c.operazioni), `durata mediana ${mesi} mesi`)
+                + voce('Vincenti', itNum(c.vincenti_pct, 1) + '%', 'chiuse in guadagno')
+                + voce('Guadagno medio', itPct(c.guadagno_medio_pct), 'delle operazioni vincenti', '#43a047')
+                + voce('Perdita media', itPct(c.perdita_media_pct), 'delle operazioni perdenti', '#d32f2f')
+                + voce('Rapporto guadagno / perdita', c.rapporto != null ? itNum(c.rapporto, 2) : 'n.d.', 'guadagno medio diviso perdita media');
+            document.getElementById('tbo-stats-aperte').innerHTML =
+                voce('Acquisti aperti', int(a.acquisti), 'non ancora venduti')
+                + voce('In perdita', itNum(a.in_perdita_pct, 1) + '%', 'ai prezzi di oggi', '#d32f2f')
+                + voce('Risultato mediano', itPct(a.rendimento_mediano_pct), 'ai prezzi di oggi')
+                + voce('Il peggiore', itPct(a.peggiore_pct), 'ai prezzi di oggi', '#d32f2f');
+            const k = S.confronto;
+            document.getElementById('tbo-stats-confronto').innerHTML = k ? `<strong style="color:#fff;">Il termine di paragone.</strong> Comprare gli stessi titoli in un giorno qualsiasi e tenerli ${mesi} mesi sarebbe finito in guadagno nel <strong>${itNum(k.positivi_pct, 1)}%</strong> dei casi, con un rendimento mediano del <strong>${itPct(k.rendimento_mediano_pct)}</strong>. Le operazioni chiuse dalla strategia hanno fatto <strong>${itNum(c.vincenti_pct, 1)}%</strong> e <strong>${itPct(c.rendimento_mediano_pct)}</strong>, ma nel conto non entrano gli acquisti ancora aperti, che sono quelli andati peggio.` : '';
+            document.getElementById('tbo-stats-anni').innerHTML = (S.per_anno || []).slice().reverse().map(y => `<tr><td>${y.anno}</td><td class="mono-font">${int(y.operazioni)}</td><td class="mono-font">${itNum(y.vincenti_pct, 1)}%</td><td class="mono-font">${itPct(y.rendimento_mediano_pct)}</td></tr>`).join('');
+            card.style.display = 'block';
+        }
+
+        // === I MIEI DATI: copia su file e ripristino (preferiti, portafoglio simulato, avvisi, ordine delle sezioni) ===
+        const DATI_CHIAVI = ['mm_wl', 'mm_port', 'mm_alerts', 'mm_layout'];
+        function datiEsito(msg, errore) { const el = document.getElementById('dati-esito'); el.style.display = 'block'; el.style.color = errore ? 'var(--accent-red)' : 'var(--brand-green)'; el.textContent = msg; }
+        function esportaDati() {
+            const dati = {};
+            for (const k of DATI_CHIAVI) { try { const v = localStorage.getItem(k); if (v != null) dati[k] = JSON.parse(v); } catch (e) {} }
+            const blob = new Blob([JSON.stringify({ app: 'mm-trading-hub', versione: 1, esportato: new Date().toISOString(), dati }, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'trading-hub-dati-' + new Date().toISOString().slice(0, 10) + '.json';
+            document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+            datiEsito(`Copia scaricata: ${(dati.mm_wl || []).length} preferiti, ${(dati.mm_port || []).length} posizioni del portafoglio simulato.`);
+        }
+        async function importaDati(input) {
+            const f = input.files && input.files[0]; input.value = '';
+            if (!f) return;
+            try {
+                if (f.size > 500000) throw new Error('file troppo grande');
+                const j = JSON.parse(await f.text());
+                if (!j || j.app !== 'mm-trading-hub' || !j.dati || typeof j.dati !== 'object') throw new Error('non è una copia fatta da questo sito');
+                const d = j.dati, ok = {};
+                if (Array.isArray(d.mm_wl)) ok.mm_wl = d.mm_wl.filter(x => typeof x === 'string' && x.length <= 20).slice(0, 1000);
+                if (Array.isArray(d.mm_port)) ok.mm_port = d.mm_port.filter(x => x && typeof x === 'object').slice(0, 500);
+                if (Array.isArray(d.mm_alerts)) ok.mm_alerts = d.mm_alerts.slice(0, 500);
+                if (d.mm_layout && typeof d.mm_layout === 'object') ok.mm_layout = { ordine: (d.mm_layout.ordine || []).filter(x => typeof x === 'string'), nascoste: (d.mm_layout.nascoste || []).filter(x => typeof x === 'string') };
+                if (!Object.keys(ok).length) throw new Error('il file non contiene dati');
+                for (const [k, v] of Object.entries(ok)) localStorage.setItem(k, JSON.stringify(v));
+                datiEsito(`Dati ricaricati: ${(ok.mm_wl || []).length} preferiti, ${(ok.mm_port || []).length} posizioni. Aggiorno la pagina…`);
+                setTimeout(() => location.reload(), 1200);
+            } catch (e) { datiEsito('Non riesco a leggere il file: ' + e.message + '.', true); }
+        }
+
+        // === LAYOUT: sezioni nascoste e ordine, salvati nel browser (mm_layout) ===
+        const LAY_SEZIONI = [['editoriale', '✍️ Editoriale'], ['portfolio', '📈 Il mio portafoglio'], ['fv-section', '📊 Fair Value'], ['screener', '🔍 Screener'],
+            ['pattern', '🧩 Pattern Scanner'], ['tbo', '🫖 TBO Strategy'], ['myportfolio', '💼 Simula il tuo portafoglio'], ['strumenti', '🛠️ Strumenti'],
+            ['news', '📰 Notizie e mercati'], ['faq', '📚 Glossario e domande'], ['total-watchlist', '👁️ Watchlist completa']].filter(x => document.getElementById(x[0]));
+        function leggiLayout() {
+            let L = {}; try { L = JSON.parse(localStorage.getItem('mm_layout') || '{}') || {}; } catch (e) {}
+            const ids = LAY_SEZIONI.map(x => x[0]);
+            const ordine = (Array.isArray(L.ordine) ? L.ordine : []).filter(id => ids.includes(id));
+            ids.forEach(id => { if (!ordine.includes(id)) ordine.push(id); });
+            return { ordine, nascoste: (Array.isArray(L.nascoste) ? L.nascoste : []).filter(id => ids.includes(id)) };
+        }
+        function applicaLayout(L) {
+            L = L || leggiLayout();
+            const fine = document.getElementById('i-miei-dati');
+            for (const id of L.ordine) {
+                const el = document.getElementById(id); if (!el) continue;
+                el.parentNode.insertBefore(el, fine);
+                if (id === 'tbo') { const s = document.getElementById('indicatore'); if (s) s.parentNode.insertBefore(s, fine); }
+                el.classList.toggle('sez-nascosta', L.nascoste.includes(id));
+            }
+            // le voci del menu seguono lo stesso ordine e spariscono con la sezione
+            for (const nav of [document.querySelector('.nav-links'), document.getElementById('nav-mobile-overlay')]) {
+                if (!nav) continue;
+                const ultimo = nav.querySelector('#nav-personalizza, #nav-personalizza-m');
+                for (const id of L.ordine) {
+                    const a = nav.querySelector(`a[href="#${id}"]`); if (!a) continue;
+                    nav.insertBefore(a, ultimo); a.classList.toggle('sez-nascosta', L.nascoste.includes(id));
+                    if (id === 'tbo') { const s = nav.querySelector('a[href="#indicatore"]'); if (s) nav.insertBefore(s, ultimo); }
+                }
+            }
+        }
+        function salvaLayout(L) { try { localStorage.setItem('mm_layout', JSON.stringify(L)); } catch (e) {} applicaLayout(L); disegnaLayout(L); }
+        function disegnaLayout(L) {
+            L = L || leggiLayout();
+            const nome = Object.fromEntries(LAY_SEZIONI);
+            document.getElementById('lay-lista').innerHTML = L.ordine.map((id, i) => `<div class="lay-riga">
+                <input type="checkbox" id="lay-${id}" ${L.nascoste.includes(id) ? '' : 'checked'} onchange="layMostra('${id}', this.checked)">
+                <label for="lay-${id}">${nome[id]}</label>
+                <button onclick="laySposta('${id}', -1)" ${i === 0 ? 'disabled' : ''} aria-label="Sposta su">▲</button>
+                <button onclick="laySposta('${id}', 1)" ${i === L.ordine.length - 1 ? 'disabled' : ''} aria-label="Sposta giù">▼</button></div>`).join('');
+        }
+        function layMostra(id, visibile) { const L = leggiLayout(); L.nascoste = L.nascoste.filter(x => x !== id); if (!visibile) L.nascoste.push(id); salvaLayout(L); }
+        function laySposta(id, d) { const L = leggiLayout(), i = L.ordine.indexOf(id), j = i + d; if (i < 0 || j < 0 || j >= L.ordine.length) return; [L.ordine[i], L.ordine[j]] = [L.ordine[j], L.ordine[i]]; salvaLayout(L); }
+        function ripristinaLayout() { try { localStorage.removeItem('mm_layout'); } catch (e) {} const L = { ordine: LAY_SEZIONI.map(x => x[0]), nascoste: [] }; applicaLayout(L); disegnaLayout(L); }
+        function apriLayout() { disegnaLayout(); document.getElementById('lay-modale').style.display = 'flex'; }
+        function chiudiLayout() { document.getElementById('lay-modale').style.display = 'none'; }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') chiudiLayout(); });
+        try { if (localStorage.getItem('mm_layout')) applicaLayout(); } catch (e) {}
 
         // === MOBILE NAV ===
         function toggleMobileNav() {

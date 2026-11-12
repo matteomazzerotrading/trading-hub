@@ -42,6 +42,65 @@ export function avanza(st, s, r) {
   return ev;
 }
 
+// Storico delle operazioni di un titolo: la strategia parte senza posizioni dalla prima seduta disponibile e si
+// applicano le stesse impostazioni. Come nell'elenco delle operazioni di TradingView, ogni vendita chiude uno o più
+// acquisti (dal più vecchio) e ogni coppia acquisto-vendita è un'operazione. Restituisce le operazioni chiuse
+// { da, a, r (rendimento), usd } e gli acquisti ancora aperti { da, r } valutati all'ultima chiusura.
+export function storicoOperazioni(s, r, capitale = 1e6) {
+  let cash = capitale; const lotti = [], chiuse = [];
+  for (let i = 0; i < s.d.length; i++) {
+    const C = s.c[i], Q = lotti.reduce((a, b) => a + b.n, 0);
+    if (r.setup[i] && lotti.length < IMP.MAX_ACQUISTI) {
+      const n = Math.floor(IMP.QUOTA * (cash + Q * C) / C);
+      if (n >= 1 && n * C <= cash) { lotti.push({ n, p: C, d: s.d[i] }); cash -= n * C + IMP.COMMISSIONE; }
+    } else if (r.uscita[i] && Q > 0) {
+      let vendi = Math.max(1, Math.floor(IMP.CHIUSURA * Q));
+      cash += vendi * C - IMP.COMMISSIONE;
+      while (vendi > 0 && lotti.length) {
+        const L = lotti[0], t = Math.min(vendi, L.n);
+        chiuse.push({ da: L.d, a: s.d[i], r: C / L.p - 1, usd: t * (C - L.p) });
+        L.n -= t; vendi -= t; if (L.n === 0) lotti.shift();
+      }
+    }
+  }
+  const ult = s.c.at(-1);
+  return { chiuse, aperte: lotti.map(L => ({ da: L.d, r: ult / L.p - 1 })) };
+}
+
+// Termine di paragone: comprare in un giorno qualsiasi e tenere per `sedute` sedute, sugli stessi titoli.
+// Dice quanta parte del risultato viene dal mercato (e dalla scelta di titoli che oggi sono in elenco).
+export function confronto(serie, sedute) {
+  let n = 0, pos = 0; const camp = [];
+  for (const s of serie) for (let i = 0; i + sedute < s.c.length; i += 5) {      // un acquisto ogni 5 sedute
+    const r = s.c[i + sedute] / s.c[i] - 1; n++; if (r > 0) pos++; camp.push(r);
+  }
+  camp.sort((a, b) => a - b);
+  return n ? { sedute, acquisti: n, positivi_pct: Math.round(pos / n * 1000) / 10, rendimento_mediano_pct: Math.round(camp[camp.length >> 1] * 1000) / 10 } : null;
+}
+
+// Statistiche d'insieme su tutti i titoli (tbo_stats.json)
+export function statistiche(perTitolo, dal, al) {
+  const ch = perTitolo.flatMap(x => x.chiuse), ap = perTitolo.flatMap(x => x.aperte);
+  const media = a => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : null);
+  const mediana = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+  const giorni = o => (new Date(o.a) - new Date(o.da)) / 86400000;
+  const pc = x => (x == null ? null : Math.round(x * 1000) / 10);
+  const blocco = ops => {
+    const v = ops.filter(o => o.r > 0), p = ops.filter(o => o.r <= 0);
+    const gv = v.reduce((a, o) => a + o.usd, 0), gp = -p.reduce((a, o) => a + o.usd, 0);
+    return { operazioni: ops.length, vincenti_pct: pc(ops.length ? v.length / ops.length : null), guadagno_medio_pct: pc(media(v.map(o => o.r))),
+      perdita_media_pct: pc(media(p.map(o => o.r))), rapporto: v.length && p.length ? Math.round(media(v.map(o => o.r)) / -media(p.map(o => o.r)) * 100) / 100 : null,
+      fattore_profitto: gp > 0 ? Math.round(gv / gp * 100) / 100 : null, rendimento_mediano_pct: pc(mediana(ops.map(o => o.r))),
+      durata_mediana_giorni: ops.length ? Math.round(mediana(ops.map(giorni))) : null };
+  };
+  const anni = {};
+  for (const o of ch) (anni[o.a.slice(0, 4)] = anni[o.a.slice(0, 4)] || []).push(o);
+  return { dal, al, titoli: perTitolo.length, titoli_con_operazioni: perTitolo.filter(x => x.chiuse.length).length, chiuse: blocco(ch),
+    per_anno: Object.keys(anni).sort().map(y => ({ anno: +y, operazioni: anni[y].length, vincenti_pct: pc(anni[y].filter(o => o.r > 0).length / anni[y].length), rendimento_mediano_pct: pc(mediana(anni[y].map(o => o.r))) })),
+    aperte: { acquisti: ap.length, in_perdita_pct: pc(ap.length ? ap.filter(o => o.r < 0).length / ap.length : null), rendimento_medio_pct: pc(media(ap.map(o => o.r))),
+      rendimento_mediano_pct: pc(mediana(ap.map(o => o.r))), peggiore_pct: pc(ap.length ? Math.min(...ap.map(o => o.r)) : null) } };
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const REGOLE = process.env.TBO_RULES_FILE || path.join(ROOT, 'scripts', 'private', 'tbo_rules.mjs');
   if (!fs.existsSync(REGOLE)) { console.log('Regole TBO non configurate: nessun calcolo.'); process.exit(0); }
@@ -57,6 +116,26 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // La barra di oggi vale solo a mercato chiuso: Europa dalle 16:50 UTC, Stati Uniti dalle 21:10 UTC.
   const chiuso = sym => minuti >= (/\.[A-Z]+$/.test(sym) ? 16 * 60 + 50 : 21 * 60 + 10);
   const lunedi = s => { const d = new Date(s + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7); return d; };
+
+  // Track record: tutta la storia scaricata, titolo per titolo (solo se le barre coprono almeno 6 anni)
+  try {
+    const per = [], serie = []; let dal = '9999', al = '';
+    for (const [t, e] of Object.entries(db)) {
+      const b = e.tv && daily[e.yf || t];
+      if (!b || !b.h || b.d.length < 1500) continue;
+      let n = b.d.length; if (b.d[n - 1] === oggi && !chiuso(e.yf || t)) n--;
+      const s = { d: b.d.slice(0, n), o: b.o.slice(0, n), h: b.h.slice(0, n), l: b.l.slice(0, n), c: b.c.slice(0, n) };
+      const r = segnali(s); if (!r || !r.setup || !r.uscita) continue;
+      per.push(storicoOperazioni(s, r)); serie.push(s);
+      if (s.d[0] < dal) dal = s.d[0]; if (s.d.at(-1) > al) al = s.d.at(-1);
+    }
+    if (per.length > 50) {
+      const st = statistiche(per, dal, al);
+      st.confronto = confronto(serie, Math.round(st.chiuse.durata_mediana_giorni * 252 / 365));
+      fs.writeFileSync(path.join(ROOT, 'tbo_stats.json'), JSON.stringify({ aggiornato: ora.toISOString(), ...st }) + '\n');
+      console.log(`Track record TBO: ${per.length} titoli dal ${dal} al ${al}`);
+    }
+  } catch { console.error('Track record TBO non calcolato.'); }
 
   const nuovi = []; let ultima = stato.ultima_seduta || '', titoli = 0, errori = 0;
   for (const [t, e] of Object.entries(db)) {
