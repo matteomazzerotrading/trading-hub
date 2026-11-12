@@ -2495,7 +2495,7 @@
                 if (!j || j.app !== 'mm-trading-hub' || !j.dati || typeof j.dati !== 'object') throw new Error('non è una copia fatta da questo sito');
                 const d = j.dati, ok = {};
                 if (Array.isArray(d.mm_wl)) ok.mm_wl = d.mm_wl.filter(x => typeof x === 'string' && x.length <= 20).slice(0, 1000);
-                if (Array.isArray(d.mm_port)) ok.mm_port = d.mm_port.filter(x => x && typeof x === 'object').slice(0, 500);
+                if (Array.isArray(d.mm_port)) ok.mm_port = d.mm_port.filter(x => x && typeof x.ticker === 'string' && isFinite(x.qty) && isFinite(x.price)).map(x => ({ ticker: x.ticker.slice(0, 20), qty: Number(x.qty), price: Number(x.price) })).slice(0, 500);
                 if (Array.isArray(d.mm_alerts)) ok.mm_alerts = d.mm_alerts.slice(0, 500);
                 if (d.mm_layout && typeof d.mm_layout === 'object') ok.mm_layout = { ordine: (d.mm_layout.ordine || []).filter(x => typeof x === 'string'), nascoste: (d.mm_layout.nascoste || []).filter(x => typeof x === 'string') };
                 if (!Object.keys(ok).length) throw new Error('il file non contiene dati');
