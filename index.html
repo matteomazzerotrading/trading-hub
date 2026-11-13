@@ -2681,7 +2681,7 @@
         function renderPortKpi() {
             const pd = portfolioData; if (!pd || !pd.summary) return;
             const s = pd.summary, snap = pd.snapshot, L = portLive && snap ? portLive : null;
-            const usd = v => v.toLocaleString('it-IT', { style: 'currency', currency: 'USD' });
+            const usd = v => '$' + v.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
             const segno = v => (v >= 0 ? '+' : '−') + usd(Math.abs(v));
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2).replace('.', ',') + '%';
             if (!L) document.getElementById('port-total').innerText = usd(s.total_value_usd);
@@ -2740,7 +2740,7 @@
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
             const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#00e676' : '#ff5252';
-            el.innerText = tot.toLocaleString('it-IT', { style: 'currency', currency: 'USD' });
+            el.innerText = '$' + tot.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
             portLive = { tot, d };
             renderPortKpi();
             perfSenzaAnimazione = true; try { renderPerfChart(); } catch (e) {} finally { perfSenzaAnimazione = false; }
