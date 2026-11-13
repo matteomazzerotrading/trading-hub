@@ -982,11 +982,15 @@
             <div id="tbo-stats-sub" style="font-size:0.85em; color:var(--text-muted); margin-bottom:14px;"></div>
             <div id="tbo-eff" style="display:none; margin-bottom:18px;">
                 <div id="tbo-eff-sintesi" style="background:rgba(255,255,255,0.04); border:1px solid var(--border-glass); border-left:4px solid var(--brand-green); border-radius:10px; padding:14px 16px; font-size:0.95em; line-height:1.65; color:#eee;"></div>
-                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">1 · Che cosa succede dopo un segnale, rispetto a un giorno qualsiasi</div>
-                <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Dopo</th><th>Giorno qualsiasi</th><th>Dopo un “compra”</th><th>Differenza</th><th>Dopo una condizione di uscita</th></tr></thead><tbody id="tbo-eff-righe"></tbody></table></div>
-                <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Rendimento medio del titolo e, tra parentesi, quota di casi finiti in guadagno. “Compra” qui è ogni seduta in cui scatta la condizione di acquisto. Se il segnale sceglie bene il momento, la colonna “compra” deve stare sopra il giorno qualsiasi e quella di uscita sotto.</div>
-                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">2 · La strategia completa contro il semplice “compra e tieni”</div>
-                <div class="mini-kpi" id="tbo-eff-tieni"></div>
+                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">1 · Come portafoglio, contro il semplice “compra e tieni”</div>
+                <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Periodo</th><th></th><th>Rendimento annuo</th><th>Ribasso massimo</th><th>Volatilità annua</th></tr></thead><tbody id="tbo-eff-port"></tbody></table></div>
+                <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Tutti i titoli dell'elenco con lo stesso peso: la strategia applicata a ciascuno, contro l'averli comprati all'inizio e tenuti. La strategia entra a scaglioni e alleggerisce sulla forza, quindi resta investita solo in parte: è da qui che vengono sia il ribasso più contenuto sia il rendimento più basso.</div>
+                <div class="mini-kpi" id="tbo-eff-tieni" style="margin-top:12px;"></div>
+                <details style="margin-top:14px;">
+                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">2 · Che cosa succede dopo un segnale, rispetto a un giorno qualsiasi</summary>
+                    <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Dopo</th><th>Giorno qualsiasi</th><th>Dopo un “compra”</th><th>Differenza</th><th>Dopo una condizione di uscita</th></tr></thead><tbody id="tbo-eff-righe"></tbody></table></div>
+                    <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Rendimento medio del titolo e, tra parentesi, quota di casi finiti in guadagno. “Compra” qui è ogni seduta in cui scatta la condizione di acquisto. In questi anni i rendimenti dopo un segnale sono stati in linea con quelli di un giorno qualsiasi: il segnale serve a scaglionare gli ingressi, non a prevedere il rialzo.</div>
+                </details>
                 <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">3 · Il registro delle operazioni</div>
             </div>
             <div class="mini-kpi" id="tbo-stats-kpi"></div>
@@ -2549,18 +2553,16 @@
                 const cella = o => o ? `${itPct(o.media_pct)} <span style="color:var(--text-muted);">(${itNum(o.positivi_pct, 0)}%)</span>` : '—';
                 document.getElementById('tbo-eff-righe').innerHTML = Ef.orizzonti.map(o => { const d = o.acquisto && o.qualsiasi ? o.acquisto.media_pct - o.qualsiasi.media_pct : null;
                     return `<tr><td>${o.mesi} ${o.mesi === 1 ? 'mese' : 'mesi'}</td><td class="mono-font">${cella(o.qualsiasi)}</td><td class="mono-font">${cella(o.acquisto)}</td><td class="mono-font" style="font-weight:800; color:${d == null || Math.abs(d) < 0.5 ? '#bbb' : d > 0 ? '#43a047' : '#d32f2f'};">${d == null ? '—' : itPct(d) .replace('%', ' punti')}</td><td class="mono-font">${cella(o.uscita)}</td></tr>`; }).join('');
-                const u = Ef.orizzonti[Ef.orizzonti.length - 1], sei = Ef.orizzonti.find(o => o.mesi === 6) || u;
-                const diff = sei.acquisto.media_pct - sei.qualsiasi.media_pct, T = Ef.tieni;
-                const esito = Math.abs(diff) < 1 ? `<strong style="color:#fff;">In breve: nei dati di questi anni i segnali non hanno scelto momenti migliori della media.</strong> Sei mesi dopo un “compra” i titoli hanno reso in media ${itPct(sei.acquisto.media_pct)}, contro ${itPct(sei.qualsiasi.media_pct)} di un giorno qualsiasi: la differenza è troppo piccola per contare.`
-                    : diff > 0 ? `<strong style="color:#fff;">In breve: dopo un “compra” i titoli hanno reso più della media.</strong> A sei mesi ${itPct(sei.acquisto.media_pct)} contro ${itPct(sei.qualsiasi.media_pct)} di un giorno qualsiasi.`
-                    : `<strong style="color:#fff;">In breve: dopo un “compra” i titoli hanno reso meno della media.</strong> A sei mesi ${itPct(sei.acquisto.media_pct)} contro ${itPct(sei.qualsiasi.media_pct)} di un giorno qualsiasi.`;
-                document.getElementById('tbo-eff-sintesi').innerHTML = esito + (T ? ` Applicata per intero, la strategia ha reso il ${itNum(T.strategia_annuo_pct, 1)}% l'anno contro il ${itNum(T.tieni_annuo_pct, 1)}% del compra e tieni, restando investita in media per il ${itNum(T.investito_pct, 0)}% del capitale: in pratica ha seguito il titolo con un po' meno esposizione. La quota alta di operazioni vincenti qui sotto viene dai mercati in salita e dal fatto che le posizioni in perdita non vengono chiuse, non dalla scelta del momento.` : '');
+                const T = Ef.tieni, Pf = Ef.portafoglio || [], P0 = Pf[0];
+                const riga = (nome, etic, m, forte) => `<tr><td>${nome}</td><td${forte ? ' style="color:#fff; font-weight:700;"' : ''}>${etic}</td><td class="mono-font">${itPct(m.annuo_pct)}</td><td class="mono-font">${itPct(m.ribasso_pct)}</td><td class="mono-font">${itNum(m.volatilita_pct, 1)}%</td></tr>`;
+                document.getElementById('tbo-eff-port').innerHTML = Pf.map(x => riga(esc(x.nome) + (x.nome.includes(x.dal.slice(0, 4)) ? '' : ' (' + x.dal.slice(0, 4) + ')'), 'TBO', x.strategia, true) + riga('', 'Compra e tieni', x.tieni)).join('');
+                document.getElementById('tbo-eff-sintesi').innerHTML = P0
+                    ? `<strong style="color:#fff;">A che cosa serve.</strong> La TBO non nasce per battere il mercato ma per entrare un po' alla volta, quando dopo una fase debole tornano i compratori, e per alleggerire sulla forza. Applicata a tutti i titoli dell'elenco dal ${P0.dal.slice(0, 4)}, ha dato un percorso più regolare: ribasso massimo del <strong>${itNum(-P0.strategia.ribasso_pct, 0)}%</strong> contro il ${itNum(-P0.tieni.ribasso_pct, 0)}% del compra e tieni e oscillazioni più contenute (${itNum(P0.strategia.volatilita_pct, 0)}% contro ${itNum(P0.tieni.volatilita_pct, 0)}%), in cambio di una parte del rendimento: <strong>${itNum(P0.strategia.annuo_pct, 1)}%</strong> l'anno contro ${itNum(P0.tieni.annuo_pct, 1)}%.`
+                    : `<strong style="color:#fff;">A che cosa serve.</strong> La TBO non nasce per battere il mercato ma per entrare un po' alla volta e alleggerire sulla forza.`;
                 if (T) document.getElementById('tbo-eff-tieni').innerHTML =
-                    voce('Strategia', itPct(T.strategia_annuo_pct) + ' l\'anno', `mediana su ${T.titoli} titoli`)
-                    + voce('Compra e tieni', itPct(T.tieni_annuo_pct) + ' l\'anno', 'stessi titoli, stesso periodo')
-                    + voce('Capitale investito', itNum(T.investito_pct, 0) + '%', 'in media, con la strategia')
-                    + voce('Ribasso massimo', itPct(T.ribasso_strategia_pct, 0), `compra e tieni: ${itPct(T.ribasso_tieni_pct, 0)}`)
-                    + voce('Titoli dove batte il compra e tieni', itNum(T.meglio_pct, 0) + '%', 'per rendimento annuo');
+                    voce('Capitale investito', itNum(T.investito_pct, 0) + '%', 'in media, sul singolo titolo')
+                    + voce('Ribasso sul singolo titolo', itPct(T.ribasso_strategia_pct, 0), `mediana; compra e tieni: ${itPct(T.ribasso_tieni_pct, 0)}`)
+                    + voce('Rende più del compra e tieni', itNum(T.meglio_pct, 0) + '%', 'dei titoli, per rendimento annuo');
                 document.getElementById('tbo-eff').style.display = 'block';
             }
             card.style.display = 'block';

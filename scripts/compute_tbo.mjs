@@ -94,16 +94,18 @@ export function efficacia(S) {
     return { sedute: h, mesi, qualsiasi: f(g.q), acquisto: f(g.c), uscita: f(g.u) };
   });
   // Strategia completa contro "compra e tieni" (solo titoli con almeno 12 anni di barre)
-  const righe = [];
+  const righe = [], giorni = new Map();          // giorni: data -> [somma rend. strategia, somma rend. compra e tieni, titoli]
   for (const { s, r } of S) {
     const n = s.c.length; if (n < 3000) continue;
-    let cash = 1e6, picco = 1e6, dd = 0, espo = 0, bp = s.c[INIZIO], bdd = 0, k = 0; const lotti = [];
+    let cash = 1e6, picco = 1e6, dd = 0, espo = 0, bp = s.c[INIZIO], bdd = 0, k = 0, eqPrima = 1e6; const lotti = [];
     for (let i = INIZIO; i < n; i++) {
       const C = s.c[i], Q = lotti.reduce((a, b) => a + b, 0);
       if (r.setup[i] && lotti.length < IMP.MAX_ACQUISTI) { const m = Math.floor(IMP.QUOTA * (cash + Q * C) / C); if (m >= 1 && m * C <= cash) { lotti.push(m); cash -= m * C; } }
       else if (r.uscita[i] && Q > 0) { let v = Math.max(1, Math.floor(IMP.CHIUSURA * Q)); cash += v * C; while (v > 0 && lotti.length) { const t = Math.min(v, lotti[0]); lotti[0] -= t; v -= t; if (!lotti[0]) lotti.shift(); } }
       const q = lotti.reduce((a, b) => a + b, 0), eq = cash + q * C;
       espo += q * C / eq; k++;
+      if (i > INIZIO) { const g = giorni.get(s.d[i]) || [0, 0, 0]; g[0] += eq / eqPrima - 1; g[1] += C / s.c[i - 1] - 1; g[2]++; giorni.set(s.d[i], g); }
+      eqPrima = eq;
       if (eq > picco) picco = eq; dd = Math.min(dd, eq / picco - 1);
       if (C > bp) bp = C; bdd = Math.min(bdd, C / bp - 1);
     }
@@ -113,7 +115,17 @@ export function efficacia(S) {
   const tieni = righe.length > 20 ? { titoli: righe.length, strategia_annuo_pct: pc(mediana(righe.map(x => x.st))), tieni_annuo_pct: pc(mediana(righe.map(x => x.bh))),
     investito_pct: pc(mediana(righe.map(x => x.espo))), ribasso_strategia_pct: pc(mediana(righe.map(x => x.dd))), ribasso_tieni_pct: pc(mediana(righe.map(x => x.bdd))),
     meglio_pct: pc(righe.filter(x => x.st > x.bh).length / righe.length) } : null;
-  return { orizzonti, tieni };
+  // Come portafoglio: tutti i titoli con lo stesso peso, la strategia su ciascuno contro il compra e tieni
+  const date = [...giorni.keys()].sort().filter(d => giorni.get(d)[2] >= 50);
+  const misura = (dal, k) => {
+    let v = 1, picco = 1, dd = 0, n = 0, somma = 0, quad = 0;
+    for (const d of date) { if (d < dal) continue; const g = giorni.get(d), x = g[k] / g[2]; v *= 1 + x; n++; somma += x; quad += x * x; if (v > picco) picco = v; dd = Math.min(dd, v / picco - 1); }
+    if (n < 252) return null;
+    const mu = somma / n, sd = Math.sqrt(quad / n - mu * mu);
+    return { annuo_pct: pc(Math.pow(v, 252 / n) - 1), ribasso_pct: pc(dd), volatilita_pct: pc(sd * Math.sqrt(252)) };
+  };
+  const portafoglio = date.length > 500 ? [['dall\'inizio', date[0]], ['dal 2020', '2020-01-01']].map(([nome, dal]) => ({ nome, dal: dal < date[0] ? date[0] : dal, strategia: misura(dal, 0), tieni: misura(dal, 1) })).filter(x => x.strategia) : [];
+  return { orizzonti, tieni, portafoglio };
 }
 
 // Statistiche d'insieme su tutti i titoli (tbo_stats.json)
