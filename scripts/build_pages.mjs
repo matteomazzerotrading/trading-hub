@@ -16,6 +16,14 @@ const OUT = path.join(ROOT, 'titoli');
 
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
 const db = data.db;
+const leggiSe = f => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch (e) { return null; } };
+// Società degli indici S&P 500, 400 e 600 che non seguo personalmente (fv_ext.json): stessa pagina, con un avviso
+const ext = (leggiSe('fv_ext.json') || {}).titoli || {};
+for (const t of Object.keys(ext)) if (db[t]) delete ext[t];
+const tutti = { ...db, ...ext };
+// Storico del fair value rispetto al prezzo (fv_history.json e fv_history_ext.json)
+const storici = [leggiSe('fv_history.json'), leggiSe('fv_history_ext.json')].filter(Boolean);
+const storicoDi = t => { for (const h of storici) if (h.titoli && h.titoli[t]) return { date: h.date, ...h.titoli[t] }; return null; };
 let held = new Set();
 try { held = new Set((JSON.parse(fs.readFileSync(path.join(ROOT, 'portfolio.json'), 'utf8')).positions || []).map(p => p.ticker)); } catch (e) {}
 
@@ -140,10 +148,44 @@ function frasePosizione(t, d, v, pos, close) {
 // Altri titoli dello stesso settore (prima quelli dello stesso mercato): collegamenti utili a chi legge e ai motori di ricerca
 function simili(t, d) {
   if (!d.settore) return '';
-  const altri = Object.keys(db).filter(x => x !== t && db[x].settore === d.settore && db[x].price > 0)
-    .sort((a, b) => (E.mercato(db[a]) === E.mercato(d) ? 0 : 1) - (E.mercato(db[b]) === E.mercato(d) ? 0 : 1) || a.localeCompare(b)).slice(0, 10);
+  const altri = Object.keys(tutti).filter(x => x !== t && tutti[x].settore === d.settore && tutti[x].price > 0)
+    .sort((a, b) => (db[a] ? 0 : 1) - (db[b] ? 0 : 1) || (E.mercato(tutti[a]) === E.mercato(d) ? 0 : 1) - (E.mercato(tutti[b]) === E.mercato(d) ? 0 : 1) || a.localeCompare(b)).slice(0, 10);
   if (!altri.length) return '';
-  return `<h2>Altri titoli del settore ${esc(d.settore)}</h2><div class="chips">${altri.map(x => `<a href="${slug(x)}.html">${esc(db[x].name)}</a>`).join('')}</div>`;
+  return `<h2>Altri titoli del settore ${esc(d.settore)}</h2><div class="chips">${altri.map(x => `<a href="${slug(x)}.html">${esc(tutti[x].name)}</a>`).join('')}</div>`;
+}
+
+// Grafico statico (SVG) del fair value pavimento e del prezzo a ogni fine trimestre degli ultimi 6 anni
+function svgStorico(t, d) {
+  const h = storicoDi(t); if (!h) return '';
+  const idx = h.fv.map((v, i) => (v != null && h.p[i] != null ? i : -1)).filter(i => i >= 0);
+  if (idx.length < 4) return '';
+  const i0 = idx[0], date = h.date.slice(i0), fv = h.fv.slice(i0), p = h.p.slice(i0), c = d.curr;
+  const val = fv.concat(p).filter(v => v != null);
+  let lo = Math.min(...val), hi = Math.max(...val); const m = (hi - lo) * 0.08 || hi * 0.1; lo = Math.max(0, lo - m); hi += m;
+  const svg = (W, H) => {
+    const L = 46, R = 10, T = 26, B = 24;
+    const x = i => L + (W - L - R) * i / (date.length - 1), y = v => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
+    const pt = a => a.map((v, i) => v == null ? '' : x(i).toFixed(1) + ',' + y(v).toFixed(1)).filter(Boolean).join(' ');
+    const tick = [0, 0.25, 0.5, 0.75, 1].map(k => lo + (hi - lo) * k);
+    const gy = tick.map(v => `<line x1="${L}" x2="${W - R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="rgba(255,255,255,.06)"/><text x="${L - 6}" y="${(y(v) + 3.5).toFixed(1)}" fill="#8b93a6" font-size="11" text-anchor="end">${Number(v.toPrecision(3)).toLocaleString('it-IT', { useGrouping: 'always' })}</text>`).join('');
+    let ultimoX = -99;
+    const gx = date.map((dd, i) => [dd.slice(0, 4), i]).filter(([a], i, A) => i > 0 && a !== A[i - 1][0])
+      .filter(([, i]) => { if (x(i) - ultimoX < 34) return false; ultimoX = x(i); return true; })
+      .map(([a, i]) => `<text x="${x(i).toFixed(1)}" y="${H - 7}" fill="#8b93a6" font-size="11" text-anchor="middle">${a}</text>`).join('');
+    return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Fair value pavimento e prezzo di ${esc(d.name)} a ogni fine trimestre">${gy}
+<polygon fill="rgba(0,230,118,.10)" points="${pt(fv)} ${x(fv.length - 1).toFixed(1)},${y(lo).toFixed(1)} ${x(0).toFixed(1)},${y(lo).toFixed(1)}"/>
+<polyline fill="none" stroke="#00e676" stroke-width="2.2" stroke-linejoin="round" points="${pt(fv)}"/><polyline fill="none" stroke="#e0e0e0" stroke-width="2" stroke-linejoin="round" points="${pt(p)}"/>${gx}
+<g font-size="12"><rect x="${L}" y="7" width="12" height="3" fill="#e0e0e0"/><text x="${L + 17}" y="12" fill="#d6d9de">Prezzo</text><rect x="${L + 76}" y="7" width="12" height="3" fill="#00e676"/><text x="${L + 93}" y="12" fill="#d6d9de">Fair value pavimento</text></g></svg>`;
+  };
+  const n = fv.length - 1, dFv = (fv[n] / fv[0] - 1) * 100, dP = (p[n] / p[0] - 1) * 100;
+  const lettura = dFv <= 0 ? 'la stima di valore non è cresciuta' + (dP > 0 ? ', mentre il prezzo è salito' : '')
+    : dP > dFv ? 'il prezzo è salito più della stima di valore, quindi il titolo è diventato più caro'
+    : dP >= 0 ? 'la stima di valore è cresciuta più del prezzo, quindi il titolo è diventato più conveniente' : 'la stima di valore è cresciuta mentre il prezzo scendeva';
+  const mese = dd => new Date(dd + 'T12:00:00Z').toLocaleDateString('it-IT', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  return `<h2>Fair value e prezzo negli ultimi 6 anni</h2>
+<div class="dia"><div class="dia-w">${svg(820, 260)}</div><div class="dia-n">${svg(380, 240)}</div></div>
+<p>Da ${mese(date[0])} il fair value è passato da ${num(fv[0])} a <strong>${num(fv[n])} ${c}</strong> (${pc(dFv)}) e il prezzo da ${num(p[0])} a ${num(p[n])} ${c} (${pc(dP)}): ${lettura}.</p>
+<p class="mu">Il fair value è ricalcolato a ogni fine trimestre con i soli dati disponibili allora (bilanci già pubblicati, decennale e inflazione di quel momento); cassa e debito sono noti solo a oggi, quindi l'ultimo punto può staccarsi un po' dalla linea.</p>`;
 }
 
 function paginaTitolo(t, d) {
@@ -177,6 +219,7 @@ ${box('FV storico', d.fv_sto ? `${num(d.fv_sto)} ${c}` : '—', 'ai multipli med
 ${box('Potenziale', pc(pt.pot), pt.rif ? `sul FV ${pt.rif} · ${pc(pt.potMkt)} sul FV di mercato` : '')}
 </div>
 ${svgBanda(d, close)}
+${svgStorico(t, d)}
 <h2>Come leggere il risultato</h2>
 <p>${frasePosizione(t, d, v, pos, close)}</p>
 <p>Esito del modello: <strong style="color:${v.colore}">${esc(basso(v.titolo))}</strong>${v.sotto ? ` (${esc(v.sotto)})` : ''}. ${pt.pot != null ? `Per arrivare al più basso tra fair value pavimento e storico (${num(pt.fvRif)} ${c}) il prezzo dovrebbe ${pt.pot >= 0 ? 'salire' : 'scendere'} del ${Math.abs(pt.pot).toLocaleString('it-IT', { maximumFractionDigits: 0 })}%.` : ''}</p>`;
@@ -205,12 +248,31 @@ Per ${esc(d.name)} il modello non produce un fair value: ${ind.status === 'fcf_n
 
   return head(title, desc, url, ld) + `<h1>Fair value di ${esc(d.name)} (${esc(t)})${held.has(t) ? '<span class="held">💼 nel mio portafoglio</span>' : ''}</h1>
 <p class="mu">${d.settore ? esc(d.settore) + ' · ' : ''}${{ it: 'Borsa Italiana', eu: 'Europa', us: 'Stati Uniti' }[E.mercato(d)]} · aggiornato al ${agg} · calcolato con il mio indicatore FAIR VALUE (dati realizzati) su TradingView${d.earn_next ? ` · prossima trimestrale: ${dataIt(d.earn_next)}` : ''}</p>
+${ext[t] ? `<p class="card mu" style="margin-top:10px">Non è tra i titoli che seguo personalmente: fa parte degli indici S&amp;P 500, 400 o 600, per cui calcolo ogni giorno fair value e segnali della mia strategia con lo stesso metodo. <a href="altri.html">Tutti gli altri titoli →</a></p>` : ''}
 <p><span class="badge" style="color:${v.colore};background:${v.colore}1f;border:1px solid ${v.colore}73">${esc(v.titolo)}</span>${aff.livello ? `<span class="aff" style="color:${AFF[aff.livello][0]};border:1px solid ${AFF[aff.livello][0]}73">${AFF[aff.livello][1]}</span>` : ''}</p>
 ${corpo}
 <a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>
 ${simili(t, d)}
 <h2>Il metodo in breve</h2>
 <p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione attesa, più la cassa che eccede il debito. Il decennale è quello della valuta del titolo (Bund per l'area euro) e l'inflazione attesa è l'obiettivo della banca centrale. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
+` + foot;
+}
+
+function paginaAltri(righe) {
+  const agg = dataIt(righe[0] && righe[0].d.fv_updated);
+  const title = `Fair value delle azioni americane degli indici S&P 500, 400 e 600 | Matteo Mazzero`;
+  const desc = `Fair value di ${righe.length} azioni americane degli indici S&P 500, 400 e 600 calcolati ogni giorno con l'indicatore FAIR VALUE (dati realizzati). Aggiornato al ${agg}.`;
+  const tr = righe.map(({ t, d, v, pt }) => `<tr><td><a href="${slug(t)}.html"><strong>${esc(t)}</strong></a><br><span class="mu">${esc(d.name)}</span></td>
+<td class="n">${num(d.price)} ${d.curr}</td><td class="n">${d.fv != null ? num(d.fv) + ' ' + d.curr : '—'}</td>
+<td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#43a047' : '#d32f2f'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
+  return head(title, desc, `${SITE}titoli/altri.html`) + `<h1>Fair value di ${righe.length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane</h1>
+<p class="mu">Indici S&amp;P 500, 400 e 600 · aggiornati al ${agg} · in ordine alfabetico</p>
+<p>Non sono i titoli che seguo personalmente (quelli sono nell'<a href="index.html">elenco principale</a>), ma per ciascuno calcolo ogni giorno il fair value con lo stesso metodo e i segnali della mia strategia TBO.</p>
+<div class="card tw"><table>
+<thead><tr><th>Titolo</th><th class="n">Prezzo</th><th class="n">FV pavimento</th><th class="n">Potenziale</th><th>Esito del modello</th></tr></thead>
+<tbody>
+${tr}
+</tbody></table></div>
 ` + foot;
 }
 
@@ -223,7 +285,7 @@ function paginaIndice(righe) {
 <td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#43a047' : '#d32f2f'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
   return head(title, desc, `${SITE}titoli/`) + `<h1>Fair value di ${righe.length} azioni</h1>
 <p class="mu">Aggiornati al ${agg} · in ordine alfabetico · 💼 = titolo nel mio portafoglio</p>
-<p>Ogni titolo ha la sua pagina con fair value pavimento, banda, fair value di mercato e storico, potenziale e avvisi sull'affidabilità della stima. Per ordinare e filtrare usa lo <a href="../#screener">screener</a> sulla home.</p>
+<p>Ogni titolo ha la sua pagina con fair value pavimento, banda, fair value di mercato e storico, potenziale e avvisi sull'affidabilità della stima. Per ordinare e filtrare usa lo <a href="../#screener">screener</a> sulla home.${Object.keys(ext).length ? ` Ci sono anche le pagine di <a href="altri.html">${Object.keys(ext).length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane degli indici S&amp;P 500, 400 e 600</a> che non seguo personalmente.` : ''}</p>
 <div class="card tw"><table>
 <thead><tr><th>Titolo</th><th class="n">Prezzo</th><th class="n">FV pavimento</th><th class="n">FV mercato</th><th class="n">Potenziale</th><th>Esito del modello</th></tr></thead>
 <tbody>
@@ -234,11 +296,13 @@ ${tr}
 
 fs.mkdirSync(OUT, { recursive: true });
 const tickers = Object.keys(db).filter(t => db[t].tv && db[t].price > 0).sort();
+const tickersExt = Object.keys(ext).filter(t => ext[t].price > 0 && !['index', 'altri'].includes(slug(t))).sort();
 const slugs = new Set(tickers.map(slug));
 if (slugs.size !== tickers.length) throw new Error('Due ticker producono lo stesso nome di pagina');
+for (const t of [...tickersExt]) { if (slugs.has(slug(t))) tickersExt.splice(tickersExt.indexOf(t), 1); else slugs.add(slug(t)); }
 
 // Toglie le pagine di titoli non più presenti
-for (const f of fs.readdirSync(OUT)) if (f.endsWith('.html') && f !== 'index.html' && !slugs.has(f.slice(0, -5))) fs.unlinkSync(path.join(OUT, f));
+for (const f of fs.readdirSync(OUT)) if (f.endsWith('.html') && !['index.html', 'altri.html'].includes(f) && !slugs.has(f.slice(0, -5))) fs.unlinkSync(path.join(OUT, f));
 
 const righe = [];
 for (const t of tickers) {
@@ -247,13 +311,22 @@ for (const t of tickers) {
   righe.push({ t, d, v: E.verdict(d, Number(d.price)), pt: E.potenziale(d, Number(d.price)) });
 }
 fs.writeFileSync(path.join(OUT, 'index.html'), paginaIndice(righe));
+const righeExt = [];
+for (const t of tickersExt) {
+  const d = ext[t];
+  fs.writeFileSync(path.join(OUT, slug(t) + '.html'), paginaTitolo(t, d));
+  righeExt.push({ t, d, v: E.verdict(d, Number(d.price)), pt: E.potenziale(d, Number(d.price)) });
+}
+if (righeExt.length) fs.writeFileSync(path.join(OUT, 'altri.html'), paginaAltri(righeExt));
 
 // sitemap.xml
 const oggi = new Date().toISOString().slice(0, 10);
 const u = (loc, lastmod, freq, prio) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${prio}</priority>\n  </url>`;
 const voci = [u(SITE, oggi, 'daily', '1.0'), u(SITE + 'titoli/', oggi, 'daily', '0.8')]
   .concat(tickers.map(t => u(`${SITE}titoli/${slug(t)}.html`, db[t].fv_updated || oggi, 'daily', '0.6')))
+  .concat(righeExt.length ? [u(SITE + 'titoli/altri.html', oggi, 'daily', '0.6')] : [])
+  .concat(tickersExt.map(t => u(`${SITE}titoli/${slug(t)}.html`, ext[t].fv_updated || oggi, 'daily', '0.5')))
   .concat([u(SITE + 'disclaimer.html', '2026-11-08', 'yearly', '0.3'), u(SITE + 'privacy.html', '2026-11-10', 'yearly', '0.3')]);
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${voci.join('\n')}\n</urlset>\n`);
 
-console.log(`Pagine generate: ${tickers.length} titoli + indice; sitemap con ${voci.length} indirizzi.`);
+console.log(`Pagine generate: ${tickers.length} titoli seguiti + ${tickersExt.length} degli indici S&P + indici; sitemap con ${voci.length} indirizzi.`);

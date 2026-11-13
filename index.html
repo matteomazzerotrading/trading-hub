@@ -1647,6 +1647,18 @@
 
             res.style.display = "none"; err.style.display = "none"; document.getElementById('fvExtra').style.display = "none"; miniChart.innerHTML = ""; smartVideo.style.display = "none"; currentFVTicker = null; currentVideoID = null;
 
+            // Non è nel mio elenco: forse è una delle società degli indici S&P 500, 400 e 600 calcolate ogni sera (fv_ext.json)
+            if (!db[input]) {
+                const X = await caricaFvExt();
+                let k = [input, input.replace('-', '.'), input.replace('.', '-')].find(x => X[x]);
+                if (!k && input.length >= 3) {
+                    const norm = s => String(s).toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                    const q = norm(input), trovati = Object.keys(X).filter(t => norm(X[t].name).includes(q));
+                    k = trovati.find(t => norm(X[t].name).startsWith(q)) || trovati[0];
+                }
+                if (k) { db[k] = { ...X[k], ext: true, fuori: true }; input = k; }
+            }
+
             if (db[input]) {
                 const data = db[input];
                 btn.innerText = "CARICAMENTO..."; btn.style.opacity = "0.7";
@@ -1657,7 +1669,8 @@
                 currentFVTicker = input;
                 document.getElementById('fvName').innerText = data.name;
                 const trim = data.earn_next && new Date(data.earn_next + 'T23:59:59') >= new Date() ? ' · trimestrale il ' + new Date(data.earn_next + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }) : '';
-                document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<span style="font-size:0.78em; color:var(--text-muted);">${data.settore ? data.settore + ' · ' : ''}${trim ? trim.slice(3) + ' · ' : ''}</span>` + (data.fuori ? '<span style="font-size:0.78em; color:var(--accent-yellow);">fuori dal mio elenco: fair value calcolato ora</span>'
+                document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<span style="font-size:0.78em; color:var(--text-muted);">${data.settore ? data.settore + ' · ' : ''}${trim ? trim.slice(3) + ' · ' : ''}</span>` + (data.fuori && !data.ext ? '<span style="font-size:0.78em; color:var(--accent-yellow);">fuori dal mio elenco: fair value calcolato ora</span>'
+                    : data.ext ? `<span style="font-size:0.78em; color:var(--accent-yellow);">non è tra i titoli che seguo (indici S&amp;P) · </span><a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo →</a>`
                     : `<a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo →</a>`);
                 document.getElementById('fvValue').innerText = data.fv != null ? data.fv.toFixed(2) + " " + data.curr : "N/D";
                 document.getElementById('fvDividend').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
@@ -1894,7 +1907,10 @@
         async function loadTbo() {
             tboData = await fetchJson('tbo_signals.json');
             renderTbo();
-            if (tboData && tboData.segnali) prezziTboExt().then(renderTbo);
+            if (tboData && tboData.segnali) {
+                prezziTboExt().then(renderTbo);
+                if (tboData.segnali.some(r => r.ext)) setTimeout(() => caricaFvExt().then(renderTbo), 2500);
+            }
             renderTboStats(await fetchJson('tbo_stats.json'));
         }
         function renderTbo() {
@@ -1912,10 +1928,15 @@
             const quali = document.getElementById('tbo-quali').value;
             const prezzo = e => { const c = e.yf && _priceCache[e.yf]; return parseFloat(c ? c.price : e.price); };
             // titolo del sito (con fair value) oppure uno degli altri esaminati (S&P 500, 400, 600): nome e borsa dal file dei segnali
-            const scheda = r => db[r.t] && !r.ext ? db[r.t] : { name: r.n || r.t, curr: '$', ex: (r.tv || '').split(':')[0] || 'NYSE', yf: null, price: tboPrezzi[r.tv], altro: true };
+            const scheda = r => {
+                if (db[r.t] && !r.ext) return db[r.t];
+                const x = fvExtDati && fvExtDati[(r.tv || '').split(':')[1]];
+                return x ? { ...x, yf: null, price: tboPrezzi[r.tv] || x.price, altro: true, conFv: true }
+                    : { name: r.n || r.t, curr: '$', ex: (r.tv || '').split(':')[0] || 'NYSE', yf: null, price: tboPrezzi[r.tv], altro: true };
+            };
             const righe = tboData.segnali.filter(r => (db[r.t] || r.ext) && r.d >= dal && r.d <= al && (r.k === 'c' || r.k === 'x') && (!tipo || r.k === tipo)
                     && (!quali || (quali === 'ext') === !!r.ext))
-                .map(r => { const e = scheda(r), p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 && !e.altro ? fvVerdict(e, p) : null }; })
+                .map(r => { const e = scheda(r), p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 && (!e.altro || e.conFv) ? fvVerdict(e, p) : null }; })
                 .filter(r => (!mkt || FVEngine.mercato(r.e) === mkt) && (!sotto || (r.v && r.v.cat === 'sotto')));
             const tot = righe.length, mostra = tboTutti ? righe : righe.slice(0, 15);
             const num = x => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
@@ -1923,7 +1944,7 @@
             tbody.innerHTML = mostra.length ? mostra.map(r => {
                 const da = r.p > 0 && r.p0 > 0 ? (r.p / r.p0 - 1) * 100 : null;
                 const apri = r.e.altro ? ((r.tv || '').split(':')[1] || r.t) : r.t;
-                return `<tr onclick="apriTitolo('${esc(apri)}')" style="cursor:pointer;" title="${r.e.altro ? 'Non è tra i titoli che seguo: il fair value si calcola al momento' : 'Apri l\'analisi del fair value'}">
+                return `<tr onclick="apriTitolo('${esc(apri)}')" style="cursor:pointer;" title="${r.e.altro ? 'Non è tra i titoli che seguo (indici S&P): apri l\'analisi del fair value' : 'Apri l\'analisi del fair value'}">
                 <td style="white-space:nowrap;">${giorno(r.d)}</td>
                 <td><div class="scr-ticker">${esc(r.e.altro ? apri : r.t)}${!r.e.altro && inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div></td>
                 <td><span class="scr-badge ${r.k === 'c' ? 'buy' : 'watch'}" style="white-space:nowrap;">${r.k === 'c' ? 'COMPRA' : 'CHIUSA ALL\'80%'}</span></td>
@@ -2395,16 +2416,28 @@
         const itNum = (x, d = 2) => x.toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: 'always' });
         const itPct = (x, d = 1) => (x >= 0 ? '+' : '−') + itNum(Math.abs(x), d) + '%';
         const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-        let fvHist = null, fvHistChart = null, fvHistRichiesto = null;
+        let fvHist = null, fvHistExt = null, fvHistChart = null, fvHistRichiesto = null;
+        // fair value delle società degli indici S&P 500, 400 e 600 che non seguo (calcolati ogni sera, caricati solo quando servono)
+        let fvExtDati = null, fvExtPromessa = null;
+        function caricaFvExt() {
+            if (fvExtDati) return Promise.resolve(fvExtDati);
+            if (!fvExtPromessa) fvExtPromessa = fetchJson('fv_ext.json').then(j => (fvExtDati = (j && j.titoli) || {}));
+            return fvExtPromessa;
+        }
         async function renderFvHist(t) {
             const row = document.getElementById('fv-hist-row'); if (!row) return;
             row.style.display = 'none'; fvHistRichiesto = t;
             if (!fvHist) fvHist = (await fetchJson('fv_history.json')) || { date: [], titoli: {} };
-            const s = fvHist.titoli && fvHist.titoli[t];
+            let H = fvHist;
+            if (!(H.titoli && H.titoli[t]) && db[t] && db[t].ext) {
+                if (!fvHistExt) fvHistExt = (await fetchJson('fv_history_ext.json')) || { date: [], titoli: {} };
+                H = fvHistExt;
+            }
+            const s = H.titoli && H.titoli[t];
             if (fvHistRichiesto !== t || !s || typeof Chart === 'undefined') return;
             const idx = s.fv.map((v, i) => (v != null && s.p[i] != null ? i : -1)).filter(i => i >= 0);
             if (idx.length < 4) return;
-            const i0 = idx[0], date = fvHist.date.slice(i0), fv = s.fv.slice(i0), p = s.p.slice(i0), curr = db[t] ? db[t].curr : '';
+            const i0 = idx[0], date = H.date.slice(i0), fv = s.fv.slice(i0), p = s.p.slice(i0), curr = db[t] ? db[t].curr : '';
             const et = d => { const [y, m] = d.split('-'); return PERF_MESI[+m - 1] + ' ' + y.slice(2); };
             row.style.display = 'block';
             if (fvHistChart) { fvHistChart.destroy(); fvHistChart = null; }
@@ -2983,7 +3016,7 @@
             // Apertura diretta della scheda da un link del tipo ?t=ENEL
             try {
                 const tq = (new URLSearchParams(location.search).get('t') || '').toUpperCase().trim();
-                if (tq && (db[tq] || aliases[tq])) {
+                if (tq && /^[A-Z0-9.\-]{1,12}$/.test(tq)) {
                     document.getElementById('fvInput').value = tq;
                     document.getElementById('fv-section').scrollIntoView();
                     calculateFV();

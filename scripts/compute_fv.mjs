@@ -21,6 +21,7 @@ const CHANGES = path.join(ROOT, 'fv_changes.json');
 const CPI_PAESI = path.join(ROOT, 'cpi_paesi.json');
 const HISTORY = path.join(ROOT, 'fv_history.json');
 const MACRO = path.join(ROOT, 'macro.json');
+const EXT = path.join(ROOT, 'fv_ext.json'), HISTORY_EXT = path.join(ROOT, 'fv_history_ext.json');
 const UA = { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -228,6 +229,43 @@ async function main() {
   console.log(`Storico del fair value: ${Object.keys(storico).length} titoli, ${trimestri.length + 1} date`);
   console.log(`Cambi di esito in questo calcolo: ${cambi.length}`);
   console.log(`\nFatto: ${ok}/${tickers.length} titoli con fair value calcolato.`);
+
+  // Titoli degli indici S&P 500, 400 e 600 che il sito non segue (gli stessi dei segnali TBO, tbo_state_ext.json):
+  // stesso calcolo, scritto a parte (fv_ext.json, fv_history_ext.json) per non mescolarli con il mio elenco.
+  let elenco = {};
+  try { elenco = JSON.parse(fs.readFileSync(path.join(ROOT, 'tbo_state_ext.json'), 'utf8')).titoli || {}; } catch (e) {}
+  const ext = {}, storicoExt = {}; let okExt = 0;
+  const voci = Object.entries(elenco).filter(([, x]) => x.tv).map(([sym, x]) => [x.tv.split(':')[1], sym, x])
+    .filter(([t]) => t && !db[t] && !(data.aliases && data.aliases[t]));
+  const fundExt = voci.length ? await tvScan(voci.map(([, , x]) => x.tv)) : {};
+  for (const [t, sym, x] of voci) {
+    const f = fundExt[x.tv]; if (!f || !(f.close > 0)) continue;
+    const weekly = (md.weekly && md.weekly[sym]) || [];
+    const e = { name: x.n || t, tv: x.tv, ex: x.tv.split(':')[0], yf: sym, curr: '$', price: r2(f.close, f.close < 10 ? 3 : 2), fund: fundamentals(f),
+      divYield: f.dividends_yield_current != null ? r2(f.dividends_yield_current, 2) : 0, settore: f.sector ? (E.SETTORI[f.sector] || f.sector) : '' };
+    const en = f.earnings_release_next_date;
+    e.earn_next = en && en * 1000 > Date.now() - 86400000 ? new Date(en * 1000).toISOString().slice(0, 10) : null;
+    let r;
+    try { r = E.compute(f, cpi, rf, null, weekly, bench, weekly, today, { PI_ATTESA: E.PAESI.US.piAttesa }); r.paese = 'US'; }
+    catch (ex) { continue; }
+    for (const k of ['fv', 'fv_low', 'fv_high', 'fv_mkt', 'fv_sto']) e[k] = r[k] != null ? r[k] : null;
+    e.ind = Object.fromEntries(['status', 'paese', 'rf', 'ke', 'pi', 'beta', 'fcf_norm', 'cassa_az', 'g_hist', 'roic_m',
+      'marg_n', 'marg_now', 'anni', 'avvisi'].map(k => [k, r[k] != null ? r[k] : null]));
+    e.fv_source = 'indicatore'; e.fv_updated = today;
+    ext[t] = e;
+    if (r.status === 'ok') okExt++;
+    if (r.status === 'ok' && r.fv > 0 && weekly.length) {
+      try {
+        const st = storicoFv(f, weekly, bench, cpi, rfAllora('US'), trimestri, { PI_ATTESA: E.PAESI.US.piAttesa });
+        if (st.fv.filter(v => v != null).length >= 4) storicoExt[t] = { fv: [...st.fv, r.fv], p: [...st.p, e.price] };
+      } catch (ex) {}
+    }
+  }
+  if (Object.keys(ext).length > 300) {
+    fs.writeFileSync(EXT, JSON.stringify({ aggiornato: report.run, descrizione: 'società degli indici S&P 500, 400 e 600 che non seguo personalmente', titoli: ext }) + '\n');
+    fs.writeFileSync(HISTORY_EXT, JSON.stringify({ aggiornato: report.run, date: [...trimestri, today], titoli: storicoExt }) + '\n');
+  }
+  console.log(`Titoli aggiunti: ${Object.keys(ext).length} (${okExt} con fair value, ${Object.keys(storicoExt).length} con storico)`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

@@ -53,6 +53,12 @@ def cpi_bls():
 def main():
     data = json.load(open(os.path.join(ROOT, "data.json"), encoding="utf-8"))
     symbols = sorted({e.get("yf") or t for t, e in data["db"].items() if e.get("tv")} | {"^GSPC", "^TNX"})
+    # titoli degli indici S&P 500, 400 e 600 che il sito non segue (fair value e pagina anche per loro)
+    try:
+        ext = json.load(open(os.path.join(ROOT, "tbo_state_ext.json"), encoding="utf-8"))["titoli"]
+        symbols = sorted(set(symbols) | set(ext))
+    except Exception as e:
+        print(f"Titoli aggiunti non letti: {e}")
     result = {"weekly": {}, "cpi": [], "rf_hist": {}, "fonti": {}}
 
     # Decennali nel tempo (solo per lo storico del fair value)
@@ -75,19 +81,21 @@ def main():
     print(f"CPI: {len(result['cpi'])} mesi da {result['fonti'].get('cpi')}, ultimo {result['cpi'][-1] if result['cpi'] else None}")
 
     # Prezzi settimanali
-    try:
-        import yfinance as yf
-        df = yf.download(symbols, period="11y", interval="1wk", auto_adjust=False, group_by="ticker",
-                         threads=True, progress=False)
-        for s in symbols:
-            try:
-                col = df[s]["Close"].dropna()
-            except Exception:
-                continue
-            result["weekly"][s] = [[idx.strftime("%Y-%m-%d"), round(float(v), 6)] for idx, v in col.items()]
-        result["fonti"]["prezzi"] = "yfinance"
-    except Exception as e:
-        print(f"Prezzi settimanali non disponibili: {e}")
+    import yfinance as yf
+    for i in range(0, len(symbols), 300):
+        lotto = symbols[i:i + 300]
+        try:
+            df = yf.download(lotto, period="11y", interval="1wk", auto_adjust=False, group_by="ticker",
+                             threads=True, progress=False)
+            for s in lotto:
+                try:
+                    col = df[s]["Close"].dropna()
+                except Exception:
+                    continue
+                result["weekly"][s] = [[idx.strftime("%Y-%m-%d"), round(float(v), 4)] for idx, v in col.items()]
+            result["fonti"]["prezzi"] = "yfinance"
+        except Exception as e:
+            print(f"Prezzi settimanali, lotto {i // 300 + 1}: {e}")
     ok = sum(1 for v in result["weekly"].values() if len(v) > 100)
     print(f"Prezzi settimanali: {ok}/{len(symbols)} simboli con oltre 100 settimane")
 
