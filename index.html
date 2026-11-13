@@ -80,7 +80,8 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 40px; box-sizing: border-box; z-index: 1000;
         }
-        .navbar-logo { color: #fff; font-size: 1.4em; font-weight: 800; text-decoration: none; letter-spacing: -0.5px; }
+        .navbar-logo { color: #fff; font-size: 1.4em; font-weight: 800; text-decoration: none; letter-spacing: -0.5px; display: inline-flex; align-items: center; gap: 8px; }
+        .navbar-logo img { display: block; border-radius: 9px; box-shadow: 0 0 0 1px rgba(0,230,118,0.45); }
         .navbar-logo span { color: var(--brand-green); text-shadow: 0 0 15px var(--brand-glow); }
         .nav-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center;}
         .nav-link { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.9em; transition: 0.3s; }
@@ -486,7 +487,7 @@
     <div id="toast-container"></div>
 
     <nav class="navbar">
-        <a href="#" class="navbar-logo">MM<span>Trading</span></a>
+        <a href="#" class="navbar-logo" aria-label="MM Trading"><img src="favicon.svg" alt="" width="34" height="34"><span>Trading</span></a>
         <div class="nav-links">
             <a href="#editoriale" class="nav-link">Editoriale</a>
             <a href="#portfolio" class="nav-link">Il mio portafoglio</a>

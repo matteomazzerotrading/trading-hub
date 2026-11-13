@@ -86,7 +86,7 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><a class="logo" href="../">MM<span>Trading</span></a><span><a href="../">Home</a> · <a href="./">Tutti i fair value</a> · <a href="../#faq">Come leggere i valori</a></span></div>
+<div class="top"><a class="logo" href="../" aria-label="MM Trading" style="display:inline-flex;align-items:center;gap:8px"><img src="../favicon.svg" alt="" width="30" height="30" style="display:block;border-radius:8px;box-shadow:0 0 0 1px rgba(0,230,118,.45)"><span>Trading</span></a><span><a href="../">Home</a> · <a href="./">Tutti i fair value</a> · <a href="../#faq">Come leggere i valori</a></span></div>
 `;
 
 const foot = `
