@@ -27,7 +27,7 @@ Sito personale di **Matteo Mazzero**: il mio portafoglio reale, il fair value di
 | Pattern Scanner | `patterns.json`, `patterns_detail.json` | Ogni sera dei giorni di borsa (workflow *Compute Patterns*) |
 | Storico del fair value | `fv_history.json` | Con i fair value: ricalcolo a ogni fine trimestre degli ultimi 6 anni (`scripts/fv_history.mjs`) |
 | Rischio del portafoglio | `portfolio_risk.json` | Nel workflow *Compute Patterns*: correlazione tra i titoli (`scripts/compute_risk.mjs`) |
-| Track record TBO | `tbo_stats.json` | Nel workflow *Compute Patterns*, solo se esiste il segreto `TBO_RULES` |
+| Track record TBO | `tbo_stats.json` | Workflow *TBO Track Record*, una volta alla settimana, su un campione largo (S&P 500, 400, 600 e titoli del sito); solo se esiste il segreto `TBO_RULES` |
 | Segnali della TBO Strategy (Compra, chiusa all'80%) | `tbo_signals.json`, `tbo_state.json` | Nello stesso workflow, solo se esiste il segreto `TBO_RULES` |
 
 Le regole della TBO Strategy **non sono in questo repository**: `scripts/compute_tbo.mjs` contiene solo la contabilità

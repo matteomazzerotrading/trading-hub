@@ -60,6 +60,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: pattern scanner e segnali TBO [skip ci]"
-          file_pattern: "patterns.json patterns_detail.json tbo_signals.json tbo_state.json tbo_stats.json portfolio_risk.json"
+          file_pattern: "patterns.json patterns_detail.json tbo_signals.json tbo_state.json portfolio_risk.json"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"

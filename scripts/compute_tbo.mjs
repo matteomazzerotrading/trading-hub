@@ -167,26 +167,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const chiuso = sym => minuti >= (/\.[A-Z]+$/.test(sym) ? 16 * 60 + 50 : 21 * 60 + 10);
   const lunedi = s => { const d = new Date(s + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7); return d; };
 
-  // Track record: tutta la storia scaricata, titolo per titolo (solo se le barre coprono almeno 6 anni)
-  try {
-    const per = [], serie = [], coppie = []; let dal = '9999', al = '';
-    for (const [t, e] of Object.entries(db)) {
-      const b = e.tv && daily[e.yf || t];
-      if (!b || !b.h || b.d.length < 1500) continue;
-      let n = b.d.length; if (b.d[n - 1] === oggi && !chiuso(e.yf || t)) n--;
-      const s = { d: b.d.slice(0, n), o: b.o.slice(0, n), h: b.h.slice(0, n), l: b.l.slice(0, n), c: b.c.slice(0, n) };
-      const r = segnali(s); if (!r || !r.setup || !r.uscita) continue;
-      per.push(storicoOperazioni(s, r)); serie.push(s); coppie.push({ s, r });
-      if (s.d[0] < dal) dal = s.d[0]; if (s.d.at(-1) > al) al = s.d.at(-1);
-    }
-    if (per.length > 50) {
-      const st = statistiche(per, dal, al);
-      st.confronto = confronto(serie, Math.round(st.chiuse.durata_mediana_giorni * 252 / 365));
-      st.efficacia = efficacia(coppie);
-      fs.writeFileSync(path.join(ROOT, 'tbo_stats.json'), JSON.stringify({ aggiornato: ora.toISOString(), ...st }) + '\n');
-      console.log(`Track record TBO: ${per.length} titoli dal ${dal} al ${al}`);
-    }
-  } catch { console.error('Track record TBO non calcolato.'); }
+  // Il track record (tbo_stats.json) si calcola a parte, su un campione più largo: scripts/compute_tbo_stats.mjs
 
   const nuovi = []; let ultima = stato.ultima_seduta || '', titoli = 0, errori = 0;
   for (const [t, e] of Object.entries(db)) {

@@ -1,0 +1,56 @@
+name: TBO Track Record
+
+# Track record della TBO Strategy su un campione largo (S&P 500, 400 e 600 più i titoli europei del sito).
+# Una volta alla settimana: su 14 anni di storia i numeri non cambiano da un giorno all'altro.
+# Le regole arrivano dal segreto TBO_RULES, come per i segnali serali.
+on:
+  schedule:
+    - cron: '17 6 * * 6'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/compute_tbo_stats.mjs'
+      - 'scripts/fetch_universe.py'
+      - '.github/workflows/tbo-stats.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tbo-stats
+  cancel-in-progress: true
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Scarica le barre del campione
+        run: |
+          pip install yfinance lxml --quiet
+          python scripts/fetch_universe.py universe
+      - name: Track record
+        env:
+          TBO_RULES: ${{ secrets.TBO_RULES }}
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: |
+          if [ -z "$TBO_RULES" ]; then echo "Segreto TBO_RULES non impostato: nessun calcolo."; exit 0; fi
+          mkdir -p scripts/private
+          printf '%s' "$TBO_RULES" | tr -d ' \r\n' | base64 -d > scripts/private/tbo_rules.mjs 2>/dev/null
+          node scripts/compute_tbo_stats.mjs universe
+          rm -rf scripts/private universe
+      - name: Allinea al ramo principale
+        run: git pull --rebase --autostash
+      - name: Salva
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto: track record TBO [skip ci]"
+          file_pattern: "tbo_stats.json"
