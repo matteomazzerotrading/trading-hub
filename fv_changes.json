@@ -1,6 +1,13 @@
 {
- "aggiornato": "2026-11-13T11:54:27.275Z",
+ "aggiornato": "2026-11-13T13:15:15.523Z",
  "cambi": [
+  {
+   "data": "2026-11-13",
+   "t": "PCAR",
+   "nome": "Paccar",
+   "da": "premio_sostenuto",
+   "a": "premio_dubbio"
+  },
   {
    "data": "2026-11-12",
    "t": "CRM",
