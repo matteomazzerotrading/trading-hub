@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="PTS9SUOR6N4D8w4c5nPyoJ4butJPvLUxiUeqb54e_tU" />
     <meta name="google-site-verification" content="1PW5QFH96F08lpZntsIWsUmduvUkt-a9WKNjeiENB-Y" />
     <title>Matteo Mazzero | Trading Hub – Fair Value, Portafoglio e Analisi</title>
-    <meta name="description" content="Il trading hub di Matteo Mazzero: fair value di oltre 400 azioni aggiornati ogni giorno, il mio portafoglio reale, screener e analisi dei mercati.">
+    <meta name="description" content="Il trading hub di Matteo Mazzero: fair value di qualsiasi azione (oltre 400 seguite ogni giorno), il mio portafoglio reale, screener e analisi dei mercati.">
     <link rel="canonical" href="https://matteomazzerotrading.github.io/trading-hub/">
     <meta name="author" content="Matteo Mazzero">
     <meta name="robots" content="index, follow">
@@ -24,7 +24,7 @@
     <meta property="og:locale" content="it_IT">
     <meta property="og:site_name" content="Matteo Mazzero | Trading Hub">
     <meta property="og:title" content="Matteo Mazzero | Trading Hub – Fair Value, Portafoglio e Analisi">
-    <meta property="og:description" content="Il trading hub di Matteo Mazzero: fair value di oltre 400 azioni aggiornati ogni giorno, il mio portafoglio reale, screener e analisi dei mercati.">
+    <meta property="og:description" content="Il trading hub di Matteo Mazzero: fair value di qualsiasi azione (oltre 400 seguite ogni giorno), il mio portafoglio reale, screener e analisi dei mercati.">
     <meta property="og:url" content="https://matteomazzerotrading.github.io/trading-hub/">
     <meta property="og:image" content="https://matteomazzerotrading.github.io/trading-hub/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -32,7 +32,7 @@
     <meta property="og:image:alt" content="Matteo Mazzero - Trading Hub: fair value, portafoglio reale e analisi dei mercati">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Matteo Mazzero | Trading Hub – Fair Value, Portafoglio e Analisi">
-    <meta name="twitter:description" content="Il trading hub di Matteo Mazzero: fair value di oltre 400 azioni aggiornati ogni giorno, il mio portafoglio reale, screener e analisi dei mercati.">
+    <meta name="twitter:description" content="Il trading hub di Matteo Mazzero: fair value di qualsiasi azione (oltre 400 seguite ogni giorno), il mio portafoglio reale, screener e analisi dei mercati.">
     <meta name="twitter:image" content="https://matteomazzerotrading.github.io/trading-hub/og-image.png">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[
@@ -530,7 +530,7 @@
             Il mio <span style="color: var(--brand-green);">Trading Hub</span>
         </h1>
         <p style="color: var(--text-muted); font-size: 1.2em; max-width: 600px; margin: 10px auto 0;">
-            Il mio portafoglio reale, i fair value di oltre 400 azioni aggiornati ogni giorno e le mie analisi dei mercati.
+            Il mio portafoglio reale, il fair value di qualsiasi azione (oltre 400 le seguo ogni giorno, le altre si calcolano al momento) e le mie analisi dei mercati.
         </p>
         <div class="about-box">
             <div class="about-avatar" aria-hidden="true">MM</div>
@@ -595,7 +595,7 @@
             <span id="port-updated-badge" style="font-size:0.8em; color:var(--text-muted); background:rgba(255,255,255,0.05); padding:4px 12px; border-radius:20px; border:1px solid var(--border-glass);">—</span>
         </div>
         <div class="kpi-container">
-            <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono-font" id="port-total">—</div></div>
+            <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono-font" id="port-total" style="transition:color 0.6s;">—</div><div id="port-live" style="display:none; font-size:0.72em; margin-top:5px; color:var(--text-muted); line-height:1.5;"></div></div>
             <div class="kpi-card"><div class="fv-label">P&amp;L Non Realizzato</div><div class="kpi-val mono-font" id="port-unreal">—</div></div>
             <div class="kpi-card"><div class="fv-label">Da inizio anno</div><div class="kpi-val mono-font" id="port-annual">—</div><div id="port-annual-sub" style="font-size:0.75em; color:var(--text-muted); margin-top:4px;"></div></div>
             <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono-font" id="port-count">—</div></div>
@@ -2128,6 +2128,7 @@
                 if (sub && anno != null) sub.innerText = 'ultimi 12 mesi: ' + sgn(anno);
                 document.getElementById('port-count').innerText = (pd.positions || []).length;
                 document.getElementById('port-updated-badge').innerText = '📅 ' + pd.updated;
+                avviaPortLive();
             }
 
             // Allocation bars
@@ -2647,6 +2648,57 @@
         function chiudiLayout() { document.getElementById('lay-modale').style.display = 'none'; }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') chiudiLayout(); });
         try { if (localStorage.getItem('mm_layout')) applicaLayout(); } catch (e) {}
+
+        // === VALORE DEL PORTAFOGLIO IN MOVIMENTO ===
+        // Stesso calcolo della stima serale (scripts/portfolio_online.py): si parte dalla fotografia di TradingView e si
+        // rivaluta ogni posizione con il prezzo di adesso (e il cambio, per i titoli in euro). I prezzi sono quelli
+        // pubblici di TradingView, ritardati di circa 15 minuti. Una posizione senza prezzo resta al valore della fotografia.
+        let portLiveTimer = null, portLivePrec = null;
+        async function prezziPortLive(simboli) {
+            const out = {};
+            try {
+                const r = await fetch('https://scanner.tradingview.com/global/scan', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, signal: AbortSignal.timeout(10000),
+                    body: JSON.stringify({ symbols: { tickers: simboli }, columns: ['close'] }) });
+                for (const x of ((await r.json()).data || [])) if (x.d[0] > 0) out[x.s] = x.d[0];
+            } catch (e) {}
+            // cambio, obbligazioni e ciò che lo screener azionario non restituisce: una richiesta per simbolo
+            await Promise.all(simboli.filter(s => !(s in out)).map(async s => {
+                try { const r = await fetch('https://scanner.tradingview.com/symbol?symbol=' + encodeURIComponent(s) + '&fields=close', { signal: AbortSignal.timeout(8000) });
+                    const j = await r.json(); if (j && j.close > 0) out[s] = j.close; } catch (e) {}
+            }));
+            return out;
+        }
+        async function aggiornaPortLive() {
+            const pd = portfolioData, snap = pd && pd.snapshot, el = document.getElementById('port-total'), nota = document.getElementById('port-live');
+            if (!snap || !snap.positions || !el || document.hidden) return;
+            const FX = 'FX_IDC:EURUSD', sim = p => p.exchange + ':' + p.ticker;
+            const pos = (pd.positions || []).filter(p => snap.positions[p.ticker] && snap.positions[p.ticker].price > 0);
+            const prezzi = await prezziPortLive(pos.map(sim).concat(FX));
+            const fx = prezzi[FX] && snap.eurusd ? prezzi[FX] / snap.eurusd : 1;
+            let tot = Number(pd.summary.cash_usd) || 0, ferme = 0;
+            for (const p of pd.positions || []) {
+                const ref = snap.positions[p.ticker];
+                if (!ref) { tot += p.alloc_pct / 100 * pd.summary.total_value_usd; ferme++; continue; }
+                const ora = prezzi[sim(p)];
+                if (ora > 0 && ref.price > 0) tot += ref.value_usd * (ora / ref.price) * (p.curr === 'EUR' ? fx : 1);
+                else { tot += ref.value_usd; ferme++; }
+            }
+            if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
+            const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#00e676' : '#ff5252';
+            el.innerText = tot.toLocaleString('it-IT', { style: 'currency', currency: 'USD' });
+            if (portLivePrec != null && Math.abs(tot - portLivePrec) >= 0.01) { el.style.color = tot > portLivePrec ? '#00e676' : '#ff5252'; setTimeout(() => { el.style.color = ''; }, 900); }
+            portLivePrec = tot;
+            const [y, m, g] = String(snap.date || '').split('-');
+            nota.style.display = 'block';
+            nota.innerHTML = `<span style="color:${col}; font-weight:700;">${d >= 0 ? '+' : '−'}$${Math.abs(d).toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${itPct(d / base * 100, 2)})</span> dal ${+g} ${PERF_MESI[+m - 1] || ''}`
+                + `<br><span title="Stima dai prezzi pubblici di TradingView, ritardati di circa 15 minuti. Il dato ufficiale è quello serale.">● in movimento · prezzi ritardati di 15 min${ferme ? ` · ${ferme} ${ferme === 1 ? 'posizione ferma' : 'posizioni ferme'}` : ''}</span>`;
+        }
+        function avviaPortLive() {
+            if (portLiveTimer) return;
+            aggiornaPortLive();
+            portLiveTimer = setInterval(aggiornaPortLive, 60000);
+            document.addEventListener('visibilitychange', () => { if (!document.hidden) aggiornaPortLive(); });
+        }
 
         // === APP INSTALLABILE (PWA): sw.js tiene una copia della pagina e dei dati, manifest.webmanifest descrive l'app ===
         const appInstallata = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;

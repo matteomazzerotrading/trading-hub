@@ -1,6 +1,6 @@
 # Matteo Mazzero | Trading Hub 📈
 
-Sito personale di **Matteo Mazzero**: il mio portafoglio reale, i fair value di oltre 400 azioni e le mie analisi dei mercati.
+Sito personale di **Matteo Mazzero**: il mio portafoglio reale, il fair value di qualsiasi azione (oltre 400 seguite ogni giorno) e le mie analisi dei mercati.
 
 🔗 **Sito:** [matteomazzerotrading.github.io/trading-hub](https://matteomazzerotrading.github.io/trading-hub/)
 📺 **Canale YouTube:** [Investire con Matteo Mazzero](https://www.youtube.com/@investireconmatteomazzero)
