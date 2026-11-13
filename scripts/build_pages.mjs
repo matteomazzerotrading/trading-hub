@@ -72,6 +72,8 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050505">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="Matteo Mazzero | Trading Hub">

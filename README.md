@@ -47,3 +47,9 @@ Sul sito i prezzi usati per i confronti arrivano da TradingView con 15 minuti di
 * `disclaimer.html`, `privacy.html`: note legali e informativa sulla privacy.
 
 I contenuti hanno scopo didattico e non costituiscono consulenza finanziaria.
+
+## App installabile
+
+Il sito è anche una PWA: `manifest.webmanifest` descrive l'app (nome, icone in `icons/`, scorciatoie) e `sw.js` tiene una copia
+della pagina e dei file di dati. Con la rete si usa sempre la versione aggiornata; senza rete si apre l'ultima copia salvata
+(senza prezzi in tempo reale). Per cambiare la strategia di cache basta alzare `VERSIONE` in `sw.js`.

@@ -12,6 +12,13 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#050505">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <!-- App installabile (PWA): icona sulla schermata Home, apertura a tutto schermo, ultima copia dei dati senza rete -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Trading Hub">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Anteprima quando il link viene condiviso (WhatsApp, LinkedIn, Telegram, Facebook, X) -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
@@ -1332,8 +1339,10 @@
             <button class="dati-btn" onclick="esportaDati()">💾 Scarica una copia</button>
             <button class="dati-btn" onclick="document.getElementById('dati-file').click()">📂 Ricarica da file</button>
             <button class="dati-btn" onclick="apriLayout()">⚙️ Personalizza la pagina</button>
+            <button class="dati-btn" id="app-installa" onclick="installaApp()" style="display:none; border-color:var(--brand-green); color:var(--brand-green);">📲 Installa l'app</button>
             <input type="file" id="dati-file" accept="application/json,.json" style="display:none;" onchange="importaDati(this)">
             <div id="dati-esito" style="flex-basis:100%; font-size:0.85em; color:var(--brand-green); display:none;"></div>
+            <div id="app-guida" style="flex-basis:100%; font-size:0.85em; color:#ddd; line-height:1.6; display:none;"></div>
         </div>
     </div>
 
@@ -1351,6 +1360,8 @@
             </div>
         </div>
     </div>
+
+    <div id="app-offline" style="display:none; position:fixed; left:50%; bottom:14px; transform:translateX(-50%); z-index:2500; background:#1a1a1a; border:1px solid var(--accent-yellow); color:#fff; border-radius:24px; padding:9px 18px; font-size:0.85em; box-shadow:0 6px 24px rgba(0,0,0,0.6); max-width:92vw; text-align:center;">📡 Sei senza rete: vedi i dati dell'ultimo aggiornamento, senza prezzi in tempo reale</div>
 
     <footer>
         <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView e Investing.com sono link affiliati. <br><br> <a href="disclaimer.html">Disclaimer</a> · <a href="privacy.html">Privacy</a> · <a href="titoli/">Tutti i fair value</a></p>
@@ -2633,6 +2644,26 @@
         function chiudiLayout() { document.getElementById('lay-modale').style.display = 'none'; }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') chiudiLayout(); });
         try { if (localStorage.getItem('mm_layout')) applicaLayout(); } catch (e) {}
+
+        // === APP INSTALLABILE (PWA): sw.js tiene una copia della pagina e dei dati, manifest.webmanifest descrive l'app ===
+        const appInstallata = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+        let appInvito = null;
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+        window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); appInvito = e; if (!appInstallata()) document.getElementById('app-installa').style.display = ''; });
+        window.addEventListener('appinstalled', () => { appInvito = null; document.getElementById('app-installa').style.display = 'none'; document.getElementById('app-guida').style.display = 'none'; });
+        async function installaApp() {
+            const guida = document.getElementById('app-guida');
+            if (appInvito) { appInvito.prompt(); try { await appInvito.userChoice; } catch (e) {} appInvito = null; return; }
+            // iPhone e iPad non hanno un pulsante di installazione: si passa dal menu Condividi di Safari
+            guida.innerHTML = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+                ? '<strong style="color:#fff;">Su iPhone e iPad:</strong> apri questa pagina in Safari, tocca il pulsante <strong>Condividi</strong> (il quadrato con la freccia in su) e scegli <strong>Aggiungi alla schermata Home</strong>.'
+                : '<strong style="color:#fff;">Per installarla:</strong> apri il menu del browser (i tre puntini) e scegli <strong>Installa app</strong> oppure <strong>Aggiungi a schermata Home</strong>.';
+            guida.style.display = 'block';
+        }
+        // dove il browser non propone l'installazione (Safari su iPhone) il pulsante mostra le istruzioni
+        if (!appInstallata() && (/iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))) document.getElementById('app-installa').style.display = '';
+        const appRete = () => { document.getElementById('app-offline').style.display = navigator.onLine ? 'none' : 'block'; };
+        window.addEventListener('online', appRete); window.addEventListener('offline', appRete); appRete();
 
         // === MOBILE NAV ===
         function toggleMobileNav() {
