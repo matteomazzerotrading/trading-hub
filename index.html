@@ -994,7 +994,7 @@
                 <details style="margin-top:14px;">
                     <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">2 · Che cosa succede dopo un segnale, rispetto a un giorno qualsiasi</summary>
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Dopo</th><th>Giorno qualsiasi</th><th>Dopo un “compra”</th><th>Differenza</th><th>Dopo una condizione di uscita</th></tr></thead><tbody id="tbo-eff-righe"></tbody></table></div>
-                    <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Rendimento medio del titolo e, tra parentesi, quota di casi finiti in guadagno. “Compra” qui è ogni seduta in cui scatta la condizione di acquisto. In questi anni i rendimenti dopo un segnale sono stati in linea con quelli di un giorno qualsiasi: il segnale serve a scaglionare gli ingressi, non a prevedere il rialzo.</div>
+                    <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Rendimento mediano del titolo (il caso tipico) e, tra parentesi, quota di casi finiti in guadagno. “Compra” qui è ogni seduta in cui scatta la condizione di acquisto. In questi anni i rendimenti dopo un segnale sono stati in linea con quelli di un giorno qualsiasi: il segnale serve a scaglionare gli ingressi, non a prevedere il rialzo.</div>
                 </details>
                 <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">3 · Il registro delle operazioni</div>
             </div>
@@ -2556,8 +2556,8 @@
             document.getElementById('tbo-stats-anni').innerHTML = (S.per_anno || []).slice().reverse().map(y => `<tr><td>${y.anno}</td><td class="mono-font">${int(y.operazioni)}</td><td class="mono-font">${itNum(y.vincenti_pct, 1)}%</td><td class="mono-font">${itPct(y.rendimento_mediano_pct)}</td></tr>`).join('');
             const Ef = S.efficacia;
             if (Ef && Ef.orizzonti && Ef.orizzonti.length) {
-                const cella = o => o ? `${itPct(o.media_pct)} <span style="color:var(--text-muted);">(${itNum(o.positivi_pct, 0)}%)</span>` : '—';
-                document.getElementById('tbo-eff-righe').innerHTML = Ef.orizzonti.map(o => { const d = o.acquisto && o.qualsiasi ? o.acquisto.media_pct - o.qualsiasi.media_pct : null;
+                const val = o => (o.mediana_pct != null ? o.mediana_pct : o.media_pct), cella = o => o ? `${itPct(val(o))} <span style="color:var(--text-muted);">(${itNum(o.positivi_pct, 0)}%)</span>` : '—';
+                document.getElementById('tbo-eff-righe').innerHTML = Ef.orizzonti.map(o => { const d = o.acquisto && o.qualsiasi ? val(o.acquisto) - val(o.qualsiasi) : null;
                     return `<tr><td>${o.mesi} ${o.mesi === 1 ? 'mese' : 'mesi'}</td><td class="mono-font">${cella(o.qualsiasi)}</td><td class="mono-font">${cella(o.acquisto)}</td><td class="mono-font" style="font-weight:800; color:${d == null || Math.abs(d) < 0.5 ? '#bbb' : d > 0 ? '#43a047' : '#d32f2f'};">${d == null ? '—' : itPct(d) .replace('%', ' punti')}</td><td class="mono-font">${cella(o.uscita)}</td></tr>`; }).join('');
                 const T = Ef.tieni, Pf = Ef.portafoglio || [], P0 = Pf[0];
                 const riga = (nome, etic, m, forte) => `<tr><td>${nome}</td><td${forte ? ' style="color:#fff; font-weight:700;"' : ''}>${etic}</td><td class="mono-font">${itPct(m.annuo_pct)}</td><td class="mono-font">${itPct(m.ribasso_pct)}</td><td class="mono-font">${itNum(m.volatilita_pct, 1)}%</td></tr>`;

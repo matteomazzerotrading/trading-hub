@@ -85,12 +85,13 @@ export function efficacia(S) {
   const media = a => a.reduce((x, y) => x + y, 0) / a.length, mediana = a => { const b = [...a].sort((x, y) => x - y); return b[b.length >> 1]; };
   const pc = x => Math.round(x * 1000) / 10, INIZIO = 260;
   const orizzonti = [[21, 1], [63, 3], [126, 6], [252, 12]].map(([h, mesi]) => {
-    const g = { q: [0, 0, 0], c: [0, 0, 0], u: [0, 0, 0] };            // somma, positivi, numero
+    const g = { q: [0, 0, 0, []], c: [0, 0, 0, []], u: [0, 0, 0, []] };            // somma, positivi, numero, campione per la mediana
     for (const { s, r } of S) for (let i = INIZIO; i + h < s.c.length; i++) {
       const y = s.c[i + h] / s.c[i] - 1;
-      for (const k of ['q', r.setup[i] ? 'c' : null, r.uscita[i] ? 'u' : null]) if (k) { g[k][0] += y; if (y > 0) g[k][1]++; g[k][2]++; }
+      for (const k of ['q', r.setup[i] ? 'c' : null, r.uscita[i] ? 'u' : null]) if (k) { g[k][0] += y; if (y > 0) g[k][1]++; g[k][2]++; if (k !== 'q' || i % 5 === 0) g[k][3].push(y); }
     }
-    const f = x => (x[2] ? { media_pct: pc(x[0] / x[2]), positivi_pct: pc(x[1] / x[2]), casi: x[2] } : null);
+    // la mediana è il dato da leggere: la media risente di pochi casi estremi (titoli moltiplicati per dieci)
+    const f = x => (x[2] ? { media_pct: pc(x[0] / x[2]), mediana_pct: pc(mediana(x[3])), positivi_pct: pc(x[1] / x[2]), casi: x[2] } : null);
     return { sedute: h, mesi, qualsiasi: f(g.q), acquisto: f(g.c), uscita: f(g.u) };
   });
   // Strategia completa contro "compra e tieni" (solo titoli con almeno 12 anni di barre)
