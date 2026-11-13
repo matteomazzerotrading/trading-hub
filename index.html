@@ -1930,7 +1930,7 @@
             // titolo del sito (con fair value) oppure uno degli altri esaminati (S&P 500, 400, 600): nome e borsa dal file dei segnali
             const scheda = r => {
                 if (db[r.t] && !r.ext) return db[r.t];
-                const x = fvExtDati && fvExtDati[(r.tv || '').split(':')[1]];
+                const x = fvExtDati && fvExtDati[chiaveExt(r.tv)];
                 return x ? { ...x, yf: null, price: tboPrezzi[r.tv] || x.price, altro: true, conFv: true }
                     : { name: r.n || r.t, curr: '$', ex: (r.tv || '').split(':')[0] || 'NYSE', yf: null, price: tboPrezzi[r.tv], altro: true };
             };
@@ -1943,7 +1943,7 @@
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
             tbody.innerHTML = mostra.length ? mostra.map(r => {
                 const da = r.p > 0 && r.p0 > 0 ? (r.p / r.p0 - 1) * 100 : null;
-                const apri = r.e.altro ? ((r.tv || '').split(':')[1] || r.t) : r.t;
+                const apri = r.e.altro ? (chiaveExt(r.tv) || r.t) : r.t;
                 return `<tr onclick="apriTitolo('${esc(apri)}')" style="cursor:pointer;" title="${r.e.altro ? 'Non è tra i titoli che seguo (indici S&P): apri l\'analisi del fair value' : 'Apri l\'analisi del fair value'}">
                 <td style="white-space:nowrap;">${giorno(r.d)}</td>
                 <td><div class="scr-ticker">${esc(r.e.altro ? apri : r.t)}${!r.e.altro && inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div></td>
@@ -2419,6 +2419,8 @@
         let fvHist = null, fvHistExt = null, fvHistChart = null, fvHistRichiesto = null;
         // fair value delle società degli indici S&P 500, 400 e 600 che non seguo (calcolati ogni sera, caricati solo quando servono)
         let fvExtDati = null, fvExtPromessa = null;
+        // chiave di un titolo degli indici S&P: il ticker, con .US se lo stesso ticker è già nel mio elenco (es. AMP)
+        const chiaveExt = tv => { const t = String(tv || '').split(':')[1] || ''; return (db[t] && !db[t].ext) || aliases[t] ? t + '.US' : t; };
         function caricaFvExt() {
             if (fvExtDati) return Promise.resolve(fvExtDati);
             if (!fvExtPromessa) fvExtPromessa = fetchJson('fv_ext.json').then(j => (fvExtDati = (j && j.titoli) || {}));

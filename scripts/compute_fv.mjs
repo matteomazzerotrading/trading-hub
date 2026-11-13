@@ -235,8 +235,9 @@ async function main() {
   let elenco = {};
   try { elenco = JSON.parse(fs.readFileSync(path.join(ROOT, 'tbo_state_ext.json'), 'utf8')).titoli || {}; } catch (e) {}
   const ext = {}, storicoExt = {}; let okExt = 0;
-  const voci = Object.entries(elenco).filter(([, x]) => x.tv).map(([sym, x]) => [x.tv.split(':')[1], sym, x])
-    .filter(([t]) => t && !db[t] && !(data.aliases && data.aliases[t]));
+  // stesso ticker di un titolo del mio elenco su un'altra borsa (es. AMP: Ameriprise a New York, Amplifon a Milano): si aggiunge .US
+  const chiaveExt = t => (db[t] || (data.aliases && data.aliases[t]) ? t + '.US' : t);
+  const voci = Object.entries(elenco).filter(([, x]) => x.tv && x.tv.includes(':')).map(([sym, x]) => [chiaveExt(x.tv.split(':')[1]), sym, x]);
   const fundExt = voci.length ? await tvScan(voci.map(([, , x]) => x.tv)) : {};
   for (const [t, sym, x] of voci) {
     const f = fundExt[x.tv]; if (!f || !(f.close > 0)) continue;
