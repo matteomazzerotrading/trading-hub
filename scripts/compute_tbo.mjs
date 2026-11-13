@@ -205,12 +205,38 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (st.fino > ultima) ultima = st.fino;
   }
   if (!titoli || errori > titoli) { console.error('Troppi errori nel calcolo: file non aggiornati.'); process.exit(1); }
+
+  // Titoli che il sito non segue (S&P 500, 400 e 600): stato ricostruito dalla storia (tbo_state_ext.json, creato dal
+  // calcolo settimanale del track record) e barre degli ultimi due anni (daily_ext.json). Un problema qui non ferma
+  // i segnali dei titoli del sito: in quel caso questi titoli restano semplicemente fermi all'ultimo aggiornamento.
+  const pExt = path.join(ROOT, 'tbo_state_ext.json'), pBarre = path.join(ROOT, 'daily_ext.json');
+  let ext = null, titoliExt = 0;
+  if (fs.existsSync(pExt) && fs.existsSync(pBarre)) {
+    ext = leggi('tbo_state_ext.json'); const barre = leggi('daily_ext.json'); let errExt = 0;
+    const eventiExt = [];
+    for (const [sym, st] of Object.entries(ext.titoli)) {
+      const b = barre[sym];
+      if (!b || !b.h || b.d.length < 300) continue;
+      let n = b.d.length; if (b.d[n - 1] === oggi && !chiuso(sym)) n--;
+      const da = Math.max(0, n - BARRE), taglia = a => a.slice(da, n);
+      const s = { d: taglia(b.d), o: taglia(b.o), h: taglia(b.h), l: taglia(b.l), c: taglia(b.c) };
+      if (s.d.at(-1) <= st.fino) { titoliExt++; continue; }
+      if (s.d[0] > st.fino) { errExt++; continue; }
+      let r;
+      try { r = segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { errExt++; continue; }
+      for (const ev of avanza(st, s, r)) eventiExt.push({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1 });
+      titoliExt++;
+    }
+    if (titoliExt && errExt <= titoliExt / 5) { nuovi.push(...eventiExt); ext.aggiornato = ora.toISOString(); }
+    else { console.error(`Titoli aggiunti non aggiornati (${errExt} errori su ${titoliExt + errExt}).`); ext = null; titoliExt = 0; }
+  }
   const dal = lunedi(ultima); dal.setUTCDate(dal.getUTCDate() - 7);   // si tengono questa settimana e la precedente
   const dalS = dal.toISOString().slice(0, 10), visti = new Set();
-  const righe = [...nuovi, ...(prima.segnali || [])].filter(r => r.d >= dalS && db[r.t] && !visti.has(r.t + r.d + r.k) && visti.add(r.t + r.d + r.k));
+  const righe = [...nuovi, ...(prima.segnali || [])].filter(r => r.d >= dalS && (db[r.t] || r.ext) && !visti.has(r.t + r.d + r.k) && visti.add(r.t + r.d + r.k));
   righe.sort((a, b) => (a.d < b.d ? 1 : a.d > b.d ? -1 : a.t.localeCompare(b.t)));
   stato.aggiornato = ora.toISOString(); stato.ultima_seduta = ultima;
   fs.writeFileSync(path.join(ROOT, 'tbo_state.json'), JSON.stringify(stato) + '\n');
-  fs.writeFileSync(path.join(ROOT, 'tbo_signals.json'), JSON.stringify({ aggiornato: ora.toISOString(), ultima_seduta: ultima, dal: dalS, titoli, segnali: righe }) + '\n');
+  if (ext) fs.writeFileSync(pExt, JSON.stringify(ext) + '\n');
+  fs.writeFileSync(path.join(ROOT, 'tbo_signals.json'), JSON.stringify({ aggiornato: ora.toISOString(), ultima_seduta: ultima, dal: dalS, titoli: titoli + titoliExt, titoli_sito: titoli, titoli_aggiunti: titoliExt, segnali: righe }) + '\n');
   console.log(`TBO: ${titoli} titoli, ${nuovi.filter(r => r.k === 'c').length} nuovi "compra" e ${nuovi.filter(r => r.k === 'x').length} nuove chiusure; in elenco ${righe.length} segnali dal ${dalS} al ${ultima}` + (errori ? ` (${errori} titoli saltati)` : ''));
 }

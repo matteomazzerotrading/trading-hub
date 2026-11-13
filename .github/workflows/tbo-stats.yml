@@ -53,4 +53,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: track record TBO [skip ci]"
-          file_pattern: "tbo_stats.json"
+          file_pattern: "tbo_stats.json tbo_state_ext.json"

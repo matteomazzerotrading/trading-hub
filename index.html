@@ -949,6 +949,11 @@
                     <option value="eu">🇪🇺 Resto d'Europa</option>
                     <option value="us">🇺🇸 Stati Uniti</option>
                 </select>
+                <select id="tbo-quali" class="screener-search" aria-label="Quali titoli" onchange="renderTbo()" style="max-width:230px; cursor:pointer; flex:0 0 auto;">
+                    <option value="">Tutti i titoli esaminati</option>
+                    <option value="sito">Solo i titoli che seguo</option>
+                    <option value="ext">Solo gli altri (S&amp;P 500, 400, 600)</option>
+                </select>
                 <select id="tbo-tipo" class="screener-search" aria-label="Filtra per tipo di segnale" onchange="renderTbo()" style="max-width:210px; cursor:pointer; flex:0 0 auto;">
                     <option value="">Compra e chiusure</option>
                     <option value="c">Solo Compra</option>
@@ -975,7 +980,7 @@
                 <span id="tbo-note"></span>
                 <a id="tbo-more" onclick="tboTutti = !tboTutti; renderTbo()" style="color:var(--brand-green); cursor:pointer; font-weight:700;"></a>
             </div>
-            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Sono gli stessi segnali che la strategia mostra sul mio grafico giornaliero di TradingView. <strong style="color:#ccc;">Compra</strong> compare solo quando la strategia ha ancora liquidità da investire sul titolo (ogni acquisto impegna il 10% del capitale): se è già tutta investita non compra più, anche se le condizioni ci sarebbero. <strong style="color:#ccc;">Chiusa all'80%</strong> vuol dire che vende l'80% della posizione. Le regole restano private: qui vedi solo l'esito, aggiornato ogni sera a mercati chiusi partendo dallo stato letto da TradingView; i prezzi del calcolo serale arrivano da una fonte diversa, quindi in qualche caso l'elenco può differire dal grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
+            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Sono gli stessi segnali che la strategia mostra sul mio grafico giornaliero di TradingView. <strong style="color:#ccc;">Compra</strong> compare solo quando la strategia ha ancora liquidità da investire sul titolo (ogni acquisto impegna il 10% del capitale): se è già tutta investita non compra più, anche se le condizioni ci sarebbero. <strong style="color:#ccc;">Chiusa all'80%</strong> vuol dire che vende l'80% della posizione. Le regole restano private: qui vedi solo l'esito, aggiornato ogni sera a mercati chiusi. Oltre ai titoli che seguo, la strategia esamina tutte le società degli indici americani S&amp;P 500, 400 e 600. Per i titoli che seguo il calcolo parte dallo stato letto da TradingView; per gli altri lo stato della strategia è ricostruito da 14 anni di storia, e nelle prove su titoli dove si può confrontare i segnali coincidono con il grafico in oltre 9 casi su 10. I prezzi del calcolo serale arrivano da una fonte diversa da TradingView, quindi in qualche caso l'elenco può differire dal grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
         </div>
 
         <div class="card" style="padding: 20px; margin-top: 16px; display:none;" id="tbo-stats">
@@ -1875,9 +1880,21 @@
         // === SEGNALI TBO DELLA SETTIMANA (tbo_signals.json, aggiornato ogni sera da scripts/compute_tbo.mjs) ===
         // Il file contiene solo l'esito: titolo, seduta, tipo ('c' compra, 'x' operazione chiusa all'80%) e chiusura.
         let tboData = null, tboTutti = false;
+        // prezzi aggiornati dei titoli che il sito non segue (solo quelli in elenco), per la colonna "Da allora"
+        const tboPrezzi = {};
+        async function prezziTboExt() {
+            const sim = [...new Set((tboData.segnali || []).filter(r => r.ext && r.tv).map(r => r.tv))];
+            if (!sim.length) return;
+            try {
+                const r = await fetch('https://scanner.tradingview.com/global/scan', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, signal: AbortSignal.timeout(10000),
+                    body: JSON.stringify({ symbols: { tickers: sim }, columns: ['close'] }) });
+                for (const x of ((await r.json()).data || [])) if (x.d[0] > 0) tboPrezzi[x.s] = x.d[0];
+            } catch (e) {}
+        }
         async function loadTbo() {
             tboData = await fetchJson('tbo_signals.json');
             renderTbo();
+            if (tboData && tboData.segnali) prezziTboExt().then(renderTbo);
             renderTboStats(await fetchJson('tbo_stats.json'));
         }
         function renderTbo() {
@@ -1892,30 +1909,35 @@
             const ven = new Date(lun); ven.setDate(ven.getDate() + 4);
             const dal = iso(lun), al = iso(new Date(lun.getFullYear(), lun.getMonth(), lun.getDate() + 6));
             const mkt = document.getElementById('tbo-mkt').value, tipo = document.getElementById('tbo-tipo').value, sotto = document.getElementById('tbo-sotto').checked;
+            const quali = document.getElementById('tbo-quali').value;
             const prezzo = e => { const c = e.yf && _priceCache[e.yf]; return parseFloat(c ? c.price : e.price); };
-            const righe = tboData.segnali.filter(r => db[r.t] && r.d >= dal && r.d <= al && (r.k === 'c' || r.k === 'x') && (!tipo || r.k === tipo))
-                .map(r => { const e = db[r.t], p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 ? fvVerdict(e, p) : null }; })
+            // titolo del sito (con fair value) oppure uno degli altri esaminati (S&P 500, 400, 600): nome e borsa dal file dei segnali
+            const scheda = r => db[r.t] && !r.ext ? db[r.t] : { name: r.n || r.t, curr: '$', ex: (r.tv || '').split(':')[0] || 'NYSE', yf: null, price: tboPrezzi[r.tv], altro: true };
+            const righe = tboData.segnali.filter(r => (db[r.t] || r.ext) && r.d >= dal && r.d <= al && (r.k === 'c' || r.k === 'x') && (!tipo || r.k === tipo)
+                    && (!quali || (quali === 'ext') === !!r.ext))
+                .map(r => { const e = scheda(r), p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 && !e.altro ? fvVerdict(e, p) : null }; })
                 .filter(r => (!mkt || FVEngine.mercato(r.e) === mkt) && (!sotto || (r.v && r.v.cat === 'sotto')));
             const tot = righe.length, mostra = tboTutti ? righe : righe.slice(0, 15);
             const num = x => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
             tbody.innerHTML = mostra.length ? mostra.map(r => {
                 const da = r.p > 0 && r.p0 > 0 ? (r.p / r.p0 - 1) * 100 : null;
-                return `<tr onclick="apriTitolo('${r.t}')" style="cursor:pointer;" title="Apri l'analisi del fair value">
+                const apri = r.e.altro ? ((r.tv || '').split(':')[1] || r.t) : r.t;
+                return `<tr onclick="apriTitolo('${esc(apri)}')" style="cursor:pointer;" title="${r.e.altro ? 'Non è tra i titoli che seguo: il fair value si calcola al momento' : 'Apri l\'analisi del fair value'}">
                 <td style="white-space:nowrap;">${giorno(r.d)}</td>
-                <td><div class="scr-ticker">${r.t}${inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${r.e.name}</div></td>
+                <td><div class="scr-ticker">${esc(r.e.altro ? apri : r.t)}${!r.e.altro && inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div></td>
                 <td><span class="scr-badge ${r.k === 'c' ? 'buy' : 'watch'}" style="white-space:nowrap;">${r.k === 'c' ? 'COMPRA' : 'CHIUSA ALL\'80%'}</span></td>
                 <td class="mono-font" style="white-space:nowrap;">${num(r.p0)} ${r.e.curr}</td>
                 <td class="mono-font" style="white-space:nowrap; font-weight:800; color:${da == null ? 'var(--text-muted)' : da >= 0 ? '#43a047' : '#d32f2f'};">${da == null ? '—' : pcs(da)}</td>
-                <td>${r.v && r.v.key !== 'na' ? `<span class="scr-badge" style="${badgeStyle(r.v.colore)}">${r.v.breve}</span>` : '<span style="color:var(--text-muted);">—</span>'}</td></tr>`;
+                <td>${r.v && r.v.key !== 'na' ? `<span class="scr-badge" style="${badgeStyle(r.v.colore)}">${r.v.breve}</span>` : r.e.altro ? '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">calcola →</span>' : '<span style="color:var(--text-muted);">—</span>'}</td></tr>`;
             }).join('')
                 : vuoto(tboData.ultima_seduta < dal
                     ? (quale ? 'Nessun dato per questa settimana.' : 'Ancora nessuna seduta chiusa questa settimana: l\'elenco si aggiorna ogni sera a mercati chiusi. Intanto puoi guardare la settimana scorsa.')
                     : (tboData.segnali.some(r => r.d >= dal && r.d <= al) ? 'Nessun segnale con questi filtri.' : 'Nessun segnale in questa settimana: la strategia non ha comprato né chiuso posizioni sui titoli seguiti.'));
             const corto = { day: 'numeric', month: 'long' };
             document.getElementById('tbo-periodo').innerText = `da lunedì ${giorno(dal, corto)} a venerdì ${giorno(iso(ven), corto)}`;
-            const inSett = k => tboData.segnali.filter(r => r.k === k && r.d >= dal && r.d <= al && db[r.t]).length, nC = inSett('c'), nX = inSett('x');
-            document.getElementById('tbo-note').innerText = `Aggiornato alla seduta di ${giorno(tboData.ultima_seduta, { weekday: 'long', day: 'numeric', month: 'long' })} · nella settimana ${nC} “compra” e ${nX} chiusur${nX === 1 ? 'a' : 'e'} all'80% su ${tboData.titoli} titoli · clicca un titolo per il suo fair value`;
+            const inSett = k => tboData.segnali.filter(r => r.k === k && r.d >= dal && r.d <= al && (db[r.t] || r.ext)).length, nC = inSett('c'), nX = inSett('x');
+            document.getElementById('tbo-note').innerText = `Aggiornato alla seduta di ${giorno(tboData.ultima_seduta, { weekday: 'long', day: 'numeric', month: 'long' })} · nella settimana ${nC} “compra” e ${nX} chiusur${nX === 1 ? 'a' : 'e'} all'80% su ${tboData.titoli.toLocaleString('it-IT', { useGrouping: 'always' })} titoli${tboData.titoli_aggiunti ? ` (${tboData.titoli_sito} che seguo e ${tboData.titoli_aggiunti.toLocaleString('it-IT', { useGrouping: 'always' })} dagli indici S&P 500, 400 e 600)` : ''} · clicca un titolo per il suo fair value`;
             const more = document.getElementById('tbo-more');
             more.innerText = tot > 15 ? (tboTutti ? 'Mostra solo i primi 15' : `Mostra tutti (${tot})`) : '';
         }

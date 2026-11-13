@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { storicoOperazioni, statistiche, confronto, efficacia } from './compute_tbo.mjs';
+import { storicoOperazioni, statistiche, confronto, efficacia, avanza } from './compute_tbo.mjs';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DIR = path.resolve(process.argv[2] || path.join(ROOT, 'universe'));
@@ -16,6 +16,13 @@ catch { console.error('Regole TBO non leggibili: nessun calcolo.'); process.exit
 
 const meta = JSON.parse(fs.readFileSync(path.join(DIR, 'meta.json'), 'utf8'));
 const oggi = new Date().toISOString().slice(0, 10);
+// Segnali giornalieri anche sui titoli del campione che il sito non segue (tbo_state_ext.json). Per questi lo stato
+// della strategia non si legge da TradingView: si ricostruisce dalla prima seduta scaricata (14 anni), fermandosi
+// RITARDO sedute prima della fine, così il calcolo serale riparte da lì e mostra subito i segnali delle ultime settimane.
+// Lo stato di un titolo già presente non si tocca: prosegue una seduta alla volta come per i titoli del sito.
+const STATO_EXT = path.join(ROOT, 'tbo_state_ext.json'), RITARDO = 12;
+const ext = fs.existsSync(STATO_EXT) ? JSON.parse(fs.readFileSync(STATO_EXT, 'utf8')) : { titoli: {} };
+const sito = new Set(meta.sito || []), nuovoExt = {};
 const per = [], serie = [], coppie = [], gruppi = {}; let dal = '9999', al = '', errori = 0, scartati = 0;
 for (const f of fs.readdirSync(DIR).filter(x => /^daily_\d+\.json$/.test(x)).sort()) {
   const blocco = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
@@ -29,6 +36,15 @@ for (const f of fs.readdirSync(DIR).filter(x => /^daily_\d+\.json$/.test(x)).sor
     let r; try { r = segnali(s); } catch { errori++; continue; }
     if (!r || !r.setup || !r.uscita) { errori++; continue; }
     per.push(storicoOperazioni(s, r)); serie.push(s); coppie.push({ s, r });
+    if (!sito.has(sim) && meta.gruppo[sim] && !String(meta.gruppo[sim]).includes('sito')) {
+      const vecchio = ext.titoli[sim], nome = (meta.nomi && meta.nomi[sim]) || sim, tv = (meta.tv && meta.tv[sim]) || (vecchio && vecchio.tv) || null;
+      if (vecchio) nuovoExt[sim] = { ...vecchio, n: nome, tv };
+      else if (s.d.length > RITARDO + 300) {
+        const st = { q: [], cash: 1e6, fino: '0000' }, m = s.d.length - RITARDO;
+        avanza(st, { d: s.d.slice(0, m), c: s.c.slice(0, m) }, { setup: r.setup.slice(0, m), uscita: r.uscita.slice(0, m) });
+        nuovoExt[sim] = { ...st, n: nome, tv };
+      }
+    }
     (gruppi[meta.gruppo[sim] || 'Altri'] = gruppi[meta.gruppo[sim] || 'Altri'] || []).push({ s, r });
     if (s.d[0] < dal) dal = s.d[0]; if (s.d.at(-1) > al) al = s.d.at(-1);
   }
@@ -44,6 +60,10 @@ st.gruppi = Object.entries(gruppi).filter(([, S]) => S.length >= 30).map(([nome,
   return { nome, titoli: S.length, strategia: p ? p.strategia : null, tieni: p ? p.tieni : null,
     dopo_acquisto_6m_pct: sei && sei.acquisto ? sei.acquisto.mediana_pct : null, giorno_qualsiasi_6m_pct: sei && sei.qualsiasi ? sei.qualsiasi.mediana_pct : null };
 }).sort((a, b) => b.titoli - a.titoli);
+if (Object.keys(nuovoExt).length > 300) {
+  fs.writeFileSync(STATO_EXT, JSON.stringify({ aggiornato: new Date().toISOString(), origine: 'ricostruito dalla storia scaricata (14 anni)', titoli: nuovoExt }) + '\n');
+  console.log(`Titoli aggiunti ai segnali giornalieri: ${Object.keys(nuovoExt).length} (nuovi: ${Object.keys(nuovoExt).filter(k => !ext.titoli[k]).length})`);
+}
 fs.writeFileSync(path.join(ROOT, 'tbo_stats.json'), JSON.stringify({ aggiornato: new Date().toISOString(), ...st }) + '\n');
 st.scartati = scartati;
 console.log(`Track record TBO: ${scartati} titoli scartati per barre sospette; ${per.length} titoli dal ${dal} al ${al}; gruppi: ${st.gruppi.map(g => g.nome + ' ' + g.titoli).join(', ')}`);

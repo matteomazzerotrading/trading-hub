@@ -39,6 +39,9 @@ jobs:
         run: |
           pip install yfinance --quiet
           python scripts/fetch_daily.py
+      - name: Scarica le barre dei titoli aggiunti ai segnali TBO
+        continue-on-error: true
+        run: python scripts/fetch_ext_daily.py
       - name: Calcola i pattern
         run: node scripts/compute_patterns.mjs
       - name: Segnali della TBO Strategy
@@ -60,6 +63,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: pattern scanner e segnali TBO [skip ci]"
-          file_pattern: "patterns.json patterns_detail.json tbo_signals.json tbo_state.json portfolio_risk.json"
+          file_pattern: "patterns.json patterns_detail.json tbo_signals.json tbo_state.json tbo_state_ext.json portfolio_risk.json"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"
