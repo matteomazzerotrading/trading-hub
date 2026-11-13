@@ -148,8 +148,24 @@ export function statistiche(perTitolo, dal, al) {
   for (const o of ch) (anni[o.a.slice(0, 4)] = anni[o.a.slice(0, 4)] || []).push(o);
   return { dal, al, titoli: perTitolo.length, titoli_con_operazioni: perTitolo.filter(x => x.chiuse.length).length, chiuse: blocco(ch),
     per_anno: Object.keys(anni).sort().map(y => ({ anno: +y, operazioni: anni[y].length, vincenti_pct: pc(anni[y].filter(o => o.r > 0).length / anni[y].length), rendimento_mediano_pct: pc(mediana(anni[y].map(o => o.r))) })),
-    aperte: { acquisti: ap.length, in_perdita_pct: pc(ap.length ? ap.filter(o => o.r < 0).length / ap.length : null), rendimento_medio_pct: pc(media(ap.map(o => o.r))),
-      rendimento_mediano_pct: pc(mediana(ap.map(o => o.r))), peggiore_pct: pc(ap.length ? Math.min(...ap.map(o => o.r)) : null) } };
+    aperte: aperteDettaglio(ap, al, pc, media, mediana),
+    // tutte le operazioni insieme, quelle chiuse e quelle ancora aperte valutate all'ultima chiusura
+    tutte: (() => { const r = ch.map(o => o.r).concat(ap.map(o => o.r)); return { operazioni: r.length, positive_pct: pc(r.length ? r.filter(x => x > 0).length / r.length : null), rendimento_mediano_pct: pc(mediana(r)) }; })() };
+}
+
+// Acquisti non ancora venduti: come stanno andando adesso, in generale, per fasce di risultato e per anzianità
+function aperteDettaglio(ap, al, pc, media, mediana) {
+  const fine = new Date(al + 'T00:00:00Z'), mesi = o => (fine - new Date(o.da + 'T00:00:00Z')) / 86400000 / 30.44;
+  const r = ap.map(o => o.r), n = ap.length, quota = f => pc(n ? ap.filter(f).length / n : null);
+  const fasce = [['oltre +50%', x => x > 0.5], ['da +20% a +50%', x => x > 0.2 && x <= 0.5], ['da 0 a +20%', x => x > 0 && x <= 0.2],
+    ['da 0 a −20%', x => x <= 0 && x > -0.2], ['da −20% a −50%', x => x <= -0.2 && x > -0.5], ['oltre −50%', x => x <= -0.5]]
+    .map(([nome, f]) => ({ nome, quota_pct: quota(o => f(o.r)) }));
+  const eta = [['meno di 6 mesi', 0, 6], ['da 6 mesi a 2 anni', 6, 24], ['oltre 2 anni', 24, 1e9]].map(([nome, a, b]) => {
+    const g = ap.filter(o => mesi(o) >= a && mesi(o) < b);
+    return { nome, acquisti: g.length, in_guadagno_pct: pc(g.length ? g.filter(o => o.r > 0).length / g.length : null), rendimento_mediano_pct: pc(mediana(g.map(o => o.r))) };
+  });
+  return { acquisti: n, in_guadagno_pct: quota(o => o.r > 0), in_perdita_pct: quota(o => o.r <= 0), rendimento_medio_pct: pc(media(r)), rendimento_mediano_pct: pc(mediana(r)),
+    migliore_pct: pc(n ? Math.max(...r) : null), peggiore_pct: pc(n ? Math.min(...r) : null), eta_mediana_mesi: n ? Math.round(mediana(ap.map(mesi))) : null, fasce, eta };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

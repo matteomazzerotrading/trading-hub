@@ -297,7 +297,7 @@
         .tbo-avviso strong { color: #fff; }
         .sez-nascosta { display: none !important; }
         .mini-kpi { display: flex; gap: 12px; flex-wrap: wrap; }
-        .mini-kpi > div { flex: 1 1 150px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px 16px; }
+        .mini-kpi > div { box-sizing: border-box; flex: 1 1 150px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px 16px; }
         .mini-kpi .l { font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
         .mini-kpi .v { font-family: 'JetBrains Mono', monospace; font-size: 1.25em; font-weight: 800; color: #fff; margin-top: 4px; }
         .mini-kpi .s { font-size: 0.72em; color: var(--text-muted); margin-top: 3px; line-height: 1.45; }
@@ -620,10 +620,10 @@
                             <button class="perf-period-btn perf-mode-btn" onclick="setPerfMode('value',this)" title="Valore del portafoglio in dollari, versamenti compresi">Valore</button>
                         </div>
                         <div style="display:flex; gap:6px; flex-wrap:wrap;" id="perf-period-btns">
-                            <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('1M',this)">1M</button>
+                            <button class="perf-period-btn perf-per-btn active" onclick="setPerfPeriod('1M',this)">1M</button>
                             <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('3M',this)">3M</button>
                             <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('6M',this)">6M</button>
-                            <button class="perf-period-btn perf-per-btn active" onclick="setPerfPeriod('1Y',this)">1Y</button>
+                            <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('1Y',this)">1Y</button>
                             <button class="perf-period-btn perf-per-btn" onclick="setPerfPeriod('ALL',this)">ALL</button>
                         </div>
                     </div>
@@ -999,14 +999,23 @@
                 <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">3 · Il registro delle operazioni</div>
             </div>
             <div class="mini-kpi" id="tbo-stats-kpi"></div>
-            <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 8px;">Acquisti ancora aperti (non venduti)</div>
+            <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">Acquisti ancora aperti: come stanno andando oggi</div>
             <div class="mini-kpi" id="tbo-stats-aperte"></div>
+            <div id="tbo-aperte-fasce" style="display:none; margin-top:14px;">
+                <div style="font-size:0.78em; color:var(--text-muted); margin-bottom:6px;">Come si distribuiscono i risultati, dal migliore al peggiore</div>
+                <div id="tbo-aperte-barra" style="display:flex; height:22px; border-radius:6px; overflow:hidden; border:1px solid var(--border-glass);"></div>
+                <div id="tbo-aperte-legenda" style="display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:8px; font-size:0.78em; color:#ccc;"></div>
+            </div>
+            <div id="tbo-aperte-eta-box" style="display:none; margin-top:14px;">
+                <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Acquistati da</th><th>Acquisti</th><th>In guadagno</th><th>Risultato mediano</th></tr></thead><tbody id="tbo-aperte-eta"></tbody></table></div>
+                <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Gli acquisti più recenti hanno avuto meno tempo per salire: il risultato va letto insieme all'anzianità.</div>
+            </div>
             <div id="tbo-stats-confronto" style="margin-top:14px; font-size:0.9em; color:#ddd; line-height:1.65;"></div>
             <details style="margin-top:12px;">
                 <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Anno per anno</summary>
                 <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Anno di chiusura</th><th>Operazioni chiuse</th><th>Vincenti</th><th>Rendimento mediano</th></tr></thead><tbody id="tbo-stats-anni"></tbody></table></div>
             </details>
-            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;"><strong style="color:#ccc;">Come leggerlo.</strong> È una simulazione: la strategia viene fatta ripartire da zero su ogni titolo del campione con le stesse impostazioni del mio grafico, e ogni coppia acquisto-vendita conta come un'operazione, come nel registro di TradingView. Tre cautele: la strategia non ha stop, quindi gli acquisti andati male non vengono chiusi e restano tra quelli aperti, il che gonfia la quota di operazioni vincenti; le società sono quelle presenti oggi negli indici e nel mio elenco, quindi mancano quelle uscite o fallite in questi anni; il periodo è stato in gran parte di mercati in salita. I risultati passati non dicono nulla di certo su quelli futuri.</p>
+            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;"><strong style="color:#ccc;">Come leggerlo.</strong> È una simulazione: la strategia viene fatta ripartire da zero su ogni titolo del campione con le stesse impostazioni del mio grafico, e ogni coppia acquisto-vendita conta come un'operazione, come nel registro di TradingView. Tre cautele: la strategia non ha stop, quindi gli acquisti andati male restano aperti invece di chiudersi in perdita (per questo conviene guardare anche il quadro degli acquisti aperti); le società sono quelle presenti oggi negli indici e nel mio elenco, quindi mancano quelle uscite o fallite in questi anni; il periodo è stato in gran parte di mercati in salita. I risultati passati non dicono nulla di certo su quelli futuri.</p>
         </div>
     </div>
 
@@ -2113,23 +2122,8 @@
 
             // KPI cards
             if (pd && pd.summary) {
+                renderPortKpi();
                 const s = pd.summary;
-                const fmtUSD = v => (v >= 0 ? '+' : '') + v.toLocaleString('it-IT', { style: 'currency', currency: 'USD' });
-                document.getElementById('port-total').innerText = s.total_value_usd.toLocaleString('it-IT', { style: 'currency', currency: 'USD' });
-                const unreal = document.getElementById('port-unreal');
-                unreal.innerText = fmtUSD(s.unrealized_pl_usd) + ' (' + s.unrealized_pl_pct.toFixed(2) + '%)';
-                unreal.style.color = s.unrealized_pl_usd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
-                // Rendimento da inizio anno e degli ultimi 12 mesi: dallo storico giornaliero (stesso calcolo del grafico); in mancanza, i periodi di TradingView
-                const annual = document.getElementById('port-annual');
-                const per = pd.periods || {}, pts = perfPoints();
-                const daStorico = k => { const P = perfPeriodo(pts, k); return P && P.conPerf ? P.rend : null; };
-                const ytd = daStorico('YTD') ?? (per.YTD ? per.YTD.pl_pct : s.annualized_return_pct);
-                const anno = daStorico('1Y') ?? (per['1Y'] ? per['1Y'].pl_pct : null);
-                const sgn = x => (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2).replace('.', ',') + '%';
-                annual.innerText = sgn(ytd);
-                annual.style.color = ytd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
-                const sub = document.getElementById('port-annual-sub');
-                if (sub && anno != null) sub.innerText = 'ultimi 12 mesi: ' + sgn(anno);
                 document.getElementById('port-count').innerText = (pd.positions || []).length;
                 document.getElementById('port-updated-badge').innerText = '📅 ' + pd.updated;
                 avviaPortLive();
@@ -2209,7 +2203,7 @@
 
         // === PORTFOLIO PERFORMANCE CHART ===
         let perfChartInstance = null;
-        let currentPerfPeriod = '1Y';
+        let currentPerfPeriod = '1M';
 
         function setPerfPeriod(period, btn) {
             currentPerfPeriod = period;
@@ -2234,11 +2228,23 @@
         const PERF_MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
         function perfPoints() {
             const history = (portfolioData && portfolioData.history) || [];
-            return history.map(p => {
+            const pts = history.map(p => {
                 const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(p.date || '');
                 return m ? { d: new Date(+m[1], +m[2] - 1, +m[3]), v: Number(p.value) || 0,
                              perf: p.perf == null ? null : Number(p.perf), pl: p.pl == null ? null : Number(p.pl) } : null;
             }).filter(p => p && p.v > 0);
+            // valore in movimento: un punto per oggi (non il sabato e la domenica), che sostituisce quello serale di oggi se c'è già
+            const snap = portfolioData && portfolioData.snapshot;
+            if (portLive && snap && snap.summary && pts.length) {
+                const oggi = new Date(); oggi.setHours(0, 0, 0, 0);
+                const s0 = snap.summary, ultimo = pts[pts.length - 1];
+                const punto = { d: oggi, v: portLive.tot, live: true,
+                    perf: s0.total_pl_pct != null ? ((1 + s0.total_pl_pct / 100) * (1 + portLive.d / s0.total_value_usd) - 1) * 100 : null,
+                    pl: s0.total_pl_usd != null ? s0.total_pl_usd + portLive.d : null };
+                if (+ultimo.d === +oggi) pts[pts.length - 1] = punto;
+                else if (ultimo.d < oggi && oggi.getDay() % 6 !== 0) pts.push(punto);
+            }
+            return pts;
         }
         // Periodo: 'ALL' = dall'inizio; 'YTD' = dall'ultima seduta dell'anno scorso; altrimenti gli ultimi N mesi di calendario.
         function perfPeriodo(points, period) {
@@ -2320,7 +2326,7 @@
                     }]
                 },
                 options: {
-                    responsive: true, maintainAspectRatio: false,
+                    responsive: true, maintainAspectRatio: false, ...(perfSenzaAnimazione ? { animation: false } : {}),
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: { display: false },
@@ -2354,9 +2360,9 @@
                 ? kpi('Rendimento', pct(P.rend), color, dal)
                   + kpi('Guadagno / perdita', usd(P.pl, true), P.pl >= 0 ? '#00e676' : '#ff3d00', 'in dollari, ' + (P.dallInizio ? 'dall\'inizio' : 'nel periodo'))
                   + kpi(P.dallInizio ? 'Capitale versato' : 'Versamenti netti', !P.dallInizio && Math.abs(P.versamenti) < 1 ? 'nessuno' : usd(P.versamenti, !P.dallInizio), null, P.dallInizio ? 'totale, dall\'inizio' : 'nuovo capitale nel periodo')
-                  + kpi('Valore attuale', usd(P.last.v), null, 'al ' + giorno(P.last.d))
+                  + kpi('Valore attuale', usd(P.last.v), null, P.last.live ? 'adesso · prezzi ritardati di 15 min' : 'al ' + giorno(P.last.d))
                 : kpi('Variazione del valore', usd(P.last.v - P.start.v, true), color, dal + ' · versamenti compresi')
-                  + kpi('Valore attuale', usd(P.last.v), null, 'al ' + giorno(P.last.d));
+                  + kpi('Valore attuale', usd(P.last.v), null, P.last.live ? 'adesso · prezzi ritardati di 15 min' : 'al ' + giorno(P.last.d));
             renderRisk();
             if (note) note.textContent = P.conPerf
                 ? 'Dati giornalieri di TradingView sull\'intero portafoglio, liquidità compresa. Il rendimento è al netto dei versamenti: il valore in dollari sale anche quando aggiungo capitale, quindi non misura da solo come sta andando il portafoglio. Rendimento e guadagno in dollari possono avere segno diverso, perché il primo non dipende da quando ho versato il capitale e il secondo sì.'
@@ -2546,13 +2552,26 @@
                 + voce('Guadagno medio', itPct(c.guadagno_medio_pct), 'delle operazioni vincenti', '#43a047')
                 + voce('Perdita media', itPct(c.perdita_media_pct), 'delle operazioni perdenti', '#d32f2f')
                 + voce('Rapporto guadagno / perdita', c.rapporto != null ? itNum(c.rapporto, 2) : 'n.d.', 'guadagno medio diviso perdita media');
+            const verde = '#43a047', rosso = '#d32f2f', colore = x => (x >= 0 ? verde : rosso);
+            const inGuad = a.in_guadagno_pct != null ? a.in_guadagno_pct : 100 - a.in_perdita_pct;
             document.getElementById('tbo-stats-aperte').innerHTML =
-                voce('Acquisti aperti', int(a.acquisti), 'non ancora venduti')
-                + voce('In perdita', itNum(a.in_perdita_pct, 1) + '%', 'ai prezzi di oggi', '#d32f2f')
-                + voce('Risultato mediano', itPct(a.rendimento_mediano_pct), 'ai prezzi di oggi')
-                + voce('Il peggiore', itPct(a.peggiore_pct), 'ai prezzi di oggi', '#d32f2f');
+                voce('Acquisti aperti', int(a.acquisti), a.eta_mediana_mesi != null ? `non ancora venduti · aperti da ${a.eta_mediana_mesi} mesi (mediana)` : 'non ancora venduti')
+                + voce('In guadagno', itNum(inGuad, 1) + '%', `in perdita il ${itNum(100 - inGuad, 1)}%`, inGuad >= 50 ? verde : rosso)
+                + voce('Risultato mediano', itPct(a.rendimento_mediano_pct), 'il caso tipico, ai prezzi di oggi', colore(a.rendimento_mediano_pct))
+                + voce('Risultato medio', itPct(a.rendimento_medio_pct), 'pesano i titoli molto saliti', colore(a.rendimento_medio_pct))
+                + (a.migliore_pct != null ? voce('Migliore / peggiore', `<span style="color:${verde}">${itPct(a.migliore_pct, 0)}</span> <span style="color:#666">/</span> <span style="color:${rosso}">${itPct(a.peggiore_pct, 0)}</span>`, 'singolo acquisto') : voce('Il peggiore', itPct(a.peggiore_pct), 'singolo acquisto', rosso));
+            if (a.fasce && a.fasce.length) {
+                const col = ['#1b5e20', '#2e7d32', '#66bb6a', '#ef9a9a', '#e53935', '#8e0000'];
+                document.getElementById('tbo-aperte-barra').innerHTML = a.fasce.map((f, i) => f.quota_pct > 0 ? `<div title="${esc(f.nome)}: ${itNum(f.quota_pct, 1)}%" style="width:${f.quota_pct}%; background:${col[i]};"></div>` : '').join('');
+                document.getElementById('tbo-aperte-legenda').innerHTML = a.fasce.map((f, i) => `<span style="white-space:nowrap;"><span style="display:inline-block; width:10px; height:10px; border-radius:2px; background:${col[i]}; margin-right:5px; vertical-align:-1px;"></span>${esc(f.nome)}: <strong class="mono-font">${itNum(f.quota_pct, 1)}%</strong></span>`).join('');
+                document.getElementById('tbo-aperte-fasce').style.display = 'block';
+            }
+            if (a.eta && a.eta.length) {
+                document.getElementById('tbo-aperte-eta').innerHTML = a.eta.filter(e => e.acquisti).map(e => `<tr><td>${esc(e.nome)}</td><td class="mono-font">${int(e.acquisti)}</td><td class="mono-font">${itNum(e.in_guadagno_pct, 1)}%</td><td class="mono-font" style="color:${colore(e.rendimento_mediano_pct)}; font-weight:700;">${itPct(e.rendimento_mediano_pct)}</td></tr>`).join('');
+                document.getElementById('tbo-aperte-eta-box').style.display = 'block';
+            }
             const k = S.confronto;
-            document.getElementById('tbo-stats-confronto').innerHTML = k ? `<strong style="color:#fff;">Il termine di paragone.</strong> Comprare gli stessi titoli in un giorno qualsiasi e tenerli ${mesi} mesi sarebbe finito in guadagno nel <strong>${itNum(k.positivi_pct, 1)}%</strong> dei casi, con un rendimento mediano del <strong>${itPct(k.rendimento_mediano_pct)}</strong>. Le operazioni chiuse dalla strategia hanno fatto <strong>${itNum(c.vincenti_pct, 1)}%</strong> e <strong>${itPct(c.rendimento_mediano_pct)}</strong>, ma nel conto non entrano gli acquisti ancora aperti, che sono quelli andati peggio.` : '';
+            document.getElementById('tbo-stats-confronto').innerHTML = k ? `<strong style="color:#fff;">Il termine di paragone.</strong> Comprare gli stessi titoli in un giorno qualsiasi e tenerli ${mesi} mesi sarebbe finito in guadagno nel <strong>${itNum(k.positivi_pct, 1)}%</strong> dei casi, con un rendimento mediano del <strong>${itPct(k.rendimento_mediano_pct)}</strong>. Le operazioni chiuse dalla strategia hanno fatto <strong>${itNum(c.vincenti_pct, 1)}%</strong> e <strong>${itPct(c.rendimento_mediano_pct)}</strong>${S.tutte ? `; contando anche gli acquisti ancora aperti, valutati ai prezzi di oggi, <strong>${itNum(S.tutte.positive_pct, 1)}%</strong> e <strong>${itPct(S.tutte.rendimento_mediano_pct)}</strong>` : ''}.` : '';
             document.getElementById('tbo-stats-anni').innerHTML = (S.per_anno || []).slice().reverse().map(y => `<tr><td>${y.anno}</td><td class="mono-font">${int(y.operazioni)}</td><td class="mono-font">${itNum(y.vincenti_pct, 1)}%</td><td class="mono-font">${itPct(y.rendimento_mediano_pct)}</td></tr>`).join('');
             const Ef = S.efficacia;
             if (Ef && Ef.orizzonti && Ef.orizzonti.length) {
@@ -2657,11 +2676,39 @@
         document.addEventListener('keydown', e => { if (e.key === 'Escape') chiudiLayout(); });
         try { if (localStorage.getItem('mm_layout')) applicaLayout(); } catch (e) {}
 
+        // Schede in alto: valore, guadagno non realizzato, da inizio anno. Con i prezzi in movimento (portLive) si parte
+        // dalla fotografia serale e si aggiunge la variazione da allora, come fa la stima serale (portfolio_online.py).
+        function renderPortKpi() {
+            const pd = portfolioData; if (!pd || !pd.summary) return;
+            const s = pd.summary, snap = pd.snapshot, L = portLive && snap ? portLive : null;
+            const usd = v => v.toLocaleString('it-IT', { style: 'currency', currency: 'USD' });
+            const segno = v => (v >= 0 ? '+' : '−') + usd(Math.abs(v));
+            const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2).replace('.', ',') + '%';
+            if (!L) document.getElementById('port-total').innerText = usd(s.total_value_usd);
+            let nr = s.unrealized_pl_usd, nrPct = s.unrealized_pl_pct;
+            if (L) { nr = snap.summary.unrealized_pl_usd + L.d; nrPct = snap.unrealized_base ? nr / snap.unrealized_base * 100 : snap.summary.unrealized_pl_pct; }
+            const unreal = document.getElementById('port-unreal');
+            unreal.innerText = segno(nr) + ' (' + pcs(nrPct) + ')';
+            unreal.style.color = nr >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
+            // da inizio anno e ultimi 12 mesi: dallo storico giornaliero, con il punto in movimento se c'è
+            const per = pd.periods || {}, pts = perfPoints();
+            const daStorico = k => { const P = perfPeriodo(pts, k); return P && P.conPerf ? P : null; };
+            const Y = daStorico('YTD'), A = daStorico('1Y');
+            const ytd = Y ? Y.rend : (per.YTD ? per.YTD.pl_pct : s.annualized_return_pct);
+            const annual = document.getElementById('port-annual');
+            annual.innerText = pcs(ytd);
+            annual.style.color = ytd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
+            const sub = document.getElementById('port-annual-sub');
+            const anno = A ? A.rend : (per['1Y'] ? per['1Y'].pl_pct : null);
+            const breve = v => (v >= 0 ? '+' : '−') + '$' + Math.round(Math.abs(v)).toLocaleString('it-IT', { useGrouping: 'always' });
+            if (sub) sub.innerText = [Y ? breve(Y.pl) + ' da inizio anno' : null, anno != null ? 'ultimi 12 mesi: ' + pcs(anno) : null].filter(Boolean).join(' · ');
+        }
+
         // === VALORE DEL PORTAFOGLIO IN MOVIMENTO ===
         // Stesso calcolo della stima serale (scripts/portfolio_online.py): si parte dalla fotografia di TradingView e si
         // rivaluta ogni posizione con il prezzo di adesso (e il cambio, per i titoli in euro). I prezzi sono quelli
         // pubblici di TradingView, ritardati di circa 15 minuti. Una posizione senza prezzo resta al valore della fotografia.
-        let portLiveTimer = null, portLivePrec = null;
+        let portLiveTimer = null, portLivePrec = null, portLive = null, perfSenzaAnimazione = false;
         async function prezziPortLive(simboli) {
             const out = {};
             try {
@@ -2694,6 +2741,9 @@
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
             const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#00e676' : '#ff5252';
             el.innerText = tot.toLocaleString('it-IT', { style: 'currency', currency: 'USD' });
+            portLive = { tot, d };
+            renderPortKpi();
+            perfSenzaAnimazione = true; try { renderPerfChart(); } catch (e) {} finally { perfSenzaAnimazione = false; }
             if (portLivePrec != null && Math.abs(tot - portLivePrec) >= 0.01) { el.style.color = tot > portLivePrec ? '#00e676' : '#ff5252'; setTimeout(() => { el.style.color = ''; }, 900); }
             portLivePrec = tot;
             const [y, m, g] = String(snap.date || '').split('-');
