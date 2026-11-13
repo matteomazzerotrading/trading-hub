@@ -1,41 +1,41 @@
 {
   "_comment": "Dati da TradingView — Directa Investments + Unicredit. Posizioni e allocazione aggiornate il 2026-11-10.",
-  "updated": "12 Nov 2026",
+  "updated": "13 Nov 2026",
   "summary": {
-    "total_value_usd": 14481.86,
+    "total_value_usd": 14529.47,
     "cash_usd": 0.88,
-    "unrealized_pl_usd": -389.33,
-    "unrealized_pl_pct": -2.62,
+    "unrealized_pl_usd": -341.71,
+    "unrealized_pl_pct": -2.3,
     "realized_pl_usd": 295.19,
     "dividends_usd": 156.64,
-    "total_pl_usd": -94.14,
-    "total_pl_pct": -0.49,
-    "annualized_return_pct": -0.35
+    "total_pl_usd": -46.53,
+    "total_pl_pct": -0.16,
+    "annualized_return_pct": -0.17
   },
   "periods": {
     "1M": {
-      "pl_usd": 339.36,
-      "pl_pct": 2.4
+      "pl_usd": 386.97,
+      "pl_pct": 2.73
     },
     "3M": {
-      "pl_usd": -92.13,
-      "pl_pct": -0.63
+      "pl_usd": -44.51,
+      "pl_pct": -0.31
     },
     "6M": {
-      "pl_usd": -413.22,
-      "pl_pct": -2.77
+      "pl_usd": -365.61,
+      "pl_pct": -2.46
     },
     "YTD": {
-      "pl_usd": -107.28,
-      "pl_pct": -0.72
+      "pl_usd": -59.67,
+      "pl_pct": -0.4
     },
     "1Y": {
-      "pl_usd": 35.69,
-      "pl_pct": 0.29
+      "pl_usd": 83.3,
+      "pl_pct": 0.61
     },
     "ALL": {
-      "pl_usd": -94.14,
-      "pl_pct": -0.49
+      "pl_usd": -46.53,
+      "pl_pct": -0.17
     }
   },
   "history": [
@@ -464,27 +464,28 @@
     {"date": "2026-11-06", "value": 14405.81, "perf": -1.012, "pl": -170.19, "source": "tradingview"},
     {"date": "2026-11-09", "value": 14600.25, "perf": 0.324, "pl": 24.25, "source": "tradingview"},
     {"date": "2026-11-10", "value": 14567.79, "perf": 0.101, "pl": -8.21, "source": "tradingview"},
-    {"date": "2026-11-12", "value": 14481.86, "perf": -0.49, "pl": -94.14, "source": "tradingview"}
+    {"date": "2026-11-12", "value": 14481.86, "perf": -0.49, "pl": -94.14, "source": "tradingview"},
+    {"date": "2026-11-13", "value": 14529.47, "perf": -0.16, "pl": -46.53, "source": "tradingview"}
   ],
   "allocation": [
     {
       "label": "Azioni",
-      "value_usd": 11186.94,
-      "pct": 77.25
+      "value_usd": 11239.54,
+      "pct": 77.36
     },
     {
       "label": "Obbligazioni",
-      "value_usd": 2381.83,
-      "pct": 16.45
+      "value_usd": 2364.79,
+      "pct": 16.28
     },
     {
       "label": "ETF/Dr",
-      "value_usd": 542.57,
-      "pct": 3.75
+      "value_usd": 552.72,
+      "pct": 3.8
     },
     {
       "label": "Fund",
-      "value_usd": 369.64,
+      "value_usd": 371.08,
       "pct": 2.55
     }
   ],
@@ -498,20 +499,8 @@
       "qty": 70,
       "avg_price": 17.44,
       "curr": "USD",
-      "alloc_pct": 7.48,
-      "unrealized_pl": -137.56
-    },
-    {
-      "ticker": "DIA",
-      "name": "DiaSorin",
-      "exchange": "MIL",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 8,
-      "avg_price": 59.42,
-      "curr": "EUR",
-      "alloc_pct": 5.39,
-      "unrealized_pl": 238.66
+      "alloc_pct": 7.56,
+      "unrealized_pl": -122.37
     },
     {
       "ticker": "BR",
@@ -522,8 +511,20 @@
       "qty": 4,
       "avg_price": 149.68,
       "curr": "USD",
+      "alloc_pct": 5.3,
+      "unrealized_pl": 171.34
+    },
+    {
+      "ticker": "DIA",
+      "name": "DiaSorin",
+      "exchange": "MIL",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 8,
+      "avg_price": 59.42,
+      "curr": "EUR",
       "alloc_pct": 5.29,
-      "unrealized_pl": 167.37
+      "unrealized_pl": 227.37
     },
     {
       "ticker": "TRI",
@@ -534,8 +535,8 @@
       "qty": 7,
       "avg_price": 91.12,
       "curr": "USD",
-      "alloc_pct": 5.28,
-      "unrealized_pl": 126.8
+      "alloc_pct": 5.27,
+      "unrealized_pl": 127.86
     },
     {
       "ticker": "SAP",
@@ -547,7 +548,7 @@
       "avg_price": 166.4,
       "curr": "EUR",
       "alloc_pct": 5.09,
-      "unrealized_pl": 160.57
+      "unrealized_pl": 163.08
     },
     {
       "ticker": "PFE",
@@ -558,8 +559,8 @@
       "qty": 25,
       "avg_price": 27.7,
       "curr": "USD",
-      "alloc_pct": 4.98,
-      "unrealized_pl": 28.7
+      "alloc_pct": 4.97,
+      "unrealized_pl": 29.61
     },
     {
       "ticker": "US912810RX81",
@@ -570,8 +571,8 @@
       "qty": 10,
       "avg_price": 73.48,
       "curr": "USD",
-      "alloc_pct": 4.8,
-      "unrealized_pl": -39.91
+      "alloc_pct": 4.75,
+      "unrealized_pl": -45.15
     },
     {
       "ticker": "BF.B",
@@ -582,8 +583,8 @@
       "qty": 22,
       "avg_price": 26.05,
       "curr": "USD",
-      "alloc_pct": 4.56,
-      "unrealized_pl": 87.27
+      "alloc_pct": 4.64,
+      "unrealized_pl": 101.07
     },
     {
       "ticker": "EL",
@@ -594,8 +595,8 @@
       "qty": 3,
       "avg_price": 179.0,
       "curr": "EUR",
-      "alloc_pct": 4.35,
-      "unrealized_pl": 16.56
+      "alloc_pct": 4.39,
+      "unrealized_pl": 24.53
     },
     {
       "ticker": "NFLX",
@@ -606,8 +607,8 @@
       "qty": 10,
       "avg_price": 66.0,
       "curr": "USD",
-      "alloc_pct": 4.33,
-      "unrealized_pl": -32.94
+      "alloc_pct": 4.28,
+      "unrealized_pl": -38.14
     },
     {
       "ticker": "IT0005480980",
@@ -618,8 +619,8 @@
       "qty": 10,
       "avg_price": 59.06,
       "curr": "EUR",
-      "alloc_pct": 4.17,
-      "unrealized_pl": 13.29
+      "alloc_pct": 4.12,
+      "unrealized_pl": 8.44
     },
     {
       "ticker": "BSX",
@@ -631,19 +632,7 @@
       "avg_price": 43.57,
       "curr": "USD",
       "alloc_pct": 3.97,
-      "unrealized_pl": 8.52
-    },
-    {
-      "ticker": "IT0005425233",
-      "name": "BTP 1,7% set 2051",
-      "exchange": "OTCB",
-      "type": "bond",
-      "class": "Obbligazioni",
-      "qty": 10,
-      "avg_price": 58.16,
-      "curr": "EUR",
-      "alloc_pct": 3.82,
-      "unrealized_pl": -27.89
+      "unrealized_pl": 10.41
     },
     {
       "ticker": "PDD",
@@ -654,8 +643,20 @@
       "qty": 7,
       "avg_price": 97.0,
       "curr": "USD",
-      "alloc_pct": 3.75,
-      "unrealized_pl": -135.93
+      "alloc_pct": 3.81,
+      "unrealized_pl": -125.43
+    },
+    {
+      "ticker": "IT0005425233",
+      "name": "BTP 1,7% set 2051",
+      "exchange": "OTCB",
+      "type": "bond",
+      "class": "Obbligazioni",
+      "qty": 10,
+      "avg_price": 58.16,
+      "curr": "EUR",
+      "alloc_pct": 3.8,
+      "unrealized_pl": -29.86
     },
     {
       "ticker": "BLDR",
@@ -666,32 +667,8 @@
       "qty": 9,
       "avg_price": 69.4,
       "curr": "USD",
-      "alloc_pct": 3.74,
-      "unrealized_pl": -82.98
-    },
-    {
-      "ticker": "QCOM",
-      "name": "Qualcomm",
-      "exchange": "NASDAQ",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 3,
-      "avg_price": 164.45,
-      "curr": "USD",
-      "alloc_pct": 3.67,
-      "unrealized_pl": 38.13
-    },
-    {
-      "ticker": "US912810SZ21",
-      "name": "US T-Bond 2% ago 2051",
-      "exchange": "EUROTLX",
-      "type": "bond",
-      "class": "Obbligazioni",
-      "qty": 10,
-      "avg_price": 56.06,
-      "curr": "USD",
-      "alloc_pct": 3.66,
-      "unrealized_pl": -31.26
+      "alloc_pct": 3.76,
+      "unrealized_pl": -78.29
     },
     {
       "ticker": "LULU",
@@ -702,8 +679,32 @@
       "qty": 5,
       "avg_price": 121.7,
       "curr": "USD",
+      "alloc_pct": 3.63,
+      "unrealized_pl": -81.08
+    },
+    {
+      "ticker": "US912810SZ21",
+      "name": "US T-Bond 2% ago 2051",
+      "exchange": "EUROTLX",
+      "type": "bond",
+      "class": "Obbligazioni",
+      "qty": 10,
+      "avg_price": 56.06,
+      "curr": "USD",
       "alloc_pct": 3.61,
-      "unrealized_pl": -85.7
+      "unrealized_pl": -36.34
+    },
+    {
+      "ticker": "QCOM",
+      "name": "Qualcomm",
+      "exchange": "NASDAQ",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 3,
+      "avg_price": 164.45,
+      "curr": "USD",
+      "alloc_pct": 3.56,
+      "unrealized_pl": 23.9
     },
     {
       "ticker": "RACE",
@@ -714,8 +715,20 @@
       "qty": 1,
       "avg_price": 342.6,
       "curr": "EUR",
-      "alloc_pct": 2.94,
-      "unrealized_pl": 31.9
+      "alloc_pct": 2.95,
+      "unrealized_pl": 34.6
+    },
+    {
+      "ticker": "FUN",
+      "name": "Six Flags Entertain.",
+      "exchange": "NYSE",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 36,
+      "avg_price": 19.52,
+      "curr": "USD",
+      "alloc_pct": 2.87,
+      "unrealized_pl": -285.72
     },
     {
       "ticker": "CE",
@@ -727,19 +740,7 @@
       "avg_price": 44.91,
       "curr": "USD",
       "alloc_pct": 2.83,
-      "unrealized_pl": 50.56
-    },
-    {
-      "ticker": "FUN",
-      "name": "Six Flags Entertain.",
-      "exchange": "NYSE",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 36,
-      "avg_price": 19.52,
-      "curr": "USD",
-      "alloc_pct": 2.78,
-      "unrealized_pl": -300.12
+      "unrealized_pl": 51.9
     },
     {
       "ticker": "SGBS",
@@ -751,7 +752,7 @@
       "avg_price": 394.56,
       "curr": "USD",
       "alloc_pct": 2.55,
-      "unrealized_pl": -25.27
+      "unrealized_pl": -24.06
     },
     {
       "ticker": "INTU",
@@ -763,7 +764,7 @@
       "avg_price": 307.37,
       "curr": "USD",
       "alloc_pct": 2.35,
-      "unrealized_pl": 32.95
+      "unrealized_pl": 34.07
     },
     {
       "ticker": "CPRT",
@@ -774,8 +775,8 @@
       "qty": 10,
       "avg_price": 31.8,
       "curr": "USD",
-      "alloc_pct": 2.21,
-      "unrealized_pl": 2.05
+      "alloc_pct": 2.19,
+      "unrealized_pl": 0.2
     },
     {
       "ticker": "ADBE",
@@ -786,8 +787,8 @@
       "qty": 1,
       "avg_price": 486.37,
       "curr": "USD",
-      "alloc_pct": 1.65,
-      "unrealized_pl": -247.42
+      "alloc_pct": 1.67,
+      "unrealized_pl": -243.73
     },
     {
       "ticker": "FMC",
@@ -798,206 +799,206 @@
       "qty": 22,
       "avg_price": 14.75,
       "curr": "USD",
-      "alloc_pct": 0.77,
-      "unrealized_pl": -212.99
+      "alloc_pct": 0.79,
+      "unrealized_pl": -209.72
     }
   ],
   "snapshot": {
-    "date": "2026-11-12",
-    "eurusd": 1.10557,
+    "date": "2026-11-13",
+    "eurusd": 1.10231,
     "summary": {
-      "total_value_usd": 14481.86,
+      "total_value_usd": 14529.47,
       "cash_usd": 0.88,
-      "unrealized_pl_usd": -389.33,
-      "unrealized_pl_pct": -2.62,
+      "unrealized_pl_usd": -341.71,
+      "unrealized_pl_pct": -2.3,
       "realized_pl_usd": 295.19,
       "dividends_usd": 156.64,
-      "total_pl_usd": -94.14,
-      "total_pl_pct": -0.49,
-      "annualized_return_pct": -0.35
+      "total_pl_usd": -46.53,
+      "total_pl_pct": -0.16,
+      "annualized_return_pct": -0.17
     },
     "periods": {
       "1M": {
-        "pl_usd": 339.36,
-        "pl_pct": 2.4
+        "pl_usd": 386.97,
+        "pl_pct": 2.73
       },
       "3M": {
-        "pl_usd": -92.13,
-        "pl_pct": -0.63
+        "pl_usd": -44.51,
+        "pl_pct": -0.31
       },
       "6M": {
-        "pl_usd": -413.22,
-        "pl_pct": -2.77
+        "pl_usd": -365.61,
+        "pl_pct": -2.46
       },
       "YTD": {
-        "pl_usd": -107.28,
-        "pl_pct": -0.72
+        "pl_usd": -59.67,
+        "pl_pct": -0.4
       },
       "1Y": {
-        "pl_usd": 35.69,
-        "pl_pct": 0.29
+        "pl_usd": 83.3,
+        "pl_pct": 0.61
       },
       "ALL": {
-        "pl_usd": -94.14,
-        "pl_pct": -0.49
+        "pl_usd": -46.53,
+        "pl_pct": -0.17
       }
     },
-    "unrealized_base": 14859.923664122136,
+    "unrealized_base": 14856.95652173913,
     "positions": {
       "TTD": {
-        "price": 15.47,
-        "value_usd": 1083.24,
-        "unrealized_pl": -137.56,
+        "price": 15.68,
+        "value_usd": 1098.43,
+        "unrealized_pl": -122.37,
         "qty": 70
       },
-      "DIA": {
-        "price": 85.5,
-        "value_usd": 780.57,
-        "unrealized_pl": 238.66,
-        "qty": 8
-      },
       "BR": {
-        "price": 191.47,
-        "value_usd": 766.09,
-        "unrealized_pl": 167.37,
+        "price": 192.45,
+        "value_usd": 770.06,
+        "unrealized_pl": 171.34,
         "qty": 4
       },
+      "DIA": {
+        "price": 84.32,
+        "value_usd": 768.61,
+        "unrealized_pl": 227.37,
+        "qty": 8
+      },
       "TRI": {
-        "price": 109.25,
-        "value_usd": 764.64,
-        "unrealized_pl": 126.8,
+        "price": 109.3,
+        "value_usd": 765.7,
+        "unrealized_pl": 127.86,
         "qty": 7
       },
       "SAP": {
-        "price": 212.55,
-        "value_usd": 737.13,
-        "unrealized_pl": 160.57,
+        "price": 213.45,
+        "value_usd": 739.55,
+        "unrealized_pl": 163.08,
         "qty": 3
       },
       "PFE": {
-        "price": 28.83,
-        "value_usd": 721.2,
-        "unrealized_pl": 28.7,
+        "price": 28.89,
+        "value_usd": 722.11,
+        "unrealized_pl": 29.61,
         "qty": 25
       },
       "US912810RX81": {
-        "price": 69.49,
-        "value_usd": 695.13,
-        "unrealized_pl": -39.91,
+        "price": 69.01,
+        "value_usd": 690.15,
+        "unrealized_pl": -45.15,
         "qty": 10
       },
       "BF.B": {
-        "price": 30.04,
-        "value_usd": 660.37,
-        "unrealized_pl": 87.27,
+        "price": 30.65,
+        "value_usd": 674.17,
+        "unrealized_pl": 101.07,
         "qty": 22
       },
       "EL": {
-        "price": 179.9,
-        "value_usd": 629.96,
-        "unrealized_pl": 16.56,
+        "price": 182.35,
+        "value_usd": 637.84,
+        "unrealized_pl": 24.53,
         "qty": 3
       },
       "NFLX": {
-        "price": 62.69,
-        "value_usd": 627.06,
-        "unrealized_pl": -32.94,
+        "price": 62.15,
+        "value_usd": 621.86,
+        "unrealized_pl": -38.14,
         "qty": 10
       },
       "IT0005480980": {
-        "price": 60.39,
-        "value_usd": 603.89,
-        "unrealized_pl": 13.29,
+        "price": 54.31,
+        "value_usd": 598.61,
+        "unrealized_pl": 8.44,
         "qty": 10
       },
       "BSX": {
-        "price": 44.2,
-        "value_usd": 574.93,
-        "unrealized_pl": 8.52,
+        "price": 44.34,
+        "value_usd": 576.82,
+        "unrealized_pl": 10.41,
         "qty": 13
       },
-      "IT0005425233": {
-        "price": 55.37,
-        "value_usd": 553.21,
-        "unrealized_pl": -27.89,
-        "qty": 10
-      },
       "PDD": {
-        "price": 77.53,
-        "value_usd": 543.07,
-        "unrealized_pl": -135.93,
+        "price": 78.97,
+        "value_usd": 553.57,
+        "unrealized_pl": -125.43,
         "qty": 7
       },
-      "BLDR": {
-        "price": 60.12,
-        "value_usd": 541.62,
-        "unrealized_pl": -82.98,
-        "qty": 9
-      },
-      "QCOM": {
-        "price": 177.14,
-        "value_usd": 531.48,
-        "unrealized_pl": 38.13,
-        "qty": 3
-      },
-      "US912810SZ21": {
-        "price": 52.94,
-        "value_usd": 530.04,
-        "unrealized_pl": -31.26,
+      "IT0005425233": {
+        "price": 50.09,
+        "value_usd": 552.12,
+        "unrealized_pl": -29.86,
         "qty": 10
       },
+      "BLDR": {
+        "price": 60.68,
+        "value_usd": 546.31,
+        "unrealized_pl": -78.29,
+        "qty": 9
+      },
       "LULU": {
-        "price": 104.46,
-        "value_usd": 522.8,
-        "unrealized_pl": -85.7,
+        "price": 105.65,
+        "value_usd": 527.42,
+        "unrealized_pl": -81.08,
         "qty": 5
       },
+      "US912810SZ21": {
+        "price": 52.45,
+        "value_usd": 524.51,
+        "unrealized_pl": -36.34,
+        "qty": 10
+      },
+      "QCOM": {
+        "price": 172.47,
+        "value_usd": 517.25,
+        "unrealized_pl": 23.9,
+        "qty": 3
+      },
       "RACE": {
-        "price": 369.3,
-        "value_usd": 425.77,
-        "unrealized_pl": 31.9,
+        "price": 371.8,
+        "value_usd": 428.62,
+        "unrealized_pl": 34.6,
         "qty": 1
       },
-      "CE": {
-        "price": 51.26,
-        "value_usd": 409.84,
-        "unrealized_pl": 50.56,
-        "qty": 8
-      },
       "FUN": {
-        "price": 11.19,
-        "value_usd": 402.6,
-        "unrealized_pl": -300.12,
+        "price": 11.55,
+        "value_usd": 417.0,
+        "unrealized_pl": -285.72,
         "qty": 36
       },
+      "CE": {
+        "price": 51.41,
+        "value_usd": 411.18,
+        "unrealized_pl": 51.9,
+        "qty": 8
+      },
       "SGBS": {
-        "price": 369.64,
-        "value_usd": 369.29,
-        "unrealized_pl": -25.27,
+        "price": 371.08,
+        "value_usd": 370.5,
+        "unrealized_pl": -24.06,
         "qty": 1
       },
       "INTU": {
-        "price": 340.17,
-        "value_usd": 340.32,
-        "unrealized_pl": 32.95,
+        "price": 341.7,
+        "value_usd": 341.44,
+        "unrealized_pl": 34.07,
         "qty": 1
       },
       "CPRT": {
-        "price": 31.995,
-        "value_usd": 320.05,
-        "unrealized_pl": 2.05,
+        "price": 31.83,
+        "value_usd": 318.2,
+        "unrealized_pl": 0.2,
         "qty": 10
       },
       "ADBE": {
-        "price": 238.54,
-        "value_usd": 238.95,
-        "unrealized_pl": -247.42,
+        "price": 243.08,
+        "value_usd": 242.64,
+        "unrealized_pl": -243.73,
         "qty": 1
       },
       "FMC": {
-        "price": 5.06,
-        "value_usd": 111.51,
-        "unrealized_pl": -212.99,
+        "price": 5.21,
+        "value_usd": 114.78,
+        "unrealized_pl": -209.72,
         "qty": 22
       }
     }
