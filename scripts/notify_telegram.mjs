@@ -18,7 +18,9 @@ const leggi = (f, def) => { try { return JSON.parse(fs.readFileSync(path.join(RO
 const sig = leggi('tbo_signals.json', null);
 if (!sig || !Array.isArray(sig.segnali)) { console.log('Nessun file dei segnali.'); process.exit(0); }
 const db = leggi('data.json', { db: {} }).db, ext = (leggi('fv_ext.json', {}) || {}).titoli || {};
-const PERCORSO = path.join(ROOT, 'tbo_notified.json'), primaVolta = !fs.existsSync(PERCORSO);
+const PERCORSO = path.join(ROOT, 'tbo_notified.json');
+// Primo invio: il registro non esiste ancora o non è mai stato scritto da un invio (aggiornato vuoto).
+const primaVolta = !fs.existsSync(PERCORSO) || !leggi('tbo_notified.json', {}).aggiornato;
 const fatti = new Set((leggi('tbo_notified.json', { inviati: [] }).inviati) || []);
 const chiave = r => `${r.t}|${r.d}|${r.k}`;
 
@@ -50,14 +52,14 @@ const messaggi = [];
 for (const dd of [...new Set(nuovi.map(r => r.d))].sort()) {
   const delGiorno = nuovi.filter(r => r.d === dd), ordina = a => a.sort((x, y) => (scheda(y).mio - scheda(x).mio) || x.t.localeCompare(y.t));
   const compra = ordina(delGiorno.filter(r => r.k === 'c')), chiuse = ordina(delGiorno.filter(r => r.k === 'x'));
-  const blocchi = [`🫖 <b>TBO Strategy</b> · seduta di ${giorno(dd)}`];
+  const blocchi = [`📈 <b>TBO Strategy</b> · seduta di ${giorno(dd)}`];
   if (compra.length) blocchi.push(`\n🟢 <b>Compra</b> (${compra.length})`, ...compra.map(riga));
   if (chiuse.length) blocchi.push(`\n🟡 <b>Chiusa all'80%</b> (${chiuse.length})`, ...chiuse.map(riga));
   const coda = `\n⭐ = titolo che seguo · prezzo di chiusura della seduta\n<i>Spunti da cui parto io stesso per le mie valutazioni: non sono consigli di acquisto né consulenza finanziaria.</i>\n<a href="${SITE}#tbo">Tutti i segnali e il track record →</a>`;
   // Telegram accetta al massimo 4096 caratteri per messaggio: se serve, l'elenco si divide in più messaggi
   let corrente = '';
   for (const b of blocchi) {
-    if ((corrente + '\n' + b).length > 3600) { messaggi.push(corrente); corrente = '🫖 <b>TBO Strategy</b> · continua'; }
+    if ((corrente + '\n' + b).length > 3600) { messaggi.push(corrente); corrente = '📈 <b>TBO Strategy</b> · continua'; }
     corrente += (corrente ? '\n' : '') + b;
   }
   messaggi.push(corrente + '\n' + coda);
