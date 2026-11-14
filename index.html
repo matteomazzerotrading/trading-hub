@@ -37,7 +37,7 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[
       {"@type":"WebSite","@id":"https://matteomazzerotrading.github.io/trading-hub/#website","url":"https://matteomazzerotrading.github.io/trading-hub/","name":"Matteo Mazzero | Trading Hub","inLanguage":"it-IT","publisher":{"@id":"https://matteomazzerotrading.github.io/trading-hub/#matteo"}},
-      {"@type":"Person","@id":"https://matteomazzerotrading.github.io/trading-hub/#matteo","name":"Matteo Mazzero","url":"https://matteomazzerotrading.github.io/trading-hub/","sameAs":["https://www.youtube.com/@investireconmatteomazzero"]}
+      {"@type":"Person","@id":"https://matteomazzerotrading.github.io/trading-hub/#matteo","name":"Matteo Mazzero","url":"https://matteomazzerotrading.github.io/trading-hub/","sameAs":["https://www.youtube.com/@investireconmatteomazzero","https://t.me/mm_trading_strategy"]}
     ]}
     </script>
     
@@ -297,6 +297,12 @@
         .tbo-avviso strong { color: #fff; }
         .sez-nascosta { display: none !important; }
         .div-box > summary::-webkit-details-marker { display: none; }
+        .tbo-telegram { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: #fff; background: rgba(41,169,235,0.08); border: 1px solid rgba(41,169,235,0.35); transition: background .2s; }
+        .tbo-telegram:hover { background: rgba(41,169,235,0.16); }
+        .tbo-telegram svg { flex-shrink: 0; }
+        .tbo-telegram > span:nth-of-type(1) { flex: 1; min-width: 0; font-size: 0.9em; }
+        .tbo-telegram small { display: block; color: var(--text-muted); font-size: 0.82em; margin-top: 2px; }
+        .tbo-telegram-cta { color: #29a9eb; font-weight: 700; font-size: 0.88em; white-space: nowrap; }
         .div-box > summary > span:first-child::after { content: ' ▾'; color: var(--text-muted); font-weight: 400; }
         .div-box[open] > summary > span:first-child::after { content: ' ▴'; }
         .mini-kpi { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -542,6 +548,7 @@
                 <div class="about-links">
                     <a href="#portfolio">Guarda il mio portafoglio →</a>
                     <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener">Canale YouTube →</a>
+                    <a href="https://t.me/mm_trading_strategy" target="_blank" rel="noopener">Segnali TBO su Telegram →</a>
                 </div>
             </div>
         </div>
@@ -958,6 +965,11 @@
             <div class="tbo-avviso">
                 <strong>⚠️ Non sono consigli di acquisto.</strong> Sono soltanto gli spunti da cui parto io stesso quando valuto se comprare un titolo: prima di muovermi guardo il fair value, i conti della società e il resto del mio portafoglio, e la maggior parte dei segnali la scarto. Un segnale non dice che il prezzo salirà e non tiene conto della tua situazione: <strong>non è consulenza finanziaria né una raccomandazione personalizzata</strong>, e ogni decisione di investimento resta tua. <a href="disclaimer.html">Leggi il disclaimer →</a>
             </div>
+            <a href="https://t.me/mm_trading_strategy" target="_blank" rel="noopener" class="tbo-telegram">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#29a9eb"/><path d="M5.4 11.8l11.6-4.5c.5-.2 1 .1.8.9l-2 9.3c-.1.6-.5.8-1.1.5l-3-2.2-1.4 1.4c-.2.2-.3.3-.6.3l.2-3.1 5.6-5.1c.2-.2 0-.3-.4-.1l-6.9 4.4-3-.9c-.6-.2-.7-.6.2-.9z" fill="#fff"/></svg>
+                <span><strong>Ricevi i segnali su Telegram</strong><small>Ogni sera a mercati chiusi, solo quando ci sono segnali nuovi · t.me/mm_trading_strategy</small></span>
+                <span class="tbo-telegram-cta">Iscriviti →</span>
+            </a>
             <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0;">
                 <select id="tbo-sett" class="screener-search" aria-label="Scegli la settimana" onchange="tboTutti = false; renderTbo()" style="max-width:200px; cursor:pointer; flex:0 0 auto;">
                     <option value="0">Settimana in corso</option>
