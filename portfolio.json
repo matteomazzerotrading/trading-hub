@@ -1197,5 +1197,59 @@
       "curr": "USD",
       "usd": 3.3
     }
-  ]
+  ],
+  "bond_terms": {
+    "_comment": "Cedole delle obbligazioni: tasso annuo lordo, giorno e mesi di pagamento, nominale posseduto, data di acquisto. Il sito calcola da qui le cedole incassate e quelle attese; fx_cedole è il cambio EURUSD del giorno di pagamento delle cedole in euro già incassate.",
+    "US912810RX81": {
+      "label": "T-Bond 2047",
+      "coupon_pct": 3.0,
+      "day": 15,
+      "months": [
+        5,
+        11
+      ],
+      "nominal": 1000,
+      "curr": "USD",
+      "since": "2026-06-09"
+    },
+    "US912810SZ21": {
+      "label": "T-Bond 2051",
+      "coupon_pct": 2.0,
+      "day": 15,
+      "months": [
+        2,
+        8
+      ],
+      "nominal": 1000,
+      "curr": "USD",
+      "since": "2026-06-10"
+    },
+    "IT0005480980": {
+      "label": "BTP 2052",
+      "coupon_pct": 2.15,
+      "day": 1,
+      "months": [
+        3,
+        9
+      ],
+      "nominal": 1000,
+      "curr": "EUR",
+      "since": "2026-09-30"
+    },
+    "IT0005425233": {
+      "label": "BTP 2051",
+      "coupon_pct": 1.7,
+      "day": 1,
+      "months": [
+        3,
+        9
+      ],
+      "nominal": 1000,
+      "curr": "EUR",
+      "since": "2026-05-06"
+    }
+  },
+  "fx_cedole": {
+    "2026-09-01": 1.15878
+  }
 }

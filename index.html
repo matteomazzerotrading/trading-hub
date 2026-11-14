@@ -605,7 +605,7 @@
         </div>
         <details class="card div-box" id="div-box" style="display:none; margin-bottom:30px; padding:0;" ontoggle="if (this.open) proiezioneDividendi()">
             <summary style="cursor:pointer; padding:18px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; list-style:none;">
-                <span style="font-weight:700; color:#fff;">💰 Dividendi incassati e proiezione 2027</span>
+                <span style="font-weight:700; color:#fff;">💰 Dividendi e cedole incassati, proiezione 2027</span>
                 <span id="div-sintesi" class="mono-font" style="font-size:0.9em; color:var(--brand-green);"></span>
             </summary>
             <div style="padding:0 20px 20px;">
@@ -614,10 +614,10 @@
                 <div class="mini-kpi" id="div-proiezione"><div><div class="l">Calcolo</div><div class="v" style="font-size:1em;">…</div></div></div>
                 <div id="div-proiezione-righe" style="margin-top:10px;"></div>
                 <details style="margin-top:14px;">
-                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Tutti i dividendi incassati</summary>
+                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Tutti i dividendi e le cedole incassati</summary>
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Data</th><th>Titolo</th><th>Importo</th><th>In dollari</th></tr></thead><tbody id="div-elenco"></tbody></table></div>
                 </details>
-                <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Dividendi registrati sul portafoglio TradingView, lordi; quelli in euro sono convertiti al cambio del giorno di pagamento. La proiezione moltiplica le azioni che ho oggi per il dividendo annuo che ciascuna società paga attualmente, senza aumenti né tagli, e non comprende le cedole delle obbligazioni. Non è una previsione: i dividendi possono essere ridotti o sospesi.</p>
+                <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Dividendi registrati sul portafoglio TradingView e cedole delle obbligazioni calcolate dal tasso, dal calendario di pagamento e dal nominale posseduto; tutti gli importi sono lordi (sui titoli di Stato la ritenuta è del 12,5%) e quelli in euro sono convertiti al cambio del giorno di pagamento. Le cedole non sono comprese nel valore e nel profitto del portafoglio TradingView. La proiezione moltiplica le azioni che ho oggi per il dividendo annuo che ciascuna società paga attualmente, senza aumenti né tagli, e aggiunge le cedole a tasso fisso in pagamento nel 2027, al cambio di oggi. Non è una previsione: i dividendi possono essere ridotti o sospesi.</p>
             </div>
         </details>
         <div class="portfolio-grid">
@@ -2784,8 +2784,31 @@
 
         // === DIVIDENDI: incassati (portfolio.json → dividends, dal portafoglio TradingView) e proiezione per il 2027 ===
         const dUsd = (v, dec = 2) => '$' + v.toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: 'always' });
+        // Cedole delle obbligazioni (portfolio.json → bond_terms): una per ogni data di pagamento dopo l'acquisto.
+        // Se la data cade di sabato o domenica il pagamento slitta al lunedì. Le cedole già incassate in euro usano
+        // il cambio del giorno (fx_cedole); quelle future, o senza cambio registrato, il cambio passato come fxOggi.
+        function cedoleObbligazioni(finoA, fxOggi) {
+            const T = (portfolioData && portfolioData.bond_terms) || {}, fxC = (portfolioData && portfolioData.fx_cedole) || {}, out = [];
+            const posseduti = new Set(((portfolioData && portfolioData.positions) || []).map(p => p.ticker)), oggi = new Date().toISOString().slice(0, 10);
+            for (const [t, b] of Object.entries(T)) {
+                if (t.startsWith('_') || !b || !b.since || !(b.coupon_pct > 0) || !(b.months || []).length) continue;
+                const fine = b.until || (posseduti.has(t) ? finoA : oggi);
+                for (let y = +b.since.slice(0, 4); y <= +finoA.slice(0, 4); y++) for (const m of b.months) {
+                    const g = new Date(Date.UTC(y, m - 1, b.day || 1)), wd = g.getUTCDay();
+                    if (wd === 6) g.setUTCDate(g.getUTCDate() + 2); else if (wd === 0) g.setUTCDate(g.getUTCDate() + 1);
+                    const date = g.toISOString().slice(0, 10);
+                    if (date <= b.since || date > fine || date > finoA) continue;
+                    const amount = Math.round(b.nominal * b.coupon_pct / b.months.length) / 100;
+                    const fx = b.curr === 'EUR' ? ((date <= oggi && fxC[date]) || fxOggi || 1.1) : 1;
+                    out.push({ date, ticker: t, label: b.label || t, amount, curr: b.curr || 'USD', usd: Math.round(amount * fx * 100) / 100, cedola: true, rate: b.coupon_pct });
+                }
+            }
+            return out.sort((a, b) => a.date.localeCompare(b.date));
+        }
         function renderDividendi() {
-            const box = document.getElementById('div-box'), L = (portfolioData && portfolioData.dividends) || [];
+            const box = document.getElementById('div-box');
+            const oggiIso = new Date().toISOString().slice(0, 10), fxSnap = portfolioData && portfolioData.snapshot && portfolioData.snapshot.eurusd;
+            const L = ((portfolioData && portfolioData.dividends) || []).concat(portfolioData ? cedoleObbligazioni(oggiIso, fxSnap) : []);
             if (!box || !L.length) return;
             const oggi = new Date(), iso = d => d.toISOString().slice(0, 10);
             const fa = (mesi) => { const d = new Date(oggi); d.setMonth(d.getMonth() - mesi); return iso(d); };
@@ -2794,12 +2817,16 @@
             const periodi = [['Ultimo mese', somma(x => x.date >= fa(1)), 'ultimi 30 giorni'], ['Ultimi 3 mesi', somma(x => x.date >= fa(3)), ''],
                 ['Da inizio anno', somma(x => x.date >= anno + '-01-01'), 'nel ' + anno], ['Ultimi 12 mesi', somma(x => x.date >= fa(12)), ''],
                 ['Nel ' + (anno - 1), somma(x => x.date.startsWith(String(anno - 1))), 'anno intero'], ['Dall\'inizio', somma(() => true), 'dal ' + new Date(primo + 'T12:00:00').toLocaleDateString('it-IT', { month: 'long', year: 'numeric' })]];
-            document.getElementById('div-periodi').innerHTML = periodi.map(([l, v, s]) => `<div><div class="l">${l}</div><div class="v" style="color:${v > 0 ? 'var(--brand-green)' : '#fff'};">${dUsd(v)}</div><div class="s">${s || '&nbsp;'}</div></div>`).join('');
+            const ced = f => L.filter(x => x.cedola && f(x)).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+            const filtri = [x => x.date >= fa(1), x => x.date >= fa(3), x => x.date >= anno + '-01-01', x => x.date >= fa(12), x => x.date.startsWith(String(anno - 1)), () => true];
+            document.getElementById('div-periodi').innerHTML = periodi.map(([l, v, s], i) => { const c = ced(filtri[i]);
+                return `<div><div class="l">${l}</div><div class="v" style="color:${v > 0 ? 'var(--brand-green)' : '#fff'};">${dUsd(v)}</div><div class="s">${c > 0 ? 'di cui cedole ' + dUsd(c) : (s || '&nbsp;')}</div></div>`; }).join('');
             document.getElementById('div-sintesi').innerText = dUsd(somma(x => x.date >= fa(12))) + ' negli ultimi 12 mesi';
             const nomi = Object.fromEntries((portfolioData.positions || []).map(p => [p.ticker, p.name]));
             document.getElementById('div-elenco').innerHTML = L.filter(x => x.amount > 0).sort((a, b) => b.date.localeCompare(a.date)).map(x => `<tr>
                 <td style="white-space:nowrap;">${new Date(x.date + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
-                <td><span class="scr-ticker">${esc(x.ticker)}</span>${nomi[x.ticker] || (db[x.ticker] && db[x.ticker].name) ? `<div class="scr-name" style="font-size:0.78em;">${esc(nomi[x.ticker] || db[x.ticker].name)}</div>` : ''}</td>
+                <td>${x.cedola ? `<span class="scr-ticker" style="color:#4fc3f7;">${esc(x.label)}</span><div class="scr-name" style="font-size:0.78em;">Cedola · ${esc(nomi[x.ticker] || x.ticker)}</div>`
+                    : `<span class="scr-ticker">${esc(x.ticker)}</span>${nomi[x.ticker] || (db[x.ticker] && db[x.ticker].name) ? `<div class="scr-name" style="font-size:0.78em;">${esc(nomi[x.ticker] || db[x.ticker].name)}</div>` : ''}`}</td>
                 <td class="mono-font" style="white-space:nowrap;">${x.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${x.curr === 'EUR' ? '€' : '$'}</td>
                 <td class="mono-font" style="white-space:nowrap;">${dUsd(x.usd)}</td></tr>`).join('');
             box.style.display = 'block';
@@ -2824,19 +2851,29 @@
             const righe = pos.map(p => { const d = dati[sim(p)]; if (!d || !(d.close > 0)) return null;
                 const annuo = p.qty * d.close * (d.y || 0) / 100 * (d.c === 'EUR' ? fx : d.c === 'GBX' ? 0.01 : 1);
                 return { t: p.ticker, n: p.name, annuo, y: d.y || 0, val: p.qty * d.close * (d.c === 'EUR' ? fx : d.c === 'GBX' ? 0.01 : 1) }; }).filter(Boolean);
-            const tot = righe.reduce((a, x) => a + x.annuo, 0), valAz = righe.reduce((a, x) => a + x.val, 0), paganti = righe.filter(x => x.annuo > 0.005);
-            const ultimi12 = (portfolioData.dividends || []).filter(x => x.date >= new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10)).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+            const totDiv = righe.reduce((a, x) => a + x.annuo, 0), valAz = righe.reduce((a, x) => a + x.val, 0), paganti = righe.filter(x => x.annuo > 0.005);
+            // cedole in pagamento nel 2027, una riga per obbligazione
+            const ced27 = cedoleObbligazioni('2027-12-31', fx).filter(x => x.date >= '2027-01-01'), perBond = {};
+            for (const c of ced27) { const b = perBond[c.ticker] || (perBond[c.ticker] = { t: c.label, n: (portfolioData.positions || []).find(p => p.ticker === c.ticker), annuo: 0, y: c.rate, cedola: true }); b.annuo += c.usd; }
+            const bond = Object.values(perBond), totCed = bond.reduce((a, x) => a + x.annuo, 0), tot = totDiv + totCed;
+            const da12 = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10), oggiIso = new Date().toISOString().slice(0, 10);
+            const ultimi12 = (portfolioData.dividends || []).concat(cedoleObbligazioni(oggiIso, portfolioData.snapshot && portfolioData.snapshot.eurusd))
+                .filter(x => x.date >= da12).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+            const prossima = cedoleObbligazioni('2027-12-31', fx).find(x => x.date > oggiIso);
             const voce = (l, v, s, col) => `<div><div class="l">${l}</div><div class="v"${col ? ` style="color:${col};"` : ''}>${v}</div><div class="s">${s}</div></div>`;
-            box.innerHTML = voce('Dividendi attesi nel 2027', dUsd(tot), 'con le azioni di oggi, ai dividendi attuali', 'var(--brand-green)')
+            box.innerHTML = voce('Attesi nel 2027', dUsd(tot), totCed > 0 ? 'dividendi e cedole' : 'con le azioni di oggi, ai dividendi attuali', 'var(--brand-green)')
+                + voce('Dividendi', dUsd(totDiv), 'azioni di oggi, ai dividendi attuali')
+                + (totCed > 0 ? voce('Cedole', dUsd(totCed), bond.length + ' obbligazioni a tasso fisso', '#4fc3f7') : '')
                 + voce('Al mese, in media', dUsd(tot / 12), 'distribuiti nell\'anno')
-                + voce('Rendimento da dividendo', (valAz > 0 ? (tot / valAz * 100) : 0).toLocaleString('it-IT', { maximumFractionDigits: 2 }) + '%', 'sulla parte azionaria')
+                + voce('Rendimento da dividendo', (valAz > 0 ? (totDiv / valAz * 100) : 0).toLocaleString('it-IT', { maximumFractionDigits: 2 }) + '%', 'sulla parte azionaria')
                 + voce('Rispetto agli ultimi 12 mesi', (tot >= ultimi12 ? '+' : '−') + dUsd(Math.abs(tot - ultimi12)), `incassati ${dUsd(ultimi12)}`, tot >= ultimi12 ? 'var(--brand-green)' : 'var(--accent-red)');
-            const max = Math.max(...paganti.map(x => x.annuo), 1);
-            document.getElementById('div-proiezione-righe').innerHTML = `<div style="font-size:0.78em; color:var(--text-muted); margin-bottom:6px;">${paganti.length} titoli su ${righe.length} pagano un dividendo</div>`
-                + paganti.sort((a, b) => b.annuo - a.annuo).map(x => `<div style="display:flex; align-items:center; gap:10px; margin:5px 0; font-size:0.85em;">
-                    <span class="mono-font" style="width:58px; color:#fff; font-weight:700;">${esc(x.t)}</span>
-                    <div style="flex:1; background:rgba(255,255,255,0.05); border-radius:4px; height:10px;"><div style="width:${(x.annuo / max * 100).toFixed(1)}%; height:100%; background:var(--brand-green); border-radius:4px;"></div></div>
-                    <span class="mono-font" style="width:74px; text-align:right;">${dUsd(x.annuo)}</span><span class="mono-font" style="width:52px; text-align:right; color:var(--text-muted);">${x.y.toLocaleString('it-IT', { maximumFractionDigits: 1 })}%</span></div>`).join('');
+            const tutte = paganti.sort((a, b) => b.annuo - a.annuo).concat(bond.sort((a, b) => b.annuo - a.annuo)), max = Math.max(...tutte.map(x => x.annuo), 1);
+            const quando = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+            document.getElementById('div-proiezione-righe').innerHTML = `<div style="font-size:0.78em; color:var(--text-muted); margin-bottom:6px;">${paganti.length} titoli su ${righe.length} pagano un dividendo${bond.length ? ` · <span style="color:#4fc3f7;">${bond.length} obbligazioni pagano cedole</span>` : ''}${prossima ? ` · prossima cedola il ${quando(prossima.date)} (${esc(prossima.label)}, ${prossima.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${prossima.curr === 'EUR' ? '€' : '$'})` : ''}</div>`
+                + tutte.map(x => `<div style="display:flex; align-items:center; gap:10px; margin:5px 0; font-size:0.85em;">
+                    <span class="mono-font" style="width:${bond.length ? 92 : 58}px; flex-shrink:0; color:${x.cedola ? '#4fc3f7' : '#fff'}; font-weight:700; white-space:nowrap;">${esc(x.t)}</span>
+                    <div style="flex:1; background:rgba(255,255,255,0.05); border-radius:4px; height:10px;"><div style="width:${(x.annuo / max * 100).toFixed(1)}%; height:100%; background:${x.cedola ? '#4fc3f7' : 'var(--brand-green)'}; border-radius:4px;"></div></div>
+                    <span class="mono-font" style="width:74px; text-align:right;">${dUsd(x.annuo)}</span><span class="mono-font" style="width:52px; text-align:right; color:var(--text-muted);">${x.y.toLocaleString('it-IT', { maximumFractionDigits: x.cedola ? 2 : 1 })}%</span></div>`).join('');
         }
 
         // === VALORE DEL PORTAFOGLIO IN MOVIMENTO ===
