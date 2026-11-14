@@ -305,7 +305,7 @@
 
     if (hasBand && close < d.fv_low * (1 - P.MOS) && close <= sogliaSotto) {
       Object.assign(out, declino
-        ? { key: 'molto_sotto_declino', titolo: 'MOLTO SOTTOVALUTATA, MA IN DECLINO', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#827717' }
+        ? { key: 'molto_sotto_declino', titolo: 'MOLTO SOTTOVALUTATA, MA IN DECLINO', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#ffeb3b' }
         : { key: 'molto_sotto', titolo: 'MOLTO SOTTOVALUTATA', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#1b5e20' });
     } else if (close > sogliaSotto && close <= sogliaSu) {
       // Dentro la banda ma sopra la stima prudente: non è "sottovalutata" (il potenziale sarebbe negativo)
@@ -313,7 +313,7 @@
       if (declino) det.push('in calo: rischio value trap');
     } else if (close <= sogliaSu) {
       Object.assign(out, declino
-        ? { key: 'equa_declino', titolo: "EQUA PER UN'AZIENDA IN DECLINO", sotto: 'prezzata come se non crescesse più', colore: '#827717' }
+        ? { key: 'equa_declino', titolo: "EQUA PER UN'AZIENDA IN DECLINO", sotto: 'prezzata come se non crescesse più', colore: '#ffeb3b' }
         : { key: 'sotto', titolo: 'SOTTOVALUTATA', sotto: 'prezzata come se non crescesse più', colore: '#43a047' });
     } else if (d.fv_mkt == null || close <= d.fv_mkt) {
       Object.assign(out, { key: 'equita', titolo: 'ZONA DI EQUITÀ', sotto: "sconta meno crescita dell'azienda media", colore: '#546e7a' });

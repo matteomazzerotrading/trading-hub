@@ -296,6 +296,9 @@
         .tbo-avviso { background: rgba(255,235,59,0.07); border: 1px solid rgba(255,235,59,0.35); border-left: 4px solid var(--accent-yellow); border-radius: 10px; padding: 14px 16px; font-size: 0.9em; line-height: 1.65; color: #e6e6e6; }
         .tbo-avviso strong { color: #fff; }
         .sez-nascosta { display: none !important; }
+        .div-box > summary::-webkit-details-marker { display: none; }
+        .div-box > summary > span:first-child::after { content: ' ▾'; color: var(--text-muted); font-weight: 400; }
+        .div-box[open] > summary > span:first-child::after { content: ' ▴'; }
         .mini-kpi { display: flex; gap: 12px; flex-wrap: wrap; }
         .mini-kpi > div { box-sizing: border-box; flex: 1 1 150px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px 16px; }
         .mini-kpi .l { font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
@@ -600,6 +603,23 @@
             <div class="kpi-card"><div class="fv-label">Da inizio anno</div><div class="kpi-val mono-font" id="port-annual">—</div><div id="port-annual-sub" style="font-size:0.75em; color:var(--text-muted); margin-top:4px;"></div></div>
             <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono-font" id="port-count">—</div></div>
         </div>
+        <details class="card div-box" id="div-box" style="display:none; margin-bottom:30px; padding:0;" ontoggle="if (this.open) proiezioneDividendi()">
+            <summary style="cursor:pointer; padding:18px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; list-style:none;">
+                <span style="font-weight:700; color:#fff;">💰 Dividendi incassati e proiezione 2027</span>
+                <span id="div-sintesi" class="mono-font" style="font-size:0.9em; color:var(--brand-green);"></span>
+            </summary>
+            <div style="padding:0 20px 20px;">
+                <div class="mini-kpi" id="div-periodi"></div>
+                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">Proiezione per il 2027</div>
+                <div class="mini-kpi" id="div-proiezione"><div><div class="l">Calcolo</div><div class="v" style="font-size:1em;">…</div></div></div>
+                <div id="div-proiezione-righe" style="margin-top:10px;"></div>
+                <details style="margin-top:14px;">
+                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Tutti i dividendi incassati</summary>
+                    <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Data</th><th>Titolo</th><th>Importo</th><th>In dollari</th></tr></thead><tbody id="div-elenco"></tbody></table></div>
+                </details>
+                <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Dividendi registrati sul portafoglio TradingView, lordi; quelli in euro sono convertiti al cambio del giorno di pagamento. La proiezione moltiplica le azioni che ho oggi per il dividendo annuo che ciascuna società paga attualmente, senza aumenti né tagli, e non comprende le cedole delle obbligazioni. Non è una previsione: i dividendi possono essere ridotti o sospesi.</p>
+            </div>
+        </details>
         <div class="portfolio-grid">
             <div style="display: flex; flex-direction: column; gap: 30px;">
                 <!-- Allocazione per asset class -->
@@ -1264,7 +1284,7 @@
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#1b5e20; background:rgba(27,94,32,0.12); border:1px solid rgba(27,94,32,0.45);">MOLTO SOTTOVALUTATA</span></div><div>Prezzo sotto anche lo scenario peggiore, con un margine di sicurezza del 10%.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#43a047; background:rgba(67,160,71,0.12); border:1px solid rgba(67,160,71,0.45);">SOTTOVALUTATA</span></div><div>Prezzo <strong>sotto la stima prudente</strong>, cioè sotto il più basso tra FV pavimento e FV storico: è lo stesso riferimento del potenziale, quindi una sottovalutata ha sempre potenziale positivo.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#00897b; background:rgba(0,137,123,0.12); border:1px solid rgba(0,137,123,0.45);">NELLA BANDA DEL FAIR VALUE</span></div><div>Prezzo sopra la stima prudente ma ancora entro lo scenario migliore e sotto il FV di mercato: non è caro, ma non c'è margine rispetto alla stima.</div></div>
-                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#827717; background:rgba(130,119,23,0.12); border:1px solid rgba(130,119,23,0.45);">EQUA PER UN'AZIENDA IN DECLINO</span></div><div>Prezzo sotto la stima prudente, ma i ricavi per azione sono in calo: il prezzo basso può essere giustificato (rischio <em>value trap</em>). Sotto la banda diventa <em>molto sottovalutata, ma in declino</em>.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#ffeb3b; background:rgba(255,235,59,0.10); border:1px solid rgba(255,235,59,0.45);">EQUA PER UN'AZIENDA IN DECLINO</span></div><div>Prezzo sotto la stima prudente, ma i ricavi per azione sono in calo: il prezzo basso può essere giustificato (rischio <em>value trap</em>). Sotto la banda diventa <em>molto sottovalutata, ma in declino</em>.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#546e7a; background:rgba(84,110,122,0.12); border:1px solid rgba(84,110,122,0.45);">ZONA DI EQUITÀ</span></div><div>Prezzo tra la banda e il FV di mercato: sconta meno crescita di un'azienda media.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#f9a825; background:rgba(249,168,37,0.12); border:1px solid rgba(249,168,37,0.45);">PREMIO SOSTENUTO</span></div><div>Prezzo sopra il FV di mercato, ma la crescita che chiede è già stata realizzata e il ROIC supera il rendimento richiesto: il premio è giustificato.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#ef6c00; background:rgba(239,108,0,0.12); border:1px solid rgba(239,108,0,0.45);">PREMIO DUBBIO</span></div><div>Prezzo sopra il FV di mercato con crescita realizzata, ma il ROIC non supera il rendimento richiesto: la crescita non crea valore.</div></div>
@@ -2166,6 +2186,7 @@
             // KPI cards
             if (pd && pd.summary) {
                 renderPortKpi();
+                renderDividendi();
                 const s = pd.summary;
                 document.getElementById('port-count').innerText = (pd.positions || []).length;
                 document.getElementById('port-updated-badge').innerText = '📅 ' + pd.updated;
@@ -2440,7 +2461,7 @@
             const idx = s.fv.map((v, i) => (v != null && s.p[i] != null ? i : -1)).filter(i => i >= 0);
             if (idx.length < 4) return;
             const i0 = idx[0], date = H.date.slice(i0), fv = s.fv.slice(i0), p = s.p.slice(i0), curr = db[t] ? db[t].curr : '';
-            const et = d => { const [y, m] = d.split('-'); return PERF_MESI[+m - 1] + ' ' + y.slice(2); };
+            const et = d => { const [y, m] = d.split('-'); return PERF_MESI[+m - 1] + ' ' + y; };
             row.style.display = 'block';
             if (fvHistChart) { fvHistChart.destroy(); fvHistChart = null; }
             fvHistChart = new Chart(document.getElementById('fvHistChart').getContext('2d'), {
@@ -2759,6 +2780,63 @@
             const anno = A ? A.rend : (per['1Y'] ? per['1Y'].pl_pct : null);
             const breve = v => (v >= 0 ? '+' : '−') + '$' + Math.round(Math.abs(v)).toLocaleString('it-IT', { useGrouping: 'always' });
             if (sub) sub.innerText = [Y ? breve(Y.pl) + ' da inizio anno' : null, anno != null ? 'ultimi 12 mesi: ' + pcs(anno) : null].filter(Boolean).join(' · ');
+        }
+
+        // === DIVIDENDI: incassati (portfolio.json → dividends, dal portafoglio TradingView) e proiezione per il 2027 ===
+        const dUsd = (v, dec = 2) => '$' + v.toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: 'always' });
+        function renderDividendi() {
+            const box = document.getElementById('div-box'), L = (portfolioData && portfolioData.dividends) || [];
+            if (!box || !L.length) return;
+            const oggi = new Date(), iso = d => d.toISOString().slice(0, 10);
+            const fa = (mesi) => { const d = new Date(oggi); d.setMonth(d.getMonth() - mesi); return iso(d); };
+            const somma = f => L.filter(f).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+            const anno = oggi.getFullYear(), primo = L.map(x => x.date).sort()[0];
+            const periodi = [['Ultimo mese', somma(x => x.date >= fa(1)), 'ultimi 30 giorni'], ['Ultimi 3 mesi', somma(x => x.date >= fa(3)), ''],
+                ['Da inizio anno', somma(x => x.date >= anno + '-01-01'), 'nel ' + anno], ['Ultimi 12 mesi', somma(x => x.date >= fa(12)), ''],
+                ['Nel ' + (anno - 1), somma(x => x.date.startsWith(String(anno - 1))), 'anno intero'], ['Dall\'inizio', somma(() => true), 'dal ' + new Date(primo + 'T12:00:00').toLocaleDateString('it-IT', { month: 'long', year: 'numeric' })]];
+            document.getElementById('div-periodi').innerHTML = periodi.map(([l, v, s]) => `<div><div class="l">${l}</div><div class="v" style="color:${v > 0 ? 'var(--brand-green)' : '#fff'};">${dUsd(v)}</div><div class="s">${s || '&nbsp;'}</div></div>`).join('');
+            document.getElementById('div-sintesi').innerText = dUsd(somma(x => x.date >= fa(12))) + ' negli ultimi 12 mesi';
+            const nomi = Object.fromEntries((portfolioData.positions || []).map(p => [p.ticker, p.name]));
+            document.getElementById('div-elenco').innerHTML = L.filter(x => x.amount > 0).sort((a, b) => b.date.localeCompare(a.date)).map(x => `<tr>
+                <td style="white-space:nowrap;">${new Date(x.date + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
+                <td><span class="scr-ticker">${esc(x.ticker)}</span>${nomi[x.ticker] || (db[x.ticker] && db[x.ticker].name) ? `<div class="scr-name" style="font-size:0.78em;">${esc(nomi[x.ticker] || db[x.ticker].name)}</div>` : ''}</td>
+                <td class="mono-font" style="white-space:nowrap;">${x.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${x.curr === 'EUR' ? '€' : '$'}</td>
+                <td class="mono-font" style="white-space:nowrap;">${dUsd(x.usd)}</td></tr>`).join('');
+            box.style.display = 'block';
+        }
+        // Proiezione 2027: per ogni azione posseduta, quantità × prezzo × rendimento da dividendo attuale (dividendo annuo che paga oggi)
+        let divProiezioneFatta = false;
+        async function proiezioneDividendi() {
+            if (divProiezioneFatta || !portfolioData) return;
+            const pos = (portfolioData.positions || []).filter(p => p.type !== 'bond'), sim = p => p.exchange + ':' + p.ticker;
+            const dati = {};
+            try {
+                const r = await fetch('https://scanner.tradingview.com/global/scan', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, signal: AbortSignal.timeout(10000),
+                    body: JSON.stringify({ symbols: { tickers: pos.map(sim).concat('FX_IDC:EURUSD') }, columns: ['close', 'dividends_yield_current', 'currency'] }) });
+                for (const x of ((await r.json()).data || [])) dati[x.s] = { close: x.d[0], y: x.d[1], c: x.d[2] };
+            } catch (e) {}
+            const box = document.getElementById('div-proiezione');
+            if (!pos.some(p => dati[sim(p)])) { box.innerHTML = '<div><div class="l">Proiezione</div><div class="v" style="font-size:1em;">non disponibile ora</div><div class="s">riprova tra poco</div></div>'; return; }
+            divProiezioneFatta = true;
+            let fx = dati['FX_IDC:EURUSD'] && dati['FX_IDC:EURUSD'].close;
+            if (!fx) { try { const r = await fetch('https://scanner.tradingview.com/symbol?symbol=FX_IDC:EURUSD&fields=close'); fx = (await r.json()).close; } catch (e) {} }
+            fx = fx || (portfolioData.snapshot && portfolioData.snapshot.eurusd) || 1.1;
+            const righe = pos.map(p => { const d = dati[sim(p)]; if (!d || !(d.close > 0)) return null;
+                const annuo = p.qty * d.close * (d.y || 0) / 100 * (d.c === 'EUR' ? fx : d.c === 'GBX' ? 0.01 : 1);
+                return { t: p.ticker, n: p.name, annuo, y: d.y || 0, val: p.qty * d.close * (d.c === 'EUR' ? fx : d.c === 'GBX' ? 0.01 : 1) }; }).filter(Boolean);
+            const tot = righe.reduce((a, x) => a + x.annuo, 0), valAz = righe.reduce((a, x) => a + x.val, 0), paganti = righe.filter(x => x.annuo > 0.005);
+            const ultimi12 = (portfolioData.dividends || []).filter(x => x.date >= new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10)).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+            const voce = (l, v, s, col) => `<div><div class="l">${l}</div><div class="v"${col ? ` style="color:${col};"` : ''}>${v}</div><div class="s">${s}</div></div>`;
+            box.innerHTML = voce('Dividendi attesi nel 2027', dUsd(tot), 'con le azioni di oggi, ai dividendi attuali', 'var(--brand-green)')
+                + voce('Al mese, in media', dUsd(tot / 12), 'distribuiti nell\'anno')
+                + voce('Rendimento da dividendo', (valAz > 0 ? (tot / valAz * 100) : 0).toLocaleString('it-IT', { maximumFractionDigits: 2 }) + '%', 'sulla parte azionaria')
+                + voce('Rispetto agli ultimi 12 mesi', (tot >= ultimi12 ? '+' : '−') + dUsd(Math.abs(tot - ultimi12)), `incassati ${dUsd(ultimi12)}`, tot >= ultimi12 ? 'var(--brand-green)' : 'var(--accent-red)');
+            const max = Math.max(...paganti.map(x => x.annuo), 1);
+            document.getElementById('div-proiezione-righe').innerHTML = `<div style="font-size:0.78em; color:var(--text-muted); margin-bottom:6px;">${paganti.length} titoli su ${righe.length} pagano un dividendo</div>`
+                + paganti.sort((a, b) => b.annuo - a.annuo).map(x => `<div style="display:flex; align-items:center; gap:10px; margin:5px 0; font-size:0.85em;">
+                    <span class="mono-font" style="width:58px; color:#fff; font-weight:700;">${esc(x.t)}</span>
+                    <div style="flex:1; background:rgba(255,255,255,0.05); border-radius:4px; height:10px;"><div style="width:${(x.annuo / max * 100).toFixed(1)}%; height:100%; background:var(--brand-green); border-radius:4px;"></div></div>
+                    <span class="mono-font" style="width:74px; text-align:right;">${dUsd(x.annuo)}</span><span class="mono-font" style="width:52px; text-align:right; color:var(--text-muted);">${x.y.toLocaleString('it-IT', { maximumFractionDigits: 1 })}%</span></div>`).join('');
         }
 
         // === VALORE DEL PORTAFOGLIO IN MOVIMENTO ===

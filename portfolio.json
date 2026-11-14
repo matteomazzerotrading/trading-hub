@@ -1003,5 +1003,199 @@
       }
     }
   },
-  "source": "tradingview"
+  "source": "tradingview",
+  "dividends": [
+    {
+      "date": "2026-11-10",
+      "ticker": "CE",
+      "exchange": "NYSE",
+      "amount": 0.24,
+      "curr": "USD",
+      "usd": 0.24
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "amount": 1.38,
+      "curr": "USD",
+      "usd": 1.38
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "FMC",
+      "exchange": "NYSE",
+      "amount": 1.76,
+      "curr": "USD",
+      "usd": 1.76
+    },
+    {
+      "date": "2026-10-05",
+      "ticker": "BR",
+      "exchange": "NYSE",
+      "amount": 4.36,
+      "curr": "USD",
+      "usd": 4.36
+    },
+    {
+      "date": "2026-10-01",
+      "ticker": "BF.B",
+      "exchange": "NYSE",
+      "amount": 5.08,
+      "curr": "USD",
+      "usd": 5.08
+    },
+    {
+      "date": "2026-09-24",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "amount": 2.76,
+      "curr": "USD",
+      "usd": 2.76
+    },
+    {
+      "date": "2026-09-10",
+      "ticker": "TRI",
+      "exchange": "NASDAQ",
+      "amount": 4.58,
+      "curr": "USD",
+      "usd": 4.58
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "amount": 1.2,
+      "curr": "USD",
+      "usd": 1.2
+    },
+    {
+      "date": "2026-07-16",
+      "ticker": "FMC",
+      "exchange": "NYSE",
+      "amount": 1.76,
+      "curr": "USD",
+      "usd": 1.76
+    },
+    {
+      "date": "2026-07-01",
+      "ticker": "HPQ",
+      "exchange": "NYSE",
+      "amount": 9.0,
+      "curr": "USD",
+      "usd": 9.0
+    },
+    {
+      "date": "2026-07-01",
+      "ticker": "HPQ",
+      "exchange": "NYSE",
+      "amount": 9.0,
+      "curr": "USD",
+      "usd": 9.0
+    },
+    {
+      "date": "2026-06-25",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "amount": 4.6,
+      "curr": "USD",
+      "usd": 4.6
+    },
+    {
+      "date": "2026-06-03",
+      "ticker": "EL",
+      "exchange": "EURONEXT",
+      "amount": 12.0,
+      "curr": "EUR",
+      "usd": 13.92
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "DIA",
+      "exchange": "MIL",
+      "amount": 10.4,
+      "curr": "EUR",
+      "usd": 12.09
+    },
+    {
+      "date": "2026-05-08",
+      "ticker": "SAP",
+      "exchange": "XETR",
+      "amount": 7.5,
+      "curr": "EUR",
+      "usd": 8.84
+    },
+    {
+      "date": "2026-05-05",
+      "ticker": "RACE",
+      "exchange": "MIL",
+      "amount": 3.62,
+      "curr": "EUR",
+      "usd": 4.23
+    },
+    {
+      "date": "2026-04-17",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "amount": 2.4,
+      "curr": "USD",
+      "usd": 2.4
+    },
+    {
+      "date": "2026-03-26",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "amount": 2.67,
+      "curr": "USD",
+      "usd": 2.67
+    },
+    {
+      "date": "2025-12-30",
+      "ticker": "LMT",
+      "exchange": "NYSE",
+      "amount": 3.45,
+      "curr": "USD",
+      "usd": 3.45
+    },
+    {
+      "date": "2025-12-18",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "amount": 2.67,
+      "curr": "USD",
+      "usd": 2.67
+    },
+    {
+      "date": "2025-09-26",
+      "ticker": "LMT",
+      "exchange": "NYSE",
+      "amount": 3.3,
+      "curr": "USD",
+      "usd": 3.3
+    },
+    {
+      "date": "2025-06-27",
+      "ticker": "LMT",
+      "exchange": "NYSE",
+      "amount": 3.3,
+      "curr": "USD",
+      "usd": 3.3
+    },
+    {
+      "date": "2025-05-21",
+      "ticker": "ERG",
+      "exchange": "MIL",
+      "amount": 45.0,
+      "curr": "EUR",
+      "usd": 50.76
+    },
+    {
+      "date": "2025-03-28",
+      "ticker": "LMT",
+      "exchange": "NYSE",
+      "amount": 3.3,
+      "curr": "USD",
+      "usd": 3.3
+    }
+  ]
 }

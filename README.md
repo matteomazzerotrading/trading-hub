@@ -29,6 +29,8 @@ Sito personale di **Matteo Mazzero**: il mio portafoglio reale, il fair value di
 | Rischio del portafoglio | `portfolio_risk.json` | Nel workflow *Compute Patterns*: correlazione tra i titoli (`scripts/compute_risk.mjs`) |
 | Fair value degli altri titoli | `fv_ext.json`, `fv_history_ext.json`, `titoli/altri.html` | Con i fair value, per le società degli indici S&P 500, 400 e 600 non seguite dal sito (le stesse dei segnali TBO): stesso calcolo, pagina dedicata e storico |
 | Segnali TBO sugli altri titoli | `tbo_state_ext.json` | Società degli indici S&P 500, 400 e 600 non seguite dal sito: stato ricostruito ogni settimana per i nuovi ingressi (workflow *TBO Track Record*), poi avanzato ogni sera con le barre degli ultimi due anni (`scripts/fetch_ext_daily.py`) |
+| Notifiche Telegram dei segnali TBO | `tbo_notified.json` | Nel workflow *Compute Patterns*: `scripts/notify_telegram.mjs` pubblica i nuovi Compra e chiusure all'80% sul canale; servono i segreti `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID` |
+| Dividendi | `portfolio.json` → `dividends` | Dal portafoglio TradingView (scheda Transazioni → Dividendi), aggiornati dal task serale dal PC |
 | Track record TBO | `tbo_stats.json` | Workflow *TBO Track Record*, una volta alla settimana, su un campione largo (S&P 500, 400, 600 e titoli del sito); solo se esiste il segreto `TBO_RULES` |
 | Segnali della TBO Strategy (Compra, chiusa all'80%) | `tbo_signals.json`, `tbo_state.json` | Nello stesso workflow, solo se esiste il segreto `TBO_RULES` |
 
