@@ -48,7 +48,17 @@ jobs:
           node scripts/compute_tbo_stats.mjs universe
           rm -rf scripts/private universe
       - name: Allinea al ramo principale
-        run: git pull --rebase --autostash
+        # Il calcolo serale (compute-patterns) può aver fatto avanzare tbo_state_ext.json nel frattempo: si tiene la sua
+        # versione per i titoli già presenti e si aggiungono solo i titoli nuovi di questo calcolo (con nome e simbolo)
+        run: |
+          cp tbo_state_ext.json /tmp/ext_nuovo.json 2>/dev/null || true
+          git checkout -- tbo_state_ext.json 2>/dev/null || true
+          git pull --rebase --autostash
+          if [ -f /tmp/ext_nuovo.json ]; then node -e "
+            const fs = require('fs'), n = JSON.parse(fs.readFileSync('/tmp/ext_nuovo.json', 'utf8'));
+            const v = fs.existsSync('tbo_state_ext.json') ? JSON.parse(fs.readFileSync('tbo_state_ext.json', 'utf8')) : { titoli: {} }, t = {};
+            for (const [k, x] of Object.entries(n.titoli)) t[k] = v.titoli[k] ? { ...v.titoli[k], n: x.n, tv: x.tv } : x;
+            fs.writeFileSync('tbo_state_ext.json', JSON.stringify({ ...v, titoli: t }) + '\\n');"; fi
       - name: Salva
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
