@@ -129,6 +129,83 @@ export function efficacia(S) {
   return { orizzonti, tieni, portafoglio };
 }
 
+// Distanza della chiusura dal massimo delle ultime 252 sedute (un anno), es. -0.25 = 25% sotto il massimo
+export function sconto52(s, i) { let m = 0; for (let j = Math.max(0, i - 251); j <= i; j++) m = Math.max(m, s.h[j]); return m > 0 ? s.c[i] / m - 1 : null; }
+
+// I precedenti di un titolo: cosa è successo dopo ogni segnale che la strategia ha davvero dato in passato (gli
+// stessi "Compra" e "Chiusa all'80%" dell'elenco, con la liquidità e il limite di 12 acquisti). Serve a dire quanto
+// è stato affidabile un nuovo segnale su quel titolo. Restituisce i dati grezzi; li riassume riassumiPrecedenti().
+// Un acquisto conta per un orizzonte solo se da allora sono passate abbastanza sedute.
+export function precedenti(s, r) {
+  const n = s.c.length, H = [63, 126, 252], INIZIO = 260;
+  let cash = 1e6, nuovoCiclo = true; const lotti = [], acq = [], usc = [], chiuse = [];   // un ciclo: gli acquisti tra una chiusura e la successiva
+  for (let i = 0; i < n; i++) {
+    const C = s.c[i], Q = lotti.reduce((a, b) => a + b.n, 0);
+    if (r.setup[i] && lotti.length < IMP.MAX_ACQUISTI) {
+      const m = Math.floor(IMP.QUOTA * (cash + Q * C) / C);
+      if (m >= 1 && m * C <= cash) { acq.push({ i, nuovo: nuovoCiclo }); nuovoCiclo = false; lotti.push({ n: m, p: C, i }); cash -= m * C + IMP.COMMISSIONE; }
+    } else if (r.uscita[i] && Q > 0) {
+      let v = Math.max(1, Math.floor(IMP.CHIUSURA * Q)); cash += v * C - IMP.COMMISSIONE; usc.push(i); nuovoCiclo = true;
+      while (v > 0 && lotti.length) { const L = lotti[0], t = Math.min(v, L.n); chiuse.push({ r: C / L.p - 1, g: i - L.i }); L.n -= t; v -= t; if (L.n === 0) lotti.shift(); }
+    }
+  }
+  const dopo = (i, h) => (i + h < n ? s.c[i + h] / s.c[i] - 1 : null);
+  // ribasso massimo nei 6 mesi dopo l'acquisto, sui minimi di giornata
+  const ribasso = i => { if (i + 126 >= n) return null; let m = Infinity; for (let j = i + 1; j <= i + 126; j++) m = Math.min(m, s.l[j]); return m / s.c[i] - 1; };
+  // termine di paragone: lo stesso titolo comprato in un giorno qualsiasi (uno ogni 5 sedute)
+  const qualsiasi = H.map(h => { const a = []; for (let i = INIZIO; i + h < n; i += 5) a.push(s.c[i + h] / s.c[i] - 1); return a; });
+  return {
+    acquisti: acq.map(({ i, nuovo }) => ({ d: s.d[i], nuovo, r: H.map(h => dopo(i, h)), dd: ribasso(i), sc: sconto52(s, i) })),
+    uscite: usc.map(i => ({ d: s.d[i], r: dopo(i, 63) })),
+    chiuse, qualsiasi, ultima: s.d[n - 1],
+  };
+}
+
+// Riassunto compatto dei precedenti di un titolo (tbo_titoli.json, poi copiato in ogni segnale di tbo_signals.json):
+//  a acquisti passati, cy cicli (gruppi di acquisti tra una chiusura e l'altra), dal data del primo acquisto;
+//  n12/p12/m12 casi, % in guadagno e rendimento mediano 12 mesi dopo l'acquisto; p6/m6 lo stesso a 6 mesi;
+//  q12/qm12 % in guadagno e mediana a 12 mesi comprando lo stesso titolo in un giorno qualsiasi (termine di paragone);
+//  dd ribasso mediano nei 6 mesi dopo l'acquisto (sui minimi); u/uc/um chiusure all'80%: casi, % in cui 3 mesi dopo il
+//  prezzo era più basso, variazione mediana a 3 mesi. Sono storia, non una previsione: nelle prove i precedenti del
+//  singolo titolo non hanno anticipato l'esito dei segnali successivi meglio della media del campione.
+export function riassumiPrecedenti(P) {
+  const pc = x => (x == null || !isFinite(x) ? null : Math.round(x * 1000) / 10);
+  const mediana = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+  const quota = (a, f) => (a.length ? a.filter(f).length / a.length : null);
+  const col = k => P.acquisti.map(a => a.r[k]).filter(x => x != null);
+  const r6 = col(1), r12 = col(2), q12 = P.qualsiasi[2], dd = P.acquisti.map(a => a.dd).filter(x => x != null), us = P.uscite.map(u => u.r).filter(x => x != null);
+  return { a: P.acquisti.length, cy: P.acquisti.filter(a => a.nuovo).length, dal: P.acquisti[0] ? P.acquisti[0].d : null,
+    n12: r12.length, p12: pc(quota(r12, x => x > 0)), m12: pc(mediana(r12)), p6: pc(quota(r6, x => x > 0)), m6: pc(mediana(r6)),
+    q12: pc(quota(q12, x => x > 0)), qm12: pc(mediana(q12)), dd: pc(mediana(dd)),
+    u: us.length, uc: pc(quota(us, x => x < 0)), um: pc(mediana(us)) };
+}
+
+// Ampiezza del mercato: per ogni seduta, la quota di titoli sopra la loro media delle ultime 200 chiusure. Nelle prove
+// è il dato che più ha distinto i segnali andati bene: quelli dati con il mercato debole (meno della metà dei titoli
+// sopra la media) sono stati in guadagno dopo 12 mesi più spesso, sia nel 2014-2019 sia nel 2020-2025.
+// serie = [{ d, c }]; restituisce Map(data -> quota 0..1) solo per le sedute con almeno `minimo` titoli.
+export function ampiezzaMercato(serie, minimo = 100, dalla = '0000') {
+  const g = new Map();
+  for (const s of serie) {
+    let acc = 0;
+    for (let i = 0; i < s.c.length; i++) {
+      acc += s.c[i]; if (i >= 200) acc -= s.c[i - 200];
+      if (i >= 199 && s.d[i] >= dalla) { const x = g.get(s.d[i]) || [0, 0]; if (s.c[i] > acc / 200) x[0]++; x[1]++; g.set(s.d[i], x); }
+    }
+  }
+  const out = new Map();
+  for (const [d, [a, n]] of g) if (n >= minimo) out.set(d, a / n);
+  return out;
+}
+// Fasce dell'ampiezza usate dal sito, dalle notifiche e dal track record
+export const FASCE_AMPIEZZA = [
+  { k: 'molto_debole', nome: 'mercato molto debole', da: 0, a: 0.3 },
+  { k: 'debole', nome: 'mercato debole', da: 0.3, a: 0.5 },
+  { k: 'normale', nome: 'mercato in salute', da: 0.5, a: 0.7 },
+  { k: 'forte', nome: 'mercato forte', da: 0.7, a: 1.01 },
+];
+export const fasciaAmpiezza = q => FASCE_AMPIEZZA.find(f => q >= f.da && q < f.a) || null;
+
 // Statistiche d'insieme su tutti i titoli (tbo_stats.json)
 export function statistiche(perTitolo, dal, al) {
   const ch = perTitolo.flatMap(x => x.chiuse), ap = perTitolo.flatMap(x => x.aperte);
@@ -187,6 +264,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // Il track record (tbo_stats.json) si calcola a parte, su un campione più largo: scripts/compute_tbo_stats.mjs
 
   const nuovi = []; let ultima = stato.ultima_seduta || '', titoli = 0, errori = 0;
+  const perAmpiezza = [], serieDi = {};          // serieDi: barre di ogni titolo (chiave come nei segnali, + '|x' per gli altri)                                            // tutte le serie, per l'ampiezza del mercato
+  // al segnale si aggiunge la distanza del titolo dal massimo dell'ultimo anno (sc, in %)
+  const conSconto = (ev, s) => { const i = s.d.indexOf(ev.d), x = i >= 0 ? sconto52(s, i) : null; return x == null ? ev : { ...ev, sc: Math.round(x * 1000) / 10 }; };
   for (const [t, e] of Object.entries(db)) {
     const st = stato.titoli[t];
     if (!e.tv || !st) continue;
@@ -196,11 +276,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (b.d[n - 1] === oggi && !chiuso(sym)) n--;                    // seduta ancora aperta
     const da = Math.max(0, n - BARRE), taglia = a => a.slice(da, n);
     const s = { d: taglia(b.d), o: taglia(b.o), h: taglia(b.h), l: taglia(b.l), c: taglia(b.c) };
+    perAmpiezza.push(s); serieDi[t] = s;
     if (s.d.at(-1) <= st.fino) { titoli++; continue; }               // niente di nuovo per questo titolo
     if (s.d[0] > st.fino) { errori++; continue; }                     // stato troppo vecchio: serve una nuova lettura da TradingView
     let r;
     try { r = segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { errori++; continue; }
-    for (const ev of avanza(st, s, r)) nuovi.push({ t, ...ev });
+    for (const ev of avanza(st, s, r)) nuovi.push(conSconto({ t, ...ev }, s));
     titoli++;
     if (st.fino > ultima) ultima = st.fino;
   }
@@ -220,23 +301,45 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       let n = b.d.length; if (b.d[n - 1] === oggi && !chiuso(sym)) n--;
       const da = Math.max(0, n - BARRE), taglia = a => a.slice(da, n);
       const s = { d: taglia(b.d), o: taglia(b.o), h: taglia(b.h), l: taglia(b.l), c: taglia(b.c) };
+      perAmpiezza.push(s); serieDi[sym + '|x'] = s;
       if (s.d.at(-1) <= st.fino) { titoliExt++; continue; }
       if (s.d[0] > st.fino) { errExt++; continue; }
       let r;
       try { r = segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { errExt++; continue; }
-      for (const ev of avanza(st, s, r)) eventiExt.push({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1 });
+      for (const ev of avanza(st, s, r)) eventiExt.push(conSconto({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1 }, s));
       titoliExt++;
     }
     if (titoliExt && errExt <= titoliExt / 5) { nuovi.push(...eventiExt); ext.aggiornato = ora.toISOString(); }
     else { console.error(`Titoli aggiunti non aggiornati (${errExt} errori su ${titoliExt + errExt}).`); ext = null; titoliExt = 0; }
   }
+  // Ampiezza del mercato nelle ultime sedute (quota di titoli sopra la media delle ultime 200 chiusure) e, per ogni
+  // nuovo segnale, il valore del giorno del segnale (amp, in %): il track record dice come sono andati i segnali per fasce
+  const inizioAmp = new Date(ora); inizioAmp.setUTCDate(inizioAmp.getUTCDate() - 120);
+  const amp = ampiezzaMercato(perAmpiezza, 300, inizioAmp.toISOString().slice(0, 10)), giorniAmp = [...amp.keys()].sort();
+  for (const ev of nuovi) if (amp.has(ev.d)) ev.amp = Math.round(amp.get(ev.d) * 1000) / 10;
+  let mercato = null;
+  if (giorniAmp.length) {
+    const ultimo = giorniAmp.at(-1), q = amp.get(ultimo), f = fasciaAmpiezza(q);
+    mercato = { seduta: ultimo, ampiezza_pct: Math.round(q * 1000) / 10, fascia: f && f.k, nome: f && f.nome,
+      storia: giorniAmp.slice(-60).map(d => [d, Math.round(amp.get(d) * 1000) / 10]) };
+  }
+  // Precedenti titolo per titolo (calcolo settimanale, tbo_titoli.json): si copiano in ogni segnale dell'elenco
+  const pTit = path.join(ROOT, 'tbo_titoli.json'), prec = fs.existsSync(pTit) ? leggi('tbo_titoli.json').titoli || {} : {};
+  const chiaveUni = r => (r.ext ? r.t : ((db[r.t] && db[r.t].yf) || r.t));
   const dal = lunedi(ultima); dal.setUTCDate(dal.getUTCDate() - 7);   // si tengono questa settimana e la precedente
   const dalS = dal.toISOString().slice(0, 10), visti = new Set();
   const righe = [...nuovi, ...(prima.segnali || [])].filter(r => r.d >= dalS && (db[r.t] || r.ext) && !visti.has(r.t + r.d + r.k) && visti.add(r.t + r.d + r.k));
   righe.sort((a, b) => (a.d < b.d ? 1 : a.d > b.d ? -1 : a.t.localeCompare(b.t)));
+  for (const r of righe) {
+    const p = prec[chiaveUni(r)]; if (p) r.pr = p;
+    // segnali già in elenco da prima di questi dati: si completano ampiezza e distanza dal massimo
+    if (r.amp == null && amp.has(r.d)) r.amp = Math.round(amp.get(r.d) * 1000) / 10;
+    const sr = serieDi[r.ext ? r.t + '|x' : r.t];
+    if (r.sc == null && sr) { const i = sr.d.indexOf(r.d), x = i >= 0 ? sconto52(sr, i) : null; if (x != null) r.sc = Math.round(x * 1000) / 10; }
+  }
   stato.aggiornato = ora.toISOString(); stato.ultima_seduta = ultima;
   fs.writeFileSync(path.join(ROOT, 'tbo_state.json'), JSON.stringify(stato) + '\n');
   if (ext) fs.writeFileSync(pExt, JSON.stringify(ext) + '\n');
-  fs.writeFileSync(path.join(ROOT, 'tbo_signals.json'), JSON.stringify({ aggiornato: ora.toISOString(), ultima_seduta: ultima, dal: dalS, titoli: titoli + titoliExt, titoli_sito: titoli, titoli_aggiunti: titoliExt, segnali: righe }) + '\n');
+  fs.writeFileSync(path.join(ROOT, 'tbo_signals.json'), JSON.stringify({ aggiornato: ora.toISOString(), ultima_seduta: ultima, dal: dalS, titoli: titoli + titoliExt, titoli_sito: titoli, titoli_aggiunti: titoliExt, mercato, segnali: righe }) + '\n');
   console.log(`TBO: ${titoli} titoli, ${nuovi.filter(r => r.k === 'c').length} nuovi "compra" e ${nuovi.filter(r => r.k === 'x').length} nuove chiusure; in elenco ${righe.length} segnali dal ${dalS} al ${ultima}` + (errori ? ` (${errori} titoli saltati)` : ''));
 }

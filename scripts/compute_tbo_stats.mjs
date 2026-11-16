@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { storicoOperazioni, statistiche, confronto, efficacia, avanza } from './compute_tbo.mjs';
+import { storicoOperazioni, statistiche, confronto, efficacia, avanza, precedenti, riassumiPrecedenti, ampiezzaMercato, FASCE_AMPIEZZA, fasciaAmpiezza } from './compute_tbo.mjs';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DIR = path.resolve(process.argv[2] || path.join(ROOT, 'universe'));
@@ -23,7 +23,7 @@ const oggi = new Date().toISOString().slice(0, 10);
 const STATO_EXT = path.join(ROOT, 'tbo_state_ext.json'), RITARDO = 12;
 const ext = fs.existsSync(STATO_EXT) ? JSON.parse(fs.readFileSync(STATO_EXT, 'utf8')) : { titoli: {} };
 const sito = new Set(meta.sito || []), nuovoExt = {};
-const per = [], serie = [], coppie = [], gruppi = {}; let dal = '9999', al = '', errori = 0, scartati = 0;
+const per = [], serie = [], coppie = [], gruppi = {}, prec = {}; let dal = '9999', al = '', errori = 0, scartati = 0;
 for (const f of fs.readdirSync(DIR).filter(x => /^daily_\d+\.json$/.test(x)).sort()) {
   const blocco = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
   for (const [sim, b] of Object.entries(blocco)) {
@@ -35,7 +35,7 @@ for (const f of fs.readdirSync(DIR).filter(x => /^daily_\d+\.json$/.test(x)).sor
     if (salto) { scartati++; continue; }
     let r; try { r = segnali(s); } catch { errori++; continue; }
     if (!r || !r.setup || !r.uscita) { errori++; continue; }
-    per.push(storicoOperazioni(s, r)); serie.push(s); coppie.push({ s, r });
+    per.push(storicoOperazioni(s, r)); serie.push(s); coppie.push({ s, r }); prec[sim] = precedenti(s, r);
     if (!sito.has(sim) && meta.gruppo[sim] && !String(meta.gruppo[sim]).includes('sito')) {
       const vecchio = ext.titoli[sim], nome = (meta.nomi && meta.nomi[sim]) || sim, tv = (meta.tv && meta.tv[sim]) || (vecchio && vecchio.tv) || null;
       if (vecchio) nuovoExt[sim] = { ...vecchio, n: nome, tv };
@@ -60,6 +60,29 @@ st.gruppi = Object.entries(gruppi).filter(([, S]) => S.length >= 30).map(([nome,
   return { nome, titoli: S.length, strategia: p ? p.strategia : null, tieni: p ? p.tieni : null,
     dopo_acquisto_6m_pct: sei && sei.acquisto ? sei.acquisto.mediana_pct : null, giorno_qualsiasi_6m_pct: sei && sei.qualsiasi ? sei.qualsiasi.mediana_pct : null };
 }).sort((a, b) => b.titoli - a.titoli);
+// Precedenti titolo per titolo (tbo_titoli.json): il calcolo serale li copia in ogni nuovo segnale
+const riass = {}; for (const [sim, P] of Object.entries(prec)) riass[sim] = riassumiPrecedenti(P);
+fs.writeFileSync(path.join(ROOT, 'tbo_titoli.json'), JSON.stringify({ aggiornato: new Date().toISOString(), dal, al,
+  nota: 'Precedenti dei segnali della TBO Strategy titolo per titolo; legenda in scripts/compute_tbo.mjs (riassumiPrecedenti)', titoli: riass }) + '\n');
+// Contesto di mercato: come sono andati i segnali "Compra" secondo l'ampiezza del mercato nel giorno del segnale
+// e, dentro le fasi deboli e quelle normali, secondo la distanza del titolo dal massimo dell'ultimo anno
+{
+  const amp = ampiezzaMercato(serie, 300), pc = x => Math.round(x * 1000) / 10;
+  const mediana = a => { const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+  const esiti = Object.values(prec).flatMap(P => P.acquisti).filter(a => amp.has(a.d)).map(a => ({ d: a.d, q: amp.get(a.d), r6: a.r[1], r12: a.r[2], sc: a.sc }));
+  const misura = g => { const x6 = g.map(e => e.r6).filter(x => x != null), x12 = g.map(e => e.r12).filter(x => x != null);
+    return x12.length >= 50 ? { casi: x12.length, mesi: new Set(g.filter(e => e.r12 != null).map(e => e.d.slice(0, 7))).size,
+      p12: pc(x12.filter(x => x > 0).length / x12.length), m12: pc(mediana(x12)), p6: pc(x6.filter(x => x > 0).length / x6.length), m6: pc(mediana(x6)) } : null; };
+  const perFascia = g => FASCE_AMPIEZZA.map(f => ({ k: f.k, nome: f.nome, ...(misura(g.filter(e => e.q >= f.da && e.q < f.a)) || { casi: 0 }) }));
+  const debole = e => e.q < 0.5, scontato = e => e.sc != null && e.sc < -0.2;
+  st.contesto = {
+    nota: 'Ampiezza = quota di titoli del campione sopra la media delle ultime 200 chiusure nel giorno del segnale',
+    tutti: misura(esiti), fasce: perFascia(esiti),
+    sconto: [['debole', debole], ['normale', e => !debole(e)]].flatMap(([m, f]) => [['oltre il 20% sotto il massimo', scontato], ['entro il 20% dal massimo', e => !scontato(e)]]
+      .map(([nome, g]) => ({ mercato: m, nome, ...(misura(esiti.filter(e => f(e) && g(e))) || { casi: 0 }) }))),
+    periodi: [['2013-2019', '0000', '2019-12-31'], ['dal 2020', '2020-01-01', '9999']].map(([nome, a, b]) => ({ nome, fasce: perFascia(esiti.filter(e => e.d >= a && e.d <= b)) })),
+  };
+}
 if (Object.keys(nuovoExt).length > 300) {
   fs.writeFileSync(STATO_EXT, JSON.stringify({ aggiornato: new Date().toISOString(), origine: 'ricostruito dalla storia scaricata (14 anni)', titoli: nuovoExt }) + '\n');
   console.log(`Titoli aggiunti ai segnali giornalieri: ${Object.keys(nuovoExt).length} (nuovi: ${Object.keys(nuovoExt).filter(k => !ext.titoli[k]).length})`);

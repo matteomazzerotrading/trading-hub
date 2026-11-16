@@ -18,6 +18,7 @@ const leggi = (f, def) => { try { return JSON.parse(fs.readFileSync(path.join(RO
 const sig = leggi('tbo_signals.json', null);
 if (!sig || !Array.isArray(sig.segnali)) { console.log('Nessun file dei segnali.'); process.exit(0); }
 const db = leggi('data.json', { db: {} }).db, ext = (leggi('fv_ext.json', {}) || {}).titoli || {};
+const stats = leggi('tbo_stats.json', null);
 const PERCORSO = path.join(ROOT, 'tbo_notified.json');
 // Primo invio: il registro non esiste ancora o non è mai stato scritto da un invio (aggiornato vuoto).
 const primaVolta = !fs.existsSync(PERCORSO) || !leggi('tbo_notified.json', {}).aggiornato;
@@ -44,18 +45,34 @@ const riga = r => {
   const s = scheda(r), d = s.d, v = d.fv > 0 ? E.verdict(d, r.p) : null;
   const esito = v && v.key !== 'na' ? ` · <i>${esc(v.titolo.toLowerCase())}</i>` : '';
   const pagina = ext[s.k] || s.mio ? `${SITE}titoli/${slug(s.k || s.t)}.html` : `${SITE}?t=${encodeURIComponent(s.t)}`;
-  return `${s.mio ? '⭐ ' : ''}<a href="${pagina}"><b>${esc(s.t)}</b></a> ${esc(d.name)} · ${num(r.p)} ${esc(d.curr || '$')}${esito}`;
+  return `${s.mio ? '⭐ ' : ''}<a href="${pagina}"><b>${esc(s.t)}</b></a> ${esc(d.name)} · ${num(r.p)} ${esc(d.curr || '$')}${esito}` + precedenti(r);
 };
+// Precedenti del titolo (r.pr, dal calcolo settimanale): una riga sotto il segnale
+const pc0 = x => Number(x).toLocaleString('it-IT', { maximumFractionDigits: 0 }), segno = x => (x >= 0 ? '+' : '−') + pc0(Math.abs(x)) + '%';
+function precedenti(r) {
+  const P = r.pr; if (!P) return '';
+  if (r.k === 'c' && P.n12 >= 3) return `\n   ↳ <i>precedenti: in guadagno a 12 mesi ${pc0(P.p12)}% su ${P.n12} (mediana ${segno(P.m12)}) · giorno qualsiasi ${pc0(P.q12)}% · ribasso tipico ${segno(P.dd)}</i>`;
+  if (r.k === 'x' && P.u >= 2) return `\n   ↳ <i>precedenti: 3 mesi dopo le ${P.u} chiusure passate il prezzo era più basso nel ${pc0(P.uc)}% dei casi</i>`;
+  return '';
+}
+// Contesto di mercato del giorno (r.amp) con l'esito storico dei "Compra" dati in fasi simili (tbo_stats.json → contesto)
+const FASCE = [['molto_debole', 'Mercato molto debole', 0, 30], ['debole', 'Mercato debole', 30, 50], ['normale', 'Mercato in salute', 50, 70], ['forte', 'Mercato forte', 70, 101]];
+function contesto(lista) {
+  const a = (lista.find(r => r.amp != null) || {}).amp; if (a == null) return null;
+  const f = FASCE.find(x => a >= x[2] && x[3] > a), e = f && stats && stats.contesto && (stats.contesto.fasce || []).find(x => x.k === f[0] && x.casi);
+  return `🌡️ ${f ? f[1] : 'Mercato'}: ${pc0(a)}% dei titoli sopra la media delle ultime 200 sedute` + (e ? `\n<i>Storicamente i “Compra” dati in fasi così: in guadagno a 12 mesi nel ${pc0(e.p12)}% dei casi (mediana ${segno(e.m12)})</i>` : '');
+}
 const giorno = s => new Date(s + 'T12:00:00Z').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
 
 const messaggi = [];
 for (const dd of [...new Set(nuovi.map(r => r.d))].sort()) {
   const delGiorno = nuovi.filter(r => r.d === dd), ordina = a => a.sort((x, y) => (scheda(y).mio - scheda(x).mio) || x.t.localeCompare(y.t));
   const compra = ordina(delGiorno.filter(r => r.k === 'c')), chiuse = ordina(delGiorno.filter(r => r.k === 'x'));
-  const blocchi = [`📈 <b>TBO Strategy</b> · seduta di ${giorno(dd)}`];
+  const blocchi = [`📈 <b>TBO Strategy</b> · seduta di ${giorno(dd)}`], ctx = compra.length ? contesto(delGiorno) : null;
+  if (ctx) blocchi.push(ctx);
   if (compra.length) blocchi.push(`\n🟢 <b>Compra</b> (${compra.length})`, ...compra.map(riga));
   if (chiuse.length) blocchi.push(`\n🟡 <b>Chiusa all'80%</b> (${chiuse.length})`, ...chiuse.map(riga));
-  const coda = `\n⭐ = titolo che seguo · prezzo di chiusura della seduta\n<i>Spunti da cui parto io stesso per le mie valutazioni: non sono consigli di acquisto né consulenza finanziaria.</i>\n<a href="${SITE}#tbo">Tutti i segnali e il track record →</a>`;
+  const coda = `\n⭐ = titolo che seguo · prezzo di chiusura della seduta · i precedenti sono dati storici del titolo dal 2013, non una previsione\n<i>Spunti da cui parto io stesso per le mie valutazioni: non sono consigli di acquisto né consulenza finanziaria.</i>\n<a href="${SITE}#tbo">Tutti i segnali e il track record →</a>`;
   // Telegram accetta al massimo 4096 caratteri per messaggio: se serve, l'elenco si divide in più messaggi
   let corrente = '';
   for (const b of blocchi) {

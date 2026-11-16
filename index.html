@@ -303,6 +303,23 @@
         .tbo-telegram > span:nth-of-type(1) { flex: 1; min-width: 0; font-size: 0.9em; }
         .tbo-telegram small { display: block; color: var(--text-muted); font-size: 0.82em; margin-top: 2px; }
         .tbo-telegram-cta { color: #29a9eb; font-weight: 700; font-size: 0.88em; white-space: nowrap; }
+        .tbo-contesto { margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); font-size: 0.9em; color: #ddd; }
+        .tbo-contesto .l { font-size: 0.72em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 3px; }
+        .tbo-contesto .s { font-size: 0.85em; color: var(--text-muted); margin-top: 8px; line-height: 1.55; }
+        .tbo-chip { display: inline-flex; align-items: baseline; gap: 6px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: 8px; padding: 4px 8px; cursor: pointer; color: #fff; font: inherit; text-align: left; }
+        .tbo-chip:hover { border-color: var(--brand-green); }
+        .tbo-chip .s { font-size: 0.72em; color: var(--text-muted); line-height: 1.2; white-space: nowrap; }
+        .tbo-chip .f { font-size: 0.75em; color: var(--brand-green); margin-left: 2px; flex-shrink: 0; }
+        .tbo-dett-riga td { background: rgba(255,255,255,0.025); cursor: default; }
+        .tbo-dett { font-size: 0.86em; color: #ddd; line-height: 1.6; max-width: 900px; padding: 4px 2px; white-space: normal; position: sticky; left: 12px; }
+        .tbo-prec-mob { display: none; margin-top: 6px; }
+        @media (max-width: 700px) {
+            .tbo-col-prec { display: none; }
+            .tbo-prec-mob { display: block; }
+            .tbo-dett { width: calc(100vw - 125px); }
+        }
+        .tbo-dett p { margin: 0 0 8px; }
+        .tbo-dett .nota { font-size: 0.85em; color: var(--text-muted); margin: 0; }
         .div-box > summary > span:first-child::after { content: ' ▾'; color: var(--text-muted); font-weight: 400; }
         .div-box[open] > summary > span:first-child::after { content: ' ▴'; }
         .mini-kpi { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -970,6 +987,7 @@
                 <span><strong>Ricevi i segnali su Telegram</strong><small>Ogni sera a mercati chiusi, solo quando ci sono segnali nuovi · t.me/mm_trading_strategy</small></span>
                 <span class="tbo-telegram-cta">Iscriviti →</span>
             </a>
+            <div id="tbo-contesto" class="tbo-contesto" style="display:none;"></div>
             <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0;">
                 <select id="tbo-sett" class="screener-search" aria-label="Scegli la settimana" onchange="tboTutti = false; renderTbo()" style="max-width:200px; cursor:pointer; flex:0 0 auto;">
                     <option value="0">Settimana in corso</option>
@@ -1003,9 +1021,10 @@
                             <th title="Prezzo di chiusura della seduta del segnale: è il prezzo a cui la strategia esegue l'ordine">Chiusura di quel giorno</th>
                             <th title="Variazione dal prezzo di chiusura di quel giorno all'ultimo prezzo disponibile">Da allora</th>
                             <th title="Il giudizio del mio fair value sul prezzo attuale: clicca il titolo per l'analisi">Fair value</th>
+                            <th class="tbo-col-prec" title="Come sono andati i segnali passati della strategia su questo titolo: tocca per il dettaglio">Precedenti</th>
                         </tr>
                     </thead>
-                    <tbody id="tbo-tbody"><tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">Caricamento…</td></tr></tbody>
+                    <tbody id="tbo-tbody"><tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">Caricamento…</td></tr></tbody>
                 </table>
             </div>
             <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:12px; font-size:0.8em; color:var(--text-muted);">
@@ -1033,7 +1052,14 @@
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Dopo</th><th>Giorno qualsiasi</th><th>Dopo un “compra”</th><th>Differenza</th><th>Dopo una condizione di uscita</th></tr></thead><tbody id="tbo-eff-righe"></tbody></table></div>
                     <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Rendimento mediano del titolo (il caso tipico) e, tra parentesi, quota di casi finiti in guadagno. “Compra” qui è ogni seduta in cui scatta la condizione di acquisto. In questi anni i rendimenti dopo un segnale sono stati in linea con quelli di un giorno qualsiasi: il segnale serve a scaglionare gli ingressi, non a prevedere il rialzo.</div>
                 </details>
-                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">3 · Il registro delle operazioni</div>
+                <details id="tbo-ctx-box" style="display:none; margin-top:14px;">
+                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">3 · Quando i segnali sono andati meglio: il contesto di mercato</summary>
+                    <div style="font-size:0.85em; color:#ddd; line-height:1.6; margin-top:10px;">Ho provato quali informazioni, disponibili il giorno del segnale, distinguono i “Compra” andati bene da quelli andati male. I precedenti del singolo titolo non hanno aiutato: un titolo con segnali buoni in passato non ha avuto segnali migliori dopo. Ha fatto differenza invece <strong>l'ampiezza del mercato</strong>, cioè la quota di titoli sopra la propria media delle ultime 200 sedute: quando è bassa il mercato è in correzione e i segnali dati in quelle fasi sono andati meglio, in entrambi i periodi.</div>
+                    <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Ampiezza il giorno del segnale</th><th>Segnali</th><th>In guadagno dopo 12 mesi</th><th>Risultato mediano 12 mesi</th><th>2013-2019</th><th>Dal 2020</th></tr></thead><tbody id="tbo-ctx-righe"></tbody></table></div>
+                    <div id="tbo-ctx-sconto" style="font-size:0.85em; color:#ddd; line-height:1.6; margin-top:10px;"></div>
+                    <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Le colonne dei periodi riportano la quota in guadagno dopo 12 mesi. Le fasi di mercato debole sono poche (il 2015-2016, la fine del 2018, il 2020, il 2022, l'ottobre 2023, l'aprile 2025) e i segnali di una stessa fase non sono indipendenti tra loro: il dato è un'indicazione, non una certezza.</div>
+                </details>
+                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">4 · Il registro delle operazioni</div>
             </div>
             <div class="mini-kpi" id="tbo-stats-kpi"></div>
             <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">Acquisti ancora aperti: come stanno andando oggi</div>
@@ -1943,11 +1969,13 @@
                 prezziTboExt().then(renderTbo);
                 if (tboData.segnali.some(r => r.ext)) setTimeout(() => caricaFvExt().then(renderTbo), 2500);
             }
-            renderTboStats(await fetchJson('tbo_stats.json'));
+            tboStatsDati = await fetchJson('tbo_stats.json');
+            renderTboStats(tboStatsDati);
+            renderTbo();
         }
         function renderTbo() {
             const tbody = document.getElementById('tbo-tbody'); if (!tbody) return;
-            const vuoto = msg => `<tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">${msg}</td></tr>`;
+            const vuoto = msg => `<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">${msg}</td></tr>`;
             if (!tboData || !tboData.segnali) { tbody.innerHTML = vuoto('Dati non ancora disponibili.'); return; }
             const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
             const giorno = (s, o) => new Date(s + 'T12:00:00').toLocaleDateString('it-IT', o || { weekday: 'short', day: 'numeric', month: 'short' });
@@ -1973,16 +2001,19 @@
             const tot = righe.length, mostra = tboTutti ? righe : righe.slice(0, 15);
             const num = x => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+            renderTboContesto();
             tbody.innerHTML = mostra.length ? mostra.map(r => {
                 const da = r.p > 0 && r.p0 > 0 ? (r.p / r.p0 - 1) * 100 : null;
-                const apri = r.e.altro ? (chiaveExt(r.tv) || r.t) : r.t;
+                const apri = r.e.altro ? (chiaveExt(r.tv) || r.t) : r.t, idR = r.t + '|' + r.d + '|' + r.k, aperto = tboDettagli.has(idR);
                 return `<tr onclick="apriTitolo('${esc(apri)}')" style="cursor:pointer;" title="${r.e.altro ? 'Non è tra i titoli che seguo (indici S&P): apri l\'analisi del fair value' : 'Apri l\'analisi del fair value'}">
                 <td style="white-space:nowrap;">${giorno(r.d)}</td>
-                <td><div class="scr-ticker">${esc(r.e.altro ? apri : r.t)}${!r.e.altro && inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div></td>
+                <td><div class="scr-ticker">${esc(r.e.altro ? apri : r.t)}${!r.e.altro && inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div><div class="tbo-prec-mob">${tboChipPrecedenti(r, idR, aperto)}</div></td>
                 <td><span class="scr-badge ${r.k === 'c' ? 'buy' : 'watch'}" style="white-space:nowrap;">${r.k === 'c' ? 'COMPRA' : 'CHIUSA ALL\'80%'}</span></td>
                 <td class="mono-font" style="white-space:nowrap;">${num(r.p0)} ${r.e.curr}</td>
                 <td class="mono-font" style="white-space:nowrap; font-weight:800; color:${da == null ? 'var(--text-muted)' : da >= 0 ? '#43a047' : '#d32f2f'};">${da == null ? '—' : pcs(da)}</td>
-                <td>${r.v && r.v.key !== 'na' ? `<span class="scr-badge" style="${badgeStyle(r.v.colore)}">${r.v.breve}</span>` : r.e.altro ? '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">calcola →</span>' : '<span style="color:var(--text-muted);">—</span>'}</td></tr>`;
+                <td>${r.v && r.v.key !== 'na' ? `<span class="scr-badge" style="${badgeStyle(r.v.colore)}">${r.v.breve}</span>` : r.e.altro ? '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">calcola →</span>' : '<span style="color:var(--text-muted);">—</span>'}</td>
+                <td class="tbo-col-prec">${tboChipPrecedenti(r, idR, aperto)}</td></tr>`
+                + (aperto ? `<tr class="tbo-dett-riga"><td colspan="7">${tboDettaglio(r, apri)}</td></tr>` : '');
             }).join('')
                 : vuoto(tboData.ultima_seduta < dal
                     ? (quale ? 'Nessun dato per questa settimana.' : 'Ancora nessuna seduta chiusa questa settimana: l\'elenco si aggiorna ogni sera a mercati chiusi. Intanto puoi guardare la settimana scorsa.')
@@ -1993,6 +2024,60 @@
             document.getElementById('tbo-note').innerText = `Aggiornato alla seduta di ${giorno(tboData.ultima_seduta, { weekday: 'long', day: 'numeric', month: 'long' })} · nella settimana ${nC} “compra” e ${nX} chiusur${nX === 1 ? 'a' : 'e'} all'80% su ${tboData.titoli.toLocaleString('it-IT', { useGrouping: 'always' })} titoli${tboData.titoli_aggiunti ? ` (${tboData.titoli_sito} che seguo e ${tboData.titoli_aggiunti.toLocaleString('it-IT', { useGrouping: 'always' })} dagli indici S&P 500, 400 e 600)` : ''} · clicca un titolo per il suo fair value`;
             const more = document.getElementById('tbo-more');
             more.innerText = tot > 15 ? (tboTutti ? 'Mostra solo i primi 15' : `Mostra tutti (${tot})`) : '';
+        }
+
+        // === PRECEDENTI E CONTESTO DI OGNI SEGNALE ===
+        // r.pr: precedenti del titolo (calcolo settimanale su 14 anni, legenda in scripts/compute_tbo.mjs → riassumiPrecedenti)
+        // r.amp: ampiezza del mercato il giorno del segnale (% di titoli sopra la media delle ultime 200 chiusure)
+        // r.sc: distanza del titolo dal massimo dell'ultimo anno, in %. tboStatsDati.contesto: esiti per fasce di ampiezza.
+        let tboStatsDati = null; const tboDettagli = new Set();
+        const TBO_FASCE = [['molto_debole', 'mercato molto debole', 0, 30], ['debole', 'mercato debole', 30, 50], ['normale', 'mercato in salute', 50, 70], ['forte', 'mercato forte', 70, 101]];
+        const tboFascia = q => { const f = TBO_FASCE.find(f => q >= f[2] && q < f[3]); return f ? { k: f[0], nome: f[1] } : null; };
+        const tboEsitoFascia = k => tboStatsDati && tboStatsDati.contesto && (tboStatsDati.contesto.fasce || []).find(f => f.k === k && f.casi);
+        const pcIt = (x, d = 0) => x.toLocaleString('it-IT', { maximumFractionDigits: d });
+        const segnoIt = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+        function tboChipPrecedenti(r, idR, aperto) {
+            const P = r.pr;
+            if (!P || (r.k === 'c' ? !(P.n12 >= 3) : !(P.u >= 2))) return '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">pochi dati</span>';
+            const [val, sotto, col] = r.k === 'c'
+                ? [P.p12, 'in guadagno dopo 12 mesi', P.p12 - P.q12 >= 5 ? '#43a047' : P.p12 - P.q12 <= -5 ? '#ffa726' : '#fff']
+                : [P.uc, 'calo nei 3 mesi dopo', P.uc >= 60 ? '#43a047' : P.uc < 40 ? '#ffa726' : '#fff'];
+            return `<button class="tbo-chip" aria-expanded="${aperto}" onclick="event.stopPropagation(); tboDettagli.has('${esc(idR)}') ? tboDettagli.delete('${esc(idR)}') : tboDettagli.add('${esc(idR)}'); renderTbo()">
+                <span class="mono-font" style="color:${col}; font-weight:800;">${pcIt(val)}%</span><span class="s">${sotto}</span><span class="f">${aperto ? '▴' : '▾'}</span></button>`;
+        }
+        function tboDettaglio(r, nome) {
+            const P = r.pr, mese = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { month: 'short', year: 'numeric' });
+            const parti = [];
+            if (P && r.k === 'c' && P.n12 >= 3) {
+                const vs = P.p12 - P.q12;
+                parti.push(`<p><strong>Su ${esc(nome)}</strong>, da ${mese(P.dal)}, la strategia ha dato <strong>${P.a} segnali “Compra”</strong> in ${P.cy} ${P.cy === 1 ? 'ciclo' : 'cicli'} di acquisti. Dopo 12 mesi il prezzo era più alto nel <strong>${pcIt(P.p12)}%</strong> dei ${P.n12} casi già maturati, con un risultato mediano di <strong>${segnoIt(P.m12)}</strong>${P.p6 != null ? ` (dopo 6 mesi: ${pcIt(P.p6)}%, mediana ${segnoIt(P.m6)})` : ''}.
+                    Comprando ${esc(nome)} in un giorno qualsiasi degli stessi anni: ${pcIt(P.q12)}% e ${segnoIt(P.qm12)}, quindi i segnali sono andati ${Math.abs(vs) < 5 ? 'in linea con un giorno qualsiasi' : vs > 0 ? 'meglio di un giorno qualsiasi' : 'peggio di un giorno qualsiasi'}.</p>`);
+                if (P.dd != null) parti.push(`<p>Nei 6 mesi dopo un segnale il titolo è sceso in genere fino a <strong style="color:#ffa726;">${segnoIt(P.dd)}</strong> sotto il prezzo del segnale (valore mediano dei minimi): è l'oscillazione da mettere in conto anche quando poi è finita bene.</p>`);
+            }
+            if (P && r.k === 'x' && P.u >= 2) parti.push(`<p><strong>Su ${esc(nome)}</strong> la strategia ha chiuso all'80% ${P.u} volte. Tre mesi dopo il prezzo era più basso nel <strong>${pcIt(P.uc)}%</strong> dei casi, con una variazione mediana di <strong>${segnoIt(P.um)}</strong>: ${P.uc > 55 ? 'più spesso che no, vendere è servito a evitare un calo.' : P.uc < 45 ? 'più spesso che no, il titolo ha continuato a salire anche dopo la vendita.' : 'in circa metà dei casi è sceso, nell\'altra metà ha continuato a salire.'}</p>`);
+            if (r.k === 'c' && r.amp != null) {
+                const f = tboFascia(r.amp), e = f && tboEsitoFascia(f.k), tutti = tboStatsDati && tboStatsDati.contesto && tboStatsDati.contesto.tutti;
+                parti.push(`<p><strong>Il contesto del segnale:</strong> quel giorno il ${pcIt(r.amp)}% dei titoli era sopra la propria media delle ultime 200 sedute (${f ? f.nome : ''})${r.sc != null ? ` e ${esc(nome)} era ${r.sc > -2 ? 'vicino al massimo dell\'ultimo anno' : `il ${pcIt(-r.sc)}% sotto il massimo dell'ultimo anno`}` : ''}.
+                    ${e ? `Sull'intero campione i “Compra” dati in fasi così sono stati in guadagno dopo 12 mesi nel <strong>${pcIt(e.p12)}%</strong> dei casi (mediana ${segnoIt(e.m12)})${tutti ? `, contro il ${pcIt(tutti.p12)}% di tutti i segnali` : ''}.` : ''}</p>`);
+            }
+            parti.push(`<p class="nota">Sono dati storici, non una previsione. Nelle prove i precedenti del singolo titolo, da soli, non hanno anticipato come sarebbe andato il segnale successivo; il contesto di mercato invece ha fatto differenza sia nel 2013-2019 sia dal 2020 (dettagli nel track record qui sotto).</p>`);
+            return `<div class="tbo-dett">${parti.join('')}</div>`;
+        }
+        function renderTboContesto() {
+            const box = document.getElementById('tbo-contesto'), M = tboData && tboData.mercato;
+            if (!box || !M || M.ampiezza_pct == null) return;
+            const f = tboFascia(M.ampiezza_pct), e = f && tboEsitoFascia(f.k), F = (tboStatsDati && tboStatsDati.contesto && tboStatsDati.contesto.fasce) || [];
+            const col = { molto_debole: '#ef5350', debole: '#ffa726', normale: '#9ccc65', forte: '#43a047' }[f && f.k] || '#fff';
+            const st = M.storia || [], W = 140, H = 34, x = i => (i / Math.max(1, st.length - 1) * W).toFixed(1), y = v => (H - v / 100 * H).toFixed(1);
+            const linea = st.length > 1 ? `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true" style="flex-shrink:0;">
+                <line x1="0" x2="${W}" y1="${y(50)}" y2="${y(50)}" stroke="rgba(255,255,255,0.18)" stroke-dasharray="3 3"/>
+                <polyline fill="none" stroke="${col}" stroke-width="2" points="${st.map((p, i) => x(i) + ',' + y(p[1])).join(' ')}"/></svg>` : '';
+            const altre = F.filter(g => g.casi && g.k !== (f && f.k)).map(g => `${g.nome}: ${pcIt(g.p12)}%`).join(' · ');
+            box.innerHTML = `<div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:220px;"><div class="l">Contesto di mercato oggi</div>
+                <div><strong style="color:${col}; font-size:1.15em;">${f ? f.nome[0].toUpperCase() + f.nome.slice(1) : ''}</strong> · <span class="mono-font">${pcIt(M.ampiezza_pct)}%</span> dei titoli sopra la media delle ultime 200 sedute</div></div>${linea}</div>
+                ${e ? `<div class="s">Storicamente i “Compra” dati con il ${f.nome} sono stati in guadagno dopo 12 mesi nel <strong style="color:#fff;">${pcIt(e.p12)}%</strong> dei casi, con un risultato mediano di ${segnoIt(e.m12)}${altre ? ` (${altre})` : ''}. Tocca “Precedenti” su un segnale per la storia di quel titolo.</div>` : ''}`;
+            box.style.display = '';
         }
 
         // Ultimi cambi di esito registrati dal calcolo serale (fv_changes.json)
@@ -2683,6 +2768,17 @@
                     document.getElementById('tbo-eff-gruppi-box').style.display = 'block';
                 }
                 document.getElementById('tbo-eff').style.display = 'block';
+                const Cx = S.contesto;
+                if (Cx && Cx.fasce && Cx.fasce.some(f => f.casi)) {
+                    const per = (i, k) => { const g = Cx.periodi && Cx.periodi[i] && Cx.periodi[i].fasce.find(f => f.k === k); return g && g.casi ? `${pcIt(g.p12)}%` : '—'; };
+                    document.getElementById('tbo-ctx-righe').innerHTML = Cx.fasce.filter(f => f.casi).map(f => `<tr><td style="white-space:nowrap;">${{ molto_debole: 'sotto il 30% · ', debole: 'dal 30 al 50% · ', normale: 'dal 50 al 70% · ', forte: 'oltre il 70% · ' }[f.k] || ''}${f.nome}</td>
+                        <td class="mono-font">${int(f.casi)}</td><td class="mono-font" style="font-weight:800;">${pcIt(f.p12, 1)}%</td><td class="mono-font" style="color:${f.m12 >= 0 ? '#43a047' : '#d32f2f'};">${segnoIt(f.m12)}</td><td class="mono-font">${per(0, f.k)}</td><td class="mono-font">${per(1, f.k)}</td></tr>`).join('')
+                        + (Cx.tutti ? `<tr style="border-top:1px solid var(--border-glass);"><td><strong>Tutti i segnali</strong></td><td class="mono-font">${int(Cx.tutti.casi)}</td><td class="mono-font" style="font-weight:800;">${pcIt(Cx.tutti.p12, 1)}%</td><td class="mono-font">${segnoIt(Cx.tutti.m12)}</td><td></td><td></td></tr>` : '');
+                    const sc = Cx.sconto || [], g = (m, i) => sc.filter(x => x.mercato === m)[i];
+                    if (g('debole', 0) && g('debole', 0).casi && g('debole', 1) && g('debole', 1).casi)
+                        document.getElementById('tbo-ctx-sconto').innerHTML = `Con il mercato debole conta anche quanto il titolo è sceso: i segnali su titoli oltre il 20% sotto il massimo dell'anno hanno avuto un risultato mediano di <strong>${segnoIt(g('debole', 0).m12)}</strong> a 12 mesi, quelli su titoli più vicini al massimo ${segnoIt(g('debole', 1).m12)}. Con il mercato in salute la differenza sparisce (${segnoIt(g('normale', 0).m12)} contro ${segnoIt(g('normale', 1).m12)}).`;
+                    document.getElementById('tbo-ctx-box').style.display = '';
+                }
             }
             card.style.display = 'block';
         }
