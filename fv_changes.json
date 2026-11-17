@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-14T14:08:26.303Z",
+ "aggiornato": "2026-11-17T04:34:14.192Z",
  "cambi": [
+  {
+   "data": "2026-11-17",
+   "t": "TEN",
+   "nome": "Tenaris",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-17",
+   "t": "HEN3",
+   "nome": "Henkel",
+   "da": "sotto",
+   "a": "banda"
+  },
   {
    "data": "2026-11-13",
    "t": "PCAR",
