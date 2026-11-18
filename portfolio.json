@@ -1260,5 +1260,112 @@
   },
   "fx_cedole": {
     "2026-09-01": 1.15878
+  },
+  "classificazione": {
+    "_comment": "Paese (sede principale dell'attività) e settore di ogni posizione, per la diversificazione sul sito. Settori: Tecnologia, Salute, Consumi discrezionali, Beni di prima necessità, Industria, Materiali, Comunicazione, Finanza, Energia, Utility, Immobiliare, Titoli di Stato. SGBS è un ETF di società aurifere di più paesi: Globale.",
+    "TTD": {
+      "paese": "Stati Uniti",
+      "settore": "Tecnologia"
+    },
+    "BR": {
+      "paese": "Stati Uniti",
+      "settore": "Industria"
+    },
+    "DIA": {
+      "paese": "Italia",
+      "settore": "Salute"
+    },
+    "TRI": {
+      "paese": "Canada",
+      "settore": "Industria"
+    },
+    "PFE": {
+      "paese": "Stati Uniti",
+      "settore": "Salute"
+    },
+    "SAP": {
+      "paese": "Germania",
+      "settore": "Tecnologia"
+    },
+    "US912810RX81": {
+      "paese": "Stati Uniti",
+      "settore": "Titoli di Stato"
+    },
+    "BF.B": {
+      "paese": "Stati Uniti",
+      "settore": "Beni di prima necessità"
+    },
+    "EL": {
+      "paese": "Francia",
+      "settore": "Salute"
+    },
+    "NFLX": {
+      "paese": "Stati Uniti",
+      "settore": "Comunicazione"
+    },
+    "IT0005480980": {
+      "paese": "Italia",
+      "settore": "Titoli di Stato"
+    },
+    "BSX": {
+      "paese": "Stati Uniti",
+      "settore": "Salute"
+    },
+    "IT0005425233": {
+      "paese": "Italia",
+      "settore": "Titoli di Stato"
+    },
+    "PDD": {
+      "paese": "Cina",
+      "settore": "Consumi discrezionali"
+    },
+    "US912810SZ21": {
+      "paese": "Stati Uniti",
+      "settore": "Titoli di Stato"
+    },
+    "BLDR": {
+      "paese": "Stati Uniti",
+      "settore": "Industria"
+    },
+    "LULU": {
+      "paese": "Canada",
+      "settore": "Consumi discrezionali"
+    },
+    "QCOM": {
+      "paese": "Stati Uniti",
+      "settore": "Tecnologia"
+    },
+    "RACE": {
+      "paese": "Italia",
+      "settore": "Consumi discrezionali"
+    },
+    "FUN": {
+      "paese": "Stati Uniti",
+      "settore": "Consumi discrezionali"
+    },
+    "CE": {
+      "paese": "Stati Uniti",
+      "settore": "Materiali"
+    },
+    "SGBS": {
+      "paese": "Globale",
+      "settore": "Materiali"
+    },
+    "INTU": {
+      "paese": "Stati Uniti",
+      "settore": "Tecnologia"
+    },
+    "CPRT": {
+      "paese": "Stati Uniti",
+      "settore": "Industria"
+    },
+    "ADBE": {
+      "paese": "Stati Uniti",
+      "settore": "Tecnologia"
+    },
+    "FMC": {
+      "paese": "Stati Uniti",
+      "settore": "Materiali"
+    }
   }
 }
