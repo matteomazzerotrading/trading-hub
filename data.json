@@ -1,17 +1,17 @@
 {
   "_comment": "Aggiorna qui i Fair Value senza toccare index.html. Le chiavi in 'db' fanno override dei valori nell'HTML. I prezzi vengono aggiornati automaticamente dal GitHub Action giornaliero.",
-  "prices_updated": "2026-11-17T23:43:06Z",
+  "prices_updated": "2026-11-18T16:03:56Z",
   "db": {
     "DIA": {
       "name": "DiaSorin",
       "fv": 118.08,
-      "price": 81.9,
+      "price": 80.94,
       "curr": "€",
       "ex": "MIL",
       "yf": "DIA.MI",
       "divYield": 1.56,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "31.0",
         "eps": "2.64",
@@ -47,13 +47,13 @@
     "ERG": {
       "name": "ERG S.p.A.",
       "fv": 44.81,
-      "price": 22.88,
+      "price": 22.78,
       "curr": "€",
       "ex": "MIL",
       "yf": "ERG.MI",
       "divYield": 4.34,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "64.8",
         "eps": "0.35",
@@ -92,13 +92,13 @@
     "RACE": {
       "name": "Ferrari",
       "fv": 202.73,
-      "price": 363.85,
+      "price": 372.95,
       "curr": "€",
       "ex": "MIL",
       "yf": "RACE.MI",
       "divYield": 0.98,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "38.2",
         "eps": "9.52",
@@ -134,13 +134,13 @@
     "GOOG": {
       "name": "Alphabet",
       "fv": 107.77,
-      "price": 277.6,
+      "price": 279.18,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GOOG",
       "divYield": 0.31,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "14.5",
         "eps": "19.15",
@@ -176,13 +176,13 @@
     "MC": {
       "name": "LVMH",
       "fv": 569.11,
-      "price": 393,
+      "price": 386.55,
       "curr": "€",
       "ex": "EPA",
       "yf": "MC.PA",
       "divYield": 3.22,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "17.9",
         "eps": "21.95",
@@ -218,13 +218,13 @@
     "ADBE": {
       "name": "Adobe",
       "fv": 286.4,
-      "price": 235.55,
+      "price": 228.74,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADBE",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "13.1",
         "eps": "17.93",
@@ -260,13 +260,13 @@
     "INTU": {
       "name": "Intuit",
       "fv": 344.62,
-      "price": 320.79,
+      "price": 314.8,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTU",
       "divYield": 1.44,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "19.4",
         "eps": "16.50",
@@ -302,13 +302,13 @@
     "QCOM": {
       "name": "Qualcomm",
       "fv": 110.02,
-      "price": 166.67,
+      "price": 163.27,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "QCOM",
       "divYield": 2.15,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "13.1",
         "eps": "12.70",
@@ -344,13 +344,13 @@
     "STLAM": {
       "name": "Stellantis",
       "fv": 43.57,
-      "price": 3.325,
+      "price": 3.243,
       "curr": "€",
       "ex": "MIL",
       "yf": "STLAM.MI",
       "divYield": 0,
       "videoID": "MpwZcg3J8BE",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
@@ -391,13 +391,13 @@
     "SAP": {
       "name": "SAP SE",
       "fv": 113.15,
-      "price": 201.5,
+      "price": 195.5,
       "curr": "€",
       "ex": "XETR",
       "yf": "SAP.DE",
       "divYield": 1.17,
       "videoID": "Icy8DMAwDYw",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "28.6",
         "eps": "7.04",
@@ -433,13 +433,13 @@
     "AAPL": {
       "name": "Apple Inc.",
       "fv": 114.2,
-      "price": 351.91,
+      "price": 353.02,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AAPL",
       "divYield": 0.3,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "39.2",
         "eps": "8.97",
@@ -475,13 +475,13 @@
     "MSFT": {
       "name": "Microsoft",
       "fv": 186.75,
-      "price": 506.24,
+      "price": 505.11,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MSFT",
       "divYield": 0.7,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "26.4",
         "eps": "19.15",
@@ -519,13 +519,13 @@
     "AMZN": {
       "name": "Amazon",
       "fv": 45.51,
-      "price": 257.89,
+      "price": 263.39,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMZN",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "20.8",
         "eps": "12.37",
@@ -566,13 +566,13 @@
     "NVDA": {
       "name": "Nvidia",
       "fv": 30.62,
-      "price": 155.46,
+      "price": 152.32,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NVDA",
       "divYield": 0.33,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "19.7",
         "eps": "7.91",
@@ -608,13 +608,13 @@
     "A2A": {
       "name": "A2A S.p.A.",
       "fv": 8.4,
-      "price": 2.251,
+      "price": 2.233,
       "curr": "€",
       "ex": "MIL",
       "yf": "A2A.MI",
       "divYield": 4.59,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:A2A",
       "fv_low": 3.55,
       "fv_high": 16.17,
@@ -652,13 +652,13 @@
     "ADM": {
       "name": "Archer-Daniels",
       "fv": 35.67,
-      "price": 69.47,
+      "price": 67.66,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ADM",
       "divYield": 2.93,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:ADM",
       "fv_low": null,
       "fv_high": 190.37,
@@ -698,13 +698,13 @@
     "ADP": {
       "name": "Auto Data Proc.",
       "fv": 172.5,
-      "price": 308.29,
+      "price": 306.42,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADP",
       "divYield": 2.17,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:ADP",
       "fv_low": 134.8,
       "fv_high": 211.48,
@@ -740,13 +740,13 @@
     "ADSK": {
       "name": "Autodesk Inc.",
       "fv": 129.2,
-      "price": 255.22,
+      "price": 253.88,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADSK",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:ADSK",
       "fv_low": null,
       "fv_high": 181.99,
@@ -784,13 +784,13 @@
     "AMAT": {
       "name": "Applied Materials",
       "fv": 98.21,
-      "price": 349.23,
+      "price": 350.46,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMAT",
       "divYield": 0.57,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:AMAT",
       "fv_low": 89.07,
       "fv_high": 140.3,
@@ -826,13 +826,13 @@
     "AMD": {
       "name": "AMD",
       "fv": 19.22,
-      "price": 503.41,
+      "price": 509.65,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMD",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:AMD",
       "fv_low": null,
       "fv_high": 49.84,
@@ -870,13 +870,13 @@
     "ASML": {
       "name": "ASML Holding",
       "fv": 304.47,
-      "price": 1383.11,
+      "price": 1384.45,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ASML",
       "divYield": 0.56,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:ASML",
       "fv_low": 164.25,
       "fv_high": 626.25,
@@ -912,13 +912,13 @@
     "AXP": {
       "name": "American Express",
       "fv": 359.87,
-      "price": 315.78,
+      "price": 314.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AXP",
       "divYield": 1.15,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:AXP",
       "fv_low": 171.51,
       "fv_high": 550.44,
@@ -954,13 +954,13 @@
     "BAC": {
       "name": "Bank of America",
       "fv": 81.95,
-      "price": 49.44,
+      "price": 48.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BAC",
       "divYield": 2.32,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:BAC",
       "fv_low": null,
       "fv_high": 244.53,
@@ -1005,7 +1005,7 @@
       "yf": "BAYN.DE",
       "divYield": 0.19,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "XETR:BAYN",
       "fv_low": 34.98,
       "fv_high": 211.19,
@@ -1044,13 +1044,13 @@
     "BATS": {
       "name": "Brit. Am. Tobacco",
       "fv": 7966.9,
-      "price": 4524,
+      "price": 4467.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
       "divYield": 5.15,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "LSE:BATS",
       "fv_low": 4551,
       "fv_high": 8775.66,
@@ -1090,13 +1090,13 @@
     "BC": {
       "name": "Brunswick Corp",
       "fv": 55.22,
-      "price": 74.85,
+      "price": 75.17,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BC",
       "divYield": 2.29,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:BC",
       "fv_low": 31.16,
       "fv_high": 152.05,
@@ -1134,13 +1134,13 @@
     "BNG": {
       "name": "Bunge Global",
       "fv": null,
-      "price": 95.6,
+      "price": 92.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BG",
       "divYield": 2.87,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:BG",
       "fv_low": null,
       "fv_high": 303.75,
@@ -1180,13 +1180,13 @@
     "BRE": {
       "name": "Brembo",
       "fv": 13.39,
-      "price": 9.7,
+      "price": 9.61,
       "curr": "€",
       "ex": "MIL",
       "yf": "BRE.MI",
       "divYield": 3.03,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:BRE",
       "fv_low": 3.75,
       "fv_high": 19.18,
@@ -1224,13 +1224,13 @@
     "BRK.B": {
       "name": "Berkshire Hath.",
       "fv": 379.27,
-      "price": 586.76,
+      "price": 577.41,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BRK-B",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:BRK.B",
       "fv_low": 200.14,
       "fv_high": 536.95,
@@ -1269,13 +1269,13 @@
     "CAT": {
       "name": "Caterpillar",
       "fv": 188.06,
-      "price": 570.79,
+      "price": 556.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CAT",
       "divYield": 1.1,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:CAT",
       "fv_low": 139.35,
       "fv_high": 305.75,
@@ -1313,13 +1313,13 @@
     "CE": {
       "name": "Celanese",
       "fv": 148.77,
-      "price": 48.66,
+      "price": 48.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CE",
       "divYield": 0.25,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "20.5",
         "eps": "2.38",
@@ -1358,13 +1358,13 @@
     "CNC": {
       "name": "Centene",
       "fv": 166.91,
-      "price": 72.55,
+      "price": 68.46,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNC",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:CNC",
       "fv_low": null,
       "fv_high": 325.3,
@@ -1402,13 +1402,13 @@
     "COST": {
       "name": "Costco Wholesale",
       "fv": 329.68,
-      "price": 1110.08,
+      "price": 1101.54,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "COST",
       "divYield": 0.51,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:COST",
       "fv_low": 195.16,
       "fv_high": 425.22,
@@ -1444,13 +1444,13 @@
     "CPR": {
       "name": "Campari",
       "fv": 7.61,
-      "price": 6.692,
+      "price": 6.602,
       "curr": "€",
       "ex": "MIL",
       "yf": "CPR.MI",
       "divYield": 1.47,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:CPR",
       "fv_low": null,
       "fv_high": 10.58,
@@ -1490,13 +1490,13 @@
     "CRM": {
       "name": "Salesforce",
       "fv": 117.91,
-      "price": 194.52,
+      "price": 188.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CRM",
       "divYield": 0.81,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:CRM",
       "fv_low": 108.04,
       "fv_high": 194.66,
@@ -1532,13 +1532,13 @@
     "CVX": {
       "name": "Chevron",
       "fv": 169.62,
-      "price": 216.13,
+      "price": 207.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVX",
       "divYield": 3.25,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:CVX",
       "fv_low": null,
       "fv_high": 299.86,
@@ -1576,13 +1576,13 @@
     "DDOG": {
       "name": "Datadog",
       "fv": 38.09,
-      "price": 165.18,
+      "price": 167.99,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DDOG",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:DDOG",
       "fv_low": 11.45,
       "fv_high": 44.96,
@@ -1618,13 +1618,13 @@
     "ENI": {
       "name": "Eni S.p.A.",
       "fv": 47.81,
-      "price": 25.61,
+      "price": 25.13,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENI.MI",
       "divYield": 4.1,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:ENI",
       "fv_low": null,
       "fv_high": 82.85,
@@ -1663,13 +1663,13 @@
     "ENEL": {
       "name": "Enel S.p.A.",
       "fv": 8.36,
-      "price": 9.683,
+      "price": 9.587,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENEL.MI",
       "divYield": 5.02,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:ENEL",
       "fv_low": null,
       "fv_high": 14.97,
@@ -1709,13 +1709,13 @@
     "G": {
       "name": "Assic. Generali",
       "fv": 242.47,
-      "price": 44.41,
+      "price": 43.81,
       "curr": "€",
       "ex": "MIL",
       "yf": "G.MI",
       "divYield": 3.68,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:G",
       "fv_low": 25.54,
       "fv_high": 335.37,
@@ -1751,13 +1751,13 @@
     "IBM": {
       "name": "IBM",
       "fv": 196.58,
-      "price": 231.09,
+      "price": 231.28,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IBM",
       "divYield": 2.78,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:IBM",
       "fv_low": 167.41,
       "fv_high": 317.41,
@@ -1795,13 +1795,13 @@
     "INTC": {
       "name": "Intel",
       "fv": 19.61,
-      "price": 55.17,
+      "price": 54.23,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTC",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NASDAQ:INTC",
       "fv_low": null,
       "fv_high": 36.32,
@@ -1841,13 +1841,13 @@
     "IP": {
       "name": "International Paper",
       "fv": 41.55,
-      "price": 32.17,
+      "price": 32.68,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IP",
       "divYield": 5.57,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:IP",
       "fv_low": null,
       "fv_high": 93.74,
@@ -1887,13 +1887,13 @@
     "ISP": {
       "name": "Intesa Sanpaolo",
       "fv": 19.18,
-      "price": 6.19,
+      "price": 6.083,
       "curr": "€",
       "ex": "MIL",
       "yf": "ISP.MI",
       "divYield": 5.99,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:ISP",
       "fv_low": null,
       "fv_high": 71.48,
@@ -1932,13 +1932,13 @@
     "LDO": {
       "name": "Leonardo S.p.A.",
       "fv": 23.35,
-      "price": 50.62,
+      "price": 49.17,
       "curr": "€",
       "ex": "MIL",
       "yf": "LDO.MI",
       "divYield": 1.25,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:LDO",
       "fv_low": null,
       "fv_high": 50.01,
@@ -1978,13 +1978,13 @@
     "LULU": {
       "name": "Lululemon",
       "fv": 167.2,
-      "price": 104.14,
+      "price": 110.01,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LULU",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "8.5",
         "eps": "12.20",
@@ -2022,13 +2022,13 @@
     "MA": {
       "name": "Mastercard",
       "fv": 254.88,
-      "price": 645.73,
+      "price": 640.7,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MA",
       "divYield": 0.53,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:MA",
       "fv_low": 225.12,
       "fv_high": 293.84,
@@ -2064,13 +2064,13 @@
     "MONC": {
       "name": "Moncler",
       "fv": 58.6,
-      "price": 41.56,
+      "price": 40.72,
       "curr": "€",
       "ex": "MIL",
       "yf": "MONC.MI",
       "divYield": 3.22,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "MIL:MONC",
       "fv_low": 45.86,
       "fv_high": 86.84,
@@ -2106,13 +2106,13 @@
     "OXY": {
       "name": "Occidental Petroleum",
       "fv": 52.95,
-      "price": 56.52,
+      "price": 54.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OXY",
       "divYield": 1.81,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "tv": "NYSE:OXY",
       "fv_low": 15.29,
       "fv_high": 98.97,
@@ -2148,13 +2148,13 @@
     "TTD": {
       "name": "The Trade Desk",
       "fv": 21.48,
-      "price": 14.93,
+      "price": 15.09,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTD",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "21.7",
         "eps": "0.69",
@@ -2190,13 +2190,13 @@
     "TRI": {
       "name": "Thomson Reuters",
       "fv": 73.51,
-      "price": 104.17,
+      "price": 103.71,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TRI",
       "divYield": 2.29,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "29.9",
         "eps": "3.48",
@@ -2232,13 +2232,13 @@
     "PFE": {
       "name": "Pfizer",
       "fv": 51.42,
-      "price": 28.47,
+      "price": 28.17,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PFE",
       "divYield": 5.96,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "40.7",
         "eps": "0.70",
@@ -2276,13 +2276,13 @@
     "BSX": {
       "name": "Boston Scientific",
       "fv": 26.01,
-      "price": 43.03,
+      "price": 43.06,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BSX",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "18.2",
         "eps": "2.36",
@@ -2321,13 +2321,13 @@
     "BLDR": {
       "name": "Builders FirstSource",
       "fv": 93.8,
-      "price": 57.91,
+      "price": 57.47,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLDR",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "153.4",
         "eps": "0.38",
@@ -2365,13 +2365,13 @@
     "CPRT": {
       "name": "Copart",
       "fv": 20.74,
-      "price": 31.45,
+      "price": 31.25,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CPRT",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "20.3",
         "eps": "1.55",
@@ -2409,13 +2409,13 @@
     "EL": {
       "name": "EssilorLuxottica",
       "fv": 204.63,
-      "price": 178.8,
+      "price": 181.4,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "EL.PA",
       "divYield": 2.17,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "33.4",
         "eps": "5.35",
@@ -2451,13 +2451,13 @@
     "BR": {
       "name": "Broadridge Financial",
       "fv": 128.06,
-      "price": 188.58,
+      "price": 185.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BR",
       "divYield": 1.8,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "20.8",
         "eps": "9.05",
@@ -2493,13 +2493,13 @@
     "BF.B": {
       "name": "Brown-Forman B",
       "fv": 24.97,
-      "price": 30.24,
+      "price": 30.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BF-B",
       "divYield": 2.99,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "19.5",
         "eps": "1.55",
@@ -2535,13 +2535,13 @@
     "PDD": {
       "name": "PDD Holdings",
       "fv": 290.27,
-      "price": 77.39,
+      "price": 77.51,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PDD",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "8.6",
         "eps": "9.02",
@@ -2579,13 +2579,13 @@
     "FUN": {
       "name": "Six Flags Entertain.",
       "fv": 35.09,
-      "price": 10.96,
+      "price": 11.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FUN",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "N/D",
         "eps": "-9.14",
@@ -2625,13 +2625,13 @@
     "FMC": {
       "name": "FMC Corporation",
       "fv": 36.62,
-      "price": 4.99,
+      "price": 4.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FMC",
       "divYield": 6.12,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "N/D",
         "eps": "-33.05",
@@ -2671,13 +2671,13 @@
     "SGBS": {
       "name": "Sprott Gold Miners",
       "fv": null,
-      "price": 369.64,
+      "price": 358.43,
       "curr": "$",
       "ex": "LSE",
       "yf": "SGBS.L",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
@@ -2719,7 +2719,7 @@
       "yf": "NFLX",
       "divYield": 0,
       "videoID": null,
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "fund": {
         "pe": "17.2",
         "eps": "3.46",
@@ -2759,7 +2759,7 @@
     "RHM": {
       "name": "Rheinmetall AG",
       "fv": 293.59,
-      "price": 760.9,
+      "price": 749.2,
       "curr": "€",
       "ex": "XETR",
       "yf": "RHM.DE",
@@ -2797,14 +2797,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-03-11"
     },
     "GXI": {
       "name": "Gerresheimer AG",
       "fv": 17.82,
-      "price": 31.98,
+      "price": 33.16,
       "curr": "€",
       "ex": "XETR",
       "yf": "GXI.DE",
@@ -2844,14 +2844,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-25"
     },
     "NOC": {
       "name": "Northrop Grumman",
       "fv": 423.37,
-      "price": 553.26,
+      "price": 537.07,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOC",
@@ -2889,14 +2889,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-28"
     },
     "RTX": {
       "name": "RTX Corp",
       "fv": 85.75,
-      "price": 198,
+      "price": 195.52,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RTX",
@@ -2933,14 +2933,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-26"
     },
     "LMT": {
       "name": "Lockheed Martin",
       "fv": 559.95,
-      "price": 590.34,
+      "price": 575.36,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LMT",
@@ -2975,14 +2975,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-26"
     },
     "GD": {
       "name": "General Dynamics",
       "fv": 261.78,
-      "price": 355.63,
+      "price": 348.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GD",
@@ -3017,14 +3017,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-27"
     },
     "HWM": {
       "name": "Howmet Aerospace",
       "fv": 4.04,
-      "price": 215.3,
+      "price": 219.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HWM",
@@ -3063,14 +3063,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-16"
     },
     "HON": {
       "name": "Honeywell",
       "fv": 253.67,
-      "price": 218.96,
+      "price": 219.37,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
@@ -3105,14 +3105,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-04"
     },
     "BA": {
       "name": "Boeing",
       "fv": 9.06,
-      "price": 163.91,
+      "price": 162.61,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BA",
@@ -3151,14 +3151,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-27"
     },
     "UNP": {
       "name": "Union Pacific",
       "fv": 162.92,
-      "price": 297.03,
+      "price": 301.08,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNP",
@@ -3195,14 +3195,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-01-28"
     },
     "UPS": {
       "name": "UPS",
       "fv": 90.96,
-      "price": 110.31,
+      "price": 110.92,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UPS",
@@ -3240,14 +3240,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-02-02"
     },
     "FDX": {
       "name": "FedEx",
       "fv": 184.73,
-      "price": 319.94,
+      "price": 319.39,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FDX",
@@ -3286,14 +3286,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-02-02"
     },
     "DE": {
       "name": "Deere & Company",
       "fv": 133.75,
-      "price": 649.23,
+      "price": 646.17,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DE",
@@ -3332,14 +3332,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2026-11-25"
     },
     "KMI": {
       "name": "Kinder Morgan",
       "fv": 28.21,
-      "price": 31.7,
+      "price": 31.53,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KMI",
@@ -3376,14 +3376,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-20"
     },
     "COP": {
       "name": "ConocoPhillips",
       "fv": 123.88,
-      "price": 139.48,
+      "price": 136.27,
       "curr": "$",
       "ex": "NYSE",
       "yf": "COP",
@@ -3420,14 +3420,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-11"
     },
     "DVN": {
       "name": "Devon Energy",
       "fv": 25.69,
-      "price": 43.46,
+      "price": 42.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DVN",
@@ -3466,14 +3466,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-16"
     },
     "SLB": {
       "name": "Schlumberger",
       "fv": 50.64,
-      "price": 48.95,
+      "price": 48.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SLB",
@@ -3508,14 +3508,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-15"
     },
     "XOM": {
       "name": "ExxonMobil",
       "fv": 104.53,
-      "price": 167.21,
+      "price": 162.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "XOM",
@@ -3553,14 +3553,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-02"
     },
     "ABBV": {
       "name": "AbbVie",
       "fv": 252.39,
-      "price": 292.82,
+      "price": 288.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABBV",
@@ -3597,14 +3597,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03"
     },
     "MRK": {
       "name": "Merck & Co",
       "fv": 108.8,
-      "price": 143.37,
+      "price": 139.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MRK",
@@ -3641,14 +3641,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-02"
     },
     "LLY": {
       "name": "Eli Lilly",
       "fv": 241.48,
-      "price": 1415.55,
+      "price": 1386.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LLY",
@@ -3683,14 +3683,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-10"
     },
     "MDT": {
       "name": "Medtronic",
       "fv": 82.14,
-      "price": 102.32,
+      "price": 99.91,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MDT",
@@ -3725,14 +3725,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2026-11-24"
     },
     "BDX": {
       "name": "Becton Dickinson",
       "fv": 168.56,
-      "price": 215.42,
+      "price": 215.32,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BDX",
@@ -3769,14 +3769,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04"
     },
     "DHR": {
       "name": "Danaher",
       "fv": 108.08,
-      "price": 225.77,
+      "price": 226.48,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DHR",
@@ -3811,14 +3811,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27"
     },
     "TMO": {
       "name": "Thermo Fisher",
       "fv": 303.49,
-      "price": 686.79,
+      "price": 687.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TMO",
@@ -3855,14 +3855,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04"
     },
     "MTD": {
       "name": "Mettler-Toledo",
       "fv": 541.91,
-      "price": 1712.95,
+      "price": 1731.98,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MTD",
@@ -3897,14 +3897,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11"
     },
     "REGN": {
       "name": "Regeneron Pharma",
       "fv": 701.53,
-      "price": 957.76,
+      "price": 956.47,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "REGN",
@@ -3939,14 +3939,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-29"
     },
     "GILD": {
       "name": "Gilead Sciences",
       "fv": 156.91,
-      "price": 170.26,
+      "price": 168.79,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GILD",
@@ -3981,14 +3981,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04"
     },
     "ISRG": {
       "name": "Intuitive Surgical",
       "fv": 108.23,
-      "price": 430.53,
+      "price": 425.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ISRG",
@@ -4023,14 +4023,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-26"
     },
     "VRTX": {
       "name": "Vertex Pharma",
       "fv": 281.37,
-      "price": 534.2,
+      "price": 534.79,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRTX",
@@ -4067,14 +4067,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-09"
     },
     "ELV": {
       "name": "Elevance Health",
       "fv": 649.82,
-      "price": 433.93,
+      "price": 414.38,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ELV",
@@ -4111,14 +4111,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi sanitari",
       "earn_next": "2027-01-27"
     },
     "UNH": {
       "name": "UnitedHealth",
       "fv": 596.56,
-      "price": 389.68,
+      "price": 364.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNH",
@@ -4155,14 +4155,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi sanitari",
       "earn_next": "2027-01-20"
     },
     "CVS": {
       "name": "CVS Health",
       "fv": 209.18,
-      "price": 85.81,
+      "price": 82.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVS",
@@ -4199,14 +4199,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-17"
     },
     "NVO": {
       "name": "Novo Nordisk ADR",
       "fv": 57.13,
-      "price": 40.7,
+      "price": 39.76,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NVO",
@@ -4243,14 +4243,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03"
     },
     "JPM": {
       "name": "JPMorgan Chase",
       "fv": 557.49,
-      "price": 329.96,
+      "price": 326.52,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JPM",
@@ -4288,14 +4288,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-01-14"
     },
     "BLK": {
       "name": "BlackRock",
       "fv": 450.06,
-      "price": 1180.67,
+      "price": 1177.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLK",
@@ -4332,14 +4332,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-01-21"
     },
     "C": {
       "name": "Citigroup",
       "fv": 177.84,
-      "price": 119.94,
+      "price": 118.46,
       "curr": "$",
       "ex": "NYSE",
       "yf": "C",
@@ -4377,14 +4377,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-01-14"
     },
     "GS": {
       "name": "Goldman Sachs",
       "fv": 1036.11,
-      "price": 877.52,
+      "price": 870.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GS",
@@ -4422,14 +4422,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-01-19"
     },
     "V": {
       "name": "Visa",
       "fv": 197.59,
-      "price": 416.77,
+      "price": 414.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "V",
@@ -4464,14 +4464,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-01-28"
     },
     "MCO": {
       "name": "Moody's Corp",
       "fv": 187.09,
-      "price": 484.41,
+      "price": 476.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCO",
@@ -4506,14 +4506,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-05"
     },
     "CB": {
       "name": "Chubb",
       "fv": 762.58,
-      "price": 375.64,
+      "price": 370.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CB",
@@ -4548,14 +4548,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-02-02"
     },
     "L": {
       "name": "Loews Corp",
       "fv": 216.14,
-      "price": 110.2,
+      "price": 109.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "L",
@@ -4590,14 +4590,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-02-08"
     },
     "RSG": {
       "name": "Republic Services",
       "fv": 133.84,
-      "price": 252.93,
+      "price": 249.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RSG",
@@ -4634,14 +4634,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-23"
     },
     "WM": {
       "name": "Waste Management",
       "fv": 148.78,
-      "price": 242.69,
+      "price": 240.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WM",
@@ -4679,14 +4679,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-03"
     },
     "PM": {
       "name": "Philip Morris",
       "fv": 146.33,
-      "price": 194.38,
+      "price": 191.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PM",
@@ -4721,14 +4721,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11"
     },
     "PEP": {
       "name": "PepsiCo",
       "fv": 122.51,
-      "price": 142.02,
+      "price": 141.78,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PEP",
@@ -4765,14 +4765,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11"
     },
     "KO": {
       "name": "Coca-Cola",
       "fv": 44.23,
-      "price": 98.79,
+      "price": 97.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KO",
@@ -4809,14 +4809,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-16"
     },
     "AZO": {
       "name": "AutoZone",
       "fv": 2753,
-      "price": 3279.12,
+      "price": 3291.07,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AZO",
@@ -4854,14 +4854,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-08"
     },
     "MO": {
       "name": "Altria Group",
       "fv": 96.94,
-      "price": 77.46,
+      "price": 76.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MO",
@@ -4898,14 +4898,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04"
     },
     "CL": {
       "name": "Colgate-Palmolive",
       "fv": 82.19,
-      "price": 99.61,
+      "price": 98.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CL",
@@ -4942,14 +4942,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-22"
     },
     "PG": {
       "name": "Procter & Gamble",
       "fv": 116.98,
-      "price": 171.72,
+      "price": 170.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PG",
@@ -4984,14 +4984,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-20"
     },
     "GIS": {
       "name": "General Mills",
       "fv": 98.21,
-      "price": 34.68,
+      "price": 34.66,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GIS",
@@ -5030,14 +5030,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2026-12-23"
     },
     "HD": {
       "name": "Home Depot",
       "fv": 255.13,
-      "price": 339.01,
+      "price": 334.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HD",
@@ -5072,14 +5072,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-23"
     },
     "ROST": {
       "name": "Ross Stores",
       "fv": 102.86,
-      "price": 220.45,
+      "price": 227.92,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
@@ -5114,14 +5114,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-19"
     },
     "ORLY": {
       "name": "O'Reilly Automotive",
       "fv": 48.86,
-      "price": 92.69,
+      "price": 92.43,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ORLY",
@@ -5159,14 +5159,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-10"
     },
     "DG": {
       "name": "Dollar General",
       "fv": 183.63,
-      "price": 133.53,
+      "price": 133.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DG",
@@ -5203,14 +5203,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-03"
     },
     "MCD": {
       "name": "McDonald's",
       "fv": 177.94,
-      "price": 275.82,
+      "price": 272.73,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCD",
@@ -5247,14 +5247,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-28"
     },
     "NKE": {
       "name": "Nike",
       "fv": 40.66,
-      "price": 35.85,
+      "price": 36.38,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NKE",
@@ -5291,14 +5291,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2026-12-17"
     },
     "DIS": {
       "name": "Walt Disney",
       "fv": 56.72,
-      "price": 116.94,
+      "price": 119.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DIS",
@@ -5335,14 +5335,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-10"
     },
     "VZ": {
       "name": "Verizon",
       "fv": 89.47,
-      "price": 45.93,
+      "price": 45.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VZ",
@@ -5380,14 +5380,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-01-26"
     },
     "T": {
       "name": "AT&T",
       "fv": 52.4,
-      "price": 22.29,
+      "price": 21.94,
       "curr": "$",
       "ex": "NYSE",
       "yf": "T",
@@ -5425,14 +5425,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-01-27"
     },
     "CHTR": {
       "name": "Charter Comm.",
       "fv": 540.24,
-      "price": 138.5,
+      "price": 137.41,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CHTR",
@@ -5469,14 +5469,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-29"
     },
     "TMUS": {
       "name": "T-Mobile US",
       "fv": 53.43,
-      "price": 167.9,
+      "price": 162.38,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TMUS",
@@ -5514,14 +5514,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-03"
     },
     "RCL": {
       "name": "Royal Caribbean",
       "fv": 17.77,
-      "price": 307.39,
+      "price": 316.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RCL",
@@ -5560,14 +5560,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-04"
     },
     "META": {
       "name": "Meta Platforms",
       "fv": 316.31,
-      "price": 618.87,
+      "price": 612.7,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "META",
@@ -5604,14 +5604,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-03"
     },
     "TSLA": {
       "name": "Tesla",
       "fv": 20.2,
-      "price": 380.11,
+      "price": 380.89,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TSLA",
@@ -5649,14 +5649,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-03"
     },
     "AVGO": {
       "name": "Broadcom",
       "fv": 61.26,
-      "price": 341.6,
+      "price": 353.58,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AVGO",
@@ -5691,14 +5691,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-12-09"
     },
     "ORCL": {
       "name": "Oracle",
       "fv": 75.16,
-      "price": 115,
+      "price": 114.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ORCL",
@@ -5738,14 +5738,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-14"
     },
     "TXN": {
       "name": "Texas Instruments",
       "fv": 80.03,
-      "price": 295.86,
+      "price": 293.87,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TXN",
@@ -5782,14 +5782,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-26"
     },
     "BKNG": {
       "name": "Booking Holdings",
       "fv": 154.98,
-      "price": 154.46,
+      "price": 154.34,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKNG",
@@ -5826,14 +5826,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-25"
     },
     "SHOP": {
       "name": "Shopify",
       "fv": 7.92,
-      "price": 141.9,
+      "price": 140.44,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SHOP",
@@ -5870,14 +5870,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-17"
     },
     "CRWD": {
       "name": "CrowdStrike",
       "fv": 19.25,
-      "price": 219.58,
+      "price": 233.12,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CRWD",
@@ -5914,14 +5914,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-01"
     },
     "FTNT": {
       "name": "Fortinet",
       "fv": 43.49,
-      "price": 124.5,
+      "price": 130.34,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FTNT",
@@ -5956,14 +5956,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-09"
     },
     "PLTR": {
       "name": "Palantir",
       "fv": 7.75,
-      "price": 156.56,
+      "price": 155.17,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PLTR",
@@ -6000,14 +6000,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17"
     },
     "PANW": {
       "name": "Palo Alto Networks",
       "fv": 73.18,
-      "price": 309.29,
+      "price": 328.36,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PANW",
@@ -6042,14 +6042,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-18"
     },
     "NEE": {
       "name": "NextEra Energy",
       "fv": 16.12,
-      "price": 84.42,
+      "price": 84.51,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEE",
@@ -6088,14 +6088,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-01-26"
     },
     "CME": {
       "name": "CME Group",
       "fv": 186.29,
-      "price": 311.56,
+      "price": 308.33,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CME",
@@ -6130,14 +6130,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-02-10"
     },
     "ACN": {
       "name": "Accenture",
       "fv": 252.79,
-      "price": 239.28,
+      "price": 233.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ACN",
@@ -6172,14 +6172,14 @@
       },
       "fv_source": "indicatore",
       "fv_updated": "2026-11-18",
-      "updated": "2026-11-17",
+      "updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-17"
     },
     "TIT": {
       "name": "Telecom Italia",
       "fv": 15.33,
-      "price": 5.684,
+      "price": 5.592,
       "curr": "€",
       "ex": "MIL",
       "yf": "TIT.MI",
@@ -6220,12 +6220,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TEN": {
       "name": "Tenaris",
       "fv": 38.63,
-      "price": 27.18,
+      "price": 26.44,
       "curr": "€",
       "ex": "MIL",
       "yf": "TEN.MI",
@@ -6264,12 +6264,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Materie prime",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PRY": {
       "name": "Prysmian",
       "fv": 51.16,
-      "price": 106.3,
+      "price": 108.3,
       "curr": "€",
       "ex": "MIL",
       "yf": "PRY.MI",
@@ -6306,12 +6306,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-03-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SRG": {
       "name": "Snam",
       "fv": 8.28,
-      "price": 6.142,
+      "price": 6.09,
       "curr": "€",
       "ex": "MIL",
       "yf": "SRG.MI",
@@ -6354,12 +6354,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TRN": {
       "name": "Terna",
       "fv": null,
-      "price": 9.672,
+      "price": 9.616,
       "curr": "€",
       "ex": "MIL",
       "yf": "TRN.MI",
@@ -6401,12 +6401,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "IG": {
       "name": "Italgas",
       "fv": 42.82,
-      "price": 9.148,
+      "price": 9.038,
       "curr": "€",
       "ex": "MIL",
       "yf": "IG.MI",
@@ -6447,12 +6447,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HER": {
       "name": "Hera",
       "fv": 20,
-      "price": 3.62,
+      "price": 3.608,
       "curr": "€",
       "ex": "MIL",
       "yf": "HER.MI",
@@ -6492,12 +6492,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AMP": {
       "name": "Amplifon",
       "fv": 30.7,
-      "price": 11.38,
+      "price": 11.51,
       "curr": "€",
       "ex": "MIL",
       "yf": "AMP.MI",
@@ -6534,7 +6534,7 @@
       "fv_updated": "2026-11-18",
       "settore": "Distribuzione",
       "earn_next": "2027-03-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "REC": {
       "name": "Recordati",
@@ -6576,12 +6576,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BZU": {
       "name": "Buzzi",
       "fv": 84.59,
-      "price": 44.1,
+      "price": 44.2,
       "curr": "€",
       "ex": "MIL",
       "yf": "BZU.MI",
@@ -6618,12 +6618,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Materie prime",
       "earn_next": "2027-04-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "STMMI": {
       "name": "STMicroelectronics",
       "fv": 14.88,
-      "price": 39.78,
+      "price": 40.56,
       "curr": "€",
       "ex": "MIL",
       "yf": "STMMI.MI",
@@ -6664,12 +6664,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NEXI": {
       "name": "Nexi",
       "fv": 12.97,
-      "price": 4.405,
+      "price": 4.394,
       "curr": "€",
       "ex": "MIL",
       "yf": "NEXI.MI",
@@ -6709,7 +6709,7 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-03-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "IVG": {
       "name": "Iveco Group",
@@ -6754,12 +6754,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-05",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PIRC": {
       "name": "Pirelli",
       "fv": 18.32,
-      "price": 6.5,
+      "price": 6.49,
       "curr": "€",
       "ex": "MIL",
       "yf": "PIRC.MI",
@@ -6796,12 +6796,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SPM": {
       "name": "Saipem",
       "fv": 5.14,
-      "price": 4.141,
+      "price": 4.045,
       "curr": "€",
       "ex": "MIL",
       "yf": "SPM.MI",
@@ -6840,12 +6840,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-03-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "INW": {
       "name": "Inwit",
       "fv": 10.24,
-      "price": 7.335,
+      "price": 7.37,
       "curr": "€",
       "ex": "MIL",
       "yf": "INW.MI",
@@ -6885,12 +6885,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-03-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TGYM": {
       "name": "Technogym",
       "fv": 16.4,
-      "price": 14.87,
+      "price": 15.06,
       "curr": "€",
       "ex": "MIL",
       "yf": "TGYM.MI",
@@ -6927,12 +6927,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "REY": {
       "name": "Reply",
       "fv": 149.85,
-      "price": 127.1,
+      "price": 129.0,
       "curr": "€",
       "ex": "MIL",
       "yf": "REY.MI",
@@ -6969,12 +6969,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-03-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DLG": {
       "name": "De'Longhi",
       "fv": 61.47,
-      "price": 46.7,
+      "price": 46.76,
       "curr": "€",
       "ex": "MIL",
       "yf": "DLG.MI",
@@ -7011,7 +7011,7 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-12",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SFER": {
       "name": "Salvatore Ferragamo",
@@ -7056,12 +7056,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "FCT": {
       "name": "Fincantieri",
       "fv": 30.96,
-      "price": 11.34,
+      "price": 11.1,
       "curr": "€",
       "ex": "MIL",
       "yf": "FCT.MI",
@@ -7100,7 +7100,7 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-03-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ENAV": {
       "name": "Enav",
@@ -7144,12 +7144,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-04-21",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "IRE": {
       "name": "Iren",
       "fv": 3.37,
-      "price": 2.37,
+      "price": 2.356,
       "curr": "€",
       "ex": "MIL",
       "yf": "IRE.MI",
@@ -7191,12 +7191,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-29",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ACE": {
       "name": "Acea",
       "fv": 21.52,
-      "price": 19.5,
+      "price": 19.73,
       "curr": "€",
       "ex": "MIL",
       "yf": "ACE.MI",
@@ -7238,12 +7238,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DAN": {
       "name": "Danieli",
       "fv": 79.08,
-      "price": 51.75,
+      "price": 51.8,
       "curr": "€",
       "ex": "MIL",
       "yf": "DAN.MI",
@@ -7282,12 +7282,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-03-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MARR": {
       "name": "Marr",
       "fv": 20.43,
-      "price": 4.89,
+      "price": 4.87,
       "curr": "€",
       "ex": "MIL",
       "yf": "MARR.MI",
@@ -7328,12 +7328,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Distribuzione",
       "earn_next": "2027-03-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "OR": {
       "name": "L'Oréal",
       "fv": 330.25,
-      "price": 446.35,
+      "price": 443.1,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "OR.PA",
@@ -7370,12 +7370,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RMS": {
       "name": "Hermès",
       "fv": 941.58,
-      "price": 1280.5,
+      "price": 1284.0,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "RMS.PA",
@@ -7412,12 +7412,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-12",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AIR": {
       "name": "Airbus",
       "fv": 95.82,
-      "price": 201.1,
+      "price": 197.86,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AIR.PA",
@@ -7457,12 +7457,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SU": {
       "name": "Schneider Electric",
       "fv": 154.51,
-      "price": 236.6,
+      "price": 238.75,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SU.PA",
@@ -7499,12 +7499,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AI": {
       "name": "Air Liquide",
       "fv": 110.36,
-      "price": 190.94,
+      "price": 190.06,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AI.PA",
@@ -7543,12 +7543,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TTE": {
       "name": "TotalEnergies",
       "fv": 143.71,
-      "price": 81.98,
+      "price": 80.16,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "TTE.PA",
@@ -7588,12 +7588,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SAN": {
       "name": "Sanofi",
       "fv": 186.85,
-      "price": 86.56,
+      "price": 86.22,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SAN.PA",
@@ -7632,12 +7632,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": null,
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "KER": {
       "name": "Kering",
       "fv": 330.01,
-      "price": 178.36,
+      "price": 177.2,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "KER.PA",
@@ -7676,12 +7676,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RI": {
       "name": "Pernod Ricard",
       "fv": 122.79,
-      "price": 72.26,
+      "price": 71.54,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "RI.PA",
@@ -7720,12 +7720,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BN": {
       "name": "Danone",
       "fv": 119.41,
-      "price": 69.84,
+      "price": 69.24,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "BN.PA",
@@ -7764,12 +7764,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SAF": {
       "name": "Safran",
       "fv": 226.16,
-      "price": 306,
+      "price": 304.6,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SAF.PA",
@@ -7806,12 +7806,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CAP": {
       "name": "Capgemini",
       "fv": 248.01,
-      "price": 120.65,
+      "price": 119.7,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "CAP.PA",
@@ -7848,12 +7848,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DSY": {
       "name": "Dassault Systèmes",
       "fv": 25.42,
-      "price": 24.4,
+      "price": 23.79,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "DSY.PA",
@@ -7890,12 +7890,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ML": {
       "name": "Michelin",
       "fv": 58.51,
-      "price": 32.33,
+      "price": 32.06,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ML.PA",
@@ -7932,12 +7932,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "VIE": {
       "name": "Veolia",
       "fv": 51.82,
-      "price": 34.36,
+      "price": 34.15,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "VIE.PA",
@@ -7976,12 +7976,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ENGI": {
       "name": "Engie",
       "fv": 28.96,
-      "price": 24.74,
+      "price": 24.8,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ENGI.PA",
@@ -8023,12 +8023,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ORA": {
       "name": "Orange",
       "fv": 32.1,
-      "price": 15.45,
+      "price": 15.23,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ORA.PA",
@@ -8068,12 +8068,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PUB": {
       "name": "Publicis",
       "fv": 229.56,
-      "price": 101.55,
+      "price": 102.1,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PUB.PA",
@@ -8110,12 +8110,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LR": {
       "name": "Legrand",
       "fv": 107.63,
-      "price": 133.35,
+      "price": 135.35,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "LR.PA",
@@ -8152,12 +8152,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SGO": {
       "name": "Saint-Gobain",
       "fv": 135.76,
-      "price": 74.5,
+      "price": 74.04,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SGO.PA",
@@ -8194,12 +8194,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ADYEN": {
       "name": "Adyen",
       "fv": 639.64,
-      "price": 837.7,
+      "price": 841.8,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ADYEN.AS",
@@ -8238,12 +8238,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PHIA": {
       "name": "Philips",
       "fv": 29.43,
-      "price": 27.16,
+      "price": 27.19,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PHIA.AS",
@@ -8283,12 +8283,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HEIA": {
       "name": "Heineken",
       "fv": 160.3,
-      "price": 84.28,
+      "price": 84.12,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "HEIA.AS",
@@ -8328,12 +8328,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AD": {
       "name": "Ahold Delhaize",
       "fv": 140.66,
-      "price": 35.14,
+      "price": 34.85,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AD.AS",
@@ -8372,12 +8372,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "WKL": {
       "name": "Wolters Kluwer",
       "fv": 181.65,
-      "price": 88.2,
+      "price": 85.82,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "WKL.AS",
@@ -8414,12 +8414,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PRX": {
       "name": "Prosus",
       "fv": null,
-      "price": 34.26,
+      "price": 32.61,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PRX.AS",
@@ -8459,12 +8459,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "UMG": {
       "name": "Universal Music Group",
       "fv": 18.65,
-      "price": 17.24,
+      "price": 17.35,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "UMG.AS",
@@ -8501,12 +8501,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-03-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SIE": {
       "name": "Siemens",
       "fv": 237.54,
-      "price": 269.8,
+      "price": 265.9,
       "curr": "€",
       "ex": "XETR",
       "yf": "SIE.DE",
@@ -8543,12 +8543,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DTE": {
       "name": "Deutsche Telekom",
       "fv": 124.15,
-      "price": 27.12,
+      "price": 26.28,
       "curr": "€",
       "ex": "XETR",
       "yf": "DTE.DE",
@@ -8588,12 +8588,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BAS": {
       "name": "BASF",
       "fv": 67.92,
-      "price": 52.24,
+      "price": 51.42,
       "curr": "€",
       "ex": "XETR",
       "yf": "BAS.DE",
@@ -8633,12 +8633,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-26",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BMW": {
       "name": "BMW",
       "fv": null,
-      "price": 56.1,
+      "price": 54.86,
       "curr": "€",
       "ex": "XETR",
       "yf": "BMW.DE",
@@ -8679,12 +8679,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MBG": {
       "name": "Mercedes-Benz",
       "fv": 246,
-      "price": 39.53,
+      "price": 38.96,
       "curr": "€",
       "ex": "XETR",
       "yf": "MBG.DE",
@@ -8725,12 +8725,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "VOW3": {
       "name": "Volkswagen",
       "fv": null,
-      "price": 66.3,
+      "price": 65.54,
       "curr": "€",
       "ex": "XETR",
       "yf": "VOW3.DE",
@@ -8771,12 +8771,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ADS": {
       "name": "adidas",
       "fv": 219.48,
-      "price": 173.75,
+      "price": 173.9,
       "curr": "€",
       "ex": "XETR",
       "yf": "ADS.DE",
@@ -8816,12 +8816,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "IFX": {
       "name": "Infineon",
       "fv": 19.6,
-      "price": 48.69,
+      "price": 49.47,
       "curr": "€",
       "ex": "XETR",
       "yf": "IFX.DE",
@@ -8858,12 +8858,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DHL": {
       "name": "DHL Group",
       "fv": 102.44,
-      "price": 60.2,
+      "price": 60.06,
       "curr": "€",
       "ex": "XETR",
       "yf": "DHL.DE",
@@ -8902,12 +8902,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-03-05",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PUM": {
       "name": "Puma",
       "fv": 31.51,
-      "price": 25.57,
+      "price": 25.25,
       "curr": "€",
       "ex": "XETR",
       "yf": "PUM.DE",
@@ -8948,12 +8948,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ZAL": {
       "name": "Zalando",
       "fv": 33.37,
-      "price": 28.34,
+      "price": 29.05,
       "curr": "€",
       "ex": "XETR",
       "yf": "ZAL.DE",
@@ -8992,12 +8992,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HEN3": {
       "name": "Henkel",
       "fv": 154.66,
-      "price": 88.3,
+      "price": 87.94,
       "curr": "€",
       "ex": "XETR",
       "yf": "HEN3.DE",
@@ -9036,12 +9036,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-03-08",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BEI": {
       "name": "Beiersdorf",
       "fv": 124.5,
-      "price": 82.56,
+      "price": 80.6,
       "curr": "€",
       "ex": "XETR",
       "yf": "BEI.DE",
@@ -9081,12 +9081,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "P911": {
       "name": "Porsche AG",
       "fv": 53.82,
-      "price": 43.44,
+      "price": 43.4,
       "curr": "€",
       "ex": "XETR",
       "yf": "P911.DE",
@@ -9125,12 +9125,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SHL": {
       "name": "Siemens Healthineers",
       "fv": 34.86,
-      "price": 43.3,
+      "price": 43.5,
       "curr": "€",
       "ex": "XETR",
       "yf": "SHL.DE",
@@ -9169,12 +9169,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ENR": {
       "name": "Siemens Energy",
       "fv": 33.41,
-      "price": 125,
+      "price": 127.36,
       "curr": "€",
       "ex": "XETR",
       "yf": "ENR.DE",
@@ -9211,12 +9211,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EOAN": {
       "name": "E.ON",
       "fv": null,
-      "price": 18.93,
+      "price": 18.75,
       "curr": "€",
       "ex": "XETR",
       "yf": "EOAN.DE",
@@ -9258,12 +9258,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RWE": {
       "name": "RWE",
       "fv": null,
-      "price": 57.7,
+      "price": 57.98,
       "curr": "€",
       "ex": "XETR",
       "yf": "RWE.DE",
@@ -9305,12 +9305,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MTX": {
       "name": "MTU Aero Engines",
       "fv": 241.12,
-      "price": 347.8,
+      "price": 351.5,
       "curr": "€",
       "ex": "XETR",
       "yf": "MTX.DE",
@@ -9347,12 +9347,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SY1": {
       "name": "Symrise",
       "fv": 74.79,
-      "price": 94.96,
+      "price": 95.92,
       "curr": "€",
       "ex": "XETR",
       "yf": "SY1.DE",
@@ -9391,12 +9391,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-03-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ITX": {
       "name": "Inditex",
       "fv": 54.97,
-      "price": 59.56,
+      "price": 59.48,
       "curr": "€",
       "ex": "BME",
       "yf": "ITX.MC",
@@ -9433,12 +9433,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "IBE": {
       "name": "Iberdrola",
       "fv": 8,
-      "price": 22.88,
+      "price": 22.81,
       "curr": "€",
       "ex": "BME",
       "yf": "IBE.MC",
@@ -9481,12 +9481,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TEF": {
       "name": "Telefónica",
       "fv": 24.04,
-      "price": 3.475,
+      "price": 3.387,
       "curr": "€",
       "ex": "BME",
       "yf": "TEF.MC",
@@ -9526,12 +9526,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "REP": {
       "name": "Repsol",
       "fv": 46.1,
-      "price": 30.68,
+      "price": 29.0,
       "curr": "€",
       "ex": "BME",
       "yf": "REP.MC",
@@ -9572,12 +9572,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AENA": {
       "name": "Aena",
       "fv": 39.96,
-      "price": 28.4,
+      "price": 28.34,
       "curr": "€",
       "ex": "BME",
       "yf": "AENA.MC",
@@ -9616,12 +9616,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-03-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AMS": {
       "name": "Amadeus",
       "fv": 103.73,
-      "price": 61.92,
+      "price": 61.68,
       "curr": "€",
       "ex": "BME",
       "yf": "AMS.MC",
@@ -9660,12 +9660,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CLNX": {
       "name": "Cellnex",
       "fv": null,
-      "price": 25.72,
+      "price": 25.49,
       "curr": "€",
       "ex": "BME",
       "yf": "CLNX.MC",
@@ -9704,12 +9704,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-03-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NESN": {
       "name": "Nestlé",
       "fv": 119.53,
-      "price": 86.73,
+      "price": 86.08,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "NESN.SW",
@@ -9749,12 +9749,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NOVN": {
       "name": "Novartis",
       "fv": 193.56,
-      "price": 133.28,
+      "price": 131.76,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "NOVN.SW",
@@ -9793,12 +9793,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ABBN": {
       "name": "ABB",
       "fv": 37.45,
-      "price": 68.02,
+      "price": 68.04,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "ABBN.SW",
@@ -9835,12 +9835,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CFR": {
       "name": "Richemont",
       "fv": 168.51,
-      "price": 172.95,
+      "price": 175.35,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "CFR.SW",
@@ -9877,12 +9877,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-05-14",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SIKA": {
       "name": "Sika",
       "fv": 197.98,
-      "price": 189.3,
+      "price": 189.75,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "SIKA.SW",
@@ -9921,12 +9921,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-19",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LONN": {
       "name": "Lonza",
       "fv": 52.52,
-      "price": 663,
+      "price": 667.2,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "LONN.SW",
@@ -9968,12 +9968,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GIVN": {
       "name": "Givaudan",
       "fv": 3374.29,
-      "price": 4072,
+      "price": 4092.0,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "GIVN.SW",
@@ -10012,12 +10012,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ULVR": {
       "name": "Unilever",
       "fv": 5188.63,
-      "price": 4955.5,
+      "price": 4894.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "ULVR.L",
@@ -10057,12 +10057,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SHEL": {
       "name": "Shell",
       "fv": 5420.59,
-      "price": 3673.5,
+      "price": 3608.5,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "SHEL.L",
@@ -10102,12 +10102,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AZN": {
       "name": "AstraZeneca",
       "fv": 8408.61,
-      "price": 13802,
+      "price": 13602.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AZN.L",
@@ -10146,12 +10146,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GSK": {
       "name": "GSK",
       "fv": 3110.31,
-      "price": 1869,
+      "price": 1859.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "GSK.L",
@@ -10190,12 +10190,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DGE": {
       "name": "Diageo",
       "fv": 1947.42,
-      "price": 1916,
+      "price": 1895.5,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "DGE.L",
@@ -10234,12 +10234,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BP": {
       "name": "BP",
       "fv": 897.46,
-      "price": 568,
+      "price": 550.2,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BP.L",
@@ -10279,12 +10279,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RIO": {
       "name": "Rio Tinto",
       "fv": 7568.39,
-      "price": 6053,
+      "price": 5772.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RIO.L",
@@ -10323,12 +10323,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Materie prime",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "REL": {
       "name": "RELX",
       "fv": 2537.25,
-      "price": 2984,
+      "price": 2981.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "REL.L",
@@ -10365,12 +10365,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RR": {
       "name": "Rolls-Royce",
       "fv": 348.23,
-      "price": 1326.6,
+      "price": 1331.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RR.L",
@@ -10409,12 +10409,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RKT": {
       "name": "Reckitt",
       "fv": 7412.61,
-      "price": 5742,
+      "price": 5706.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RKT.L",
@@ -10453,12 +10453,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BRBY": {
       "name": "Burberry",
       "fv": 1625.6,
-      "price": 1135,
+      "price": 1154.5,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BRBY.L",
@@ -10495,12 +10495,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-05-19",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GLEN": {
       "name": "Glencore",
       "fv": 580.26,
-      "price": 491.45,
+      "price": 459.56,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "GLEN.L",
@@ -10540,12 +10540,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Distribuzione",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NG": {
       "name": "National Grid",
       "fv": null,
-      "price": 1256,
+      "price": 1248.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "NG.L",
@@ -10587,12 +10587,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-05-20",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TSCO": {
       "name": "Tesco",
       "fv": 612.43,
-      "price": 558.4,
+      "price": 555.8,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "TSCO.L",
@@ -10633,12 +10633,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-04-14",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EXPN": {
       "name": "Experian",
       "fv": 2550.46,
-      "price": 2819,
+      "price": 2894.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "EXPN.L",
@@ -10675,12 +10675,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2026-11-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AAL": {
       "name": "Anglo American",
       "fv": 1708.5,
-      "price": 3549,
+      "price": 3306.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AAL.L",
@@ -10719,12 +10719,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Materie prime",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ADI": {
       "name": "Analog Devices",
       "fv": 96.61,
-      "price": 383.67,
+      "price": 382.98,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADI",
@@ -10761,12 +10761,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-11-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MU": {
       "name": "Micron Technology",
       "fv": 150.69,
-      "price": 712.42,
+      "price": 700.27,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MU",
@@ -10806,12 +10806,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-12-23",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LRCX": {
       "name": "Lam Research",
       "fv": 46.9,
-      "price": 210.69,
+      "price": 210.4,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LRCX",
@@ -10848,12 +10848,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "KLAC": {
       "name": "KLA",
       "fv": 33.88,
-      "price": 144.56,
+      "price": 143.94,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KLAC",
@@ -10890,12 +10890,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SNPS": {
       "name": "Synopsys",
       "fv": 115.61,
-      "price": 435.51,
+      "price": 434.96,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SNPS",
@@ -10934,12 +10934,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-08",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CDNS": {
       "name": "Cadence Design",
       "fv": 73.66,
-      "price": 306.97,
+      "price": 311.6,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CDNS",
@@ -10976,12 +10976,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-23",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CSCO": {
       "name": "Cisco",
       "fv": 64.98,
-      "price": 95.11,
+      "price": 95.81,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSCO",
@@ -11018,12 +11018,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ABNB": {
       "name": "Airbnb",
       "fv": 109.94,
-      "price": 180.94,
+      "price": 181.05,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ABNB",
@@ -11062,12 +11062,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PYPL": {
       "name": "PayPal",
       "fv": 95.9,
-      "price": 58.11,
+      "price": 57.97,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PYPL",
@@ -11104,12 +11104,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ZS": {
       "name": "Zscaler",
       "fv": 58.39,
-      "price": 185.19,
+      "price": 194.13,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ZS",
@@ -11148,12 +11148,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MDB": {
       "name": "MongoDB",
       "fv": null,
-      "price": 298.63,
+      "price": 305.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MDB",
@@ -11192,12 +11192,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TEAM": {
       "name": "Atlassian",
       "fv": 83.04,
-      "price": 140.98,
+      "price": 138.27,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TEAM",
@@ -11236,12 +11236,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "WDAY": {
       "name": "Workday",
       "fv": 108.23,
-      "price": 182.8,
+      "price": 179.4,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "WDAY",
@@ -11278,12 +11278,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MRVL": {
       "name": "Marvell Technology",
       "fv": 18,
-      "price": 148.74,
+      "price": 145.43,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MRVL",
@@ -11322,12 +11322,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-11-26",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ARM": {
       "name": "Arm Holdings",
       "fv": 11.56,
-      "price": 183.39,
+      "price": 187.16,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ARM",
@@ -11364,12 +11364,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "APP": {
       "name": "AppLovin",
       "fv": 36.24,
-      "price": 398.94,
+      "price": 395.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "APP",
@@ -11406,12 +11406,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MELI": {
       "name": "MercadoLibre",
       "fv": 1380.04,
-      "price": 1436.83,
+      "price": 1428.17,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MELI",
@@ -11448,12 +11448,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TTWO": {
       "name": "Take-Two Interactive",
       "fv": 78.39,
-      "price": 203.93,
+      "price": 220.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTWO",
@@ -11493,12 +11493,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-08",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "VRSK": {
       "name": "Verisk Analytics",
       "fv": 117.14,
-      "price": 205.31,
+      "price": 200.35,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRSK",
@@ -11537,12 +11537,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-23",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CTAS": {
       "name": "Cintas",
       "fv": 65.96,
-      "price": 222.2,
+      "price": 222.18,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CTAS",
@@ -11579,12 +11579,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2026-12-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PAYX": {
       "name": "Paychex",
       "fv": 89.23,
-      "price": 114.1,
+      "price": 113.51,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PAYX",
@@ -11621,12 +11621,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AMGN": {
       "name": "Amgen",
       "fv": 461.65,
-      "price": 457.93,
+      "price": 447.74,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMGN",
@@ -11665,12 +11665,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "IDXX": {
       "name": "IDEXX Laboratories",
       "fv": 130.19,
-      "price": 690.24,
+      "price": 695.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "IDXX",
@@ -11707,12 +11707,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-08",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DXCM": {
       "name": "DexCom",
       "fv": 16.92,
-      "price": 82.04,
+      "price": 82.13,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DXCM",
@@ -11749,12 +11749,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BIIB": {
       "name": "Biogen",
       "fv": 357.21,
-      "price": 250.79,
+      "price": 250.33,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BIIB",
@@ -11793,12 +11793,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MRNA": {
       "name": "Moderna",
       "fv": null,
-      "price": 206.8,
+      "price": 202.32,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MRNA",
@@ -11838,12 +11838,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ALGN": {
       "name": "Align Technology",
       "fv": 116.78,
-      "price": 163.46,
+      "price": 162.63,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ALGN",
@@ -11882,12 +11882,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SBUX": {
       "name": "Starbucks",
       "fv": 45.62,
-      "price": 107.49,
+      "price": 108.13,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SBUX",
@@ -11926,12 +11926,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MDLZ": {
       "name": "Mondelez",
       "fv": 57,
-      "price": 66.75,
+      "price": 66.4,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MDLZ",
@@ -11971,12 +11971,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "KDP": {
       "name": "Keurig Dr Pepper",
       "fv": 43.71,
-      "price": 34.79,
+      "price": 34.87,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KDP",
@@ -12017,12 +12017,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MNST": {
       "name": "Monster Beverage",
       "fv": 19.97,
-      "price": 44.44,
+      "price": 45.04,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MNST",
@@ -12059,12 +12059,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DLTR": {
       "name": "Dollar Tree",
       "fv": 65.45,
-      "price": 139.71,
+      "price": 140.16,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DLTR",
@@ -12103,12 +12103,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ULTA": {
       "name": "Ulta Beauty",
       "fv": 421.3,
-      "price": 640.43,
+      "price": 647.78,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ULTA",
@@ -12145,12 +12145,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MAR": {
       "name": "Marriott",
       "fv": 142.88,
-      "price": 422.74,
+      "price": 426.23,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MAR",
@@ -12189,12 +12189,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EBAY": {
       "name": "eBay",
       "fv": 73.32,
-      "price": 118.59,
+      "price": 120.47,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EBAY",
@@ -12233,12 +12233,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PCAR": {
       "name": "Paccar",
       "fv": 42.36,
-      "price": 104.61,
+      "price": 103.68,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PCAR",
@@ -12277,12 +12277,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-01-26",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CSX": {
       "name": "CSX",
       "fv": 26.7,
-      "price": 51.14,
+      "price": 51.42,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSX",
@@ -12322,12 +12322,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ODFL": {
       "name": "Old Dominion Freight",
       "fv": 51.26,
-      "price": 171.85,
+      "price": 175.38,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ODFL",
@@ -12364,12 +12364,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "FAST": {
       "name": "Fastenal",
       "fv": 12.9,
-      "price": 54.35,
+      "price": 54.41,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FAST",
@@ -12406,12 +12406,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Distribuzione",
       "earn_next": "2027-01-19",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AXON": {
       "name": "Axon Enterprise",
       "fv": 35.47,
-      "price": 298.59,
+      "price": 297.5,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AXON",
@@ -12452,12 +12452,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-03-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CMCSA": {
       "name": "Comcast",
       "fv": 82.39,
-      "price": 25.31,
+      "price": 25.16,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CMCSA",
@@ -12496,12 +12496,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DASH": {
       "name": "DoorDash",
       "fv": 39.37,
-      "price": 164.91,
+      "price": 164.79,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DASH",
@@ -12540,12 +12540,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LIN": {
       "name": "Linde",
       "fv": 191.76,
-      "price": 515.11,
+      "price": 510.29,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LIN",
@@ -12584,12 +12584,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CEG": {
       "name": "Constellation Energy",
       "fv": null,
-      "price": 268.07,
+      "price": 266.12,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CEG",
@@ -12629,12 +12629,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AEP": {
       "name": "American Electric Power",
       "fv": null,
-      "price": 125.97,
+      "price": 125.91,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AEP",
@@ -12676,12 +12676,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "JD": {
       "name": "JD.com",
       "fv": 79.23,
-      "price": 25.43,
+      "price": 25.12,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "JD",
@@ -12720,12 +12720,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BIDU": {
       "name": "Baidu",
       "fv": 127.8,
-      "price": 71.15,
+      "price": 70.5,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BIDU",
@@ -12765,12 +12765,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-03-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NXPI": {
       "name": "NXP Semiconductors",
       "fv": 129.67,
-      "price": 252.51,
+      "price": 252.59,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NXPI",
@@ -12807,12 +12807,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ON": {
       "name": "ON Semiconductor",
       "fv": 21.11,
-      "price": 67.93,
+      "price": 67.73,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ON",
@@ -12849,12 +12849,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-08",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MCHP": {
       "name": "Microchip Technology",
       "fv": 14.25,
-      "price": 59.43,
+      "price": 59.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MCHP",
@@ -12893,12 +12893,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ROP": {
       "name": "Roper Technologies",
       "fv": 350.14,
-      "price": 471.92,
+      "price": 468.37,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROP",
@@ -12935,12 +12935,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NDAQ": {
       "name": "Nasdaq Inc.",
       "fv": 45.37,
-      "price": 105.13,
+      "price": 104.57,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NDAQ",
@@ -12979,12 +12979,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "POOL": {
       "name": "Pool Corp.",
       "fv": 139.83,
-      "price": 207.32,
+      "price": 208.63,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "POOL",
@@ -13021,12 +13021,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Distribuzione",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GEHC": {
       "name": "GE HealthCare",
       "fv": 50.53,
-      "price": 81.84,
+      "price": 82.33,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GEHC",
@@ -13065,12 +13065,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ILMN": {
       "name": "Illumina",
       "fv": 69.94,
-      "price": 202.61,
+      "price": 208.4,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ILMN",
@@ -13107,12 +13107,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EXC": {
       "name": "Exelon",
       "fv": null,
-      "price": 45.86,
+      "price": 45.74,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXC",
@@ -13153,12 +13153,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "XEL": {
       "name": "Xcel Energy",
       "fv": null,
-      "price": 80.72,
+      "price": 80.39,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "XEL",
@@ -13199,12 +13199,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "WMT": {
       "name": "Walmart",
       "fv": 40.43,
-      "price": 127.52,
+      "price": 126.07,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "WMT",
@@ -13241,12 +13241,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-19",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CROX": {
       "name": "Crocs",
       "fv": 144.66,
-      "price": 158.79,
+      "price": 162.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CROX",
@@ -13283,12 +13283,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DPZ": {
       "name": "Domino's Pizza",
       "fv": 258.5,
-      "price": 349.86,
+      "price": 347.07,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DPZ",
@@ -13327,12 +13327,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-03-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "UAL": {
       "name": "United Airlines",
       "fv": 83.07,
-      "price": 106.35,
+      "price": 107.71,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "UAL",
@@ -13372,12 +13372,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-01-20",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BKR": {
       "name": "Baker Hughes",
       "fv": 18.94,
-      "price": 47.46,
+      "price": 47.22,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKR",
@@ -13417,12 +13417,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CCEP": {
       "name": "Coca-Cola Europacific",
       "fv": 98.73,
-      "price": 118.42,
+      "price": 118.19,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CCEP",
@@ -13461,12 +13461,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DOCU": {
       "name": "DocuSign",
       "fv": 32.1,
-      "price": 75.93,
+      "price": 76.96,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DOCU",
@@ -13503,12 +13503,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EXPE": {
       "name": "Expedia",
       "fv": 209.09,
-      "price": 243.16,
+      "price": 249.99,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXPE",
@@ -13547,12 +13547,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GFS": {
       "name": "GlobalFoundries",
       "fv": 17.23,
-      "price": 39.6,
+      "price": 39.95,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GFS",
@@ -13591,12 +13591,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LYFT": {
       "name": "Lyft",
       "fv": null,
-      "price": 16.71,
+      "price": 17.5,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LYFT",
@@ -13635,12 +13635,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-02-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "OKTA": {
       "name": "Okta",
       "fv": 25.97,
-      "price": 174.54,
+      "price": 185.75,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "OKTA",
@@ -13679,12 +13679,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SMCI": {
       "name": "Super Micro Computer",
       "fv": null,
-      "price": 24.14,
+      "price": 24.49,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SMCI",
@@ -13725,12 +13725,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ZM": {
       "name": "Zoom",
       "fv": 94.08,
-      "price": 91.52,
+      "price": 91.89,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ZM",
@@ -13767,12 +13767,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-23",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SNOW": {
       "name": "Snowflake",
       "fv": 37.03,
-      "price": 272.94,
+      "price": 276.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SNOW",
@@ -13811,12 +13811,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NET": {
       "name": "Cloudflare",
       "fv": null,
-      "price": 284.8,
+      "price": 299.39,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NET",
@@ -13855,12 +13855,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NOW": {
       "name": "ServiceNow",
       "fv": 46.86,
-      "price": 92.9,
+      "price": 91.05,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOW",
@@ -13897,12 +13897,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ANET": {
       "name": "Arista Networks",
       "fv": 39.08,
-      "price": 186.42,
+      "price": 187.61,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ANET",
@@ -13939,12 +13939,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-15",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "UBER": {
       "name": "Uber",
       "fv": null,
-      "price": 68.81,
+      "price": 68.61,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UBER",
@@ -13983,12 +13983,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DELL": {
       "name": "Dell Technologies",
       "fv": 133.05,
-      "price": 322.79,
+      "price": 315.76,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DELL",
@@ -14025,12 +14025,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-11-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HPQ": {
       "name": "HP Inc.",
       "fv": 48.96,
-      "price": 28.71,
+      "price": 28.79,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HPQ",
@@ -14067,12 +14067,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SPOT": {
       "name": "Spotify",
       "fv": 102.36,
-      "price": 602.01,
+      "price": 607.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SPOT",
@@ -14109,12 +14109,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "FICO": {
       "name": "Fair Isaac (FICO)",
       "fv": 460.59,
-      "price": 676.52,
+      "price": 677.29,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FICO",
@@ -14153,12 +14153,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MSCI": {
       "name": "MSCI",
       "fv": 263.87,
-      "price": 636.58,
+      "price": 628.79,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MSCI",
@@ -14197,12 +14197,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-01-26",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SPGI": {
       "name": "S&P Global",
       "fv": 253.5,
-      "price": 452.35,
+      "price": 442.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SPGI",
@@ -14239,12 +14239,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ICE": {
       "name": "Intercontinental Exchange",
       "fv": 121.29,
-      "price": 172.22,
+      "price": 170.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ICE",
@@ -14281,12 +14281,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TSM": {
       "name": "Taiwan Semiconductor",
       "fv": 94.99,
-      "price": 359.69,
+      "price": 361.94,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TSM",
@@ -14325,12 +14325,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-21",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BABA": {
       "name": "Alibaba",
       "fv": 216.95,
-      "price": 86.65,
+      "price": 85.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BABA",
@@ -14370,12 +14370,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-19",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SONY": {
       "name": "Sony",
       "fv": 22.86,
-      "price": 26.68,
+      "price": 26.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SONY",
@@ -14414,12 +14414,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TM": {
       "name": "Toyota",
       "fv": null,
-      "price": 213.12,
+      "price": 211.24,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TM",
@@ -14459,12 +14459,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SE": {
       "name": "Sea Limited",
       "fv": null,
-      "price": 69.44,
+      "price": 69.17,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SE",
@@ -14503,12 +14503,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "JNJ": {
       "name": "Johnson & Johnson",
       "fv": 184.95,
-      "price": 278.7,
+      "price": 275.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JNJ",
@@ -14547,12 +14547,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-26",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ABT": {
       "name": "Abbott Laboratories",
       "fv": 77.52,
-      "price": 104.71,
+      "price": 104.11,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABT",
@@ -14589,12 +14589,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BMY": {
       "name": "Bristol-Myers Squibb",
       "fv": 135.22,
-      "price": 61.35,
+      "price": 60.0,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BMY",
@@ -14633,12 +14633,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ZTS": {
       "name": "Zoetis",
       "fv": 75.93,
-      "price": 83.48,
+      "price": 83.92,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ZTS",
@@ -14675,12 +14675,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SYK": {
       "name": "Stryker",
       "fv": 158.39,
-      "price": 317.54,
+      "price": 315.82,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SYK",
@@ -14717,12 +14717,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EW": {
       "name": "Edwards Lifesciences",
       "fv": 35.41,
-      "price": 105.43,
+      "price": 105.47,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EW",
@@ -14759,12 +14759,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HCA": {
       "name": "HCA Healthcare",
       "fv": 374.74,
-      "price": 501.19,
+      "price": 487.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HCA",
@@ -14803,12 +14803,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CI": {
       "name": "Cigna",
       "fv": 1102.2,
-      "price": 294.06,
+      "price": 285.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CI",
@@ -14847,12 +14847,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HUM": {
       "name": "Humana",
       "fv": 531.58,
-      "price": 443.34,
+      "price": 414.93,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HUM",
@@ -14891,12 +14891,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MCK": {
       "name": "McKesson",
       "fv": 1102.14,
-      "price": 1091.67,
+      "price": 1080.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCK",
@@ -14933,12 +14933,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Distribuzione",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "IQV": {
       "name": "IQVIA",
       "fv": 139.54,
-      "price": 257.6,
+      "price": 255.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IQV",
@@ -14977,12 +14977,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "A": {
       "name": "Agilent Technologies",
       "fv": 60.1,
-      "price": 172.22,
+      "price": 174.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "A",
@@ -15019,12 +15019,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2026-11-23",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RMD": {
       "name": "ResMed",
       "fv": 115.34,
-      "price": 237.85,
+      "price": 241.33,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RMD",
@@ -15061,12 +15061,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "WST": {
       "name": "West Pharmaceutical",
       "fv": 78.9,
-      "price": 414.12,
+      "price": 411.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WST",
@@ -15103,12 +15103,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ZBH": {
       "name": "Zimmer Biomet",
       "fv": 96.66,
-      "price": 102.09,
+      "price": 101.96,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ZBH",
@@ -15147,12 +15147,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TGT": {
       "name": "Target",
       "fv": 150.65,
-      "price": 159.53,
+      "price": 168.41,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TGT",
@@ -15192,12 +15192,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LOW": {
       "name": "Lowe's",
       "fv": 168.89,
-      "price": 220.46,
+      "price": 217.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LOW",
@@ -15236,12 +15236,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CMG": {
       "name": "Chipotle",
       "fv": 11.16,
-      "price": 35.83,
+      "price": 36.66,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CMG",
@@ -15280,12 +15280,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "YUM": {
       "name": "Yum! Brands",
       "fv": 101.9,
-      "price": 161.35,
+      "price": 161.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "YUM",
@@ -15324,12 +15324,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HSY": {
       "name": "Hershey",
       "fv": 190.9,
-      "price": 173.71,
+      "price": 174.87,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HSY",
@@ -15368,12 +15368,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "STZ": {
       "name": "Constellation Brands",
       "fv": 175.04,
-      "price": 144.12,
+      "price": 143.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "STZ",
@@ -15412,12 +15412,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-07",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CLX": {
       "name": "Clorox",
       "fv": 108.32,
-      "price": 106.7,
+      "price": 108.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CLX",
@@ -15457,12 +15457,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CHD": {
       "name": "Church & Dwight",
       "fv": 88.02,
-      "price": 112.48,
+      "price": 111.96,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CHD",
@@ -15499,12 +15499,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-29",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TJX": {
       "name": "TJX Companies",
       "fv": 69.2,
-      "price": 129.85,
+      "price": 142.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TJX",
@@ -15541,12 +15541,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DECK": {
       "name": "Deckers Outdoor",
       "fv": 91.03,
-      "price": 81.48,
+      "price": 82.72,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DECK",
@@ -15583,12 +15583,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ONON": {
       "name": "On Holding",
       "fv": 6.67,
-      "price": 31.85,
+      "price": 32.1,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ONON",
@@ -15627,12 +15627,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "F": {
       "name": "Ford",
       "fv": 39.14,
-      "price": 11.34,
+      "price": 11.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "F",
@@ -15672,12 +15672,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GM": {
       "name": "General Motors",
       "fv": null,
-      "price": 84.05,
+      "price": 83.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GM",
@@ -15717,12 +15717,12 @@
       "fv_updated": "2026-11-17",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DRI": {
       "name": "Darden Restaurants",
       "fv": 166.21,
-      "price": 231.85,
+      "price": 236.2,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DRI",
@@ -15761,12 +15761,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2026-12-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LVS": {
       "name": "Las Vegas Sands",
       "fv": 41.66,
-      "price": 39.32,
+      "price": 38.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LVS",
@@ -15806,12 +15806,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "WSM": {
       "name": "Williams-Sonoma",
       "fv": 87.5,
-      "price": 250.05,
+      "price": 258.95,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WSM",
@@ -15848,12 +15848,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-19",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BBY": {
       "name": "Best Buy",
       "fv": 93.88,
-      "price": 98.4,
+      "price": 99.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BBY",
@@ -15890,12 +15890,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GE": {
       "name": "GE Aerospace",
       "fv": 16.91,
-      "price": 326.4,
+      "price": 327.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GE",
@@ -15935,12 +15935,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-21",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GEV": {
       "name": "GE Vernova",
       "fv": null,
-      "price": 779.91,
+      "price": 788.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GEV",
@@ -15977,12 +15977,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ETN": {
       "name": "Eaton",
       "fv": 115.8,
-      "price": 337.11,
+      "price": 337.66,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ETN",
@@ -16021,12 +16021,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-01-29",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EMR": {
       "name": "Emerson Electric",
       "fv": 70.28,
-      "price": 159.15,
+      "price": 161.0,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EMR",
@@ -16063,12 +16063,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-10",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ITW": {
       "name": "Illinois Tool Works",
       "fv": 147.31,
-      "price": 281.67,
+      "price": 283.01,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ITW",
@@ -16105,12 +16105,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PH": {
       "name": "Parker-Hannifin",
       "fv": 319.45,
-      "price": 920.84,
+      "price": 921.71,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PH",
@@ -16149,12 +16149,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MMM": {
       "name": "3M",
       "fv": 106.77,
-      "price": 180.88,
+      "price": 179.13,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MMM",
@@ -16193,12 +16193,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-01-26",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CMI": {
       "name": "Cummins",
       "fv": 273.47,
-      "price": 433.97,
+      "price": 430.57,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CMI",
@@ -16235,12 +16235,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NSC": {
       "name": "Norfolk Southern",
       "fv": 142.4,
-      "price": 320.15,
+      "price": 323.36,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NSC",
@@ -16280,12 +16280,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DAL": {
       "name": "Delta Air Lines",
       "fv": 45.82,
-      "price": 84.3,
+      "price": 85.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DAL",
@@ -16326,12 +16326,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-01-08",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "WAB": {
       "name": "Wabtec",
       "fv": 103.94,
-      "price": 290.41,
+      "price": 291.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WAB",
@@ -16370,12 +16370,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CARR": {
       "name": "Carrier Global",
       "fv": 29.86,
-      "price": 51.32,
+      "price": 51.97,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CARR",
@@ -16414,12 +16414,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "OTIS": {
       "name": "Otis Worldwide",
       "fv": 62.14,
-      "price": 77.01,
+      "price": 76.68,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OTIS",
@@ -16458,12 +16458,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TT": {
       "name": "Trane Technologies",
       "fv": 135.58,
-      "price": 405.81,
+      "price": 408.02,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TT",
@@ -16500,12 +16500,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "JCI": {
       "name": "Johnson Controls",
       "fv": 44.47,
-      "price": 136.32,
+      "price": 137.29,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JCI",
@@ -16545,12 +16545,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ROK": {
       "name": "Rockwell Automation",
       "fv": 172.34,
-      "price": 391.26,
+      "price": 396.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ROK",
@@ -16587,12 +16587,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "AME": {
       "name": "Ametek",
       "fv": 95.91,
-      "price": 234.84,
+      "price": 236.47,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AME",
@@ -16631,12 +16631,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Industria",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "GWW": {
       "name": "W.W. Grainger",
       "fv": 445.4,
-      "price": 1466.96,
+      "price": 1459.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GWW",
@@ -16673,12 +16673,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Distribuzione",
       "earn_next": "2027-02-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "URI": {
       "name": "United Rentals",
       "fv": 183.1,
-      "price": 1082.52,
+      "price": 1080.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "URI",
@@ -16719,12 +16719,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Finanza",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LHX": {
       "name": "L3Harris",
       "fv": 215.12,
-      "price": 260.74,
+      "price": 256.01,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LHX",
@@ -16761,12 +16761,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TDG": {
       "name": "TransDigm",
       "fv": 516.34,
-      "price": 1186.2,
+      "price": 1173.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TDG",
@@ -16805,12 +16805,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HEI": {
       "name": "Heico",
       "fv": 89.99,
-      "price": 336.66,
+      "price": 338.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HEI",
@@ -16847,12 +16847,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-12-21",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "EOG": {
       "name": "EOG Resources",
       "fv": 115.52,
-      "price": 154.91,
+      "price": 151.9,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EOG",
@@ -16891,12 +16891,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MPC": {
       "name": "Marathon Petroleum",
       "fv": 302.92,
-      "price": 395.61,
+      "price": 378.24,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MPC",
@@ -16935,12 +16935,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PSX": {
       "name": "Phillips 66",
       "fv": 116.63,
-      "price": 256.93,
+      "price": 246.52,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PSX",
@@ -16980,12 +16980,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "VLO": {
       "name": "Valero Energy",
       "fv": 277.91,
-      "price": 363.77,
+      "price": 345.82,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VLO",
@@ -17024,12 +17024,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Energia",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HAL": {
       "name": "Halliburton",
       "fv": 28.34,
-      "price": 31.97,
+      "price": 31.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HAL",
@@ -17069,12 +17069,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-26",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "WMB": {
       "name": "Williams Companies",
       "fv": 38.52,
-      "price": 67.46,
+      "price": 67.42,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WMB",
@@ -17114,12 +17114,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-22",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "OKE": {
       "name": "Oneok",
       "fv": 66.61,
-      "price": 88.55,
+      "price": 88.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OKE",
@@ -17159,12 +17159,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "APD": {
       "name": "Air Products",
       "fv": 53.78,
-      "price": 306.92,
+      "price": 305.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "APD",
@@ -17206,12 +17206,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-04",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SHW": {
       "name": "Sherwin-Williams",
       "fv": 151.78,
-      "price": 344.15,
+      "price": 343.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SHW",
@@ -17250,12 +17250,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ECL": {
       "name": "Ecolab",
       "fv": 93.93,
-      "price": 302.59,
+      "price": 300.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ECL",
@@ -17294,12 +17294,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-16",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NEM": {
       "name": "Newmont",
       "fv": 59.4,
-      "price": 111.26,
+      "price": 103.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEM",
@@ -17336,12 +17336,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Materie prime",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "FCX": {
       "name": "Freeport-McMoRan",
       "fv": 16.31,
-      "price": 55.3,
+      "price": 51.24,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FCX",
@@ -17381,12 +17381,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Materie prime",
       "earn_next": "2027-01-27",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NUE": {
       "name": "Nucor",
       "fv": 104.83,
-      "price": 252.08,
+      "price": 253.21,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NUE",
@@ -17426,12 +17426,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Materie prime",
       "earn_next": "2027-02-01",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DOW": {
       "name": "Dow Inc.",
       "fv": 69.44,
-      "price": 31.37,
+      "price": 30.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DOW",
@@ -17472,12 +17472,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-01-28",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DD": {
       "name": "DuPont",
       "fv": 51.52,
-      "price": 150.14,
+      "price": 149.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DD",
@@ -17517,12 +17517,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-09",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "ALB": {
       "name": "Albemarle",
       "fv": null,
-      "price": 87.67,
+      "price": 87.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ALB",
@@ -17562,12 +17562,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CTVA": {
       "name": "Corteva",
       "fv": 36.6,
-      "price": 8.82,
+      "price": 8.495,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CTVA",
@@ -17606,12 +17606,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "MOS": {
       "name": "Mosaic",
       "fv": 27.31,
-      "price": 20.74,
+      "price": 19.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MOS",
@@ -17652,12 +17652,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-24",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CF": {
       "name": "CF Industries",
       "fv": 242.62,
-      "price": 119.34,
+      "price": 116.17,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CF",
@@ -17697,12 +17697,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "DUK": {
       "name": "Duke Energy",
       "fv": null,
-      "price": 129.84,
+      "price": 129.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DUK",
@@ -17744,12 +17744,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "SO": {
       "name": "Southern Company",
       "fv": null,
-      "price": 93.6,
+      "price": 93.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SO",
@@ -17791,12 +17791,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "D": {
       "name": "Dominion Energy",
       "fv": null,
-      "price": 67.28,
+      "price": 67.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "D",
@@ -17837,12 +17837,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-02-05",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "VST": {
       "name": "Vistra",
       "fv": 71.48,
-      "price": 127.15,
+      "price": 127.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VST",
@@ -17884,12 +17884,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Utility",
       "earn_next": "2027-03-03",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "LYV": {
       "name": "Live Nation",
       "fv": 66.48,
-      "price": 176.3,
+      "price": 179.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LYV",
@@ -17929,12 +17929,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RBLX": {
       "name": "Roblox",
       "fv": 19.67,
-      "price": 44,
+      "price": 47.02,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RBLX",
@@ -17973,12 +17973,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "PINS": {
       "name": "Pinterest",
       "fv": 14.54,
-      "price": 18.07,
+      "price": 17.96,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PINS",
@@ -18017,12 +18017,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-11",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CVNA": {
       "name": "Carvana",
       "fv": null,
-      "price": 71.1,
+      "price": 72.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVNA",
@@ -18062,12 +18062,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-25",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "RDDT": {
       "name": "Reddit",
       "fv": null,
-      "price": 94.48,
+      "price": 95.52,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RDDT",
@@ -18104,12 +18104,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "BUD": {
       "name": "Anheuser-Busch InBev",
       "fv": 83.91,
-      "price": 83.46,
+      "price": 82.97,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BUD",
@@ -18148,12 +18148,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Beni di consumo",
       "earn_next": null,
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CCL": {
       "name": "Carnival",
       "fv": 10.53,
-      "price": 28.16,
+      "price": 28.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CCL",
@@ -18193,12 +18193,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2026-12-18",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CNI": {
       "name": "Canadian National Railway",
       "fv": 72.32,
-      "price": 126.43,
+      "price": 125.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNI",
@@ -18238,12 +18238,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-01-29",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "CP": {
       "name": "Canadian Pacific Kansas City",
       "fv": 32.01,
-      "price": 93.22,
+      "price": 93.2,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CP",
@@ -18283,12 +18283,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Trasporti",
       "earn_next": "2027-02-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "NCLH": {
       "name": "Norwegian Cruise Line",
       "fv": null,
-      "price": 17.61,
+      "price": 18.17,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NCLH",
@@ -18328,12 +18328,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-03-02",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "HUBS": {
       "name": "HubSpot",
       "fv": 112.73,
-      "price": 216.3,
+      "price": 209.55,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HUBS",
@@ -18370,12 +18370,12 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     },
     "TWLO": {
       "name": "Twilio",
       "fv": null,
-      "price": 194.13,
+      "price": 194.77,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TWLO",
@@ -18414,7 +18414,7 @@
       "fv_updated": "2026-11-18",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
-      "updated": "2026-11-17"
+      "updated": "2026-11-18"
     }
   },
   "aliases": {
