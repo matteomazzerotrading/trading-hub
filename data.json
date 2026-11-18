@@ -1,11 +1,11 @@
 {
   "_comment": "Aggiorna qui i Fair Value senza toccare index.html. Le chiavi in 'db' fanno override dei valori nell'HTML. I prezzi vengono aggiornati automaticamente dal GitHub Action giornaliero.",
-  "prices_updated": "2026-11-18T16:03:56Z",
+  "prices_updated": "2026-11-18T23:14:36Z",
   "db": {
     "DIA": {
       "name": "DiaSorin",
       "fv": 118.15,
-      "price": 81.22,
+      "price": 81.9,
       "curr": "€",
       "ex": "MIL",
       "yf": "DIA.MI",
@@ -47,7 +47,7 @@
     "ERG": {
       "name": "ERG S.p.A.",
       "fv": 44.84,
-      "price": 22.64,
+      "price": 22.88,
       "curr": "€",
       "ex": "MIL",
       "yf": "ERG.MI",
@@ -92,7 +92,7 @@
     "RACE": {
       "name": "Ferrari",
       "fv": 202.85,
-      "price": 374.65,
+      "price": 363.85,
       "curr": "€",
       "ex": "MIL",
       "yf": "RACE.MI",
@@ -134,7 +134,7 @@
     "GOOG": {
       "name": "Alphabet",
       "fv": 108.21,
-      "price": 278.19,
+      "price": 279.2,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GOOG",
@@ -176,7 +176,7 @@
     "MC": {
       "name": "LVMH",
       "fv": 569.42,
-      "price": 388.1,
+      "price": 393.0,
       "curr": "€",
       "ex": "EPA",
       "yf": "MC.PA",
@@ -218,7 +218,7 @@
     "ADBE": {
       "name": "Adobe",
       "fv": 287.6,
-      "price": 226.47,
+      "price": 226.2,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADBE",
@@ -260,7 +260,7 @@
     "INTU": {
       "name": "Intuit",
       "fv": 346.2,
-      "price": 313.66,
+      "price": 313.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTU",
@@ -302,7 +302,7 @@
     "QCOM": {
       "name": "Qualcomm",
       "fv": 110.46,
-      "price": 161.5,
+      "price": 159.81,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "QCOM",
@@ -344,7 +344,7 @@
     "STLAM": {
       "name": "Stellantis",
       "fv": 43.6,
-      "price": 3.283,
+      "price": 3.325,
       "curr": "€",
       "ex": "MIL",
       "yf": "STLAM.MI",
@@ -391,7 +391,7 @@
     "SAP": {
       "name": "SAP SE",
       "fv": 113.22,
-      "price": 193.92,
+      "price": 201.5,
       "curr": "€",
       "ex": "XETR",
       "yf": "SAP.DE",
@@ -433,7 +433,7 @@
     "AAPL": {
       "name": "Apple Inc.",
       "fv": 114.72,
-      "price": 353.41,
+      "price": 352.45,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AAPL",
@@ -475,7 +475,7 @@
     "MSFT": {
       "name": "Microsoft",
       "fv": 187.6,
-      "price": 504.63,
+      "price": 508.29,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MSFT",
@@ -519,7 +519,7 @@
     "AMZN": {
       "name": "Amazon",
       "fv": 45.7,
-      "price": 266.56,
+      "price": 267.74,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMZN",
@@ -566,7 +566,7 @@
     "NVDA": {
       "name": "Nvidia",
       "fv": 30.68,
-      "price": 151.69,
+      "price": 150.96,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NVDA",
@@ -608,7 +608,7 @@
     "A2A": {
       "name": "A2A S.p.A.",
       "fv": 8.41,
-      "price": 2.225,
+      "price": 2.251,
       "curr": "€",
       "ex": "MIL",
       "yf": "A2A.MI",
@@ -652,7 +652,7 @@
     "ADM": {
       "name": "Archer-Daniels",
       "fv": 35.89,
-      "price": 68.08,
+      "price": 67.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ADM",
@@ -698,7 +698,7 @@
     "ADP": {
       "name": "Auto Data Proc.",
       "fv": 173.43,
-      "price": 306.64,
+      "price": 305.57,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADP",
@@ -740,7 +740,7 @@
     "ADSK": {
       "name": "Autodesk Inc.",
       "fv": 129.73,
-      "price": 253.86,
+      "price": 253.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADSK",
@@ -784,7 +784,7 @@
     "AMAT": {
       "name": "Applied Materials",
       "fv": 98.56,
-      "price": 350.3,
+      "price": 352.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMAT",
@@ -826,7 +826,7 @@
     "AMD": {
       "name": "AMD",
       "fv": 19.28,
-      "price": 516.53,
+      "price": 530.14,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMD",
@@ -870,7 +870,7 @@
     "ASML": {
       "name": "ASML Holding",
       "fv": 305.5,
-      "price": 1387.45,
+      "price": 1395.27,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ASML",
@@ -912,7 +912,7 @@
     "AXP": {
       "name": "American Express",
       "fv": 361.47,
-      "price": 316.09,
+      "price": 315.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AXP",
@@ -954,7 +954,7 @@
     "BAC": {
       "name": "Bank of America",
       "fv": 82.33,
-      "price": 49.03,
+      "price": 48.91,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BAC",
@@ -999,7 +999,7 @@
     "BAYN": {
       "name": "Bayer AG",
       "fv": 81.4,
-      "price": 55.94,
+      "price": 56.14,
       "curr": "€",
       "ex": "XETR",
       "yf": "BAYN.DE",
@@ -1044,7 +1044,7 @@
     "BATS": {
       "name": "Brit. Am. Tobacco",
       "fv": 8146.8,
-      "price": 4455,
+      "price": 4455.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
@@ -1090,7 +1090,7 @@
     "BC": {
       "name": "Brunswick Corp",
       "fv": 55.47,
-      "price": 76.02,
+      "price": 74.94,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BC",
@@ -1134,7 +1134,7 @@
     "BNG": {
       "name": "Bunge Global",
       "fv": null,
-      "price": 93.67,
+      "price": 93.19,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BG",
@@ -1180,7 +1180,7 @@
     "BRE": {
       "name": "Brembo",
       "fv": 13.4,
-      "price": 9.53,
+      "price": 9.7,
       "curr": "€",
       "ex": "MIL",
       "yf": "BRE.MI",
@@ -1224,7 +1224,7 @@
     "BRK.B": {
       "name": "Berkshire Hath.",
       "fv": 380.83,
-      "price": 576.47,
+      "price": 574.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BRK-B",
@@ -1269,7 +1269,7 @@
     "CAT": {
       "name": "Caterpillar",
       "fv": 188.95,
-      "price": 560.75,
+      "price": 558.77,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CAT",
@@ -1313,7 +1313,7 @@
     "CE": {
       "name": "Celanese",
       "fv": 149.46,
-      "price": 48.28,
+      "price": 48.21,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CE",
@@ -1358,7 +1358,7 @@
     "CNC": {
       "name": "Centene",
       "fv": 167.91,
-      "price": 68.5,
+      "price": 67.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNC",
@@ -1402,7 +1402,7 @@
     "COST": {
       "name": "Costco Wholesale",
       "fv": 331.32,
-      "price": 1110.72,
+      "price": 1096.62,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "COST",
@@ -1444,7 +1444,7 @@
     "CPR": {
       "name": "Campari",
       "fv": 7.61,
-      "price": 6.61,
+      "price": 6.692,
       "curr": "€",
       "ex": "MIL",
       "yf": "CPR.MI",
@@ -1490,7 +1490,7 @@
     "CRM": {
       "name": "Salesforce",
       "fv": 118.4,
-      "price": 188.43,
+      "price": 190.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CRM",
@@ -1532,7 +1532,7 @@
     "CVX": {
       "name": "Chevron",
       "fv": 170.68,
-      "price": 206.8,
+      "price": 205.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVX",
@@ -1576,7 +1576,7 @@
     "DDOG": {
       "name": "Datadog",
       "fv": 38.19,
-      "price": 166.56,
+      "price": 167.11,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DDOG",
@@ -1618,7 +1618,7 @@
     "ENI": {
       "name": "Eni S.p.A.",
       "fv": 47.81,
-      "price": 24.95,
+      "price": 25.61,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENI.MI",
@@ -1663,7 +1663,7 @@
     "ENEL": {
       "name": "Enel S.p.A.",
       "fv": 8.36,
-      "price": 9.561,
+      "price": 9.683,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENEL.MI",
@@ -1709,7 +1709,7 @@
     "G": {
       "name": "Assic. Generali",
       "fv": 242.65,
-      "price": 43.54,
+      "price": 44.41,
       "curr": "€",
       "ex": "MIL",
       "yf": "G.MI",
@@ -1751,7 +1751,7 @@
     "IBM": {
       "name": "IBM",
       "fv": 197.64,
-      "price": 229.91,
+      "price": 228.53,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IBM",
@@ -1795,7 +1795,7 @@
     "INTC": {
       "name": "Intel",
       "fv": 19.68,
-      "price": 54.49,
+      "price": 54.67,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTC",
@@ -1841,7 +1841,7 @@
     "IP": {
       "name": "International Paper",
       "fv": 41.77,
-      "price": 32.8,
+      "price": 32.52,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IP",
@@ -1887,7 +1887,7 @@
     "ISP": {
       "name": "Intesa Sanpaolo",
       "fv": 19.19,
-      "price": 6.065,
+      "price": 6.19,
       "curr": "€",
       "ex": "MIL",
       "yf": "ISP.MI",
@@ -1932,7 +1932,7 @@
     "LDO": {
       "name": "Leonardo S.p.A.",
       "fv": 23.37,
-      "price": 48.55,
+      "price": 50.62,
       "curr": "€",
       "ex": "MIL",
       "yf": "LDO.MI",
@@ -1978,7 +1978,7 @@
     "LULU": {
       "name": "Lululemon",
       "fv": 167.96,
-      "price": 111.69,
+      "price": 110.78,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LULU",
@@ -2022,7 +2022,7 @@
     "MA": {
       "name": "Mastercard",
       "fv": 256.17,
-      "price": 643.64,
+      "price": 643.37,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MA",
@@ -2064,7 +2064,7 @@
     "MONC": {
       "name": "Moncler",
       "fv": 58.63,
-      "price": 41.2,
+      "price": 41.56,
       "curr": "€",
       "ex": "MIL",
       "yf": "MONC.MI",
@@ -2106,7 +2106,7 @@
     "OXY": {
       "name": "Occidental Petroleum",
       "fv": 53.28,
-      "price": 54.05,
+      "price": 53.76,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OXY",
@@ -2148,7 +2148,7 @@
     "TTD": {
       "name": "The Trade Desk",
       "fv": 21.56,
-      "price": 15.28,
+      "price": 15.52,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTD",
@@ -2190,7 +2190,7 @@
     "TRI": {
       "name": "Thomson Reuters",
       "fv": 73.93,
-      "price": 103.72,
+      "price": 103.9,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TRI",
@@ -2232,7 +2232,7 @@
     "PFE": {
       "name": "Pfizer",
       "fv": 51.74,
-      "price": 28.21,
+      "price": 28.06,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PFE",
@@ -2276,7 +2276,7 @@
     "BSX": {
       "name": "Boston Scientific",
       "fv": 26.14,
-      "price": 43.62,
+      "price": 43.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BSX",
@@ -2321,7 +2321,7 @@
     "BLDR": {
       "name": "Builders FirstSource",
       "fv": 94.2,
-      "price": 58.62,
+      "price": 58.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLDR",
@@ -2365,7 +2365,7 @@
     "CPRT": {
       "name": "Copart",
       "fv": 20.82,
-      "price": 31.66,
+      "price": 31.46,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CPRT",
@@ -2409,7 +2409,7 @@
     "EL": {
       "name": "EssilorLuxottica",
       "fv": 204.76,
-      "price": 180.8,
+      "price": 178.8,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "EL.PA",
@@ -2451,7 +2451,7 @@
     "BR": {
       "name": "Broadridge Financial",
       "fv": 128.72,
-      "price": 184.81,
+      "price": 184.9,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BR",
@@ -2493,7 +2493,7 @@
     "BF.B": {
       "name": "Brown-Forman B",
       "fv": 25.11,
-      "price": 30.63,
+      "price": 30.76,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BF-B",
@@ -2535,7 +2535,7 @@
     "PDD": {
       "name": "PDD Holdings",
       "fv": 291.49,
-      "price": 77.57,
+      "price": 77.45,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PDD",
@@ -2579,7 +2579,7 @@
     "FUN": {
       "name": "Six Flags Entertain.",
       "fv": 35.26,
-      "price": 11.97,
+      "price": 11.81,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FUN",
@@ -2625,7 +2625,7 @@
     "FMC": {
       "name": "FMC Corporation",
       "fv": 36.81,
-      "price": 4.655,
+      "price": 4.68,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FMC",
@@ -2671,7 +2671,7 @@
     "SGBS": {
       "name": "Sprott Gold Miners",
       "fv": null,
-      "price": 357.81,
+      "price": 357.8,
       "curr": "$",
       "ex": "LSE",
       "yf": "SGBS.L",
@@ -2713,7 +2713,7 @@
     "NFLX": {
       "name": "Netflix",
       "fv": 3.17,
-      "price": 60.26,
+      "price": 59.82,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NFLX",
@@ -2759,7 +2759,7 @@
     "RHM": {
       "name": "Rheinmetall AG",
       "fv": 293.8,
-      "price": 744.2,
+      "price": 760.9,
       "curr": "€",
       "ex": "XETR",
       "yf": "RHM.DE",
@@ -2804,7 +2804,7 @@
     "GXI": {
       "name": "Gerresheimer AG",
       "fv": 17.83,
-      "price": 33.2,
+      "price": 31.98,
       "curr": "€",
       "ex": "XETR",
       "yf": "GXI.DE",
@@ -2851,7 +2851,7 @@
     "NOC": {
       "name": "Northrop Grumman",
       "fv": 426.16,
-      "price": 542.29,
+      "price": 542.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOC",
@@ -2896,7 +2896,7 @@
     "RTX": {
       "name": "RTX Corp",
       "fv": 86.24,
-      "price": 196.35,
+      "price": 197.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RTX",
@@ -2940,7 +2940,7 @@
     "LMT": {
       "name": "Lockheed Martin",
       "fv": 563.55,
-      "price": 577.05,
+      "price": 578.19,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LMT",
@@ -2982,7 +2982,7 @@
     "GD": {
       "name": "General Dynamics",
       "fv": 263.28,
-      "price": 349.18,
+      "price": 349.04,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GD",
@@ -3024,7 +3024,7 @@
     "HWM": {
       "name": "Howmet Aerospace",
       "fv": 4.05,
-      "price": 221.27,
+      "price": 221.15,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HWM",
@@ -3070,7 +3070,7 @@
     "HON": {
       "name": "Honeywell",
       "fv": 255.02,
-      "price": 223.82,
+      "price": 222.7,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
@@ -3112,7 +3112,7 @@
     "BA": {
       "name": "Boeing",
       "fv": 9.1,
-      "price": 163.93,
+      "price": 162.91,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BA",
@@ -3158,7 +3158,7 @@
     "UNP": {
       "name": "Union Pacific",
       "fv": 163.82,
-      "price": 302.29,
+      "price": 300.9,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNP",
@@ -3202,7 +3202,7 @@
     "UPS": {
       "name": "UPS",
       "fv": 91.42,
-      "price": 111.86,
+      "price": 111.03,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UPS",
@@ -3247,7 +3247,7 @@
     "FDX": {
       "name": "FedEx",
       "fv": 185.65,
-      "price": 319.66,
+      "price": 318.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FDX",
@@ -3293,7 +3293,7 @@
     "DE": {
       "name": "Deere & Company",
       "fv": 134.45,
-      "price": 648.78,
+      "price": 644.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DE",
@@ -3339,7 +3339,7 @@
     "KMI": {
       "name": "Kinder Morgan",
       "fv": 28.38,
-      "price": 31.58,
+      "price": 31.36,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KMI",
@@ -3383,7 +3383,7 @@
     "COP": {
       "name": "ConocoPhillips",
       "fv": 124.62,
-      "price": 135.42,
+      "price": 134.4,
       "curr": "$",
       "ex": "NYSE",
       "yf": "COP",
@@ -3427,7 +3427,7 @@
     "DVN": {
       "name": "Devon Energy",
       "fv": 25.84,
-      "price": 42.16,
+      "price": 41.96,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DVN",
@@ -3473,7 +3473,7 @@
     "SLB": {
       "name": "Schlumberger",
       "fv": 50.91,
-      "price": 48.54,
+      "price": 48.41,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SLB",
@@ -3515,7 +3515,7 @@
     "XOM": {
       "name": "ExxonMobil",
       "fv": 105.23,
-      "price": 161.31,
+      "price": 160.58,
       "curr": "$",
       "ex": "NYSE",
       "yf": "XOM",
@@ -3560,7 +3560,7 @@
     "ABBV": {
       "name": "AbbVie",
       "fv": 254.07,
-      "price": 288.13,
+      "price": 286.01,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABBV",
@@ -3604,7 +3604,7 @@
     "MRK": {
       "name": "Merck & Co",
       "fv": 109.55,
-      "price": 138.88,
+      "price": 137.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MRK",
@@ -3648,7 +3648,7 @@
     "LLY": {
       "name": "Eli Lilly",
       "fv": 242.91,
-      "price": 1392.22,
+      "price": 1382.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LLY",
@@ -3690,7 +3690,7 @@
     "MDT": {
       "name": "Medtronic",
       "fv": 82.63,
-      "price": 101.16,
+      "price": 100.72,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MDT",
@@ -3732,7 +3732,7 @@
     "BDX": {
       "name": "Becton Dickinson",
       "fv": 169.58,
-      "price": 215.86,
+      "price": 216.08,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BDX",
@@ -3776,7 +3776,7 @@
     "DHR": {
       "name": "Danaher",
       "fv": 108.61,
-      "price": 228.25,
+      "price": 228.58,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DHR",
@@ -3818,7 +3818,7 @@
     "TMO": {
       "name": "Thermo Fisher",
       "fv": 305.06,
-      "price": 693.4,
+      "price": 692.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TMO",
@@ -3862,7 +3862,7 @@
     "MTD": {
       "name": "Mettler-Toledo",
       "fv": 544.38,
-      "price": 1738.82,
+      "price": 1737.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MTD",
@@ -3904,7 +3904,7 @@
     "REGN": {
       "name": "Regeneron Pharma",
       "fv": 705.13,
-      "price": 948.83,
+      "price": 945.53,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "REGN",
@@ -3946,7 +3946,7 @@
     "GILD": {
       "name": "Gilead Sciences",
       "fv": 157.88,
-      "price": 169.53,
+      "price": 168.98,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GILD",
@@ -3988,7 +3988,7 @@
     "ISRG": {
       "name": "Intuitive Surgical",
       "fv": 108.65,
-      "price": 426.93,
+      "price": 420.95,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ISRG",
@@ -4030,7 +4030,7 @@
     "VRTX": {
       "name": "Vertex Pharma",
       "fv": 283.02,
-      "price": 537.18,
+      "price": 536.45,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRTX",
@@ -4074,7 +4074,7 @@
     "ELV": {
       "name": "Elevance Health",
       "fv": 653.79,
-      "price": 406.56,
+      "price": 400.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ELV",
@@ -4118,7 +4118,7 @@
     "UNH": {
       "name": "UnitedHealth",
       "fv": 600.43,
-      "price": 355.75,
+      "price": 349.91,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNH",
@@ -4162,7 +4162,7 @@
     "CVS": {
       "name": "CVS Health",
       "fv": 210.43,
-      "price": 82.94,
+      "price": 81.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVS",
@@ -4206,7 +4206,7 @@
     "NVO": {
       "name": "Novo Nordisk ADR",
       "fv": 57.43,
-      "price": 39.63,
+      "price": 39.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NVO",
@@ -4250,7 +4250,7 @@
     "JPM": {
       "name": "JPMorgan Chase",
       "fv": 560.16,
-      "price": 326.24,
+      "price": 324.11,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JPM",
@@ -4295,7 +4295,7 @@
     "BLK": {
       "name": "BlackRock",
       "fv": 451.98,
-      "price": 1177.51,
+      "price": 1169.21,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLK",
@@ -4339,7 +4339,7 @@
     "C": {
       "name": "Citigroup",
       "fv": 178.65,
-      "price": 118.32,
+      "price": 117.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "C",
@@ -4384,7 +4384,7 @@
     "GS": {
       "name": "Goldman Sachs",
       "fv": 1040.69,
-      "price": 873.04,
+      "price": 873.18,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GS",
@@ -4429,7 +4429,7 @@
     "V": {
       "name": "Visa",
       "fv": 198.61,
-      "price": 417.4,
+      "price": 415.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "V",
@@ -4471,7 +4471,7 @@
     "MCO": {
       "name": "Moody's Corp",
       "fv": 187.93,
-      "price": 480.29,
+      "price": 481.29,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCO",
@@ -4513,7 +4513,7 @@
     "CB": {
       "name": "Chubb",
       "fv": 767.42,
-      "price": 371.76,
+      "price": 371.02,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CB",
@@ -4555,7 +4555,7 @@
     "L": {
       "name": "Loews Corp",
       "fv": 217.42,
-      "price": 110.06,
+      "price": 109.98,
       "curr": "$",
       "ex": "NYSE",
       "yf": "L",
@@ -4597,7 +4597,7 @@
     "RSG": {
       "name": "Republic Services",
       "fv": 134.69,
-      "price": 250.87,
+      "price": 249.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RSG",
@@ -4641,7 +4641,7 @@
     "WM": {
       "name": "Waste Management",
       "fv": 149.77,
-      "price": 241.67,
+      "price": 241.21,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WM",
@@ -4686,7 +4686,7 @@
     "PM": {
       "name": "Philip Morris",
       "fv": 147.28,
-      "price": 192.72,
+      "price": 192.73,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PM",
@@ -4728,7 +4728,7 @@
     "PEP": {
       "name": "PepsiCo",
       "fv": 123.32,
-      "price": 142.16,
+      "price": 141.87,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PEP",
@@ -4772,7 +4772,7 @@
     "KO": {
       "name": "Coca-Cola",
       "fv": 44.52,
-      "price": 98.02,
+      "price": 98.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KO",
@@ -4816,7 +4816,7 @@
     "AZO": {
       "name": "AutoZone",
       "fv": 2769.05,
-      "price": 3318.82,
+      "price": 3308.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AZO",
@@ -4861,7 +4861,7 @@
     "MO": {
       "name": "Altria Group",
       "fv": 97.63,
-      "price": 76.63,
+      "price": 76.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MO",
@@ -4905,7 +4905,7 @@
     "CL": {
       "name": "Colgate-Palmolive",
       "fv": 82.74,
-      "price": 99.14,
+      "price": 98.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CL",
@@ -4949,7 +4949,7 @@
     "PG": {
       "name": "Procter & Gamble",
       "fv": 117.72,
-      "price": 170.63,
+      "price": 170.29,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PG",
@@ -4991,7 +4991,7 @@
     "GIS": {
       "name": "General Mills",
       "fv": 98.97,
-      "price": 34.91,
+      "price": 34.53,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GIS",
@@ -5037,7 +5037,7 @@
     "HD": {
       "name": "Home Depot",
       "fv": 256.42,
-      "price": 339.35,
+      "price": 337.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HD",
@@ -5079,7 +5079,7 @@
     "ROST": {
       "name": "Ross Stores",
       "fv": 103.37,
-      "price": 228.75,
+      "price": 227.64,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
@@ -5121,7 +5121,7 @@
     "ORLY": {
       "name": "O'Reilly Automotive",
       "fv": 49.16,
-      "price": 93.14,
+      "price": 93.37,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ORLY",
@@ -5166,7 +5166,7 @@
     "DG": {
       "name": "Dollar General",
       "fv": 184.81,
-      "price": 134.45,
+      "price": 133.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DG",
@@ -5210,7 +5210,7 @@
     "MCD": {
       "name": "McDonald's",
       "fv": 179.03,
-      "price": 273.82,
+      "price": 274.03,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCD",
@@ -5254,7 +5254,7 @@
     "NKE": {
       "name": "Nike",
       "fv": 40.85,
-      "price": 36.8,
+      "price": 36.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NKE",
@@ -5298,7 +5298,7 @@
     "DIS": {
       "name": "Walt Disney",
       "fv": 61.7,
-      "price": 122.59,
+      "price": 122.36,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DIS",
@@ -5342,7 +5342,7 @@
     "VZ": {
       "name": "Verizon",
       "fv": 90.08,
-      "price": 46.11,
+      "price": 46.13,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VZ",
@@ -5387,7 +5387,7 @@
     "T": {
       "name": "AT&T",
       "fv": 52.75,
-      "price": 22.11,
+      "price": 21.95,
       "curr": "$",
       "ex": "NYSE",
       "yf": "T",
@@ -5432,7 +5432,7 @@
     "CHTR": {
       "name": "Charter Comm.",
       "fv": 542.94,
-      "price": 140.07,
+      "price": 139.19,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CHTR",
@@ -5476,7 +5476,7 @@
     "TMUS": {
       "name": "T-Mobile US",
       "fv": 53.75,
-      "price": 164.21,
+      "price": 164.02,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TMUS",
@@ -5521,7 +5521,7 @@
     "RCL": {
       "name": "Royal Caribbean",
       "fv": 17.84,
-      "price": 322.56,
+      "price": 320.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RCL",
@@ -5567,7 +5567,7 @@
     "META": {
       "name": "Meta Platforms",
       "fv": 317.63,
-      "price": 616.56,
+      "price": 616.38,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "META",
@@ -5611,7 +5611,7 @@
     "TSLA": {
       "name": "Tesla",
       "fv": 20.25,
-      "price": 384.07,
+      "price": 383.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TSLA",
@@ -5656,7 +5656,7 @@
     "AVGO": {
       "name": "Broadcom",
       "fv": 61.48,
-      "price": 351.5,
+      "price": 354.05,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AVGO",
@@ -5698,7 +5698,7 @@
     "ORCL": {
       "name": "Oracle",
       "fv": 75.47,
-      "price": 114.69,
+      "price": 113.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ORCL",
@@ -5745,7 +5745,7 @@
     "TXN": {
       "name": "Texas Instruments",
       "fv": 80.4,
-      "price": 290.86,
+      "price": 292.43,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TXN",
@@ -5789,7 +5789,7 @@
     "BKNG": {
       "name": "Booking Holdings",
       "fv": 155.68,
-      "price": 154.9,
+      "price": 153.28,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKNG",
@@ -5833,7 +5833,7 @@
     "SHOP": {
       "name": "Shopify",
       "fv": 7.93,
-      "price": 140.59,
+      "price": 139.42,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SHOP",
@@ -5877,7 +5877,7 @@
     "CRWD": {
       "name": "CrowdStrike",
       "fv": 19.31,
-      "price": 234.89,
+      "price": 237.03,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CRWD",
@@ -5921,7 +5921,7 @@
     "FTNT": {
       "name": "Fortinet",
       "fv": 43.64,
-      "price": 131.57,
+      "price": 131.81,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FTNT",
@@ -5963,7 +5963,7 @@
     "PLTR": {
       "name": "Palantir",
       "fv": 7.76,
-      "price": 154.72,
+      "price": 156.67,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PLTR",
@@ -6007,7 +6007,7 @@
     "PANW": {
       "name": "Palo Alto Networks",
       "fv": 73.5,
-      "price": 329.73,
+      "price": 339.92,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PANW",
@@ -6049,7 +6049,7 @@
     "NEE": {
       "name": "NextEra Energy",
       "fv": 16.21,
-      "price": 84.88,
+      "price": 84.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEE",
@@ -6095,7 +6095,7 @@
     "CME": {
       "name": "CME Group",
       "fv": 187.49,
-      "price": 308.8,
+      "price": 310.25,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CME",
@@ -6137,7 +6137,7 @@
     "ACN": {
       "name": "Accenture",
       "fv": 254.04,
-      "price": 231.23,
+      "price": 227.49,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ACN",
@@ -6179,7 +6179,7 @@
     "TIT": {
       "name": "Telecom Italia",
       "fv": 15.34,
-      "price": 5.604,
+      "price": 5.684,
       "curr": "€",
       "ex": "MIL",
       "yf": "TIT.MI",
@@ -6225,7 +6225,7 @@
     "TEN": {
       "name": "Tenaris",
       "fv": 38.65,
-      "price": 26.33,
+      "price": 27.18,
       "curr": "€",
       "ex": "MIL",
       "yf": "TEN.MI",
@@ -6269,7 +6269,7 @@
     "PRY": {
       "name": "Prysmian",
       "fv": 51.19,
-      "price": 107.95,
+      "price": 106.3,
       "curr": "€",
       "ex": "MIL",
       "yf": "PRY.MI",
@@ -6311,7 +6311,7 @@
     "SRG": {
       "name": "Snam",
       "fv": 8.28,
-      "price": 6.066,
+      "price": 6.142,
       "curr": "€",
       "ex": "MIL",
       "yf": "SRG.MI",
@@ -6359,7 +6359,7 @@
     "TRN": {
       "name": "Terna",
       "fv": null,
-      "price": 9.6,
+      "price": 9.672,
       "curr": "€",
       "ex": "MIL",
       "yf": "TRN.MI",
@@ -6406,7 +6406,7 @@
     "IG": {
       "name": "Italgas",
       "fv": 42.86,
-      "price": 9.028,
+      "price": 9.148,
       "curr": "€",
       "ex": "MIL",
       "yf": "IG.MI",
@@ -6452,7 +6452,7 @@
     "HER": {
       "name": "Hera",
       "fv": 20.01,
-      "price": 3.6,
+      "price": 3.62,
       "curr": "€",
       "ex": "MIL",
       "yf": "HER.MI",
@@ -6497,7 +6497,7 @@
     "AMP": {
       "name": "Amplifon",
       "fv": 30.71,
-      "price": 11.46,
+      "price": 11.38,
       "curr": "€",
       "ex": "MIL",
       "yf": "AMP.MI",
@@ -6539,7 +6539,7 @@
     "REC": {
       "name": "Recordati",
       "fv": 80.6,
-      "price": 52.8,
+      "price": 52.85,
       "curr": "€",
       "ex": "MIL",
       "yf": "REC.MI",
@@ -6581,7 +6581,7 @@
     "BZU": {
       "name": "Buzzi",
       "fv": 84.64,
-      "price": 43.8,
+      "price": 44.1,
       "curr": "€",
       "ex": "MIL",
       "yf": "BZU.MI",
@@ -6623,7 +6623,7 @@
     "STMMI": {
       "name": "STMicroelectronics",
       "fv": 14.88,
-      "price": 40.51,
+      "price": 39.78,
       "curr": "€",
       "ex": "MIL",
       "yf": "STMMI.MI",
@@ -6669,7 +6669,7 @@
     "NEXI": {
       "name": "Nexi",
       "fv": 12.98,
-      "price": 4.363,
+      "price": 4.405,
       "curr": "€",
       "ex": "MIL",
       "yf": "NEXI.MI",
@@ -6714,7 +6714,7 @@
     "IVG": {
       "name": "Iveco Group",
       "fv": 45.11,
-      "price": 14.34,
+      "price": 14.35,
       "curr": "€",
       "ex": "MIL",
       "yf": "IVG.MI",
@@ -6759,7 +6759,7 @@
     "PIRC": {
       "name": "Pirelli",
       "fv": 18.33,
-      "price": 6.495,
+      "price": 6.5,
       "curr": "€",
       "ex": "MIL",
       "yf": "PIRC.MI",
@@ -6801,7 +6801,7 @@
     "SPM": {
       "name": "Saipem",
       "fv": 5.14,
-      "price": 4.032,
+      "price": 4.141,
       "curr": "€",
       "ex": "MIL",
       "yf": "SPM.MI",
@@ -6845,7 +6845,7 @@
     "INW": {
       "name": "Inwit",
       "fv": 10.25,
-      "price": 7.36,
+      "price": 7.335,
       "curr": "€",
       "ex": "MIL",
       "yf": "INW.MI",
@@ -6890,7 +6890,7 @@
     "TGYM": {
       "name": "Technogym",
       "fv": 16.41,
-      "price": 14.92,
+      "price": 14.87,
       "curr": "€",
       "ex": "MIL",
       "yf": "TGYM.MI",
@@ -6932,7 +6932,7 @@
     "REY": {
       "name": "Reply",
       "fv": 149.92,
-      "price": 129.9,
+      "price": 127.1,
       "curr": "€",
       "ex": "MIL",
       "yf": "REY.MI",
@@ -6974,7 +6974,7 @@
     "DLG": {
       "name": "De'Longhi",
       "fv": 61.5,
-      "price": 46.74,
+      "price": 46.7,
       "curr": "€",
       "ex": "MIL",
       "yf": "DLG.MI",
@@ -7016,7 +7016,7 @@
     "SFER": {
       "name": "Salvatore Ferragamo",
       "fv": 10.99,
-      "price": 6.11,
+      "price": 6.115,
       "curr": "€",
       "ex": "MIL",
       "yf": "SFER.MI",
@@ -7061,7 +7061,7 @@
     "FCT": {
       "name": "Fincantieri",
       "fv": 30.98,
-      "price": 11.06,
+      "price": 11.34,
       "curr": "€",
       "ex": "MIL",
       "yf": "FCT.MI",
@@ -7105,7 +7105,7 @@
     "ENAV": {
       "name": "Enav",
       "fv": 7.59,
-      "price": 5.495,
+      "price": 5.5,
       "curr": "€",
       "ex": "MIL",
       "yf": "ENAV.MI",
@@ -7149,7 +7149,7 @@
     "IRE": {
       "name": "Iren",
       "fv": 3.37,
-      "price": 2.354,
+      "price": 2.37,
       "curr": "€",
       "ex": "MIL",
       "yf": "IRE.MI",
@@ -7196,7 +7196,7 @@
     "ACE": {
       "name": "Acea",
       "fv": 21.54,
-      "price": 19.61,
+      "price": 19.5,
       "curr": "€",
       "ex": "MIL",
       "yf": "ACE.MI",
@@ -7243,7 +7243,7 @@
     "DAN": {
       "name": "Danieli",
       "fv": 79.11,
-      "price": 52,
+      "price": 51.75,
       "curr": "€",
       "ex": "MIL",
       "yf": "DAN.MI",
@@ -7287,7 +7287,7 @@
     "MARR": {
       "name": "Marr",
       "fv": 20.45,
-      "price": 4.88,
+      "price": 4.89,
       "curr": "€",
       "ex": "MIL",
       "yf": "MARR.MI",
@@ -7333,7 +7333,7 @@
     "OR": {
       "name": "L'Oréal",
       "fv": 330.47,
-      "price": 443.05,
+      "price": 446.35,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "OR.PA",
@@ -7375,7 +7375,7 @@
     "RMS": {
       "name": "Hermès",
       "fv": 942.02,
-      "price": 1278.5,
+      "price": 1280.5,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "RMS.PA",
@@ -7417,7 +7417,7 @@
     "AIR": {
       "name": "Airbus",
       "fv": 95.87,
-      "price": 197.78,
+      "price": 201.1,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AIR.PA",
@@ -7462,7 +7462,7 @@
     "SU": {
       "name": "Schneider Electric",
       "fv": 154.59,
-      "price": 238.05,
+      "price": 236.6,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SU.PA",
@@ -7504,7 +7504,7 @@
     "AI": {
       "name": "Air Liquide",
       "fv": 110.44,
-      "price": 189.74,
+      "price": 190.94,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AI.PA",
@@ -7548,7 +7548,7 @@
     "TTE": {
       "name": "TotalEnergies",
       "fv": 143.71,
-      "price": 79.81,
+      "price": 81.98,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "TTE.PA",
@@ -7593,7 +7593,7 @@
     "SAN": {
       "name": "Sanofi",
       "fv": 186.85,
-      "price": 86.25,
+      "price": 86.56,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SAN.PA",
@@ -7637,7 +7637,7 @@
     "KER": {
       "name": "Kering",
       "fv": 330.19,
-      "price": 177.86,
+      "price": 178.36,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "KER.PA",
@@ -7681,7 +7681,7 @@
     "RI": {
       "name": "Pernod Ricard",
       "fv": 122.87,
-      "price": 71.72,
+      "price": 72.26,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "RI.PA",
@@ -7725,7 +7725,7 @@
     "BN": {
       "name": "Danone",
       "fv": 119.41,
-      "price": 69.16,
+      "price": 69.84,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "BN.PA",
@@ -7769,7 +7769,7 @@
     "SAF": {
       "name": "Safran",
       "fv": 226.3,
-      "price": 304.4,
+      "price": 306.0,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SAF.PA",
@@ -7811,7 +7811,7 @@
     "CAP": {
       "name": "Capgemini",
       "fv": 248.14,
-      "price": 119.25,
+      "price": 120.65,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "CAP.PA",
@@ -7853,7 +7853,7 @@
     "DSY": {
       "name": "Dassault Systèmes",
       "fv": 25.43,
-      "price": 23.45,
+      "price": 24.4,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "DSY.PA",
@@ -7895,7 +7895,7 @@
     "ML": {
       "name": "Michelin",
       "fv": 58.55,
-      "price": 32.22,
+      "price": 32.33,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ML.PA",
@@ -7937,7 +7937,7 @@
     "VIE": {
       "name": "Veolia",
       "fv": 51.85,
-      "price": 34.09,
+      "price": 34.36,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "VIE.PA",
@@ -7981,7 +7981,7 @@
     "ENGI": {
       "name": "Engie",
       "fv": 28.96,
-      "price": 24.65,
+      "price": 24.74,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ENGI.PA",
@@ -8028,7 +8028,7 @@
     "ORA": {
       "name": "Orange",
       "fv": 32.1,
-      "price": 15.22,
+      "price": 15.44,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ORA.PA",
@@ -8073,7 +8073,7 @@
     "PUB": {
       "name": "Publicis",
       "fv": 229.69,
-      "price": 101.45,
+      "price": 101.55,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PUB.PA",
@@ -8115,7 +8115,7 @@
     "LR": {
       "name": "Legrand",
       "fv": 107.69,
-      "price": 135.5,
+      "price": 133.35,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "LR.PA",
@@ -8157,7 +8157,7 @@
     "SGO": {
       "name": "Saint-Gobain",
       "fv": 135.84,
-      "price": 73.9,
+      "price": 74.5,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SGO.PA",
@@ -8199,7 +8199,7 @@
     "ADYEN": {
       "name": "Adyen",
       "fv": 639.74,
-      "price": 836.4,
+      "price": 837.7,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ADYEN.AS",
@@ -8288,7 +8288,7 @@
     "HEIA": {
       "name": "Heineken",
       "fv": 160.43,
-      "price": 84.16,
+      "price": 84.28,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "HEIA.AS",
@@ -8333,7 +8333,7 @@
     "AD": {
       "name": "Ahold Delhaize",
       "fv": 140.66,
-      "price": 34.79,
+      "price": 35.14,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AD.AS",
@@ -8377,7 +8377,7 @@
     "WKL": {
       "name": "Wolters Kluwer",
       "fv": 181.78,
-      "price": 85.66,
+      "price": 88.2,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "WKL.AS",
@@ -8419,7 +8419,7 @@
     "PRX": {
       "name": "Prosus",
       "fv": null,
-      "price": 32.52,
+      "price": 34.26,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PRX.AS",
@@ -8464,7 +8464,7 @@
     "UMG": {
       "name": "Universal Music Group",
       "fv": 18.66,
-      "price": 17.25,
+      "price": 17.24,
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "UMG.AS",
@@ -8506,7 +8506,7 @@
     "SIE": {
       "name": "Siemens",
       "fv": 237.67,
-      "price": 266,
+      "price": 269.8,
       "curr": "€",
       "ex": "XETR",
       "yf": "SIE.DE",
@@ -8548,7 +8548,7 @@
     "DTE": {
       "name": "Deutsche Telekom",
       "fv": 124.15,
-      "price": 26.33,
+      "price": 27.12,
       "curr": "€",
       "ex": "XETR",
       "yf": "DTE.DE",
@@ -8593,7 +8593,7 @@
     "BAS": {
       "name": "BASF",
       "fv": 67.96,
-      "price": 51.19,
+      "price": 52.24,
       "curr": "€",
       "ex": "XETR",
       "yf": "BAS.DE",
@@ -8638,7 +8638,7 @@
     "BMW": {
       "name": "BMW",
       "fv": null,
-      "price": 55,
+      "price": 56.1,
       "curr": "€",
       "ex": "XETR",
       "yf": "BMW.DE",
@@ -8684,7 +8684,7 @@
     "MBG": {
       "name": "Mercedes-Benz",
       "fv": 246.15,
-      "price": 38.96,
+      "price": 39.53,
       "curr": "€",
       "ex": "XETR",
       "yf": "MBG.DE",
@@ -8730,7 +8730,7 @@
     "VOW3": {
       "name": "Volkswagen",
       "fv": null,
-      "price": 65.28,
+      "price": 66.3,
       "curr": "€",
       "ex": "XETR",
       "yf": "VOW3.DE",
@@ -8776,7 +8776,7 @@
     "ADS": {
       "name": "adidas",
       "fv": 219.61,
-      "price": 173.8,
+      "price": 173.75,
       "curr": "€",
       "ex": "XETR",
       "yf": "ADS.DE",
@@ -8821,7 +8821,7 @@
     "IFX": {
       "name": "Infineon",
       "fv": 19.61,
-      "price": 49.2,
+      "price": 48.69,
       "curr": "€",
       "ex": "XETR",
       "yf": "IFX.DE",
@@ -8863,7 +8863,7 @@
     "DHL": {
       "name": "DHL Group",
       "fv": 102.5,
-      "price": 59.94,
+      "price": 60.2,
       "curr": "€",
       "ex": "XETR",
       "yf": "DHL.DE",
@@ -8907,7 +8907,7 @@
     "PUM": {
       "name": "Puma",
       "fv": 31.53,
-      "price": 25.31,
+      "price": 25.57,
       "curr": "€",
       "ex": "XETR",
       "yf": "PUM.DE",
@@ -8953,7 +8953,7 @@
     "ZAL": {
       "name": "Zalando",
       "fv": 33.39,
-      "price": 29.13,
+      "price": 28.34,
       "curr": "€",
       "ex": "XETR",
       "yf": "ZAL.DE",
@@ -8997,7 +8997,7 @@
     "HEN3": {
       "name": "Henkel",
       "fv": 154.78,
-      "price": 87.86,
+      "price": 88.3,
       "curr": "€",
       "ex": "XETR",
       "yf": "HEN3.DE",
@@ -9041,7 +9041,7 @@
     "BEI": {
       "name": "Beiersdorf",
       "fv": 124.5,
-      "price": 80.34,
+      "price": 82.56,
       "curr": "€",
       "ex": "XETR",
       "yf": "BEI.DE",
@@ -9086,7 +9086,7 @@
     "P911": {
       "name": "Porsche AG",
       "fv": 53.85,
-      "price": 43.23,
+      "price": 43.44,
       "curr": "€",
       "ex": "XETR",
       "yf": "P911.DE",
@@ -9130,7 +9130,7 @@
     "SHL": {
       "name": "Siemens Healthineers",
       "fv": 34.88,
-      "price": 43.84,
+      "price": 43.3,
       "curr": "€",
       "ex": "XETR",
       "yf": "SHL.DE",
@@ -9174,7 +9174,7 @@
     "ENR": {
       "name": "Siemens Energy",
       "fv": 33.42,
-      "price": 126.66,
+      "price": 125.0,
       "curr": "€",
       "ex": "XETR",
       "yf": "ENR.DE",
@@ -9216,7 +9216,7 @@
     "EOAN": {
       "name": "E.ON",
       "fv": null,
-      "price": 18.73,
+      "price": 18.93,
       "curr": "€",
       "ex": "XETR",
       "yf": "EOAN.DE",
@@ -9263,7 +9263,7 @@
     "RWE": {
       "name": "RWE",
       "fv": null,
-      "price": 57.72,
+      "price": 57.7,
       "curr": "€",
       "ex": "XETR",
       "yf": "RWE.DE",
@@ -9310,7 +9310,7 @@
     "MTX": {
       "name": "MTU Aero Engines",
       "fv": 241.27,
-      "price": 348.7,
+      "price": 347.8,
       "curr": "€",
       "ex": "XETR",
       "yf": "MTX.DE",
@@ -9352,7 +9352,7 @@
     "SY1": {
       "name": "Symrise",
       "fv": 74.84,
-      "price": 96.08,
+      "price": 94.96,
       "curr": "€",
       "ex": "XETR",
       "yf": "SY1.DE",
@@ -9396,7 +9396,7 @@
     "ITX": {
       "name": "Inditex",
       "fv": 55,
-      "price": 59.36,
+      "price": 59.56,
       "curr": "€",
       "ex": "BME",
       "yf": "ITX.MC",
@@ -9438,7 +9438,7 @@
     "IBE": {
       "name": "Iberdrola",
       "fv": 8,
-      "price": 22.76,
+      "price": 22.88,
       "curr": "€",
       "ex": "BME",
       "yf": "IBE.MC",
@@ -9486,7 +9486,7 @@
     "TEF": {
       "name": "Telefónica",
       "fv": 24.04,
-      "price": 3.386,
+      "price": 3.475,
       "curr": "€",
       "ex": "BME",
       "yf": "TEF.MC",
@@ -9531,7 +9531,7 @@
     "REP": {
       "name": "Repsol",
       "fv": 46.1,
-      "price": 28.71,
+      "price": 30.68,
       "curr": "€",
       "ex": "BME",
       "yf": "REP.MC",
@@ -9577,7 +9577,7 @@
     "AENA": {
       "name": "Aena",
       "fv": 39.99,
-      "price": 28.22,
+      "price": 28.4,
       "curr": "€",
       "ex": "BME",
       "yf": "AENA.MC",
@@ -9621,7 +9621,7 @@
     "AMS": {
       "name": "Amadeus",
       "fv": 103.79,
-      "price": 61.12,
+      "price": 61.92,
       "curr": "€",
       "ex": "BME",
       "yf": "AMS.MC",
@@ -9665,7 +9665,7 @@
     "CLNX": {
       "name": "Cellnex",
       "fv": null,
-      "price": 25.4,
+      "price": 25.72,
       "curr": "€",
       "ex": "BME",
       "yf": "CLNX.MC",
@@ -9709,7 +9709,7 @@
     "NESN": {
       "name": "Nestlé",
       "fv": 119.53,
-      "price": 86.03,
+      "price": 86.73,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "NESN.SW",
@@ -9754,7 +9754,7 @@
     "NOVN": {
       "name": "Novartis",
       "fv": 193.56,
-      "price": 131.48,
+      "price": 133.28,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "NOVN.SW",
@@ -9798,7 +9798,7 @@
     "ABBN": {
       "name": "ABB",
       "fv": 37.45,
-      "price": 67.98,
+      "price": 68.02,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "ABBN.SW",
@@ -9840,7 +9840,7 @@
     "CFR": {
       "name": "Richemont",
       "fv": 168.43,
-      "price": 175.45,
+      "price": 172.95,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "CFR.SW",
@@ -9882,7 +9882,7 @@
     "SIKA": {
       "name": "Sika",
       "fv": 197.88,
-      "price": 189.45,
+      "price": 189.3,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "SIKA.SW",
@@ -9926,7 +9926,7 @@
     "LONN": {
       "name": "Lonza",
       "fv": 52.5,
-      "price": 666.6,
+      "price": 663.0,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "LONN.SW",
@@ -9973,7 +9973,7 @@
     "GIVN": {
       "name": "Givaudan",
       "fv": 3374.29,
-      "price": 4082,
+      "price": 4072.0,
       "curr": "CHF",
       "ex": "SIX",
       "yf": "GIVN.SW",
@@ -10107,7 +10107,7 @@
     "AZN": {
       "name": "AstraZeneca",
       "fv": 8590.37,
-      "price": 13646,
+      "price": 13646.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AZN.L",
@@ -10151,7 +10151,7 @@
     "GSK": {
       "name": "GSK",
       "fv": 3177.74,
-      "price": 1858,
+      "price": 1858.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "GSK.L",
@@ -10284,7 +10284,7 @@
     "RIO": {
       "name": "Rio Tinto",
       "fv": 7704.77,
-      "price": 5770,
+      "price": 5770.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RIO.L",
@@ -10328,7 +10328,7 @@
     "REL": {
       "name": "RELX",
       "fv": 2584.87,
-      "price": 2964,
+      "price": 2964.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "REL.L",
@@ -10414,7 +10414,7 @@
     "RKT": {
       "name": "Reckitt",
       "fv": 7570.05,
-      "price": 5704,
+      "price": 5704.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RKT.L",
@@ -10458,7 +10458,7 @@
     "BRBY": {
       "name": "Burberry",
       "fv": 1651.65,
-      "price": 1158,
+      "price": 1158.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BRBY.L",
@@ -10592,7 +10592,7 @@
     "TSCO": {
       "name": "Tesco",
       "fv": 625.34,
-      "price": 555,
+      "price": 555.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "TSCO.L",
@@ -10638,7 +10638,7 @@
     "EXPN": {
       "name": "Experian",
       "fv": 2590.9,
-      "price": 2866,
+      "price": 2866.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "EXPN.L",
@@ -10680,7 +10680,7 @@
     "AAL": {
       "name": "Anglo American",
       "fv": 1735.01,
-      "price": 3294,
+      "price": 3294.0,
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AAL.L",
@@ -10724,7 +10724,7 @@
     "ADI": {
       "name": "Analog Devices",
       "fv": 97.02,
-      "price": 379.59,
+      "price": 381.98,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADI",
@@ -10766,7 +10766,7 @@
     "MU": {
       "name": "Micron Technology",
       "fv": 151.1,
-      "price": 700,
+      "price": 705.27,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MU",
@@ -10811,7 +10811,7 @@
     "LRCX": {
       "name": "Lam Research",
       "fv": 47.06,
-      "price": 209.74,
+      "price": 211.67,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LRCX",
@@ -10853,7 +10853,7 @@
     "KLAC": {
       "name": "KLA",
       "fv": 34.01,
-      "price": 142.95,
+      "price": 144.88,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KLAC",
@@ -10895,7 +10895,7 @@
     "SNPS": {
       "name": "Synopsys",
       "fv": 116.09,
-      "price": 431.44,
+      "price": 434.01,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SNPS",
@@ -10939,7 +10939,7 @@
     "CDNS": {
       "name": "Cadence Design",
       "fv": 73.97,
-      "price": 306.98,
+      "price": 305.82,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CDNS",
@@ -10981,7 +10981,7 @@
     "CSCO": {
       "name": "Cisco",
       "fv": 65.31,
-      "price": 96.74,
+      "price": 97.18,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSCO",
@@ -11023,7 +11023,7 @@
     "ABNB": {
       "name": "Airbnb",
       "fv": 110.32,
-      "price": 182.41,
+      "price": 180.21,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ABNB",
@@ -11067,7 +11067,7 @@
     "PYPL": {
       "name": "PayPal",
       "fv": 96.3,
-      "price": 58.28,
+      "price": 57.89,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PYPL",
@@ -11109,7 +11109,7 @@
     "ZS": {
       "name": "Zscaler",
       "fv": 58.56,
-      "price": 195.9,
+      "price": 197.83,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ZS",
@@ -11153,7 +11153,7 @@
     "MDB": {
       "name": "MongoDB",
       "fv": null,
-      "price": 304.98,
+      "price": 306.71,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MDB",
@@ -11197,7 +11197,7 @@
     "TEAM": {
       "name": "Atlassian",
       "fv": 83.34,
-      "price": 134.73,
+      "price": 135.05,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TEAM",
@@ -11241,7 +11241,7 @@
     "WDAY": {
       "name": "Workday",
       "fv": 108.71,
-      "price": 177.13,
+      "price": 177.45,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "WDAY",
@@ -11283,7 +11283,7 @@
     "MRVL": {
       "name": "Marvell Technology",
       "fv": 18.06,
-      "price": 144.4,
+      "price": 145.54,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MRVL",
@@ -11327,7 +11327,7 @@
     "ARM": {
       "name": "Arm Holdings",
       "fv": 11.59,
-      "price": 183.89,
+      "price": 182.76,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ARM",
@@ -11369,7 +11369,7 @@
     "APP": {
       "name": "AppLovin",
       "fv": 36.35,
-      "price": 397.94,
+      "price": 390.91,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "APP",
@@ -11411,7 +11411,7 @@
     "MELI": {
       "name": "MercadoLibre",
       "fv": 1385.45,
-      "price": 1427.23,
+      "price": 1423.11,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MELI",
@@ -11453,7 +11453,7 @@
     "TTWO": {
       "name": "Take-Two Interactive",
       "fv": 78.8,
-      "price": 218.79,
+      "price": 216.61,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTWO",
@@ -11498,7 +11498,7 @@
     "VRSK": {
       "name": "Verisk Analytics",
       "fv": 117.81,
-      "price": 202.19,
+      "price": 202.31,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRSK",
@@ -11542,7 +11542,7 @@
     "CTAS": {
       "name": "Cintas",
       "fv": 66.29,
-      "price": 223.68,
+      "price": 222.0,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CTAS",
@@ -11584,7 +11584,7 @@
     "PAYX": {
       "name": "Paychex",
       "fv": 89.7,
-      "price": 113.75,
+      "price": 113.67,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PAYX",
@@ -11626,7 +11626,7 @@
     "AMGN": {
       "name": "Amgen",
       "fv": 464.53,
-      "price": 446.96,
+      "price": 443.89,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMGN",
@@ -11670,7 +11670,7 @@
     "IDXX": {
       "name": "IDEXX Laboratories",
       "fv": 130.78,
-      "price": 702.5,
+      "price": 698.47,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "IDXX",
@@ -11712,7 +11712,7 @@
     "DXCM": {
       "name": "DexCom",
       "fv": 16.99,
-      "price": 82.19,
+      "price": 82.52,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DXCM",
@@ -11754,7 +11754,7 @@
     "BIIB": {
       "name": "Biogen",
       "fv": 359.34,
-      "price": 252.05,
+      "price": 251.41,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BIIB",
@@ -11798,7 +11798,7 @@
     "MRNA": {
       "name": "Moderna",
       "fv": null,
-      "price": 201.74,
+      "price": 196.79,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MRNA",
@@ -11843,7 +11843,7 @@
     "ALGN": {
       "name": "Align Technology",
       "fv": 117.18,
-      "price": 163.41,
+      "price": 163.96,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ALGN",
@@ -11887,7 +11887,7 @@
     "SBUX": {
       "name": "Starbucks",
       "fv": 45.85,
-      "price": 109.3,
+      "price": 109.11,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SBUX",
@@ -11931,7 +11931,7 @@
     "MDLZ": {
       "name": "Mondelez",
       "fv": 57.38,
-      "price": 66.5,
+      "price": 66.57,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MDLZ",
@@ -11976,7 +11976,7 @@
     "KDP": {
       "name": "Keurig Dr Pepper",
       "fv": 44,
-      "price": 35.12,
+      "price": 35.01,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KDP",
@@ -12022,7 +12022,7 @@
     "MNST": {
       "name": "Monster Beverage",
       "fv": 20.08,
-      "price": 45.1,
+      "price": 44.91,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MNST",
@@ -12064,7 +12064,7 @@
     "DLTR": {
       "name": "Dollar Tree",
       "fv": 65.78,
-      "price": 142.34,
+      "price": 142.44,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DLTR",
@@ -12108,7 +12108,7 @@
     "ULTA": {
       "name": "Ulta Beauty",
       "fv": 423.53,
-      "price": 656.26,
+      "price": 648.51,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ULTA",
@@ -12150,7 +12150,7 @@
     "MAR": {
       "name": "Marriott",
       "fv": 143.57,
-      "price": 425.52,
+      "price": 425.9,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MAR",
@@ -12194,7 +12194,7 @@
     "EBAY": {
       "name": "eBay",
       "fv": 73.67,
-      "price": 121.75,
+      "price": 121.46,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EBAY",
@@ -12238,7 +12238,7 @@
     "PCAR": {
       "name": "Paccar",
       "fv": 42.59,
-      "price": 104.3,
+      "price": 103.81,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PCAR",
@@ -12282,7 +12282,7 @@
     "CSX": {
       "name": "CSX",
       "fv": 26.84,
-      "price": 51.53,
+      "price": 51.33,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSX",
@@ -12327,7 +12327,7 @@
     "ODFL": {
       "name": "Old Dominion Freight",
       "fv": 51.49,
-      "price": 175.65,
+      "price": 175.11,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ODFL",
@@ -12369,7 +12369,7 @@
     "FAST": {
       "name": "Fastenal",
       "fv": 12.97,
-      "price": 54.27,
+      "price": 53.96,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FAST",
@@ -12411,7 +12411,7 @@
     "AXON": {
       "name": "Axon Enterprise",
       "fv": 35.61,
-      "price": 298.82,
+      "price": 300.69,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AXON",
@@ -12457,7 +12457,7 @@
     "CMCSA": {
       "name": "Comcast",
       "fv": 82.86,
-      "price": 25.44,
+      "price": 25.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CMCSA",
@@ -12501,7 +12501,7 @@
     "DASH": {
       "name": "DoorDash",
       "fv": 39.49,
-      "price": 167.32,
+      "price": 166.8,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DASH",
@@ -12545,7 +12545,7 @@
     "LIN": {
       "name": "Linde",
       "fv": 192.86,
-      "price": 511.78,
+      "price": 512.16,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LIN",
@@ -12589,7 +12589,7 @@
     "CEG": {
       "name": "Constellation Energy",
       "fv": null,
-      "price": 265.27,
+      "price": 262.74,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CEG",
@@ -12634,7 +12634,7 @@
     "AEP": {
       "name": "American Electric Power",
       "fv": null,
-      "price": 126.48,
+      "price": 126.5,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AEP",
@@ -12681,7 +12681,7 @@
     "JD": {
       "name": "JD.com",
       "fv": 79.58,
-      "price": 25.09,
+      "price": 24.92,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "JD",
@@ -12725,7 +12725,7 @@
     "BIDU": {
       "name": "Baidu",
       "fv": 128.27,
-      "price": 70.13,
+      "price": 69.21,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BIDU",
@@ -12770,7 +12770,7 @@
     "NXPI": {
       "name": "NXP Semiconductors",
       "fv": 130.22,
-      "price": 250.42,
+      "price": 252.47,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NXPI",
@@ -12812,7 +12812,7 @@
     "ON": {
       "name": "ON Semiconductor",
       "fv": 21.2,
-      "price": 67.15,
+      "price": 67.23,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ON",
@@ -12854,7 +12854,7 @@
     "MCHP": {
       "name": "Microchip Technology",
       "fv": 14.3,
-      "price": 59.51,
+      "price": 59.67,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MCHP",
@@ -12898,7 +12898,7 @@
     "ROP": {
       "name": "Roper Technologies",
       "fv": 352.02,
-      "price": 469.8,
+      "price": 470.87,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROP",
@@ -12940,7 +12940,7 @@
     "NDAQ": {
       "name": "Nasdaq Inc.",
       "fv": 45.6,
-      "price": 104.48,
+      "price": 105.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NDAQ",
@@ -12984,7 +12984,7 @@
     "POOL": {
       "name": "Pool Corp.",
       "fv": 140.51,
-      "price": 212.87,
+      "price": 213.41,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "POOL",
@@ -13026,7 +13026,7 @@
     "GEHC": {
       "name": "GE HealthCare",
       "fv": 50.76,
-      "price": 83.62,
+      "price": 83.66,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GEHC",
@@ -13070,7 +13070,7 @@
     "ILMN": {
       "name": "Illumina",
       "fv": 70.24,
-      "price": 210.72,
+      "price": 210.01,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ILMN",
@@ -13112,7 +13112,7 @@
     "EXC": {
       "name": "Exelon",
       "fv": null,
-      "price": 46.05,
+      "price": 46.02,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXC",
@@ -13158,7 +13158,7 @@
     "XEL": {
       "name": "Xcel Energy",
       "fv": null,
-      "price": 80.75,
+      "price": 80.65,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "XEL",
@@ -13204,7 +13204,7 @@
     "WMT": {
       "name": "Walmart",
       "fv": 40.66,
-      "price": 127.17,
+      "price": 127.36,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "WMT",
@@ -13246,7 +13246,7 @@
     "CROX": {
       "name": "Crocs",
       "fv": 145.29,
-      "price": 163.51,
+      "price": 162.76,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CROX",
@@ -13288,7 +13288,7 @@
     "DPZ": {
       "name": "Domino's Pizza",
       "fv": 259.87,
-      "price": 351.69,
+      "price": 353.54,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DPZ",
@@ -13332,7 +13332,7 @@
     "UAL": {
       "name": "United Airlines",
       "fv": 83.41,
-      "price": 109.17,
+      "price": 107.63,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "UAL",
@@ -13377,7 +13377,7 @@
     "BKR": {
       "name": "Baker Hughes",
       "fv": 19.04,
-      "price": 47.13,
+      "price": 47.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKR",
@@ -13422,7 +13422,7 @@
     "CCEP": {
       "name": "Coca-Cola Europacific",
       "fv": 99.32,
-      "price": 119.1,
+      "price": 118.86,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CCEP",
@@ -13466,7 +13466,7 @@
     "DOCU": {
       "name": "DocuSign",
       "fv": 32.2,
-      "price": 76.34,
+      "price": 76.58,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DOCU",
@@ -13508,7 +13508,7 @@
     "EXPE": {
       "name": "Expedia",
       "fv": 209.91,
-      "price": 249.7,
+      "price": 245.79,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXPE",
@@ -13552,7 +13552,7 @@
     "GFS": {
       "name": "GlobalFoundries",
       "fv": 17.29,
-      "price": 39.95,
+      "price": 39.83,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GFS",
@@ -13596,7 +13596,7 @@
     "LYFT": {
       "name": "Lyft",
       "fv": null,
-      "price": 18.11,
+      "price": 17.6,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LYFT",
@@ -13640,7 +13640,7 @@
     "OKTA": {
       "name": "Okta",
       "fv": 26.02,
-      "price": 190.26,
+      "price": 195.61,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "OKTA",
@@ -13684,7 +13684,7 @@
     "SMCI": {
       "name": "Super Micro Computer",
       "fv": null,
-      "price": 24.7,
+      "price": 24.37,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SMCI",
@@ -13730,7 +13730,7 @@
     "ZM": {
       "name": "Zoom",
       "fv": 94.38,
-      "price": 92.31,
+      "price": 92.68,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ZM",
@@ -13772,7 +13772,7 @@
     "SNOW": {
       "name": "Snowflake",
       "fv": 37.17,
-      "price": 276.46,
+      "price": 279.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SNOW",
@@ -13816,7 +13816,7 @@
     "NET": {
       "name": "Cloudflare",
       "fv": null,
-      "price": 301.42,
+      "price": 300.91,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NET",
@@ -13860,7 +13860,7 @@
     "NOW": {
       "name": "ServiceNow",
       "fv": 47.04,
-      "price": 89.75,
+      "price": 90.59,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOW",
@@ -13902,7 +13902,7 @@
     "ANET": {
       "name": "Arista Networks",
       "fv": 39.19,
-      "price": 191.06,
+      "price": 193.94,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ANET",
@@ -13944,7 +13944,7 @@
     "UBER": {
       "name": "Uber",
       "fv": null,
-      "price": 69.5,
+      "price": 68.76,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UBER",
@@ -13988,7 +13988,7 @@
     "DELL": {
       "name": "Dell Technologies",
       "fv": 133.55,
-      "price": 313.52,
+      "price": 313.11,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DELL",
@@ -14030,7 +14030,7 @@
     "HPQ": {
       "name": "HP Inc.",
       "fv": 49.19,
-      "price": 29.09,
+      "price": 28.66,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HPQ",
@@ -14072,7 +14072,7 @@
     "SPOT": {
       "name": "Spotify",
       "fv": 102.58,
-      "price": 609.31,
+      "price": 605.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SPOT",
@@ -14114,7 +14114,7 @@
     "FICO": {
       "name": "Fair Isaac (FICO)",
       "fv": 462.65,
-      "price": 678.01,
+      "price": 677.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FICO",
@@ -14158,7 +14158,7 @@
     "MSCI": {
       "name": "MSCI",
       "fv": 265.06,
-      "price": 632.12,
+      "price": 636.9,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MSCI",
@@ -14202,7 +14202,7 @@
     "SPGI": {
       "name": "S&P Global",
       "fv": 254.73,
-      "price": 445.71,
+      "price": 446.38,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SPGI",
@@ -14244,7 +14244,7 @@
     "ICE": {
       "name": "Intercontinental Exchange",
       "fv": 121.92,
-      "price": 171.43,
+      "price": 171.81,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ICE",
@@ -14286,7 +14286,7 @@
     "TSM": {
       "name": "Taiwan Semiconductor",
       "fv": 95.33,
-      "price": 360.26,
+      "price": 362.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TSM",
@@ -14330,7 +14330,7 @@
     "BABA": {
       "name": "Alibaba",
       "fv": 217.99,
-      "price": 86.03,
+      "price": 84.37,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BABA",
@@ -14375,7 +14375,7 @@
     "SONY": {
       "name": "Sony",
       "fv": 22.97,
-      "price": 26.73,
+      "price": 26.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SONY",
@@ -14419,7 +14419,7 @@
     "TM": {
       "name": "Toyota",
       "fv": null,
-      "price": 211.37,
+      "price": 210.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TM",
@@ -14464,7 +14464,7 @@
     "SE": {
       "name": "Sea Limited",
       "fv": null,
-      "price": 69.08,
+      "price": 68.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SE",
@@ -14508,7 +14508,7 @@
     "JNJ": {
       "name": "Johnson & Johnson",
       "fv": 186.25,
-      "price": 275.95,
+      "price": 272.7,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JNJ",
@@ -14552,7 +14552,7 @@
     "ABT": {
       "name": "Abbott Laboratories",
       "fv": 78,
-      "price": 104.8,
+      "price": 104.48,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABT",
@@ -14594,7 +14594,7 @@
     "BMY": {
       "name": "Bristol-Myers Squibb",
       "fv": 136.14,
-      "price": 60.09,
+      "price": 59.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BMY",
@@ -14638,7 +14638,7 @@
     "ZTS": {
       "name": "Zoetis",
       "fv": 76.33,
-      "price": 84.91,
+      "price": 85.57,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ZTS",
@@ -14680,7 +14680,7 @@
     "SYK": {
       "name": "Stryker",
       "fv": 159.21,
-      "price": 319.75,
+      "price": 318.15,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SYK",
@@ -14722,7 +14722,7 @@
     "EW": {
       "name": "Edwards Lifesciences",
       "fv": 35.55,
-      "price": 105.28,
+      "price": 105.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EW",
@@ -14764,7 +14764,7 @@
     "HCA": {
       "name": "HCA Healthcare",
       "fv": 376.76,
-      "price": 484.77,
+      "price": 476.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HCA",
@@ -14808,7 +14808,7 @@
     "CI": {
       "name": "Cigna",
       "fv": 1109.32,
-      "price": 286.93,
+      "price": 285.37,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CI",
@@ -14852,7 +14852,7 @@
     "HUM": {
       "name": "Humana",
       "fv": 534.83,
-      "price": 398.58,
+      "price": 385.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HUM",
@@ -14896,7 +14896,7 @@
     "MCK": {
       "name": "McKesson",
       "fv": 1109.41,
-      "price": 1080.62,
+      "price": 1084.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCK",
@@ -14938,7 +14938,7 @@
     "IQV": {
       "name": "IQVIA",
       "fv": 140.17,
-      "price": 259.02,
+      "price": 257.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IQV",
@@ -14982,7 +14982,7 @@
     "A": {
       "name": "Agilent Technologies",
       "fv": 60.38,
-      "price": 176.15,
+      "price": 177.33,
       "curr": "$",
       "ex": "NYSE",
       "yf": "A",
@@ -15024,7 +15024,7 @@
     "RMD": {
       "name": "ResMed",
       "fv": 115.9,
-      "price": 244.32,
+      "price": 242.61,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RMD",
@@ -15066,7 +15066,7 @@
     "WST": {
       "name": "West Pharmaceutical",
       "fv": 79.26,
-      "price": 404.24,
+      "price": 404.02,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WST",
@@ -15108,7 +15108,7 @@
     "ZBH": {
       "name": "Zimmer Biomet",
       "fv": 97.19,
-      "price": 103.45,
+      "price": 103.32,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ZBH",
@@ -15152,7 +15152,7 @@
     "TGT": {
       "name": "Target",
       "fv": 151.41,
-      "price": 170.72,
+      "price": 165.93,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TGT",
@@ -15197,7 +15197,7 @@
     "LOW": {
       "name": "Lowe's",
       "fv": 169.74,
-      "price": 220.55,
+      "price": 222.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LOW",
@@ -15241,7 +15241,7 @@
     "CMG": {
       "name": "Chipotle",
       "fv": 11.22,
-      "price": 36.72,
+      "price": 36.95,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CMG",
@@ -15285,7 +15285,7 @@
     "YUM": {
       "name": "Yum! Brands",
       "fv": 102.51,
-      "price": 161.44,
+      "price": 160.8,
       "curr": "$",
       "ex": "NYSE",
       "yf": "YUM",
@@ -15373,7 +15373,7 @@
     "STZ": {
       "name": "Constellation Brands",
       "fv": 176.06,
-      "price": 144.03,
+      "price": 143.62,
       "curr": "$",
       "ex": "NYSE",
       "yf": "STZ",
@@ -15417,7 +15417,7 @@
     "CLX": {
       "name": "Clorox",
       "fv": 108.97,
-      "price": 108.53,
+      "price": 108.39,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CLX",
@@ -15462,7 +15462,7 @@
     "CHD": {
       "name": "Church & Dwight",
       "fv": 88.6,
-      "price": 112.47,
+      "price": 111.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CHD",
@@ -15504,7 +15504,7 @@
     "TJX": {
       "name": "TJX Companies",
       "fv": 69.59,
-      "price": 143.99,
+      "price": 140.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TJX",
@@ -15546,7 +15546,7 @@
     "DECK": {
       "name": "Deckers Outdoor",
       "fv": 91.44,
-      "price": 83.91,
+      "price": 83.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DECK",
@@ -15588,7 +15588,7 @@
     "ONON": {
       "name": "On Holding",
       "fv": 6.69,
-      "price": 32.51,
+      "price": 32.43,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ONON",
@@ -15632,7 +15632,7 @@
     "F": {
       "name": "Ford",
       "fv": 39.31,
-      "price": 11.38,
+      "price": 11.28,
       "curr": "$",
       "ex": "NYSE",
       "yf": "F",
@@ -15677,7 +15677,7 @@
     "GM": {
       "name": "General Motors",
       "fv": null,
-      "price": 83.88,
+      "price": 82.13,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GM",
@@ -15722,7 +15722,7 @@
     "DRI": {
       "name": "Darden Restaurants",
       "fv": 167.14,
-      "price": 237.91,
+      "price": 239.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DRI",
@@ -15766,7 +15766,7 @@
     "LVS": {
       "name": "Las Vegas Sands",
       "fv": 41.88,
-      "price": 39.63,
+      "price": 39.27,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LVS",
@@ -15811,7 +15811,7 @@
     "WSM": {
       "name": "Williams-Sonoma",
       "fv": 87.86,
-      "price": 257.96,
+      "price": 260.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WSM",
@@ -15853,7 +15853,7 @@
     "BBY": {
       "name": "Best Buy",
       "fv": 94.31,
-      "price": 101.07,
+      "price": 100.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BBY",
@@ -15895,7 +15895,7 @@
     "GE": {
       "name": "GE Aerospace",
       "fv": 16.99,
-      "price": 328.31,
+      "price": 328.1,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GE",
@@ -15940,7 +15940,7 @@
     "GEV": {
       "name": "GE Vernova",
       "fv": null,
-      "price": 779.59,
+      "price": 772.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GEV",
@@ -15982,7 +15982,7 @@
     "ETN": {
       "name": "Eaton",
       "fv": 116.33,
-      "price": 339.35,
+      "price": 338.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ETN",
@@ -16026,7 +16026,7 @@
     "EMR": {
       "name": "Emerson Electric",
       "fv": 70.61,
-      "price": 161.79,
+      "price": 162.0,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EMR",
@@ -16068,7 +16068,7 @@
     "ITW": {
       "name": "Illinois Tool Works",
       "fv": 148.07,
-      "price": 284.59,
+      "price": 282.29,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ITW",
@@ -16110,7 +16110,7 @@
     "PH": {
       "name": "Parker-Hannifin",
       "fv": 320.91,
-      "price": 925.06,
+      "price": 918.83,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PH",
@@ -16154,7 +16154,7 @@
     "MMM": {
       "name": "3M",
       "fv": 107.3,
-      "price": 181.56,
+      "price": 181.05,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MMM",
@@ -16198,7 +16198,7 @@
     "CMI": {
       "name": "Cummins",
       "fv": 274.79,
-      "price": 431.15,
+      "price": 427.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CMI",
@@ -16240,7 +16240,7 @@
     "NSC": {
       "name": "Norfolk Southern",
       "fv": 143.15,
-      "price": 324.77,
+      "price": 323.5,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NSC",
@@ -16285,7 +16285,7 @@
     "DAL": {
       "name": "Delta Air Lines",
       "fv": 46.02,
-      "price": 86.15,
+      "price": 84.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DAL",
@@ -16331,7 +16331,7 @@
     "WAB": {
       "name": "Wabtec",
       "fv": 104.45,
-      "price": 291.53,
+      "price": 290.58,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WAB",
@@ -16375,7 +16375,7 @@
     "CARR": {
       "name": "Carrier Global",
       "fv": 29.99,
-      "price": 52.58,
+      "price": 52.06,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CARR",
@@ -16419,7 +16419,7 @@
     "OTIS": {
       "name": "Otis Worldwide",
       "fv": 62.47,
-      "price": 77.71,
+      "price": 77.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OTIS",
@@ -16463,7 +16463,7 @@
     "TT": {
       "name": "Trane Technologies",
       "fv": 136.2,
-      "price": 411.26,
+      "price": 409.8,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TT",
@@ -16505,7 +16505,7 @@
     "JCI": {
       "name": "Johnson Controls",
       "fv": 44.69,
-      "price": 137.84,
+      "price": 138.42,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JCI",
@@ -16550,7 +16550,7 @@
     "ROK": {
       "name": "Rockwell Automation",
       "fv": 173.12,
-      "price": 398.27,
+      "price": 395.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ROK",
@@ -16592,7 +16592,7 @@
     "AME": {
       "name": "Ametek",
       "fv": 96.39,
-      "price": 237.22,
+      "price": 235.61,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AME",
@@ -16636,7 +16636,7 @@
     "GWW": {
       "name": "W.W. Grainger",
       "fv": 447.72,
-      "price": 1455.35,
+      "price": 1448.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GWW",
@@ -16678,7 +16678,7 @@
     "URI": {
       "name": "United Rentals",
       "fv": 183.85,
-      "price": 1082.75,
+      "price": 1088.32,
       "curr": "$",
       "ex": "NYSE",
       "yf": "URI",
@@ -16724,7 +16724,7 @@
     "LHX": {
       "name": "L3Harris",
       "fv": 216.33,
-      "price": 257.12,
+      "price": 256.36,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LHX",
@@ -16766,7 +16766,7 @@
     "TDG": {
       "name": "TransDigm",
       "fv": 518.81,
-      "price": 1179.17,
+      "price": 1177.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TDG",
@@ -16810,7 +16810,7 @@
     "HEI": {
       "name": "Heico",
       "fv": 90.45,
-      "price": 339.88,
+      "price": 338.28,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HEI",
@@ -16852,7 +16852,7 @@
     "EOG": {
       "name": "EOG Resources",
       "fv": 116.19,
-      "price": 150.67,
+      "price": 149.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EOG",
@@ -16896,7 +16896,7 @@
     "MPC": {
       "name": "Marathon Petroleum",
       "fv": 304.67,
-      "price": 377,
+      "price": 373.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MPC",
@@ -16940,7 +16940,7 @@
     "PSX": {
       "name": "Phillips 66",
       "fv": 117.29,
-      "price": 246.34,
+      "price": 244.83,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PSX",
@@ -16985,7 +16985,7 @@
     "VLO": {
       "name": "Valero Energy",
       "fv": 279.49,
-      "price": 344.62,
+      "price": 343.7,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VLO",
@@ -17029,7 +17029,7 @@
     "HAL": {
       "name": "Halliburton",
       "fv": 28.49,
-      "price": 31.59,
+      "price": 31.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HAL",
@@ -17074,7 +17074,7 @@
     "WMB": {
       "name": "Williams Companies",
       "fv": 38.75,
-      "price": 67.64,
+      "price": 67.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WMB",
@@ -17119,7 +17119,7 @@
     "OKE": {
       "name": "Oneok",
       "fv": 66.97,
-      "price": 88.56,
+      "price": 87.72,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OKE",
@@ -17164,7 +17164,7 @@
     "APD": {
       "name": "Air Products",
       "fv": 54.07,
-      "price": 306.79,
+      "price": 308.11,
       "curr": "$",
       "ex": "NYSE",
       "yf": "APD",
@@ -17211,7 +17211,7 @@
     "SHW": {
       "name": "Sherwin-Williams",
       "fv": 152.54,
-      "price": 345.88,
+      "price": 346.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SHW",
@@ -17255,7 +17255,7 @@
     "ECL": {
       "name": "Ecolab",
       "fv": 94.39,
-      "price": 301.37,
+      "price": 300.68,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ECL",
@@ -17299,7 +17299,7 @@
     "NEM": {
       "name": "Newmont",
       "fv": 59.71,
-      "price": 103.59,
+      "price": 104.53,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEM",
@@ -17341,7 +17341,7 @@
     "FCX": {
       "name": "Freeport-McMoRan",
       "fv": 16.38,
-      "price": 51.77,
+      "price": 51.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FCX",
@@ -17386,7 +17386,7 @@
     "NUE": {
       "name": "Nucor",
       "fv": 105.29,
-      "price": 252.81,
+      "price": 250.42,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NUE",
@@ -17431,7 +17431,7 @@
     "DOW": {
       "name": "Dow Inc.",
       "fv": 69.82,
-      "price": 30.19,
+      "price": 30.37,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DOW",
@@ -17477,7 +17477,7 @@
     "DD": {
       "name": "DuPont",
       "fv": 51.77,
-      "price": 150.94,
+      "price": 150.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DD",
@@ -17522,7 +17522,7 @@
     "ALB": {
       "name": "Albemarle",
       "fv": null,
-      "price": 86.57,
+      "price": 85.82,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ALB",
@@ -17567,7 +17567,7 @@
     "CTVA": {
       "name": "Corteva",
       "fv": 36.81,
-      "price": 8.585,
+      "price": 8.36,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CTVA",
@@ -17611,7 +17611,7 @@
     "MOS": {
       "name": "Mosaic",
       "fv": 27.45,
-      "price": 20.09,
+      "price": 19.93,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MOS",
@@ -17657,7 +17657,7 @@
     "CF": {
       "name": "CF Industries",
       "fv": 244.35,
-      "price": 115.42,
+      "price": 113.7,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CF",
@@ -17702,7 +17702,7 @@
     "DUK": {
       "name": "Duke Energy",
       "fv": null,
-      "price": 130.01,
+      "price": 130.05,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DUK",
@@ -17749,7 +17749,7 @@
     "SO": {
       "name": "Southern Company",
       "fv": null,
-      "price": 94.27,
+      "price": 94.41,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SO",
@@ -17796,7 +17796,7 @@
     "D": {
       "name": "Dominion Energy",
       "fv": null,
-      "price": 67.61,
+      "price": 67.39,
       "curr": "$",
       "ex": "NYSE",
       "yf": "D",
@@ -17842,7 +17842,7 @@
     "VST": {
       "name": "Vistra",
       "fv": 71.81,
-      "price": 127.28,
+      "price": 125.58,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VST",
@@ -17889,7 +17889,7 @@
     "LYV": {
       "name": "Live Nation",
       "fv": 66.78,
-      "price": 181.22,
+      "price": 181.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LYV",
@@ -17934,7 +17934,7 @@
     "RBLX": {
       "name": "Roblox",
       "fv": 19.74,
-      "price": 47.11,
+      "price": 47.33,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RBLX",
@@ -17978,7 +17978,7 @@
     "PINS": {
       "name": "Pinterest",
       "fv": 14.59,
-      "price": 17.98,
+      "price": 17.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PINS",
@@ -18022,7 +18022,7 @@
     "CVNA": {
       "name": "Carvana",
       "fv": null,
-      "price": 72.93,
+      "price": 71.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVNA",
@@ -18067,7 +18067,7 @@
     "RDDT": {
       "name": "Reddit",
       "fv": null,
-      "price": 94.99,
+      "price": 94.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RDDT",
@@ -18109,7 +18109,7 @@
     "BUD": {
       "name": "Anheuser-Busch InBev",
       "fv": 84.41,
-      "price": 83.16,
+      "price": 82.98,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BUD",
@@ -18153,7 +18153,7 @@
     "CCL": {
       "name": "Carnival",
       "fv": 10.57,
-      "price": 29.34,
+      "price": 28.97,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CCL",
@@ -18198,7 +18198,7 @@
     "CNI": {
       "name": "Canadian National Railway",
       "fv": 72.74,
-      "price": 125.44,
+      "price": 125.29,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNI",
@@ -18243,7 +18243,7 @@
     "CP": {
       "name": "Canadian Pacific Kansas City",
       "fv": 32.19,
-      "price": 93.17,
+      "price": 93.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CP",
@@ -18288,7 +18288,7 @@
     "NCLH": {
       "name": "Norwegian Cruise Line",
       "fv": null,
-      "price": 18.44,
+      "price": 17.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NCLH",
@@ -18333,7 +18333,7 @@
     "HUBS": {
       "name": "HubSpot",
       "fv": 113.09,
-      "price": 205.16,
+      "price": 205.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HUBS",
@@ -18375,7 +18375,7 @@
     "TWLO": {
       "name": "Twilio",
       "fv": null,
-      "price": 196.19,
+      "price": 195.93,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TWLO",
