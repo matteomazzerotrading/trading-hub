@@ -297,6 +297,11 @@
         .tbo-avviso strong { color: #fff; }
         .sez-nascosta { display: none !important; }
         .div-box > summary::-webkit-details-marker { display: none; }
+        .port-pos-box > summary { list-style: none; }
+        .port-pos-box > summary::-webkit-details-marker { display: none; }
+        .port-pos-box .port-pos-freccia::after { content: 'Mostra tutte ▾'; }
+        .port-pos-box[open] .port-pos-freccia::after { content: 'Chiudi ▴'; }
+        .port-pos-box[open] > summary { padding-bottom: 14px !important; }
         .tbo-telegram { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: #fff; background: rgba(41,169,235,0.08); border: 1px solid rgba(41,169,235,0.35); transition: background .2s; }
         .tbo-telegram:hover { background: rgba(41,169,235,0.16); }
         .tbo-telegram svg { flex-shrink: 0; }
@@ -691,13 +696,29 @@
                         <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);"><strong style="color:#ccc;">Volatilità</strong>: di quanto oscilla il rendimento in un anno tipico (più è alta, più il percorso è accidentato). <strong style="color:#ccc;">Massimo ribasso</strong>: la discesa più profonda da un massimo al minimo successivo. <strong style="color:#ccc;">Correlazione</strong>: quanto i titoli si muovono insieme, da −1 a +1; più è bassa, più il portafoglio è diversificato davvero. Fino a inizio 2026 una buona parte del portafoglio era liquidità, e questo ha tenuto bassi i primi numeri.</p>
                     </div>
                 </div>
+                <!-- Confronto giorno per giorno con gli indici (benchmarks.json) -->
+                <div class="card" style="padding:20px; display:none;" id="bench-card">
+                    <h3 style="margin:0 0 12px; font-size:0.95em; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">🆚 Giorno per giorno contro gli indici</h3>
+                    <div style="display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <div style="display:flex; gap:6px; flex-wrap:wrap;" id="bench-idx-btns"></div>
+                        <div style="display:flex; gap:6px; flex-wrap:wrap;" id="bench-per-btns"></div>
+                    </div>
+                    <div id="bench-corpo"></div>
+                    <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Ogni giornata confronta il rendimento del portafoglio (in dollari, al netto dei versamenti, dalla serie di TradingView) con quello dell'indice tra le stesse due chiusure. Gli indici sono nella loro valuta (S&amp;P 500 e MSCI World in dollari, FTSE MIB in euro) e senza dividendi; quando nello storico manca una seduta, il confronto copre più giorni insieme. Fino a inizio 2026 una buona parte del portafoglio era liquidità, che oscilla meno degli indici.</p>
+                </div>
             </div>
             <!-- Tabella posizioni + widget TradingView -->
             <div style="display: flex; flex-direction: column; gap: 30px;">
-                <div class="card" style="padding: 0; overflow: hidden;">
-                    <div style="padding: 20px 20px 0;">
-                        <h3 style="margin:0 0 16px;">Posizioni</h3>
-                        <div id="port-earnings" style="display:none; font-size:0.82em; color:var(--text-muted); line-height:1.7; margin:-6px 0 14px;"></div>
+                <details class="card port-pos-box" id="port-pos-box" style="padding: 0; overflow: hidden;">
+                    <summary style="padding: 20px; cursor: pointer;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <h3 style="margin:0;">Posizioni <span id="port-pos-n" style="color:var(--text-muted); font-weight:400;"></span></h3>
+                            <span class="port-pos-freccia" style="color:var(--brand-green); font-size:0.8em; font-weight:700; white-space:nowrap;"></span>
+                        </div>
+                        <div id="port-pos-sintesi" style="font-size:0.8em; color:var(--text-muted); line-height:1.7; margin-top:8px;"></div>
+                    </summary>
+                    <div style="padding: 0 20px;">
+                        <div id="port-earnings" style="display:none; font-size:0.82em; color:var(--text-muted); line-height:1.7; margin:0 0 14px;"></div>
                     </div>
                     <div style="overflow-x: auto;">
                         <table style="width:100%; border-collapse:collapse; font-size:0.85em;">
@@ -713,6 +734,11 @@
                             <tbody id="port-positions-tbody"></tbody>
                         </table>
                     </div>
+                </details>
+                <div class="card" id="port-div-card" style="display:none;">
+                    <h3 style="margin:0 0 4px;">🌍 Diversificazione</h3>
+                    <div id="port-div-corpo"></div>
+                    <p style="margin:14px 0 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);"><strong style="color:#ccc;">Valuta</strong>: quella in cui è quotato il titolo. <strong style="color:#ccc;">Paese</strong>: dove ha sede l'attività principale della società (per i titoli di Stato, lo Stato emittente; l'ETF sulle società aurifere è "Globale"). Pesi sul valore del portafoglio, aggiornati ogni sera.</p>
                 </div>
             </div>
         </div>
@@ -2284,6 +2310,9 @@
             if (pd && pd.summary) {
                 renderPortKpi();
                 renderDividendi();
+                renderPosSintesi();
+                renderDiversificazione();
+                caricaBenchmark();
                 const s = pd.summary;
                 document.getElementById('port-count').innerText = (pd.positions || []).length;
                 document.getElementById('port-updated-badge').innerText = '📅 ' + pd.updated;
@@ -2360,6 +2389,104 @@
                 }).join('');
             }
 
+        }
+
+        // === POSIZIONI (sintesi) E DIVERSIFICAZIONE ===
+        function renderPosSintesi() {
+            const P = (portfolioData && portfolioData.positions) || [];
+            if (!P.length) return;
+            document.getElementById('port-pos-n').textContent = '(' + P.length + ')';
+            const prime = [...P].sort((a, b) => b.alloc_pct - a.alloc_pct).slice(0, 5);
+            const peso5 = prime.reduce((a, p) => a + p.alloc_pct, 0);
+            document.getElementById('port-pos-sintesi').innerHTML = 'Le prime cinque: ' + prime.map(p => `<strong style="color:#fff;">${esc(posLabel(p))}</strong> ${p.alloc_pct.toLocaleString('it-IT', { maximumFractionDigits: 1 })}%`).join(' · ')
+                + ` · insieme il ${peso5.toLocaleString('it-IT', { maximumFractionDigits: 0 })}% del portafoglio`;
+        }
+        const AREA_PAESE = { 'Stati Uniti': 'Nord America', 'Canada': 'Nord America', 'Cina': 'Asia', 'Giappone': 'Asia', 'Globale': 'Globale' };
+        const BANDIERA = { 'Stati Uniti': '🇺🇸', 'Canada': '🇨🇦', 'Italia': '🇮🇹', 'Germania': '🇩🇪', 'Francia': '🇫🇷', 'Cina': '🇨🇳', 'Paesi Bassi': '🇳🇱', 'Spagna': '🇪🇸', 'Svizzera': '🇨🇭', 'Regno Unito': '🇬🇧', 'Giappone': '🇯🇵', 'Danimarca': '🇩🇰', 'Globale': '🌐' };
+        function renderDiversificazione() {
+            const P = (portfolioData && portfolioData.positions) || [], C = (portfolioData && portfolioData.classificazione) || {};
+            const card = document.getElementById('port-div-card');
+            if (!card || !P.length) return;
+            const tot = P.reduce((a, p) => a + (p.alloc_pct || 0), 0) || 100;
+            const somma = f => { const g = {}; for (const p of P) { const k = f(p); g[k] = (g[k] || 0) + (p.alloc_pct || 0) / tot * 100; } return Object.entries(g).sort((a, b) => b[1] - a[1]); };
+            const valute = somma(p => p.curr === 'EUR' ? 'Euro' : p.curr === 'USD' ? 'Dollaro USA' : (p.curr || 'Altra'));
+            const paesi = somma(p => (C[p.ticker] && C[p.ticker].paese) || 'Da classificare');
+            const settori = somma(p => (C[p.ticker] && C[p.ticker].settore) || 'Da classificare');
+            const aree = somma(p => { const x = (C[p.ticker] && C[p.ticker].paese) || ''; return x ? (AREA_PAESE[x] || 'Europa') : 'Da classificare'; });
+            const PAL = ['#00e676', '#4fc3f7', '#ffb74d', '#ce93d8', '#f06292', '#aed581', '#ffe082', '#80cbc4', '#90a4ae', '#ef9a9a', '#b39ddb', '#bcaaa4'];
+            const pct = x => x.toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+            const blocco = (titolo, righe, sotto, etichetta = k => k) => {
+                const max = Math.max(...righe.map(r => r[1]), 1);
+                return `<div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">${titolo}</div>`
+                    + righe.map(([k, v], i) => `<div class="bar-row"><div class="bar-label" style="width:160px; flex-shrink:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${etichetta(k)}</div>
+                        <div class="bar-track"><div class="bar-fill" style="width:${(v / max * 100).toFixed(1)}%; background:${PAL[i % PAL.length]};"></div></div><div class="bar-val">${pct(v)}</div></div>`).join('')
+                    + (sotto ? `<div style="font-size:0.78em; color:var(--text-muted); margin-top:4px;">${sotto}</div>` : '');
+            };
+            document.getElementById('port-div-corpo').innerHTML =
+                blocco('Per valuta', valute)
+                + blocco('Per paese', paesi, 'Per area: ' + aree.map(([k, v]) => `${k} ${pct(v)}`).join(' · '), k => `${BANDIERA[k] || ''} ${esc(k)}`)
+                + blocco('Per settore', settori);
+            card.style.display = '';
+        }
+
+        // === CONFRONTO GIORNO PER GIORNO CON GLI INDICI (benchmarks.json) ===
+        let benchDati = null, benchIdx = 'sp500', benchPer = 'YTD';
+        const BENCH_PERIODI = [['3M', '3M'], ['6M', '6M'], ['YTD', 'Da inizio anno'], ['1Y', '1A'], ['ALL', 'Tutto']];
+        async function caricaBenchmark() {
+            if (benchDati) return renderBenchmark();
+            benchDati = await fetchJson('benchmarks.json');
+            if (!benchDati || !benchDati.serie || !Object.keys(benchDati.serie).length) return;
+            if (!benchDati.serie[benchIdx]) benchIdx = Object.keys(benchDati.serie)[0];
+            renderBenchmark();
+        }
+        function setBench(k) { benchIdx = k; renderBenchmark(); }
+        function setBenchPer(k) { benchPer = k; renderBenchmark(); }
+        function renderBenchmark() {
+            const card = document.getElementById('bench-card'), S = benchDati && benchDati.serie && benchDati.serie[benchIdx];
+            const H = ((portfolioData && portfolioData.history) || []).filter(p => p.date && p.perf != null).sort((a, b) => a.date.localeCompare(b.date));
+            if (!card || !S || H.length < 10) return;
+            document.getElementById('bench-idx-btns').innerHTML = Object.entries(benchDati.serie).map(([k, x]) => `<button class="perf-period-btn${k === benchIdx ? ' active' : ''}" onclick="setBench('${k}')">${esc(x.nome)}</button>`).join('');
+            document.getElementById('bench-per-btns').innerHTML = BENCH_PERIODI.map(([k, l]) => `<button class="perf-period-btn${k === benchPer ? ' active' : ''}" onclick="setBenchPer('${k}')">${l}</button>`).join('');
+            // chiusura dell'indice nell'ultima seduta fino a quella data compresa
+            const chiusura = d => { let lo = 0, hi = S.d.length - 1, r = -1; while (lo <= hi) { const m = (lo + hi) >> 1; if (S.d[m] <= d) { r = m; lo = m + 1; } else hi = m - 1; } return r >= 0 ? S.c[r] : null; };
+            const oggi = new Date(), inizio = { '3M': 3, '6M': 6, '1Y': 12 }[benchPer];
+            let da = '0000';
+            if (inizio) { const x = new Date(oggi); x.setMonth(x.getMonth() - inizio); da = x.toISOString().slice(0, 10); }
+            else if (benchPer === 'YTD') da = oggi.getFullYear() + '-01-01';
+            const G = [];
+            for (let i = 1; i < H.length; i++) {
+                const a = H[i - 1], b = H[i];
+                if (b.date < da || a.date < S.d[0]) continue;
+                const ca = chiusura(a.date), cb = chiusura(b.date);
+                if (!ca || !cb) continue;
+                G.push({ d: b.date, p: (1 + b.perf / 100) / (1 + a.perf / 100) - 1, b: cb / ca - 1 });
+            }
+            const corpo = document.getElementById('bench-corpo');
+            card.style.display = '';
+            if (G.length < 5) { corpo.innerHTML = '<div style="color:var(--text-muted); font-size:0.85em; padding:10px 0;">Troppe poche giornate in questo periodo.</div>'; return; }
+            const sopra = G.filter(g => g.p - g.b > 0.0001), sotto = G.filter(g => g.p - g.b < -0.0001), pari = G.length - sopra.length - sotto.length;
+            const media = a => a.length ? a.reduce((x, g) => x + (g.p - g.b), 0) / a.length : 0;
+            const cumul = k => G.reduce((x, g) => x * (1 + g[k]), 1) - 1;
+            const giu = G.filter(g => g.b < 0), su = G.filter(g => g.b > 0);
+            const quota = (a, f) => a.length ? Math.round(a.filter(f).length / a.length * 100) : 0;
+            const sg = (x, d = 2) => (x >= 0 ? '+' : '−') + Math.abs(x * 100).toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d }) + '%';
+            const col = x => x > 0 ? 'var(--brand-green)' : x < 0 ? 'var(--accent-red)' : '#fff';
+            const quando = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
+            const nome = esc(S.nome), mp = G.reduce((m, g) => g.p > m.p ? g : m), pp = G.reduce((m, g) => g.p < m.p ? g : m);
+            const voce = (l, v, sub, c) => `<div><div class="l">${l}</div><div class="v" style="color:${c || '#fff'};">${v}</div><div style="font-size:0.75em; color:var(--text-muted); margin-top:3px;">${sub}</div></div>`;
+            const ord = [...G].sort((x, y) => (y.p - y.b) - (x.p - x.b));
+            const tab = (titolo, righe) => `<div style="flex:1 1 260px; min-width:0;"><div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:16px 0 6px;">${titolo}</div>
+                <table style="width:100%; border-collapse:collapse; font-size:0.82em;"><thead><tr style="color:var(--text-muted); font-size:0.85em;"><th style="text-align:left; padding:4px 0;">Giorno</th><th style="text-align:right;">Portafoglio</th><th style="text-align:right;">${nome}</th><th style="text-align:right;">Scarto</th></tr></thead><tbody>
+                ${righe.map(g => `<tr style="border-top:1px solid var(--border-glass);"><td style="padding:5px 0; white-space:nowrap;">${quando(g.d)}</td><td class="mono-font" style="text-align:right; color:${col(g.p)};">${sg(g.p)}</td><td class="mono-font" style="text-align:right; color:${col(g.b)};">${sg(g.b)}</td><td class="mono-font" style="text-align:right; font-weight:800; color:${col(g.p - g.b)};">${sg(g.p - g.b)}</td></tr>`).join('')}</tbody></table></div>`;
+            corpo.innerHTML = `<div class="mini-kpi">
+                    ${voce('Giorni meglio dell\'indice', `${sopra.length} <span style="font-size:0.6em; color:var(--text-muted);">su ${G.length}</span>`, `${Math.round(sopra.length / G.length * 100)}% delle giornate · in media ${sg(media(sopra))}`, 'var(--brand-green)')}
+                    ${voce('Giorni peggio dell\'indice', `${sotto.length} <span style="font-size:0.6em; color:var(--text-muted);">su ${G.length}</span>`, `${Math.round(sotto.length / G.length * 100)}% delle giornate · in media ${sg(media(sotto))}${pari ? ` · ${pari} pari` : ''}`, 'var(--accent-red)')}
+                    ${voce('Nel periodo', `<span style="color:${col(cumul('p'))};">${sg(cumul('p'), 1)}</span>`, `${nome} ${sg(cumul('b'), 1)}`)}
+                    ${voce('Giornata migliore', `<span style="color:var(--brand-green);">${sg(mp.p)}</span>`, `${quando(mp.d)} · ${nome} ${sg(mp.b)}`)}
+                    ${voce('Giornata peggiore', `<span style="color:var(--accent-red);">${sg(pp.p)}</span>`, `${quando(pp.d)} · ${nome} ${sg(pp.b)}`)}
+                </div>
+                <div style="font-size:0.85em; color:#ddd; line-height:1.6; margin-top:12px;">Nei <strong>${giu.length}</strong> giorni in cui ${{ sp500: 'lo ', ftsemib: 'il ', msciworld: "l'" }[benchIdx] || ''}${nome} è sceso, il portafoglio ha fatto meglio nel <strong>${quota(giu, g => g.p > g.b)}%</strong> dei casi (in media ${sg(giu.reduce((x, g) => x + g.p, 0) / (giu.length || 1))} contro ${sg(giu.reduce((x, g) => x + g.b, 0) / (giu.length || 1))}); nei <strong>${su.length}</strong> giorni di rialzo nel <strong>${quota(su, g => g.p > g.b)}%</strong> (${sg(su.reduce((x, g) => x + g.p, 0) / (su.length || 1))} contro ${sg(su.reduce((x, g) => x + g.b, 0) / (su.length || 1))}).</div>
+                <div style="display:flex; gap:20px; flex-wrap:wrap;">${tab('Le 5 giornate migliori rispetto all\'indice', ord.slice(0, 5))}${tab('Le 5 giornate peggiori rispetto all\'indice', ord.slice(-5).reverse())}</div>`;
         }
 
         // === PORTFOLIO PERFORMANCE CHART ===
