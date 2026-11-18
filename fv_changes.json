@@ -1,6 +1,41 @@
 {
- "aggiornato": "2026-11-17T04:34:14.192Z",
+ "aggiornato": "2026-11-18T03:47:23.364Z",
  "cambi": [
+  {
+   "data": "2026-11-18",
+   "t": "A2A",
+   "nome": "A2A S.p.A.",
+   "da": "banda",
+   "a": "molto_sotto"
+  },
+  {
+   "data": "2026-11-18",
+   "t": "BKNG",
+   "nome": "Booking Holdings",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-18",
+   "t": "DSY",
+   "nome": "Dassault Systèmes",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-18",
+   "t": "MAR",
+   "nome": "Marriott",
+   "da": "sopra",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-18",
+   "t": "PCAR",
+   "nome": "Paccar",
+   "da": "premio_dubbio",
+   "a": "premio_sostenuto"
+  },
   {
    "data": "2026-11-17",
    "t": "TEN",
