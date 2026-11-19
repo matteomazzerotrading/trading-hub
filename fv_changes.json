@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-19T19:59:57.593Z",
+ "aggiornato": "2026-11-19T20:48:03.885Z",
  "cambi": [
   {
    "data": "2026-11-19",
@@ -376,17 +376,24 @@
  "cambi_altri": [
   {
    "data": "2026-11-19",
-   "t": "ADUS",
-   "nome": "Addus HomeCare Corp.",
-   "da": "sotto",
-   "a": "banda"
+   "t": "NFG",
+   "nome": "National Fuel Gas",
+   "da": "sopra",
+   "a": "premio_sostenuto"
   },
   {
    "data": "2026-11-19",
    "t": "NU",
    "nome": "Nu Holdings Ltd. Class A",
-   "da": "equa_declino",
-   "a": "banda"
+   "da": "banda",
+   "a": "equa_declino"
+  },
+  {
+   "data": "2026-11-19",
+   "t": "COF",
+   "nome": "Capital One",
+   "da": "banda",
+   "a": "molto_sotto"
   }
  ]
 }
