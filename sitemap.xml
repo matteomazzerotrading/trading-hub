@@ -3721,12 +3721,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://matteomazzerotrading.github.io/trading-hub/titoli/auph.html</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://matteomazzerotrading.github.io/trading-hub/titoli/aur.html</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -13856,12 +13850,6 @@
   </url>
   <url>
     <loc>https://matteomazzerotrading.github.io/trading-hub/titoli/trv.html</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://matteomazzerotrading.github.io/trading-hub/titoli/trvi.html</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
