@@ -14,6 +14,7 @@ on:
       - 'scripts/compute_diario.mjs'
       - 'scripts/compute_risk.mjs'
       - 'scripts/notify_telegram.mjs'
+      - 'scripts/avvisi_telegram.mjs'
       - 'scripts/fetch_daily.py'
       - 'scripts/compute_patterns_ext.py'
       - '.github/workflows/compute-patterns.yml'
@@ -73,6 +74,11 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_SOLO_REGISTRA: ${{ inputs.solo_registra && '1' || '' }}
         run: node scripts/notify_telegram.mjs
+      - name: Avvisi personali del bot Telegram sui titoli seguiti
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: node scripts/avvisi_telegram.mjs
       - name: Pattern Scanner sugli altri titoli (USA ed Europa)
         continue-on-error: true
         timeout-minutes: 25
@@ -93,6 +99,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: pattern scanner e segnali TBO [skip ci]"
-          file_pattern: "diario.json patterns.json patterns_detail.json patterns_ext.json patterns_ext tbo_signals.json tbo_state.json tbo_state_ext.json tbo_notified.json portfolio_risk.json"
+          file_pattern: "avvisi_stato.json diario.json patterns.json patterns_detail.json patterns_ext.json patterns_ext tbo_signals.json tbo_state.json tbo_state_ext.json tbo_notified.json portfolio_risk.json"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"

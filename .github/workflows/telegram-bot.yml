@@ -1,0 +1,39 @@
+name: Bot Telegram
+
+# Il bot del sito in chat privata (scripts/bot_telegram.mjs): legge i messaggi nuovi e risponde ai comandi /segui,
+# /smetti, /lista. Gli avvisi serali sui titoli seguiti partono da compute-patterns (scripts/avvisi_telegram.mjs).
+# Le iscrizioni sono salvate cifrate in iscrizioni.enc.
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: telegram-bot
+  cancel-in-progress: false
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Rispondi ai messaggi
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: node scripts/bot_telegram.mjs
+      - name: Allinea al ramo principale
+        run: git pull --rebase --autostash
+      - name: Salva le iscrizioni
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto: bot Telegram [skip ci]"
+          file_pattern: "iscrizioni.enc telegram_bot.json"
+          commit_user_name: "TradingHub Bot"
+          commit_user_email: "bot@tradinghub.local"

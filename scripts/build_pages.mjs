@@ -19,6 +19,8 @@ const db = data.db;
 const leggiSe = f => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch (e) { return null; } };
 // Società americane ed europee che non seguo personalmente (fv_ext.json): stessa pagina, con un avviso
 const ext = (leggiSe('fv_ext.json') || {}).titoli || {};
+// nome del bot Telegram (scritto dal workflow del bot): ogni pagina ha il link per ricevere gli avvisi su quel titolo
+const BOT = (leggiSe('telegram_bot.json') || {}).username || null;
 for (const t of Object.keys(ext)) if (db[t]) delete ext[t];
 const tutti = { ...db, ...ext };
 // Storico del fair value rispetto al prezzo (fv_history.json e fv_history_ext.json)
@@ -251,7 +253,8 @@ Per ${esc(d.name)} il modello non produce un fair value: ${ind.status === 'fcf_n
 ${ext[t] ? `<p class="card mu" style="margin-top:10px">Non è tra i titoli che seguo personalmente: è una delle società americane ed europee (indici S&amp;P 500, 400 e 600 e le altre con almeno 2 miliardi di capitalizzazione) per cui calcolo ogni giorno fair value e segnali della mia strategia con lo stesso metodo. <a href="altri.html">Tutti gli altri titoli →</a></p>${ext[t].giovane ? `<p class="card mu" style="margin-top:10px">Quotata da poco: la storia dei prezzi e dei bilanci è ancora breve, quindi il fair value può mancare o essere poco affidabile. I segnali della strategia TBO partono quando ci sono abbastanza sedute (oltre un anno di borsa).</p>` : ''}` : ''}
 <p><span class="badge" style="color:${v.colore};background:${v.colore}1f;border:1px solid ${v.colore}73">${esc(v.titolo)}</span>${aff.livello ? `<span class="aff" style="color:${AFF[aff.livello][0]};border:1px solid ${AFF[aff.livello][0]}73">${AFF[aff.livello][1]}</span>` : ''}</p>
 ${corpo}
-<a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>
+<a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>${BOT ? `
+<p class="mu" style="margin-top:10px">🔔 <a href="https://t.me/${BOT}?start=segui_${t.replace(/\./g, '_')}" rel="noopener">Avvisami su Telegram</a> quando su ${esc(t)} arriva un segnale della mia strategia o cambia il fair value.</p>` : ''}
 ${simili(t, d)}
 <h2>Il metodo in breve</h2>
 <p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione attesa, più la cassa che eccede il debito. Il decennale è quello della valuta del titolo (Bund per l'area euro) e l'inflazione attesa è l'obiettivo della banca centrale. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>

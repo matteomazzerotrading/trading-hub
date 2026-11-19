@@ -804,6 +804,7 @@
                                         ☆ Preferiti
                                     </button>
                                     <button id="fvShare" onclick="copiaLink(this)" class="wl-fv-btn" style="width: auto; padding: 8px 20px;" title="Copia il link diretto a questa scheda">🔗 Copia link</button>
+                                    <a id="fvBot" target="_blank" rel="noopener" class="wl-fv-btn" style="display:none; width:auto; padding:8px 20px; text-decoration:none; border-color:#29a9eb; color:#29a9eb;" title="Ricevi un messaggio su Telegram quando su questo titolo arriva un segnale TBO o cambia il fair value">🔔 Avvisami su Telegram</a>
                                     <button onclick="toggleAlert(currentFVTicker)" class="wl-fv-btn" style="width: auto; padding: 8px 20px; border-color: var(--accent-yellow); color: var(--accent-yellow);" onmouseover="this.style.background='rgba(255,235,59,0.1)'" onmouseout="this.style.background='transparent'">
                                         🔔 Attiva Alert Drop
                                     </button>
@@ -1070,6 +1071,11 @@
                 <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#29a9eb"/><path d="M5.4 11.8l11.6-4.5c.5-.2 1 .1.8.9l-2 9.3c-.1.6-.5.8-1.1.5l-3-2.2-1.4 1.4c-.2.2-.3.3-.6.3l.2-3.1 5.6-5.1c.2-.2 0-.3-.4-.1l-6.9 4.4-3-.9c-.6-.2-.7-.6.2-.9z" fill="#fff"/></svg>
                 <span><strong>Ricevi i segnali su Telegram</strong><small>Ogni sera a mercati chiusi, solo quando ci sono segnali nuovi · t.me/mm_trading_strategy</small></span>
                 <span class="tbo-telegram-cta">Iscriviti →</span>
+            </a>
+            <a id="tbo-bot" href="#" target="_blank" rel="noopener" class="tbo-telegram" style="display:none;">
+                <span style="font-size:1.35em; flex-shrink:0;">🔔</span>
+                <span><strong>Avvisi personali sui titoli che scegli tu</strong><small>Scrivi al bot <span class="bot-nome"></span> per esempio "/segui AAPL ENI": ti scrive solo quando su quei titoli arriva un segnale o cambia il fair value</small></span>
+                <span class="tbo-telegram-cta">Apri il bot →</span>
             </a>
             <div id="tbo-contesto" class="tbo-contesto" style="display:none;"></div>
             <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0;">
@@ -1814,7 +1820,7 @@
                 const livePrice = priceInfo.price;
                 btn.innerText = "ANALIZZA"; btn.style.opacity = "1";
 
-                currentFVTicker = input;
+                currentFVTicker = input; aggiornaBotScheda();
                 document.getElementById('fvName').innerText = data.name;
                 const trim = data.earn_next && new Date(data.earn_next + 'T23:59:59') >= new Date() ? ' · trimestrale il ' + new Date(data.earn_next + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }) : '';
                 document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<span style="font-size:0.78em; color:var(--text-muted);">${data.settore ? data.settore + ' · ' : ''}${trim ? trim.slice(3) + ' · ' : ''}</span>` + (data.fuori && !data.ext ? '<span style="font-size:0.78em; color:var(--accent-yellow);">fuori dal mio elenco: fair value calcolato ora</span>'
@@ -2575,6 +2581,22 @@
                 }).join('');
             }
 
+        }
+
+        // === BOT TELEGRAM (telegram_bot.json → nome del bot, scritto dal workflow del bot) ===
+        let botNome = null;
+        async function caricaBot() {
+            const j = await fetchJson('telegram_bot.json'); if (!j || !j.username) return;
+            botNome = j.username;
+            const a = document.getElementById('tbo-bot');
+            if (a) { a.href = 'https://t.me/' + botNome; a.style.display = ''; a.querySelectorAll('.bot-nome').forEach(x => (x.textContent = '@' + botNome)); }
+            aggiornaBotScheda();
+        }
+        // link diretto che fa seguire il titolo aperto (il punto del ticker diventa "_": SAN.MC → segui_SAN_MC)
+        function aggiornaBotScheda() {
+            const a = document.getElementById('fvBot'); if (!a) return;
+            if (!botNome || !currentFVTicker || !/^[A-Z0-9.\-]{1,14}$/.test(currentFVTicker)) { a.style.display = 'none'; return; }
+            a.href = `https://t.me/${botNome}?start=segui_${currentFVTicker.replace(/\./g, '_')}`; a.style.display = '';
         }
 
         // === DIARIO DELLE OPERAZIONI (diario.json) ===
@@ -3591,6 +3613,7 @@
             loadCambi();
             loadPatterns();
             renderMappa();
+            caricaBot();
             loadTbo();
             document.querySelectorAll('[data-yt]').forEach(w => { w.style.cssText = 'position:absolute; inset:0;'; ytFacade(w, w.dataset.yt, w.dataset.ytTitle); });
             loadSentiment();

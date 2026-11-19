@@ -235,6 +235,9 @@ async function main() {
   let elenco = {};
   try { elenco = JSON.parse(fs.readFileSync(path.join(ROOT, 'tbo_state_ext.json'), 'utf8')).titoli || {}; } catch (e) {}
   const ext = {}, storicoExt = {}; let okExt = 0;
+  // esiti del calcolo precedente, per registrare i cambi anche sugli altri titoli (avvisi del bot Telegram)
+  let extPrima = {}; try { extPrima = JSON.parse(fs.readFileSync(EXT, 'utf8')).titoli || {}; } catch (e) {}
+  const cambiExt = [];
   // Chiave: per le americane il ticker (con .US se lo stesso ticker è già nel mio elenco su un'altra borsa, es. AMP:
   // Ameriprise a New York, Amplifon a Milano); per le europee il simbolo Yahoo con il suffisso della borsa (es. SAN.PA,
   // SAN.MC), perché lo stesso ticker esiste su più borse.
@@ -260,6 +263,12 @@ async function main() {
       'marg_n', 'marg_now', 'anni', 'avvisi'].map(k => [k, r[k] != null ? r[k] : null]));
     e.fv_source = 'indicatore'; e.fv_updated = today;
     ext[t] = e;
+    {
+      const p0 = extPrima[t], prima = p0 && p0.ind && p0.price > 0 ? catDi(p0) : null, dopo = e.price > 0 ? catDi(e) : null;
+      const vicino = [e.fv_low != null ? e.fv_low * (1 - E.P.MOS) : null, e.fv_high, e.fv_mkt].some(x => x > 0 && Math.abs(e.price / x - 1) < 0.02);
+      if (prima && dopo && prima.cat !== 'na' && dopo.cat !== 'na' && prima.cat !== dopo.cat && !vicino)
+        cambiExt.push({ data: today, t, nome: e.name, da: prima.key, a: dopo.key });
+    }
     if (r.status === 'ok') okExt++;
     if (r.status === 'ok' && r.fv > 0 && weekly.length) {
       try {
@@ -271,6 +280,14 @@ async function main() {
   if (Object.keys(ext).length > 300) {
     fs.writeFileSync(EXT, JSON.stringify({ aggiornato: report.run, descrizione: 'società degli indici S&P 500, 400 e 600 e altre società americane ed europee che non seguo personalmente', titoli: ext }) + '\n');
     fs.writeFileSync(HISTORY_EXT, JSON.stringify({ aggiornato: report.run, date: [...trimestri, today], titoli: storicoExt }) + '\n');
+    // cambi di esito degli altri titoli, in fondo allo stesso registro (cambi_altri), ultimi 500
+    try {
+      const reg = JSON.parse(fs.readFileSync(CHANGES, 'utf8'));
+      const vecchi = (reg.cambi_altri || []).filter(x => !cambiExt.some(c => c.t === x.t && c.data === x.data));
+      reg.cambi_altri = cambiExt.concat(vecchi).slice(0, 500);
+      fs.writeFileSync(CHANGES, JSON.stringify(reg, null, 1) + '\n');
+      console.log(`Cambi di esito sugli altri titoli: ${cambiExt.length}`);
+    } catch (e) { console.log('Registro dei cambi non aggiornato:', e.message); }
   }
   console.log(`Titoli aggiunti: ${Object.keys(ext).length} (${okExt} con fair value, ${Object.keys(storicoExt).length} con storico)`);
 }
