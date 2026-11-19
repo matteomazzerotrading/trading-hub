@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-18T18:16:11.437Z",
+ "aggiornato": "2026-11-19T03:34:33.226Z",
  "cambi": [
+  {
+   "data": "2026-11-19",
+   "t": "SRG",
+   "nome": "Snam",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-19",
+   "t": "IG",
+   "nome": "Italgas",
+   "da": "banda",
+   "a": "sotto"
+  },
   {
    "data": "2026-11-18",
    "t": "A2A",
