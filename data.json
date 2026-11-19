@@ -134,7 +134,7 @@
     "GOOG": {
       "name": "Alphabet",
       "fv": 108.26,
-      "price": 279.35,
+      "price": 278.23,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GOOG",
@@ -142,9 +142,9 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "14.6",
+        "pe": "14.5",
         "eps": "19.15",
-        "mcap": "3.44T",
+        "mcap": "3.42T",
         "rev": "+22.2%"
       },
       "tv": "NASDAQ:GOOG",
@@ -218,7 +218,7 @@
     "ADBE": {
       "name": "Adobe",
       "fv": 287.74,
-      "price": 223.12,
+      "price": 222.9,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADBE",
@@ -260,7 +260,7 @@
     "INTU": {
       "name": "Intuit",
       "fv": 346.39,
-      "price": 309.75,
+      "price": 309.38,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTU",
@@ -270,7 +270,7 @@
       "fund": {
         "pe": "18.8",
         "eps": "16.50",
-        "mcap": "82.8B",
+        "mcap": "82.7B",
         "rev": "+13.9%"
       },
       "tv": "NASDAQ:INTU",
@@ -302,7 +302,7 @@
     "QCOM": {
       "name": "Qualcomm",
       "fv": 110.51,
-      "price": 163.67,
+      "price": 162.71,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "QCOM",
@@ -310,9 +310,9 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "12.9",
+        "pe": "12.8",
         "eps": "12.70",
-        "mcap": "175.1B",
+        "mcap": "174.1B",
         "rev": "-2.6%"
       },
       "tv": "NASDAQ:QCOM",
@@ -433,7 +433,7 @@
     "AAPL": {
       "name": "Apple Inc.",
       "fv": 114.78,
-      "price": 348.79,
+      "price": 348.4,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AAPL",
@@ -441,9 +441,9 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "38.9",
+        "pe": "38.8",
         "eps": "8.97",
-        "mcap": "5.07T",
+        "mcap": "5.06T",
         "rev": "+15.1%"
       },
       "tv": "NASDAQ:AAPL",
@@ -475,7 +475,7 @@
     "MSFT": {
       "name": "Microsoft",
       "fv": 187.7,
-      "price": 506.88,
+      "price": 505.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MSFT",
@@ -483,9 +483,9 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "26.5",
+        "pe": "26.4",
         "eps": "19.15",
-        "mcap": "3.76T",
+        "mcap": "3.75T",
         "rev": "+17.9%"
       },
       "tv": "NASDAQ:MSFT",
@@ -519,7 +519,7 @@
     "AMZN": {
       "name": "Amazon",
       "fv": 45.72,
-      "price": 262.24,
+      "price": 261.07,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMZN",
@@ -527,9 +527,9 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "21.2",
+        "pe": "21.1",
         "eps": "12.37",
-        "mcap": "2.84T",
+        "mcap": "2.82T",
         "rev": "+15.4%"
       },
       "tv": "NASDAQ:AMZN",
@@ -566,7 +566,7 @@
     "NVDA": {
       "name": "Nvidia",
       "fv": 30.69,
-      "price": 149.23,
+      "price": 148.38,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NVDA",
@@ -574,9 +574,9 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "16.0",
+        "pe": "15.9",
         "eps": "9.31",
-        "mcap": "3.60T",
+        "mcap": "3.58T",
         "rev": "+93.3%"
       },
       "tv": "NASDAQ:NVDA",
@@ -652,7 +652,7 @@
     "ADM": {
       "name": "Archer-Daniels",
       "fv": 35.92,
-      "price": 67.12,
+      "price": 67.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ADM",
@@ -689,7 +689,7 @@
       "fund": {
         "pe": "13.1",
         "eps": "5.13",
-        "mcap": "31.9B",
+        "mcap": "32.0B",
         "rev": "+1.0%"
       },
       "settore": "Chimica e materiali",
@@ -698,7 +698,7 @@
     "ADP": {
       "name": "Auto Data Proc.",
       "fv": 173.54,
-      "price": 301.31,
+      "price": 301.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADP",
@@ -731,7 +731,7 @@
       "fund": {
         "pe": "26.7",
         "eps": "11.28",
-        "mcap": "118.9B",
+        "mcap": "119.1B",
         "rev": "+6.5%"
       },
       "settore": "Software e servizi IT",
@@ -740,7 +740,7 @@
     "ADSK": {
       "name": "Autodesk Inc.",
       "fv": 129.79,
-      "price": 247.84,
+      "price": 247.55,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADSK",
@@ -775,7 +775,7 @@
       "fund": {
         "pe": "32.1",
         "eps": "7.72",
-        "mcap": "51.8B",
+        "mcap": "51.7B",
         "rev": "+18.7%"
       },
       "settore": "Software e servizi IT",
@@ -784,7 +784,7 @@
     "AMAT": {
       "name": "Applied Materials",
       "fv": 98.6,
-      "price": 343.7,
+      "price": 341.64,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMAT",
@@ -815,9 +815,9 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "27.2",
+        "pe": "27.1",
         "eps": "12.62",
-        "mcap": "272.8B",
+        "mcap": "271.1B",
         "rev": "+21.4%"
       },
       "settore": "Industria",
@@ -826,7 +826,7 @@
     "AMD": {
       "name": "AMD",
       "fv": 19.28,
-      "price": 487.74,
+      "price": 480.2,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMD",
@@ -859,9 +859,9 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "106.0",
+        "pe": "104.4",
         "eps": "4.60",
-        "mcap": "799.9B",
+        "mcap": "787.6B",
         "rev": "+41.9%"
       },
       "settore": "Tecnologia e semiconduttori",
@@ -870,7 +870,7 @@
     "ASML": {
       "name": "ASML Holding",
       "fv": 305.62,
-      "price": 1380.78,
+      "price": 1374.95,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ASML",
@@ -901,7 +901,7 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "34.0",
+        "pe": "33.9",
         "eps": "40.60",
         "mcap": "528.4B",
         "rev": "+29.0%"
@@ -912,7 +912,7 @@
     "AXP": {
       "name": "American Express",
       "fv": 361.65,
-      "price": 312.96,
+      "price": 312.59,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AXP",
@@ -945,7 +945,7 @@
       "fund": {
         "pe": "17.6",
         "eps": "17.76",
-        "mcap": "209.9B",
+        "mcap": "209.6B",
         "rev": "+10.0%"
       },
       "settore": "Finanza",
@@ -954,7 +954,7 @@
     "BAC": {
       "name": "Bank of America",
       "fv": 82.37,
-      "price": 48.62,
+      "price": 48.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BAC",
@@ -990,7 +990,7 @@
       "fund": {
         "pe": "11.6",
         "eps": "4.20",
-        "mcap": "335.5B",
+        "mcap": "335.1B",
         "rev": "-0.6%"
       },
       "settore": "Finanza",
@@ -1090,7 +1090,7 @@
     "BC": {
       "name": "Brunswick Corp",
       "fv": 55.5,
-      "price": 73.64,
+      "price": 73.57,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BC",
@@ -1134,7 +1134,7 @@
     "BNG": {
       "name": "Bunge Global",
       "fv": null,
-      "price": 91.74,
+      "price": 91.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BG",
@@ -1169,7 +1169,7 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "15.4",
+        "pe": "15.5",
         "eps": "5.94",
         "mcap": "17.6B",
         "rev": "+55.5%"
@@ -1224,7 +1224,7 @@
     "BRK.B": {
       "name": "Berkshire Hath.",
       "fv": 381.01,
-      "price": 567.33,
+      "price": 568.08,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BRK-B",
@@ -1258,7 +1258,7 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "15.8",
+        "pe": "15.9",
         "eps": "35.83",
         "mcap": "1.21T",
         "rev": "+6.2%"
@@ -1269,7 +1269,7 @@
     "CAT": {
       "name": "Caterpillar",
       "fv": 189.05,
-      "price": 540.18,
+      "price": 539.83,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CAT",
@@ -1304,7 +1304,7 @@
       "fund": {
         "pe": "21.2",
         "eps": "25.49",
-        "mcap": "247.2B",
+        "mcap": "247.0B",
         "rev": "+20.3%"
       },
       "settore": "Industria",
@@ -1313,7 +1313,7 @@
     "CE": {
       "name": "Celanese",
       "fv": 149.54,
-      "price": 47.58,
+      "price": 47.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CE",
@@ -1358,7 +1358,7 @@
     "CNC": {
       "name": "Centene",
       "fv": 168.03,
-      "price": 65.01,
+      "price": 65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNC",
@@ -1402,7 +1402,7 @@
     "COST": {
       "name": "Costco Wholesale",
       "fv": 331.51,
-      "price": 1089.46,
+      "price": 1090.05,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "COST",
@@ -1435,7 +1435,7 @@
       "fund": {
         "pe": "52.5",
         "eps": "20.76",
-        "mcap": "482.8B",
+        "mcap": "483.0B",
         "rev": "+10.1%"
       },
       "settore": "Commercio al dettaglio",
@@ -1490,7 +1490,7 @@
     "CRM": {
       "name": "Salesforce",
       "fv": 118.46,
-      "price": 187.35,
+      "price": 186.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CRM",
@@ -1521,9 +1521,9 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "17.1",
+        "pe": "17.0",
         "eps": "10.97",
-        "mcap": "154.2B",
+        "mcap": "153.8B",
         "rev": "+11.2%"
       },
       "settore": "Software e servizi IT",
@@ -1532,7 +1532,7 @@
     "CVX": {
       "name": "Chevron",
       "fv": 170.8,
-      "price": 206.19,
+      "price": 206.23,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVX",
@@ -1567,7 +1567,7 @@
       "fund": {
         "pe": "15.1",
         "eps": "13.67",
-        "mcap": "405.2B",
+        "mcap": "405.3B",
         "rev": "+23.0%"
       },
       "settore": "Energia",
@@ -1576,7 +1576,7 @@
     "DDOG": {
       "name": "Datadog",
       "fv": 38.2,
-      "price": 170.43,
+      "price": 169.56,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DDOG",
@@ -1607,9 +1607,9 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "238.9",
+        "pe": "237.6",
         "eps": "0.71",
-        "mcap": "61.5B",
+        "mcap": "61.2B",
         "rev": "+33.2%"
       },
       "settore": "Software e servizi IT",
@@ -1751,7 +1751,7 @@
     "IBM": {
       "name": "IBM",
       "fv": 197.77,
-      "price": 224.69,
+      "price": 224.35,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IBM",
@@ -1784,9 +1784,9 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "19.2",
+        "pe": "19.1",
         "eps": "11.72",
-        "mcap": "212.4B",
+        "mcap": "212.0B",
         "rev": "+6.8%"
       },
       "settore": "Software e servizi IT",
@@ -1795,7 +1795,7 @@
     "INTC": {
       "name": "Intel",
       "fv": 19.69,
-      "price": 56.36,
+      "price": 55.95,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTC",
@@ -1832,7 +1832,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-2.39",
-        "mcap": "299.6B",
+        "mcap": "297.4B",
         "rev": "+12.1%"
       },
       "settore": "Tecnologia e semiconduttori",
@@ -1841,7 +1841,7 @@
     "IP": {
       "name": "International Paper",
       "fv": 41.8,
-      "price": 31.2,
+      "price": 31.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IP",
@@ -1978,7 +1978,7 @@
     "LULU": {
       "name": "Lululemon",
       "fv": 168.04,
-      "price": 106.63,
+      "price": 106.66,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LULU",
@@ -2022,7 +2022,7 @@
     "MA": {
       "name": "Mastercard",
       "fv": 256.32,
-      "price": 628.4,
+      "price": 628.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MA",
@@ -2055,7 +2055,7 @@
       "fund": {
         "pe": "32.9",
         "eps": "19.12",
-        "mcap": "547.4B",
+        "mcap": "547.7B",
         "rev": "+15.3%"
       },
       "settore": "Finanza",
@@ -2106,7 +2106,7 @@
     "OXY": {
       "name": "Occidental Petroleum",
       "fv": 53.31,
-      "price": 53.7,
+      "price": 53.66,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OXY",
@@ -2137,7 +2137,7 @@
       "fv_source": "indicatore",
       "fv_updated": "2026-11-19",
       "fund": {
-        "pe": "12.4",
+        "pe": "12.3",
         "eps": "4.35",
         "mcap": "53.7B",
         "rev": "-7.9%"
@@ -2148,7 +2148,7 @@
     "TTD": {
       "name": "The Trade Desk",
       "fv": 21.57,
-      "price": 15.06,
+      "price": 15.05,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTD",
@@ -2156,7 +2156,7 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "21.9",
+        "pe": "21.8",
         "eps": "0.69",
         "mcap": "7.1B",
         "rev": "+7.0%"
@@ -2190,7 +2190,7 @@
     "TRI": {
       "name": "Thomson Reuters",
       "fv": 73.98,
-      "price": 101.23,
+      "price": 101.39,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TRI",
@@ -2232,7 +2232,7 @@
     "PFE": {
       "name": "Pfizer",
       "fv": 51.78,
-      "price": 27.63,
+      "price": 27.61,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PFE",
@@ -2242,7 +2242,7 @@
       "fund": {
         "pe": "39.5",
         "eps": "0.70",
-        "mcap": "157.5B",
+        "mcap": "157.4B",
         "rev": "+1.3%"
       },
       "tv": "NYSE:PFE",
@@ -2276,7 +2276,7 @@
     "BSX": {
       "name": "Boston Scientific",
       "fv": 26.16,
-      "price": 43.22,
+      "price": 43.19,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BSX",
@@ -2321,7 +2321,7 @@
     "BLDR": {
       "name": "Builders FirstSource",
       "fv": 94.25,
-      "price": 56.55,
+      "price": 56.47,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLDR",
@@ -2329,7 +2329,7 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "149.8",
+        "pe": "149.6",
         "eps": "0.38",
         "mcap": "6.1B",
         "rev": "-8.3%"
@@ -2451,7 +2451,7 @@
     "BR": {
       "name": "Broadridge Financial",
       "fv": 128.8,
-      "price": 183.13,
+      "price": 183.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BR",
@@ -2459,7 +2459,7 @@
       "videoID": null,
       "updated": "2026-11-19",
       "fund": {
-        "pe": "20.2",
+        "pe": "20.3",
         "eps": "9.05",
         "mcap": "20.7B",
         "rev": "+7.1%"
@@ -2535,7 +2535,7 @@
     "PDD": {
       "name": "PDD Holdings",
       "fv": 291.64,
-      "price": 85.89,
+      "price": 85.91,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PDD",
@@ -2579,7 +2579,7 @@
     "FUN": {
       "name": "Six Flags Entertain.",
       "fv": 35.28,
-      "price": 11.96,
+      "price": 11.91,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FUN",
@@ -2713,7 +2713,7 @@
     "NFLX": {
       "name": "Netflix",
       "fv": 3.17,
-      "price": 58.89,
+      "price": 58.7,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NFLX",
@@ -2723,7 +2723,7 @@
       "fund": {
         "pe": "17.0",
         "eps": "3.46",
-        "mcap": "241.8B",
+        "mcap": "241.0B",
         "rev": "+15.4%"
       },
       "tv": "NASDAQ:NFLX",
@@ -2851,7 +2851,7 @@
     "NOC": {
       "name": "Northrop Grumman",
       "fv": 426.48,
-      "price": 542.77,
+      "price": 543.24,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOC",
@@ -2860,7 +2860,7 @@
       "fund": {
         "pe": "17.1",
         "eps": "31.77",
-        "mcap": "77.1B",
+        "mcap": "77.2B",
         "rev": "+6.5%"
       },
       "tv": "NYSE:NOC",
@@ -2896,7 +2896,7 @@
     "RTX": {
       "name": "RTX Corp",
       "fv": 86.29,
-      "price": 195.73,
+      "price": 195.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RTX",
@@ -2940,7 +2940,7 @@
     "LMT": {
       "name": "Lockheed Martin",
       "fv": 563.96,
-      "price": 570.74,
+      "price": 571.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LMT",
@@ -2949,7 +2949,7 @@
       "fund": {
         "pe": "20.3",
         "eps": "28.15",
-        "mcap": "131.8B",
+        "mcap": "132.0B",
         "rev": "+7.9%"
       },
       "tv": "NYSE:LMT",
@@ -2982,7 +2982,7 @@
     "GD": {
       "name": "General Dynamics",
       "fv": 263.46,
-      "price": 347.92,
+      "price": 347.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GD",
@@ -3024,16 +3024,16 @@
     "HWM": {
       "name": "Howmet Aerospace",
       "fv": 4.06,
-      "price": 219.47,
+      "price": 218.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HWM",
       "divYield": 0.23,
       "videoID": null,
       "fund": {
-        "pe": "43.0",
+        "pe": "42.9",
         "eps": "5.11",
-        "mcap": "87.3B",
+        "mcap": "87.0B",
         "rev": "+22.0%"
       },
       "tv": "NYSE:HWM",
@@ -3070,7 +3070,7 @@
     "HON": {
       "name": "Honeywell",
       "fv": 255.18,
-      "price": 218.21,
+      "price": 217.94,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
@@ -3079,7 +3079,7 @@
       "fund": {
         "pe": "9.3",
         "eps": "23.41",
-        "mcap": "69.3B",
+        "mcap": "69.2B",
         "rev": "-17.4%"
       },
       "tv": "NASDAQ:HON",
@@ -3112,7 +3112,7 @@
     "BA": {
       "name": "Boeing",
       "fv": 9.11,
-      "price": 161.09,
+      "price": 160.72,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BA",
@@ -3121,7 +3121,7 @@
       "fund": {
         "pe": "17.7",
         "eps": "9.08",
-        "mcap": "127.7B",
+        "mcap": "127.4B",
         "rev": "+17.5%"
       },
       "tv": "NYSE:BA",
@@ -3158,7 +3158,7 @@
     "UNP": {
       "name": "Union Pacific",
       "fv": 163.92,
-      "price": 291.92,
+      "price": 291.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNP",
@@ -3167,7 +3167,7 @@
       "fund": {
         "pe": "22.8",
         "eps": "12.83",
-        "mcap": "173.5B",
+        "mcap": "173.4B",
         "rev": "+7.4%"
       },
       "tv": "NYSE:UNP",
@@ -3202,7 +3202,7 @@
     "UPS": {
       "name": "UPS",
       "fv": 91.47,
-      "price": 109.05,
+      "price": 108.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UPS",
@@ -3211,7 +3211,7 @@
       "fund": {
         "pe": "21.0",
         "eps": "5.19",
-        "mcap": "92.8B",
+        "mcap": "92.7B",
         "rev": "+2.3%"
       },
       "tv": "NYSE:UPS",
@@ -3247,7 +3247,7 @@
     "FDX": {
       "name": "FedEx",
       "fv": 185.75,
-      "price": 315.32,
+      "price": 314.75,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FDX",
@@ -3256,7 +3256,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
-        "mcap": "73.8B",
+        "mcap": "73.7B",
         "rev": "N/D"
       },
       "tv": "NYSE:FDX",
@@ -3293,16 +3293,16 @@
     "DE": {
       "name": "Deere & Company",
       "fv": 134.53,
-      "price": 634.56,
+      "price": 633.18,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DE",
       "divYield": 1.01,
       "videoID": null,
       "fund": {
-        "pe": "35.3",
+        "pe": "35.2",
         "eps": "17.99",
-        "mcap": "171.1B",
+        "mcap": "170.7B",
         "rev": "+8.0%"
       },
       "tv": "NYSE:DE",
@@ -3339,7 +3339,7 @@
     "KMI": {
       "name": "Kinder Morgan",
       "fv": 28.4,
-      "price": 31.45,
+      "price": 31.48,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KMI",
@@ -3383,7 +3383,7 @@
     "COP": {
       "name": "ConocoPhillips",
       "fv": 124.7,
-      "price": 134.11,
+      "price": 134.25,
       "curr": "$",
       "ex": "NYSE",
       "yf": "COP",
@@ -3392,7 +3392,7 @@
       "fund": {
         "pe": "14.1",
         "eps": "9.50",
-        "mcap": "158.6B",
+        "mcap": "158.7B",
         "rev": "+13.5%"
       },
       "tv": "NYSE:COP",
@@ -3427,7 +3427,7 @@
     "DVN": {
       "name": "Devon Energy",
       "fv": 25.86,
-      "price": 41.93,
+      "price": 41.97,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DVN",
@@ -3473,7 +3473,7 @@
     "SLB": {
       "name": "Schlumberger",
       "fv": 50.94,
-      "price": 48.28,
+      "price": 48.2,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SLB",
@@ -3482,7 +3482,7 @@
       "fund": {
         "pe": "23.5",
         "eps": "2.05",
-        "mcap": "71.3B",
+        "mcap": "71.1B",
         "rev": "+4.6%"
       },
       "tv": "NYSE:SLB",
@@ -3515,7 +3515,7 @@
     "XOM": {
       "name": "ExxonMobil",
       "fv": 105.31,
-      "price": 159,
+      "price": 159.06,
       "curr": "$",
       "ex": "NYSE",
       "yf": "XOM",
@@ -3524,7 +3524,7 @@
       "fund": {
         "pe": "16.3",
         "eps": "9.73",
-        "mcap": "648.6B",
+        "mcap": "648.8B",
         "rev": "+21.2%"
       },
       "tv": "NYSE:XOM",
@@ -3560,7 +3560,7 @@
     "ABBV": {
       "name": "AbbVie",
       "fv": 254.26,
-      "price": 282.88,
+      "price": 283.1,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABBV",
@@ -3569,7 +3569,7 @@
       "fund": {
         "pe": "48.7",
         "eps": "5.81",
-        "mcap": "500.0B",
+        "mcap": "500.4B",
         "rev": "+10.7%"
       },
       "tv": "NYSE:ABBV",
@@ -3604,16 +3604,16 @@
     "MRK": {
       "name": "Merck & Co",
       "fv": 109.63,
-      "price": 133.13,
+      "price": 132.79,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MRK",
       "divYield": 2.47,
       "videoID": null,
       "fund": {
-        "pe": "136.0",
+        "pe": "135.6",
         "eps": "0.98",
-        "mcap": "328.2B",
+        "mcap": "327.4B",
         "rev": "+5.2%"
       },
       "tv": "NYSE:MRK",
@@ -3648,7 +3648,7 @@
     "LLY": {
       "name": "Eli Lilly",
       "fv": 243.07,
-      "price": 1355.27,
+      "price": 1354.32,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LLY",
@@ -3690,7 +3690,7 @@
     "MDT": {
       "name": "Medtronic",
       "fv": 82.69,
-      "price": 100.63,
+      "price": 100.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MDT",
@@ -3699,7 +3699,7 @@
       "fund": {
         "pe": "24.8",
         "eps": "4.06",
-        "mcap": "128.7B",
+        "mcap": "128.8B",
         "rev": "+9.8%"
       },
       "tv": "NYSE:MDT",
@@ -3732,7 +3732,7 @@
     "BDX": {
       "name": "Becton Dickinson",
       "fv": 169.7,
-      "price": 212.62,
+      "price": 212.73,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BDX",
@@ -3776,16 +3776,16 @@
     "DHR": {
       "name": "Danaher",
       "fv": 108.67,
-      "price": 227.85,
+      "price": 227.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DHR",
       "divYield": 0.66,
       "videoID": null,
       "fund": {
-        "pe": "37.3",
+        "pe": "37.2",
         "eps": "6.11",
-        "mcap": "160.3B",
+        "mcap": "159.9B",
         "rev": "+5.5%"
       },
       "tv": "NYSE:DHR",
@@ -3818,16 +3818,16 @@
     "TMO": {
       "name": "Thermo Fisher",
       "fv": 305.24,
-      "price": 693.48,
+      "price": 692.2,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TMO",
       "divYield": 0.27,
       "videoID": null,
       "fund": {
-        "pe": "36.6",
+        "pe": "36.5",
         "eps": "18.95",
-        "mcap": "256.9B",
+        "mcap": "256.5B",
         "rev": "+8.3%"
       },
       "tv": "NYSE:TMO",
@@ -3862,16 +3862,16 @@
     "MTD": {
       "name": "Mettler-Toledo",
       "fv": 544.66,
-      "price": 1707.24,
+      "price": 1703.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MTD",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "37.0",
+        "pe": "36.9",
         "eps": "46.14",
-        "mcap": "34.0B",
+        "mcap": "33.9B",
         "rev": "+6.5%"
       },
       "tv": "NYSE:MTD",
@@ -3904,7 +3904,7 @@
     "REGN": {
       "name": "Regeneron Pharma",
       "fv": 705.55,
-      "price": 936.98,
+      "price": 937.68,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "REGN",
@@ -3913,7 +3913,7 @@
       "fund": {
         "pe": "20.7",
         "eps": "45.30",
-        "mcap": "96.9B",
+        "mcap": "97.0B",
         "rev": "+18.6%"
       },
       "tv": "NASDAQ:REGN",
@@ -3988,16 +3988,16 @@
     "ISRG": {
       "name": "Intuitive Surgical",
       "fv": 108.69,
-      "price": 412.24,
+      "price": 411.84,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ISRG",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "49.9",
+        "pe": "49.8",
         "eps": "8.27",
-        "mcap": "142.9B",
+        "mcap": "142.8B",
         "rev": "+20.5%"
       },
       "tv": "NASDAQ:ISRG",
@@ -4030,16 +4030,16 @@
     "VRTX": {
       "name": "Vertex Pharma",
       "fv": 283.22,
-      "price": 524.98,
+      "price": 524.25,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRTX",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "33.8",
+        "pe": "33.7",
         "eps": "15.55",
-        "mcap": "133.1B",
+        "mcap": "132.9B",
         "rev": "+11.0%"
       },
       "tv": "NASDAQ:VRTX",
@@ -4074,7 +4074,7 @@
     "ELV": {
       "name": "Elevance Health",
       "fv": 654.25,
-      "price": 391.1,
+      "price": 391.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ELV",
@@ -4118,7 +4118,7 @@
     "UNH": {
       "name": "UnitedHealth",
       "fv": 600.88,
-      "price": 332.83,
+      "price": 332.71,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNH",
@@ -4127,7 +4127,7 @@
       "fund": {
         "pe": "19.0",
         "eps": "17.52",
-        "mcap": "298.2B",
+        "mcap": "298.1B",
         "rev": "+3.3%"
       },
       "tv": "NYSE:UNH",
@@ -4162,7 +4162,7 @@
     "CVS": {
       "name": "CVS Health",
       "fv": 210.57,
-      "price": 79.69,
+      "price": 79.72,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVS",
@@ -4206,14 +4206,14 @@
     "NVO": {
       "name": "Novo Nordisk ADR",
       "fv": 57.47,
-      "price": 38.63,
+      "price": 38.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NVO",
       "divYield": 3.12,
       "videoID": null,
       "fund": {
-        "pe": "9.7",
+        "pe": "9.8",
         "eps": "3.97",
         "mcap": "176.2B",
         "rev": "+11.2%"
@@ -4250,16 +4250,16 @@
     "JPM": {
       "name": "JPMorgan Chase",
       "fv": 560.47,
-      "price": 320.61,
+      "price": 320.18,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JPM",
       "divYield": 1.9,
       "videoID": null,
       "fund": {
-        "pe": "13.5",
+        "pe": "13.4",
         "eps": "23.84",
-        "mcap": "851.4B",
+        "mcap": "850.3B",
         "rev": "+8.9%"
       },
       "tv": "NYSE:JPM",
@@ -4295,7 +4295,7 @@
     "BLK": {
       "name": "BlackRock",
       "fv": 452.2,
-      "price": 1148.71,
+      "price": 1147.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLK",
@@ -4304,7 +4304,7 @@
       "fund": {
         "pe": "27.2",
         "eps": "42.27",
-        "mcap": "186.1B",
+        "mcap": "186.0B",
         "rev": "+24.2%"
       },
       "tv": "NYSE:BLK",
@@ -4339,7 +4339,7 @@
     "C": {
       "name": "Citigroup",
       "fv": 178.74,
-      "price": 115.85,
+      "price": 115.55,
       "curr": "$",
       "ex": "NYSE",
       "yf": "C",
@@ -4348,7 +4348,7 @@
       "fund": {
         "pe": "11.3",
         "eps": "10.26",
-        "mcap": "191.8B",
+        "mcap": "191.3B",
         "rev": "+14.2%"
       },
       "tv": "NYSE:C",
@@ -4384,7 +4384,7 @@
     "GS": {
       "name": "Goldman Sachs",
       "fv": 1041.22,
-      "price": 855.34,
+      "price": 853.02,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GS",
@@ -4393,7 +4393,7 @@
       "fund": {
         "pe": "12.3",
         "eps": "69.55",
-        "mcap": "246.7B",
+        "mcap": "246.0B",
         "rev": "+12.0%"
       },
       "tv": "NYSE:GS",
@@ -4429,16 +4429,16 @@
     "V": {
       "name": "Visa",
       "fv": 198.73,
-      "price": 402.87,
+      "price": 402.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "V",
       "divYield": 0.65,
       "videoID": null,
       "fund": {
-        "pe": "33.0",
+        "pe": "32.9",
         "eps": "12.22",
-        "mcap": "747.1B",
+        "mcap": "746.7B",
         "rev": "+14.8%"
       },
       "tv": "NYSE:V",
@@ -4471,7 +4471,7 @@
     "MCO": {
       "name": "Moody's Corp",
       "fv": 188.02,
-      "price": 474.95,
+      "price": 474.58,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCO",
@@ -4480,7 +4480,7 @@
       "fund": {
         "pe": "28.9",
         "eps": "16.41",
-        "mcap": "81.9B",
+        "mcap": "81.8B",
         "rev": "+9.0%"
       },
       "tv": "NYSE:MCO",
@@ -4513,7 +4513,7 @@
     "CB": {
       "name": "Chubb",
       "fv": 767.98,
-      "price": 368.96,
+      "price": 369.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CB",
@@ -4522,7 +4522,7 @@
       "fund": {
         "pe": "12.9",
         "eps": "28.57",
-        "mcap": "141.0B",
+        "mcap": "141.2B",
         "rev": "+5.9%"
       },
       "tv": "NYSE:CB",
@@ -4555,7 +4555,7 @@
     "L": {
       "name": "Loews Corp",
       "fv": 217.57,
-      "price": 109.3,
+      "price": 109.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "L",
@@ -4597,14 +4597,14 @@
     "RSG": {
       "name": "Republic Services",
       "fv": 134.79,
-      "price": 246.09,
+      "price": 246.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RSG",
       "divYield": 1.02,
       "videoID": null,
       "fund": {
-        "pe": "34.0",
+        "pe": "34.1",
         "eps": "7.23",
         "mcap": "75.0B",
         "rev": "+4.5%"
@@ -4641,7 +4641,7 @@
     "WM": {
       "name": "Waste Management",
       "fv": 149.88,
-      "price": 237.87,
+      "price": 238.1,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WM",
@@ -4650,7 +4650,7 @@
       "fund": {
         "pe": "31.2",
         "eps": "7.62",
-        "mcap": "94.6B",
+        "mcap": "94.7B",
         "rev": "+5.2%"
       },
       "tv": "NYSE:WM",
@@ -4686,16 +4686,16 @@
     "PM": {
       "name": "Philip Morris",
       "fv": 147.39,
-      "price": 185.37,
+      "price": 186.08,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PM",
       "divYield": 3.12,
       "videoID": null,
       "fund": {
-        "pe": "27.1",
+        "pe": "27.2",
         "eps": "6.85",
-        "mcap": "288.9B",
+        "mcap": "290.0B",
         "rev": "+7.9%"
       },
       "tv": "NYSE:PM",
@@ -4728,7 +4728,7 @@
     "PEP": {
       "name": "PepsiCo",
       "fv": 123.41,
-      "price": 138.58,
+      "price": 138.84,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PEP",
@@ -4737,7 +4737,7 @@
       "fund": {
         "pe": "17.4",
         "eps": "7.96",
-        "mcap": "188.8B",
+        "mcap": "189.2B",
         "rev": "+6.4%"
       },
       "tv": "NASDAQ:PEP",
@@ -4772,16 +4772,16 @@
     "KO": {
       "name": "Coca-Cola",
       "fv": 44.55,
-      "price": 95.97,
+      "price": 96.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "KO",
       "divYield": 2.14,
       "videoID": null,
       "fund": {
-        "pe": "28.3",
+        "pe": "28.4",
         "eps": "3.39",
-        "mcap": "412.8B",
+        "mcap": "413.6B",
         "rev": "+7.7%"
       },
       "tv": "NYSE:KO",
@@ -4816,16 +4816,16 @@
     "AZO": {
       "name": "AutoZone",
       "fv": 2770.9,
-      "price": 3272.24,
+      "price": 3278.47,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AZO",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "21.4",
+        "pe": "21.5",
         "eps": "152.79",
-        "mcap": "52.7B",
+        "mcap": "52.8B",
         "rev": "+7.4%"
       },
       "tv": "NYSE:AZO",
@@ -4861,7 +4861,7 @@
     "MO": {
       "name": "Altria Group",
       "fv": 97.71,
-      "price": 73.91,
+      "price": 74.07,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MO",
@@ -4870,7 +4870,7 @@
       "fund": {
         "pe": "15.3",
         "eps": "4.84",
-        "mcap": "122.9B",
+        "mcap": "123.2B",
         "rev": "+2.4%"
       },
       "tv": "NYSE:MO",
@@ -4905,16 +4905,16 @@
     "CL": {
       "name": "Colgate-Palmolive",
       "fv": 82.8,
-      "price": 97.14,
+      "price": 97.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CL",
       "divYield": 2.13,
       "videoID": null,
       "fund": {
-        "pe": "37.9",
+        "pe": "38.0",
         "eps": "2.56",
-        "mcap": "77.2B",
+        "mcap": "77.4B",
         "rev": "+5.9%"
       },
       "tv": "NYSE:CL",
@@ -4949,16 +4949,16 @@
     "PG": {
       "name": "Procter & Gamble",
       "fv": 117.8,
-      "price": 168.21,
+      "price": 168.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PG",
       "divYield": 2.54,
       "videoID": null,
       "fund": {
-        "pe": "25.3",
+        "pe": "25.4",
         "eps": "6.64",
-        "mcap": "389.9B",
+        "mcap": "390.7B",
         "rev": "+3.5%"
       },
       "tv": "NYSE:PG",
@@ -4991,7 +4991,7 @@
     "GIS": {
       "name": "General Mills",
       "fv": 99.06,
-      "price": 34.06,
+      "price": 34.11,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GIS",
@@ -5037,16 +5037,16 @@
     "HD": {
       "name": "Home Depot",
       "fv": 256.57,
-      "price": 337.41,
+      "price": 337.54,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HD",
       "divYield": 2.75,
       "videoID": null,
       "fund": {
-        "pe": "23.4",
+        "pe": "23.5",
         "eps": "14.39",
-        "mcap": "336.6B",
+        "mcap": "336.8B",
         "rev": "+3.0%"
       },
       "tv": "NYSE:HD",
@@ -5079,7 +5079,7 @@
     "ROST": {
       "name": "Ross Stores",
       "fv": 103.43,
-      "price": 223.41,
+      "price": 223.22,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
@@ -5088,7 +5088,7 @@
       "fund": {
         "pe": "27.0",
         "eps": "8.28",
-        "mcap": "71.4B",
+        "mcap": "71.3B",
         "rev": "+14.0%"
       },
       "tv": "NASDAQ:ROST",
@@ -5121,7 +5121,7 @@
     "ORLY": {
       "name": "O'Reilly Automotive",
       "fv": 49.19,
-      "price": 93.18,
+      "price": 93.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ORLY",
@@ -5130,7 +5130,7 @@
       "fund": {
         "pe": "28.6",
         "eps": "3.26",
-        "mcap": "74.7B",
+        "mcap": "74.8B",
         "rev": "+8.7%"
       },
       "tv": "NASDAQ:ORLY",
@@ -5166,7 +5166,7 @@
     "DG": {
       "name": "Dollar General",
       "fv": 184.95,
-      "price": 133.18,
+      "price": 133.21,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DG",
@@ -5210,7 +5210,7 @@
     "MCD": {
       "name": "McDonald's",
       "fv": 179.16,
-      "price": 270.87,
+      "price": 270.86,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCD",
@@ -5254,16 +5254,16 @@
     "NKE": {
       "name": "Nike",
       "fv": 40.87,
-      "price": 34.53,
+      "price": 34.49,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NKE",
       "divYield": 4.52,
       "videoID": null,
       "fund": {
-        "pe": "16.6",
+        "pe": "16.5",
         "eps": "2.09",
-        "mcap": "51.3B",
+        "mcap": "51.2B",
         "rev": "-1.4%"
       },
       "tv": "NYSE:NKE",
@@ -5298,7 +5298,7 @@
     "DIS": {
       "name": "Walt Disney",
       "fv": 61.73,
-      "price": 121.25,
+      "price": 120.91,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DIS",
@@ -5307,7 +5307,7 @@
       "fund": {
         "pe": "21.5",
         "eps": "5.63",
-        "mcap": "207.1B",
+        "mcap": "206.5B",
         "rev": "+9.0%"
       },
       "tv": "NYSE:DIS",
@@ -5342,7 +5342,7 @@
     "VZ": {
       "name": "Verizon",
       "fv": 90.15,
-      "price": 45.59,
+      "price": 45.66,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VZ",
@@ -5351,7 +5351,7 @@
       "fund": {
         "pe": "11.6",
         "eps": "3.92",
-        "mcap": "189.0B",
+        "mcap": "189.3B",
         "rev": "+1.4%"
       },
       "tv": "NYSE:VZ",
@@ -5387,7 +5387,7 @@
     "T": {
       "name": "AT&T",
       "fv": 52.79,
-      "price": 21.74,
+      "price": 21.77,
       "curr": "$",
       "ex": "NYSE",
       "yf": "T",
@@ -5396,7 +5396,7 @@
       "fund": {
         "pe": "11.7",
         "eps": "1.85",
-        "mcap": "146.5B",
+        "mcap": "146.6B",
         "rev": "+3.5%"
       },
       "tv": "NYSE:T",
@@ -5432,7 +5432,7 @@
     "CHTR": {
       "name": "Charter Comm.",
       "fv": 543.26,
-      "price": 135.34,
+      "price": 134.93,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CHTR",
@@ -5441,7 +5441,7 @@
       "fund": {
         "pe": "14.0",
         "eps": "9.66",
-        "mcap": "23.7B",
+        "mcap": "23.6B",
         "rev": "+1.0%"
       },
       "tv": "NASDAQ:CHTR",
@@ -5476,16 +5476,16 @@
     "TMUS": {
       "name": "T-Mobile US",
       "fv": 53.79,
-      "price": 162.04,
+      "price": 162.36,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TMUS",
       "divYield": 2.49,
       "videoID": null,
       "fund": {
-        "pe": "15.6",
+        "pe": "15.7",
         "eps": "10.37",
-        "mcap": "171.6B",
+        "mcap": "172.0B",
         "rev": "+9.3%"
       },
       "tv": "NASDAQ:TMUS",
@@ -5521,7 +5521,7 @@
     "RCL": {
       "name": "Royal Caribbean",
       "fv": 17.85,
-      "price": 309.93,
+      "price": 308.74,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RCL",
@@ -5530,7 +5530,7 @@
       "fund": {
         "pe": "18.3",
         "eps": "16.89",
-        "mcap": "82.9B",
+        "mcap": "82.6B",
         "rev": "+9.7%"
       },
       "tv": "NYSE:RCL",
@@ -5567,14 +5567,14 @@
     "META": {
       "name": "Meta Platforms",
       "fv": 317.78,
-      "price": 607.45,
+      "price": 604.48,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "META",
       "divYield": 0.34,
       "videoID": null,
       "fund": {
-        "pe": "20.7",
+        "pe": "20.6",
         "eps": "29.33",
         "mcap": "1.55T",
         "rev": "+27.5%"
@@ -5611,14 +5611,14 @@
     "TSLA": {
       "name": "Tesla",
       "fv": 20.25,
-      "price": 378.14,
+      "price": 376.67,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TSLA",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "415.9",
+        "pe": "414.3",
         "eps": "0.91",
         "mcap": "1.49T",
         "rev": "+8.3%"
@@ -5656,16 +5656,16 @@
     "AVGO": {
       "name": "Broadcom",
       "fv": 61.51,
-      "price": 350.5,
+      "price": 348.07,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AVGO",
       "divYield": 0.73,
       "videoID": null,
       "fund": {
-        "pe": "44.7",
+        "pe": "44.4",
         "eps": "7.83",
-        "mcap": "1.67T",
+        "mcap": "1.66T",
         "rev": "+48.7%"
       },
       "tv": "NASDAQ:AVGO",
@@ -5698,16 +5698,16 @@
     "ORCL": {
       "name": "Oracle",
       "fv": 75.51,
-      "price": 112.43,
+      "price": 111.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ORCL",
       "divYield": 1.76,
       "videoID": null,
       "fund": {
-        "pe": "17.6",
+        "pe": "17.5",
         "eps": "6.38",
-        "mcap": "340.0B",
+        "mcap": "338.2B",
         "rev": "+21.6%"
       },
       "tv": "NYSE:ORCL",
@@ -5745,16 +5745,16 @@
     "TXN": {
       "name": "Texas Instruments",
       "fv": 80.44,
-      "price": 288.72,
+      "price": 287.58,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TXN",
       "divYield": 1.98,
       "videoID": null,
       "fund": {
-        "pe": "37.5",
+        "pe": "37.3",
         "eps": "7.71",
-        "mcap": "263.8B",
+        "mcap": "262.8B",
         "rev": "+20.3%"
       },
       "tv": "NASDAQ:TXN",
@@ -5789,16 +5789,16 @@
     "BKNG": {
       "name": "Booking Holdings",
       "fv": 155.76,
-      "price": 149.83,
+      "price": 149.48,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKNG",
       "divYield": 1.07,
       "videoID": null,
       "fund": {
-        "pe": "16.2",
+        "pe": "16.1",
         "eps": "9.27",
-        "mcap": "111.4B",
+        "mcap": "111.2B",
         "rev": "+8.0%"
       },
       "tv": "NASDAQ:BKNG",
@@ -5833,16 +5833,16 @@
     "SHOP": {
       "name": "Shopify",
       "fv": 7.93,
-      "price": 133.9,
+      "price": 132.55,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SHOP",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "83.4",
+        "pe": "82.6",
         "eps": "1.61",
-        "mcap": "172.3B",
+        "mcap": "170.5B",
         "rev": "+28.7%"
       },
       "tv": "NASDAQ:SHOP",
@@ -5877,16 +5877,16 @@
     "CRWD": {
       "name": "CrowdStrike",
       "fv": 19.31,
-      "price": 245.79,
+      "price": 244.69,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CRWD",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "6884.9",
+        "pe": "6854.1",
         "eps": "0.04",
-        "mcap": "251.7B",
+        "mcap": "250.5B",
         "rev": "+24.3%"
       },
       "tv": "NASDAQ:CRWD",
@@ -5921,16 +5921,16 @@
     "FTNT": {
       "name": "Fortinet",
       "fv": 43.66,
-      "price": 133.26,
+      "price": 132.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FTNT",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "43.4",
+        "pe": "43.2",
         "eps": "3.07",
-        "mcap": "97.9B",
+        "mcap": "97.5B",
         "rev": "+20.2%"
       },
       "tv": "NASDAQ:FTNT",
@@ -5963,16 +5963,16 @@
     "PLTR": {
       "name": "Palantir",
       "fv": 7.76,
-      "price": 156.59,
+      "price": 155.84,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PLTR",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "109.7",
+        "pe": "109.2",
         "eps": "1.43",
-        "mcap": "377.3B",
+        "mcap": "375.5B",
         "rev": "+87.1%"
       },
       "tv": "NASDAQ:PLTR",
@@ -6007,16 +6007,16 @@
     "PANW": {
       "name": "Palo Alto Networks",
       "fv": 73.41,
-      "price": 359.68,
+      "price": 359.37,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PANW",
       "divYield": 0,
       "videoID": null,
       "fund": {
-        "pe": "588.3",
+        "pe": "587.8",
         "eps": "0.61",
-        "mcap": "294.5B",
+        "mcap": "294.2B",
         "rev": "+30.3%"
       },
       "tv": "NASDAQ:PANW",
@@ -6049,7 +6049,7 @@
     "NEE": {
       "name": "NextEra Energy",
       "fv": 16.23,
-      "price": 83.81,
+      "price": 83.82,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEE",
@@ -6095,7 +6095,7 @@
     "CME": {
       "name": "CME Group",
       "fv": 187.62,
-      "price": 308.6,
+      "price": 308.87,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CME",
@@ -6104,7 +6104,7 @@
       "fund": {
         "pe": "25.3",
         "eps": "12.20",
-        "mcap": "110.5B",
+        "mcap": "110.6B",
         "rev": "+9.0%"
       },
       "tv": "NASDAQ:CME",
@@ -6137,7 +6137,7 @@
     "ACN": {
       "name": "Accenture",
       "fv": 254.18,
-      "price": 218.03,
+      "price": 217.88,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ACN",
@@ -6146,7 +6146,7 @@
       "fund": {
         "pe": "16.1",
         "eps": "13.57",
-        "mcap": "128.9B",
+        "mcap": "128.8B",
         "rev": "+6.5%"
       },
       "tv": "NYSE:ACN",
@@ -9724,13 +9724,13 @@
       },
       "fv_low": 70.99,
       "fv_high": 129.21,
-      "fv_mkt": 119.04,
+      "fv_mkt": 119.05,
       "fv_sto": 107.43,
       "ind": {
         "status": "ok",
         "paese": "CH",
-        "rf": 0.0058,
-        "ke": 0.0253,
+        "rf": 0.006,
+        "ke": 0.0254,
         "pi": 0.01,
         "beta": 0.46,
         "fcf_norm": 4.2703,
@@ -9769,13 +9769,13 @@
       },
       "fv_low": 138.05,
       "fv_high": 225.06,
-      "fv_mkt": 192.76,
+      "fv_mkt": 192.78,
       "fv_sto": 116.14,
       "ind": {
         "status": "ok",
         "paese": "CH",
-        "rf": 0.0058,
-        "ke": 0.0256,
+        "rf": 0.006,
+        "ke": 0.0257,
         "pi": 0.01,
         "beta": 0.466,
         "fcf_norm": 6.512,
@@ -9818,8 +9818,8 @@
       "ind": {
         "status": "ok",
         "paese": "CH",
-        "rf": 0.0058,
-        "ke": 0.0424,
+        "rf": 0.006,
+        "ke": 0.0426,
         "pi": 0.01,
         "beta": 0.865,
         "fcf_norm": 1.3377,
@@ -9839,7 +9839,7 @@
     },
     "CFR": {
       "name": "Richemont",
-      "fv": 168.39,
+      "fv": 167.95,
       "price": 177.15,
       "curr": "CHF",
       "ex": "SIX",
@@ -9853,15 +9853,15 @@
         "mcap": "102.9B",
         "rev": "+8.2%"
       },
-      "fv_low": 96.41,
-      "fv_high": 222.02,
-      "fv_mkt": 152.23,
+      "fv_low": 96.16,
+      "fv_high": 221.44,
+      "fv_mkt": 152.25,
       "fv_sto": 164.06,
       "ind": {
         "status": "ok",
         "paese": "CH",
-        "rf": 0.0058,
-        "ke": 0.0496,
+        "rf": 0.006,
+        "ke": 0.0497,
         "pi": 0.01,
         "beta": 1.034,
         "fcf_norm": 6.2348,
@@ -9881,7 +9881,7 @@
     },
     "SIKA": {
       "name": "Sika",
-      "fv": 197.83,
+      "fv": 197.3,
       "price": 186,
       "curr": "CHF",
       "ex": "SIX",
@@ -9895,15 +9895,15 @@
         "mcap": "30.4B",
         "rev": "-4.2%"
       },
-      "fv_low": 134.57,
-      "fv_high": 297.1,
-      "fv_mkt": 178.22,
+      "fv_low": 134.21,
+      "fv_high": 296.3,
+      "fv_mkt": 178.23,
       "fv_sto": 314.03,
       "ind": {
         "status": "ok",
         "paese": "CH",
-        "rf": 0.0058,
-        "ke": 0.0493,
+        "rf": 0.006,
+        "ke": 0.0494,
         "pi": 0.01,
         "beta": 1.028,
         "fcf_norm": 7.4799,
@@ -9925,7 +9925,7 @@
     },
     "LONN": {
       "name": "Lonza",
-      "fv": 52.48,
+      "fv": 52.33,
       "price": 667,
       "curr": "CHF",
       "ex": "SIX",
@@ -9940,14 +9940,14 @@
         "rev": "-10.8%"
       },
       "fv_low": null,
-      "fv_high": 256.92,
+      "fv_high": 256.17,
       "fv_mkt": 46.88,
       "fv_sto": 146.34,
       "ind": {
         "status": "ok",
         "paese": "CH",
-        "rf": 0.0058,
-        "ke": 0.0461,
+        "rf": 0.006,
+        "ke": 0.0462,
         "pi": 0.01,
         "beta": 0.952,
         "fcf_norm": 1.9342,
@@ -9988,13 +9988,13 @@
       },
       "fv_low": 2267.19,
       "fv_high": 4298.34,
-      "fv_mkt": 3360.42,
+      "fv_mkt": 3360.78,
       "fv_sto": 3804.23,
       "ind": {
         "status": "ok",
         "paese": "CH",
-        "rf": 0.0058,
-        "ke": 0.0352,
+        "rf": 0.006,
+        "ke": 0.0353,
         "pi": 0.01,
         "beta": 0.694,
         "fcf_norm": 113.525,
@@ -10724,7 +10724,7 @@
     "ADI": {
       "name": "Analog Devices",
       "fv": 97.07,
-      "price": 380.75,
+      "price": 379.22,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADI",
@@ -10732,9 +10732,9 @@
       "videoID": null,
       "tv": "NASDAQ:ADI",
       "fund": {
-        "pe": "45.2",
+        "pe": "45.0",
         "eps": "8.43",
-        "mcap": "184.5B",
+        "mcap": "183.8B",
         "rev": "+33.6%"
       },
       "fv_low": 52.4,
@@ -10766,7 +10766,7 @@
     "MU": {
       "name": "Micron Technology",
       "fv": 151.15,
-      "price": 700.24,
+      "price": 698.25,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MU",
@@ -10776,7 +10776,7 @@
       "fund": {
         "pe": "9.4",
         "eps": "74.21",
-        "mcap": "792.3B",
+        "mcap": "790.0B",
         "rev": "+256.3%"
       },
       "fv_low": null,
@@ -10811,7 +10811,7 @@
     "LRCX": {
       "name": "Lam Research",
       "fv": 47.07,
-      "price": 207.65,
+      "price": 206.19,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LRCX",
@@ -10819,9 +10819,9 @@
       "videoID": null,
       "tv": "NASDAQ:LRCX",
       "fund": {
-        "pe": "30.9",
+        "pe": "30.7",
         "eps": "6.72",
-        "mcap": "259.4B",
+        "mcap": "257.6B",
         "rev": "+33.4%"
       },
       "fv_low": 31.78,
@@ -10853,7 +10853,7 @@
     "KLAC": {
       "name": "KLA",
       "fv": 34.02,
-      "price": 143.34,
+      "price": 142.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KLAC",
@@ -10861,9 +10861,9 @@
       "videoID": null,
       "tv": "NASDAQ:KLAC",
       "fund": {
-        "pe": "35.8",
+        "pe": "35.5",
         "eps": "4.00",
-        "mcap": "186.8B",
+        "mcap": "185.3B",
         "rev": "+15.8%"
       },
       "fv_low": 25.94,
@@ -10895,7 +10895,7 @@
     "SNPS": {
       "name": "Synopsys",
       "fv": 116.14,
-      "price": 437.61,
+      "price": 435.83,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SNPS",
@@ -10903,9 +10903,9 @@
       "videoID": null,
       "tv": "NASDAQ:SNPS",
       "fund": {
-        "pe": "77.3",
+        "pe": "77.0",
         "eps": "5.66",
-        "mcap": "83.9B",
+        "mcap": "83.5B",
         "rev": "+46.3%"
       },
       "fv_low": 57.55,
@@ -10939,7 +10939,7 @@
     "CDNS": {
       "name": "Cadence Design",
       "fv": 74,
-      "price": 307.87,
+      "price": 307.04,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CDNS",
@@ -10947,9 +10947,9 @@
       "videoID": null,
       "tv": "NASDAQ:CDNS",
       "fund": {
-        "pe": "61.2",
+        "pe": "61.0",
         "eps": "5.03",
-        "mcap": "84.5B",
+        "mcap": "84.2B",
         "rev": "+17.6%"
       },
       "fv_low": 54.22,
@@ -10981,7 +10981,7 @@
     "CSCO": {
       "name": "Cisco",
       "fv": 65.35,
-      "price": 95.78,
+      "price": 95.52,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSCO",
@@ -10989,9 +10989,9 @@
       "videoID": null,
       "tv": "NASDAQ:CSCO",
       "fund": {
-        "pe": "25.5",
+        "pe": "25.4",
         "eps": "3.76",
-        "mcap": "377.6B",
+        "mcap": "376.6B",
         "rev": "+16.1%"
       },
       "fv_low": 46.88,
@@ -11023,7 +11023,7 @@
     "ABNB": {
       "name": "Airbnb",
       "fv": 110.36,
-      "price": 176.22,
+      "price": 175.73,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ABNB",
@@ -11031,9 +11031,9 @@
       "videoID": null,
       "tv": "NASDAQ:ABNB",
       "fund": {
-        "pe": "32.9",
+        "pe": "32.8",
         "eps": "5.35",
-        "mcap": "104.3B",
+        "mcap": "104.0B",
         "rev": "+16.5%"
       },
       "fv_low": null,
@@ -11067,7 +11067,7 @@
     "PYPL": {
       "name": "PayPal",
       "fv": 96.35,
-      "price": 56.87,
+      "price": 56.82,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PYPL",
@@ -11109,7 +11109,7 @@
     "ZS": {
       "name": "Zscaler",
       "fv": 58.58,
-      "price": 208.39,
+      "price": 208.07,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ZS",
@@ -11119,7 +11119,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-0.40",
-        "mcap": "34.0B",
+        "mcap": "33.9B",
         "rev": "+25.4%"
       },
       "fv_low": null,
@@ -11153,7 +11153,7 @@
     "MDB": {
       "name": "MongoDB",
       "fv": null,
-      "price": 307.29,
+      "price": 305.47,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MDB",
@@ -11161,9 +11161,9 @@
       "videoID": null,
       "tv": "NASDAQ:MDB",
       "fund": {
-        "pe": "433.7",
+        "pe": "431.1",
         "eps": "0.71",
-        "mcap": "24.8B",
+        "mcap": "24.6B",
         "rev": "+25.5%"
       },
       "fv_low": null,
@@ -11197,7 +11197,7 @@
     "TEAM": {
       "name": "Atlassian",
       "fv": 83.37,
-      "price": 135.65,
+      "price": 135.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TEAM",
@@ -11205,9 +11205,9 @@
       "videoID": null,
       "tv": "NASDAQ:TEAM",
       "fund": {
-        "pe": "373.3",
+        "pe": "372.1",
         "eps": "0.36",
-        "mcap": "34.2B",
+        "mcap": "34.1B",
         "rev": "+26.6%"
       },
       "fv_low": 54.29,
@@ -11241,7 +11241,7 @@
     "WDAY": {
       "name": "Workday",
       "fv": 108.77,
-      "price": 175.47,
+      "price": 175.44,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "WDAY",
@@ -11283,7 +11283,7 @@
     "MRVL": {
       "name": "Marvell Technology",
       "fv": 18.06,
-      "price": 142.37,
+      "price": 141.18,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MRVL",
@@ -11291,9 +11291,9 @@
       "videoID": null,
       "tv": "NASDAQ:MRVL",
       "fund": {
-        "pe": "46.9",
+        "pe": "46.5",
         "eps": "3.04",
-        "mcap": "124.8B",
+        "mcap": "123.8B",
         "rev": "+30.6%"
       },
       "fv_low": null,
@@ -11327,7 +11327,7 @@
     "ARM": {
       "name": "Arm Holdings",
       "fv": 11.59,
-      "price": 179.87,
+      "price": 178.44,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ARM",
@@ -11335,7 +11335,7 @@
       "videoID": null,
       "tv": "NASDAQ:ARM",
       "fund": {
-        "pe": "206.1",
+        "pe": "204.5",
         "eps": "0.87",
         "mcap": "194.5B",
         "rev": "+23.8%"
@@ -11369,7 +11369,7 @@
     "APP": {
       "name": "AppLovin",
       "fv": 36.36,
-      "price": 385.28,
+      "price": 383.47,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "APP",
@@ -11377,9 +11377,9 @@
       "videoID": null,
       "tv": "NASDAQ:APP",
       "fund": {
-        "pe": "25.9",
+        "pe": "25.8",
         "eps": "14.86",
-        "mcap": "127.7B",
+        "mcap": "127.1B",
         "rev": "+37.8%"
       },
       "fv_low": 19.82,
@@ -11411,7 +11411,7 @@
     "MELI": {
       "name": "MercadoLibre",
       "fv": 1386.07,
-      "price": 1376.14,
+      "price": 1373.03,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MELI",
@@ -11419,9 +11419,9 @@
       "videoID": null,
       "tv": "NASDAQ:MELI",
       "fund": {
-        "pe": "36.9",
+        "pe": "36.8",
         "eps": "37.28",
-        "mcap": "69.8B",
+        "mcap": "69.6B",
         "rev": "+47.1%"
       },
       "fv_low": 391.37,
@@ -11453,7 +11453,7 @@
     "TTWO": {
       "name": "Take-Two Interactive",
       "fv": 78.85,
-      "price": 213.42,
+      "price": 212.56,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TTWO",
@@ -11463,7 +11463,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-1.29",
-        "mcap": "40.0B",
+        "mcap": "39.8B",
         "rev": "+3.1%"
       },
       "fv_low": null,
@@ -11498,7 +11498,7 @@
     "VRSK": {
       "name": "Verisk Analytics",
       "fv": 117.88,
-      "price": 200.99,
+      "price": 201.22,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRSK",
@@ -11542,7 +11542,7 @@
     "CTAS": {
       "name": "Cintas",
       "fv": 66.33,
-      "price": 218.75,
+      "price": 218.91,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CTAS",
@@ -11550,7 +11550,7 @@
       "videoID": null,
       "tv": "NASDAQ:CTAS",
       "fund": {
-        "pe": "43.1",
+        "pe": "43.2",
         "eps": "5.07",
         "mcap": "86.9B",
         "rev": "+9.5%"
@@ -11584,7 +11584,7 @@
     "PAYX": {
       "name": "Paychex",
       "fv": 89.76,
-      "price": 111.17,
+      "price": 111.35,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PAYX",
@@ -11626,7 +11626,7 @@
     "AMGN": {
       "name": "Amgen",
       "fv": 464.86,
-      "price": 440.11,
+      "price": 440.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMGN",
@@ -11636,7 +11636,7 @@
       "fund": {
         "pe": "25.5",
         "eps": "17.24",
-        "mcap": "238.1B",
+        "mcap": "238.2B",
         "rev": "+8.6%"
       },
       "fv_low": 291.36,
@@ -11670,7 +11670,7 @@
     "IDXX": {
       "name": "IDEXX Laboratories",
       "fv": 130.85,
-      "price": 688.83,
+      "price": 689.03,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "IDXX",
@@ -11712,7 +11712,7 @@
     "DXCM": {
       "name": "DexCom",
       "fv": 16.99,
-      "price": 80.51,
+      "price": 80.31,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DXCM",
@@ -11720,7 +11720,7 @@
       "videoID": null,
       "tv": "NASDAQ:DXCM",
       "fund": {
-        "pe": "31.6",
+        "pe": "31.5",
         "eps": "2.55",
         "mcap": "30.0B",
         "rev": "+13.0%"
@@ -11754,7 +11754,7 @@
     "BIIB": {
       "name": "Biogen",
       "fv": 359.58,
-      "price": 246.71,
+      "price": 246.5,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BIIB",
@@ -11762,9 +11762,9 @@
       "videoID": null,
       "tv": "NASDAQ:BIIB",
       "fund": {
-        "pe": "105.6",
+        "pe": "105.5",
         "eps": "2.34",
-        "mcap": "36.5B",
+        "mcap": "36.4B",
         "rev": "+2.1%"
       },
       "fv_low": 137.77,
@@ -11798,7 +11798,7 @@
     "MRNA": {
       "name": "Moderna",
       "fv": null,
-      "price": 202.31,
+      "price": 201.73,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MRNA",
@@ -11808,7 +11808,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-7.09",
-        "mcap": "81.9B",
+        "mcap": "81.6B",
         "rev": "+13.1%"
       },
       "fv_low": null,
@@ -11843,7 +11843,7 @@
     "ALGN": {
       "name": "Align Technology",
       "fv": 117.23,
-      "price": 161.02,
+      "price": 160.43,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ALGN",
@@ -11851,7 +11851,7 @@
       "videoID": null,
       "tv": "NASDAQ:ALGN",
       "fund": {
-        "pe": "23.4",
+        "pe": "23.3",
         "eps": "6.88",
         "mcap": "11.3B",
         "rev": "+4.4%"
@@ -11887,7 +11887,7 @@
     "SBUX": {
       "name": "Starbucks",
       "fv": 45.87,
-      "price": 106.31,
+      "price": 106.21,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SBUX",
@@ -11897,7 +11897,7 @@
       "fund": {
         "pe": "48.1",
         "eps": "2.21",
-        "mcap": "121.2B",
+        "mcap": "121.1B",
         "rev": "+2.0%"
       },
       "fv_low": 2.22,
@@ -11931,7 +11931,7 @@
     "MDLZ": {
       "name": "Mondelez",
       "fv": 57.42,
-      "price": 65.23,
+      "price": 65.33,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MDLZ",
@@ -11941,7 +11941,7 @@
       "fund": {
         "pe": "20.6",
         "eps": "3.17",
-        "mcap": "82.6B",
+        "mcap": "82.7B",
         "rev": "+6.0%"
       },
       "fv_low": 35.6,
@@ -11976,7 +11976,7 @@
     "KDP": {
       "name": "Keurig Dr Pepper",
       "fv": 44.04,
-      "price": 34.41,
+      "price": 34.44,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KDP",
@@ -11986,7 +11986,7 @@
       "fund": {
         "pe": "31.5",
         "eps": "1.09",
-        "mcap": "46.8B",
+        "mcap": "46.9B",
         "rev": "+43.0%"
       },
       "fv_low": 15.43,
@@ -12022,7 +12022,7 @@
     "MNST": {
       "name": "Monster Beverage",
       "fv": 20.09,
-      "price": 43.99,
+      "price": 44.09,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MNST",
@@ -12030,9 +12030,9 @@
       "videoID": null,
       "tv": "NASDAQ:MNST",
       "fund": {
-        "pe": "40.0",
+        "pe": "40.1",
         "eps": "1.10",
-        "mcap": "86.1B",
+        "mcap": "86.3B",
         "rev": "+20.2%"
       },
       "fv_low": 10.67,
@@ -12064,7 +12064,7 @@
     "DLTR": {
       "name": "Dollar Tree",
       "fv": 65.82,
-      "price": 140.28,
+      "price": 140.11,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DLTR",
@@ -12108,7 +12108,7 @@
     "ULTA": {
       "name": "Ulta Beauty",
       "fv": 423.78,
-      "price": 629,
+      "price": 628.61,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ULTA",
@@ -12150,7 +12150,7 @@
     "MAR": {
       "name": "Marriott",
       "fv": 143.65,
-      "price": 415.69,
+      "price": 415.57,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MAR",
@@ -12194,7 +12194,7 @@
     "EBAY": {
       "name": "eBay",
       "fv": 73.72,
-      "price": 120.07,
+      "price": 119.88,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EBAY",
@@ -12204,7 +12204,7 @@
       "fund": {
         "pe": "26.2",
         "eps": "4.57",
-        "mcap": "52.7B",
+        "mcap": "52.6B",
         "rev": "+15.3%"
       },
       "fv_low": 54.01,
@@ -12238,7 +12238,7 @@
     "PCAR": {
       "name": "Paccar",
       "fv": 42.61,
-      "price": 103,
+      "price": 103.11,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PCAR",
@@ -12248,7 +12248,7 @@
       "fund": {
         "pe": "19.7",
         "eps": "5.24",
-        "mcap": "54.2B",
+        "mcap": "54.3B",
         "rev": "-1.5%"
       },
       "fv_low": 16.6,
@@ -12282,7 +12282,7 @@
     "CSX": {
       "name": "CSX",
       "fv": 26.86,
-      "price": 50.18,
+      "price": 50.16,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSX",
@@ -12327,7 +12327,7 @@
     "ODFL": {
       "name": "Old Dominion Freight",
       "fv": 51.52,
-      "price": 173.94,
+      "price": 173.72,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ODFL",
@@ -12335,7 +12335,7 @@
       "videoID": null,
       "tv": "NASDAQ:ODFL",
       "fund": {
-        "pe": "31.3",
+        "pe": "31.2",
         "eps": "5.56",
         "mcap": "35.8B",
         "rev": "+3.8%"
@@ -12369,7 +12369,7 @@
     "FAST": {
       "name": "Fastenal",
       "fv": 12.97,
-      "price": 53.02,
+      "price": 52.92,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FAST",
@@ -12377,9 +12377,9 @@
       "videoID": null,
       "tv": "NASDAQ:FAST",
       "fund": {
-        "pe": "43.0",
+        "pe": "42.9",
         "eps": "1.23",
-        "mcap": "60.8B",
+        "mcap": "60.7B",
         "rev": "+13.5%"
       },
       "fv_low": 9.59,
@@ -12411,7 +12411,7 @@
     "AXON": {
       "name": "Axon Enterprise",
       "fv": 35.63,
-      "price": 312.44,
+      "price": 311.43,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AXON",
@@ -12419,7 +12419,7 @@
       "videoID": null,
       "tv": "NASDAQ:AXON",
       "fund": {
-        "pe": "100.0",
+        "pe": "99.7",
         "eps": "3.12",
         "mcap": "25.4B",
         "rev": "+33.6%"
@@ -12457,7 +12457,7 @@
     "CMCSA": {
       "name": "Comcast",
       "fv": 82.92,
-      "price": 24.81,
+      "price": 24.82,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CMCSA",
@@ -12501,7 +12501,7 @@
     "DASH": {
       "name": "DoorDash",
       "fv": 39.5,
-      "price": 160.81,
+      "price": 160.1,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DASH",
@@ -12509,9 +12509,9 @@
       "videoID": null,
       "tv": "NASDAQ:DASH",
       "fund": {
-        "pe": "66.7",
+        "pe": "66.4",
         "eps": "2.41",
-        "mcap": "70.1B",
+        "mcap": "69.8B",
         "rev": "+35.0%"
       },
       "fv_low": null,
@@ -12545,7 +12545,7 @@
     "LIN": {
       "name": "Linde",
       "fv": 192.99,
-      "price": 511.94,
+      "price": 512.33,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LIN",
@@ -12555,7 +12555,7 @@
       "fund": {
         "pe": "34.0",
         "eps": "15.06",
-        "mcap": "235.0B",
+        "mcap": "235.2B",
         "rev": "+8.2%"
       },
       "fv_low": 114.61,
@@ -12589,7 +12589,7 @@
     "CEG": {
       "name": "Constellation Energy",
       "fv": null,
-      "price": 257.17,
+      "price": 255.94,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CEG",
@@ -12597,9 +12597,9 @@
       "videoID": null,
       "tv": "NASDAQ:CEG",
       "fund": {
-        "pe": "20.6",
+        "pe": "20.5",
         "eps": "12.48",
-        "mcap": "91.1B",
+        "mcap": "90.7B",
         "rev": "+25.1%"
       },
       "fv_low": null,
@@ -12634,7 +12634,7 @@
     "AEP": {
       "name": "American Electric Power",
       "fv": null,
-      "price": 125.06,
+      "price": 125.23,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AEP",
@@ -12642,9 +12642,9 @@
       "videoID": null,
       "tv": "NASDAQ:AEP",
       "fund": {
-        "pe": "20.4",
+        "pe": "20.5",
         "eps": "6.12",
-        "mcap": "68.1B",
+        "mcap": "68.2B",
         "rev": "+9.8%"
       },
       "fv_low": null,
@@ -12681,7 +12681,7 @@
     "JD": {
       "name": "JD.com",
       "fv": 77.26,
-      "price": 25.61,
+      "price": 25.62,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "JD",
@@ -12725,7 +12725,7 @@
     "BIDU": {
       "name": "Baidu",
       "fv": 128.32,
-      "price": 67.23,
+      "price": 67.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BIDU",
@@ -12733,7 +12733,7 @@
       "videoID": null,
       "tv": "NASDAQ:BIDU",
       "fund": {
-        "pe": "19.8",
+        "pe": "19.9",
         "eps": "3.39",
         "mcap": "23.7B",
         "rev": "+1.9%"
@@ -12770,7 +12770,7 @@
     "NXPI": {
       "name": "NXP Semiconductors",
       "fv": 130.28,
-      "price": 254.95,
+      "price": 253.92,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NXPI",
@@ -12780,7 +12780,7 @@
       "fund": {
         "pe": "20.0",
         "eps": "12.72",
-        "mcap": "64.3B",
+        "mcap": "64.0B",
         "rev": "+14.6%"
       },
       "fv_low": 103.39,
@@ -12812,7 +12812,7 @@
     "ON": {
       "name": "ON Semiconductor",
       "fv": 21.21,
-      "price": 67,
+      "price": 66.55,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ON",
@@ -12820,9 +12820,9 @@
       "videoID": null,
       "tv": "NASDAQ:ON",
       "fund": {
-        "pe": "39.0",
+        "pe": "38.7",
         "eps": "1.72",
-        "mcap": "26.1B",
+        "mcap": "25.9B",
         "rev": "+2.9%"
       },
       "fv_low": 1.81,
@@ -12854,7 +12854,7 @@
     "MCHP": {
       "name": "Microchip Technology",
       "fv": 14.31,
-      "price": 60.22,
+      "price": 59.83,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MCHP",
@@ -12862,9 +12862,9 @@
       "videoID": null,
       "tv": "NASDAQ:MCHP",
       "fund": {
-        "pe": "45.6",
+        "pe": "45.3",
         "eps": "1.32",
-        "mcap": "32.8B",
+        "mcap": "32.6B",
         "rev": "+33.0%"
       },
       "fv_low": 8.46,
@@ -12898,7 +12898,7 @@
     "ROP": {
       "name": "Roper Technologies",
       "fv": 352.24,
-      "price": 466.38,
+      "price": 466.69,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROP",
@@ -12940,7 +12940,7 @@
     "NDAQ": {
       "name": "Nasdaq Inc.",
       "fv": 45.63,
-      "price": 105.19,
+      "price": 105.25,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NDAQ",
@@ -12948,7 +12948,7 @@
       "videoID": null,
       "tv": "NASDAQ:NDAQ",
       "fund": {
-        "pe": "28.7",
+        "pe": "28.8",
         "eps": "3.66",
         "mcap": "58.4B",
         "rev": "+11.9%"
@@ -12984,7 +12984,7 @@
     "POOL": {
       "name": "Pool Corp.",
       "fv": 140.59,
-      "price": 209.28,
+      "price": 209.47,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "POOL",
@@ -13026,7 +13026,7 @@
     "GEHC": {
       "name": "GE HealthCare",
       "fv": 50.79,
-      "price": 82.13,
+      "price": 82.09,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GEHC",
@@ -13034,7 +13034,7 @@
       "videoID": null,
       "tv": "NASDAQ:GEHC",
       "fund": {
-        "pe": "17.4",
+        "pe": "17.3",
         "eps": "4.73",
         "mcap": "37.1B",
         "rev": "+6.9%"
@@ -13070,7 +13070,7 @@
     "ILMN": {
       "name": "Illumina",
       "fv": 70.27,
-      "price": 205.27,
+      "price": 203.56,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ILMN",
@@ -13078,9 +13078,9 @@
       "videoID": null,
       "tv": "NASDAQ:ILMN",
       "fund": {
-        "pe": "35.3",
+        "pe": "35.0",
         "eps": "5.82",
-        "mcap": "31.0B",
+        "mcap": "30.8B",
         "rev": "+6.0%"
       },
       "fv_low": 8.47,
@@ -13112,7 +13112,7 @@
     "EXC": {
       "name": "Exelon",
       "fv": null,
-      "price": 45.42,
+      "price": 45.46,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXC",
@@ -13158,7 +13158,7 @@
     "XEL": {
       "name": "Xcel Energy",
       "fv": null,
-      "price": 79.69,
+      "price": 79.7,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "XEL",
@@ -13168,7 +13168,7 @@
       "fund": {
         "pe": "18.6",
         "eps": "4.29",
-        "mcap": "51.1B",
+        "mcap": "51.2B",
         "rev": "+4.4%"
       },
       "fv_low": null,
@@ -13204,7 +13204,7 @@
     "WMT": {
       "name": "Walmart",
       "fv": 40.69,
-      "price": 126,
+      "price": 126.06,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "WMT",
@@ -13214,7 +13214,7 @@
       "fund": {
         "pe": "45.7",
         "eps": "2.76",
-        "mcap": "999.7B",
+        "mcap": "1.00T",
         "rev": "+6.2%"
       },
       "fv_low": 29.61,
@@ -13246,7 +13246,7 @@
     "CROX": {
       "name": "Crocs",
       "fv": 145.37,
-      "price": 160.44,
+      "price": 160.28,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CROX",
@@ -13288,7 +13288,7 @@
     "DPZ": {
       "name": "Domino's Pizza",
       "fv": 260.03,
-      "price": 349.65,
+      "price": 350.3,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DPZ",
@@ -13332,7 +13332,7 @@
     "UAL": {
       "name": "United Airlines",
       "fv": 83.45,
-      "price": 106.7,
+      "price": 106.19,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "UAL",
@@ -13340,9 +13340,9 @@
       "videoID": null,
       "tv": "NASDAQ:UAL",
       "fund": {
-        "pe": "9.8",
+        "pe": "9.7",
         "eps": "10.94",
-        "mcap": "34.7B",
+        "mcap": "34.5B",
         "rev": "+12.3%"
       },
       "fv_low": null,
@@ -13377,7 +13377,7 @@
     "BKR": {
       "name": "Baker Hughes",
       "fv": 19.05,
-      "price": 46.99,
+      "price": 46.96,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKR",
@@ -13387,7 +13387,7 @@
       "fund": {
         "pe": "16.1",
         "eps": "2.91",
-        "mcap": "46.7B",
+        "mcap": "46.6B",
         "rev": "+3.7%"
       },
       "fv_low": null,
@@ -13422,7 +13422,7 @@
     "CCEP": {
       "name": "Coca-Cola Europacific",
       "fv": 99.39,
-      "price": 115.82,
+      "price": 115.98,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CCEP",
@@ -13432,7 +13432,7 @@
       "fund": {
         "pe": "22.4",
         "eps": "5.18",
-        "mcap": "50.8B",
+        "mcap": "50.9B",
         "rev": "+9.7%"
       },
       "fv_low": 71.08,
@@ -13466,7 +13466,7 @@
     "DOCU": {
       "name": "DocuSign",
       "fv": 32.21,
-      "price": 76.43,
+      "price": 76.24,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DOCU",
@@ -13474,9 +13474,9 @@
       "videoID": null,
       "tv": "NASDAQ:DOCU",
       "fund": {
-        "pe": "46.5",
+        "pe": "46.4",
         "eps": "1.64",
-        "mcap": "14.3B",
+        "mcap": "14.2B",
         "rev": "+8.6%"
       },
       "fv_low": 10.62,
@@ -13508,7 +13508,7 @@
     "EXPE": {
       "name": "Expedia",
       "fv": 210,
-      "price": 243.74,
+      "price": 243.13,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXPE",
@@ -13518,7 +13518,7 @@
       "fund": {
         "pe": "14.2",
         "eps": "17.14",
-        "mcap": "28.9B",
+        "mcap": "28.8B",
         "rev": "+12.9%"
       },
       "fv_low": null,
@@ -13552,7 +13552,7 @@
     "GFS": {
       "name": "GlobalFoundries",
       "fv": 17.29,
-      "price": 39.55,
+      "price": 39.33,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GFS",
@@ -13560,9 +13560,9 @@
       "videoID": null,
       "tv": "NASDAQ:GFS",
       "fund": {
-        "pe": "114.4",
+        "pe": "113.8",
         "eps": "0.35",
-        "mcap": "21.7B",
+        "mcap": "21.6B",
         "rev": "+5.3%"
       },
       "fv_low": null,
@@ -13596,7 +13596,7 @@
     "LYFT": {
       "name": "Lyft",
       "fv": null,
-      "price": 17.41,
+      "price": 17.36,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LYFT",
@@ -13640,7 +13640,7 @@
     "OKTA": {
       "name": "Okta",
       "fv": 26.03,
-      "price": 208.24,
+      "price": 206.97,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "OKTA",
@@ -13648,9 +13648,9 @@
       "videoID": null,
       "tv": "NASDAQ:OKTA",
       "fund": {
-        "pe": "125.8",
+        "pe": "125.0",
         "eps": "1.66",
-        "mcap": "36.4B",
+        "mcap": "36.2B",
         "rev": "+11.2%"
       },
       "fv_low": null,
@@ -13684,7 +13684,7 @@
     "SMCI": {
       "name": "Super Micro Computer",
       "fv": null,
-      "price": 24.34,
+      "price": 24.14,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SMCI",
@@ -13694,7 +13694,7 @@
       "fund": {
         "pe": "5.1",
         "eps": "4.78",
-        "mcap": "16.0B",
+        "mcap": "15.9B",
         "rev": "+156.5%"
       },
       "fv_low": null,
@@ -13730,7 +13730,7 @@
     "ZM": {
       "name": "Zoom",
       "fv": 94.42,
-      "price": 86.35,
+      "price": 86.09,
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ZM",
@@ -13740,7 +13740,7 @@
       "fund": {
         "pe": "8.0",
         "eps": "10.80",
-        "mcap": "25.2B",
+        "mcap": "25.1B",
         "rev": "+5.0%"
       },
       "fv_low": 37.82,
@@ -13772,7 +13772,7 @@
     "SNOW": {
       "name": "Snowflake",
       "fv": 37.18,
-      "price": 281.53,
+      "price": 280.17,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SNOW",
@@ -13782,7 +13782,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-3.17",
-        "mcap": "99.3B",
+        "mcap": "98.8B",
         "rev": "+32.0%"
       },
       "fv_low": null,
@@ -13816,7 +13816,7 @@
     "NET": {
       "name": "Cloudflare",
       "fv": null,
-      "price": 308.13,
+      "price": 306.13,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NET",
@@ -13826,7 +13826,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-0.67",
-        "mcap": "109.7B",
+        "mcap": "109.0B",
         "rev": "+35.7%"
       },
       "fv_low": null,
@@ -13860,7 +13860,7 @@
     "NOW": {
       "name": "ServiceNow",
       "fv": 47.06,
-      "price": 89.49,
+      "price": 89.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOW",
@@ -13868,9 +13868,9 @@
       "videoID": null,
       "tv": "NYSE:NOW",
       "fund": {
-        "pe": "64.5",
+        "pe": "64.2",
         "eps": "1.39",
-        "mcap": "92.9B",
+        "mcap": "92.5B",
         "rev": "+21.8%"
       },
       "fv_low": 6.12,
@@ -13902,7 +13902,7 @@
     "ANET": {
       "name": "Arista Networks",
       "fv": 39.2,
-      "price": 192.47,
+      "price": 191.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ANET",
@@ -13910,9 +13910,9 @@
       "videoID": null,
       "tv": "NYSE:ANET",
       "fund": {
-        "pe": "51.7",
+        "pe": "51.3",
         "eps": "3.72",
-        "mcap": "243.2B",
+        "mcap": "241.5B",
         "rev": "+40.7%"
       },
       "fv_low": 19.46,
@@ -13944,7 +13944,7 @@
     "UBER": {
       "name": "Uber",
       "fv": null,
-      "price": 66.63,
+      "price": 66.41,
       "curr": "$",
       "ex": "NYSE",
       "yf": "UBER",
@@ -13952,9 +13952,9 @@
       "videoID": null,
       "tv": "NYSE:UBER",
       "fund": {
-        "pe": "39.5",
+        "pe": "39.4",
         "eps": "1.69",
-        "mcap": "136.1B",
+        "mcap": "135.6B",
         "rev": "+13.9%"
       },
       "fv_low": null,
@@ -13988,7 +13988,7 @@
     "DELL": {
       "name": "Dell Technologies",
       "fv": 133.6,
-      "price": 319.33,
+      "price": 316.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DELL",
@@ -13996,9 +13996,9 @@
       "videoID": null,
       "tv": "NYSE:DELL",
       "fund": {
-        "pe": "18.5",
+        "pe": "18.4",
         "eps": "17.23",
-        "mcap": "203.0B",
+        "mcap": "201.4B",
         "rev": "+48.9%"
       },
       "fv_low": 10.71,
@@ -14030,7 +14030,7 @@
     "HPQ": {
       "name": "HP Inc.",
       "fv": 49.22,
-      "price": 27.91,
+      "price": 27.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HPQ",
@@ -14072,7 +14072,7 @@
     "SPOT": {
       "name": "Spotify",
       "fv": 102.6,
-      "price": 589.72,
+      "price": 590.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SPOT",
@@ -14082,7 +14082,7 @@
       "fund": {
         "pe": "39.1",
         "eps": "15.08",
-        "mcap": "121.4B",
+        "mcap": "121.5B",
         "rev": "+17.0%"
       },
       "fv_low": 53.35,
@@ -14114,7 +14114,7 @@
     "FICO": {
       "name": "Fair Isaac (FICO)",
       "fv": 462.89,
-      "price": 673.79,
+      "price": 675.22,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FICO",
@@ -14158,7 +14158,7 @@
     "MSCI": {
       "name": "MSCI",
       "fv": 265.2,
-      "price": 625.54,
+      "price": 627.04,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MSCI",
@@ -14166,9 +14166,9 @@
       "videoID": null,
       "tv": "NYSE:MSCI",
       "fund": {
-        "pe": "33.1",
+        "pe": "33.2",
         "eps": "18.89",
-        "mcap": "44.7B",
+        "mcap": "44.8B",
         "rev": "+12.3%"
       },
       "fv_low": 168.41,
@@ -14202,7 +14202,7 @@
     "SPGI": {
       "name": "S&P Global",
       "fv": 254.88,
-      "price": 442.73,
+      "price": 443.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SPGI",
@@ -14210,9 +14210,9 @@
       "videoID": null,
       "tv": "NYSE:SPGI",
       "fund": {
-        "pe": "26.3",
+        "pe": "26.4",
         "eps": "16.81",
-        "mcap": "128.3B",
+        "mcap": "128.5B",
         "rev": "+6.0%"
       },
       "fv_low": 171.58,
@@ -14244,7 +14244,7 @@
     "ICE": {
       "name": "Intercontinental Exchange",
       "fv": 121.99,
-      "price": 171.85,
+      "price": 171.97,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ICE",
@@ -14252,9 +14252,9 @@
       "videoID": null,
       "tv": "NYSE:ICE",
       "fund": {
-        "pe": "23.4",
+        "pe": "23.5",
         "eps": "7.33",
-        "mcap": "96.0B",
+        "mcap": "96.1B",
         "rev": "+13.5%"
       },
       "fv_low": 101.03,
@@ -14286,7 +14286,7 @@
     "TSM": {
       "name": "Taiwan Semiconductor",
       "fv": 95.36,
-      "price": 356.58,
+      "price": 355.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TSM",
@@ -14294,7 +14294,7 @@
       "videoID": null,
       "tv": "NYSE:TSM",
       "fund": {
-        "pe": "23.0",
+        "pe": "22.9",
         "eps": "15.54",
         "mcap": "1.71T",
         "rev": "+35.2%"
@@ -14330,7 +14330,7 @@
     "BABA": {
       "name": "Alibaba",
       "fv": 218.11,
-      "price": 85.34,
+      "price": 85.19,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BABA",
@@ -14375,7 +14375,7 @@
     "SONY": {
       "name": "Sony",
       "fv": 22.98,
-      "price": 27.21,
+      "price": 27.18,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SONY",
@@ -14419,7 +14419,7 @@
     "TM": {
       "name": "Toyota",
       "fv": null,
-      "price": 210.38,
+      "price": 210.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TM",
@@ -14464,7 +14464,7 @@
     "SE": {
       "name": "Sea Limited",
       "fv": null,
-      "price": 67.34,
+      "price": 67.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SE",
@@ -14508,7 +14508,7 @@
     "JNJ": {
       "name": "Johnson & Johnson",
       "fv": 186.4,
-      "price": 266.48,
+      "price": 266.53,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JNJ",
@@ -14518,7 +14518,7 @@
       "fund": {
         "pe": "40.4",
         "eps": "6.59",
-        "mcap": "641.5B",
+        "mcap": "641.6B",
         "rev": "+7.8%"
       },
       "fv_low": 177.44,
@@ -14552,7 +14552,7 @@
     "ABT": {
       "name": "Abbott Laboratories",
       "fv": 78.05,
-      "price": 104.18,
+      "price": 104.25,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABT",
@@ -14562,7 +14562,7 @@
       "fund": {
         "pe": "38.5",
         "eps": "2.71",
-        "mcap": "180.4B",
+        "mcap": "180.6B",
         "rev": "+10.0%"
       },
       "fv_low": 48.35,
@@ -14638,7 +14638,7 @@
     "ZTS": {
       "name": "Zoetis",
       "fv": 76.37,
-      "price": 82.1,
+      "price": 82.06,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ZTS",
@@ -14648,7 +14648,7 @@
       "fund": {
         "pe": "13.9",
         "eps": "5.89",
-        "mcap": "33.4B",
+        "mcap": "33.3B",
         "rev": "+1.2%"
       },
       "fv_low": 35.58,
@@ -14722,7 +14722,7 @@
     "EW": {
       "name": "Edwards Lifesciences",
       "fv": 35.56,
-      "price": 104.2,
+      "price": 104.03,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EW",
@@ -14730,9 +14730,9 @@
       "videoID": null,
       "tv": "NYSE:EW",
       "fund": {
-        "pe": "60.7",
+        "pe": "60.6",
         "eps": "1.72",
-        "mcap": "59.9B",
+        "mcap": "59.8B",
         "rev": "+13.4%"
       },
       "fv_low": 15.13,
@@ -14764,7 +14764,7 @@
     "HCA": {
       "name": "HCA Healthcare",
       "fv": 376.99,
-      "price": 463.49,
+      "price": 463.05,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HCA",
@@ -14772,9 +14772,9 @@
       "videoID": null,
       "tv": "NYSE:HCA",
       "fund": {
-        "pe": "15.4",
+        "pe": "15.3",
         "eps": "30.18",
-        "mcap": "96.8B",
+        "mcap": "96.7B",
         "rev": "+5.8%"
       },
       "fv_low": 293.79,
@@ -14808,7 +14808,7 @@
     "CI": {
       "name": "Cigna",
       "fv": 1110.14,
-      "price": 271.22,
+      "price": 272.19,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CI",
@@ -14818,7 +14818,7 @@
       "fund": {
         "pe": "12.0",
         "eps": "22.66",
-        "mcap": "71.5B",
+        "mcap": "71.7B",
         "rev": "+6.8%"
       },
       "fv_low": 631.36,
@@ -14852,7 +14852,7 @@
     "HUM": {
       "name": "Humana",
       "fv": 535.21,
-      "price": 378.52,
+      "price": 380.41,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HUM",
@@ -14860,9 +14860,9 @@
       "videoID": null,
       "tv": "NYSE:HUM",
       "fund": {
-        "pe": "36.8",
+        "pe": "37.0",
         "eps": "10.27",
-        "mcap": "45.5B",
+        "mcap": "45.7B",
         "rev": "+22.0%"
       },
       "fv_low": 55.88,
@@ -14896,7 +14896,7 @@
     "MCK": {
       "name": "McKesson",
       "fv": 1110.25,
-      "price": 1059.7,
+      "price": 1058.76,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCK",
@@ -14904,9 +14904,9 @@
       "videoID": null,
       "tv": "NYSE:MCK",
       "fund": {
-        "pe": "27.3",
+        "pe": "27.2",
         "eps": "38.88",
-        "mcap": "122.4B",
+        "mcap": "122.2B",
         "rev": "+8.2%"
       },
       "fv_low": 820.42,
@@ -14938,7 +14938,7 @@
     "IQV": {
       "name": "IQVIA",
       "fv": 140.24,
-      "price": 252.9,
+      "price": 252.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "IQV",
@@ -14948,7 +14948,7 @@
       "fund": {
         "pe": "30.7",
         "eps": "8.23",
-        "mcap": "41.7B",
+        "mcap": "41.6B",
         "rev": "+8.9%"
       },
       "fv_low": 82.32,
@@ -14982,7 +14982,7 @@
     "A": {
       "name": "Agilent Technologies",
       "fv": 60.41,
-      "price": 176.68,
+      "price": 176.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "A",
@@ -14990,9 +14990,9 @@
       "videoID": null,
       "tv": "NYSE:A",
       "fund": {
-        "pe": "34.8",
+        "pe": "34.7",
         "eps": "5.08",
-        "mcap": "49.8B",
+        "mcap": "49.7B",
         "rev": "+8.6%"
       },
       "fv_low": 54.01,
@@ -15024,7 +15024,7 @@
     "RMD": {
       "name": "ResMed",
       "fv": 115.97,
-      "price": 237.42,
+      "price": 237.13,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RMD",
@@ -15066,7 +15066,7 @@
     "WST": {
       "name": "West Pharmaceutical",
       "fv": 79.3,
-      "price": 393.21,
+      "price": 393.78,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WST",
@@ -15074,7 +15074,7 @@
       "videoID": null,
       "tv": "NYSE:WST",
       "fund": {
-        "pe": "44.1",
+        "pe": "44.2",
         "eps": "8.92",
         "mcap": "27.4B",
         "rev": "+12.6%"
@@ -15108,7 +15108,7 @@
     "ZBH": {
       "name": "Zimmer Biomet",
       "fv": 97.26,
-      "price": 102.76,
+      "price": 102.71,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ZBH",
@@ -15152,7 +15152,7 @@
     "TGT": {
       "name": "Target",
       "fv": 151.49,
-      "price": 167.61,
+      "price": 167.34,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TGT",
@@ -15160,9 +15160,9 @@
       "videoID": null,
       "tv": "NYSE:TGT",
       "fund": {
-        "pe": "15.6",
+        "pe": "15.5",
         "eps": "10.77",
-        "mcap": "76.1B",
+        "mcap": "76.0B",
         "rev": "+4.0%"
       },
       "fv_low": null,
@@ -15197,7 +15197,7 @@
     "LOW": {
       "name": "Lowe's",
       "fv": 169.84,
-      "price": 219.9,
+      "price": 220,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LOW",
@@ -15241,7 +15241,7 @@
     "CMG": {
       "name": "Chipotle",
       "fv": 11.22,
-      "price": 36.51,
+      "price": 36.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CMG",
@@ -15251,7 +15251,7 @@
       "fund": {
         "pe": "34.2",
         "eps": "1.07",
-        "mcap": "46.2B",
+        "mcap": "46.1B",
         "rev": "+7.9%"
       },
       "fv_low": 3.11,
@@ -15285,7 +15285,7 @@
     "YUM": {
       "name": "Yum! Brands",
       "fv": 102.58,
-      "price": 158.38,
+      "price": 158.65,
       "curr": "$",
       "ex": "NYSE",
       "yf": "YUM",
@@ -15295,7 +15295,7 @@
       "fund": {
         "pe": "12.7",
         "eps": "12.46",
-        "mcap": "42.5B",
+        "mcap": "42.6B",
         "rev": "+9.1%"
       },
       "fv_low": 66.1,
@@ -15329,7 +15329,7 @@
     "HSY": {
       "name": "Hershey",
       "fv": 192.42,
-      "price": 173.58,
+      "price": 173.87,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HSY",
@@ -15337,7 +15337,7 @@
       "videoID": null,
       "tv": "NYSE:HSY",
       "fund": {
-        "pe": "19.6",
+        "pe": "19.7",
         "eps": "8.85",
         "mcap": "34.9B",
         "rev": "+6.7%"
@@ -15373,7 +15373,7 @@
     "STZ": {
       "name": "Constellation Brands",
       "fv": 176.18,
-      "price": 141.19,
+      "price": 141.26,
       "curr": "$",
       "ex": "NYSE",
       "yf": "STZ",
@@ -15417,7 +15417,7 @@
     "CLX": {
       "name": "Clorox",
       "fv": 109.04,
-      "price": 105.34,
+      "price": 105.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CLX",
@@ -15462,7 +15462,7 @@
     "CHD": {
       "name": "Church & Dwight",
       "fv": 88.67,
-      "price": 109.97,
+      "price": 110.01,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CHD",
@@ -15504,7 +15504,7 @@
     "TJX": {
       "name": "TJX Companies",
       "fv": 69.63,
-      "price": 140.47,
+      "price": 140.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TJX",
@@ -15546,7 +15546,7 @@
     "DECK": {
       "name": "Deckers Outdoor",
       "fv": 91.49,
-      "price": 80.86,
+      "price": 80.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DECK",
@@ -15588,7 +15588,7 @@
     "ONON": {
       "name": "On Holding",
       "fv": 6.69,
-      "price": 31.21,
+      "price": 31.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ONON",
@@ -15596,7 +15596,7 @@
       "videoID": null,
       "tv": "NYSE:ONON",
       "fund": {
-        "pe": "19.0",
+        "pe": "18.9",
         "eps": "1.64",
         "mcap": "10.4B",
         "rev": "+24.0%"
@@ -15632,7 +15632,7 @@
     "F": {
       "name": "Ford",
       "fv": 39.33,
-      "price": 11.19,
+      "price": 11.18,
       "curr": "$",
       "ex": "NYSE",
       "yf": "F",
@@ -15722,7 +15722,7 @@
     "DRI": {
       "name": "Darden Restaurants",
       "fv": 167.25,
-      "price": 231.69,
+      "price": 231.48,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DRI",
@@ -15766,7 +15766,7 @@
     "LVS": {
       "name": "Las Vegas Sands",
       "fv": 41.9,
-      "price": 39.07,
+      "price": 39.02,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LVS",
@@ -15811,7 +15811,7 @@
     "WSM": {
       "name": "Williams-Sonoma",
       "fv": 87.9,
-      "price": 224.02,
+      "price": 222.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WSM",
@@ -15819,9 +15819,9 @@
       "videoID": null,
       "tv": "NYSE:WSM",
       "fund": {
-        "pe": "22.9",
+        "pe": "22.8",
         "eps": "9.77",
-        "mcap": "26.4B",
+        "mcap": "26.2B",
         "rev": "+2.2%"
       },
       "fv_low": 47.76,
@@ -15853,7 +15853,7 @@
     "BBY": {
       "name": "Best Buy",
       "fv": 94.36,
-      "price": 99.79,
+      "price": 99.48,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BBY",
@@ -15895,7 +15895,7 @@
     "GE": {
       "name": "GE Aerospace",
       "fv": 17,
-      "price": 321.19,
+      "price": 320.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GE",
@@ -15903,9 +15903,9 @@
       "videoID": null,
       "tv": "NYSE:GE",
       "fund": {
-        "pe": "37.1",
+        "pe": "37.0",
         "eps": "8.66",
-        "mcap": "331.9B",
+        "mcap": "331.4B",
         "rev": "+19.6%"
       },
       "fv_low": null,
@@ -15940,7 +15940,7 @@
     "GEV": {
       "name": "GE Vernova",
       "fv": null,
-      "price": 766.06,
+      "price": 761.69,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GEV",
@@ -15948,9 +15948,9 @@
       "videoID": null,
       "tv": "NYSE:GEV",
       "fund": {
-        "pe": "20.1",
+        "pe": "20.0",
         "eps": "38.11",
-        "mcap": "202.8B",
+        "mcap": "201.6B",
         "rev": "+16.8%"
       },
       "fv_low": null,
@@ -15982,7 +15982,7 @@
     "ETN": {
       "name": "Eaton",
       "fv": 116.4,
-      "price": 334.18,
+      "price": 333.01,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ETN",
@@ -15990,9 +15990,9 @@
       "videoID": null,
       "tv": "NYSE:ETN",
       "fund": {
-        "pe": "33.4",
+        "pe": "33.3",
         "eps": "10.01",
-        "mcap": "129.8B",
+        "mcap": "129.4B",
         "rev": "+20.1%"
       },
       "fv_low": 82.33,
@@ -16026,7 +16026,7 @@
     "EMR": {
       "name": "Emerson Electric",
       "fv": 70.64,
-      "price": 158.72,
+      "price": 158.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EMR",
@@ -16034,9 +16034,9 @@
       "videoID": null,
       "tv": "NYSE:EMR",
       "fund": {
-        "pe": "33.2",
+        "pe": "33.1",
         "eps": "4.78",
-        "mcap": "87.1B",
+        "mcap": "86.8B",
         "rev": "+5.4%"
       },
       "fv_low": 8.52,
@@ -16068,7 +16068,7 @@
     "ITW": {
       "name": "Illinois Tool Works",
       "fv": 148.16,
-      "price": 276.8,
+      "price": 276.83,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ITW",
@@ -16110,7 +16110,7 @@
     "PH": {
       "name": "Parker-Hannifin",
       "fv": 321.08,
-      "price": 911.23,
+      "price": 909.28,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PH",
@@ -16118,9 +16118,9 @@
       "videoID": null,
       "tv": "NYSE:PH",
       "fund": {
-        "pe": "31.3",
+        "pe": "31.2",
         "eps": "29.11",
-        "mcap": "114.9B",
+        "mcap": "114.7B",
         "rev": "+11.9%"
       },
       "fv_low": 212.69,
@@ -16154,7 +16154,7 @@
     "MMM": {
       "name": "3M",
       "fv": 107.36,
-      "price": 178.66,
+      "price": 178.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MMM",
@@ -16198,7 +16198,7 @@
     "CMI": {
       "name": "Cummins",
       "fv": 274.94,
-      "price": 424.86,
+      "price": 423.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CMI",
@@ -16208,7 +16208,7 @@
       "fund": {
         "pe": "17.7",
         "eps": "23.96",
-        "mcap": "58.2B",
+        "mcap": "58.1B",
         "rev": "+6.7%"
       },
       "fv_low": 29.81,
@@ -16240,7 +16240,7 @@
     "NSC": {
       "name": "Norfolk Southern",
       "fv": 143.24,
-      "price": 317.04,
+      "price": 316.95,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NSC",
@@ -16285,7 +16285,7 @@
     "DAL": {
       "name": "Delta Air Lines",
       "fv": 46.04,
-      "price": 84.2,
+      "price": 83.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DAL",
@@ -16295,7 +16295,7 @@
       "fund": {
         "pe": "16.8",
         "eps": "5.00",
-        "mcap": "55.4B",
+        "mcap": "55.2B",
         "rev": "+14.1%"
       },
       "fv_low": null,
@@ -16331,7 +16331,7 @@
     "WAB": {
       "name": "Wabtec",
       "fv": 104.5,
-      "price": 282.42,
+      "price": 281.94,
       "curr": "$",
       "ex": "NYSE",
       "yf": "WAB",
@@ -16341,7 +16341,7 @@
       "fund": {
         "pe": "35.1",
         "eps": "8.04",
-        "mcap": "47.4B",
+        "mcap": "47.3B",
         "rev": "+13.2%"
       },
       "fv_low": 25.33,
@@ -16375,7 +16375,7 @@
     "CARR": {
       "name": "Carrier Global",
       "fv": 30,
-      "price": 51.24,
+      "price": 51.16,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CARR",
@@ -16419,7 +16419,7 @@
     "OTIS": {
       "name": "Otis Worldwide",
       "fv": 62.51,
-      "price": 76.47,
+      "price": 76.55,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OTIS",
@@ -16463,7 +16463,7 @@
     "TT": {
       "name": "Trane Technologies",
       "fv": 136.27,
-      "price": 403.81,
+      "price": 403.39,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TT",
@@ -16473,7 +16473,7 @@
       "fund": {
         "pe": "28.5",
         "eps": "14.16",
-        "mcap": "88.4B",
+        "mcap": "88.3B",
         "rev": "+10.3%"
       },
       "fv_low": 90.19,
@@ -16505,7 +16505,7 @@
     "JCI": {
       "name": "Johnson Controls",
       "fv": 44.71,
-      "price": 136.78,
+      "price": 136.41,
       "curr": "$",
       "ex": "NYSE",
       "yf": "JCI",
@@ -16513,9 +16513,9 @@
       "videoID": null,
       "tv": "NYSE:JCI",
       "fund": {
-        "pe": "29.3",
+        "pe": "29.2",
         "eps": "4.68",
-        "mcap": "82.1B",
+        "mcap": "81.9B",
         "rev": "+8.8%"
       },
       "fv_low": null,
@@ -16550,7 +16550,7 @@
     "ROK": {
       "name": "Rockwell Automation",
       "fv": 173.21,
-      "price": 386.38,
+      "price": 384.2,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ROK",
@@ -16558,9 +16558,9 @@
       "videoID": null,
       "tv": "NYSE:ROK",
       "fund": {
-        "pe": "30.8",
+        "pe": "30.6",
         "eps": "12.54",
-        "mcap": "42.4B",
+        "mcap": "42.2B",
         "rev": "+7.7%"
       },
       "fv_low": 84.85,
@@ -16592,7 +16592,7 @@
     "AME": {
       "name": "Ametek",
       "fv": 96.45,
-      "price": 232.6,
+      "price": 232.44,
       "curr": "$",
       "ex": "NYSE",
       "yf": "AME",
@@ -16636,7 +16636,7 @@
     "GWW": {
       "name": "W.W. Grainger",
       "fv": 447.98,
-      "price": 1423.5,
+      "price": 1423.25,
       "curr": "$",
       "ex": "NYSE",
       "yf": "GWW",
@@ -16678,7 +16678,7 @@
     "URI": {
       "name": "United Rentals",
       "fv": 183.94,
-      "price": 1067.88,
+      "price": 1065.3,
       "curr": "$",
       "ex": "NYSE",
       "yf": "URI",
@@ -16686,9 +16686,9 @@
       "videoID": null,
       "tv": "NYSE:URI",
       "fund": {
-        "pe": "23.5",
+        "pe": "23.4",
         "eps": "45.49",
-        "mcap": "66.1B",
+        "mcap": "66.0B",
         "rev": "+9.4%"
       },
       "fv_low": 87.22,
@@ -16724,7 +16724,7 @@
     "LHX": {
       "name": "L3Harris",
       "fv": 216.47,
-      "price": 257.4,
+      "price": 256.99,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LHX",
@@ -16766,7 +16766,7 @@
     "TDG": {
       "name": "TransDigm",
       "fv": 519.1,
-      "price": 1162.94,
+      "price": 1162.15,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TDG",
@@ -16776,7 +16776,7 @@
       "fund": {
         "pe": "32.7",
         "eps": "35.55",
-        "mcap": "63.5B",
+        "mcap": "63.4B",
         "rev": "+19.5%"
       },
       "fv_low": 403.29,
@@ -16810,7 +16810,7 @@
     "HEI": {
       "name": "Heico",
       "fv": 90.5,
-      "price": 331.63,
+      "price": 331.14,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HEI",
@@ -16818,7 +16818,7 @@
       "videoID": null,
       "tv": "NYSE:HEI",
       "fund": {
-        "pe": "55.2",
+        "pe": "55.1",
         "eps": "6.01",
         "mcap": "38.9B",
         "rev": "+20.7%"
@@ -16852,7 +16852,7 @@
     "EOG": {
       "name": "EOG Resources",
       "fv": 116.27,
-      "price": 149.04,
+      "price": 149.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "EOG",
@@ -16896,7 +16896,7 @@
     "MPC": {
       "name": "Marathon Petroleum",
       "fv": 304.87,
-      "price": 372.11,
+      "price": 371.56,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MPC",
@@ -16906,7 +16906,7 @@
       "fund": {
         "pe": "7.3",
         "eps": "51.12",
-        "mcap": "101.3B",
+        "mcap": "101.2B",
         "rev": "+31.8%"
       },
       "fv_low": null,
@@ -16940,7 +16940,7 @@
     "PSX": {
       "name": "Phillips 66",
       "fv": 117.37,
-      "price": 244.78,
+      "price": 244.94,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PSX",
@@ -16985,7 +16985,7 @@
     "VLO": {
       "name": "Valero Energy",
       "fv": 279.67,
-      "price": 343.23,
+      "price": 343.24,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VLO",
@@ -17029,7 +17029,7 @@
     "HAL": {
       "name": "Halliburton",
       "fv": 28.51,
-      "price": 31.86,
+      "price": 31.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HAL",
@@ -17084,7 +17084,7 @@
       "fund": {
         "pe": "26.2",
         "eps": "2.54",
-        "mcap": "83.3B",
+        "mcap": "83.4B",
         "rev": "+9.7%"
       },
       "fv_low": 0.6,
@@ -17119,7 +17119,7 @@
     "OKE": {
       "name": "Oneok",
       "fv": 67.01,
-      "price": 86.82,
+      "price": 86.92,
       "curr": "$",
       "ex": "NYSE",
       "yf": "OKE",
@@ -17129,7 +17129,7 @@
       "fund": {
         "pe": "13.5",
         "eps": "6.44",
-        "mcap": "54.7B",
+        "mcap": "54.8B",
         "rev": "+38.1%"
       },
       "fv_low": null,
@@ -17164,7 +17164,7 @@
     "APD": {
       "name": "Air Products",
       "fv": 54.11,
-      "price": 305.78,
+      "price": 306.57,
       "curr": "$",
       "ex": "NYSE",
       "yf": "APD",
@@ -17172,9 +17172,9 @@
       "videoID": null,
       "tv": "NYSE:APD",
       "fund": {
-        "pe": "128.3",
+        "pe": "128.6",
         "eps": "2.38",
-        "mcap": "68.1B",
+        "mcap": "68.3B",
         "rev": "+7.9%"
       },
       "fv_low": null,
@@ -17211,7 +17211,7 @@
     "SHW": {
       "name": "Sherwin-Williams",
       "fv": 152.63,
-      "price": 341.8,
+      "price": 341.6,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SHW",
@@ -17221,7 +17221,7 @@
       "fund": {
         "pe": "31.4",
         "eps": "10.88",
-        "mcap": "82.6B",
+        "mcap": "82.5B",
         "rev": "+7.0%"
       },
       "fv_low": 84.75,
@@ -17255,7 +17255,7 @@
     "ECL": {
       "name": "Ecolab",
       "fv": 94.45,
-      "price": 298.47,
+      "price": 298.45,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ECL",
@@ -17299,7 +17299,7 @@
     "NEM": {
       "name": "Newmont",
       "fv": 59.75,
-      "price": 102.08,
+      "price": 101.85,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEM",
@@ -17307,9 +17307,9 @@
       "videoID": null,
       "tv": "NYSE:NEM",
       "fund": {
-        "pe": "11.9",
+        "pe": "11.8",
         "eps": "8.61",
-        "mcap": "106.1B",
+        "mcap": "105.8B",
         "rev": "+23.4%"
       },
       "fv_low": 5.76,
@@ -17341,7 +17341,7 @@
     "FCX": {
       "name": "Freeport-McMoRan",
       "fv": 16.39,
-      "price": 49.97,
+      "price": 49.77,
       "curr": "$",
       "ex": "NYSE",
       "yf": "FCX",
@@ -17349,9 +17349,9 @@
       "videoID": null,
       "tv": "NYSE:FCX",
       "fund": {
-        "pe": "21.1",
+        "pe": "21.0",
         "eps": "2.37",
-        "mcap": "71.7B",
+        "mcap": "71.4B",
         "rev": "-0.2%"
       },
       "fv_low": null,
@@ -17386,7 +17386,7 @@
     "NUE": {
       "name": "Nucor",
       "fv": 105.34,
-      "price": 250.69,
+      "price": 250.12,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NUE",
@@ -17394,9 +17394,9 @@
       "videoID": null,
       "tv": "NYSE:NUE",
       "fund": {
-        "pe": "16.0",
+        "pe": "15.9",
         "eps": "15.71",
-        "mcap": "56.4B",
+        "mcap": "56.3B",
         "rev": "+21.8%"
       },
       "fv_low": null,
@@ -17431,7 +17431,7 @@
     "DOW": {
       "name": "Dow Inc.",
       "fv": 69.86,
-      "price": 30.22,
+      "price": 30.27,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DOW",
@@ -17477,7 +17477,7 @@
     "DD": {
       "name": "DuPont",
       "fv": 51.79,
-      "price": 150.84,
+      "price": 150.5,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DD",
@@ -17485,9 +17485,9 @@
       "videoID": null,
       "tv": "NYSE:DD",
       "fund": {
-        "pe": "68.2",
+        "pe": "68.0",
         "eps": "2.21",
-        "mcap": "20.0B",
+        "mcap": "19.9B",
         "rev": "-43.5%"
       },
       "fv_low": null,
@@ -17522,7 +17522,7 @@
     "ALB": {
       "name": "Albemarle",
       "fv": null,
-      "price": 83.38,
+      "price": 83.19,
       "curr": "$",
       "ex": "NYSE",
       "yf": "ALB",
@@ -17567,7 +17567,7 @@
     "CTVA": {
       "name": "Corteva",
       "fv": 36.83,
-      "price": 8.09,
+      "price": 8.1,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CTVA",
@@ -17611,7 +17611,7 @@
     "MOS": {
       "name": "Mosaic",
       "fv": 27.47,
-      "price": 19.53,
+      "price": 19.64,
       "curr": "$",
       "ex": "NYSE",
       "yf": "MOS",
@@ -17657,7 +17657,7 @@
     "CF": {
       "name": "CF Industries",
       "fv": 244.56,
-      "price": 114.75,
+      "price": 115.2,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CF",
@@ -17667,7 +17667,7 @@
       "fund": {
         "pe": "8.1",
         "eps": "14.17",
-        "mcap": "16.8B",
+        "mcap": "16.9B",
         "rev": "+17.9%"
       },
       "fv_low": null,
@@ -17702,7 +17702,7 @@
     "DUK": {
       "name": "Duke Energy",
       "fv": null,
-      "price": 128.24,
+      "price": 128.37,
       "curr": "$",
       "ex": "NYSE",
       "yf": "DUK",
@@ -17710,9 +17710,9 @@
       "videoID": null,
       "tv": "NYSE:DUK",
       "fund": {
-        "pe": "18.7",
+        "pe": "18.8",
         "eps": "6.85",
-        "mcap": "100.0B",
+        "mcap": "100.1B",
         "rev": "+6.8%"
       },
       "fv_low": null,
@@ -17749,7 +17749,7 @@
     "SO": {
       "name": "Southern Company",
       "fv": null,
-      "price": 93.14,
+      "price": 93.27,
       "curr": "$",
       "ex": "NYSE",
       "yf": "SO",
@@ -17757,9 +17757,9 @@
       "videoID": null,
       "tv": "NYSE:SO",
       "fund": {
-        "pe": "21.3",
+        "pe": "21.4",
         "eps": "4.37",
-        "mcap": "108.4B",
+        "mcap": "108.6B",
         "rev": "+7.9%"
       },
       "fv_low": null,
@@ -17796,7 +17796,7 @@
     "D": {
       "name": "Dominion Energy",
       "fv": null,
-      "price": 66.65,
+      "price": 66.67,
       "curr": "$",
       "ex": "NYSE",
       "yf": "D",
@@ -17842,7 +17842,7 @@
     "VST": {
       "name": "Vistra",
       "fv": 71.85,
-      "price": 124.96,
+      "price": 124.36,
       "curr": "$",
       "ex": "NYSE",
       "yf": "VST",
@@ -17850,9 +17850,9 @@
       "videoID": null,
       "tv": "NYSE:VST",
       "fund": {
-        "pe": "16.9",
+        "pe": "16.8",
         "eps": "7.41",
-        "mcap": "42.4B",
+        "mcap": "42.2B",
         "rev": "+17.5%"
       },
       "fv_low": null,
@@ -17889,7 +17889,7 @@
     "LYV": {
       "name": "Live Nation",
       "fv": 66.82,
-      "price": 180.3,
+      "price": 179.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "LYV",
@@ -17899,7 +17899,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-0.16",
-        "mcap": "42.5B",
+        "mcap": "42.4B",
         "rev": "+13.5%"
       },
       "fv_low": null,
@@ -17934,7 +17934,7 @@
     "RBLX": {
       "name": "Roblox",
       "fv": 19.74,
-      "price": 48.78,
+      "price": 48.63,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RBLX",
@@ -17944,7 +17944,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-1.37",
-        "mcap": "34.9B",
+        "mcap": "34.8B",
         "rev": "+32.1%"
       },
       "fv_low": null,
@@ -17978,7 +17978,7 @@
     "PINS": {
       "name": "Pinterest",
       "fv": 14.6,
-      "price": 17.11,
+      "price": 17.04,
       "curr": "$",
       "ex": "NYSE",
       "yf": "PINS",
@@ -17986,7 +17986,7 @@
       "videoID": null,
       "tv": "NYSE:PINS",
       "fund": {
-        "pe": "69.1",
+        "pe": "68.9",
         "eps": "0.25",
         "mcap": "9.8B",
         "rev": "+15.4%"
@@ -18022,7 +18022,7 @@
     "CVNA": {
       "name": "Carvana",
       "fv": null,
-      "price": 69.73,
+      "price": 69.31,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVNA",
@@ -18030,9 +18030,9 @@
       "videoID": null,
       "tv": "NYSE:CVNA",
       "fund": {
-        "pe": "29.8",
+        "pe": "29.6",
         "eps": "2.34",
-        "mcap": "76.9B",
+        "mcap": "76.5B",
         "rev": "+50.3%"
       },
       "fv_low": null,
@@ -18067,7 +18067,7 @@
     "RDDT": {
       "name": "Reddit",
       "fv": null,
-      "price": 91.61,
+      "price": 91.48,
       "curr": "$",
       "ex": "NYSE",
       "yf": "RDDT",
@@ -18109,7 +18109,7 @@
     "BUD": {
       "name": "Anheuser-Busch InBev",
       "fv": 84.47,
-      "price": 80.56,
+      "price": 80.57,
       "curr": "$",
       "ex": "NYSE",
       "yf": "BUD",
@@ -18153,7 +18153,7 @@
     "CCL": {
       "name": "Carnival",
       "fv": 10.57,
-      "price": 28.06,
+      "price": 27.93,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CCL",
@@ -18161,9 +18161,9 @@
       "videoID": null,
       "tv": "NYSE:CCL",
       "fund": {
-        "pe": "12.3",
+        "pe": "12.2",
         "eps": "2.29",
-        "mcap": "37.7B",
+        "mcap": "37.5B",
         "rev": "+5.2%"
       },
       "fv_low": null,
@@ -18198,7 +18198,7 @@
     "CNI": {
       "name": "Canadian National Railway",
       "fv": 72.78,
-      "price": 124.92,
+      "price": 124.89,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNI",
@@ -18243,7 +18243,7 @@
     "CP": {
       "name": "Canadian Pacific Kansas City",
       "fv": 32.21,
-      "price": 91.92,
+      "price": 91.84,
       "curr": "$",
       "ex": "NYSE",
       "yf": "CP",
@@ -18251,7 +18251,7 @@
       "videoID": null,
       "tv": "NYSE:CP",
       "fund": {
-        "pe": "30.2",
+        "pe": "30.1",
         "eps": "3.05",
         "mcap": "79.9B",
         "rev": "+4.2%"
@@ -18288,7 +18288,7 @@
     "NCLH": {
       "name": "Norwegian Cruise Line",
       "fv": null,
-      "price": 17.47,
+      "price": 17.39,
       "curr": "$",
       "ex": "NYSE",
       "yf": "NCLH",
@@ -18296,7 +18296,7 @@
       "videoID": null,
       "tv": "NYSE:NCLH",
       "fund": {
-        "pe": "9.7",
+        "pe": "9.6",
         "eps": "1.80",
         "mcap": "8.0B",
         "rev": "+4.9%"
@@ -18333,7 +18333,7 @@
     "HUBS": {
       "name": "HubSpot",
       "fv": 113.13,
-      "price": 195.75,
+      "price": 195.46,
       "curr": "$",
       "ex": "NYSE",
       "yf": "HUBS",
@@ -18341,9 +18341,9 @@
       "videoID": null,
       "tv": "NYSE:HUBS",
       "fund": {
-        "pe": "46.8",
+        "pe": "46.7",
         "eps": "4.19",
-        "mcap": "9.6B",
+        "mcap": "9.5B",
         "rev": "+20.1%"
       },
       "fv_low": 29.68,
@@ -18375,7 +18375,7 @@
     "TWLO": {
       "name": "Twilio",
       "fv": null,
-      "price": 189.53,
+      "price": 188.09,
       "curr": "$",
       "ex": "NYSE",
       "yf": "TWLO",
@@ -18383,9 +18383,9 @@
       "videoID": null,
       "tv": "NYSE:TWLO",
       "fund": {
-        "pe": "23.8",
+        "pe": "23.7",
         "eps": "7.95",
-        "mcap": "29.3B",
+        "mcap": "29.1B",
         "rev": "+19.1%"
       },
       "fv_low": null,
@@ -18425,5 +18425,5 @@
     ".INTU": "INTU",
     ".QCOM": "QCOM"
   },
-  "fv_updated": "2026-11-19T18:17:08.702Z"
+  "fv_updated": "2026-11-19T18:24:07.752Z"
 }
