@@ -33,6 +33,14 @@ if (primaVolta) for (const r of sig.segnali) if (r.d < dal) fatti.add(chiave(r))
 // tardi: segnali recuperati in blocco per un titolo appena aggiunto all'elenco (compute_tbo.mjs): non si pubblicano in ritardo
 const nuovi = sig.segnali.filter(r => (r.k === 'c' || r.k === 'x') && r.d >= dal && !r.tardi && !fatti.has(chiave(r)));
 if (!nuovi.length) { console.log('Nessun nuovo segnale da pubblicare.'); process.exit(0); }
+// TELEGRAM_SOLO_REGISTRA=1: i nuovi segnali si segnano come pubblicati senza inviarli (dopo un invio già fatto il cui
+// registro non è stato salvato, per non mandarli due volte)
+if (process.env.TELEGRAM_SOLO_REGISTRA === '1') {
+  const vecchio = new Date(); vecchio.setUTCDate(vecchio.getUTCDate() - 60);
+  const inviati = [...fatti, ...nuovi.map(chiave)].filter(k => k.split('|')[1] >= vecchio.toISOString().slice(0, 10));
+  fs.writeFileSync(PERCORSO, JSON.stringify({ aggiornato: new Date().toISOString(), inviati }) + '\n');
+  console.log(`Segnati come già pubblicati, senza inviarli: ${nuovi.length} segnali.`); process.exit(0);
+}
 
 const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, '-');

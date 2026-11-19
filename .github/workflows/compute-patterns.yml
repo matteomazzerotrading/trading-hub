@@ -17,6 +17,11 @@ on:
       - 'scripts/compute_patterns_ext.py'
       - '.github/workflows/compute-patterns.yml'
   workflow_dispatch:
+    inputs:
+      solo_registra:
+        description: 'Segna i nuovi segnali come già pubblicati senza inviarli su Telegram'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -64,13 +69,24 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_SOLO_REGISTRA: ${{ inputs.solo_registra && '1' || '' }}
         run: node scripts/notify_telegram.mjs
       - name: Pattern Scanner sugli altri titoli (USA ed Europa)
         continue-on-error: true
         timeout-minutes: 25
         run: python scripts/compute_patterns_ext.py
       - name: Allinea al ramo principale
-        run: git pull --rebase --autostash
+        # Il calcolo settimanale (tbo-stats) può aver riscritto tbo_state_ext.json nel frattempo: per i titoli presenti
+        # in entrambi vale lo stato più avanzato, i titoli nuovi del settimanale si aggiungono, quelli tolti si tolgono
+        run: |
+          cp tbo_state_ext.json /tmp/ext_sera.json 2>/dev/null || true
+          git checkout -- tbo_state_ext.json 2>/dev/null || true
+          git pull --rebase --autostash
+          if [ -f /tmp/ext_sera.json ]; then node -e "
+            const fs = require('fs'), s = JSON.parse(fs.readFileSync('/tmp/ext_sera.json', 'utf8')), r = JSON.parse(fs.readFileSync('tbo_state_ext.json', 'utf8'));
+            for (const [k, x] of Object.entries(r.titoli)) { const y = s.titoli[k]; if (y && !y.attesa && (y.fino || '') >= (x.fino || '')) r.titoli[k] = { ...y, n: x.n, tv: x.tv }; }
+            r.aggiornato = s.aggiornato || r.aggiornato;
+            fs.writeFileSync('tbo_state_ext.json', JSON.stringify(r) + '\\n');"; fi
       - name: Salva i risultati
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
