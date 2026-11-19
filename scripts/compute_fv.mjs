@@ -203,7 +203,7 @@ async function main() {
         try {
           const s = storicoFv(f, md.weekly[e.yf || t], bench, usaPaese ? (cpiPaesi[cod] || cpi) : cpi, rfAllora(usaPaese ? cod : 'US'),
             trimestri, { PI_ATTESA: E.PAESI[cod].piAttesa });
-          if (s.fv.filter(x => x != null).length >= 4) storico[t] = { fv: [...s.fv, r.fv], p: [...s.p, e.price] };
+          if (s.fv.filter(x => x != null).length >= 4) storico[t] = { fv: [...s.fv, r.fv], p: [...s.p, e.price], gi: [...s.gi, null], gh: [...s.gh, r.g_hist != null ? r.g_hist : null] };
         } catch (ex) {}
       }
       // Cambio di esito (sottovalutata / equità / sopravvalutata) rispetto al calcolo precedente
@@ -273,7 +273,7 @@ async function main() {
     if (r.status === 'ok' && r.fv > 0 && weekly.length) {
       try {
         const st = storicoFv(f, weekly, bench, cpiP, rfAllora(r.paese || 'US'), trimestri, { PI_ATTESA: (E.PAESI[r.paese] || E.PAESI.US).piAttesa });
-        if (st.fv.filter(v => v != null).length >= 4) storicoExt[t] = { fv: [...st.fv, r.fv], p: [...st.p, e.price] };
+        if (st.fv.filter(v => v != null).length >= 4) storicoExt[t] = { fv: [...st.fv, r.fv], p: [...st.p, e.price], gi: [...st.gi, null], gh: [...st.gh, r.g_hist != null ? r.g_hist : null] };
       } catch (ex) {}
     }
   }

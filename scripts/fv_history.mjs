@@ -29,15 +29,28 @@ export function fineTrimestri(oggi, n = 24) {
 export function storicoFv(f, weekly, bench, cpi, rfAt, date, opts) {
   const f0 = Object.assign({}, f, { cash_n_short_term_invest_fq: null, cash_n_short_term_invest_fy: null, total_debt_fq: null,
     total_debt_fy: null, return_on_invested_capital_fy: null, earnings_release_date: null });
-  const fv = [], p = [];
+  // gi = crescita annua implicita nel prezzo di allora (DCF inverso, vedi fv_engine.js → crescitaImplicita);
+  // gh = crescita storica dei ricavi per azione nota allora. Servono a verificare la lente "cosa sconta il prezzo".
+  const fv = [], p = [], gi = [], gh = [];
   for (const D of date) {
     const w = upTo(weekly, D);
-    let v = null;
+    let v = null, g = null, h = null;
+    const prezzo = w.length ? w[w.length - 1][1] : null;
     if (w.length >= 60) {
       const rf = rfAt(D);
-      if (rf != null) { try { const r = E.compute(f0, cpi, rf, null, w, upTo(bench, D), w, D, opts); if (r.status === 'ok' && r.fv > 0) v = r.fv; } catch (e) {} }
+      if (rf != null) {
+        try {
+          const r = E.compute(f0, cpi, rf, null, w, upTo(bench, D), w, D, opts);
+          if (r.status === 'ok' && r.fv > 0) {
+            v = r.fv; h = r.g_hist != null ? r.g_hist : null;
+            const ci = E.crescitaImplicita({ ind: { fcf_norm: r.fcf_norm, ke: r.ke, pi: r.pi, cassa_az: 0 } }, prezzo);
+            if (ci && !ci.fuori) g = ci.g;
+          }
+        } catch (e) {}
+      }
     }
-    fv.push(r2(v)); p.push(w.length ? r2(w[w.length - 1][1]) : null);
+    const r4 = x => (x == null || !isFinite(x) ? null : Math.round(x * 10000) / 10000);
+    fv.push(r2(v)); p.push(prezzo != null ? r2(prezzo) : null); gi.push(r4(g)); gh.push(r4(h));
   }
-  return { fv, p };
+  return { fv, p, gi, gh };
 }

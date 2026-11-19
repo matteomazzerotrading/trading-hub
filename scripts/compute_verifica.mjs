@@ -45,7 +45,9 @@ for (const [src, ext] of [[H, false], [HX, true]]) {
       if (!(f > 0 && p > 0)) continue;
       const q = p / f; if (q < 0.05 || q > 20) continue;
       const p4 = i + 4 < date.length ? s.p[i + 4] : null, p8 = i + 8 < date.length ? s.p[i + 8] : null;   // solo fine trimestre, non "oggi"
-      oss.push({ t, i, q, f: fascia(q).k, r12: p4 > 0 ? p4 / p - 1 : null, r24: p8 > 0 ? p8 / p - 1 : null, m: mercatoDi(t, ext) });
+      // aspettative: crescita storica dei ricavi per azione meno crescita implicita nel prezzo, entrambe di allora
+      const gi = s.gi ? s.gi[i] : null, gh = s.gh ? s.gh[i] : null, dg = gi != null && gh != null ? gh - gi : null;
+      oss.push({ t, i, q, f: fascia(q).k, dg, r12: p4 > 0 ? p4 / p - 1 : null, r24: p8 > 0 ? p8 / p - 1 : null, m: mercatoDi(t, ext) });
     }
   }
 }
@@ -76,8 +78,25 @@ for (const t of new Set(oss.map(o => o.t))) {
   titoli[t] = { n: mie.length, s: s.length, sm: pc(mediana(s.map(x => x.r12))), sx: pc(mediana(s.map(x => x.x12))), sb: s.length ? Math.round(s.filter(x => x.x12 > 0).length / s.length * 100) : null,
     o: o.length, om: pc(mediana(o.map(x => x.r12))), ox: pc(mediana(o.map(x => x.x12))) };
 }
+// "Cosa sconta il prezzo" alla prova: la differenza tra crescita storica e crescita implicita di allora
+const FASCE_G = [
+  { k: 'molto_basse', nome: 'il prezzo chiede oltre 10 punti in meno della crescita storica', da: 0.10, a: Infinity },
+  { k: 'basse', nome: 'chiede fino a 10 punti in meno', da: 0, a: 0.10 },
+  { k: 'alte', nome: 'chiede fino a 10 punti in più', da: -0.10, a: 0 },
+  { k: 'molto_alte', nome: 'chiede oltre 10 punti in più della crescita storica', da: -Infinity, a: -0.10 },
+];
+const conG = oss.filter(o => o.dg != null);
+const aspettative = conG.length >= 1000 ? {
+  casi: conG.filter(o => o.r12 != null).length,
+  fasce: FASCE_G.map(f => ({ k: f.k, nome: f.nome, ...misura(conG.filter(o => o.dg >= f.da && o.dg < f.a)) })),
+  // le due lenti insieme: sotto il fair value e aspettative sotto la storia
+  insieme: { sotto_e_basse: misura(conG.filter(o => o.q < 1 && o.dg > 0)), sotto_e_alte: misura(conG.filter(o => o.q < 1 && o.dg <= 0)) },
+  trimestri: (() => { let v = 0, n = 0; for (let i = 0; i < date.length; i++) { const b = conG.filter(o => o.i === i && o.dg > 0 && o.r12 != null), a = conG.filter(o => o.i === i && o.dg <= 0 && o.r12 != null); if (b.length >= 20 && a.length >= 20) { n++; if (mediana(b.map(o => o.r12)) > mediana(a.map(o => o.r12))) v++; } } return { vinti: v, su: n }; })(),
+} : null;
+
 const out = { aggiornato: new Date().toISOString(), dal: date[0], al: date[Math.max(0, date.length - 5)], osservazioni: oss.filter(o => o.r12 != null).length,
-  titoli_n: new Set(oss.map(o => o.t)).size, tutti: misura(oss), fasce, per_trimestre: perTrim, per_mercato: perMercato, titoli,
+  titoli_n: new Set(oss.map(o => o.t)).size, tutti: misura(oss), fasce, per_trimestre: perTrim, per_mercato: perMercato, aspettative, titoli,
   nota: 'p12 = % in guadagno dopo 12 mesi; m12 = rendimento mediano; x12 = rendimento in eccesso mediano sulla mediana di tutti i titoli dello stesso trimestre; batte12 = % di casi sopra quella mediana. Per titolo: s/o = trimestri sotto/sopra il fair value, sm/om = rendimento mediano a 12 mesi, sx/ox = in eccesso, sb = % di casi che battono la mediana.' };
 fs.writeFileSync(path.join(ROOT, 'verifica_fv.json'), JSON.stringify(out) + '\n');
+if (aspettative) console.log('Aspettative: ' + aspettative.fasce.map(f => `${f.k} ecc. ${f.x12}% (n=${f.casi})`).join(' · ') + ` · trimestri vinti ${aspettative.trimestri.vinti}/${aspettative.trimestri.su}`);
 console.log(`Verifica del modello: ${out.osservazioni} osservazioni su ${out.titoli_n} titoli dal ${out.dal}; ` + fasce.map(f => `${f.k} ${f.m12}% (ecc. ${f.x12}%, n=${f.casi})`).join(' · '));
