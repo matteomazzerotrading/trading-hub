@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-19T18:59:09.475Z",
+ "aggiornato": "2026-11-19T19:37:05.639Z",
  "cambi": [
   {
    "data": "2026-11-19",
@@ -376,29 +376,22 @@
  "cambi_altri": [
   {
    "data": "2026-11-19",
-   "t": "NFG",
-   "nome": "National Fuel Gas",
-   "da": "premio_sostenuto",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-19",
    "t": "NU",
    "nome": "Nu Holdings Ltd. Class A",
-   "da": "equa_declino",
-   "a": "banda"
+   "da": "banda",
+   "a": "equa_declino"
   },
   {
    "data": "2026-11-19",
    "t": "BCO",
    "nome": "Brink's",
-   "da": "sotto",
-   "a": "banda"
+   "da": "banda",
+   "a": "sotto"
   },
   {
    "data": "2026-11-19",
-   "t": "CSR",
-   "nome": "Centerspace Trust",
+   "t": "FCF",
+   "nome": "First Commonwealth Financial, Corp.",
    "da": "sotto",
    "a": "banda"
   },
@@ -406,8 +399,8 @@
    "data": "2026-11-19",
    "t": "INVX",
    "nome": "Innovex International, Inc.",
-   "da": "equa_declino",
-   "a": "banda"
+   "da": "banda",
+   "a": "equa_declino"
   }
  ]
 }
