@@ -2,8 +2,13 @@
 fetch_universe.py — barre giornaliere di un campione largo di azioni, per il track record della TBO Strategy.
 
 Il campione: le società degli indici S&P 500, S&P 400 e S&P 600 (grandi, medie e piccole americane, dagli elenchi
-di Wikipedia) più i titoli europei e italiani seguiti dal sito (data.json). Scrive nella cartella indicata dei file
-daily_N.json ({simbolo: {d, h, l, c}}) e meta.json con il gruppo di ogni simbolo. Sono file temporanei.
+di Wikipedia), le altre società quotate negli Stati Uniti con capitalizzazione di almeno 2 miliardi (comprese le
+straniere quotate a New York e le nuove quotazioni), le società quotate nelle borse europee coperte dal fair value
+(Milano, Francoforte, Parigi, Amsterdam, Madrid, Londra, Zurigo) con almeno 2 miliardi di capitalizzazione, più i
+titoli seguiti dal sito (data.json). Scrive nella cartella indicata dei file daily_N.json ({simbolo: {d, h, l, c}})
+e meta.json con il gruppo di ogni simbolo. Sono file temporanei.
+Il track record usa solo i titoli con almeno 6 anni di barre; quelli più giovani (nuove quotazioni) entrano comunque
+nei segnali giornalieri e nel fair value: in meta.json → "giovani" con il numero di barre disponibili.
 Limite noto: sono le società presenti OGGI negli indici; quelle uscite o fallite negli anni non ci sono.
 """
 import io, json, os, sys, urllib.request
@@ -35,6 +40,46 @@ for nome, pagina in INDICI:
     except Exception as e:
         print(f"{nome}: elenco non disponibile ({e})")
 
+# Altre società americane ed europee dallo screener pubblico di TradingView (capitalizzazione di almeno 2 miliardi
+# nella valuta di quotazione). Simbolo Yahoo: ticker con "-" al posto di "." e il suffisso della borsa.
+tv = {}
+MERCATI = [("america", ["NYSE", "NASDAQ", "AMEX"], "", "USA, altre società (oltre 2 miliardi)"),
+           ("italy", ["MIL"], ".MI", "Europa: Italia"), ("germany", ["XETR"], ".DE", "Europa: Germania"),
+           ("france", ["EURONEXT"], ".PA", "Europa: Francia"), ("netherlands", ["EURONEXT"], ".AS", "Europa: Paesi Bassi"),
+           ("spain", ["BME"], ".MC", "Europa: Spagna"), ("uk", ["LSE"], ".L", "Europa: Regno Unito"),
+           ("switzerland", ["SIX"], ".SW", "Europa: Svizzera")]
+def scansiona(mercato, borse, primaria=True):
+    filtri = [{"left": "market_cap_basic", "operation": "egreater", "right": 2e9},
+              {"left": "type", "operation": "in_range", "right": ["stock", "dr"]},
+              {"left": "exchange", "operation": "in_range", "right": borse}]
+    if primaria:
+        filtri.append({"left": "is_primary", "operation": "equal", "right": True})
+    corpo = json.dumps({"filter": filtri, "columns": ["name", "description", "exchange", "market_cap_basic"],
+                        "sort": {"sortBy": "market_cap_basic", "sortOrder": "desc"}, "range": [0, 2500]}).encode()
+    rq = urllib.request.Request(f"https://scanner.tradingview.com/{mercato}/scan", data=corpo, headers={**UA, "Content-Type": "text/plain"})
+    return json.loads(urllib.request.urlopen(rq, timeout=60).read().decode()).get("data", [])
+for mercato, borse, suffisso, nome in MERCATI:
+    try:
+        try:
+            righe = scansiona(mercato, borse)
+        except Exception:
+            righe = scansiona(mercato, borse, primaria=False)
+        nuovi = 0
+        for x in righe:
+            ticker, descr = x["d"][0], x["d"][1]
+            if not ticker or len(ticker) > 8:
+                continue
+            s = ticker.replace(".", "-").replace("/", "-") + suffisso
+            if s in gruppo:
+                continue
+            gruppo[s] = nome; nuovi += 1
+            if isinstance(descr, str) and descr.strip():
+                nomi.setdefault(s, descr.strip())
+            tv.setdefault(s, x["s"])
+        print(f"{nome}: {nuovi} simboli in più (su {len(righe)})")
+    except Exception as e:
+        print(f"{nome}: elenco non disponibile ({e})")
+
 data = json.load(open(os.path.join(ROOT, "data.json"), encoding="utf-8"))
 sito = set()
 for t, e in data["db"].items():
@@ -44,9 +89,8 @@ for t, e in data["db"].items():
         gruppo.setdefault(s, "Europa e Italia (titoli del sito)" if "." in s else "USA, altri titoli del sito")
 
 # Simbolo TradingView (borsa:ticker) dei titoli americani che il sito non segue: serve per il prezzo aggiornato
-tv = {}
 try:
-    fuori = [s for s in gruppo if s not in sito]
+    fuori = [s for s in gruppo if s not in sito and s not in tv and "." not in s]
     for i in range(0, len(fuori), 500):
         corpo = json.dumps({"filter": [{"left": "name", "operation": "in_range", "right": [x.replace("-", ".") for x in fuori[i:i + 500]]},
                                        {"left": "exchange", "operation": "in_range", "right": ["NYSE", "NASDAQ", "AMEX", "NYSE ARCA", "CBOE"]}],
@@ -64,7 +108,7 @@ if sum(1 for g in gruppo.values() if g.startswith("USA ") and "S&P" in g) < 800:
 
 import yfinance as yf
 r4 = lambda s: [round(float(v), 4) for v in s.values]
-presi, n_file = {}, 0
+presi, giovani, n_file = {}, {}, 0
 for i in range(0, len(simboli), 150):
     lotto = simboli[i:i + 150]
     try:
@@ -80,11 +124,22 @@ for i in range(0, len(simboli), 150):
         if len(b) >= 1500:
             out[s] = {"d": [x.strftime("%Y-%m-%d") for x in b.index], "h": r4(b["High"]), "l": r4(b["Low"]), "c": r4(b["Close"])}
             presi[s] = gruppo[s]
+        elif s not in sito and s in tv:
+            # nuova quotazione o storia breve: fuori dal track record, ma nei segnali e nel fair value
+            giovani[s] = len(b)
+            if len(b) >= 320:
+                out[s] = {"d": [x.strftime("%Y-%m-%d") for x in b.index], "h": r4(b["High"]), "l": r4(b["Low"]), "c": r4(b["Close"])}
     json.dump(out, open(os.path.join(OUT, f"daily_{n_file}.json"), "w"), separators=(",", ":")); n_file += 1
     print(f"Lotto {i // 150 + 1}: {len(out)}/{len(lotto)}")
-json.dump({"gruppo": presi, "nomi": {k: v for k, v in nomi.items() if k in presi}, "tv": {k: v for k, v in tv.items() if k in presi},
-           "sito": sorted(sito & set(presi)), "descrizione": "società degli indici S&P 500, 400 e 600 più i titoli europei e italiani seguiti dal sito"},
+# le società americane senza barre su Yahoo (quotate da pochi giorni) entrano lo stesso, senza storia
+for s in simboli:
+    if s not in presi and s not in giovani and s not in sito and s in tv:
+        giovani[s] = 0
+tutti = set(presi) | set(giovani)
+json.dump({"gruppo": {**{k: gruppo[k] for k in giovani}, **presi}, "nomi": {k: v for k, v in nomi.items() if k in tutti}, "tv": {k: v for k, v in tv.items() if k in tutti},
+           "giovani": giovani, "sito": sorted(sito & set(presi)),
+           "descrizione": "società degli indici S&P 500, 400 e 600, altre società americane ed europee con almeno 2 miliardi di capitalizzazione e i titoli seguiti dal sito"},
           open(os.path.join(OUT, "meta.json"), "w"), ensure_ascii=False)
-print(f"Campione: {len(presi)} titoli con almeno 6 anni di barre, in {n_file} file")
+print(f"Campione: {len(presi)} titoli con almeno 6 anni di barre, in {n_file} file; {len(giovani)} con storia più breve")
 if len(presi) < 800:
     sys.exit("Troppi titoli senza barre: nessun calcolo.")

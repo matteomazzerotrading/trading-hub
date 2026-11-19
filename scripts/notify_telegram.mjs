@@ -38,7 +38,8 @@ const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 const num = (x, d = 2) => Number(x).toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: 'always' });
 function scheda(r) {
   if (!r.ext && db[r.t]) return { t: r.t, d: db[r.t], mio: true };
-  const tk = String(r.tv || '').split(':')[1] || r.t, k = db[tk] ? tk + '.US' : tk;
+  // europee: chiave = simbolo Yahoo (es. SAN.PA); americane: ticker, con .US se è già nel mio elenco su un'altra borsa
+  const tk = String(r.tv || '').split(':')[1] || r.t, k = String(r.t).includes('.') ? r.t : db[tk] ? tk + '.US' : tk;
   return { t: tk, k, d: ext[k] || { name: r.n || tk, curr: '$' }, mio: false };
 }
 const riga = r => {

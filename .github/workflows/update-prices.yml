@@ -4,7 +4,7 @@ name: Aggiorna Prezzi
 # Puoi anche avviarlo manualmente dalla tab Actions su GitHub.
 on:
   schedule:
-    - cron: '0 7-21/2 * * 1-5'
+    - cron: '17 7-21/2 * * 1-5'   # minuto non tondo: alle :00 GitHub rinvia o salta spesso i lanci
   workflow_dispatch:
 
 # Senza questo permesso il bot non può salvare data.json nel repo

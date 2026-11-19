@@ -302,10 +302,18 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       const da = Math.max(0, n - BARRE), taglia = a => a.slice(da, n);
       const s = { d: taglia(b.d), o: taglia(b.o), h: taglia(b.h), l: taglia(b.l), c: taglia(b.c) };
       perAmpiezza.push(s); serieDi[sym + '|x'] = s;
+      let r;
+      if (st.attesa) {
+        // nuova quotazione che ora ha abbastanza sedute: lo stato parte in silenzio fino a 12 sedute fa, così i
+        // segnali passati non arrivano come nuovi (stesso criterio del calcolo settimanale)
+        try { r = segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { titoliExt++; continue; }
+        const m = s.d.length - 12;
+        avanza(st, { d: s.d.slice(0, m), c: s.c.slice(0, m) }, { setup: r.setup.slice(0, m), uscita: r.uscita.slice(0, m) });
+        delete st.attesa;
+      }
       if (s.d.at(-1) <= st.fino) { titoliExt++; continue; }
       if (s.d[0] > st.fino) { errExt++; continue; }
-      let r;
-      try { r = segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { errExt++; continue; }
+      try { r = r || segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { errExt++; continue; }
       for (const ev of avanza(st, s, r)) eventiExt.push(conSconto({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1 }, s));
       titoliExt++;
     }

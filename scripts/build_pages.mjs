@@ -17,7 +17,7 @@ const OUT = path.join(ROOT, 'titoli');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
 const db = data.db;
 const leggiSe = f => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch (e) { return null; } };
-// Società degli indici S&P 500, 400 e 600 che non seguo personalmente (fv_ext.json): stessa pagina, con un avviso
+// Società americane ed europee che non seguo personalmente (fv_ext.json): stessa pagina, con un avviso
 const ext = (leggiSe('fv_ext.json') || {}).titoli || {};
 for (const t of Object.keys(ext)) if (db[t]) delete ext[t];
 const tutti = { ...db, ...ext };
@@ -248,7 +248,7 @@ Per ${esc(d.name)} il modello non produce un fair value: ${ind.status === 'fcf_n
 
   return head(title, desc, url, ld) + `<h1>Fair value di ${esc(d.name)} (${esc(t)})${held.has(t) ? '<span class="held">💼 nel mio portafoglio</span>' : ''}</h1>
 <p class="mu">${d.settore ? esc(d.settore) + ' · ' : ''}${{ it: 'Borsa Italiana', eu: 'Europa', us: 'Stati Uniti' }[E.mercato(d)]} · aggiornato al ${agg} · calcolato con il mio indicatore FAIR VALUE (dati realizzati) su TradingView${d.earn_next ? ` · prossima trimestrale: ${dataIt(d.earn_next)}` : ''}</p>
-${ext[t] ? `<p class="card mu" style="margin-top:10px">Non è tra i titoli che seguo personalmente: fa parte degli indici S&amp;P 500, 400 o 600, per cui calcolo ogni giorno fair value e segnali della mia strategia con lo stesso metodo. <a href="altri.html">Tutti gli altri titoli →</a></p>` : ''}
+${ext[t] ? `<p class="card mu" style="margin-top:10px">Non è tra i titoli che seguo personalmente: è una delle società americane ed europee (indici S&amp;P 500, 400 e 600 e le altre con almeno 2 miliardi di capitalizzazione) per cui calcolo ogni giorno fair value e segnali della mia strategia con lo stesso metodo. <a href="altri.html">Tutti gli altri titoli →</a></p>${ext[t].giovane ? `<p class="card mu" style="margin-top:10px">Quotata da poco: la storia dei prezzi e dei bilanci è ancora breve, quindi il fair value può mancare o essere poco affidabile. I segnali della strategia TBO partono quando ci sono abbastanza sedute (oltre un anno di borsa).</p>` : ''}` : ''}
 <p><span class="badge" style="color:${v.colore};background:${v.colore}1f;border:1px solid ${v.colore}73">${esc(v.titolo)}</span>${aff.livello ? `<span class="aff" style="color:${AFF[aff.livello][0]};border:1px solid ${AFF[aff.livello][0]}73">${AFF[aff.livello][1]}</span>` : ''}</p>
 ${corpo}
 <a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>
@@ -260,13 +260,13 @@ ${simili(t, d)}
 
 function paginaAltri(righe) {
   const agg = dataIt(righe[0] && righe[0].d.fv_updated);
-  const title = `Fair value delle azioni americane degli indici S&P 500, 400 e 600 | Matteo Mazzero`;
-  const desc = `Fair value di ${righe.length} azioni americane degli indici S&P 500, 400 e 600 calcolati ogni giorno con l'indicatore FAIR VALUE (dati realizzati). Aggiornato al ${agg}.`;
+  const title = `Fair value di azioni americane ed europee, aggiornati ogni giorno | Matteo Mazzero`;
+  const desc = `Fair value di ${righe.length} azioni americane ed europee (indici S&P 500, 400 e 600 e società con almeno 2 miliardi di capitalizzazione) calcolati ogni giorno con l'indicatore FAIR VALUE (dati realizzati). Aggiornato al ${agg}.`;
   const tr = righe.map(({ t, d, v, pt }) => `<tr><td><a href="${slug(t)}.html"><strong>${esc(t)}</strong></a><br><span class="mu">${esc(d.name)}</span></td>
 <td class="n">${num(d.price)} ${d.curr}</td><td class="n">${d.fv != null ? num(d.fv) + ' ' + d.curr : '—'}</td>
 <td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#43a047' : '#d32f2f'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
-  return head(title, desc, `${SITE}titoli/altri.html`) + `<h1>Fair value di ${righe.length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane</h1>
-<p class="mu">Indici S&amp;P 500, 400 e 600 · aggiornati al ${agg} · in ordine alfabetico</p>
+  return head(title, desc, `${SITE}titoli/altri.html`) + `<h1>Fair value di ${righe.length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane ed europee</h1>
+<p class="mu">Indici S&amp;P 500, 400 e 600 e altre società americane ed europee con almeno 2 miliardi di capitalizzazione · aggiornati al ${agg} · in ordine alfabetico</p>
 <p>Non sono i titoli che seguo personalmente (quelli sono nell'<a href="index.html">elenco principale</a>), ma per ciascuno calcolo ogni giorno il fair value con lo stesso metodo e i segnali della mia strategia TBO.</p>
 <div class="card tw"><table>
 <thead><tr><th>Titolo</th><th class="n">Prezzo</th><th class="n">FV pavimento</th><th class="n">Potenziale</th><th>Esito del modello</th></tr></thead>
@@ -285,7 +285,7 @@ function paginaIndice(righe) {
 <td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#43a047' : '#d32f2f'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
   return head(title, desc, `${SITE}titoli/`) + `<h1>Fair value di ${righe.length} azioni</h1>
 <p class="mu">Aggiornati al ${agg} · in ordine alfabetico · 💼 = titolo nel mio portafoglio</p>
-<p>Ogni titolo ha la sua pagina con fair value pavimento, banda, fair value di mercato e storico, potenziale e avvisi sull'affidabilità della stima. Per ordinare e filtrare usa lo <a href="../#screener">screener</a> sulla home.${Object.keys(ext).length ? ` Ci sono anche le pagine di <a href="altri.html">${Object.keys(ext).length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane degli indici S&amp;P 500, 400 e 600</a> che non seguo personalmente.` : ''}</p>
+<p>Ogni titolo ha la sua pagina con fair value pavimento, banda, fair value di mercato e storico, potenziale e avvisi sull'affidabilità della stima. Per ordinare e filtrare usa lo <a href="../#screener">screener</a> sulla home.${Object.keys(ext).length ? ` Ci sono anche le pagine di <a href="altri.html">${Object.keys(ext).length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane ed europee</a> che non seguo personalmente.` : ''}</p>
 <div class="card tw"><table>
 <thead><tr><th>Titolo</th><th class="n">Prezzo</th><th class="n">FV pavimento</th><th class="n">FV mercato</th><th class="n">Potenziale</th><th>Esito del modello</th></tr></thead>
 <tbody>
@@ -329,4 +329,4 @@ const voci = [u(SITE, oggi, 'daily', '1.0'), u(SITE + 'titoli/', oggi, 'daily', 
   .concat([u(SITE + 'disclaimer.html', '2026-11-08', 'yearly', '0.3'), u(SITE + 'privacy.html', '2026-11-10', 'yearly', '0.3')]);
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${voci.join('\n')}\n</urlset>\n`);
 
-console.log(`Pagine generate: ${tickers.length} titoli seguiti + ${tickersExt.length} degli indici S&P + indici; sitemap con ${voci.length} indirizzi.`);
+console.log(`Pagine generate: ${tickers.length} titoli seguiti + ${tickersExt.length} altri + indici; sitemap con ${voci.length} indirizzi.`);

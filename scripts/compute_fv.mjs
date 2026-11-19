@@ -235,20 +235,26 @@ async function main() {
   let elenco = {};
   try { elenco = JSON.parse(fs.readFileSync(path.join(ROOT, 'tbo_state_ext.json'), 'utf8')).titoli || {}; } catch (e) {}
   const ext = {}, storicoExt = {}; let okExt = 0;
-  // stesso ticker di un titolo del mio elenco su un'altra borsa (es. AMP: Ameriprise a New York, Amplifon a Milano): si aggiunge .US
-  const chiaveExt = t => (db[t] || (data.aliases && data.aliases[t]) ? t + '.US' : t);
-  const voci = Object.entries(elenco).filter(([, x]) => x.tv && x.tv.includes(':')).map(([sym, x]) => [chiaveExt(x.tv.split(':')[1]), sym, x]);
+  // Chiave: per le americane il ticker (con .US se lo stesso ticker è già nel mio elenco su un'altra borsa, es. AMP:
+  // Ameriprise a New York, Amplifon a Milano); per le europee il simbolo Yahoo con il suffisso della borsa (es. SAN.PA,
+  // SAN.MC), perché lo stesso ticker esiste su più borse.
+  const chiaveExt = (t, sym) => (sym && sym.includes('.') ? sym : (db[t] || (data.aliases && data.aliases[t]) ? t + '.US' : t));
+  const voci = Object.entries(elenco).filter(([, x]) => x.tv && x.tv.includes(':')).map(([sym, x]) => [chiaveExt(x.tv.split(':')[1], sym), sym, x]);
+  const VALUTA = { USD: '$', EUR: '€', GBX: 'GBp', GBP: '£', CHF: 'CHF' };
   const fundExt = voci.length ? await tvScan(voci.map(([, , x]) => x.tv)) : {};
   for (const [t, sym, x] of voci) {
     const f = fundExt[x.tv]; if (!f || !(f.close > 0)) continue;
     const weekly = (md.weekly && md.weekly[sym]) || [];
-    const e = { name: x.n || t, tv: x.tv, ex: x.tv.split(':')[0], yf: sym, curr: '$', price: r2(f.close, f.close < 10 ? 3 : 2), fund: fundamentals(f),
+    const e = { name: x.n || t, tv: x.tv, ex: x.tv.split(':')[0], yf: sym, curr: VALUTA[f.currency] || f.currency || '$', price: r2(f.close, f.close < 10 ? 3 : 2), fund: fundamentals(f),
       divYield: f.dividends_yield_current != null ? r2(f.dividends_yield_current, 2) : 0, settore: f.sector ? (E.SETTORI[f.sector] || f.sector) : '' };
     const en = f.earnings_release_next_date;
     e.earn_next = en && en * 1000 > Date.now() - 86400000 ? new Date(en * 1000).toISOString().slice(0, 10) : null;
+    if (x.attesa || weekly.length < 30) e.giovane = 1;                  // quotata da poco: storia di prezzi breve
+    // tassi e inflazione del paese di quotazione, come per il mio elenco; se mancano, quelli USA
+    const cod = E.paese(e), rfP = rfPaesi[cod] != null ? rfPaesi[cod] : rf, cpiP = cpiPaesi[cod] || cpi;
     let r;
-    try { r = E.compute(f, cpi, rf, null, weekly, bench, weekly, today, { PI_ATTESA: E.PAESI.US.piAttesa }); r.paese = 'US'; }
-    catch (ex) { continue; }
+    try { r = E.compute(f, cpiP, rfP, null, weekly, bench, weekly, today, { PI_ATTESA: (E.PAESI[cod] || E.PAESI.US).piAttesa }); r.paese = rfPaesi[cod] != null && cpiPaesi[cod] ? cod : 'US'; }
+    catch (ex) { r = { status: 'dati_insufficienti', avvisi: ['Calcolo non riuscito: ' + String(ex.message || ex).slice(0, 80)] }; }
     for (const k of ['fv', 'fv_low', 'fv_high', 'fv_mkt', 'fv_sto']) e[k] = r[k] != null ? r[k] : null;
     e.ind = Object.fromEntries(['status', 'paese', 'rf', 'ke', 'pi', 'beta', 'fcf_norm', 'cassa_az', 'g_hist', 'roic_m',
       'marg_n', 'marg_now', 'anni', 'avvisi'].map(k => [k, r[k] != null ? r[k] : null]));
@@ -257,13 +263,13 @@ async function main() {
     if (r.status === 'ok') okExt++;
     if (r.status === 'ok' && r.fv > 0 && weekly.length) {
       try {
-        const st = storicoFv(f, weekly, bench, cpi, rfAllora('US'), trimestri, { PI_ATTESA: E.PAESI.US.piAttesa });
+        const st = storicoFv(f, weekly, bench, cpiP, rfAllora(r.paese || 'US'), trimestri, { PI_ATTESA: (E.PAESI[r.paese] || E.PAESI.US).piAttesa });
         if (st.fv.filter(v => v != null).length >= 4) storicoExt[t] = { fv: [...st.fv, r.fv], p: [...st.p, e.price] };
       } catch (ex) {}
     }
   }
   if (Object.keys(ext).length > 300) {
-    fs.writeFileSync(EXT, JSON.stringify({ aggiornato: report.run, descrizione: 'società degli indici S&P 500, 400 e 600 che non seguo personalmente', titoli: ext }) + '\n');
+    fs.writeFileSync(EXT, JSON.stringify({ aggiornato: report.run, descrizione: 'società degli indici S&P 500, 400 e 600 e altre società americane ed europee che non seguo personalmente', titoli: ext }) + '\n');
     fs.writeFileSync(HISTORY_EXT, JSON.stringify({ aggiornato: report.run, date: [...trimestri, today], titoli: storicoExt }) + '\n');
   }
   console.log(`Titoli aggiunti: ${Object.keys(ext).length} (${okExt} con fair value, ${Object.keys(storicoExt).length} con storico)`);
