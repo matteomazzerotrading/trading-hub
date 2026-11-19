@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-19T20:48:03.885Z",
+ "aggiornato": "2026-11-19T21:45:52.329Z",
  "cambi": [
   {
    "data": "2026-11-19",
@@ -376,24 +376,31 @@
  "cambi_altri": [
   {
    "data": "2026-11-19",
-   "t": "NFG",
-   "nome": "National Fuel Gas",
-   "da": "sopra",
-   "a": "premio_sostenuto"
+   "t": "ADUS",
+   "nome": "Addus HomeCare Corp.",
+   "da": "banda",
+   "a": "sotto"
   },
   {
    "data": "2026-11-19",
-   "t": "NU",
-   "nome": "Nu Holdings Ltd. Class A",
+   "t": "SEDG",
+   "nome": "SolarEdge",
    "da": "banda",
-   "a": "equa_declino"
+   "a": "sotto"
   },
   {
    "data": "2026-11-19",
-   "t": "COF",
-   "nome": "Capital One",
+   "t": "CSR",
+   "nome": "Centerspace Trust",
    "da": "banda",
-   "a": "molto_sotto"
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-19",
+   "t": "FCF",
+   "nome": "First Commonwealth Financial, Corp.",
+   "da": "banda",
+   "a": "sotto"
   }
  ]
 }
