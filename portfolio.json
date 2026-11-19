@@ -1,41 +1,41 @@
 {
-  "_comment": "Dati da TradingView — Directa Investments + Unicredit. Posizioni e allocazione aggiornate il 2026-11-18.",
-  "updated": "18 Nov 2026",
+  "_comment": "Dati da TradingView — Directa Investments + Unicredit. Posizioni e allocazione aggiornate il 2026-11-19.",
+  "updated": "19 Nov 2026",
   "summary": {
-    "total_value_usd": 14175.53,
-    "cash_usd": 0.88,
-    "unrealized_pl_usd": -695.66,
-    "unrealized_pl_pct": -4.68,
-    "realized_pl_usd": 295.19,
-    "dividends_usd": 156.64,
-    "total_pl_usd": -400.47,
-    "total_pl_pct": -2.59,
-    "annualized_return_pct": -1.5
+    "total_value_usd": 14308.98,
+    "cash_usd": 0.5,
+    "unrealized_pl_usd": -932.2,
+    "unrealized_pl_pct": -6.12,
+    "realized_pl_usd": 286.19,
+    "dividends_usd": 147.64,
+    "total_pl_usd": -646.02,
+    "total_pl_pct": -4.18,
+    "annualized_return_pct": -2.36
   },
   "periods": {
     "1M": {
-      "pl_usd": 33.03,
-      "pl_pct": 0.23
+      "pl_usd": -203.55,
+      "pl_pct": -1.4
     },
     "3M": {
-      "pl_usd": -398.46,
-      "pl_pct": -2.73
+      "pl_usd": -635.0,
+      "pl_pct": -4.25
     },
     "6M": {
-      "pl_usd": -719.56,
-      "pl_pct": -4.83
+      "pl_usd": -965.13,
+      "pl_pct": -6.32
     },
     "YTD": {
-      "pl_usd": -413.61,
-      "pl_pct": -2.82
+      "pl_usd": -659.16,
+      "pl_pct": -4.39
     },
     "1Y": {
-      "pl_usd": -270.64,
-      "pl_pct": -1.83
+      "pl_usd": -516.19,
+      "pl_pct": -3.44
     },
     "ALL": {
-      "pl_usd": -400.47,
-      "pl_pct": -2.59
+      "pl_usd": -646.02,
+      "pl_pct": -4.18
     }
   },
   "history": [
@@ -472,23 +472,23 @@
   "allocation": [
     {
       "label": "Azioni",
-      "value_usd": 10906.46,
-      "pct": 76.94
+      "value_usd": 10995.02,
+      "pct": 76.84
     },
     {
       "label": "Obbligazioni",
-      "value_usd": 2368.23,
-      "pct": 16.71
+      "value_usd": 2362.41,
+      "pct": 16.51
     },
     {
       "label": "ETF/Dr",
-      "value_usd": 542.15,
-      "pct": 3.82
+      "value_usd": 602.41,
+      "pct": 4.21
     },
     {
       "label": "Fund",
-      "value_usd": 357.81,
-      "pct": 2.52
+      "value_usd": 352.0,
+      "pct": 2.46
     }
   ],
   "positions": [
@@ -501,20 +501,8 @@
       "qty": 70,
       "avg_price": 17.44,
       "curr": "USD",
-      "alloc_pct": 7.66,
-      "unrealized_pl": -134.95
-    },
-    {
-      "ticker": "DIA",
-      "name": "DiaSorin",
-      "exchange": "MIL",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 8,
-      "avg_price": 59.42,
-      "curr": "EUR",
-      "alloc_pct": 5.23,
-      "unrealized_pl": 199.55
+      "alloc_pct": 7.12,
+      "unrealized_pl": -202.0
     },
     {
       "ticker": "BR",
@@ -525,8 +513,20 @@
       "qty": 4,
       "avg_price": 149.68,
       "curr": "USD",
-      "alloc_pct": 5.22,
-      "unrealized_pl": 141.24
+      "alloc_pct": 5.09,
+      "unrealized_pl": 129.61
+    },
+    {
+      "ticker": "DIA",
+      "name": "DiaSorin",
+      "exchange": "MIL",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 8,
+      "avg_price": 59.42,
+      "curr": "EUR",
+      "alloc_pct": 5.06,
+      "unrealized_pl": 183.18
     },
     {
       "ticker": "TRI",
@@ -537,20 +537,8 @@
       "qty": 7,
       "avg_price": 91.12,
       "curr": "USD",
-      "alloc_pct": 5.13,
-      "unrealized_pl": 89.36
-    },
-    {
-      "ticker": "PFE",
-      "name": "Pfizer",
-      "exchange": "NYSE",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 25,
-      "avg_price": 27.7,
-      "curr": "USD",
-      "alloc_pct": 4.95,
-      "unrealized_pl": 9.19
+      "alloc_pct": 4.92,
+      "unrealized_pl": 66.16
     },
     {
       "ticker": "US912810RX81",
@@ -561,8 +549,20 @@
       "qty": 10,
       "avg_price": 73.48,
       "curr": "USD",
-      "alloc_pct": 4.89,
-      "unrealized_pl": -41.62
+      "alloc_pct": 4.84,
+      "unrealized_pl": -42.25
+    },
+    {
+      "ticker": "PFE",
+      "name": "Pfizer",
+      "exchange": "NYSE",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 25,
+      "avg_price": 27.7,
+      "curr": "USD",
+      "alloc_pct": 4.81,
+      "unrealized_pl": -4.24
     },
     {
       "ticker": "BF.B",
@@ -573,8 +573,8 @@
       "qty": 22,
       "avg_price": 26.05,
       "curr": "USD",
-      "alloc_pct": 4.77,
-      "unrealized_pl": 103.07
+      "alloc_pct": 4.63,
+      "unrealized_pl": 89.41
     },
     {
       "ticker": "SAP",
@@ -585,8 +585,8 @@
       "qty": 3,
       "avg_price": 166.4,
       "curr": "EUR",
-      "alloc_pct": 4.75,
-      "unrealized_pl": 98.23
+      "alloc_pct": 4.55,
+      "unrealized_pl": 75.72
     },
     {
       "ticker": "EL",
@@ -597,68 +597,8 @@
       "qty": 3,
       "avg_price": 179.0,
       "curr": "EUR",
-      "alloc_pct": 4.47,
-      "unrealized_pl": 19.47
-    },
-    {
-      "ticker": "NFLX",
-      "name": "Netflix",
-      "exchange": "NASDAQ",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 10,
-      "avg_price": 66.0,
-      "curr": "USD",
-      "alloc_pct": 4.22,
-      "unrealized_pl": -61.79
-    },
-    {
-      "ticker": "IT0005480980",
-      "name": "BTP 2,15% set 2052",
-      "exchange": "OTCB",
-      "type": "bond",
-      "class": "Obbligazioni",
-      "qty": 10,
-      "avg_price": 59.06,
-      "curr": "EUR",
-      "alloc_pct": 4.21,
-      "unrealized_pl": 6.2
-    },
-    {
-      "ticker": "BSX",
-      "name": "Boston Scientific",
-      "exchange": "NYSE",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 13,
-      "avg_price": 43.57,
-      "curr": "USD",
-      "alloc_pct": 4.0,
-      "unrealized_pl": 0.61
-    },
-    {
-      "ticker": "LULU",
-      "name": "Lululemon",
-      "exchange": "NASDAQ",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 5,
-      "avg_price": 121.7,
-      "curr": "USD",
-      "alloc_pct": 3.91,
-      "unrealized_pl": -54.24
-    },
-    {
-      "ticker": "IT0005425233",
-      "name": "BTP 1,7% set 2051",
-      "exchange": "OTCB",
-      "type": "bond",
-      "class": "Obbligazioni",
-      "qty": 10,
-      "avg_price": 58.16,
-      "curr": "EUR",
-      "alloc_pct": 3.89,
-      "unrealized_pl": -30.68
+      "alloc_pct": 4.33,
+      "unrealized_pl": 6.56
     },
     {
       "ticker": "PDD",
@@ -669,20 +609,68 @@
       "qty": 7,
       "avg_price": 97.0,
       "curr": "USD",
-      "alloc_pct": 3.82,
-      "unrealized_pl": -137.49
+      "alloc_pct": 4.21,
+      "unrealized_pl": -76.59
     },
     {
-      "ticker": "BLDR",
-      "name": "Builders FirstSource",
+      "ticker": "IT0005480980",
+      "name": "BTP 2,15% set 2052",
+      "exchange": "OTCB",
+      "type": "bond",
+      "class": "Obbligazioni",
+      "qty": 10,
+      "avg_price": 59.06,
+      "curr": "EUR",
+      "alloc_pct": 4.16,
+      "unrealized_pl": 4.37
+    },
+    {
+      "ticker": "NFLX",
+      "name": "Netflix",
+      "exchange": "NASDAQ",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 10,
+      "avg_price": 66.0,
+      "curr": "USD",
+      "alloc_pct": 4.09,
+      "unrealized_pl": -74.76
+    },
+    {
+      "ticker": "BSX",
+      "name": "Boston Scientific",
       "exchange": "NYSE",
       "type": "stock",
       "class": "Azioni",
-      "qty": 9,
-      "avg_price": 69.4,
+      "qty": 13,
+      "avg_price": 43.57,
       "curr": "USD",
-      "alloc_pct": 3.74,
-      "unrealized_pl": -94.44
+      "alloc_pct": 3.91,
+      "unrealized_pl": -6.93
+    },
+    {
+      "ticker": "IT0005425233",
+      "name": "BTP 1,7% set 2051",
+      "exchange": "OTCB",
+      "type": "bond",
+      "class": "Obbligazioni",
+      "qty": 10,
+      "avg_price": 58.16,
+      "curr": "EUR",
+      "alloc_pct": 3.82,
+      "unrealized_pl": -34.77
+    },
+    {
+      "ticker": "LULU",
+      "name": "Lululemon",
+      "exchange": "NASDAQ",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 5,
+      "avg_price": 121.7,
+      "curr": "USD",
+      "alloc_pct": 3.69,
+      "unrealized_pl": -80.5
     },
     {
       "ticker": "US912810SZ21",
@@ -693,8 +681,20 @@
       "qty": 10,
       "avg_price": 56.06,
       "curr": "USD",
-      "alloc_pct": 3.72,
-      "unrealized_pl": -33.27
+      "alloc_pct": 3.69,
+      "unrealized_pl": -32.6
+    },
+    {
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "exchange": "NYSE",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 9,
+      "avg_price": 69.4,
+      "curr": "USD",
+      "alloc_pct": 3.49,
+      "unrealized_pl": -125.22
     },
     {
       "ticker": "QCOM",
@@ -705,8 +705,8 @@
       "qty": 3,
       "avg_price": 164.45,
       "curr": "USD",
-      "alloc_pct": 3.38,
-      "unrealized_pl": -14.22
+      "alloc_pct": 3.4,
+      "unrealized_pl": -6.84
     },
     {
       "ticker": "RACE",
@@ -717,8 +717,8 @@
       "qty": 1,
       "avg_price": 342.6,
       "curr": "EUR",
-      "alloc_pct": 3.04,
-      "unrealized_pl": 37.5
+      "alloc_pct": 2.99,
+      "unrealized_pl": 33.95
     },
     {
       "ticker": "FUN",
@@ -729,8 +729,8 @@
       "qty": 36,
       "avg_price": 19.52,
       "curr": "USD",
-      "alloc_pct": 3.0,
-      "unrealized_pl": -277.45
+      "alloc_pct": 2.99,
+      "unrealized_pl": -274.88
     },
     {
       "ticker": "CE",
@@ -741,8 +741,20 @@
       "qty": 8,
       "avg_price": 44.91,
       "curr": "USD",
-      "alloc_pct": 2.72,
-      "unrealized_pl": 26.29
+      "alloc_pct": 2.65,
+      "unrealized_pl": 19.91
+    },
+    {
+      "ticker": "AMP",
+      "name": "Amplifon",
+      "exchange": "MIL",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 30,
+      "avg_price": 11.25,
+      "curr": "EUR",
+      "alloc_pct": 2.58,
+      "unrealized_pl": -1.0
     },
     {
       "ticker": "SGBS",
@@ -753,20 +765,8 @@
       "qty": 1,
       "avg_price": 394.56,
       "curr": "USD",
-      "alloc_pct": 2.52,
-      "unrealized_pl": -37.34
-    },
-    {
-      "ticker": "CPRT",
-      "name": "Copart",
-      "exchange": "NASDAQ",
-      "type": "stock",
-      "class": "Azioni",
-      "qty": 10,
-      "avg_price": 31.8,
-      "curr": "USD",
-      "alloc_pct": 2.22,
-      "unrealized_pl": -3.3
+      "alloc_pct": 2.46,
+      "unrealized_pl": -42.56
     },
     {
       "ticker": "INTU",
@@ -777,8 +777,20 @@
       "qty": 1,
       "avg_price": 307.37,
       "curr": "USD",
-      "alloc_pct": 2.21,
-      "unrealized_pl": 5.91
+      "alloc_pct": 2.17,
+      "unrealized_pl": 3.13
+    },
+    {
+      "ticker": "CPRT",
+      "name": "Copart",
+      "exchange": "NASDAQ",
+      "type": "stock",
+      "class": "Azioni",
+      "qty": 10,
+      "avg_price": 31.8,
+      "curr": "USD",
+      "alloc_pct": 2.16,
+      "unrealized_pl": -8.93
     },
     {
       "ticker": "ADBE",
@@ -789,8 +801,8 @@
       "qty": 1,
       "avg_price": 486.37,
       "curr": "USD",
-      "alloc_pct": 1.6,
-      "unrealized_pl": -259.56
+      "alloc_pct": 1.55,
+      "unrealized_pl": -264.58
     },
     {
       "ticker": "FMC",
@@ -801,8 +813,8 @@
       "qty": 22,
       "avg_price": 14.75,
       "curr": "USD",
-      "alloc_pct": 0.73,
-      "unrealized_pl": -221.02
+      "alloc_pct": 0.66,
+      "unrealized_pl": -230.06
     }
   ],
   "snapshot": {
@@ -1078,14 +1090,6 @@
       "amount": 1.76,
       "curr": "USD",
       "usd": 1.76
-    },
-    {
-      "date": "2026-07-01",
-      "ticker": "HPQ",
-      "exchange": "NYSE",
-      "amount": 9.0,
-      "curr": "USD",
-      "usd": 9.0
     },
     {
       "date": "2026-07-01",
