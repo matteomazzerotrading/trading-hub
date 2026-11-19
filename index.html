@@ -2020,7 +2020,7 @@
             const max = Math.max(...V.fasce.map(f => Math.abs(f.x12 || 0)), 1);
             const T = V.per_trimestre || [], vinti = T.filter(x => x.sotto > x.sopra).length;
             const ms = V.fasce.find(f => f.k === 'molto_sotto'), mo = V.fasce.find(f => f.k === 'molto_sopra');
-            box.innerHTML = `<p style="margin:0 0 14px; color:#ddd; font-size:0.92em; line-height:1.65;">Ho rifatto il calcolo del mio fair value a ogni fine trimestre dal ${q(V.dal)}, per <strong>${(V.titoli_n || 0).toLocaleString('it-IT')} società</strong>, usando solo i dati disponibili in quel momento: bilanci già pubblicati, prezzi e tassi di allora. Poi ho guardato quanto hanno reso nei 12 mesi successivi, a seconda di dove stava il prezzo rispetto al fair value. In tutto ${(V.osservazioni || 0).toLocaleString('it-IT')} casi. Il confronto che conta è il <strong>rendimento in eccesso</strong>: quanto il titolo ha fatto meglio o peggio della mediana di tutti i titoli nello stesso periodo, così l'andamento del mercato non falsa il risultato.</p>
+            box.innerHTML = `<p style="margin:0 0 14px; color:#ddd; font-size:0.92em; line-height:1.65;">Ho rifatto il calcolo del mio fair value a ogni fine trimestre dal ${q(V.dal)}, per <strong>${(V.titoli_n || 0).toLocaleString('it-IT', { useGrouping: 'always' })} società</strong>, usando solo i dati disponibili in quel momento: bilanci già pubblicati, prezzi e tassi di allora. Poi ho guardato quanto hanno reso nei 12 mesi successivi, a seconda di dove stava il prezzo rispetto al fair value. In tutto ${(V.osservazioni || 0).toLocaleString('it-IT')} casi. Il confronto che conta è il <strong>rendimento in eccesso</strong>: quanto il titolo ha fatto meglio o peggio della mediana di tutti i titoli nello stesso periodo, così l'andamento del mercato non falsa il risultato.</p>
                 <div class="mini-kpi">
                     <div><div class="l">Molto sotto il fair value</div><div class="v" style="color:var(--brand-green);">${pc1(ms.x12)}</div><div style="font-size:0.75em; color:var(--text-muted);">l'anno sopra la mediana · ${ms.batte12.toLocaleString('it-IT')}% dei casi l'ha battuta · a 24 mesi ${pc1(ms.x24)}</div></div>
                     <div><div class="l">Molto sopra il fair value</div><div class="v" style="color:var(--accent-red);">${pc1(mo.x12)}</div><div style="font-size:0.75em; color:var(--text-muted);">l'anno rispetto alla mediana · a 24 mesi ${pc1(mo.x24)}</div></div>
@@ -2083,12 +2083,13 @@
                 const v = FVEngine.verdict(e, p), sottoFv = ['molto_sotto', 'sotto'].includes(v.key);
                 const ci = FVEngine.crescitaImplicita(e, p), gh = e.ind && e.ind.g_hist, aspBasse = ci && !ci.fuori && gh != null && ci.g < gh;
                 const pt = pat(k), patOk = pt && pt.ok && pt.var > 0, tbo = compra[k];
-                const n = [sottoFv, !!tbo, patOk, aspBasse].filter(Boolean).length;
-                if (n >= 3) elenco.push({ k, e, v, n, sottoFv, tbo, patOk, pt, aspBasse, ci, gh, pot: FVEngine.potenziale(e, p).pot });
+                const n = [sottoFv, !!tbo, patOk, aspBasse].filter(Boolean).length, pot = FVEngine.potenziale(e, p).pot;
+                // fuori le stime poco affidabili e i potenziali fuori scala (di solito dati di bilancio anomali)
+                if (n >= 3 && FVEngine.affidabilita(k, e).livello !== 'bassa' && !(pot > 300)) elenco.push({ k, e, v, n, sottoFv, tbo, patOk, pt, aspBasse, ci, gh, pot });
             };
             for (const [k, e] of Object.entries(db)) if (!e.ext && e.tv) valuta(k, e);
             for (const [k, e] of Object.entries(fvExtDati || {})) if (!db[k] || db[k].ext) valuta(k, e);
-            elenco.sort((a, b) => b.n - a.n || (b.pot || 0) - (a.pot || 0));
+            elenco.sort((a, b) => b.n - a.n || (b.tbo ? 1 : 0) - (a.tbo ? 1 : 0) || (b.pot || 0) - (a.pot || 0));
             const C = tboStatsDati && tboStatsDati.convergenze, M = tboData && tboData.mercato;
             const lente = (ok, testo) => `<span style="display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:6px; font-size:0.75em; ${ok ? 'background:rgba(0,230,118,0.12); color:var(--brand-green); border:1px solid rgba(0,230,118,0.35);' : 'color:var(--text-muted); border:1px solid var(--border-glass);'}">${ok ? '✓' : '·'} ${testo}</span>`;
             box.innerHTML = `<p style="margin:0 0 12px; color:#ddd; font-size:0.92em; line-height:1.65;">Ogni sera incrocio quattro strumenti che guardano cose diverse e cerco i titoli su cui almeno tre sono d'accordo: <strong>il prezzo è sotto il fair value</strong>; <strong>la strategia TBO ha dato un "Compra"</strong> nelle ultime due settimane; <strong>il periodo storico più simile</strong> del Pattern Scanner (somiglianza ≥ 90%) fu seguito da un rialzo; <strong>il prezzo sconta meno crescita</strong> di quella che l'azienda ha già realizzato.</p>
