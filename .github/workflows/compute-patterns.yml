@@ -11,6 +11,7 @@ on:
     paths:
       - 'scripts/compute_patterns.mjs'
       - 'scripts/compute_tbo.mjs'
+      - 'scripts/compute_diario.mjs'
       - 'scripts/compute_risk.mjs'
       - 'scripts/notify_telegram.mjs'
       - 'scripts/fetch_daily.py'
@@ -60,6 +61,7 @@ jobs:
           mkdir -p scripts/private
           printf '%s' "$TBO_RULES" | tr -d ' \r\n' | base64 -d > scripts/private/tbo_rules.mjs 2>/dev/null
           node scripts/compute_tbo.mjs
+          node scripts/compute_diario.mjs || echo "Diario delle operazioni non aggiornato"
           rm -rf scripts/private
       - name: Correlazione tra i titoli del portafoglio
         continue-on-error: true
@@ -91,6 +93,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: pattern scanner e segnali TBO [skip ci]"
-          file_pattern: "patterns.json patterns_detail.json patterns_ext.json patterns_ext tbo_signals.json tbo_state.json tbo_state_ext.json tbo_notified.json portfolio_risk.json"
+          file_pattern: "diario.json patterns.json patterns_detail.json patterns_ext.json patterns_ext tbo_signals.json tbo_state.json tbo_state_ext.json tbo_notified.json portfolio_risk.json"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"

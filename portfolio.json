@@ -1367,6 +1367,462 @@
     "FMC": {
       "paese": "Stati Uniti",
       "settore": "Materiali"
+    },
+    "AMP": {
+      "paese": "Italia",
+      "settore": "Salute"
     }
-  }
+  },
+  "operazioni": [
+    {
+      "date": "2026-11-19",
+      "ticker": "AMP",
+      "exchange": "MIL",
+      "side": "buy",
+      "qty": 30,
+      "price": 11.25,
+      "curr": "EUR",
+      "comm": 0
+    },
+    {
+      "date": "2026-11-04",
+      "ticker": "NFLX",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 10,
+      "price": 66,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-09-30",
+      "ticker": "IT0005480980",
+      "exchange": "OTCB",
+      "side": "buy",
+      "qty": 10,
+      "price": 59.06,
+      "curr": null,
+      "comm": 0
+    },
+    {
+      "date": "2026-09-29",
+      "ticker": "BSX",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 13,
+      "price": 43.57,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "CE",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 8,
+      "price": 44.91,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-09-08",
+      "ticker": "LULU",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 5,
+      "price": 121.7,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-08-20",
+      "ticker": "PFE",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 25,
+      "price": 27.7,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-08-17",
+      "ticker": "CPRT",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 10,
+      "price": 31.8,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-08-07",
+      "ticker": "TTD",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 45,
+      "price": 13.8,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-08-07",
+      "ticker": "HPQ",
+      "exchange": "NYSE",
+      "side": "sell",
+      "qty": 30,
+      "price": 30.01,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-08-07",
+      "ticker": "FUN",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 12,
+      "price": 16.35,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-07-08",
+      "ticker": "TRI",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 7,
+      "price": 91.12,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-07-03",
+      "ticker": "SGBS",
+      "exchange": "LSE",
+      "side": "buy",
+      "qty": 1,
+      "price": 394.56,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-07-01",
+      "ticker": "BF.B",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 22,
+      "price": 26.05,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-06-25",
+      "ticker": "BR",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 4,
+      "price": 149.68,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-06-18",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "side": "sell",
+      "qty": 2,
+      "price": 218.86,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-06-16",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "side": "sell",
+      "qty": 3,
+      "price": 279.75,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "US912810SZ21",
+      "exchange": "EUROTLX",
+      "side": "buy",
+      "qty": 10,
+      "price": 56.06,
+      "curr": null,
+      "comm": 0
+    },
+    {
+      "date": "2026-06-09",
+      "ticker": "US912810RX81",
+      "exchange": "EUROTLX",
+      "side": "buy",
+      "qty": 10,
+      "price": 73.48,
+      "curr": null,
+      "comm": 0
+    },
+    {
+      "date": "2026-05-21",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 1,
+      "price": 307.37,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-05-21",
+      "ticker": "BLDR",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 9,
+      "price": 69.4,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-05-19",
+      "ticker": "PDD",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 7,
+      "price": 97,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-05-08",
+      "ticker": "TTD",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 25,
+      "price": 24,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-05-06",
+      "ticker": "IT0005425233",
+      "exchange": "OTCB",
+      "side": "buy",
+      "qty": 10,
+      "price": 58.16,
+      "curr": null,
+      "comm": 0
+    },
+    {
+      "date": "2026-05-01",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 1,
+      "price": 429.5,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-05-01",
+      "ticker": "HPQ",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 30,
+      "price": 20.15,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-04-30",
+      "ticker": "SAP",
+      "exchange": "XETR",
+      "side": "buy",
+      "qty": 3,
+      "price": 166.4,
+      "curr": "EUR",
+      "comm": 0
+    },
+    {
+      "date": "2026-04-30",
+      "ticker": "EL",
+      "exchange": "EURONEXT",
+      "side": "buy",
+      "qty": 3,
+      "price": 179,
+      "curr": "EUR",
+      "comm": 0
+    },
+    {
+      "date": "2026-04-22",
+      "ticker": "FMC",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 22,
+      "price": 14.75,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-04-08",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 1,
+      "price": 410.24,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-02-27",
+      "ticker": "ERG",
+      "exchange": "MIL",
+      "side": "sell",
+      "qty": 30,
+      "price": 25.3,
+      "curr": "EUR",
+      "comm": 1.5
+    },
+    {
+      "date": "2026-01-20",
+      "ticker": "LMT",
+      "exchange": "NYSE",
+      "side": "sell",
+      "qty": 1,
+      "price": 585,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-01-15",
+      "ticker": "FUN",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 12,
+      "price": 16.25,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2026-01-14",
+      "ticker": "INTU",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 1,
+      "price": 553,
+      "curr": "USD",
+      "comm": 6.63
+    },
+    {
+      "date": "2026-01-12",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 2,
+      "price": 154.94,
+      "curr": "USD",
+      "comm": 9
+    },
+    {
+      "date": "2026-01-07",
+      "ticker": "ERG",
+      "exchange": "MIL",
+      "side": "sell",
+      "qty": 15,
+      "price": 23,
+      "curr": "EUR",
+      "comm": 1.5
+    },
+    {
+      "date": "2025-12-11",
+      "ticker": "BC",
+      "exchange": "MIL",
+      "side": "sell",
+      "qty": 6,
+      "price": 94.86,
+      "curr": "EUR",
+      "comm": 0
+    },
+    {
+      "date": "2025-11-07",
+      "ticker": "DIA",
+      "exchange": "MIL",
+      "side": "buy",
+      "qty": 8,
+      "price": 59.42,
+      "curr": "EUR",
+      "comm": 1.5
+    },
+    {
+      "date": "2025-10-29",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 3,
+      "price": 183.48,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2025-10-29",
+      "ticker": "FUN",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 12,
+      "price": 25.96,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2025-10-10",
+      "ticker": "RACE",
+      "exchange": "MIL",
+      "side": "buy",
+      "qty": 1,
+      "price": 342.6,
+      "curr": "EUR",
+      "comm": 1.5
+    },
+    {
+      "date": "2025-09-27",
+      "ticker": "BC",
+      "exchange": "MIL",
+      "side": "buy",
+      "qty": 6,
+      "price": 78.06,
+      "curr": "EUR",
+      "comm": 0
+    },
+    {
+      "date": "2025-02-03",
+      "ticker": "LMT",
+      "exchange": "NYSE",
+      "side": "buy",
+      "qty": 1,
+      "price": 528.88,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2025-01-17",
+      "ticker": "ADBE",
+      "exchange": "NASDAQ",
+      "side": "buy",
+      "qty": 1,
+      "price": 486.37,
+      "curr": "USD",
+      "comm": 0
+    },
+    {
+      "date": "2024-12-02",
+      "ticker": "ERG",
+      "exchange": "MIL",
+      "side": "buy",
+      "qty": 45,
+      "price": 19.72,
+      "curr": "EUR",
+      "comm": 0
+    }
+  ]
 }

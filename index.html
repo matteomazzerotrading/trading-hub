@@ -302,6 +302,8 @@
         .port-pos-box .port-pos-freccia::after { content: 'Mostra tutte ▾'; }
         .port-pos-box[open] .port-pos-freccia::after { content: 'Chiudi ▴'; }
         .port-pos-box[open] > summary { padding-bottom: 14px !important; }
+        .mappa-tip { position: absolute; z-index: 20; max-width: 260px; background: rgba(8,10,16,0.96); border: 1px solid var(--border-glass); border-radius: 10px; padding: 10px 12px; font-size: 0.82em; color: #ddd; line-height: 1.45; pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        #mappa .card { position: relative; }
         .tbo-telegram { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: #fff; background: rgba(41,169,235,0.08); border: 1px solid rgba(41,169,235,0.35); transition: background .2s; }
         .tbo-telegram:hover { background: rgba(41,169,235,0.16); }
         .tbo-telegram svg { flex-shrink: 0; }
@@ -524,6 +526,7 @@
             <a href="#portfolio" class="nav-link">Il mio portafoglio</a>
             <a href="#fv-section" class="nav-link">Fair Value</a>
             <a href="#screener" class="nav-link">Screener</a>
+            <a href="#mappa" class="nav-link">Mappa</a>
             <a href="#pattern" class="nav-link">Pattern</a>
             <a href="#tbo" class="nav-link">TBO</a>
             <a href="#indicatore" class="nav-link nav-segnali" style="display:none;">Segnali</a>
@@ -540,6 +543,7 @@
         <a href="#portfolio" class="nav-link" onclick="closeMobileNav()">📈 Il mio portafoglio</a>
         <a href="#fv-section" class="nav-link" onclick="closeMobileNav()">📊 Fair Value</a>
         <a href="#screener" class="nav-link" onclick="closeMobileNav()">🔍 Screener</a>
+        <a href="#mappa" class="nav-link" onclick="closeMobileNav()">🗺️ Mappa del mercato</a>
         <a href="#pattern" class="nav-link" onclick="closeMobileNav()">🧩 Pattern Scanner</a>
         <a href="#tbo" class="nav-link" onclick="closeMobileNav()">🫖 TBO Strategy</a>
         <a href="#indicatore" class="nav-link nav-segnali" style="display:none;" onclick="closeMobileNav()">📡 Segnali</a>
@@ -647,6 +651,27 @@
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Data</th><th>Titolo</th><th>Importo</th><th>In dollari</th></tr></thead><tbody id="div-elenco"></tbody></table></div>
                 </details>
                 <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Dividendi registrati sul portafoglio TradingView e cedole delle obbligazioni calcolate dal tasso, dal calendario di pagamento e dal nominale posseduto; tutti gli importi sono lordi (sui titoli di Stato la ritenuta è del 12,5%) e quelli in euro sono convertiti al cambio del giorno di pagamento. Le cedole non sono comprese nel valore e nel profitto del portafoglio TradingView. La proiezione moltiplica le azioni che ho oggi per il dividendo annuo che ciascuna società paga attualmente, senza aumenti né tagli, e aggiunge le cedole a tasso fisso in pagamento nel 2027, al cambio di oggi. Non è una previsione: i dividendi possono essere ridotti o sospesi.</p>
+            </div>
+        </details>
+        <!-- Diario delle operazioni (diario.json, scripts/compute_diario.mjs) -->
+        <details class="card div-box" id="diario-box" style="margin-bottom:30px; padding:0;" ontoggle="if (this.open) caricaDiario()">
+            <summary style="padding:18px 20px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                <span style="font-weight:700; color:#fff;">📓 Diario delle mie operazioni</span>
+                <span style="font-size:0.85em; color:var(--text-muted);">ogni acquisto e vendita con il fair value, il segnale TBO e il mercato di quel giorno, e com'è andata dopo</span>
+            </summary>
+            <div style="padding:0 20px 20px;">
+                <div id="diario-sintesi"></div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin:16px 0 10px;" id="diario-filtri">
+                    <button class="perf-period-btn active" onclick="setDiario('tutte', this)">Tutte</button>
+                    <button class="perf-period-btn" onclick="setDiario('buy', this)">Acquisti</button>
+                    <button class="perf-period-btn" onclick="setDiario('sell', this)">Vendite</button>
+                </div>
+                <div class="screener-table-wrap"><table class="screener-table">
+                    <thead><tr><th>Data</th><th>Operazione</th><th>Titolo</th><th title="Prezzo dell'operazione rispetto al fair value pavimento di allora (ultima fine trimestre)">Rispetto al fair value di allora</th><th title="Segnale della strategia TBO sul titolo nei 7 giorni fino all'operazione">Segnale TBO</th><th title="Quota di titoli sopra la media delle ultime 200 sedute quel giorno">Mercato quel giorno</th><th title="Variazione del prezzo da allora a oggi, nella valuta del titolo; tra parentesi lo S&amp;P 500 nello stesso periodo">Da allora</th></tr></thead>
+                    <tbody id="diario-tbody"><tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">Caricamento…</td></tr></tbody>
+                </table></div>
+                <a id="diario-piu" onclick="diarioTutte = !diarioTutte; renderDiario()" style="display:inline-block; margin-top:10px; color:var(--brand-green); cursor:pointer; font-weight:700; font-size:0.85em;"></a>
+                <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Le operazioni sono quelle registrate sul mio portafoglio TradingView. Il fair value di allora è il pavimento calcolato alla fine del trimestre precedente all'operazione; il segnale TBO è quello della strategia sulla storia del titolo; "da allora" è la variazione del prezzo senza dividendi. Lo scopo è rendere conto delle mie scelte, non indicare cosa comprare: non è consulenza.</p>
             </div>
         </details>
         <div class="portfolio-grid">
@@ -931,6 +956,34 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container" id="mappa">
+        <div class="section-header">
+            <h2 class="section-title">Mappa del <span>mercato</span></h2>
+            <span style="color: var(--text-muted); font-size: 0.9em;">Dove il mercato è caro e dove è conveniente secondo il mio fair value, settore per settore</span>
+        </div>
+        <div class="card" style="padding: 20px;">
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
+                <select id="mappa-quali" class="screener-search" aria-label="Quali titoli" onchange="renderMappa()" style="max-width:240px; cursor:pointer; flex:0 0 auto;">
+                    <option value="mio">I titoli che seguo</option>
+                    <option value="tutti">Tutti i titoli (USA ed Europa)</option>
+                    <option value="us">Solo Stati Uniti</option>
+                    <option value="eu">Solo Europa</option>
+                    <option value="it">Solo Italia</option>
+                    <option value="port">💼 Il mio portafoglio</option>
+                </select>
+                <select id="mappa-colore" class="screener-search" aria-label="Colore" onchange="renderMappa()" style="max-width:260px; cursor:pointer; flex:0 0 auto;">
+                    <option value="esito">Colore: esito del fair value</option>
+                    <option value="pot">Colore: potenziale rispetto al fair value</option>
+                </select>
+                <span id="mappa-nota" style="font-size:0.8em; color:var(--text-muted);"></span>
+            </div>
+            <div id="mappa-box" style="position:relative; width:100%; user-select:none;"><div style="padding:40px; text-align:center; color:var(--text-muted);">Caricamento…</div></div>
+            <div id="mappa-tip" class="mappa-tip" style="display:none;"></div>
+            <div id="mappa-legenda" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; font-size:0.78em; color:var(--text-muted);"></div>
+            <p style="margin:10px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Ogni riquadro è una società, grande quanto la sua capitalizzazione (in dollari, con un cambio approssimato per le europee), raggruppata per settore. Il colore è l'esito del mio modello di fair value sul prezzo dell'ultima chiusura, oppure il potenziale fino al fair value di riferimento. Tocca un riquadro per i dettagli, toccalo di nuovo (o fai clic) per aprire l'analisi. I titoli senza fair value calcolabile sono in grigio.</p>
         </div>
     </div>
 
@@ -1918,6 +1971,104 @@
             document.getElementById('scr-toggle-btn').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // === MAPPA DEL MERCATO: treemap per settore, grandezza = capitalizzazione, colore = esito o potenziale ===
+        const MAPPA_FX = { '$': 1, '€': 1.16, 'GBp': 1.33, '£': 1.33, 'CHF': 1.25 };    // cambi approssimati, solo per le dimensioni
+        let mappaRetti = [], mappaScelto = null;
+        const capNum = s => { const m = /^([\d.]+)([TBM])$/.exec(String(s || '')); return m ? parseFloat(m[1]) * { T: 1e12, B: 1e9, M: 1e6 }[m[2]] : 0; };
+        // algoritmo "squarified" (Bruls, Huizing, van Wijk): rettangoli il più possibile quadrati
+        function squarify(voci, x, y, w, h) {
+            const out = [], tot = voci.reduce((a, v) => a + v.v, 0); if (!tot || w <= 0 || h <= 0) return out;
+            const scala = (w * h) / tot; let resto = voci.map(v => ({ ...v, _a: v.v * scala })), X = x, Y = y, W = w, H = h;
+            const peggiore = (riga, lato) => { const s = riga.reduce((a, r) => a + r._a, 0), mx = Math.max(...riga.map(r => r._a)), mn = Math.min(...riga.map(r => r._a)); return Math.max(lato * lato * mx / (s * s), (s * s) / (lato * lato * mn)); };
+            while (resto.length) {
+                const lato = Math.min(W, H); let riga = [resto[0]], i = 1;
+                while (i < resto.length && peggiore([...riga, resto[i]], lato) <= peggiore(riga, lato)) riga.push(resto[i++]);
+                const s = riga.reduce((a, r) => a + r._a, 0);
+                if (W >= H) { const ww = s / H; let yy = Y; for (const r of riga) { const hh = r._a / ww; out.push({ ...r, x: X, y: yy, w: ww, h: hh }); yy += hh; } X += ww; W -= ww; }
+                else { const hh = s / W; let xx = X; for (const r of riga) { const ww = r._a / hh; out.push({ ...r, x: xx, y: Y, w: ww, h: hh }); xx += ww; } Y += hh; H -= hh; }
+                resto = resto.slice(i);
+            }
+            return out;
+        }
+        function coloreMappa(e, modo) {
+            if (modo === 'pot') {
+                const p = e.pot; if (p == null || !isFinite(p)) return '#3a3f4b';
+                const t = Math.max(-1, Math.min(1, p / 50));
+                return t >= 0 ? `rgb(${Math.round(58 - 41 * t)},${Math.round(63 + 111 * t)},${Math.round(75 - 23 * t)})` : `rgb(${Math.round(58 + 150 * -t)},${Math.round(63 - 22 * -t)},${Math.round(75 - 34 * -t)})`;
+            }
+            return e.v && e.v.key !== 'na' ? e.v.colore : '#3a3f4b';
+        }
+        async function caricaMappa() {
+            const q = document.getElementById('mappa-quali').value;
+            if (q !== 'mio' && q !== 'port' && !fvExtDati) { document.getElementById('mappa-box').innerHTML = '<div style="padding:40px; text-align:center; color:var(--text-muted);">Carico le altre società…</div>'; await caricaFvExt(); }
+        }
+        async function renderMappa() {
+            const box = document.getElementById('mappa-box'); if (!box || !Object.keys(db).length) return;
+            await caricaMappa();
+            const q = document.getElementById('mappa-quali').value, modo = document.getElementById('mappa-colore').value;
+            const titoli = [];
+            const aggiungi = (k, e, altro) => {
+                const price = Number(e.price), cap = capNum(e.fund && e.fund.mcap) * (MAPPA_FX[e.curr] || 1);
+                if (!(cap > 0) || !(price > 0)) return;
+                const m = FVEngine.mercato(e);
+                if ((q === 'us' && m !== 'us') || (q === 'eu' && m === 'us') || (q === 'it' && m !== 'it') || (q === 'port' && !inPortafoglio(k))) return;
+                const pt = FVEngine.potenziale(e, price);
+                titoli.push({ k, e, v: cap, settore: e.settore || 'Altro', altro, verd: FVEngine.verdict(e, price), pot: pt.pot });
+            };
+            // stessa società quotata su due borse (es. ASML a New York e ad Amsterdam): resta la quotazione del mio elenco
+            const VUOTE = new Set(['nv', 'sa', 'plc', 'inc', 'corp', 'corporation', 'ag', 'se', 'spa', 'holding', 'holdings', 'group', 'ltd', 'co', 'the', 'adr', 'class', 'a', 'b', 'company', 'limited']);
+            const nomeBase = n => String(n || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(w => w && !VUOTE.has(w)).slice(0, 2).join(' ');
+            const visti = new Set();
+            for (const [k, e] of Object.entries(db)) if (!e.ext && e.tv) { aggiungi(k, e, false); visti.add(nomeBase(e.name)); }
+            if (q !== 'mio' && q !== 'port' && fvExtDati) for (const [k, e] of Object.entries(fvExtDati)) if ((!db[k] || db[k].ext) && !visti.has(nomeBase(e.name))) { visti.add(nomeBase(e.name)); aggiungi(k, e, true); }
+            titoli.forEach(t => (t.v = Math.sqrt(t.v)));           // la radice smorza i giganti: si vedono anche le società medie
+            const W = box.clientWidth || 900, H = Math.round(Math.max(420, Math.min(760, W * (q === 'tutti' ? 0.85 : 0.62))));
+            const gruppi = {}; for (const t of titoli) (gruppi[t.settore] = gruppi[t.settore] || []).push(t);
+            const settori = Object.entries(gruppi).map(([n, a]) => ({ n, v: a.reduce((x, t) => x + t.v, 0), a })).sort((x, y) => y.v - x.v);
+            mappaRetti = [];
+            let svg = '';
+            for (const S of squarify(settori, 0, 0, W, H)) {
+                const top = S.h > 40 && S.w > 60 ? 15 : 0;
+                svg += `<rect x="${S.x}" y="${S.y}" width="${S.w}" height="${S.h}" fill="#0a0e17" stroke="#0a0e17" stroke-width="2"/>`;
+                for (const r of squarify(S.a.sort((x, y) => y.v - x.v), S.x + 1, S.y + 1 + top, S.w - 2, S.h - 2 - top)) {
+                    const i = mappaRetti.push(r) - 1, fill = coloreMappa({ v: r.verd, pot: r.pot }, modo);
+                    svg += `<rect data-i="${i}" x="${r.x.toFixed(1)}" y="${r.y.toFixed(1)}" width="${Math.max(0, r.w - 1).toFixed(1)}" height="${Math.max(0, r.h - 1).toFixed(1)}" fill="${fill}" rx="1.5"/>`;
+                    if (r.w > 34 && r.h > 15) {
+                        const fs = Math.max(9, Math.min(18, Math.min(r.w / (r.k.length * 0.68), r.h * 0.42)));
+                        svg += `<text x="${(r.x + r.w / 2).toFixed(1)}" y="${(r.y + r.h / 2 + (r.h > 34 ? -2 : fs * 0.35)).toFixed(1)}" text-anchor="middle" font-size="${fs.toFixed(0)}" font-weight="800" fill="#fff" pointer-events="none" style="font-family:'JetBrains Mono',monospace;">${esc(r.k.replace(/\.US$/, ''))}</text>`;
+                        if (r.h > 34 && r.w > 44 && r.pot != null) svg += `<text x="${(r.x + r.w / 2).toFixed(1)}" y="${(r.y + r.h / 2 + fs * 0.85).toFixed(1)}" text-anchor="middle" font-size="${Math.max(8, fs * 0.62).toFixed(0)}" fill="rgba(255,255,255,0.85)" pointer-events="none">${(r.pot >= 0 ? '+' : '−') + Math.abs(r.pot).toFixed(0)}%</text>`;
+                    }
+                }
+                if (top) svg += `<text x="${S.x + 5}" y="${S.y + 12}" font-size="10.5" font-weight="700" fill="#c9cdd6" pointer-events="none">${esc(S.n.length * 6 > S.w ? S.n.slice(0, Math.max(3, Math.floor(S.w / 6.2) - 1)) + '…' : S.n)}</text>`;
+            }
+            box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" style="display:block; border-radius:10px; cursor:pointer;" onmousemove="mappaHover(event)" onmouseleave="document.getElementById('mappa-tip').style.display='none'" onclick="mappaClick(event)">${svg}</svg>`;
+            const nOk = titoli.filter(t => t.verd.key !== 'na').length, sotto = titoli.filter(t => ['molto_sotto', 'sotto', 'molto_sotto_declino', 'equa_declino'].includes(t.verd.key)).length;
+            document.getElementById('mappa-nota').innerText = `${titoli.length.toLocaleString('it-IT')} società · ${nOk.toLocaleString('it-IT')} con fair value · ${sotto.toLocaleString('it-IT')} sotto il fair value pavimento`;
+            const leg = modo === 'pot'
+                ? '<span>Potenziale:</span><span style="color:#d0293a;">■ −50% o meno</span><span style="color:#8a8f99;">■ 0%</span><span style="color:#11ae34;">■ +50% o più</span><span style="color:#5a5f6b;">■ non calcolabile</span>'
+                : [['#1b5e20', 'molto sottovalutata'], ['#43a047', 'sottovalutata'], ['#00897b', 'nella banda'], ['#546e7a', 'zona di equità'], ['#f9a825', 'premio sostenuto'], ['#ef6c00', 'premio dubbio'], ['#d32f2f', 'sopravvalutata'], ['#ffeb3b', 'in declino'], ['#3a3f4b', 'non calcolabile']].map(([c, l]) => `<span><span style="color:${c};">■</span> ${l}</span>`).join('');
+            document.getElementById('mappa-legenda').innerHTML = leg;
+        }
+        function mappaVoce(ev) { const i = ev.target && ev.target.getAttribute && ev.target.getAttribute('data-i'); return i != null ? mappaRetti[+i] : null; }
+        function mappaTip(r, ev) {
+            const tip = document.getElementById('mappa-tip'), box = tip.parentElement.getBoundingClientRect();
+            const e = r.e, prezzo = Number(e.price).toLocaleString('it-IT', { maximumFractionDigits: 2 });
+            tip.innerHTML = `<strong style="color:#fff;">${esc(r.k)}</strong> · ${esc(e.name)}<div style="color:var(--text-muted); font-size:0.85em;">${esc(r.settore)}${r.altro ? ' · altro titolo' : ''}${inPortafoglio(r.k) ? ' · 💼' : ''}</div>
+                <div style="margin-top:4px;">Prezzo ${prezzo} ${esc(e.curr)} · FV ${e.fv != null ? Number(e.fv).toLocaleString('it-IT', { maximumFractionDigits: 2 }) + ' ' + esc(e.curr) : 'n.d.'}</div>
+                <div style="color:${r.verd.colore}; font-weight:700;">${esc(r.verd.titolo)}</div>${r.pot != null ? `<div>Potenziale ${(r.pot >= 0 ? '+' : '−') + Math.abs(r.pot).toFixed(0)}%</div>` : ''}<div style="color:var(--brand-green); font-size:0.82em; margin-top:4px;">Clic per l'analisi →</div>`;
+            tip.style.display = 'block';
+            const x = Math.min(ev.clientX - box.left + 14, box.width - 250), y = ev.clientY - box.top + 14;
+            tip.style.left = Math.max(0, x) + 'px'; tip.style.top = y + 'px';
+        }
+        function mappaHover(ev) { if (matchMedia('(hover: none)').matches) return; const r = mappaVoce(ev); if (r) mappaTip(r, ev); else document.getElementById('mappa-tip').style.display = 'none'; }
+        function mappaClick(ev) {
+            const r = mappaVoce(ev); if (!r) return;
+            // su schermi touch il primo tocco mostra i dettagli, il secondo apre l'analisi
+            if (matchMedia('(hover: none)').matches && mappaScelto !== r) { mappaScelto = r; mappaTip(r, ev); return; }
+            mappaScelto = null; document.getElementById('mappa-tip').style.display = 'none'; apriTitolo(r.k);
+        }
+        let mappaW = 0; window.addEventListener('resize', () => { const b = document.getElementById('mappa-box'); if (b && Math.abs(b.clientWidth - mappaW) > 40) { mappaW = b.clientWidth; renderMappa(); } });
+
         // === PATTERN SCANNER (patterns.json, calcolato ogni sera da scripts/compute_patterns.mjs) ===
         let patData = null, patDettaglio = null, patSort = { col: 'r', dir: 'desc' }, patTutti = false, patChart = null;
         // altri titoli (patterns_ext.json, scripts/compute_patterns_ext.py): sintesi caricata solo se richiesta,
@@ -2424,6 +2575,52 @@
                 }).join('');
             }
 
+        }
+
+        // === DIARIO DELLE OPERAZIONI (diario.json) ===
+        let diarioDati = null, diarioFiltro = 'tutte', diarioTutte = false;
+        async function caricaDiario() {
+            if (!diarioDati) diarioDati = (await fetchJson('diario.json')) || { operazioni: [] };
+            renderDiario();
+        }
+        function setDiario(f, btn) { diarioFiltro = f; document.querySelectorAll('#diario-filtri button').forEach(b => b.classList.toggle('active', b === btn)); renderDiario(); }
+        function renderDiario() {
+            const O = (diarioDati && diarioDati.operazioni) || [], tb = document.getElementById('diario-tbody');
+            if (!tb) return;
+            const sg = (x, d = 1) => x == null ? '—' : (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d }) + '%';
+            const col = x => x == null ? 'var(--text-muted)' : x > 0 ? 'var(--brand-green)' : x < 0 ? 'var(--accent-red)' : '#fff';
+            const med = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+            const quando = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
+            const fascia = q => q == null ? null : q < 30 ? ['molto debole', '#ef5350'] : q < 50 ? ['debole', '#ffa726'] : q < 70 ? ['in salute', '#9ccc65'] : ['forte', '#43a047'];
+            // sintesi: come sono andati gli acquisti fatti sotto e sopra il fair value di allora, e le vendite
+            const acq = O.filter(o => o.side === 'buy' && o.dopo != null && o.date < new Date(Date.now() - 20 * 864e5).toISOString().slice(0, 10));
+            const sotto = acq.filter(o => o.fv && o.fv.gap < 0), sopra = acq.filter(o => o.fv && o.fv.gap >= 0), vend = O.filter(o => o.side === 'sell' && o.dopo != null);
+            const conTbo = O.filter(o => o.tbo).length;
+            const voce = (l, v, sub, c) => `<div><div class="l">${l}</div><div class="v" style="color:${c || '#fff'};">${v}</div><div style="font-size:0.75em; color:var(--text-muted); margin-top:3px;">${sub}</div></div>`;
+            const vsSp = a => { const x = med(a.map(o => o.dopo)), y = med(a.filter(o => o.sp500 != null).map(o => o.sp500)); return `${a.length} acquisti, variazione mediana da allora · S&amp;P 500 ${sg(y)}`; };
+            document.getElementById('diario-sintesi').innerHTML = `<div class="mini-kpi" style="margin-top:4px;">
+                ${voce('Comprati sotto il fair value', `<span style="color:${col(med(sotto.map(o => o.dopo)))};">${sg(med(sotto.map(o => o.dopo)))}</span>`, vsSp(sotto))}
+                ${voce('Comprati sopra il fair value', `<span style="color:${col(med(sopra.map(o => o.dopo)))};">${sg(med(sopra.map(o => o.dopo)))}</span>`, vsSp(sopra))}
+                ${voce('Dopo le mie vendite', `<span style="color:${col(-med(vend.map(o => o.dopo)))};">${sg(med(vend.map(o => o.dopo)))}</span>`, `${vend.length} vendite · variazione mediana del titolo dopo la vendita (negativa = vendita azzeccata)`)}
+                ${voce('Con un segnale TBO vicino', `${conTbo} <span style="font-size:0.6em; color:var(--text-muted);">su ${O.length}</span>`, 'operazioni fatte entro 7 giorni da un segnale della strategia')}
+            </div>`;
+            const tutteRighe = O.filter(o => diarioFiltro === 'tutte' || o.side === diarioFiltro), righe = diarioTutte ? tutteRighe : tutteRighe.slice(0, 10);
+            const piu = document.getElementById('diario-piu');
+            if (piu) piu.innerText = tutteRighe.length > 10 ? (diarioTutte ? 'Mostra solo le ultime 10' : `Mostra tutte (${tutteRighe.length})`) : '';
+            tb.innerHTML = righe.map(o => {
+                const f = fascia(o.amp), apri = o.k ? `apriTitolo('${esc(o.k)}')` : '';
+                const nome = o.nome || (portfolioData && (portfolioData.positions || []).find(p => p.ticker === o.ticker) || {}).name || '';
+                const etichetta = o.k ? esc(o.k) : esc(posLabel({ ticker: o.ticker, name: nome }));
+                const fv = o.fv ? `<span class="mono-font" style="font-weight:800; color:${o.fv.gap < 0 ? 'var(--brand-green)' : '#ffa726'};">${sg(o.fv.gap, 0)}</span><div style="font-size:0.75em; color:var(--text-muted);">${o.fv.gap < 0 ? 'sotto' : 'sopra'} il FV di ${o.fv.val.toLocaleString('it-IT', { maximumFractionDigits: 2 })} (${quando(o.fv.data)})</div>` : '<span style="color:var(--text-muted);">—</span>';
+                const tbo = o.tbo ? `<span class="scr-badge ${o.side === 'buy' ? 'buy' : 'watch'}">${o.side === 'buy' ? 'COMPRA' : 'CHIUSA 80%'}</span><div style="font-size:0.75em; color:var(--text-muted);">il ${quando(o.tbo.d)}</div>` : '<span style="color:var(--text-muted); font-size:0.85em;">nessuno</span>';
+                return `<tr${apri ? ` onclick="${apri}" style="cursor:pointer;"` : ''}>
+                    <td style="white-space:nowrap;">${quando(o.date)}</td>
+                    <td><span class="scr-badge ${o.side === 'buy' ? 'buy' : 'watch'}">${o.side === 'buy' ? 'ACQUISTO' : 'VENDITA'}</span><div style="font-size:0.75em; color:var(--text-muted); white-space:nowrap;">${o.qty} × ${Number(o.price).toLocaleString('it-IT', { maximumFractionDigits: 3 })} ${o.curr === 'EUR' ? '€' : o.curr === 'USD' ? '$' : ''}</div></td>
+                    <td><div class="scr-ticker">${etichetta}</div><div class="scr-name" style="font-size:0.78em;">${esc(nome)}</div></td>
+                    <td>${fv}</td><td>${tbo}</td>
+                    <td>${f ? `<span style="color:${f[1]}; font-weight:700;">${f[0]}</span><div style="font-size:0.75em; color:var(--text-muted);">${o.amp.toLocaleString('it-IT', { maximumFractionDigits: 0 })}% sopra la media</div>` : '<span style="color:var(--text-muted);">—</span>'}</td>
+                    <td><span class="mono-font" style="font-weight:800; color:${col(o.side === 'sell' ? -o.dopo : o.dopo)};">${sg(o.dopo)}</span>${o.sp500 != null ? `<div style="font-size:0.75em; color:var(--text-muted);">S&amp;P 500 ${sg(o.sp500)}</div>` : ''}${o.side === 'sell' && o.dopo != null ? `<div style="font-size:0.72em; color:var(--text-muted);">dopo la vendita</div>` : ''}</td></tr>`;
+            }).join('') || '<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">Nessuna operazione.</td></tr>';
         }
 
         // === POSIZIONI (sintesi) E DIVERSIFICAZIONE ===
@@ -3393,6 +3590,7 @@
             if (!screenerBuilt) { screenerBuilt = true; buildScreenerData(); }
             loadCambi();
             loadPatterns();
+            renderMappa();
             loadTbo();
             document.querySelectorAll('[data-yt]').forEach(w => { w.style.cssText = 'position:absolute; inset:0;'; ytFacade(w, w.dataset.yt, w.dataset.ytTitle); });
             loadSentiment();
