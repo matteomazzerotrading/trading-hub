@@ -30,7 +30,8 @@ const limite = new Date(sig.ultima_seduta + 'T00:00:00Z'); limite.setUTCDate(lim
 const dal = primaVolta ? sig.ultima_seduta : limite.toISOString().slice(0, 10);
 // alla prima esecuzione i segnali delle sedute precedenti contano come già pubblicati
 if (primaVolta) for (const r of sig.segnali) if (r.d < dal) fatti.add(chiave(r));
-const nuovi = sig.segnali.filter(r => (r.k === 'c' || r.k === 'x') && r.d >= dal && !fatti.has(chiave(r)));
+// tardi: segnali recuperati in blocco per un titolo appena aggiunto all'elenco (compute_tbo.mjs): non si pubblicano in ritardo
+const nuovi = sig.segnali.filter(r => (r.k === 'c' || r.k === 'x') && r.d >= dal && !r.tardi && !fatti.has(chiave(r)));
 if (!nuovi.length) { console.log('Nessun nuovo segnale da pubblicare.'); process.exit(0); }
 
 const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

@@ -314,7 +314,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       if (s.d.at(-1) <= st.fino) { titoliExt++; continue; }
       if (s.d[0] > st.fino) { errExt++; continue; }
       try { r = r || segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { errExt++; continue; }
-      for (const ev of avanza(st, s, r)) eventiExt.push(conSconto({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1 }, s));
+      // più di 3 sedute da recuperare in un colpo solo: titolo appena aggiunto (o avviato dopo la quotazione); i suoi
+      // segnali passati vanno in elenco ma non come notifiche nuove (tardi: 1)
+      const daRecuperare = s.d.filter(d => d > st.fino).length, tardi = daRecuperare > 3;
+      for (const ev of avanza(st, s, r)) eventiExt.push(conSconto({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1, ...(tardi && ev.d < s.d.at(-1) ? { tardi: 1 } : {}) }, s));
       titoliExt++;
     }
     if (titoliExt && errExt <= titoliExt / 5) { nuovi.push(...eventiExt); ext.aggiornato = ora.toISOString(); }
