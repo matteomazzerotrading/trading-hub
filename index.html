@@ -297,6 +297,9 @@
         .tbo-avviso strong { color: #fff; }
         .sez-nascosta { display: none !important; }
         .div-box > summary::-webkit-details-marker { display: none; }
+        .valuta-sel { display: inline-flex; border: 1px solid var(--border-glass); border-radius: 20px; overflow: hidden; }
+        .valuta-sel button { background: transparent; border: 0; color: var(--text-muted); font: inherit; font-size: 0.8em; padding: 4px 12px; cursor: pointer; }
+        .valuta-sel button.attiva { background: rgba(0,230,118,0.14); color: var(--brand-green); font-weight: 700; }
         .port-pos-box > summary { list-style: none; }
         .port-pos-box > summary::-webkit-details-marker { display: none; }
         .port-pos-box .port-pos-freccia::after { content: 'Mostra tutte ▾'; }
@@ -630,8 +633,14 @@
     <div class="container" id="portfolio">
         <div class="section-header">
             <h2 class="section-title">Il mio <span>Portafoglio</span></h2>
-            <span id="port-updated-badge" style="font-size:0.8em; color:var(--text-muted); background:rgba(255,255,255,0.05); padding:4px 12px; border-radius:20px; border:1px solid var(--border-glass);">—</span>
+            <span style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <span class="valuta-sel" role="group" aria-label="Valuta del portafoglio">
+                    <button id="val-EUR" onclick="setValuta('EUR')">€ Euro</button><button id="val-USD" onclick="setValuta('USD')">$ Dollaro</button>
+                </span>
+                <span id="port-updated-badge" style="font-size:0.8em; color:var(--text-muted); background:rgba(255,255,255,0.05); padding:4px 12px; border-radius:20px; border:1px solid var(--border-glass);">—</span>
+            </span>
         </div>
+        <div id="valuta-nota" style="display:none; margin:-14px 0 16px; font-size:0.75em; color:var(--text-muted); text-align:right;"></div>
         <div class="kpi-container">
             <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono-font" id="port-total" style="transition:color 0.6s;">—</div><div id="port-live" style="display:none; font-size:0.72em; margin-top:5px; color:var(--text-muted); line-height:1.5;"></div></div>
             <div class="kpi-card"><div class="fv-label">P&amp;L Non Realizzato</div><div class="kpi-val mono-font" id="port-unreal">—</div></div>
@@ -650,7 +659,7 @@
                 <div id="div-proiezione-righe" style="margin-top:10px;"></div>
                 <details style="margin-top:14px;">
                     <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Tutti i dividendi e le cedole incassati</summary>
-                    <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Data</th><th>Titolo</th><th>Importo</th><th>In dollari</th></tr></thead><tbody id="div-elenco"></tbody></table></div>
+                    <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Data</th><th>Titolo</th><th>Importo</th><th id="div-col-val">In dollari</th></tr></thead><tbody id="div-elenco"></tbody></table></div>
                 </details>
                 <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Dividendi registrati sul portafoglio TradingView e cedole delle obbligazioni calcolate dal tasso, dal calendario di pagamento e dal nominale posseduto; tutti gli importi sono lordi (sui titoli di Stato la ritenuta è del 12,5%) e quelli in euro sono convertiti al cambio del giorno di pagamento. Le cedole non sono comprese nel valore e nel profitto del portafoglio TradingView. La proiezione moltiplica le azioni che ho oggi per il dividendo annuo che ciascuna società paga attualmente, senza aumenti né tagli, e aggiunge le cedole a tasso fisso in pagamento nel 2027, al cambio di oggi. Non è una previsione: i dividendi possono essere ridotti o sospesi.</p>
             </div>
@@ -2762,7 +2771,7 @@
                         <td style="padding:10px 8px; text-align:right; color:var(--text-muted);">${p.alloc_pct.toFixed(1)}%</td>
                         <td style="padding:10px 8px; text-align:right;">${p.qty}</td>
                         <td style="padding:10px 8px; text-align:right; font-family:'JetBrains Mono',monospace;">${p.avg_price.toFixed(2)} ${p.curr}</td>
-                        <td style="padding:10px 16px; text-align:right; font-family:'JetBrains Mono',monospace; color:${plColor};">${plSign}${p.unrealized_pl.toFixed(2)} $</td>
+                        <td style="padding:10px 16px; text-align:right; font-family:'JetBrains Mono',monospace; color:${plColor};">${fmtV(p.unrealized_pl, { segno: true })}</td>
                     </tr>`;
                 }).join('');
             }
@@ -2875,6 +2884,11 @@
         async function caricaBenchmark() {
             if (benchDati) return renderBenchmark();
             benchDati = await fetchJson('benchmarks.json');
+            // cambio EUR/USD giorno per giorno: con il portafoglio in euro si ridisegnano storico e riepilogo
+            if (benchDati && benchDati.cambi && benchDati.cambi.eurusd && benchDati.cambi.eurusd.d.length) {
+                fxStorico = benchDati.cambi.eurusd;
+                if (inEuro()) { try { renderPortKpi(); renderDividendi(); renderPerfChart(); } catch (e) {} }
+            }
             if (!benchDati || !benchDati.serie || !Object.keys(benchDati.serie).length) return;
             if (!benchDati.serie[benchIdx]) benchIdx = Object.keys(benchDati.serie)[0];
             renderBenchmark();
@@ -2954,7 +2968,41 @@
         // Il rendimento di un periodo è (1+perf_fine)/(1+perf_inizio)−1: si legge sulla linea "Rendimento",
         // non sulla variazione del valore, che sale anche quando viene aggiunto capitale.
         const PERF_MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
-        function perfPoints() {
+        // === VALUTA DEL PORTAFOGLIO ===
+        // TradingView tiene il portafoglio in dollari. In euro: valore e importi di oggi al cambio di adesso; lo storico e i
+        // rendimenti giorno per giorno al cambio di ogni giorno (benchmarks.json → cambi.eurusd), così il rendimento in euro
+        // comprende anche l'effetto del cambio, come lo vede chi investe in euro.
+        let portValuta = (() => { try { return localStorage.getItem('mm_valuta') || 'EUR'; } catch (e) { return 'EUR'; } })();
+        let portFxOggi = null, fxStorico = null;
+        const fxOra = () => portFxOggi || (portfolioData && portfolioData.snapshot && portfolioData.snapshot.eurusd) || (fxStorico && fxStorico.c[fxStorico.c.length - 1]) || 1.16;
+        function fxAl(iso) {
+            const S = fxStorico; if (!S || !S.d.length || iso > S.d[S.d.length - 1]) return fxOra();
+            let lo = 0, hi = S.d.length - 1, r = 0; while (lo <= hi) { const m = (lo + hi) >> 1; if (S.d[m] <= iso) { r = m; lo = m + 1; } else hi = m - 1; }
+            return S.c[r];
+        }
+        const inEuro = () => portValuta === 'EUR';
+        const inV = usd => (inEuro() ? usd / fxOra() : usd);
+        // importo già nella valuta scelta → testo ("12.345,67 €" oppure "$12.345,67")
+        function fmtRaw(v, { dec = 2, segno = false } = {}) {
+            const n = Math.abs(v).toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: 'always' });
+            const s = segno ? (v >= 0 ? '+' : '−') : (v < 0 ? '−' : '');
+            return inEuro() ? `${s}${n} €` : `${s}$${n}`;
+        }
+        const fmtV = (usd, o) => fmtRaw(inV(usd), o);       // importo in dollari → valuta scelta, al cambio di oggi
+        function setValuta(v) {
+            portValuta = v; try { localStorage.setItem('mm_valuta', v); } catch (e) {}
+            aggiornaSelValuta();
+            try { renderPortfolio(); } catch (e) {}
+            try { renderPerfChart(); } catch (e) {}
+            if (divProiezioneFatta) { divProiezioneFatta = false; proiezioneDividendi(); }
+            if (portLive) aggiornaPortLive();
+        }
+        function aggiornaSelValuta() {
+            for (const k of ['EUR', 'USD']) { const b = document.getElementById('val-' + k); if (b) b.classList.toggle('attiva', portValuta === k); }
+            const n = document.getElementById('valuta-nota');
+            if (n) { n.style.display = inEuro() ? '' : 'none'; n.innerText = `Valori in euro al cambio di oggi (1 € = ${fxOra().toLocaleString('it-IT', { minimumFractionDigits: 4, maximumFractionDigits: 4 })} $); storico e rendimenti al cambio di ogni giorno. Il portafoglio su TradingView è in dollari.`; }
+        }
+        function perfPointsUsd() {
             const history = (portfolioData && portfolioData.history) || [];
             const pts = history.map(p => {
                 const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(p.date || '');
@@ -2973,6 +3021,25 @@
                 else if (ultimo.d < oggi && oggi.getDay() % 6 !== 0) pts.push(punto);
             }
             return pts;
+        }
+        // Storico nella valuta scelta. In euro: valore / cambio del giorno; rendimento concatenato giorno per giorno,
+        // (1 + r$) × cambio di ieri / cambio di oggi; profitto in euro accumulato da quei rendimenti.
+        function perfPoints() {
+            const pts = perfPointsUsd();
+            if (!inEuro() || !pts.length) return pts;
+            const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            const fx = pts.map(p => (p.live ? fxOra() : fxAl(iso(p.d))));
+            const out = []; let I = pts[0].perf != null ? 1 + pts[0].perf / 100 : null, pl = pts[0].pl != null ? pts[0].pl / fx[0] : null;
+            for (let i = 0; i < pts.length; i++) {
+                const p = pts[i], v = p.v / fx[i];
+                if (i > 0 && I != null && p.perf != null && pts[i - 1].perf != null) {
+                    const r = (1 + p.perf / 100) / (1 + pts[i - 1].perf / 100) * (fx[i - 1] / fx[i]);
+                    if (pl != null) pl += out[i - 1].v * (r - 1);
+                    I *= r;
+                }
+                out.push({ ...p, v, perf: I != null && p.perf != null ? (I - 1) * 100 : null, pl: p.pl != null ? pl : null });
+            }
+            return out;
         }
         // Periodo: 'ALL' = dall'inizio; 'YTD' = dall'ultima seduta dell'anno scorso; altrimenti gli ultimi N mesi di calendario.
         function perfPeriodo(points, period) {
@@ -3027,7 +3094,7 @@
             const isPositive = esito >= 0;
             const color = isPositive ? '#00e676' : '#ff3d00';
             const pct = (x, dec = 2) => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + '%';
-            const usd = (x, segno) => (segno ? (x >= 0 ? '+' : '−') : (x < 0 ? '−' : '')) + '$' + Math.abs(Math.round(x)).toLocaleString('it-IT', { useGrouping: 'always' });
+            const usd = (x, segno) => fmtRaw(x, { dec: 0, segno });        // valori già nella valuta scelta
 
             if (perfChartInstance) { perfChartInstance.destroy(); perfChartInstance = null; }
             const ctx = document.getElementById('perfChart').getContext('2d');
@@ -3072,7 +3139,7 @@
                         y: { grid: { color: c => (mode === 'perf' && c.tick && c.tick.value === 0) ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.05)' },
                              ticks: { color: '#666', font: { size: 10 }, callback: v => mode === 'perf'
                                 ? (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + '%'
-                                : '$' + (v >= 1000 ? (v / 1000).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + 'k' : v) } }
+                                : (inEuro() ? '' : '$') + (v >= 1000 ? (v / 1000).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + 'k' : v) + (inEuro() ? ' €' : '') } }
                     }
                 }
             });
@@ -3435,14 +3502,13 @@
         function renderPortKpi() {
             const pd = portfolioData; if (!pd || !pd.summary) return;
             const s = pd.summary, snap = pd.snapshot, L = portLive && snap ? portLive : null;
-            const usd = v => '$' + v.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
-            const segno = v => (v >= 0 ? '+' : '−') + usd(Math.abs(v));
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2).replace('.', ',') + '%';
-            if (!L) document.getElementById('port-total').innerText = usd(s.total_value_usd);
+            aggiornaSelValuta();
+            document.getElementById('port-total').innerText = fmtV(L ? L.tot : s.total_value_usd);
             let nr = s.unrealized_pl_usd, nrPct = s.unrealized_pl_pct;
             if (L) { nr = snap.summary.unrealized_pl_usd + L.d; nrPct = snap.unrealized_base ? nr / snap.unrealized_base * 100 : snap.summary.unrealized_pl_pct; }
             const unreal = document.getElementById('port-unreal');
-            unreal.innerText = segno(nr) + ' (' + pcs(nrPct) + ')';
+            unreal.innerText = fmtV(nr, { segno: true }) + ' (' + pcs(nrPct) + ')';
             unreal.style.color = nr >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
             // da inizio anno e ultimi 12 mesi: dallo storico giornaliero, con il punto in movimento se c'è
             const per = pd.periods || {}, pts = perfPoints();
@@ -3454,12 +3520,15 @@
             annual.style.color = ytd >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
             const sub = document.getElementById('port-annual-sub');
             const anno = A ? A.rend : (per['1Y'] ? per['1Y'].pl_pct : null);
-            const breve = v => (v >= 0 ? '+' : '−') + '$' + Math.round(Math.abs(v)).toLocaleString('it-IT', { useGrouping: 'always' });
+            const breve = v => fmtRaw(v, { dec: 0, segno: true });          // Y.pl è già nella valuta scelta
             if (sub) sub.innerText = [Y ? breve(Y.pl) + ' da inizio anno' : null, anno != null ? 'ultimi 12 mesi: ' + pcs(anno) : null].filter(Boolean).join(' · ');
         }
 
         // === DIVIDENDI: incassati (portfolio.json → dividends, dal portafoglio TradingView) e proiezione per il 2027 ===
-        const dUsd = (v, dec = 2) => '$' + v.toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: 'always' });
+        const dUsd = (v, dec = 2) => fmtRaw(v, { dec });                     // importo già nella valuta scelta
+        // valore di un dividendo o di una cedola nella valuta scelta: in euro, quelli incassati in euro restano tali,
+        // quelli in dollari al cambio del giorno di pagamento
+        const divV = x => (!inEuro() ? Number(x.usd) || 0 : x.curr === 'EUR' ? Number(x.amount) || 0 : (Number(x.usd) || 0) / fxAl(x.date));
         // Cedole delle obbligazioni (portfolio.json → bond_terms): una per ogni data di pagamento dopo l'acquisto.
         // Se la data cade di sabato o domenica il pagamento slitta al lunedì. Le cedole già incassate in euro usano
         // il cambio del giorno (fx_cedole); quelle future, o senza cambio registrato, il cambio passato come fxOggi.
@@ -3488,15 +3557,16 @@
             if (!box || !L.length) return;
             const oggi = new Date(), iso = d => d.toISOString().slice(0, 10);
             const fa = (mesi) => { const d = new Date(oggi); d.setMonth(d.getMonth() - mesi); return iso(d); };
-            const somma = f => L.filter(f).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+            const somma = f => L.filter(f).reduce((a, x) => a + divV(x), 0);
             const anno = oggi.getFullYear(), primo = L.map(x => x.date).sort()[0];
             const periodi = [['Ultimo mese', somma(x => x.date >= fa(1)), 'ultimi 30 giorni'], ['Ultimi 3 mesi', somma(x => x.date >= fa(3)), ''],
                 ['Da inizio anno', somma(x => x.date >= anno + '-01-01'), 'nel ' + anno], ['Ultimi 12 mesi', somma(x => x.date >= fa(12)), ''],
                 ['Nel ' + (anno - 1), somma(x => x.date.startsWith(String(anno - 1))), 'anno intero'], ['Dall\'inizio', somma(() => true), 'dal ' + new Date(primo + 'T12:00:00').toLocaleDateString('it-IT', { month: 'long', year: 'numeric' })]];
-            const ced = f => L.filter(x => x.cedola && f(x)).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+            const ced = f => L.filter(x => x.cedola && f(x)).reduce((a, x) => a + divV(x), 0);
             const filtri = [x => x.date >= fa(1), x => x.date >= fa(3), x => x.date >= anno + '-01-01', x => x.date >= fa(12), x => x.date.startsWith(String(anno - 1)), () => true];
             document.getElementById('div-periodi').innerHTML = periodi.map(([l, v, s], i) => { const c = ced(filtri[i]);
                 return `<div><div class="l">${l}</div><div class="v" style="color:${v > 0 ? 'var(--brand-green)' : '#fff'};">${dUsd(v)}</div><div class="s">${c > 0 ? 'di cui cedole ' + dUsd(c) : (s || '&nbsp;')}</div></div>`; }).join('');
+            const cv = document.getElementById('div-col-val'); if (cv) cv.innerText = inEuro() ? 'In euro' : 'In dollari';
             document.getElementById('div-sintesi').innerText = dUsd(somma(x => x.date >= fa(12))) + ' negli ultimi 12 mesi';
             const nomi = Object.fromEntries((portfolioData.positions || []).map(p => [p.ticker, p.name]));
             document.getElementById('div-elenco').innerHTML = L.filter(x => x.amount > 0).sort((a, b) => b.date.localeCompare(a.date)).map(x => `<tr>
@@ -3504,7 +3574,7 @@
                 <td>${x.cedola ? `<span class="scr-ticker" style="color:#4fc3f7;">${esc(x.label)}</span><div class="scr-name" style="font-size:0.78em;">Cedola · ${esc(nomi[x.ticker] || x.ticker)}</div>`
                     : `<span class="scr-ticker">${esc(x.ticker)}</span>${nomi[x.ticker] || (db[x.ticker] && db[x.ticker].name) ? `<div class="scr-name" style="font-size:0.78em;">${esc(nomi[x.ticker] || db[x.ticker].name)}</div>` : ''}`}</td>
                 <td class="mono-font" style="white-space:nowrap;">${x.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${x.curr === 'EUR' ? '€' : '$'}</td>
-                <td class="mono-font" style="white-space:nowrap;">${dUsd(x.usd)}</td></tr>`).join('');
+                <td class="mono-font" style="white-space:nowrap;">${dUsd(divV(x))}</td></tr>`).join('');
             box.style.display = 'block';
         }
         // Proiezione 2027: per ogni azione posseduta, quantità × prezzo × rendimento da dividendo attuale (dividendo annuo che paga oggi)
@@ -3534,22 +3604,25 @@
             const bond = Object.values(perBond), totCed = bond.reduce((a, x) => a + x.annuo, 0), tot = totDiv + totCed;
             const da12 = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10), oggiIso = new Date().toISOString().slice(0, 10);
             const ultimi12 = (portfolioData.dividends || []).concat(cedoleObbligazioni(oggiIso, portfolioData.snapshot && portfolioData.snapshot.eurusd))
-                .filter(x => x.date >= da12).reduce((a, x) => a + (Number(x.usd) || 0), 0);
+                .filter(x => x.date >= da12).reduce((a, x) => a + divV(x), 0);
             const prossima = cedoleObbligazioni('2027-12-31', fx).find(x => x.date > oggiIso);
             const voce = (l, v, s, col) => `<div><div class="l">${l}</div><div class="v"${col ? ` style="color:${col};"` : ''}>${v}</div><div class="s">${s}</div></div>`;
-            box.innerHTML = voce('Attesi nel 2027', dUsd(tot), totCed > 0 ? 'dividendi e cedole' : 'con le azioni di oggi, ai dividendi attuali', 'var(--brand-green)')
-                + voce('Dividendi', dUsd(totDiv), 'azioni di oggi, ai dividendi attuali')
-                + (totCed > 0 ? voce('Cedole', dUsd(totCed), bond.length + ' obbligazioni a tasso fisso', '#4fc3f7') : '')
-                + voce('Al mese, in media', dUsd(tot / 12), 'distribuiti nell\'anno')
+            // la proiezione è calcolata in dollari: in euro si converte al cambio di oggi
+            const dUsdP = (v, dec) => dUsd(inEuro() ? v / fx : v, dec);
+            const totV = inEuro() ? tot / fx : tot;
+            box.innerHTML = voce('Attesi nel 2027', dUsdP(tot), totCed > 0 ? 'dividendi e cedole' : 'con le azioni di oggi, ai dividendi attuali', 'var(--brand-green)')
+                + voce('Dividendi', dUsdP(totDiv), 'azioni di oggi, ai dividendi attuali')
+                + (totCed > 0 ? voce('Cedole', dUsdP(totCed), bond.length + ' obbligazioni a tasso fisso', '#4fc3f7') : '')
+                + voce('Al mese, in media', dUsdP(tot / 12), 'distribuiti nell\'anno')
                 + voce('Rendimento da dividendo', (valAz > 0 ? (totDiv / valAz * 100) : 0).toLocaleString('it-IT', { maximumFractionDigits: 2 }) + '%', 'sulla parte azionaria')
-                + voce('Rispetto agli ultimi 12 mesi', (tot >= ultimi12 ? '+' : '−') + dUsd(Math.abs(tot - ultimi12)), `incassati ${dUsd(ultimi12)}`, tot >= ultimi12 ? 'var(--brand-green)' : 'var(--accent-red)');
+                + voce('Rispetto agli ultimi 12 mesi', (totV >= ultimi12 ? '+' : '−') + dUsd(Math.abs(totV - ultimi12)), `incassati ${dUsd(ultimi12)}`, totV >= ultimi12 ? 'var(--brand-green)' : 'var(--accent-red)');
             const tutte = paganti.sort((a, b) => b.annuo - a.annuo).concat(bond.sort((a, b) => b.annuo - a.annuo)), max = Math.max(...tutte.map(x => x.annuo), 1);
             const quando = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
             document.getElementById('div-proiezione-righe').innerHTML = `<div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:#fff; font-weight:700; margin:16px 0 4px;">Attesi nel 2027, titolo per titolo</div><div style="font-size:0.78em; color:var(--text-muted); margin-bottom:6px;">${paganti.length} titoli su ${righe.length} pagano un dividendo${bond.length ? ` · <span style="color:#4fc3f7;">${bond.length} obbligazioni pagano cedole</span>` : ''}${prossima ? ` · prossima cedola il ${quando(prossima.date)} (${esc(prossima.label)}, ${prossima.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${prossima.curr === 'EUR' ? '€' : '$'})` : ''}</div>`
                 + tutte.map(x => `<div style="display:flex; align-items:center; gap:10px; margin:5px 0; font-size:0.85em;">
                     <span class="mono-font" style="width:${bond.length ? 92 : 58}px; flex-shrink:0; color:${x.cedola ? '#4fc3f7' : '#fff'}; font-weight:700; white-space:nowrap;">${esc(x.t)}</span>
                     <div style="flex:1; background:rgba(255,255,255,0.05); border-radius:4px; height:10px;"><div style="width:${(x.annuo / max * 100).toFixed(1)}%; height:100%; background:${x.cedola ? '#4fc3f7' : 'var(--brand-green)'}; border-radius:4px;"></div></div>
-                    <span class="mono-font" style="width:74px; text-align:right;">${dUsd(x.annuo)}</span><span class="mono-font" style="width:52px; text-align:right; color:var(--text-muted);">${x.y.toLocaleString('it-IT', { maximumFractionDigits: x.cedola ? 2 : 1 })}%</span></div>`).join('');
+                    <span class="mono-font" style="width:78px; text-align:right;">${dUsdP(x.annuo)}</span><span class="mono-font" style="width:52px; text-align:right; color:var(--text-muted);">${x.y.toLocaleString('it-IT', { maximumFractionDigits: x.cedola ? 2 : 1 })}%</span></div>`).join('');
         }
 
         // === VALORE DEL PORTAFOGLIO IN MOVIMENTO ===
@@ -3578,6 +3651,7 @@
             const pos = (pd.positions || []).filter(p => snap.positions[p.ticker] && snap.positions[p.ticker].price > 0);
             const prezzi = await prezziPortLive(pos.map(sim).concat(FX));
             const fx = prezzi[FX] && snap.eurusd ? prezzi[FX] / snap.eurusd : 1;
+            if (prezzi[FX] > 0) portFxOggi = prezzi[FX];
             let tot = Number(pd.summary.cash_usd) || 0, ferme = 0;
             for (const p of pd.positions || []) {
                 const ref = snap.positions[p.ticker];
@@ -3588,15 +3662,15 @@
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
             const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#00e676' : '#ff5252';
-            el.innerText = '$' + tot.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
             portLive = { tot, d };
+            el.innerText = fmtV(tot);
             renderPortKpi();
             perfSenzaAnimazione = true; try { renderPerfChart(); } catch (e) {} finally { perfSenzaAnimazione = false; }
             if (portLivePrec != null && Math.abs(tot - portLivePrec) >= 0.01) { el.style.color = tot > portLivePrec ? '#00e676' : '#ff5252'; setTimeout(() => { el.style.color = ''; }, 900); }
             portLivePrec = tot;
             const [y, m, g] = String(snap.date || '').split('-');
             nota.style.display = 'block';
-            nota.innerHTML = `<span style="color:${col}; font-weight:700;">${d >= 0 ? '+' : '−'}$${Math.abs(d).toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${itPct(d / base * 100, 2)})</span> dal ${+g} ${PERF_MESI[+m - 1] || ''}`
+            nota.innerHTML = `<span style="color:${col}; font-weight:700;">${fmtV(d, { segno: true })} (${itPct(d / base * 100, 2)})</span> dal ${+g} ${PERF_MESI[+m - 1] || ''}`
                 + `<br><span title="Stima dai prezzi pubblici di TradingView, ritardati di circa 15 minuti. Il dato ufficiale è quello serale.">● in movimento · prezzi ritardati di 15 min${ferme ? ` · ${ferme} ${ferme === 1 ? 'posizione ferma' : 'posizioni ferme'}` : ''}</span>`;
         }
         function avviaPortLive() {

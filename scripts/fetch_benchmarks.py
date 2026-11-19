@@ -55,8 +55,20 @@ def main():
             print(f'{nome}: nessun dato nuovo, resta lo storico salvato', file=sys.stderr)
     if not serie:
         sys.exit('Nessun indice scaricato')
+    # cambio EUR/USD giornaliero: serve al sito per mostrare il portafoglio (in dollari su TradingView) anche in euro
+    cambi = vecchio.get('cambi', {})
+    try:
+        dati = scarica('EURUSD=X')
+        if len(dati) >= 100:
+            prima = cambi.get('eurusd', {})
+            unite = dict(zip(prima.get('d', []), prima.get('c', []))); unite.update(dati)
+            giorni = sorted(unite)
+            cambi['eurusd'] = {'nome': 'EUR/USD', 'simbolo': 'EURUSD=X', 'd': giorni, 'c': [unite[g] for g in giorni]}
+            print(f'EUR/USD: {len(giorni)} sedute fino al {giorni[-1]}')
+    except Exception as e:                               # noqa: BLE001
+        print(f'EUR/USD non disponibile ({e})', file=sys.stderr)
     with open(PERCORSO, 'w') as f:
-        json.dump({'aggiornato': date.today().isoformat(), 'serie': serie}, f, separators=(',', ':'))
+        json.dump({'aggiornato': date.today().isoformat(), 'serie': serie, 'cambi': cambi}, f, separators=(',', ':'))
         f.write('\n')
 
 
