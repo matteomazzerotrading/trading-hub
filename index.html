@@ -1721,12 +1721,18 @@
         async function calculateFV() {
             let input = document.getElementById('fvInput').value.toUpperCase().trim();
             if (aliases[input]) input = aliases[input];
-            // Se non è un ticker, cerca per nome dell'azienda (es. "Nestlé", "Ferrari")
+            // Un ticker esatto degli altri titoli (es. ANT, SAN.MC) vale prima della ricerca per nome nel mio elenco
+            if (!db[input]) {
+                const X = await caricaFvExt(), k = [input, input.replace('-', '.'), input.replace('.', '-')].find(x => X[x]);
+                if (k) { db[k] = { ...X[k], ext: true, fuori: true }; input = k; }
+            }
+            // Se non è un ticker, cerca per nome dell'azienda (es. "Nestlé", "Ferrari"): prima i nomi che iniziano
+            // con il testo, poi quelli con una parola che inizia così, infine qualsiasi parte del nome
             if (!db[input] && input.length >= 3) {
                 const norm = s => String(s).toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
                 const q = norm(input);
                 const trovati = Object.keys(db).filter(t => norm(db[t].name).includes(q));
-                const scelto = trovati.find(t => norm(db[t].name).startsWith(q)) || trovati[0];
+                const scelto = trovati.find(t => norm(db[t].name).startsWith(q)) || trovati.find(t => (' ' + norm(db[t].name)).includes(' ' + q)) || (q.length >= 4 ? trovati[0] : null);
                 if (scelto) input = scelto;
             }
 
