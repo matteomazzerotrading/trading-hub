@@ -2040,8 +2040,23 @@
         }
         // 2) COSA SCONTA IL PREZZO: crescita implicita (FVEngine.crescitaImplicita) contro crescita storica dei ricavi per azione
         let labScontaQuali = 'mio', labScontaOrd = 'basse';
+        // verifica storica della lente (verifica_fv.json → aspettative)
+        function bloccoVerificaAspettative(A) {
+            if (!A || !A.fasce) return '';
+            const max = Math.max(...A.fasce.map(f => Math.abs(f.x12 || 0)), 1), sb = A.insieme && A.insieme.sotto_e_basse, sa = A.insieme && A.insieme.sotto_e_alte;
+            return `<div class="tbo-contesto" style="margin:0 0 14px;"><div class="l">Alla prova dei fatti</div>
+                <div style="margin-bottom:8px;">Ho rifatto lo stesso calcolo a ogni fine trimestre dal 2020 con i dati di allora (${A.casi.toLocaleString('it-IT')} casi) e guardato quanto hanno reso i titoli nei 12 mesi successivi rispetto alla mediana di tutti i titoli:</div>
+                ${A.fasce.map(f => `<div style="display:grid; grid-template-columns:minmax(150px,300px) 1fr 64px; gap:10px; align-items:center; margin:5px 0; font-size:0.9em;">
+                    <span>${f.nome}</span>
+                    <div style="position:relative; height:12px; background:rgba(255,255,255,0.04); border-radius:4px;"><div style="position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:rgba(255,255,255,0.25);"></div>
+                        <div style="position:absolute; top:0; height:100%; border-radius:4px; ${f.x12 >= 0 ? `left:50%; width:${(f.x12 / max * 50).toFixed(1)}%; background:var(--brand-green);` : `right:50%; width:${(-f.x12 / max * 50).toFixed(1)}%; background:var(--accent-red);`}"></div></div>
+                    <span class="mono-font" style="text-align:right; font-weight:800; color:${f.x12 >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'};">${pc1(f.x12)}</span></div>`).join('')}
+                <div style="margin-top:8px;">I titoli con aspettative sotto la storia hanno reso più degli altri in <strong style="color:#fff;">${A.trimestri.vinti} trimestri su ${A.trimestri.su}</strong>.</div>
+                <div style="margin-top:8px;"><strong style="color:#fff;">Cosa ne ricavo.</strong> Come per il fair value, il segnale sta all'estremo: funziona quando il prezzo chiede molto meno di quanto l'azienda ha già fatto (oltre 10 punti). Nelle altre fasce non distingue.${sb && sa && sb.casi && sa.casi ? ` E non è una conferma indipendente del fair value: tra i titoli già sotto il fair value, quelli con aspettative basse hanno reso ${pc1(sb.x12)} l'anno rispetto al mercato e quelli con aspettative alte ${pc1(sa.x12)}. Le due lenti misurano in buona parte la stessa cosa (quanto costa il flusso di cassa), quindi la uso per capire <em>perché</em> un titolo è a sconto, non come seconda prova.` : ''}</div></div>`;
+        }
         async function renderLabSconta() {
             const box = document.getElementById('lab-sconta');
+            const V = await caricaVerifica();
             if (labScontaQuali !== 'mio') await caricaFvExt();
             const righe = [];
             const add = (k, e) => {
@@ -2059,6 +2074,7 @@
                     <select class="screener-search" style="max-width:300px; cursor:pointer;" onchange="labScontaOrd = this.value; renderLabSconta()"><option value="basse"${labScontaOrd === 'basse' ? ' selected' : ''}>Aspettative più basse della storia</option><option value="alte"${labScontaOrd === 'alte' ? ' selected' : ''}>Aspettative più alte della storia</option></select>
                     <span style="font-size:0.8em; color:var(--text-muted); align-self:center;">${righe.length.toLocaleString('it-IT')} società · per ${sotto.toLocaleString('it-IT')} il prezzo chiede meno crescita di quella già realizzata</span>
                 </div>
+                ${bloccoVerificaAspettative(V.aspettative)}
                 <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Titolo</th><th title="Crescita annua del FCF per azione per 10 anni che giustifica il prezzo di oggi">Il prezzo sconta</th><th title="Crescita annua dei ricavi per azione negli ultimi anni (fino a 10)">Crescita storica</th><th>Differenza</th><th>Esito del fair value</th></tr></thead><tbody>
                 ${righe.slice(0, 40).map(r => `<tr onclick="apriTitolo('${esc(r.k)}')" style="cursor:pointer;"><td><div class="scr-ticker">${esc(r.k)}${inPortafoglio(r.k) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div></td>
                     <td class="mono-font" style="font-weight:800;">${pcG(r.g)}<span style="font-size:0.75em; color:var(--text-muted); font-weight:400;"> l'anno</span></td><td class="mono-font">${pcG(r.gh)}</td>
@@ -2071,7 +2087,7 @@
         async function renderLabRadar() {
             const box = document.getElementById('lab-radar');
             box.innerHTML = '<div style="color:var(--text-muted);">Incrocio i dati…</div>';
-            await caricaFvExt(); if (!labPatExt) labPatExt = (await fetchJson('patterns_ext.json')) || { titoli: {} };
+            await caricaFvExt(); await caricaVerifica(); if (!labPatExt) labPatExt = (await fetchJson('patterns_ext.json')) || { titoli: {} };
             if (!tboData) await loadTbo();
             const oggi = new Date(), dieci = new Date(oggi); dieci.setDate(dieci.getDate() - 14); const da = dieci.toISOString().slice(0, 10);
             const compra = {};
@@ -2081,24 +2097,25 @@
             const valuta = (k, e) => {
                 const p = Number(e.price); if (!(p > 0)) return;
                 const v = FVEngine.verdict(e, p), sottoFv = ['molto_sotto', 'sotto'].includes(v.key);
-                const ci = FVEngine.crescitaImplicita(e, p), gh = e.ind && e.ind.g_hist, aspBasse = ci && !ci.fuori && gh != null && ci.g < gh;
+                const ci = FVEngine.crescitaImplicita(e, p), gh = e.ind && e.ind.g_hist, aspBasse = ci && !ci.fuori && gh != null && gh - ci.g > 0.10;
                 const pt = pat(k), patOk = pt && pt.ok && pt.var > 0, tbo = compra[k];
                 const n = [sottoFv, !!tbo, patOk, aspBasse].filter(Boolean).length, pot = FVEngine.potenziale(e, p).pot;
-                // fuori le stime poco affidabili e i potenziali fuori scala (di solito dati di bilancio anomali)
-                if (n >= 3 && FVEngine.affidabilita(k, e).livello !== 'bassa' && !(pot > 300)) elenco.push({ k, e, v, n, sottoFv, tbo, patOk, pt, aspBasse, ci, gh, pot });
+                // il nucleo verificato sui dati: sotto il fair value e "Compra" TBO; pattern e aspettative sono indizi in più.
+                // Fuori le stime poco affidabili e i potenziali fuori scala (di solito dati di bilancio anomali)
+                if (sottoFv && tbo && FVEngine.affidabilita(k, e).livello !== 'bassa' && !(pot > 300)) elenco.push({ k, e, v, n, sottoFv, tbo, patOk, pt, aspBasse, ci, gh, pot });
             };
             for (const [k, e] of Object.entries(db)) if (!e.ext && e.tv) valuta(k, e);
             for (const [k, e] of Object.entries(fvExtDati || {})) if (!db[k] || db[k].ext) valuta(k, e);
             elenco.sort((a, b) => b.n - a.n || (b.tbo ? 1 : 0) - (a.tbo ? 1 : 0) || (b.pot || 0) - (a.pot || 0));
             const C = tboStatsDati && tboStatsDati.convergenze, M = tboData && tboData.mercato;
             const lente = (ok, testo) => `<span style="display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:6px; font-size:0.75em; ${ok ? 'background:rgba(0,230,118,0.12); color:var(--brand-green); border:1px solid rgba(0,230,118,0.35);' : 'color:var(--text-muted); border:1px solid var(--border-glass);'}">${ok ? '✓' : '·'} ${testo}</span>`;
-            box.innerHTML = `<p style="margin:0 0 12px; color:#ddd; font-size:0.92em; line-height:1.65;">Ogni sera incrocio quattro strumenti che guardano cose diverse e cerco i titoli su cui almeno tre sono d'accordo: <strong>il prezzo è sotto il fair value</strong>; <strong>la strategia TBO ha dato un "Compra"</strong> nelle ultime due settimane; <strong>il periodo storico più simile</strong> del Pattern Scanner (somiglianza ≥ 90%) fu seguito da un rialzo; <strong>il prezzo sconta meno crescita</strong> di quella che l'azienda ha già realizzato.</p>
-                ${C && C.sotto_fv && C.sotto_fv.p12 ? `<div class="tbo-contesto" style="margin:0 0 12px;"><div class="l">La combinazione verificata sui dati</div>I “Compra” della strategia dati con il prezzo <strong>sotto il fair value</strong> di allora sono stati in guadagno dopo 12 mesi nel <strong style="color:#fff;">${C.sotto_fv.p12.toLocaleString('it-IT')}%</strong> dei casi (mediana ${pc1(C.sotto_fv.m12)}, ${C.sotto_fv.casi.toLocaleString('it-IT')} segnali dal 2021); quelli dati <strong>sopra</strong> nel ${C.sopra_fv.p12.toLocaleString('it-IT')}% (mediana ${pc1(C.sopra_fv.m12)}).${M ? ` Oggi il mercato è ${M.nome} (${M.ampiezza_pct.toLocaleString('it-IT')}% dei titoli sopra la media a 200 sedute).` : ''} Il Pattern Scanner e la crescita implicita non hanno ancora una verifica storica: contano come indizi.</div>` : ''}
-                ${elenco.length ? `<div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Titolo</th><th>Strumenti d'accordo</th><th>Esito del fair value</th><th>Potenziale</th></tr></thead><tbody>
+            box.innerHTML = `<p style="margin:0 0 12px; color:#ddd; font-size:0.92em; line-height:1.65;">Ogni sera cerco i titoli su cui concordano i due strumenti la cui combinazione ho verificato sui dati: <strong>il prezzo è sotto il fair value</strong> e <strong>la strategia TBO ha dato un "Compra"</strong> nelle ultime due settimane. Per ciascuno mostro anche due indizi in più: se <strong>il periodo storico più simile</strong> del Pattern Scanner (somiglianza ≥ 90%) fu seguito da un rialzo, e se <strong>il prezzo chiede molto meno crescita</strong> (oltre 10 punti) di quella che l'azienda ha già realizzato. In cima i titoli con più indizi a favore.</p>
+                ${C && C.sotto_fv && C.sotto_fv.p12 ? `<div class="tbo-contesto" style="margin:0 0 12px;"><div class="l">La combinazione verificata sui dati</div>I “Compra” della strategia dati con il prezzo <strong>sotto il fair value</strong> di allora sono stati in guadagno dopo 12 mesi nel <strong style="color:#fff;">${C.sotto_fv.p12.toLocaleString('it-IT')}%</strong> dei casi (mediana ${pc1(C.sotto_fv.m12)}, ${C.sotto_fv.casi.toLocaleString('it-IT')} segnali dal 2021); quelli dati <strong>sopra</strong> nel ${C.sopra_fv.p12.toLocaleString('it-IT')}% (mediana ${pc1(C.sopra_fv.m12)}).${M ? ` Oggi il mercato è ${M.nome} (${M.ampiezza_pct.toLocaleString('it-IT')}% dei titoli sopra la media a 200 sedute).` : ''}  Le aspettative molto basse hanno funzionato da sole ma misurano quasi la stessa cosa del fair value (vedi "Cosa sconta il prezzo"); il Pattern Scanner non ha ancora una verifica storica: entrambi contano come indizi.</div>` : ''}
+                ${elenco.length ? `<div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Titolo</th><th>Strumenti e indizi d'accordo</th><th>Esito del fair value</th><th>Potenziale</th></tr></thead><tbody>
                 ${elenco.slice(0, 40).map(x => `<tr onclick="apriTitolo('${esc(x.k)}')" style="cursor:pointer;"><td><div class="scr-ticker">${esc(x.k)}${inPortafoglio(x.k) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(x.e.name)}</div></td>
-                    <td><strong style="color:#fff;">${x.n} su 4</strong><div>${lente(x.sottoFv, 'sotto il fair value')}${lente(x.tbo, x.tbo ? 'TBO compra ' + new Date(x.tbo + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }) : 'TBO')}${lente(x.patOk, x.patOk ? `pattern ${pc1(x.pt.var, 0)}` : 'pattern')}${lente(x.aspBasse, x.aspBasse ? `sconta ${pcG(x.ci.g)} contro ${pcG(x.gh)}` : 'aspettative')}</div></td>
+                    <td><strong style="color:#fff;">${x.n} su 4</strong><div>${lente(x.sottoFv, 'sotto il fair value')}${lente(x.tbo, x.tbo ? 'TBO compra ' + new Date(x.tbo + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }) : 'TBO')}${lente(x.patOk, x.patOk ? `pattern ${pc1(x.pt.var, 0)}` : 'pattern')}${lente(x.aspBasse, x.aspBasse ? `sconta ${pcG(x.ci.g)} contro ${pcG(x.gh)}` : 'aspettative molto basse')}</div></td>
                     <td><span class="scr-badge" style="${badgeStyle(x.v.colore)}">${esc(x.v.breve || x.v.titolo)}</span></td><td class="mono-font" style="color:${(x.pot || 0) >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'};">${pc1(x.pot, 0)}</td></tr>`).join('')}</tbody></table></div>`
-                : '<div style="color:var(--text-muted); padding:12px 0;">Oggi nessun titolo ha almeno tre strumenti d\'accordo.</div>'}
+                : '<div style="color:var(--text-muted); padding:12px 0;">Oggi nessun titolo sotto il fair value ha ricevuto un "Compra" nelle ultime due settimane.</div>'}
                 <p style="margin:10px 0 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Su ${(Object.keys(db).filter(k => !db[k].ext).length + Object.keys(fvExtDati || {}).length).toLocaleString('it-IT')} titoli americani ed europei, aggiornato ogni sera. Sono spunti da cui parto io stesso, non consigli di acquisto né consulenza: che più strumenti siano d'accordo non garantisce il risultato.</p>`;
         }
 
@@ -2109,7 +2126,8 @@
             const p = prezzo > 0 ? prezzo : Number(d.price), r = FVEngine.crescitaImplicita(d, p), gh = d.ind && d.ind.g_hist;
             if (!r) { row.style.display = 'none'; return; }
             dcfCorrente = { d, p };
-            const confronto = gh == null ? '' : r.g < gh - 0.01 ? `meno di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:var(--brand-green);">aspettative basse</strong>`
+            const confronto = gh == null ? '' : r.g < gh - 0.10 ? `molto meno di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:var(--brand-green);">aspettative molto basse</strong>, la situazione che dal 2020 ha reso di più (vedi il Laboratorio)`
+                : r.g < gh - 0.01 ? `un po' meno di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): aspettative leggermente basse`
                 : r.g > gh + 0.01 ? `più di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:#ffa726;">il prezzo scommette su un futuro migliore del passato</strong>`
                 : `quanto ha fatto negli ultimi anni (ricavi per azione ${pcG(gh)} l'anno)`;
             const iniziale = Math.round(Math.max(-10, Math.min(40, (gh != null ? gh : r.g) * 100)));
