@@ -80,6 +80,12 @@ for mercato, borse, suffisso, nome in MERCATI:
     except Exception as e:
         print(f"{nome}: elenco non disponibile ({e})")
 
+# Nuove quotazioni da includere subito, anche prima che lo screener ne riporti la capitalizzazione
+AGGIUNTE = {"ANT": ("NASDAQ:ANT", "Anthropic, PBC")}
+for s, (simbolo, nome) in AGGIUNTE.items():
+    if s not in gruppo:
+        gruppo[s] = "USA, altre società (oltre 2 miliardi)"; tv[s] = simbolo; nomi.setdefault(s, nome)
+
 data = json.load(open(os.path.join(ROOT, "data.json"), encoding="utf-8"))
 sito = set()
 for t, e in data["db"].items():
