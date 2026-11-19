@@ -527,6 +527,7 @@
             <a href="#fv-section" class="nav-link">Fair Value</a>
             <a href="#screener" class="nav-link">Screener</a>
             <a href="#mappa" class="nav-link">Mappa</a>
+            <a href="#laboratorio" class="nav-link">Laboratorio</a>
             <a href="#pattern" class="nav-link">Pattern</a>
             <a href="#tbo" class="nav-link">TBO</a>
             <a href="#indicatore" class="nav-link nav-segnali" style="display:none;">Segnali</a>
@@ -544,6 +545,7 @@
         <a href="#fv-section" class="nav-link" onclick="closeMobileNav()">📊 Fair Value</a>
         <a href="#screener" class="nav-link" onclick="closeMobileNav()">🔍 Screener</a>
         <a href="#mappa" class="nav-link" onclick="closeMobileNav()">🗺️ Mappa del mercato</a>
+        <a href="#laboratorio" class="nav-link" onclick="closeMobileNav()">🧪 Laboratorio</a>
         <a href="#pattern" class="nav-link" onclick="closeMobileNav()">🧩 Pattern Scanner</a>
         <a href="#tbo" class="nav-link" onclick="closeMobileNav()">🫖 TBO Strategy</a>
         <a href="#indicatore" class="nav-link nav-segnali" style="display:none;" onclick="closeMobileNav()">📡 Segnali</a>
@@ -855,6 +857,10 @@
                             </div>
                         </div>
 
+                        <!-- Cosa sta scontando il prezzo (DCF inverso) e il modello alla prova su questo titolo -->
+                        <div id="fv-dcf-row" style="display:none; margin-top:18px; border:1px solid var(--border-glass); border-radius:12px; padding:16px 20px;"></div>
+                        <div id="fv-prova-row" style="display:none; margin-top:12px; border:1px solid var(--border-glass); border-radius:12px; padding:14px 20px; font-size:0.86em; color:#ddd; line-height:1.6;"></div>
+
                         <!-- Storico del fair value rispetto al prezzo -->
                         <div id="fv-hist-row" style="display:none; margin-top:18px; border:1px solid var(--border-glass); border-radius:12px; padding:16px 20px;">
                             <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:10px;">📈 Fair value e prezzo negli ultimi 6 anni</div>
@@ -985,6 +991,23 @@
             <div id="mappa-tip" class="mappa-tip" style="display:none;"></div>
             <div id="mappa-legenda" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; font-size:0.78em; color:var(--text-muted);"></div>
             <p style="margin:10px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Ogni riquadro è una società, grande quanto la sua capitalizzazione (in dollari, con un cambio approssimato per le europee), raggruppata per settore. Il colore è l'esito del mio modello di fair value sul prezzo dell'ultima chiusura, oppure il potenziale fino al fair value di riferimento. Tocca un riquadro per i dettagli, toccalo di nuovo (o fai clic) per aprire l'analisi. I titoli senza fair value calcolabile sono in grigio.</p>
+        </div>
+    </div>
+
+    <div class="container" id="laboratorio">
+        <div class="section-header">
+            <h2 class="section-title">Il <span>Laboratorio</span></h2>
+            <span style="color: var(--text-muted); font-size: 0.9em;">Il mio modello messo alla prova, le aspettative nascoste nei prezzi e i titoli su cui più strumenti concordano</span>
+        </div>
+        <div class="card" style="padding:20px;">
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px;" id="lab-tabs">
+                <button class="perf-period-btn active" onclick="setLab('prova', this)">🔬 Il modello sotto esame</button>
+                <button class="perf-period-btn" onclick="setLab('sconta', this)">🔮 Cosa sconta il prezzo</button>
+                <button class="perf-period-btn" onclick="setLab('radar', this)">📡 Radar delle convergenze</button>
+            </div>
+            <div id="lab-prova"></div>
+            <div id="lab-sconta" style="display:none;"></div>
+            <div id="lab-radar" style="display:none;"></div>
         </div>
     </div>
 
@@ -1901,6 +1924,8 @@
 
                 res.style.display = "block";
                 renderFvHist(input);
+                renderFvDcf(input, data, parseFloat(livePrice));
+                renderFvProva(input);
             } else { cercaFuoriElenco(input); }
         }
         document.getElementById("fvInput").addEventListener("keypress", e => { if (e.key === "Enter") { e.preventDefault(); calculateFV(); } });
@@ -1975,6 +2000,148 @@
             if (!screenerOpen) toggleScreener();
             applyFilter('all');
             document.getElementById('scr-toggle-btn').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // === LABORATORIO ===
+        let labVerifica = null, labTab = 'prova';
+        const pc1 = (x, d = 1) => x == null || !isFinite(x) ? '—' : (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d }) + '%';
+        const pcG = x => x == null ? '—' : (x * 100 >= 0 ? '' : '−') + Math.abs(x * 100).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + '%';
+        async function caricaVerifica() { if (!labVerifica) labVerifica = (await fetchJson('verifica_fv.json')) || {}; return labVerifica; }
+        function setLab(t, btn) {
+            labTab = t; document.querySelectorAll('#lab-tabs button').forEach(b => b.classList.toggle('active', b === btn));
+            for (const k of ['prova', 'sconta', 'radar']) document.getElementById('lab-' + k).style.display = k === t ? '' : 'none';
+            ({ prova: renderLabProva, sconta: renderLabSconta, radar: renderLabRadar })[t]();
+        }
+        // 1) IL MODELLO SOTTO ESAME (verifica_fv.json, scripts/compute_verifica.mjs)
+        async function renderLabProva() {
+            const V = await caricaVerifica(), box = document.getElementById('lab-prova');
+            if (!V.fasce) { box.innerHTML = '<div style="color:var(--text-muted);">Dati della verifica non ancora disponibili.</div>'; return; }
+            const q = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { month: 'short', year: 'numeric' });
+            const max = Math.max(...V.fasce.map(f => Math.abs(f.x12 || 0)), 1);
+            const T = V.per_trimestre || [], vinti = T.filter(x => x.sotto > x.sopra).length;
+            const ms = V.fasce.find(f => f.k === 'molto_sotto'), mo = V.fasce.find(f => f.k === 'molto_sopra');
+            box.innerHTML = `<p style="margin:0 0 14px; color:#ddd; font-size:0.92em; line-height:1.65;">Ho rifatto il calcolo del mio fair value a ogni fine trimestre dal ${q(V.dal)}, per <strong>${(V.titoli_n || 0).toLocaleString('it-IT')} società</strong>, usando solo i dati disponibili in quel momento: bilanci già pubblicati, prezzi e tassi di allora. Poi ho guardato quanto hanno reso nei 12 mesi successivi, a seconda di dove stava il prezzo rispetto al fair value. In tutto ${(V.osservazioni || 0).toLocaleString('it-IT')} casi. Il confronto che conta è il <strong>rendimento in eccesso</strong>: quanto il titolo ha fatto meglio o peggio della mediana di tutti i titoli nello stesso periodo, così l'andamento del mercato non falsa il risultato.</p>
+                <div class="mini-kpi">
+                    <div><div class="l">Molto sotto il fair value</div><div class="v" style="color:var(--brand-green);">${pc1(ms.x12)}</div><div style="font-size:0.75em; color:var(--text-muted);">l'anno sopra la mediana · ${ms.batte12.toLocaleString('it-IT')}% dei casi l'ha battuta · a 24 mesi ${pc1(ms.x24)}</div></div>
+                    <div><div class="l">Molto sopra il fair value</div><div class="v" style="color:var(--accent-red);">${pc1(mo.x12)}</div><div style="font-size:0.75em; color:var(--text-muted);">l'anno rispetto alla mediana · a 24 mesi ${pc1(mo.x24)}</div></div>
+                    <div><div class="l">Trimestri vinti</div><div class="v">${vinti} <span style="font-size:0.6em; color:var(--text-muted);">su ${T.length}</span></div><div style="font-size:0.75em; color:var(--text-muted);">in cui i titoli sotto il fair value hanno reso più di quelli oltre il 50% sopra</div></div>
+                </div>
+                <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:18px 0 8px;">Rendimento nei 12 mesi successivi, per posizione del prezzo rispetto al fair value</div>
+                ${V.fasce.map(f => `<div style="display:grid; grid-template-columns:minmax(150px,230px) 1fr 70px; gap:10px; align-items:center; margin:6px 0; font-size:0.85em;">
+                    <span style="color:#ddd;">${f.nome}</span>
+                    <div style="position:relative; height:14px; background:rgba(255,255,255,0.04); border-radius:4px;"><div style="position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:rgba(255,255,255,0.25);"></div>
+                        <div style="position:absolute; top:0; height:100%; border-radius:4px; ${f.x12 >= 0 ? `left:50%; width:${(f.x12 / max * 50).toFixed(1)}%; background:var(--brand-green);` : `right:50%; width:${(-f.x12 / max * 50).toFixed(1)}%; background:var(--accent-red);`}"></div></div>
+                    <span class="mono-font" style="text-align:right; font-weight:800; color:${f.x12 >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'};">${pc1(f.x12)}</span></div>`).join('')}
+                <div style="font-size:0.75em; color:var(--text-muted); margin-top:4px;">Barre: rendimento in eccesso mediano a 12 mesi. In tabella anche il rendimento assoluto.</div>
+                <div class="screener-table-wrap" style="margin-top:12px;"><table class="screener-table"><thead><tr><th>Prezzo rispetto al fair value</th><th>Casi</th><th>In guadagno a 12 mesi</th><th>Rendimento mediano 12 mesi</th><th>In eccesso 12 mesi</th><th>In eccesso 24 mesi</th></tr></thead><tbody>
+                ${V.fasce.map(f => `<tr><td>${f.nome}</td><td class="mono-font">${f.casi.toLocaleString('it-IT')}</td><td class="mono-font">${f.p12.toLocaleString('it-IT')}%</td><td class="mono-font">${pc1(f.m12)}</td><td class="mono-font" style="font-weight:800; color:${f.x12 >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'};">${pc1(f.x12)}</td><td class="mono-font">${pc1(f.x24)}</td></tr>`).join('')}</tbody></table></div>
+                <p style="margin:14px 0 0; color:#ddd; font-size:0.88em; line-height:1.65;"><strong>Cosa ne ricavo.</strong> Il segnale utile del modello sta agli estremi: i titoli molto sotto il fair value hanno battuto il mercato e quelli molto sopra sono rimasti indietro, con una differenza di circa ${Math.round((ms.x12 - mo.x12))} punti l'anno. Nelle fasce intermedie il modello non distingue: un titolo poco sotto il fair value non ha reso più di uno poco sopra. Per questo, quando valuto un acquisto, il fair value è un filtro di partenza e non un segnale da solo.</p>
+                <p style="margin:10px 0 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Dati: fair value pavimento ricalcolato a ogni fine trimestre (cassa, debito e ROIC esclusi dai punti passati perché noti solo oggi); prezzi senza dividendi; solo società quotate oggi, quindi senza quelle fallite o uscite dai listini (questo tende ad abbellire i risultati di tutte le fasce allo stesso modo). Aggiornato ogni sera. Nella scheda di ogni titolo trovi anche com'è andato il modello su quel titolo.</p>`;
+        }
+        // 2) COSA SCONTA IL PREZZO: crescita implicita (FVEngine.crescitaImplicita) contro crescita storica dei ricavi per azione
+        let labScontaQuali = 'mio', labScontaOrd = 'basse';
+        async function renderLabSconta() {
+            const box = document.getElementById('lab-sconta');
+            if (labScontaQuali !== 'mio') await caricaFvExt();
+            const righe = [];
+            const add = (k, e) => {
+                const p = Number(e.price), r = FVEngine.crescitaImplicita(e, p), gh = e.ind && e.ind.g_hist;
+                if (!r || r.fuori || gh == null || !(p > 0) || FVEngine.FINANZIARI.includes(k)) return;
+                righe.push({ k, e, g: r.g, gh, diff: gh - r.g, v: FVEngine.verdict(e, p) });
+            };
+            for (const [k, e] of Object.entries(db)) if (!e.ext && e.tv) add(k, e);
+            if (labScontaQuali !== 'mio' && fvExtDati) for (const [k, e] of Object.entries(fvExtDati)) if (!db[k] || db[k].ext) add(k, e);
+            righe.sort((a, b) => labScontaOrd === 'basse' ? b.diff - a.diff : a.diff - b.diff);
+            const sotto = righe.filter(r => r.g < r.gh).length;
+            box.innerHTML = `<p style="margin:0 0 12px; color:#ddd; font-size:0.92em; line-height:1.65;">Ogni prezzo contiene una promessa. Qui calcolo, per ogni società, <strong>quanto dovrebbe crescere ogni anno il suo free cash flow per azione nei prossimi 10 anni</strong> perché il prezzo di oggi sia giusto (dopo, solo inflazione), con lo stesso rendimento richiesto del mio fair value. Poi lo confronto con quanto sono cresciuti davvero i ricavi per azione negli ultimi anni. Quando il mercato chiede molto meno di quanto l'azienda ha già fatto, le aspettative sono basse; quando chiede molto di più, il prezzo scommette su un futuro migliore del passato.</p>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+                    <select class="screener-search" style="max-width:240px; cursor:pointer;" onchange="labScontaQuali = this.value; renderLabSconta()"><option value="mio"${labScontaQuali === 'mio' ? ' selected' : ''}>I titoli che seguo</option><option value="tutti"${labScontaQuali === 'tutti' ? ' selected' : ''}>Tutti i titoli (USA ed Europa)</option></select>
+                    <select class="screener-search" style="max-width:300px; cursor:pointer;" onchange="labScontaOrd = this.value; renderLabSconta()"><option value="basse"${labScontaOrd === 'basse' ? ' selected' : ''}>Aspettative più basse della storia</option><option value="alte"${labScontaOrd === 'alte' ? ' selected' : ''}>Aspettative più alte della storia</option></select>
+                    <span style="font-size:0.8em; color:var(--text-muted); align-self:center;">${righe.length.toLocaleString('it-IT')} società · per ${sotto.toLocaleString('it-IT')} il prezzo chiede meno crescita di quella già realizzata</span>
+                </div>
+                <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Titolo</th><th title="Crescita annua del FCF per azione per 10 anni che giustifica il prezzo di oggi">Il prezzo sconta</th><th title="Crescita annua dei ricavi per azione negli ultimi anni (fino a 10)">Crescita storica</th><th>Differenza</th><th>Esito del fair value</th></tr></thead><tbody>
+                ${righe.slice(0, 40).map(r => `<tr onclick="apriTitolo('${esc(r.k)}')" style="cursor:pointer;"><td><div class="scr-ticker">${esc(r.k)}${inPortafoglio(r.k) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div></td>
+                    <td class="mono-font" style="font-weight:800;">${pcG(r.g)}<span style="font-size:0.75em; color:var(--text-muted); font-weight:400;"> l'anno</span></td><td class="mono-font">${pcG(r.gh)}</td>
+                    <td class="mono-font" style="font-weight:800; color:${r.diff >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'};">${r.diff >= 0 ? '+' : '−'}${Math.abs(r.diff * 100).toLocaleString('it-IT', { maximumFractionDigits: 1 })} punti</td>
+                    <td><span class="scr-badge" style="${badgeStyle(r.v.colore)}">${esc(r.v.breve || r.v.titolo)}</span></td></tr>`).join('')}</tbody></table></div>
+                <p style="margin:10px 0 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Primi 40 per differenza. Crescite nominali. Escluse banche e assicurazioni, le società con free cash flow normalizzato negativo e quelle per cui servirebbe una crescita fuori da −50% / +150%. La crescita storica dei ricavi non garantisce quella futura: aspettative basse possono essere giustificate da un'azienda in difficoltà. Nella scheda di ogni titolo puoi provare tu altre ipotesi di crescita.</p>`;
+        }
+        // 3) RADAR DELLE CONVERGENZE: titoli su cui più strumenti indipendenti concordano
+        let labPatExt = null;
+        async function renderLabRadar() {
+            const box = document.getElementById('lab-radar');
+            box.innerHTML = '<div style="color:var(--text-muted);">Incrocio i dati…</div>';
+            await caricaFvExt(); if (!labPatExt) labPatExt = (await fetchJson('patterns_ext.json')) || { titoli: {} };
+            if (!tboData) await loadTbo();
+            const oggi = new Date(), dieci = new Date(oggi); dieci.setDate(dieci.getDate() - 14); const da = dieci.toISOString().slice(0, 10);
+            const compra = {};
+            for (const r of (tboData && tboData.segnali) || []) if (r.k === 'c' && r.d >= da) { const k = r.ext ? chiaveExt(r.tv, r.t) : r.t; compra[k] = compra[k] && compra[k] > r.d ? compra[k] : r.d; }
+            const pat = k => (patData && patData.titoli[k]) || (labPatExt.titoli || {})[k];
+            const elenco = [];
+            const valuta = (k, e) => {
+                const p = Number(e.price); if (!(p > 0)) return;
+                const v = FVEngine.verdict(e, p), sottoFv = ['molto_sotto', 'sotto'].includes(v.key);
+                const ci = FVEngine.crescitaImplicita(e, p), gh = e.ind && e.ind.g_hist, aspBasse = ci && !ci.fuori && gh != null && ci.g < gh;
+                const pt = pat(k), patOk = pt && pt.ok && pt.var > 0, tbo = compra[k];
+                const n = [sottoFv, !!tbo, patOk, aspBasse].filter(Boolean).length;
+                if (n >= 3) elenco.push({ k, e, v, n, sottoFv, tbo, patOk, pt, aspBasse, ci, gh, pot: FVEngine.potenziale(e, p).pot });
+            };
+            for (const [k, e] of Object.entries(db)) if (!e.ext && e.tv) valuta(k, e);
+            for (const [k, e] of Object.entries(fvExtDati || {})) if (!db[k] || db[k].ext) valuta(k, e);
+            elenco.sort((a, b) => b.n - a.n || (b.pot || 0) - (a.pot || 0));
+            const C = tboStatsDati && tboStatsDati.convergenze, M = tboData && tboData.mercato;
+            const lente = (ok, testo) => `<span style="display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:6px; font-size:0.75em; ${ok ? 'background:rgba(0,230,118,0.12); color:var(--brand-green); border:1px solid rgba(0,230,118,0.35);' : 'color:var(--text-muted); border:1px solid var(--border-glass);'}">${ok ? '✓' : '·'} ${testo}</span>`;
+            box.innerHTML = `<p style="margin:0 0 12px; color:#ddd; font-size:0.92em; line-height:1.65;">Ogni sera incrocio quattro strumenti che guardano cose diverse e cerco i titoli su cui almeno tre sono d'accordo: <strong>il prezzo è sotto il fair value</strong>; <strong>la strategia TBO ha dato un "Compra"</strong> nelle ultime due settimane; <strong>il periodo storico più simile</strong> del Pattern Scanner (somiglianza ≥ 90%) fu seguito da un rialzo; <strong>il prezzo sconta meno crescita</strong> di quella che l'azienda ha già realizzato.</p>
+                ${C && C.sotto_fv && C.sotto_fv.p12 ? `<div class="tbo-contesto" style="margin:0 0 12px;"><div class="l">La combinazione verificata sui dati</div>I “Compra” della strategia dati con il prezzo <strong>sotto il fair value</strong> di allora sono stati in guadagno dopo 12 mesi nel <strong style="color:#fff;">${C.sotto_fv.p12.toLocaleString('it-IT')}%</strong> dei casi (mediana ${pc1(C.sotto_fv.m12)}, ${C.sotto_fv.casi.toLocaleString('it-IT')} segnali dal 2021); quelli dati <strong>sopra</strong> nel ${C.sopra_fv.p12.toLocaleString('it-IT')}% (mediana ${pc1(C.sopra_fv.m12)}).${M ? ` Oggi il mercato è ${M.nome} (${M.ampiezza_pct.toLocaleString('it-IT')}% dei titoli sopra la media a 200 sedute).` : ''} Il Pattern Scanner e la crescita implicita non hanno ancora una verifica storica: contano come indizi.</div>` : ''}
+                ${elenco.length ? `<div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Titolo</th><th>Strumenti d'accordo</th><th>Esito del fair value</th><th>Potenziale</th></tr></thead><tbody>
+                ${elenco.slice(0, 40).map(x => `<tr onclick="apriTitolo('${esc(x.k)}')" style="cursor:pointer;"><td><div class="scr-ticker">${esc(x.k)}${inPortafoglio(x.k) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(x.e.name)}</div></td>
+                    <td><strong style="color:#fff;">${x.n} su 4</strong><div>${lente(x.sottoFv, 'sotto il fair value')}${lente(x.tbo, x.tbo ? 'TBO compra ' + new Date(x.tbo + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }) : 'TBO')}${lente(x.patOk, x.patOk ? `pattern ${pc1(x.pt.var, 0)}` : 'pattern')}${lente(x.aspBasse, x.aspBasse ? `sconta ${pcG(x.ci.g)} contro ${pcG(x.gh)}` : 'aspettative')}</div></td>
+                    <td><span class="scr-badge" style="${badgeStyle(x.v.colore)}">${esc(x.v.breve || x.v.titolo)}</span></td><td class="mono-font" style="color:${(x.pot || 0) >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'};">${pc1(x.pot, 0)}</td></tr>`).join('')}</tbody></table></div>`
+                : '<div style="color:var(--text-muted); padding:12px 0;">Oggi nessun titolo ha almeno tre strumenti d\'accordo.</div>'}
+                <p style="margin:10px 0 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Su ${(Object.keys(db).filter(k => !db[k].ext).length + Object.keys(fvExtDati || {}).length).toLocaleString('it-IT')} titoli americani ed europei, aggiornato ogni sera. Sono spunti da cui parto io stesso, non consigli di acquisto né consulenza: che più strumenti siano d'accordo non garantisce il risultato.</p>`;
+        }
+
+        // === SCHEDA: COSA STA SCONTANDO IL PREZZO (DCF inverso interattivo) ===
+        let dcfCorrente = null;
+        function renderFvDcf(t, d, prezzo) {
+            const row = document.getElementById('fv-dcf-row'); if (!row) return;
+            const p = prezzo > 0 ? prezzo : Number(d.price), r = FVEngine.crescitaImplicita(d, p), gh = d.ind && d.ind.g_hist;
+            if (!r) { row.style.display = 'none'; return; }
+            dcfCorrente = { d, p };
+            const confronto = gh == null ? '' : r.g < gh - 0.01 ? `meno di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:var(--brand-green);">aspettative basse</strong>`
+                : r.g > gh + 0.01 ? `più di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:#ffa726;">il prezzo scommette su un futuro migliore del passato</strong>`
+                : `quanto ha fatto negli ultimi anni (ricavi per azione ${pcG(gh)} l'anno)`;
+            const iniziale = Math.round(Math.max(-10, Math.min(40, (gh != null ? gh : r.g) * 100)));
+            row.innerHTML = `<div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:8px;">🔮 Cosa sta scontando il prezzo</div>
+                <div style="font-size:0.92em; color:#ddd; line-height:1.6;">${r.fuori ? `Il prezzo richiederebbe una crescita fuori scala (${r.fuori > 0 ? 'oltre il +150%' : 'sotto il −50%'} l'anno): il confronto non è significativo.`
+                    : `Al prezzo di ${p.toLocaleString('it-IT', { maximumFractionDigits: 2 })} ${esc(d.curr)}, il mercato si aspetta che il free cash flow per azione cresca del <strong style="color:#fff; font-size:1.1em;">${pcG(r.g)} l'anno</strong> per i prossimi 10 anni, ${confronto}.`}</div>
+                <div style="margin-top:12px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-size:0.85em;">
+                    <label for="dcf-g" style="color:var(--text-muted);">E se crescesse del</label>
+                    <input type="range" id="dcf-g" min="-10" max="40" step="1" value="${iniziale}" oninput="aggiornaDcf()" style="flex:1; min-width:160px; accent-color:var(--brand-green);">
+                    <span id="dcf-out" style="min-width:220px;"></span>
+                </div>
+                <div style="font-size:0.72em; color:var(--text-muted); margin-top:8px; line-height:1.5;">DCF inverso a due fasi sul free cash flow normalizzato del modello (${Number(d.ind.fcf_norm).toLocaleString('it-IT', { maximumFractionDigits: 2 })} per azione), tasso richiesto ${pcG(Math.max(d.ind.ke, (d.ind.pi || 0.02) + FVEngine.P.SPREAD_MIN))}, dopo 10 anni crescita pari all'inflazione attesa, più la cassa. Crescite nominali. È un esercizio sulle ipotesi, non una previsione.</div>`;
+            row.style.display = 'block';
+            aggiornaDcf();
+        }
+        function aggiornaDcf() {
+            const el = document.getElementById('dcf-g'); if (!el || !dcfCorrente) return;
+            const g = Number(el.value) / 100, v = FVEngine.valoreConCrescita(dcfCorrente.d, g), p = dcfCorrente.p;
+            document.getElementById('dcf-out').innerHTML = `<strong style="color:#fff;">${pcG(g)} l'anno</strong> → vale <strong class="mono-font" style="color:${v >= p ? 'var(--brand-green)' : 'var(--accent-red)'};">${v.toLocaleString('it-IT', { maximumFractionDigits: 2 })} ${esc(dcfCorrente.d.curr)}</strong> <span style="color:var(--text-muted);">(${pc1((v / p - 1) * 100, 0)} sul prezzo)</span>`;
+        }
+        // === SCHEDA: IL MODELLO ALLA PROVA SU QUESTO TITOLO (verifica_fv.json → titoli) ===
+        async function renderFvProva(t) {
+            const row = document.getElementById('fv-prova-row'); if (!row) return;
+            row.style.display = 'none';
+            const V = await caricaVerifica(), x = V.titoli && V.titoli[t];
+            if (currentFVTicker !== t || !x) return;
+            const parti = [];
+            if (x.s >= 2) parti.push(`nei <strong>${x.s} trimestri</strong> in cui il prezzo era sotto il fair value, nei 12 mesi dopo il titolo ha reso ${pc1(x.sm)} in mediana (${pc1(x.sx)} rispetto al mercato), battendo il mercato nel ${x.sb}% dei casi`);
+            if (x.o >= 2) parti.push(`nei <strong>${x.o} trimestri</strong> sopra il fair value ha reso ${pc1(x.om)} (${pc1(x.ox)} rispetto al mercato)`);
+            if (!parti.length) return;
+            const buono = x.s >= 3 && x.sx > 0 && (x.o < 2 || x.sx > x.ox);
+            row.innerHTML = `<span style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);">🔬 Il modello alla prova su questo titolo</span><div style="margin-top:6px;">Dal ${V.dal ? new Date(V.dal + 'T12:00:00').toLocaleDateString('it-IT', { month: 'short', year: 'numeric' }) : '2021'}, ${parti.join('; ')}. ${x.s >= 3 ? (buono ? '<strong style="color:var(--brand-green);">Su questo titolo il modello ha funzionato.</strong>' : '<strong style="color:#ffa726;">Su questo titolo il modello finora non ha funzionato: da leggere con cautela.</strong>') : ''} <a href="#laboratorio" onclick="setTimeout(() => setLab('prova', document.querySelector('#lab-tabs button')), 50)" style="color:var(--brand-green);">La verifica su tutti i titoli →</a></div>`;
+            row.style.display = 'block';
         }
 
         // === MAPPA DEL MERCATO: treemap per settore, grandezza = capitalizzazione, colore = esito o potenziale ===
@@ -3614,6 +3781,7 @@
             loadPatterns();
             renderMappa();
             caricaBot();
+            renderLabProva();
             loadTbo();
             document.querySelectorAll('[data-yt]').forEach(w => { w.style.cssText = 'position:absolute; inset:0;'; ytFacade(w, w.dataset.yt, w.dataset.ytTitle); });
             loadSentiment();

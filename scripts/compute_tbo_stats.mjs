@@ -108,6 +108,32 @@ for (const sim of Object.keys((meta.giovani) || {})) if (!nuovoExt[sim]) {
   nuovoExt[sim] = vecchio ? { ...vecchio, n: (meta.nomi && meta.nomi[sim]) || vecchio.n || sim, tv: meta.tv[sim] }
     : { q: [], cash: 1e6, fino: '0000', attesa: 1, n: (meta.nomi && meta.nomi[sim]) || sim, tv: meta.tv[sim] };
 }
+// Convergenze: i "Compra" della strategia dati quando il prezzo era sotto il fair value pavimento di allora (ultima
+// fine trimestre prima del segnale, storico ricalcolato con i dati disponibili allora) contro quelli dati sopra
+{
+  const leggiR = f => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch { return null; } };
+  const H = leggiR('fv_history.json'), HX = leggiR('fv_history_ext.json'), dbS = (leggiR('data.json') || {}).db || {}, fx = (leggiR('fv_ext.json') || {}).titoli || {};
+  const storia = {};
+  for (const [t, e] of Object.entries(dbS)) if (H && H.titoli[t]) storia[e.yf || t] = { s: H.titoli[t], date: H.date };
+  for (const [t, e] of Object.entries(fx)) if (HX && HX.titoli[t] && e.yf && !storia[e.yf]) storia[e.yf] = { s: HX.titoli[t], date: HX.date };
+  const pc = x => Math.round(x * 1000) / 10;
+  const mediana = a => { const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+  const gruppi = { sotto: [], sopra: [] };
+  for (const [sim, P] of Object.entries(prec)) {
+    const S = storia[sim]; if (!S) continue;
+    const ultimo = S.date.length - 1;                                    // l'ultimo punto è "oggi": si escludono
+    for (const a of P.acquisti) {
+      if (a.r[2] == null) continue;
+      let j = -1; for (let i = 0; i < ultimo; i++) if (S.date[i] < a.d) j = i;
+      const f = j >= 0 ? S.s.fv[j] : null, p = j >= 0 ? S.s.p[j] : null;
+      if (!(f > 0 && p > 0) || p / f > 20 || p / f < 0.05) continue;
+      gruppi[p < f ? 'sotto' : 'sopra'].push(a.r[2]);
+    }
+  }
+  const mis = a => a.length >= 50 ? { casi: a.length, p12: pc(a.filter(x => x > 0).length / a.length), m12: pc(mediana(a)) } : { casi: a.length };
+  st.convergenze = { nota: 'Compra TBO dal 2021 con il prezzo sotto o sopra il fair value pavimento dell\'ultima fine trimestre precedente', sotto_fv: mis(gruppi.sotto), sopra_fv: mis(gruppi.sopra) };
+  console.log('Convergenze TBO + fair value:', JSON.stringify(st.convergenze));
+}
 if (Object.keys(nuovoExt).length > 300) {
   fs.writeFileSync(STATO_EXT, JSON.stringify({ aggiornato: new Date().toISOString(), origine: 'ricostruito dalla storia scaricata (14 anni)', titoli: nuovoExt }) + '\n');
   console.log(`Titoli aggiunti ai segnali giornalieri: ${Object.keys(nuovoExt).length} (nuovi: ${Object.keys(nuovoExt).filter(k => !ext.titoli[k]).length})`);

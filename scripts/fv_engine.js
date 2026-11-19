@@ -466,7 +466,31 @@
   };
   const mercato = d => d.ex === 'MIL' ? 'it' : (d.ex === 'NYSE' || d.ex === 'NASDAQ') ? 'us' : 'eu';
 
-  const api = { P, compute, verdict, categoria, potenziale, posizione, affidabilita, PAESI, paese, indiceDaYoy, SETTORI, mercato, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
+  /*
+   * Crescita implicita nel prezzo (DCF inverso a due fasi): la crescita annua del free cash flow per azione che
+   * servirebbe per i prossimi 10 anni perché il valore attuale dei flussi, più la cassa, sia uguale al prezzo.
+   * Dopo il decimo anno il flusso cresce solo con l'inflazione attesa (crescita reale zero, come il pavimento).
+   * Tasso di sconto: il Ke del modello, con lo stesso rendimento reale minimo. Restituisce null se il modello non
+   * si applica (FCF normalizzato non positivo); g fuori da [−50%, +150%] viene segnalato con fuori: -1 / +1.
+   */
+  function valoreConCrescita(d, g) {
+    const ind = d.ind || {}, F = ind.fcf_norm, pi = ind.pi != null ? ind.pi : 0.02;
+    if (!(F > 0) || ind.ke == null) return null;
+    const k = Math.max(ind.ke, pi + P.SPREAD_MIN);
+    let v = 0, f = F;
+    for (let t = 1; t <= 10; t++) { f *= 1 + g; v += f / Math.pow(1 + k, t); }
+    return v + f * (1 + pi) / (k - pi) / Math.pow(1 + k, 10) + (ind.cassa_az || 0);
+  }
+  function crescitaImplicita(d, close) {
+    if (!(close > 0) || valoreConCrescita(d, 0) == null) return null;
+    let lo = -0.5, hi = 1.5;
+    if (valoreConCrescita(d, lo) >= close) return { g: lo, fuori: -1 };
+    if (valoreConCrescita(d, hi) <= close) return { g: hi, fuori: 1 };
+    for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; if (valoreConCrescita(d, m) < close) lo = m; else hi = m; }
+    return { g: (lo + hi) / 2, fuori: 0 };
+  }
+
+  const api = { P, compute, verdict, valoreConCrescita, crescitaImplicita, categoria, potenziale, posizione, affidabilita, PAESI, paese, indiceDaYoy, SETTORI, mercato, FINANZIARI, AVVISO_FIN, annualHistory, betaFrom, monthFirstCloses, cpiAt, isoWeek };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.FVEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

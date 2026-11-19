@@ -19,6 +19,8 @@ const db = data.db;
 const leggiSe = f => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch (e) { return null; } };
 // Società americane ed europee che non seguo personalmente (fv_ext.json): stessa pagina, con un avviso
 const ext = (leggiSe('fv_ext.json') || {}).titoli || {};
+// verifica del modello titolo per titolo (scripts/compute_verifica.mjs)
+const VER = leggiSe('verifica_fv.json') || {};
 // nome del bot Telegram (scritto dal workflow del bot): ogni pagina ha il link per ricevere gli avvisi su quel titolo
 const BOT = (leggiSe('telegram_bot.json') || {}).username || null;
 for (const t of Object.keys(ext)) if (db[t]) delete ext[t];
@@ -190,6 +192,18 @@ function svgStorico(t, d) {
 <p class="mu">Il fair value è ricalcolato a ogni fine trimestre con i soli dati disponibili allora (bilanci già pubblicati, decennale e inflazione di quel momento); cassa e debito sono noti solo a oggi, quindi l'ultimo punto può staccarsi un po' dalla linea.</p>`;
 }
 
+// Cosa sconta il prezzo (DCF inverso) e com'è andato il modello su questo titolo
+function scontaProva(t, d, close) {
+  const pc1 = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + '%';
+  const r = E.crescitaImplicita(d, close), gh = d.ind && d.ind.g_hist, x = VER.titoli && VER.titoli[t];
+  let h = '';
+  if (r && !r.fuori) h += `<h2>Cosa sta scontando il prezzo</h2>
+<p>Al prezzo di ${num(close)} ${d.curr}, il mercato si aspetta che il free cash flow per azione di ${esc(d.name)} cresca del <strong>${pc1(r.g * 100)} l'anno</strong> per i prossimi 10 anni (poi solo con l'inflazione)${gh != null ? `; negli ultimi ${d.ind.anni || ''} anni i ricavi per azione sono cresciuti del ${pc1(gh * 100)} l'anno, quindi ${r.g < gh - 0.01 ? 'le aspettative sono più basse di quanto l\'azienda ha già fatto' : r.g > gh + 0.01 ? 'il prezzo scommette su un futuro migliore del passato' : 'il prezzo chiede più o meno quanto già fatto'}` : ''}. <a href="../?t=${encodeURIComponent(t)}">Prova altre ipotesi di crescita nella scheda →</a></p>`;
+  if (x && (x.s >= 2 || x.o >= 2)) h += `<h2>Il mio modello alla prova su questo titolo</h2>
+<p>Dal ${dataIt(VER.dal)}, ${[x.s >= 2 ? `nei ${x.s} trimestri in cui il prezzo era sotto il fair value il titolo ha reso nei 12 mesi successivi ${pc1(x.sm)} in mediana (${pc1(x.sx)} rispetto alla mediana di tutti i titoli)` : '', x.o >= 2 ? `nei ${x.o} trimestri sopra il fair value ${pc1(x.om)} (${pc1(x.ox)} rispetto al mercato)` : ''].filter(Boolean).join('; ')}. <a href="../#laboratorio">La verifica su oltre ${Math.floor((VER.titoli_n || 0) / 100) * 100} titoli →</a></p>`;
+  return h;
+}
+
 function paginaTitolo(t, d) {
   const close = Number(d.price), c = d.curr, ind = d.ind || {};
   const v = E.verdict(d, close), pos = E.posizione(d, close), pt = E.potenziale(d, close);
@@ -222,6 +236,7 @@ ${box('Potenziale', pc(pt.pot), pt.rif ? `sul FV ${pt.rif} · ${pc(pt.potMkt)} s
 </div>
 ${svgBanda(d, close)}
 ${svgStorico(t, d)}
+${scontaProva(t, d, close)}
 <h2>Come leggere il risultato</h2>
 <p>${frasePosizione(t, d, v, pos, close)}</p>
 <p>Esito del modello: <strong style="color:${v.colore}">${esc(basso(v.titolo))}</strong>${v.sotto ? ` (${esc(v.sotto)})` : ''}. ${pt.pot != null ? `Per arrivare al più basso tra fair value pavimento e storico (${num(pt.fvRif)} ${c}) il prezzo dovrebbe ${pt.pot >= 0 ? 'salire' : 'scendere'} del ${Math.abs(pt.pot).toLocaleString('it-IT', { maximumFractionDigits: 0 })}%.` : ''}</p>`;
