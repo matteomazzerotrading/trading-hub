@@ -103,7 +103,7 @@ async function main() {
     risposte++;
     await new Promise(ok => setTimeout(ok, 300));
   }
-  if (JSON.stringify(stato) !== prima) scriviIscrizioni(token, stato);       // il file cambia solo se cambia qualcosa
+  if (!fs.existsSync(FILE) || JSON.stringify(stato) !== prima) scriviIscrizioni(token, stato);       // il file cambia solo se cambia qualcosa
   console.log(`Bot: ${risposte} messaggi gestiti, ${Object.keys(stato.utenti).length} iscritti.`);
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) await main();
