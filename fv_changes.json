@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-19T21:45:52.329Z",
+ "aggiornato": "2026-11-20T03:24:29.194Z",
  "cambi": [
+  {
+   "data": "2026-11-20",
+   "t": "HEN3",
+   "nome": "Henkel",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-20",
+   "t": "MELI",
+   "nome": "MercadoLibre",
+   "da": "banda",
+   "a": "sotto"
+  },
   {
    "data": "2026-11-19",
    "t": "SRG",
@@ -375,32 +389,32 @@
  ],
  "cambi_altri": [
   {
-   "data": "2026-11-19",
-   "t": "ADUS",
-   "nome": "Addus HomeCare Corp.",
+   "data": "2026-11-20",
+   "t": "UFPI",
+   "nome": "UFP Industries",
    "da": "banda",
    "a": "sotto"
   },
   {
-   "data": "2026-11-19",
-   "t": "SEDG",
-   "nome": "SolarEdge",
+   "data": "2026-11-20",
+   "t": "VVV",
+   "nome": "Valvoline",
+   "da": "sopra",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-20",
+   "t": "BRO",
+   "nome": "Brown & Brown",
    "da": "banda",
    "a": "sotto"
   },
   {
-   "data": "2026-11-19",
-   "t": "CSR",
-   "nome": "Centerspace Trust",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-19",
-   "t": "FCF",
-   "nome": "First Commonwealth Financial, Corp.",
-   "da": "banda",
-   "a": "sotto"
+   "data": "2026-11-20",
+   "t": "LQDT",
+   "nome": "Liquidity Services, Inc.",
+   "da": "sotto",
+   "a": "banda"
   }
  ]
 }
