@@ -9,13 +9,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "DIA.MI",
-      "divYield": 1.64,
+      "divYield": 1.67,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
         "pe": "29.4",
         "eps": "2.64",
-        "mcap": "4.3B",
+        "mcap": "4.2B",
         "rev": "-3.1%"
       },
       "tv": "MIL:DIA",
@@ -40,7 +40,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-03-12"
     },
@@ -51,13 +51,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ERG.MI",
-      "divYield": 4.45,
+      "divYield": 4.57,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
         "pe": "62.0",
         "eps": "0.35",
-        "mcap": "3.4B",
+        "mcap": "3.3B",
         "rev": "+4.9%"
       },
       "tv": "MIL:ERG",
@@ -85,7 +85,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-16"
     },
@@ -96,13 +96,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "RACE.MI",
-      "divYield": 0.97,
+      "divYield": 1,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
         "pe": "38.1",
         "eps": "9.52",
-        "mcap": "81.6B",
+        "mcap": "79.8B",
         "rev": "+5.7%"
       },
       "tv": "MIL:RACE",
@@ -127,7 +127,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-04"
     },
@@ -138,7 +138,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GOOG",
-      "divYield": 0.32,
+      "divYield": 0.33,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -169,7 +169,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-02"
     },
@@ -180,13 +180,13 @@
       "curr": "€",
       "ex": "EPA",
       "yf": "MC.PA",
-      "divYield": 3.32,
+      "divYield": 3.4,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
         "pe": "17.4",
         "eps": "21.95",
-        "mcap": "193.0B",
+        "mcap": "188.1B",
         "rev": "-3.8%"
       },
       "tv": "EURONEXT:MC",
@@ -211,7 +211,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-28"
     },
@@ -253,7 +253,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-09"
     },
@@ -264,13 +264,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "INTU",
-      "divYield": 1.61,
+      "divYield": 1.84,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
         "pe": "15.4",
         "eps": "17.50",
-        "mcap": "72.3B",
+        "mcap": "71.4B",
         "rev": "+12.8%"
       },
       "tv": "NASDAQ:INTU",
@@ -295,7 +295,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-25"
     },
@@ -306,7 +306,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "QCOM",
-      "divYield": 2.23,
+      "divYield": 2.41,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -337,7 +337,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-03"
     },
@@ -354,7 +354,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
-        "mcap": "12.2B",
+        "mcap": "11.8B",
         "rev": "N/D"
       },
       "tv": "MIL:STLAM",
@@ -384,7 +384,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-03"
     },
@@ -395,13 +395,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "SAP.DE",
-      "divYield": 1.34,
+      "divYield": 1.36,
       "videoID": "Icy8DMAwDYw",
       "updated": "2026-11-20",
       "fund": {
         "pe": "26.1",
         "eps": "7.04",
-        "mcap": "218.4B",
+        "mcap": "214.5B",
         "rev": "+7.9%"
       },
       "tv": "XETR:SAP",
@@ -426,7 +426,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-01-28"
     },
@@ -437,7 +437,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AAPL",
-      "divYield": 0.3,
+      "divYield": 0.31,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -468,7 +468,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-04"
     },
@@ -479,7 +479,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MSFT",
-      "divYield": 0.73,
+      "divYield": 0.75,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -512,7 +512,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-01-26"
     },
@@ -559,7 +559,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-04"
     },
@@ -570,7 +570,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NVDA",
-      "divYield": 0.36,
+      "divYield": 0.41,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -601,7 +601,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-24"
     },
@@ -612,7 +612,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "A2A.MI",
-      "divYield": 4.73,
+      "divYield": 4.74,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:A2A",
@@ -639,7 +639,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "10.7",
         "eps": "0.21",
@@ -656,7 +656,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ADM",
-      "divYield": 3.08,
+      "divYield": 3.09,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:ADM",
@@ -685,7 +685,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "13.1",
         "eps": "5.13",
@@ -702,7 +702,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADP",
-      "divYield": 2.26,
+      "divYield": 2.25,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NASDAQ:ADP",
@@ -727,7 +727,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "26.7",
         "eps": "11.28",
@@ -771,7 +771,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "31.7",
         "eps": "7.72",
@@ -788,7 +788,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMAT",
-      "divYield": 0.58,
+      "divYield": 0.65,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NASDAQ:AMAT",
@@ -813,7 +813,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "24.0",
         "eps": "12.62",
@@ -857,7 +857,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "92.2",
         "eps": "4.60",
@@ -874,7 +874,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ASML",
-      "divYield": 0.58,
+      "divYield": 0.62,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NASDAQ:ASML",
@@ -899,11 +899,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "31.2",
         "eps": "40.60",
-        "mcap": "539.5B",
+        "mcap": "489.2B",
         "rev": "+29.0%"
       },
       "settore": "Tecnologia e semiconduttori",
@@ -916,7 +916,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "AXP",
-      "divYield": 1.18,
+      "divYield": 1.22,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:AXP",
@@ -941,7 +941,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "17.0",
         "eps": "17.76",
@@ -958,7 +958,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BAC",
-      "divYield": 2.39,
+      "divYield": 2.47,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:BAC",
@@ -986,7 +986,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "11.2",
         "eps": "4.20",
@@ -1003,7 +1003,7 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "BAYN.DE",
-      "divYield": 0.2,
+      "divYield": 0.21,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "XETR:BAYN",
@@ -1031,11 +1031,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "N/D",
         "eps": "-1.47",
-        "mcap": "53.7B",
+        "mcap": "52.4B",
         "rev": "-0.2%"
       },
       "settore": "Farmaci e dispositivi medici",
@@ -1048,7 +1048,7 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BATS.L",
-      "divYield": 5.58,
+      "divYield": 5.51,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "LSE:BATS",
@@ -1077,11 +1077,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "15.1",
         "eps": "290.80",
-        "mcap": "93.3B",
+        "mcap": "94.5B",
         "rev": "+0.7%"
       },
       "settore": "Beni di consumo",
@@ -1094,7 +1094,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BC",
-      "divYield": 2.4,
+      "divYield": 2.43,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:BC",
@@ -1121,7 +1121,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "22.3",
         "eps": "3.23",
@@ -1138,7 +1138,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BG",
-      "divYield": 3.1,
+      "divYield": 3.12,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:BG",
@@ -1167,7 +1167,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "15.3",
         "eps": "5.94",
@@ -1184,7 +1184,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "BRE.MI",
-      "divYield": 3.18,
+      "divYield": 3.31,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:BRE",
@@ -1211,11 +1211,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "12.6",
         "eps": "0.72",
-        "mcap": "4.8B",
+        "mcap": "4.6B",
         "rev": "-2.6%"
       },
       "settore": "Industria",
@@ -1256,7 +1256,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "15.9",
         "eps": "35.83",
@@ -1273,7 +1273,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CAT",
-      "divYield": 1.17,
+      "divYield": 1.23,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:CAT",
@@ -1300,7 +1300,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "20.0",
         "eps": "25.49",
@@ -1317,7 +1317,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CE",
-      "divYield": 0.25,
+      "divYield": 0.27,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -1351,7 +1351,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-23"
     },
@@ -1389,7 +1389,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "21.9",
         "eps": "2.92",
@@ -1431,7 +1431,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "53.1",
         "eps": "20.76",
@@ -1448,7 +1448,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "CPR.MI",
-      "divYield": 1.54,
+      "divYield": 1.53,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:CPR",
@@ -1477,7 +1477,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "29.1",
         "eps": "0.22",
@@ -1494,7 +1494,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CRM",
-      "divYield": 0.95,
+      "divYield": 0.96,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:CRM",
@@ -1519,7 +1519,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "16.5",
         "eps": "10.97",
@@ -1536,7 +1536,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVX",
-      "divYield": 3.41,
+      "divYield": 3.38,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:CVX",
@@ -1563,7 +1563,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "15.2",
         "eps": "13.67",
@@ -1605,7 +1605,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "220.6",
         "eps": "0.71",
@@ -1622,7 +1622,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ENI.MI",
-      "divYield": 4.29,
+      "divYield": 4.39,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:ENI",
@@ -1650,11 +1650,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "9.4",
         "eps": "2.56",
-        "mcap": "72.2B",
+        "mcap": "70.6B",
         "rev": "+3.9%"
       },
       "settore": "Energia",
@@ -1667,7 +1667,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ENEL.MI",
-      "divYield": 5.18,
+      "divYield": 5.2,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:ENEL",
@@ -1696,11 +1696,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "20.2",
         "eps": "0.47",
-        "mcap": "93.8B",
+        "mcap": "93.4B",
         "rev": "-5.1%"
       },
       "settore": "Utility",
@@ -1738,7 +1738,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "14.7",
         "eps": "2.94",
@@ -1755,7 +1755,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "IBM",
-      "divYield": 3.01,
+      "divYield": 3,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:IBM",
@@ -1782,7 +1782,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "19.1",
         "eps": "11.72",
@@ -1828,7 +1828,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "N/D",
         "eps": "-2.39",
@@ -1845,7 +1845,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "IP",
-      "divYield": 5.95,
+      "divYield": 6.09,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "NYSE:IP",
@@ -1874,7 +1874,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "N/D",
         "eps": "-6.47",
@@ -1891,7 +1891,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ISP.MI",
-      "divYield": 6.22,
+      "divYield": 6.37,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:ISP",
@@ -1919,11 +1919,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "10.4",
         "eps": "0.57",
-        "mcap": "104.7B",
+        "mcap": "102.1B",
         "rev": "-2.5%"
       },
       "settore": "Finanza",
@@ -1936,7 +1936,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "LDO.MI",
-      "divYield": 1.29,
+      "divYield": 1.32,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:LDO",
@@ -1965,11 +1965,11 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "24.5",
         "eps": "1.95",
-        "mcap": "28.1B",
+        "mcap": "27.5B",
         "rev": "+10.1%"
       },
       "settore": "Tecnologia e semiconduttori",
@@ -2015,7 +2015,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2026-12-03"
     },
@@ -2051,7 +2051,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "32.7",
         "eps": "19.12",
@@ -2068,7 +2068,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "MONC.MI",
-      "divYield": 3.4,
+      "divYield": 3.55,
       "videoID": null,
       "updated": "2026-11-20",
       "tv": "MIL:MONC",
@@ -2093,11 +2093,11 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "16.8",
         "eps": "2.35",
-        "mcap": "11.2B",
+        "mcap": "10.7B",
         "rev": "+3.0%"
       },
       "settore": "Beni di consumo",
@@ -2135,7 +2135,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "fund": {
         "pe": "12.4",
         "eps": "4.35",
@@ -2183,7 +2183,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17"
     },
@@ -2194,7 +2194,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TRI",
-      "divYield": 2.45,
+      "divYield": 2.43,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -2225,7 +2225,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-11"
     },
@@ -2236,7 +2236,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PFE",
-      "divYield": 6.25,
+      "divYield": 6.28,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -2269,7 +2269,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-02"
     },
@@ -2314,7 +2314,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03"
     },
@@ -2358,7 +2358,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-25"
     },
@@ -2402,7 +2402,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-01"
     },
@@ -2413,13 +2413,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "EL.PA",
-      "divYield": 2.26,
+      "divYield": 2.29,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
         "pe": "32.6",
         "eps": "5.35",
-        "mcap": "81.9B",
+        "mcap": "80.8B",
         "rev": "+7.5%"
       },
       "tv": "EURONEXT:EL",
@@ -2444,7 +2444,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-17"
     },
@@ -2455,7 +2455,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BR",
-      "divYield": 1.93,
+      "divYield": 1.94,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -2486,7 +2486,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-04"
     },
@@ -2497,7 +2497,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BF-B",
-      "divYield": 3.07,
+      "divYield": 3.09,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -2528,7 +2528,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2026-12-03"
     },
@@ -2545,7 +2545,7 @@
       "fund": {
         "pe": "9.1",
         "eps": "9.23",
-        "mcap": "122.4B",
+        "mcap": "119.1B",
         "rev": "+12.7%"
       },
       "tv": "NASDAQ:PDD",
@@ -2572,7 +2572,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-22"
     },
@@ -2618,7 +2618,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-03-04"
     },
@@ -2629,7 +2629,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "FMC",
-      "divYield": 7.46,
+      "divYield": 8.23,
       "videoID": null,
       "updated": "2026-11-20",
       "fund": {
@@ -2664,7 +2664,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-09"
     },
@@ -2706,7 +2706,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Altro",
       "earn_next": null
     },
@@ -2752,7 +2752,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-01-26"
     },
@@ -2763,12 +2763,12 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "RHM.DE",
-      "divYield": 1.58,
+      "divYield": 1.66,
       "videoID": null,
       "fund": {
         "pe": "37.6",
         "eps": "18.45",
-        "mcap": "33.9B",
+        "mcap": "32.4B",
         "rev": "-1.8%"
       },
       "tv": "XETR:RHM",
@@ -2796,7 +2796,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-03-11"
@@ -2808,7 +2808,7 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "GXI.DE",
-      "divYield": 0.12,
+      "divYield": 0.13,
       "videoID": null,
       "fund": {
         "pe": "N/D",
@@ -2843,7 +2843,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-25"
@@ -2855,7 +2855,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NOC",
-      "divYield": 1.76,
+      "divYield": 1.79,
       "videoID": null,
       "fund": {
         "pe": "16.8",
@@ -2888,7 +2888,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-28"
@@ -2900,7 +2900,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "RTX",
-      "divYield": 1.46,
+      "divYield": 1.48,
       "videoID": null,
       "fund": {
         "pe": "30.9",
@@ -2932,7 +2932,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-26"
@@ -2944,7 +2944,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "LMT",
-      "divYield": 2.41,
+      "divYield": 2.44,
       "videoID": null,
       "fund": {
         "pe": "20.1",
@@ -2974,7 +2974,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-26"
@@ -2986,7 +2986,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GD",
-      "divYield": 1.81,
+      "divYield": 1.84,
       "videoID": null,
       "fund": {
         "pe": "20.1",
@@ -3016,7 +3016,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-27"
@@ -3028,7 +3028,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HWM",
-      "divYield": 0.23,
+      "divYield": 0.24,
       "videoID": null,
       "fund": {
         "pe": "41.0",
@@ -3062,7 +3062,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-16"
@@ -3074,7 +3074,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "HON",
-      "divYield": 3.6,
+      "divYield": 3.69,
       "videoID": null,
       "fund": {
         "pe": "9.1",
@@ -3104,7 +3104,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Industria",
       "earn_next": "2027-02-04"
@@ -3150,7 +3150,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-27"
@@ -3162,7 +3162,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNP",
-      "divYield": 1.91,
+      "divYield": 1.94,
       "videoID": null,
       "fund": {
         "pe": "22.4",
@@ -3194,7 +3194,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Trasporti",
       "earn_next": "2027-01-28"
@@ -3206,7 +3206,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "UPS",
-      "divYield": 6.01,
+      "divYield": 6.18,
       "videoID": null,
       "fund": {
         "pe": "20.5",
@@ -3239,7 +3239,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Trasporti",
       "earn_next": "2027-02-02"
@@ -3251,7 +3251,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "FDX",
-      "divYield": 1.84,
+      "divYield": 1.91,
       "videoID": null,
       "fund": {
         "pe": "N/D",
@@ -3285,7 +3285,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Trasporti",
       "earn_next": "2027-02-02"
@@ -3297,7 +3297,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DE",
-      "divYield": 1.04,
+      "divYield": 1.06,
       "videoID": null,
       "fund": {
         "pe": "33.9",
@@ -3331,7 +3331,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Industria",
       "earn_next": "2026-11-25"
@@ -3343,7 +3343,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "KMI",
-      "divYield": 3.8,
+      "divYield": 3.89,
       "videoID": null,
       "fund": {
         "pe": "18.9",
@@ -3375,7 +3375,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-20"
@@ -3387,7 +3387,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "COP",
-      "divYield": 2.49,
+      "divYield": 2.47,
       "videoID": null,
       "fund": {
         "pe": "14.3",
@@ -3419,7 +3419,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Energia",
       "earn_next": "2027-02-11"
@@ -3431,7 +3431,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DVN",
-      "divYield": 2.66,
+      "divYield": 2.7,
       "videoID": null,
       "fund": {
         "pe": "10.4",
@@ -3465,7 +3465,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Energia",
       "earn_next": "2027-02-16"
@@ -3477,7 +3477,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "SLB",
-      "divYield": 2.44,
+      "divYield": 2.55,
       "videoID": null,
       "fund": {
         "pe": "22.3",
@@ -3507,7 +3507,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-15"
@@ -3519,7 +3519,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "XOM",
-      "divYield": 2.59,
+      "divYield": 2.58,
       "videoID": null,
       "fund": {
         "pe": "16.4",
@@ -3552,7 +3552,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Energia",
       "earn_next": "2027-02-02"
@@ -3564,7 +3564,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABBV",
-      "divYield": 2.44,
+      "divYield": 2.42,
       "videoID": null,
       "fund": {
         "pe": "49.3",
@@ -3596,7 +3596,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03"
@@ -3608,7 +3608,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MRK",
-      "divYield": 2.56,
+      "divYield": 2.54,
       "videoID": null,
       "fund": {
         "pe": "136.6",
@@ -3640,7 +3640,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-02"
@@ -3682,7 +3682,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-10"
@@ -3694,7 +3694,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MDT",
-      "divYield": 2.84,
+      "divYield": 2.86,
       "videoID": null,
       "fund": {
         "pe": "24.6",
@@ -3724,7 +3724,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2026-11-24"
@@ -3768,7 +3768,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04"
@@ -3780,7 +3780,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DHR",
-      "divYield": 0.67,
+      "divYield": 0.69,
       "videoID": null,
       "fund": {
         "pe": "36.1",
@@ -3810,7 +3810,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27"
@@ -3854,7 +3854,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04"
@@ -3896,7 +3896,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11"
@@ -3938,7 +3938,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-29"
@@ -3980,7 +3980,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04"
@@ -4022,7 +4022,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-26"
@@ -4066,7 +4066,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-09"
@@ -4078,7 +4078,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ELV",
-      "divYield": 1.76,
+      "divYield": 1.74,
       "videoID": null,
       "fund": {
         "pe": "16.8",
@@ -4110,7 +4110,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi sanitari",
       "earn_next": "2027-01-27"
@@ -4122,7 +4122,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "UNH",
-      "divYield": 2.74,
+      "divYield": 2.67,
       "videoID": null,
       "fund": {
         "pe": "19.4",
@@ -4154,7 +4154,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi sanitari",
       "earn_next": "2027-01-20"
@@ -4166,7 +4166,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CVS",
-      "divYield": 3.32,
+      "divYield": 3.29,
       "videoID": null,
       "fund": {
         "pe": "9.4",
@@ -4198,7 +4198,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-17"
@@ -4210,12 +4210,12 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NVO",
-      "divYield": 3.17,
+      "divYield": 3.25,
       "videoID": null,
       "fund": {
         "pe": "9.5",
         "eps": "3.97",
-        "mcap": "172.0B",
+        "mcap": "171.5B",
         "rev": "+11.2%"
       },
       "tv": "NYSE:NVO",
@@ -4242,7 +4242,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03"
@@ -4254,7 +4254,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "JPM",
-      "divYield": 1.92,
+      "divYield": 1.98,
       "videoID": null,
       "fund": {
         "pe": "13.0",
@@ -4287,7 +4287,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-01-14"
@@ -4299,7 +4299,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BLK",
-      "divYield": 1.97,
+      "divYield": 2.03,
       "videoID": null,
       "fund": {
         "pe": "26.1",
@@ -4331,7 +4331,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-01-21"
@@ -4343,13 +4343,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "C",
-      "divYield": 2.14,
+      "divYield": 2.23,
       "videoID": null,
       "fund": {
         "pe": "10.8",
         "eps": "10.26",
         "mcap": "183.1B",
-        "rev": "+14.2%"
+        "rev": "+4.7%"
       },
       "tv": "NYSE:C",
       "fv_low": null,
@@ -4376,7 +4376,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-01-14"
@@ -4388,7 +4388,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GS",
-      "divYield": 2.12,
+      "divYield": 2.28,
       "videoID": null,
       "fund": {
         "pe": "11.4",
@@ -4421,7 +4421,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-01-19"
@@ -4463,7 +4463,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-01-28"
@@ -4475,7 +4475,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCO",
-      "divYield": 0.85,
+      "divYield": 0.86,
       "videoID": null,
       "fund": {
         "pe": "28.5",
@@ -4505,7 +4505,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-05"
@@ -4517,7 +4517,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CB",
-      "divYield": 1.08,
+      "divYield": 1.07,
       "videoID": null,
       "fund": {
         "pe": "13.0",
@@ -4547,7 +4547,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-02-02"
@@ -4589,7 +4589,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-02-08"
@@ -4633,7 +4633,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-23"
@@ -4678,7 +4678,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-03"
@@ -4690,7 +4690,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PM",
-      "divYield": 3.22,
+      "divYield": 3.26,
       "videoID": null,
       "fund": {
         "pe": "26.9",
@@ -4720,7 +4720,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11"
@@ -4732,7 +4732,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PEP",
-      "divYield": 4.18,
+      "divYield": 4.13,
       "videoID": null,
       "fund": {
         "pe": "17.7",
@@ -4764,7 +4764,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11"
@@ -4776,7 +4776,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "KO",
-      "divYield": 2.19,
+      "divYield": 2.17,
       "videoID": null,
       "fund": {
         "pe": "28.6",
@@ -4808,7 +4808,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-16"
@@ -4853,7 +4853,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-08"
@@ -4865,7 +4865,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MO",
-      "divYield": 5.74,
+      "divYield": 5.73,
       "videoID": null,
       "fund": {
         "pe": "15.5",
@@ -4897,7 +4897,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04"
@@ -4909,7 +4909,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CL",
-      "divYield": 2.18,
+      "divYield": 2.14,
       "videoID": null,
       "fund": {
         "pe": "38.6",
@@ -4941,7 +4941,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-22"
@@ -4953,7 +4953,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PG",
-      "divYield": 2.58,
+      "divYield": 2.55,
       "videoID": null,
       "fund": {
         "pe": "25.5",
@@ -4983,7 +4983,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-20"
@@ -4995,7 +4995,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GIS",
-      "divYield": 7.08,
+      "divYield": 6.83,
       "videoID": null,
       "fund": {
         "pe": "N/D",
@@ -5029,7 +5029,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2026-12-17"
@@ -5041,11 +5041,11 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HD",
-      "divYield": 2.76,
+      "divYield": 2.74,
       "videoID": null,
       "fund": {
         "pe": "23.6",
-        "eps": "14.39",
+        "eps": "14.40",
         "mcap": "338.3B",
         "rev": "+3.0%"
       },
@@ -5071,7 +5071,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-23"
@@ -5083,7 +5083,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ROST",
-      "divYield": 0.79,
+      "divYield": 0.82,
       "videoID": null,
       "fund": {
         "pe": "24.8",
@@ -5113,7 +5113,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-09"
@@ -5158,7 +5158,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-10"
@@ -5170,7 +5170,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DG",
-      "divYield": 1.77,
+      "divYield": 1.81,
       "videoID": null,
       "fund": {
         "pe": "17.0",
@@ -5202,7 +5202,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-03"
@@ -5214,7 +5214,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MCD",
-      "divYield": 2.73,
+      "divYield": 2.72,
       "videoID": null,
       "fund": {
         "pe": "21.6",
@@ -5246,7 +5246,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-28"
@@ -5258,7 +5258,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NKE",
-      "divYield": 4.78,
+      "divYield": 4.98,
       "videoID": null,
       "fund": {
         "pe": "15.8",
@@ -5290,7 +5290,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni di consumo",
       "earn_next": "2026-12-17"
@@ -5302,7 +5302,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DIS",
-      "divYield": 1.25,
+      "divYield": 1.27,
       "videoID": null,
       "fund": {
         "pe": "21.0",
@@ -5334,7 +5334,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-10"
@@ -5346,7 +5346,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "VZ",
-      "divYield": 6.15,
+      "divYield": 6.05,
       "videoID": null,
       "fund": {
         "pe": "11.9",
@@ -5379,7 +5379,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-01-26"
@@ -5391,7 +5391,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "T",
-      "divYield": 5.08,
+      "divYield": 4.98,
       "videoID": null,
       "fund": {
         "pe": "12.0",
@@ -5424,7 +5424,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-01-27"
@@ -5468,7 +5468,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-29"
@@ -5480,7 +5480,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TMUS",
-      "divYield": 2.51,
+      "divYield": 2.46,
       "videoID": null,
       "fund": {
         "pe": "16.0",
@@ -5513,7 +5513,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-03"
@@ -5525,7 +5525,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "RCL",
-      "divYield": 1.81,
+      "divYield": 1.86,
       "videoID": null,
       "fund": {
         "pe": "17.6",
@@ -5559,7 +5559,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-04"
@@ -5571,7 +5571,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "META",
-      "divYield": 0.35,
+      "divYield": 0.37,
       "videoID": null,
       "fund": {
         "pe": "19.1",
@@ -5603,7 +5603,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-03"
@@ -5648,7 +5648,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-03"
@@ -5660,7 +5660,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AVGO",
-      "divYield": 0.75,
+      "divYield": 0.85,
       "videoID": null,
       "fund": {
         "pe": "38.9",
@@ -5690,7 +5690,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-12-09"
@@ -5702,7 +5702,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ORCL",
-      "divYield": 1.81,
+      "divYield": 1.98,
       "videoID": null,
       "fund": {
         "pe": "15.9",
@@ -5737,7 +5737,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-14"
@@ -5749,7 +5749,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "TXN",
-      "divYield": 2.02,
+      "divYield": 2.19,
       "videoID": null,
       "fund": {
         "pe": "34.2",
@@ -5781,7 +5781,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-26"
@@ -5793,7 +5793,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKNG",
-      "divYield": 1.12,
+      "divYield": 1.13,
       "videoID": null,
       "fund": {
         "pe": "15.6",
@@ -5825,7 +5825,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-25"
@@ -5869,7 +5869,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-17"
@@ -5913,7 +5913,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-01"
@@ -5955,7 +5955,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-09"
@@ -5999,7 +5999,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17"
@@ -6041,7 +6041,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-23"
@@ -6053,7 +6053,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEE",
-      "divYield": 2.91,
+      "divYield": 2.92,
       "videoID": null,
       "fund": {
         "pe": "15.0",
@@ -6087,7 +6087,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Utility",
       "earn_next": "2027-01-26"
@@ -6099,7 +6099,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CME",
-      "divYield": 3.69,
+      "divYield": 3.67,
       "videoID": null,
       "fund": {
         "pe": "25.2",
@@ -6129,7 +6129,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Finanza",
       "earn_next": "2027-02-10"
@@ -6141,7 +6141,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ACN",
-      "divYield": 3.02,
+      "divYield": 2.98,
       "videoID": null,
       "fund": {
         "pe": "16.3",
@@ -6171,7 +6171,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "updated": "2026-11-20",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-17"
@@ -6189,7 +6189,7 @@
       "fund": {
         "pe": "55.9",
         "eps": "0.09",
-        "mcap": "11.6B",
+        "mcap": "11.2B",
         "rev": "+3.0%"
       },
       "fv_low": null,
@@ -6217,7 +6217,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -6229,13 +6229,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "TEN.MI",
-      "divYield": 2.89,
+      "divYield": 3.02,
       "videoID": null,
       "tv": "MIL:TEN",
       "fund": {
         "pe": "15.1",
         "eps": "1.68",
-        "mcap": "26.8B",
+        "mcap": "25.6B",
         "rev": "-2.3%"
       },
       "fv_low": null,
@@ -6261,7 +6261,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Materie prime",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -6273,13 +6273,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "PRY.MI",
-      "divYield": 0.84,
+      "divYield": 0.9,
       "videoID": null,
       "tv": "MIL:PRY",
       "fund": {
         "pe": "24.2",
         "eps": "4.15",
-        "mcap": "32.1B",
+        "mcap": "30.1B",
         "rev": "+16.9%"
       },
       "fv_low": 14.97,
@@ -6303,7 +6303,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-03-04",
       "updated": "2026-11-20"
@@ -6315,7 +6315,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "SRG.MI",
-      "divYield": 5.06,
+      "divYield": 5.04,
       "videoID": null,
       "tv": "MIL:SRG",
       "fund": {
@@ -6351,7 +6351,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-18",
       "updated": "2026-11-20"
@@ -6363,7 +6363,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "TRN.MI",
-      "divYield": 4.18,
+      "divYield": 4.19,
       "videoID": null,
       "tv": "MIL:TRN",
       "fund": {
@@ -6398,7 +6398,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-24",
       "updated": "2026-11-20"
@@ -6410,13 +6410,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "IG.MI",
-      "divYield": 4.88,
+      "divYield": 4.86,
       "videoID": null,
       "tv": "MIL:IG",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
-        "mcap": "9.0B",
+        "mcap": "9.1B",
         "rev": "+8.6%"
       },
       "fv_low": null,
@@ -6444,7 +6444,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-10",
       "updated": "2026-11-20"
@@ -6456,7 +6456,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "HER.MI",
-      "divYield": 4.49,
+      "divYield": 4.48,
       "videoID": null,
       "tv": "MIL:HER",
       "fund": {
@@ -6489,14 +6489,14 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-24",
       "updated": "2026-11-20"
     },
     "AMP": {
       "name": "Amplifon",
-      "fv": 31.18,
+      "fv": 31.17,
       "price": 11.23,
       "curr": "€",
       "ex": "MIL",
@@ -6511,9 +6511,9 @@
         "rev": "+0.2%"
       },
       "fv_low": 18.15,
-      "fv_high": 49.92,
-      "fv_mkt": 41.72,
-      "fv_sto": 51,
+      "fv_high": 49.9,
+      "fv_mkt": 41.7,
+      "fv_sto": null,
       "ind": {
         "status": "ok",
         "paese": "IT",
@@ -6531,7 +6531,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Distribuzione",
       "earn_next": "2027-03-10",
       "updated": "2026-11-20"
@@ -6573,7 +6573,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -6585,13 +6585,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "BZU.MI",
-      "divYield": 1.6,
+      "divYield": 1.66,
       "videoID": null,
       "tv": "MIL:BZU",
       "fund": {
         "pe": "8.9",
         "eps": "4.76",
-        "mcap": "7.4B",
+        "mcap": "7.1B",
         "rev": "+1.6%"
       },
       "fv_low": 39.84,
@@ -6615,7 +6615,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Materie prime",
       "earn_next": "2027-04-01",
       "updated": "2026-11-20"
@@ -6627,13 +6627,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "STMMI.MI",
-      "divYield": 0.76,
+      "divYield": 0.85,
       "videoID": null,
       "tv": "MIL:STMMI",
       "fund": {
         "pe": "76.0",
         "eps": "0.48",
-        "mcap": "36.7B",
+        "mcap": "32.8B",
         "rev": "+10.3%"
       },
       "fv_low": null,
@@ -6661,7 +6661,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -6673,13 +6673,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "NEXI.MI",
-      "divYield": 7.1,
+      "divYield": 7.24,
       "videoID": null,
       "tv": "MIL:NEXI",
       "fund": {
         "pe": "N/D",
         "eps": "-2.86",
-        "mcap": "5.0B",
+        "mcap": "4.9B",
         "rev": "+0.7%"
       },
       "fv_low": null,
@@ -6706,7 +6706,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-03-11",
       "updated": "2026-11-20"
@@ -6751,7 +6751,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-05",
       "updated": "2026-11-20"
@@ -6763,13 +6763,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "PIRC.MI",
-      "divYield": 5.3,
+      "divYield": 5.43,
       "videoID": null,
       "tv": "MIL:PIRC",
       "fund": {
         "pe": "13.1",
         "eps": "0.48",
-        "mcap": "7.0B",
+        "mcap": "6.8B",
         "rev": "+1.1%"
       },
       "fv_low": 1.32,
@@ -6793,7 +6793,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-10",
       "updated": "2026-11-20"
@@ -6805,13 +6805,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "SPM.MI",
-      "divYield": 4.03,
+      "divYield": 4,
       "videoID": null,
       "tv": "MIL:SPM",
       "fund": {
         "pe": "32.5",
         "eps": "0.13",
-        "mcap": "8.3B",
+        "mcap": "8.4B",
         "rev": "+1.9%"
       },
       "fv_low": null,
@@ -6837,7 +6837,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi industriali",
       "earn_next": "2027-03-02",
       "updated": "2026-11-20"
@@ -6849,7 +6849,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "INW.MI",
-      "divYield": 7.59,
+      "divYield": 7.63,
       "videoID": null,
       "tv": "MIL:INW",
       "fund": {
@@ -6882,7 +6882,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-03-11",
       "updated": "2026-11-20"
@@ -6894,7 +6894,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "TGYM.MI",
-      "divYield": 2.51,
+      "divYield": 2.59,
       "videoID": null,
       "tv": "MIL:TGYM",
       "fund": {
@@ -6924,7 +6924,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-18",
       "updated": "2026-11-20"
@@ -6936,7 +6936,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "REY.MI",
-      "divYield": 1.04,
+      "divYield": 1.05,
       "videoID": null,
       "tv": "MIL:REY",
       "fund": {
@@ -6966,7 +6966,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-03-16",
       "updated": "2026-11-20"
@@ -6978,13 +6978,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "DLG.MI",
-      "divYield": 1.81,
+      "divYield": 1.86,
       "videoID": null,
       "tv": "MIL:DLG",
       "fund": {
         "pe": "20.0",
         "eps": "2.28",
-        "mcap": "7.1B",
+        "mcap": "6.9B",
         "rev": "+6.4%"
       },
       "fv_low": 8.29,
@@ -7008,7 +7008,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-12",
       "updated": "2026-11-20"
@@ -7026,7 +7026,7 @@
       "fund": {
         "pe": "99.1",
         "eps": "0.06",
-        "mcap": "999M",
+        "mcap": "961M",
         "rev": "-1.6%"
       },
       "fv_low": 5.81,
@@ -7053,7 +7053,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-09",
       "updated": "2026-11-20"
@@ -7071,7 +7071,7 @@
       "fund": {
         "pe": "20.1",
         "eps": "0.54",
-        "mcap": "4.2B",
+        "mcap": "4.1B",
         "rev": "-0.6%"
       },
       "fv_low": null,
@@ -7097,7 +7097,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-03-10",
       "updated": "2026-11-20"
@@ -7109,7 +7109,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ENAV.MI",
-      "divYield": 5.33,
+      "divYield": 5.35,
       "videoID": null,
       "tv": "MIL:ENAV",
       "fund": {
@@ -7141,7 +7141,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-04-21",
       "updated": "2026-11-20"
@@ -7153,7 +7153,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "IRE.MI",
-      "divYield": 6.02,
+      "divYield": 6.01,
       "videoID": null,
       "tv": "MIL:IRE",
       "fund": {
@@ -7188,7 +7188,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-29",
       "updated": "2026-11-20"
@@ -7200,7 +7200,7 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "ACE.MI",
-      "divYield": 4.9,
+      "divYield": 4.92,
       "videoID": null,
       "tv": "MIL:ACE",
       "fund": {
@@ -7235,7 +7235,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-10",
       "updated": "2026-11-20"
@@ -7247,13 +7247,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "DAN.MI",
-      "divYield": 0.6,
+      "divYield": 0.63,
       "videoID": null,
       "tv": "MIL:DAN",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
-        "mcap": "3.3B",
+        "mcap": "3.1B",
         "rev": "-7.6%"
       },
       "fv_low": null,
@@ -7279,7 +7279,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-03-11",
       "updated": "2026-11-20"
@@ -7291,13 +7291,13 @@
       "curr": "€",
       "ex": "MIL",
       "yf": "MARR.MI",
-      "divYield": 9.74,
+      "divYield": 9.7,
       "videoID": null,
       "tv": "MIL:MARR",
       "fund": {
         "pe": "N/D",
         "eps": "N/D",
-        "mcap": "321M",
+        "mcap": "322M",
         "rev": "+2.5%"
       },
       "fv_low": null,
@@ -7325,7 +7325,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Distribuzione",
       "earn_next": "2027-03-16",
       "updated": "2026-11-20"
@@ -7337,13 +7337,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "OR.PA",
-      "divYield": 1.65,
+      "divYield": 1.66,
       "videoID": null,
       "tv": "EURONEXT:OR",
       "fund": {
         "pe": "36.9",
         "eps": "11.79",
-        "mcap": "232.2B",
+        "mcap": "231.4B",
         "rev": "+3.5%"
       },
       "fv_low": 286.05,
@@ -7367,7 +7367,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -7379,13 +7379,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "RMS.PA",
-      "divYield": 1.42,
+      "divYield": 1.47,
       "videoID": null,
       "tv": "EURONEXT:RMS",
       "fund": {
         "pe": "28.5",
         "eps": "43.00",
-        "mcap": "133.1B",
+        "mcap": "128.2B",
         "rev": "+2.7%"
       },
       "fv_low": 741.53,
@@ -7409,7 +7409,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-12",
       "updated": "2026-11-20"
@@ -7421,13 +7421,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AIR.PA",
-      "divYield": 1.62,
+      "divYield": 1.68,
       "videoID": null,
       "tv": "EURONEXT:AIR",
       "fund": {
         "pe": "24.3",
         "eps": "7.81",
-        "mcap": "156.8B",
+        "mcap": "150.3B",
         "rev": "+6.2%"
       },
       "fv_low": null,
@@ -7454,7 +7454,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -7466,13 +7466,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SU.PA",
-      "divYield": 1.79,
+      "divYield": 1.85,
       "videoID": null,
       "tv": "EURONEXT:SU",
       "fund": {
         "pe": "27.3",
         "eps": "8.29",
-        "mcap": "138.7B",
+        "mcap": "133.6B",
         "rev": "+6.9%"
       },
       "fv_low": 127.56,
@@ -7496,7 +7496,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -7508,13 +7508,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AI.PA",
-      "divYield": 1.78,
+      "divYield": 1.79,
       "videoID": null,
       "tv": "EURONEXT:AI",
       "fund": {
         "pe": "33.8",
         "eps": "5.56",
-        "mcap": "120.5B",
+        "mcap": "119.5B",
         "rev": "-1.3%"
       },
       "fv_low": 90.6,
@@ -7540,7 +7540,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -7552,13 +7552,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "TTE.PA",
-      "divYield": 4.36,
+      "divYield": 4.41,
       "videoID": null,
       "tv": "EURONEXT:TTE",
       "fund": {
         "pe": "9.0",
         "eps": "8.70",
-        "mcap": "176.7B",
+        "mcap": "174.5B",
         "rev": "+10.8%"
       },
       "fv_low": null,
@@ -7585,7 +7585,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -7597,13 +7597,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SAN.PA",
-      "divYield": 4.92,
+      "divYield": 4.85,
       "videoID": null,
       "tv": "EURONEXT:SAN",
       "fund": {
         "pe": "25.5",
         "eps": "3.33",
-        "mcap": "100.5B",
+        "mcap": "101.9B",
         "rev": "+15.3%"
       },
       "fv_low": 107.75,
@@ -7629,7 +7629,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": null,
       "updated": "2026-11-20"
@@ -7641,13 +7641,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "KER.PA",
-      "divYield": 1.67,
+      "divYield": 1.74,
       "videoID": null,
       "tv": "EURONEXT:KER",
       "fund": {
         "pe": "N/D",
         "eps": "-1.74",
-        "mcap": "22.0B",
+        "mcap": "21.1B",
         "rev": "-9.2%"
       },
       "fv_low": 160.96,
@@ -7673,7 +7673,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -7685,13 +7685,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "RI.PA",
-      "divYield": 6.63,
+      "divYield": 6.6,
       "videoID": null,
       "tv": "EURONEXT:RI",
       "fund": {
         "pe": "14.9",
         "eps": "4.77",
-        "mcap": "17.8B",
+        "mcap": "17.9B",
         "rev": "-14.2%"
       },
       "fv_low": 76.97,
@@ -7717,7 +7717,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -7729,13 +7729,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "BN.PA",
-      "divYield": 3.32,
+      "divYield": 3.3,
       "videoID": null,
       "tv": "EURONEXT:BN",
       "fund": {
         "pe": "22.6",
         "eps": "3.02",
-        "mcap": "43.5B",
+        "mcap": "43.8B",
         "rev": "+0.5%"
       },
       "fv_low": 99.24,
@@ -7761,7 +7761,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -7773,13 +7773,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SAF.PA",
-      "divYield": 1.11,
+      "divYield": 1.14,
       "videoID": null,
       "tv": "EURONEXT:SAF",
       "fund": {
         "pe": "31.4",
         "eps": "9.31",
-        "mcap": "125.5B",
+        "mcap": "122.0B",
         "rev": "+14.3%"
       },
       "fv_low": 154.13,
@@ -7803,7 +7803,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -7815,13 +7815,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "CAP.PA",
-      "divYield": 2.93,
+      "divYield": 2.89,
       "videoID": null,
       "tv": "EURONEXT:CAP",
       "fund": {
         "pe": "14.9",
         "eps": "7.87",
-        "mcap": "19.7B",
+        "mcap": "20.0B",
         "rev": "+6.2%"
       },
       "fv_low": 216.21,
@@ -7845,7 +7845,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-16",
       "updated": "2026-11-20"
@@ -7857,13 +7857,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "DSY.PA",
-      "divYield": 1.17,
+      "divYield": 1.21,
       "videoID": null,
       "tv": "EURONEXT:DSY",
       "fund": {
         "pe": "22.1",
         "eps": "1.01",
-        "mcap": "30.9B",
+        "mcap": "29.8B",
         "rev": "-0.2%"
       },
       "fv_low": 20.13,
@@ -7887,7 +7887,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -7899,13 +7899,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ML.PA",
-      "divYield": 4.35,
+      "divYield": 4.42,
       "videoID": null,
       "tv": "EURONEXT:ML",
       "fund": {
         "pe": "13.8",
         "eps": "2.26",
-        "mcap": "21.4B",
+        "mcap": "21.1B",
         "rev": "-4.1%"
       },
       "fv_low": 0.38,
@@ -7929,7 +7929,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -7941,13 +7941,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "VIE.PA",
-      "divYield": 4.42,
+      "divYield": 4.44,
       "videoID": null,
       "tv": "EURONEXT:VIE",
       "fund": {
         "pe": "19.9",
         "eps": "1.70",
-        "mcap": "24.9B",
+        "mcap": "24.7B",
         "rev": "-0.1%"
       },
       "fv_low": 31.39,
@@ -7973,7 +7973,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -7985,13 +7985,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ENGI.PA",
-      "divYield": 5.54,
+      "divYield": 5.56,
       "videoID": null,
       "tv": "EURONEXT:ENGI",
       "fund": {
         "pe": "15.3",
         "eps": "1.58",
-        "mcap": "61.9B",
+        "mcap": "61.6B",
         "rev": "-5.1%"
       },
       "fv_low": null,
@@ -8020,7 +8020,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-04",
       "updated": "2026-11-20"
@@ -8032,13 +8032,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "ORA.PA",
-      "divYield": 4.99,
+      "divYield": 4.96,
       "videoID": null,
       "tv": "EURONEXT:ORA",
       "fund": {
         "pe": "10.0",
         "eps": "1.51",
-        "mcap": "40.0B",
+        "mcap": "40.2B",
         "rev": "+3.0%"
       },
       "fv_low": 18.59,
@@ -8065,7 +8065,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -8077,13 +8077,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PUB.PA",
-      "divYield": 3.72,
+      "divYield": 3.76,
       "videoID": null,
       "tv": "EURONEXT:PUB",
       "fund": {
         "pe": "15.5",
         "eps": "6.42",
-        "mcap": "25.3B",
+        "mcap": "25.0B",
         "rev": "+4.7%"
       },
       "fv_low": 149.25,
@@ -8107,7 +8107,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -8119,13 +8119,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "LR.PA",
-      "divYield": 1.78,
+      "divYield": 1.87,
       "videoID": null,
       "tv": "EURONEXT:LR",
       "fund": {
         "pe": "24.0",
         "eps": "5.31",
-        "mcap": "35.0B",
+        "mcap": "33.3B",
         "rev": "+15.4%"
       },
       "fv_low": 95.34,
@@ -8149,7 +8149,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -8161,13 +8161,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "SGO.PA",
-      "divYield": 3.15,
+      "divYield": 3.23,
       "videoID": null,
       "tv": "EURONEXT:SGO",
       "fund": {
         "pe": "13.2",
         "eps": "5.39",
-        "mcap": "35.7B",
+        "mcap": "34.9B",
         "rev": "-1.6%"
       },
       "fv_low": 29.48,
@@ -8191,7 +8191,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -8209,7 +8209,7 @@
       "fund": {
         "pe": "22.3",
         "eps": "35.58",
-        "mcap": "25.6B",
+        "mcap": "25.1B",
         "rev": "+16.7%"
       },
       "fv_low": null,
@@ -8235,7 +8235,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -8247,13 +8247,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PHIA.AS",
-      "divYield": 3.18,
+      "divYield": 3.22,
       "videoID": null,
       "tv": "EURONEXT:PHIA",
       "fund": {
         "pe": "26.7",
         "eps": "0.99",
-        "mcap": "26.0B",
+        "mcap": "25.7B",
         "rev": "-1.5%"
       },
       "fv_low": null,
@@ -8280,7 +8280,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-01",
       "updated": "2026-11-20"
@@ -8292,13 +8292,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "HEIA.AS",
-      "divYield": 2.32,
+      "divYield": 2.33,
       "videoID": null,
       "tv": "EURONEXT:HEIA",
       "fund": {
         "pe": "20.2",
         "eps": "4.09",
-        "mcap": "45.8B",
+        "mcap": "45.6B",
         "rev": "+0.8%"
       },
       "fv_low": 105.44,
@@ -8325,7 +8325,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -8337,13 +8337,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "AD.AS",
-      "divYield": 3.62,
+      "divYield": 3.59,
       "videoID": null,
       "tv": "EURONEXT:AD",
       "fund": {
         "pe": "13.4",
         "eps": "2.58",
-        "mcap": "29.7B",
+        "mcap": "30.0B",
         "rev": "-0.1%"
       },
       "fv_low": 84.99,
@@ -8369,7 +8369,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -8381,13 +8381,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "WKL.AS",
-      "divYield": 3.01,
+      "divYield": 3.03,
       "videoID": null,
       "tv": "EURONEXT:WKL",
       "fund": {
         "pe": "14.7",
         "eps": "5.85",
-        "mcap": "18.8B",
+        "mcap": "18.7B",
         "rev": "+0.5%"
       },
       "fv_low": 118.84,
@@ -8411,7 +8411,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -8423,13 +8423,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "PRX.AS",
-      "divYield": 0.62,
+      "divYield": 0.66,
       "videoID": null,
       "tv": "EURONEXT:PRX",
       "fund": {
         "pe": "6.6",
         "eps": "4.59",
-        "mcap": "63.9B",
+        "mcap": "60.1B",
         "rev": "+45.4%"
       },
       "fv_low": null,
@@ -8456,7 +8456,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-25",
       "updated": "2026-11-20"
@@ -8468,13 +8468,13 @@
       "curr": "€",
       "ex": "EURONEXT",
       "yf": "UMG.AS",
-      "divYield": 3.06,
+      "divYield": 3.07,
       "videoID": null,
       "tv": "EURONEXT:UMG",
       "fund": {
         "pe": "96.6",
         "eps": "0.18",
-        "mcap": "31.2B",
+        "mcap": "31.1B",
         "rev": "+5.2%"
       },
       "fv_low": 12.09,
@@ -8498,7 +8498,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-03-04",
       "updated": "2026-11-20"
@@ -8510,13 +8510,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "SIE.DE",
-      "divYield": 2,
+      "divYield": 2.1,
       "videoID": null,
       "tv": "XETR:SIE",
       "fund": {
         "pe": "23.5",
         "eps": "10.84",
-        "mcap": "203.4B",
+        "mcap": "194.1B",
         "rev": "+5.6%"
       },
       "fv_low": 98.97,
@@ -8540,7 +8540,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -8552,13 +8552,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "DTE.DE",
-      "divYield": 3.84,
+      "divYield": 3.8,
       "videoID": null,
       "tv": "XETR:DTE",
       "fund": {
         "pe": "14.1",
         "eps": "1.86",
-        "mcap": "124.5B",
+        "mcap": "126.0B",
         "rev": "+3.7%"
       },
       "fv_low": 76.89,
@@ -8585,7 +8585,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -8597,13 +8597,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "BAS.DE",
-      "divYield": 4.44,
+      "divYield": 4.56,
       "videoID": null,
       "tv": "XETR:BAS",
       "fund": {
         "pe": "7.4",
         "eps": "6.64",
-        "mcap": "45.2B",
+        "mcap": "44.1B",
         "rev": "-3.9%"
       },
       "fv_low": 19.46,
@@ -8630,7 +8630,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-26",
       "updated": "2026-11-20"
@@ -8642,13 +8642,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "BMW.DE",
-      "divYield": 8.1,
+      "divYield": 8.23,
       "videoID": null,
       "tv": "XETR:BMW",
       "fund": {
         "pe": "5.3",
         "eps": "10.10",
-        "mcap": "32.9B",
+        "mcap": "32.4B",
         "rev": "-7.5%"
       },
       "fv_low": null,
@@ -8676,7 +8676,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-11",
       "updated": "2026-11-20"
@@ -8688,13 +8688,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "MBG.DE",
-      "divYield": 9.15,
+      "divYield": 9.3,
       "videoID": null,
       "tv": "XETR:MBG",
       "fund": {
         "pe": "6.7",
         "eps": "5.62",
-        "mcap": "36.8B",
+        "mcap": "36.2B",
         "rev": "-6.5%"
       },
       "fv_low": null,
@@ -8722,7 +8722,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -8734,13 +8734,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "VOW3.DE",
-      "divYield": 8.14,
+      "divYield": 8.4,
       "videoID": null,
       "tv": "XETR:VOW3",
       "fund": {
         "pe": "29.2",
         "eps": "2.15",
-        "mcap": "32.2B",
+        "mcap": "31.2B",
         "rev": "-2.9%"
       },
       "fv_low": null,
@@ -8768,7 +8768,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-16",
       "updated": "2026-11-20"
@@ -8780,13 +8780,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "ADS.DE",
-      "divYield": 1.63,
+      "divYield": 1.7,
       "videoID": null,
       "tv": "XETR:ADS",
       "fund": {
         "pe": "17.7",
         "eps": "9.35",
-        "mcap": "29.7B",
+        "mcap": "28.5B",
         "rev": "+7.9%"
       },
       "fv_low": null,
@@ -8813,7 +8813,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-03",
       "updated": "2026-11-20"
@@ -8825,13 +8825,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "IFX.DE",
-      "divYield": 0.71,
+      "divYield": 0.77,
       "videoID": null,
       "tv": "XETR:IFX",
       "fund": {
         "pe": "39.9",
         "eps": "1.14",
-        "mcap": "64.2B",
+        "mcap": "59.1B",
         "rev": "+11.5%"
       },
       "fv_low": 4.59,
@@ -8855,7 +8855,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -8867,13 +8867,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "DHL.DE",
-      "divYield": 3.22,
+      "divYield": 3.33,
       "videoID": null,
       "tv": "XETR:DHL",
       "fund": {
         "pe": "17.1",
         "eps": "3.34",
-        "mcap": "66.0B",
+        "mcap": "63.9B",
         "rev": "+4.9%"
       },
       "fv_low": 11.19,
@@ -8899,7 +8899,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-03-05",
       "updated": "2026-11-20"
@@ -8911,13 +8911,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "PUM.DE",
-      "divYield": 2.46,
+      "divYield": 2.6,
       "videoID": null,
       "tv": "XETR:PUM",
       "fund": {
         "pe": "N/D",
         "eps": "-2.96",
-        "mcap": "3.6B",
+        "mcap": "3.4B",
         "rev": "-19.5%"
       },
       "fv_low": null,
@@ -8945,7 +8945,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -8963,7 +8963,7 @@
       "fund": {
         "pe": "116.3",
         "eps": "0.24",
-        "mcap": "7.1B",
+        "mcap": "6.9B",
         "rev": "+18.1%"
       },
       "fv_low": null,
@@ -8989,7 +8989,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-11",
       "updated": "2026-11-20"
@@ -9007,7 +9007,7 @@
       "fund": {
         "pe": "18.2",
         "eps": "4.71",
-        "mcap": "32.9B",
+        "mcap": "32.8B",
         "rev": "-3.5%"
       },
       "fv_low": 40.5,
@@ -9033,7 +9033,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-03-08",
       "updated": "2026-11-20"
@@ -9045,7 +9045,7 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "BEI.DE",
-      "divYield": 1.27,
+      "divYield": 1.26,
       "videoID": null,
       "tv": "XETR:BEI",
       "fund": {
@@ -9078,7 +9078,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-04",
       "updated": "2026-11-20"
@@ -9090,13 +9090,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "P911.DE",
-      "divYield": 2.34,
+      "divYield": 2.32,
       "videoID": null,
       "tv": "XETR:P911",
       "fund": {
         "pe": "18.0",
         "eps": "2.41",
-        "mcap": "39.1B",
+        "mcap": "39.4B",
         "rev": "-9.6%"
       },
       "fv_low": 9.98,
@@ -9122,7 +9122,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-03-17",
       "updated": "2026-11-20"
@@ -9134,13 +9134,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "SHL.DE",
-      "divYield": 2.28,
+      "divYield": 2.33,
       "videoID": null,
       "tv": "XETR:SHL",
       "fund": {
         "pe": "21.7",
         "eps": "1.98",
-        "mcap": "48.9B",
+        "mcap": "47.9B",
         "rev": "+1.1%"
       },
       "fv_low": 19.2,
@@ -9166,7 +9166,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -9178,13 +9178,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "ENR.DE",
-      "divYield": 0.55,
+      "divYield": 0.59,
       "videoID": null,
       "tv": "XETR:ENR",
       "fund": {
         "pe": "27.0",
         "eps": "4.39",
-        "mcap": "106.5B",
+        "mcap": "99.5B",
         "rev": "+13.2%"
       },
       "fv_low": 14.64,
@@ -9208,7 +9208,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -9220,13 +9220,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "EOAN.DE",
-      "divYield": 3.08,
+      "divYield": 3.06,
       "videoID": null,
       "tv": "XETR:EOAN",
       "fund": {
         "pe": "11.1",
         "eps": "1.68",
-        "mcap": "48.4B",
+        "mcap": "48.6B",
         "rev": "-6.3%"
       },
       "fv_low": null,
@@ -9255,7 +9255,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -9267,13 +9267,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "RWE.DE",
-      "divYield": 2.1,
+      "divYield": 2.15,
       "videoID": null,
       "tv": "XETR:RWE",
       "fund": {
         "pe": "57.6",
         "eps": "0.97",
-        "mcap": "44.6B",
+        "mcap": "43.4B",
         "rev": "-22.5%"
       },
       "fv_low": null,
@@ -9302,7 +9302,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-04",
       "updated": "2026-11-20"
@@ -9314,13 +9314,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "MTX.DE",
-      "divYield": 1.04,
+      "divYield": 1.08,
       "videoID": null,
       "tv": "XETR:MTX",
       "fund": {
         "pe": "19.5",
         "eps": "17.12",
-        "mcap": "18.6B",
+        "mcap": "18.0B",
         "rev": "+12.3%"
       },
       "fv_low": 132.71,
@@ -9344,7 +9344,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -9356,13 +9356,13 @@
       "curr": "€",
       "ex": "XETR",
       "yf": "SY1.DE",
-      "divYield": 1.31,
+      "divYield": 1.32,
       "videoID": null,
       "tv": "XETR:SY1",
       "fund": {
         "pe": "53.2",
         "eps": "1.78",
-        "mcap": "12.9B",
+        "mcap": "12.8B",
         "rev": "-1.4%"
       },
       "fv_low": 17.08,
@@ -9388,7 +9388,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-03-10",
       "updated": "2026-11-20"
@@ -9400,13 +9400,13 @@
       "curr": "€",
       "ex": "BME",
       "yf": "ITX.MC",
-      "divYield": 2.43,
+      "divYield": 2.45,
       "videoID": null,
       "tv": "BME:ITX",
       "fund": {
         "pe": "28.1",
         "eps": "2.06",
-        "mcap": "181.9B",
+        "mcap": "179.8B",
         "rev": "+6.0%"
       },
       "fv_low": 30.57,
@@ -9430,7 +9430,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-02",
       "updated": "2026-11-20"
@@ -9442,13 +9442,13 @@
       "curr": "€",
       "ex": "BME",
       "yf": "IBE.MC",
-      "divYield": 2.44,
+      "divYield": 2.43,
       "videoID": null,
       "tv": "BME:IBE",
       "fund": {
         "pe": "21.7",
         "eps": "1.05",
-        "mcap": "149.0B",
+        "mcap": "149.5B",
         "rev": "+1.3%"
       },
       "fv_low": null,
@@ -9478,7 +9478,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -9490,13 +9490,13 @@
       "curr": "€",
       "ex": "BME",
       "yf": "TEF.MC",
-      "divYield": 7.24,
+      "divYield": 7.23,
       "videoID": null,
       "tv": "BME:TEF",
       "fund": {
         "pe": "N/D",
         "eps": "-0.49",
-        "mcap": "18.9B",
+        "mcap": "19.0B",
         "rev": "-9.7%"
       },
       "fv_low": 14.5,
@@ -9523,7 +9523,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Telecomunicazioni",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -9535,13 +9535,13 @@
       "curr": "€",
       "ex": "BME",
       "yf": "REP.MC",
-      "divYield": 2.83,
+      "divYield": 2.85,
       "videoID": null,
       "tv": "BME:REP",
       "fund": {
         "pe": "5.4",
         "eps": "5.27",
-        "mcap": "30.9B",
+        "mcap": "30.7B",
         "rev": "+23.9%"
       },
       "fv_low": null,
@@ -9569,7 +9569,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -9587,7 +9587,7 @@
       "fund": {
         "pe": "17.8",
         "eps": "1.55",
-        "mcap": "41.6B",
+        "mcap": "41.5B",
         "rev": "+10.8%"
       },
       "fv_low": null,
@@ -9613,7 +9613,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-03-03",
       "updated": "2026-11-20"
@@ -9625,13 +9625,13 @@
       "curr": "€",
       "ex": "BME",
       "yf": "AMS.MC",
-      "divYield": 2.06,
+      "divYield": 2.09,
       "videoID": null,
       "tv": "BME:AMS",
       "fund": {
         "pe": "19.2",
         "eps": "3.11",
-        "mcap": "24.5B",
+        "mcap": "24.1B",
         "rev": "+4.1%"
       },
       "fv_low": null,
@@ -9657,7 +9657,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -9669,13 +9669,13 @@
       "curr": "€",
       "ex": "BME",
       "yf": "CLNX.MC",
-      "divYield": 2.41,
+      "divYield": 2.43,
       "videoID": null,
       "tv": "BME:CLNX",
       "fund": {
         "pe": "N/D",
         "eps": "-0.48",
-        "mcap": "16.4B",
+        "mcap": "16.3B",
         "rev": "+2.4%"
       },
       "fv_low": null,
@@ -9701,7 +9701,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi industriali",
       "earn_next": "2027-03-03",
       "updated": "2026-11-20"
@@ -9713,13 +9713,13 @@
       "curr": "CHF",
       "ex": "SIX",
       "yf": "NESN.SW",
-      "divYield": 3.67,
+      "divYield": 3.62,
       "videoID": null,
       "tv": "SIX:NESN",
       "fund": {
         "pe": "29.6",
         "eps": "2.89",
-        "mcap": "217.2B",
+        "mcap": "220.1B",
         "rev": "-2.4%"
       },
       "fv_low": 70.99,
@@ -9746,7 +9746,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -9758,13 +9758,13 @@
       "curr": "CHF",
       "ex": "SIX",
       "yf": "NOVN.SW",
-      "divYield": 2.91,
+      "divYield": 2.9,
       "videoID": null,
       "tv": "SIX:NOVN",
       "fund": {
         "pe": "30.8",
         "eps": "4.15",
-        "mcap": "232.9B",
+        "mcap": "233.9B",
         "rev": "-4.5%"
       },
       "fv_low": 138.05,
@@ -9790,7 +9790,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -9802,13 +9802,13 @@
       "curr": "CHF",
       "ex": "SIX",
       "yf": "ABBN.SW",
-      "divYield": 1.38,
+      "divYield": 1.44,
       "videoID": null,
       "tv": "SIX:ABBN",
       "fund": {
         "pe": "29.8",
         "eps": "2.19",
-        "mcap": "122.6B",
+        "mcap": "117.4B",
         "rev": "+0.8%"
       },
       "fv_low": 7.56,
@@ -9832,7 +9832,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -9844,13 +9844,13 @@
       "curr": "CHF",
       "ex": "SIX",
       "yf": "CFR.SW",
-      "divYield": 1.86,
+      "divYield": 1.95,
       "videoID": null,
       "tv": "SIX:CFR",
       "fund": {
         "pe": "25.6",
         "eps": "6.59",
-        "mcap": "103.9B",
+        "mcap": "99.2B",
         "rev": "+8.2%"
       },
       "fv_low": 97.65,
@@ -9874,7 +9874,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-05-14",
       "updated": "2026-11-20"
@@ -9886,13 +9886,13 @@
       "curr": "CHF",
       "ex": "SIX",
       "yf": "SIKA.SW",
-      "divYield": 1.99,
+      "divYield": 2.04,
       "videoID": null,
       "tv": "SIX:SIKA",
       "fund": {
         "pe": "28.0",
         "eps": "6.48",
-        "mcap": "29.8B",
+        "mcap": "29.1B",
         "rev": "-4.2%"
       },
       "fv_low": 136.4,
@@ -9918,7 +9918,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-19",
       "updated": "2026-11-20"
@@ -9930,13 +9930,13 @@
       "curr": "CHF",
       "ex": "SIX",
       "yf": "LONN.SW",
-      "divYield": 0.75,
+      "divYield": 0.77,
       "videoID": null,
       "tv": "SIX:LONN",
       "fund": {
         "pe": "N/D",
         "eps": "-1.55",
-        "mcap": "45.5B",
+        "mcap": "44.4B",
         "rev": "-10.8%"
       },
       "fv_low": null,
@@ -9965,7 +9965,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -10009,7 +10009,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -10021,13 +10021,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "ULVR.L",
-      "divYield": 3.45,
+      "divYield": 3.38,
       "videoID": null,
       "tv": "LSE:ULVR",
       "fund": {
         "pe": "21.9",
         "eps": "223.02",
-        "mcap": "103.1B",
+        "mcap": "105.3B",
         "rev": "-20.4%"
       },
       "fv_low": 3979.11,
@@ -10054,7 +10054,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -10099,7 +10099,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -10111,13 +10111,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AZN.L",
-      "divYield": 1.8,
+      "divYield": 1.78,
       "videoID": null,
       "tv": "LSE:AZN",
       "fund": {
         "pe": "25.5",
         "eps": "526.73",
-        "mcap": "206.3B",
+        "mcap": "208.0B",
         "rev": "+4.5%"
       },
       "fv_low": 5148.22,
@@ -10143,7 +10143,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -10155,13 +10155,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "GSK.L",
-      "divYield": 3.72,
+      "divYield": 3.69,
       "videoID": null,
       "tv": "LSE:GSK",
       "fund": {
         "pe": "17.3",
         "eps": "106.79",
-        "mcap": "73.2B",
+        "mcap": "74.3B",
         "rev": "+4.3%"
       },
       "fv_low": 2684.31,
@@ -10187,7 +10187,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -10199,13 +10199,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "DGE.L",
-      "divYield": 2.01,
+      "divYield": 2,
       "videoID": null,
       "tv": "LSE:DGE",
       "fund": {
         "pe": "32.3",
         "eps": "58.15",
-        "mcap": "41.5B",
+        "mcap": "41.8B",
         "rev": "-6.5%"
       },
       "fv_low": 1247.89,
@@ -10231,7 +10231,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -10243,13 +10243,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "BP.L",
-      "divYield": 4.55,
+      "divYield": 4.56,
       "videoID": null,
       "tv": "LSE:BP.",
       "fund": {
         "pe": "13.0",
         "eps": "42.31",
-        "mcap": "85.1B",
+        "mcap": "85.0B",
         "rev": "+23.0%"
       },
       "fv_low": null,
@@ -10276,7 +10276,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -10288,13 +10288,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RIO.L",
-      "divYield": 6.04,
+      "divYield": 6.18,
       "videoID": null,
       "tv": "LSE:RIO",
       "fund": {
         "pe": "10.3",
         "eps": "549.91",
-        "mcap": "98.0B",
+        "mcap": "96.2B",
         "rev": "+10.9%"
       },
       "fv_low": 3770.27,
@@ -10320,7 +10320,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Materie prime",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -10332,13 +10332,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "REL.L",
-      "divYield": 2.33,
+      "divYield": 2.32,
       "videoID": null,
       "tv": "LSE:REL",
       "fund": {
         "pe": "23.8",
         "eps": "124.78",
-        "mcap": "51.4B",
+        "mcap": "51.6B",
         "rev": "+2.0%"
       },
       "fv_low": 2192.48,
@@ -10362,7 +10362,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -10374,13 +10374,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RR.L",
-      "divYield": 0.83,
+      "divYield": 0.86,
       "videoID": null,
       "tv": "LSE:RR.",
       "fund": {
         "pe": "35.2",
         "eps": "36.15",
-        "mcap": "109.4B",
+        "mcap": "105.0B",
         "rev": "+18.6%"
       },
       "fv_low": null,
@@ -10406,7 +10406,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -10418,13 +10418,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "RKT.L",
-      "divYield": 3.88,
+      "divYield": 3.85,
       "videoID": null,
       "tv": "LSE:RKT",
       "fund": {
         "pe": "12.7",
         "eps": "441.57",
-        "mcap": "35.3B",
+        "mcap": "35.6B",
         "rev": "-2.5%"
       },
       "fv_low": 4122.47,
@@ -10450,7 +10450,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -10468,7 +10468,7 @@
       "fund": {
         "pe": "76.2",
         "eps": "14.75",
-        "mcap": "4.2B",
+        "mcap": "4.0B",
         "rev": "+3.3%"
       },
       "fv_low": 1113.62,
@@ -10492,7 +10492,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-05-19",
       "updated": "2026-11-20"
@@ -10504,13 +10504,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "GLEN.L",
-      "divYield": 2.7,
+      "divYield": 2.78,
       "videoID": null,
       "tv": "LSE:GLEN",
       "fund": {
         "pe": "13.4",
         "eps": "33.65",
-        "mcap": "54.1B",
+        "mcap": "52.6B",
         "rev": "+26.7%"
       },
       "fv_low": 20.13,
@@ -10537,7 +10537,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Distribuzione",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -10549,13 +10549,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "NG.L",
-      "divYield": 3.99,
+      "divYield": 3.95,
       "videoID": null,
       "tv": "LSE:NG.",
       "fund": {
         "pe": "15.4",
         "eps": "79.49",
-        "mcap": "61.1B",
+        "mcap": "61.7B",
         "rev": "+6.5%"
       },
       "fv_low": null,
@@ -10584,7 +10584,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-05-20",
       "updated": "2026-11-20"
@@ -10596,13 +10596,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "TSCO.L",
-      "divYield": 2.68,
+      "divYield": 2.67,
       "videoID": null,
       "tv": "LSE:TSCO",
       "fund": {
         "pe": "18.7",
         "eps": "29.52",
-        "mcap": "34.1B",
+        "mcap": "34.3B",
         "rev": "+5.4%"
       },
       "fv_low": null,
@@ -10630,7 +10630,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-04-14",
       "updated": "2026-11-20"
@@ -10642,13 +10642,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "EXPN.L",
-      "divYield": 1.81,
+      "divYield": 1.84,
       "videoID": null,
       "tv": "LSE:EXPN",
       "fund": {
         "pe": "21.9",
         "eps": "128.40",
-        "mcap": "25.1B",
+        "mcap": "24.6B",
         "rev": "+7.9%"
       },
       "fv_low": 2323.13,
@@ -10672,7 +10672,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-05-19",
       "updated": "2026-11-20"
@@ -10684,13 +10684,13 @@
       "curr": "GBp",
       "ex": "LSE",
       "yf": "AAL.L",
-      "divYield": 0.87,
+      "divYield": 0.9,
       "videoID": null,
       "tv": "LSE:AAL",
       "fund": {
         "pe": "N/D",
         "eps": "-189.27",
-        "mcap": "35.8B",
+        "mcap": "34.3B",
         "rev": "-13.9%"
       },
       "fv_low": 167.23,
@@ -10716,7 +10716,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Materie prime",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -10728,7 +10728,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ADI",
-      "divYield": 1.14,
+      "divYield": 1.24,
       "videoID": null,
       "tv": "NASDAQ:ADI",
       "fund": {
@@ -10758,7 +10758,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-11-24",
       "updated": "2026-11-20"
@@ -10770,7 +10770,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MU",
-      "divYield": 0.08,
+      "divYield": 0.1,
       "videoID": null,
       "tv": "NASDAQ:MU",
       "fund": {
@@ -10803,7 +10803,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-12-17",
       "updated": "2026-11-20"
@@ -10815,7 +10815,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LRCX",
-      "divYield": 0.54,
+      "divYield": 0.61,
       "videoID": null,
       "tv": "NASDAQ:LRCX",
       "fund": {
@@ -10845,7 +10845,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -10857,7 +10857,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KLAC",
-      "divYield": 0.59,
+      "divYield": 0.66,
       "videoID": null,
       "tv": "NASDAQ:KLAC",
       "fund": {
@@ -10887,7 +10887,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -10931,7 +10931,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-08",
       "updated": "2026-11-20"
@@ -10973,7 +10973,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-23",
       "updated": "2026-11-20"
@@ -10985,7 +10985,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSCO",
-      "divYield": 1.76,
+      "divYield": 1.84,
       "videoID": null,
       "tv": "NASDAQ:CSCO",
       "fund": {
@@ -11015,7 +11015,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -11059,7 +11059,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-16",
       "updated": "2026-11-20"
@@ -11071,7 +11071,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PYPL",
-      "divYield": 0.99,
+      "divYield": 1.05,
       "videoID": null,
       "tv": "NASDAQ:PYPL",
       "fund": {
@@ -11101,7 +11101,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -11145,7 +11145,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-02",
       "updated": "2026-11-20"
@@ -11189,7 +11189,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-01",
       "updated": "2026-11-20"
@@ -11233,7 +11233,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -11275,7 +11275,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-24",
       "updated": "2026-11-20"
@@ -11287,7 +11287,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MRVL",
-      "divYield": 0.17,
+      "divYield": 0.2,
       "videoID": null,
       "tv": "NASDAQ:MRVL",
       "fund": {
@@ -11319,7 +11319,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-12-01",
       "updated": "2026-11-20"
@@ -11337,7 +11337,7 @@
       "fund": {
         "pe": "174.4",
         "eps": "0.87",
-        "mcap": "188.5B",
+        "mcap": "161.9B",
         "rev": "+23.8%"
       },
       "fv_low": 4.64,
@@ -11361,7 +11361,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -11403,7 +11403,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -11445,7 +11445,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -11490,7 +11490,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-08",
       "updated": "2026-11-20"
@@ -11502,7 +11502,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "VRSK",
-      "divYield": 0.97,
+      "divYield": 0.96,
       "videoID": null,
       "tv": "NASDAQ:VRSK",
       "fund": {
@@ -11534,7 +11534,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-23",
       "updated": "2026-11-20"
@@ -11576,7 +11576,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2026-12-17",
       "updated": "2026-11-20"
@@ -11588,7 +11588,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PAYX",
-      "divYield": 4.17,
+      "divYield": 4.13,
       "videoID": null,
       "tv": "NASDAQ:PAYX",
       "fund": {
@@ -11618,7 +11618,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-17",
       "updated": "2026-11-20"
@@ -11630,7 +11630,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "AMGN",
-      "divYield": 2.27,
+      "divYield": 2.28,
       "videoID": null,
       "tv": "NASDAQ:AMGN",
       "fund": {
@@ -11662,7 +11662,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -11704,7 +11704,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-08",
       "updated": "2026-11-20"
@@ -11746,7 +11746,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -11790,7 +11790,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -11835,7 +11835,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -11879,7 +11879,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -11891,7 +11891,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "SBUX",
-      "divYield": 2.37,
+      "divYield": 2.4,
       "videoID": null,
       "tv": "NASDAQ:SBUX",
       "fund": {
@@ -11923,7 +11923,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-02",
       "updated": "2026-11-20"
@@ -11935,7 +11935,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MDLZ",
-      "divYield": 3.08,
+      "divYield": 3.05,
       "videoID": null,
       "tv": "NASDAQ:MDLZ",
       "fund": {
@@ -11968,7 +11968,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -11980,7 +11980,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "KDP",
-      "divYield": 2.67,
+      "divYield": 2.64,
       "videoID": null,
       "tv": "NASDAQ:KDP",
       "fund": {
@@ -12014,7 +12014,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -12056,7 +12056,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-04",
       "updated": "2026-11-20"
@@ -12100,7 +12100,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-24",
       "updated": "2026-11-20"
@@ -12142,7 +12142,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-12-03",
       "updated": "2026-11-20"
@@ -12154,7 +12154,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MAR",
-      "divYield": 0.68,
+      "divYield": 0.69,
       "videoID": null,
       "tv": "NASDAQ:MAR",
       "fund": {
@@ -12186,7 +12186,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-16",
       "updated": "2026-11-20"
@@ -12198,7 +12198,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EBAY",
-      "divYield": 1.04,
+      "divYield": 1.06,
       "videoID": null,
       "tv": "NASDAQ:EBAY",
       "fund": {
@@ -12230,7 +12230,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -12242,7 +12242,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "PCAR",
-      "divYield": 1.31,
+      "divYield": 1.33,
       "videoID": null,
       "tv": "NASDAQ:PCAR",
       "fund": {
@@ -12274,7 +12274,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-01-26",
       "updated": "2026-11-20"
@@ -12286,7 +12286,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CSX",
-      "divYield": 1.1,
+      "divYield": 1.12,
       "videoID": null,
       "tv": "NASDAQ:CSX",
       "fund": {
@@ -12319,7 +12319,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -12331,7 +12331,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "ODFL",
-      "divYield": 0.66,
+      "divYield": 0.68,
       "videoID": null,
       "tv": "NASDAQ:ODFL",
       "fund": {
@@ -12361,7 +12361,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -12373,7 +12373,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "FAST",
-      "divYield": 1.9,
+      "divYield": 1.98,
       "videoID": null,
       "tv": "NASDAQ:FAST",
       "fund": {
@@ -12403,7 +12403,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Distribuzione",
       "earn_next": "2027-01-19",
       "updated": "2026-11-20"
@@ -12449,7 +12449,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-03-02",
       "updated": "2026-11-20"
@@ -12461,7 +12461,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CMCSA",
-      "divYield": 5.31,
+      "divYield": 5.3,
       "videoID": null,
       "tv": "NASDAQ:CMCSA",
       "fund": {
@@ -12493,7 +12493,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -12537,7 +12537,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -12549,7 +12549,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "LIN",
-      "divYield": 1.23,
+      "divYield": 1.25,
       "videoID": null,
       "tv": "NASDAQ:LIN",
       "fund": {
@@ -12581,7 +12581,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -12593,7 +12593,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CEG",
-      "divYield": 0.66,
+      "divYield": 0.7,
       "videoID": null,
       "tv": "NASDAQ:CEG",
       "fund": {
@@ -12626,7 +12626,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -12673,7 +12673,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -12685,13 +12685,13 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "JD",
-      "divYield": 3.82,
+      "divYield": 3.94,
       "videoID": null,
       "tv": "NASDAQ:JD",
       "fund": {
         "pe": "14.9",
         "eps": "1.67",
-        "mcap": "30.3B",
+        "mcap": "30.1B",
         "rev": "+6.3%"
       },
       "fv_low": 18.2,
@@ -12717,7 +12717,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-11",
       "updated": "2026-11-20"
@@ -12735,7 +12735,7 @@
       "fund": {
         "pe": "18.3",
         "eps": "3.39",
-        "mcap": "22.6B",
+        "mcap": "21.7B",
         "rev": "+1.9%"
       },
       "fv_low": null,
@@ -12762,7 +12762,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-03-03",
       "updated": "2026-11-20"
@@ -12774,7 +12774,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NXPI",
-      "divYield": 1.61,
+      "divYield": 1.72,
       "videoID": null,
       "tv": "NASDAQ:NXPI",
       "fund": {
@@ -12804,7 +12804,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-01",
       "updated": "2026-11-20"
@@ -12846,7 +12846,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-08",
       "updated": "2026-11-20"
@@ -12858,7 +12858,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "MCHP",
-      "divYield": 3.11,
+      "divYield": 3.28,
       "videoID": null,
       "tv": "NASDAQ:MCHP",
       "fund": {
@@ -12890,7 +12890,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -12932,7 +12932,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -12944,7 +12944,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "NDAQ",
-      "divYield": 1.12,
+      "divYield": 1.13,
       "videoID": null,
       "tv": "NASDAQ:NDAQ",
       "fund": {
@@ -12976,7 +12976,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Finanza",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -12988,7 +12988,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "POOL",
-      "divYield": 2.43,
+      "divYield": 2.45,
       "videoID": null,
       "tv": "NASDAQ:POOL",
       "fund": {
@@ -13018,7 +13018,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Distribuzione",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -13062,7 +13062,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -13104,7 +13104,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -13116,7 +13116,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXC",
-      "divYield": 3.65,
+      "divYield": 3.63,
       "videoID": null,
       "tv": "NASDAQ:EXC",
       "fund": {
@@ -13150,7 +13150,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -13162,7 +13162,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "XEL",
-      "divYield": 2.95,
+      "divYield": 2.96,
       "videoID": null,
       "tv": "NASDAQ:XEL",
       "fund": {
@@ -13196,7 +13196,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -13208,7 +13208,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "WMT",
-      "divYield": 0.78,
+      "divYield": 0.76,
       "videoID": null,
       "tv": "NASDAQ:WMT",
       "fund": {
@@ -13238,7 +13238,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -13280,7 +13280,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -13292,7 +13292,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "DPZ",
-      "divYield": 2.19,
+      "divYield": 2.21,
       "videoID": null,
       "tv": "NASDAQ:DPZ",
       "fund": {
@@ -13324,7 +13324,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-03-01",
       "updated": "2026-11-20"
@@ -13369,7 +13369,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-01-20",
       "updated": "2026-11-20"
@@ -13381,7 +13381,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "BKR",
-      "divYield": 1.97,
+      "divYield": 2.05,
       "videoID": null,
       "tv": "NASDAQ:BKR",
       "fund": {
@@ -13414,7 +13414,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -13426,7 +13426,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "CCEP",
-      "divYield": 2.06,
+      "divYield": 2.07,
       "videoID": null,
       "tv": "NASDAQ:CCEP",
       "fund": {
@@ -13458,7 +13458,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -13500,7 +13500,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-03",
       "updated": "2026-11-20"
@@ -13512,7 +13512,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "EXPE",
-      "divYield": 0.77,
+      "divYield": 0.78,
       "videoID": null,
       "tv": "NASDAQ:EXPE",
       "fund": {
@@ -13544,7 +13544,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -13556,7 +13556,7 @@
       "curr": "$",
       "ex": "NASDAQ",
       "yf": "GFS",
-      "divYield": 0.62,
+      "divYield": 0.67,
       "videoID": null,
       "tv": "NASDAQ:GFS",
       "fund": {
@@ -13588,7 +13588,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-16",
       "updated": "2026-11-20"
@@ -13632,7 +13632,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-02-16",
       "updated": "2026-11-20"
@@ -13676,7 +13676,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-01",
       "updated": "2026-11-20"
@@ -13722,7 +13722,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-02",
       "updated": "2026-11-20"
@@ -13764,7 +13764,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-23",
       "updated": "2026-11-20"
@@ -13808,7 +13808,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-12-02",
       "updated": "2026-11-20"
@@ -13852,7 +13852,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -13894,7 +13894,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -13936,7 +13936,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-15",
       "updated": "2026-11-20"
@@ -13980,7 +13980,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -13992,7 +13992,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DELL",
-      "divYield": 0.77,
+      "divYield": 0.87,
       "videoID": null,
       "tv": "NYSE:DELL",
       "fund": {
@@ -14022,7 +14022,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-11-24",
       "updated": "2026-11-20"
@@ -14034,7 +14034,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HPQ",
-      "divYield": 4.31,
+      "divYield": 4.29,
       "videoID": null,
       "tv": "NYSE:HPQ",
       "fund": {
@@ -14064,7 +14064,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2026-11-24",
       "updated": "2026-11-20"
@@ -14106,7 +14106,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -14150,7 +14150,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -14162,7 +14162,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MSCI",
-      "divYield": 1.27,
+      "divYield": 1.3,
       "videoID": null,
       "tv": "NYSE:MSCI",
       "fund": {
@@ -14194,7 +14194,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-01-26",
       "updated": "2026-11-20"
@@ -14206,7 +14206,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "SPGI",
-      "divYield": 0.87,
+      "divYield": 0.88,
       "videoID": null,
       "tv": "NYSE:SPGI",
       "fund": {
@@ -14236,7 +14236,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi alle imprese",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -14248,7 +14248,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ICE",
-      "divYield": 1.19,
+      "divYield": 1.2,
       "videoID": null,
       "tv": "NYSE:ICE",
       "fund": {
@@ -14278,7 +14278,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Finanza",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -14290,13 +14290,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "TSM",
-      "divYield": 0.85,
+      "divYield": 0.93,
       "videoID": null,
       "tv": "NYSE:TSM",
       "fund": {
         "pe": "20.5",
         "eps": "15.54",
-        "mcap": "1.65T",
+        "mcap": "1.57T",
         "rev": "+35.2%"
       },
       "fv_low": 70.57,
@@ -14322,7 +14322,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-21",
       "updated": "2026-11-20"
@@ -14334,13 +14334,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BABA",
-      "divYield": 1.24,
+      "divYield": 1.27,
       "videoID": null,
       "tv": "NYSE:BABA",
       "fund": {
         "pe": "11.8",
         "eps": "6.87",
-        "mcap": "204.3B",
+        "mcap": "211.4B",
         "rev": "+10.5%"
       },
       "fv_low": null,
@@ -14367,7 +14367,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-25",
       "updated": "2026-11-20"
@@ -14385,7 +14385,7 @@
       "fund": {
         "pe": "N/D",
         "eps": "-0.17",
-        "mcap": "161.9B",
+        "mcap": "159.9B",
         "rev": "-3.1%"
       },
       "fv_low": null,
@@ -14411,7 +14411,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -14423,13 +14423,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "TM",
-      "divYield": 2.82,
+      "divYield": 2.87,
       "videoID": null,
       "tv": "NYSE:TM",
       "fund": {
         "pe": "9.5",
         "eps": "21.88",
-        "mcap": "250.4B",
+        "mcap": "245.5B",
         "rev": "+1.7%"
       },
       "fv_low": null,
@@ -14456,7 +14456,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -14474,7 +14474,7 @@
       "fund": {
         "pe": "22.3",
         "eps": "2.81",
-        "mcap": "39.2B",
+        "mcap": "37.3B",
         "rev": "+44.1%"
       },
       "fv_low": null,
@@ -14500,7 +14500,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-09",
       "updated": "2026-11-20"
@@ -14512,7 +14512,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "JNJ",
-      "divYield": 1.98,
+      "divYield": 1.95,
       "videoID": null,
       "tv": "NYSE:JNJ",
       "fund": {
@@ -14544,7 +14544,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-26",
       "updated": "2026-11-20"
@@ -14556,7 +14556,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ABT",
-      "divYield": 2.43,
+      "divYield": 2.45,
       "videoID": null,
       "tv": "NYSE:ABT",
       "fund": {
@@ -14586,7 +14586,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -14598,7 +14598,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BMY",
-      "divYield": 4.32,
+      "divYield": 4.29,
       "videoID": null,
       "tv": "NYSE:BMY",
       "fund": {
@@ -14630,7 +14630,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -14642,7 +14642,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ZTS",
-      "divYield": 2.62,
+      "divYield": 2.68,
       "videoID": null,
       "tv": "NYSE:ZTS",
       "fund": {
@@ -14672,7 +14672,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-16",
       "updated": "2026-11-20"
@@ -14684,7 +14684,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "SYK",
-      "divYield": 1.12,
+      "divYield": 1.14,
       "videoID": null,
       "tv": "NYSE:SYK",
       "fund": {
@@ -14714,7 +14714,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-02",
       "updated": "2026-11-20"
@@ -14756,7 +14756,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -14768,7 +14768,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HCA",
-      "divYield": 0.66,
+      "divYield": 0.64,
       "videoID": null,
       "tv": "NYSE:HCA",
       "fund": {
@@ -14800,7 +14800,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-02",
       "updated": "2026-11-20"
@@ -14812,7 +14812,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CI",
-      "divYield": 2.27,
+      "divYield": 2.28,
       "videoID": null,
       "tv": "NYSE:CI",
       "fund": {
@@ -14844,7 +14844,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -14856,7 +14856,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HUM",
-      "divYield": 0.93,
+      "divYield": 0.91,
       "videoID": null,
       "tv": "NYSE:HUM",
       "fund": {
@@ -14888,7 +14888,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi sanitari",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -14930,7 +14930,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Distribuzione",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -14974,7 +14974,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -14986,7 +14986,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "A",
-      "divYield": 0.58,
+      "divYield": 0.6,
       "videoID": null,
       "tv": "NYSE:A",
       "fund": {
@@ -15016,7 +15016,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2026-11-23",
       "updated": "2026-11-20"
@@ -15058,7 +15058,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -15070,7 +15070,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "WST",
-      "divYield": 0.22,
+      "divYield": 0.23,
       "videoID": null,
       "tv": "NYSE:WST",
       "fund": {
@@ -15100,7 +15100,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -15144,7 +15144,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Farmaci e dispositivi medici",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -15156,7 +15156,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "TGT",
-      "divYield": 2.73,
+      "divYield": 2.76,
       "videoID": null,
       "tv": "NYSE:TGT",
       "fund": {
@@ -15189,7 +15189,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-02",
       "updated": "2026-11-20"
@@ -15201,7 +15201,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "LOW",
-      "divYield": 2.24,
+      "divYield": 2.22,
       "videoID": null,
       "tv": "NYSE:LOW",
       "fund": {
@@ -15233,7 +15233,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -15277,7 +15277,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -15289,7 +15289,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "YUM",
-      "divYield": 1.86,
+      "divYield": 1.84,
       "videoID": null,
       "tv": "NYSE:YUM",
       "fund": {
@@ -15321,7 +15321,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -15333,7 +15333,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HSY",
-      "divYield": 3.29,
+      "divYield": 3.26,
       "videoID": null,
       "tv": "NYSE:HSY",
       "fund": {
@@ -15365,7 +15365,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -15377,7 +15377,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "STZ",
-      "divYield": 2.91,
+      "divYield": 2.9,
       "videoID": null,
       "tv": "NYSE:STZ",
       "fund": {
@@ -15409,7 +15409,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-07",
       "updated": "2026-11-20"
@@ -15421,7 +15421,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CLX",
-      "divYield": 4.75,
+      "divYield": 4.76,
       "videoID": null,
       "tv": "NYSE:CLX",
       "fund": {
@@ -15454,7 +15454,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -15466,7 +15466,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CHD",
-      "divYield": 1.11,
+      "divYield": 1.1,
       "videoID": null,
       "tv": "NYSE:CHD",
       "fund": {
@@ -15496,7 +15496,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-01-29",
       "updated": "2026-11-20"
@@ -15538,7 +15538,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -15580,7 +15580,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -15624,7 +15624,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": "2027-03-18",
       "updated": "2026-11-20"
@@ -15636,7 +15636,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "F",
-      "divYield": 5.34,
+      "divYield": 5.37,
       "videoID": null,
       "tv": "NYSE:F",
       "fund": {
@@ -15669,7 +15669,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni durevoli e auto",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -15726,7 +15726,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DRI",
-      "divYield": 2.7,
+      "divYield": 2.76,
       "videoID": null,
       "tv": "NYSE:DRI",
       "fund": {
@@ -15758,7 +15758,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2026-12-18",
       "updated": "2026-11-20"
@@ -15770,7 +15770,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "LVS",
-      "divYield": 2.92,
+      "divYield": 2.96,
       "videoID": null,
       "tv": "NYSE:LVS",
       "fund": {
@@ -15803,7 +15803,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -15815,13 +15815,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "WSM",
-      "divYield": 1.33,
+      "divYield": 1.4,
       "videoID": null,
       "tv": "NYSE:WSM",
       "fund": {
         "pe": "20.7",
         "eps": "10.20",
-        "mcap": "24.8B",
+        "mcap": "24.7B",
         "rev": "+2.5%"
       },
       "fv_low": 48.33,
@@ -15845,7 +15845,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-03-17",
       "updated": "2026-11-20"
@@ -15857,7 +15857,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BBY",
-      "divYield": 3.86,
+      "divYield": 3.91,
       "videoID": null,
       "tv": "NYSE:BBY",
       "fund": {
@@ -15887,7 +15887,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2026-11-24",
       "updated": "2026-11-20"
@@ -15899,7 +15899,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GE",
-      "divYield": 0.56,
+      "divYield": 0.57,
       "videoID": null,
       "tv": "NYSE:GE",
       "fund": {
@@ -15932,7 +15932,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-21",
       "updated": "2026-11-20"
@@ -15944,7 +15944,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GEV",
-      "divYield": 0.26,
+      "divYield": 0.29,
       "videoID": null,
       "tv": "NYSE:GEV",
       "fund": {
@@ -15974,7 +15974,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -15986,7 +15986,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ETN",
-      "divYield": 1.31,
+      "divYield": 1.39,
       "videoID": null,
       "tv": "NYSE:ETN",
       "fund": {
@@ -16018,7 +16018,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-01-29",
       "updated": "2026-11-20"
@@ -16030,7 +16030,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "EMR",
-      "divYield": 1.41,
+      "divYield": 1.47,
       "videoID": null,
       "tv": "NYSE:EMR",
       "fund": {
@@ -16060,7 +16060,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-10",
       "updated": "2026-11-20"
@@ -16072,7 +16072,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ITW",
-      "divYield": 2.37,
+      "divYield": 2.39,
       "videoID": null,
       "tv": "NYSE:ITW",
       "fund": {
@@ -16102,7 +16102,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -16114,7 +16114,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PH",
-      "divYield": 0.84,
+      "divYield": 0.87,
       "videoID": null,
       "tv": "NYSE:PH",
       "fund": {
@@ -16146,7 +16146,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -16190,7 +16190,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-01-26",
       "updated": "2026-11-20"
@@ -16202,7 +16202,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CMI",
-      "divYield": 1.95,
+      "divYield": 2.03,
       "videoID": null,
       "tv": "NYSE:CMI",
       "fund": {
@@ -16232,7 +16232,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -16244,7 +16244,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NSC",
-      "divYield": 1.7,
+      "divYield": 1.74,
       "videoID": null,
       "tv": "NYSE:NSC",
       "fund": {
@@ -16277,7 +16277,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -16289,7 +16289,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DAL",
-      "divYield": 0.97,
+      "divYield": 1.01,
       "videoID": null,
       "tv": "NYSE:DAL",
       "fund": {
@@ -16323,7 +16323,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-01-08",
       "updated": "2026-11-20"
@@ -16335,7 +16335,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "WAB",
-      "divYield": 0.42,
+      "divYield": 0.44,
       "videoID": null,
       "tv": "NYSE:WAB",
       "fund": {
@@ -16367,7 +16367,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -16379,7 +16379,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CARR",
-      "divYield": 1.86,
+      "divYield": 1.92,
       "videoID": null,
       "tv": "NYSE:CARR",
       "fund": {
@@ -16411,7 +16411,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -16455,7 +16455,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -16467,7 +16467,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "TT",
-      "divYield": 1.02,
+      "divYield": 1.06,
       "videoID": null,
       "tv": "NYSE:TT",
       "fund": {
@@ -16497,7 +16497,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -16509,7 +16509,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "JCI",
-      "divYield": 1.18,
+      "divYield": 1.23,
       "videoID": null,
       "tv": "NYSE:JCI",
       "fund": {
@@ -16542,7 +16542,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -16554,7 +16554,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ROK",
-      "divYield": 1.44,
+      "divYield": 1.53,
       "videoID": null,
       "tv": "NYSE:ROK",
       "fund": {
@@ -16584,7 +16584,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -16596,7 +16596,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "AME",
-      "divYield": 0.58,
+      "divYield": 0.6,
       "videoID": null,
       "tv": "NYSE:AME",
       "fund": {
@@ -16628,7 +16628,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Industria",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -16640,7 +16640,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "GWW",
-      "divYield": 0.67,
+      "divYield": 0.7,
       "videoID": null,
       "tv": "NYSE:GWW",
       "fund": {
@@ -16670,7 +16670,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Distribuzione",
       "earn_next": "2027-02-02",
       "updated": "2026-11-20"
@@ -16682,7 +16682,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "URI",
-      "divYield": 0.73,
+      "divYield": 0.79,
       "videoID": null,
       "tv": "NYSE:URI",
       "fund": {
@@ -16716,7 +16716,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Finanza",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -16728,7 +16728,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "LHX",
-      "divYield": 1.93,
+      "divYield": 1.98,
       "videoID": null,
       "tv": "NYSE:LHX",
       "fund": {
@@ -16758,7 +16758,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -16802,7 +16802,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -16820,7 +16820,7 @@
       "fund": {
         "pe": "53.7",
         "eps": "6.01",
-        "mcap": "38.0B",
+        "mcap": "38.1B",
         "rev": "+20.7%"
       },
       "fv_low": 69.53,
@@ -16844,7 +16844,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Tecnologia e semiconduttori",
       "earn_next": "2026-12-21",
       "updated": "2026-11-20"
@@ -16856,7 +16856,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "EOG",
-      "divYield": 2.73,
+      "divYield": 2.75,
       "videoID": null,
       "tv": "NYSE:EOG",
       "fund": {
@@ -16888,7 +16888,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -16932,7 +16932,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-02-02",
       "updated": "2026-11-20"
@@ -16944,7 +16944,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "PSX",
-      "divYield": 2.06,
+      "divYield": 2.09,
       "videoID": null,
       "tv": "NYSE:PSX",
       "fund": {
@@ -16977,7 +16977,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -16989,7 +16989,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "VLO",
-      "divYield": 1.4,
+      "divYield": 1.42,
       "videoID": null,
       "tv": "NYSE:VLO",
       "fund": {
@@ -17021,7 +17021,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Energia",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -17033,7 +17033,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "HAL",
-      "divYield": 2.14,
+      "divYield": 2.23,
       "videoID": null,
       "tv": "NYSE:HAL",
       "fund": {
@@ -17066,7 +17066,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi industriali",
       "earn_next": "2027-01-26",
       "updated": "2026-11-20"
@@ -17078,7 +17078,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "WMB",
-      "divYield": 3.14,
+      "divYield": 3.23,
       "videoID": null,
       "tv": "NYSE:WMB",
       "fund": {
@@ -17111,7 +17111,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi industriali",
       "earn_next": "2027-02-22",
       "updated": "2026-11-20"
@@ -17123,7 +17123,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "OKE",
-      "divYield": 4.9,
+      "divYield": 5.03,
       "videoID": null,
       "tv": "NYSE:OKE",
       "fund": {
@@ -17156,7 +17156,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-01",
       "updated": "2026-11-20"
@@ -17168,7 +17168,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "APD",
-      "divYield": 2.38,
+      "divYield": 2.43,
       "videoID": null,
       "tv": "NYSE:APD",
       "fund": {
@@ -17203,7 +17203,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-04",
       "updated": "2026-11-20"
@@ -17247,7 +17247,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -17259,7 +17259,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ECL",
-      "divYield": 0.98,
+      "divYield": 0.99,
       "videoID": null,
       "tv": "NYSE:ECL",
       "fund": {
@@ -17291,7 +17291,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-16",
       "updated": "2026-11-20"
@@ -17303,7 +17303,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NEM",
-      "divYield": 1.03,
+      "divYield": 1.09,
       "videoID": null,
       "tv": "NYSE:NEM",
       "fund": {
@@ -17333,7 +17333,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Materie prime",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -17345,7 +17345,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "FCX",
-      "divYield": 1.22,
+      "divYield": 1.3,
       "videoID": null,
       "tv": "NYSE:FCX",
       "fund": {
@@ -17378,7 +17378,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Materie prime",
       "earn_next": "2027-01-27",
       "updated": "2026-11-20"
@@ -17390,7 +17390,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "NUE",
-      "divYield": 0.91,
+      "divYield": 0.93,
       "videoID": null,
       "tv": "NYSE:NUE",
       "fund": {
@@ -17423,7 +17423,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Materie prime",
       "earn_next": "2027-02-01",
       "updated": "2026-11-20"
@@ -17435,7 +17435,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DOW",
-      "divYield": 4.63,
+      "divYield": 4.82,
       "videoID": null,
       "tv": "NYSE:DOW",
       "fund": {
@@ -17469,7 +17469,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-01-28",
       "updated": "2026-11-20"
@@ -17481,7 +17481,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DD",
-      "divYield": 1.6,
+      "divYield": 1.65,
       "videoID": null,
       "tv": "NYSE:DD",
       "fund": {
@@ -17514,7 +17514,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-09",
       "updated": "2026-11-20"
@@ -17526,7 +17526,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "ALB",
-      "divYield": 1.96,
+      "divYield": 2.04,
       "videoID": null,
       "tv": "NYSE:ALB",
       "fund": {
@@ -17559,7 +17559,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -17571,7 +17571,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CTVA",
-      "divYield": 8.87,
+      "divYield": 9.13,
       "videoID": null,
       "tv": "NYSE:CTVA",
       "fund": {
@@ -17603,7 +17603,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-03",
       "updated": "2026-11-20"
@@ -17615,7 +17615,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "MOS",
-      "divYield": 4.43,
+      "divYield": 4.72,
       "videoID": null,
       "tv": "NYSE:MOS",
       "fund": {
@@ -17649,7 +17649,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-24",
       "updated": "2026-11-20"
@@ -17661,7 +17661,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CF",
-      "divYield": 1.81,
+      "divYield": 1.82,
       "videoID": null,
       "tv": "NYSE:CF",
       "fund": {
@@ -17694,7 +17694,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Chimica e materiali",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -17706,7 +17706,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "DUK",
-      "divYield": 3.32,
+      "divYield": 3.3,
       "videoID": null,
       "tv": "NYSE:DUK",
       "fund": {
@@ -17741,7 +17741,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -17788,7 +17788,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-18",
       "updated": "2026-11-20"
@@ -17800,7 +17800,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "D",
-      "divYield": 4.01,
+      "divYield": 4.03,
       "videoID": null,
       "tv": "NYSE:D",
       "fund": {
@@ -17834,7 +17834,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-02-05",
       "updated": "2026-11-20"
@@ -17846,7 +17846,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "VST",
-      "divYield": 0.74,
+      "divYield": 0.79,
       "videoID": null,
       "tv": "NYSE:VST",
       "fund": {
@@ -17881,7 +17881,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Utility",
       "earn_next": "2027-03-03",
       "updated": "2026-11-20"
@@ -17926,7 +17926,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -17970,7 +17970,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -18014,7 +18014,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-11",
       "updated": "2026-11-20"
@@ -18059,7 +18059,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Commercio al dettaglio",
       "earn_next": "2027-02-25",
       "updated": "2026-11-20"
@@ -18101,7 +18101,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -18113,13 +18113,13 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "BUD",
-      "divYield": 1.24,
+      "divYield": 1.26,
       "videoID": null,
       "tv": "NYSE:BUD",
       "fund": {
         "pe": "17.1",
         "eps": "4.64",
-        "mcap": "158.4B",
+        "mcap": "158.8B",
         "rev": "+6.6%"
       },
       "fv_low": 62.75,
@@ -18145,7 +18145,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Beni di consumo",
       "earn_next": null,
       "updated": "2026-11-20"
@@ -18157,7 +18157,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CCL",
-      "divYield": 1.63,
+      "divYield": 1.69,
       "videoID": null,
       "tv": "NYSE:CCL",
       "fund": {
@@ -18190,7 +18190,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2026-12-18",
       "updated": "2026-11-20"
@@ -18202,7 +18202,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CNI",
-      "divYield": 2.03,
+      "divYield": 2.07,
       "videoID": null,
       "tv": "NYSE:CNI",
       "fund": {
@@ -18235,7 +18235,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-01-29",
       "updated": "2026-11-20"
@@ -18247,7 +18247,7 @@
       "curr": "$",
       "ex": "NYSE",
       "yf": "CP",
-      "divYield": 0.76,
+      "divYield": 0.77,
       "videoID": null,
       "tv": "NYSE:CP",
       "fund": {
@@ -18280,7 +18280,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Trasporti",
       "earn_next": "2027-02-02",
       "updated": "2026-11-20"
@@ -18325,7 +18325,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Servizi ai consumatori",
       "earn_next": "2027-03-02",
       "updated": "2026-11-20"
@@ -18367,7 +18367,7 @@
         "avvisi": []
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -18411,7 +18411,7 @@
         ]
       },
       "fv_source": "indicatore",
-      "fv_updated": "2026-11-21",
+      "fv_updated": "2026-11-22",
       "settore": "Software e servizi IT",
       "earn_next": "2027-02-17",
       "updated": "2026-11-20"
@@ -18425,5 +18425,5 @@
     ".INTU": "INTU",
     ".QCOM": "QCOM"
   },
-  "fv_updated": "2026-11-21T03:18:35.693Z"
+  "fv_updated": "2026-11-22T23:56:17.565Z"
 }

@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-21T03:18:35.693Z",
+ "aggiornato": "2026-11-22T23:56:17.565Z",
  "cambi": [
   {
    "data": "2026-11-20",
@@ -417,11 +417,25 @@
  ],
  "cambi_altri": [
   {
-   "data": "2026-11-21",
+   "data": "2026-11-22",
    "t": "BAER.SW",
    "nome": "Julius Baer Gruppe AG",
-   "da": "banda",
-   "a": "sotto"
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-22",
+   "t": "MOG.A",
+   "nome": "Moog Inc.",
+   "da": "premio_dubbio",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-22",
+   "t": "NFG",
+   "nome": "National Fuel Gas",
+   "da": "premio_sostenuto",
+   "a": "sopra"
   }
  ]
 }
