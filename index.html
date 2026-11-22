@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://matteomazzerotrading.github.io/trading-hub/">
     <meta name="author" content="Matteo Mazzero">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#050505">
+    <meta name="theme-color" content="#0B1520">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <!-- App installabile (PWA): icona sulla schermata Home, apertura a tutto schermo, ultima copia dei dati senza rete -->
     <link rel="manifest" href="manifest.webmanifest">
@@ -41,7 +41,9 @@
     ]}
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <!-- Formula dell'indicatore FAIR VALUE (dati realizzati): stessa usata dal calcolo automatico -->
     <script src="scripts/fv_engine.js"></script>
@@ -55,7 +57,7 @@
             --text-main: #e0e0e0;
             --text-muted: #949494;
             --brand-green: #00e676;
-            --brand-glow: rgba(0, 230, 118, 0.25);
+            --brand-glow: rgba(217,174,87,0.25);
             --accent-blue: #2962ff;
             --accent-red: #ff3d00;
             --accent-purple: #9c27b0;
@@ -64,13 +66,13 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif; margin: 0; padding: 0;
+            font-family: 'IBM Plex Sans', sans-serif; margin: 0; padding: 0;
             background-color: var(--bg-body); color: var(--text-main);
             padding-top: 70px;
             background-image: radial-gradient(circle at 50% -20%, #1a2e25 0%, #050505 50%);
             min-height: 100vh; scroll-behavior: smooth;
         }
-        .mono-font { font-family: 'JetBrains Mono', monospace; }
+        .mono-font { font-family: 'IBM Plex Mono', monospace; }
 
         /* NAVBAR */
         .navbar {
@@ -81,19 +83,19 @@
             padding: 0 40px; box-sizing: border-box; z-index: 1000;
         }
         .navbar-logo { color: #fff; font-size: 1.4em; font-weight: 800; text-decoration: none; letter-spacing: -0.5px; display: inline-flex; align-items: center; gap: 8px; }
-        .navbar-logo img { display: block; border-radius: 9px; box-shadow: 0 0 0 1px rgba(0,230,118,0.45); }
-        .navbar-logo span { color: var(--brand-green); text-shadow: 0 0 15px var(--brand-glow); }
+        .navbar-logo img { display: block; border-radius: 9px; box-shadow: 0 0 0 1px rgba(217,174,87,0.45); }
+        .navbar-logo span { color: var(--accent); text-shadow: 0 0 15px var(--accent-glow); }
         .nav-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center;}
         .nav-link { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.9em; transition: 0.3s; }
-        .nav-link:hover { color: var(--brand-green); }
-        .nav-link.active { color: var(--brand-green); border-bottom: 2px solid var(--brand-green); padding-bottom: 2px; }
+        .nav-link:hover { color: var(--accent); }
+        .nav-link.active { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
 
         /* NOTIFICHE TOAST (ALERTS) */
         #toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
         .toast {
-            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); border: 1px solid var(--brand-green);
-            color: #fff; padding: 16px 20px; border-radius: 12px; font-size: 0.9em; font-family: 'Inter', sans-serif;
-            box-shadow: 0 5px 25px rgba(0, 230, 118, 0.15); animation: slideInRight 0.5s ease forwards;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); border: 1px solid var(--accent);
+            color: #fff; padding: 16px 20px; border-radius: 12px; font-size: 0.9em; font-family: 'IBM Plex Sans', sans-serif;
+            box-shadow: 0 5px 25px rgba(217,174,87,0.15); animation: slideInRight 0.5s ease forwards;
             display: flex; align-items: center; gap: 12px; pointer-events: auto;
         }
         @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -102,50 +104,50 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; margin-bottom: 80px; }
         .section-header { margin-bottom: 30px; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px; }
         .section-title { font-size: 2.2em; font-weight: 800; color: #fff; margin: 0; letter-spacing: -1px; }
-        .section-title span { color: var(--brand-green); }
+        .section-title span { color: var(--accent); }
         
         .card {
             background: var(--bg-glass); border: 1px solid var(--border-glass); border-radius: 16px;
             padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s; will-change: transform;
         }
-        .card:not(.fv-result-card):hover { transform: translateY(-5px); border-color: rgba(0, 230, 118, 0.3); }
+        .card:not(.fv-result-card):hover { transform: translateY(-5px); border-color: rgba(217,174,87,0.3); }
 
         /* FORMS & INPUTS */
         .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
         .form-label { color: var(--text-muted); font-size: 0.85em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .form-input { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); color: #fff; padding: 15px; border-radius: 8px; font-family: 'Inter', sans-serif; outline: none; transition: 0.3s; width: 100%; box-sizing: border-box; }
-        .form-input:focus { border-color: var(--brand-green); background: rgba(255,255,255,0.06); }
-        .btn-primary { background: var(--brand-green); color: #000; border: none; padding: 15px 30px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; width: 100%; }
-        .btn-primary:hover { box-shadow: 0 0 20px var(--brand-glow); transform: translateY(-2px); }
+        .form-input { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); color: #fff; padding: 15px; border-radius: 8px; font-family: 'IBM Plex Sans', sans-serif; outline: none; transition: 0.3s; width: 100%; box-sizing: border-box; }
+        .form-input:focus { border-color: var(--accent); background: rgba(255,255,255,0.06); }
+        .btn-primary { background: var(--accent); color: #13202B; border: none; padding: 15px 30px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; width: 100%; }
+        .btn-primary:hover { box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-2px); }
 
         input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus { transition: background-color 5000s ease-in-out 0s !important; -webkit-text-fill-color: #fff !important; }
 
         /* === FAIR VALUE === */
         .fv-interface { display: flex; flex-direction: column; gap: 20px; }
         .fv-search-box { display: flex; gap: 12px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 8px 8px 8px 25px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
-        .fv-search-box:focus-within { border-color: var(--brand-green); box-shadow: 0 0 25px rgba(0, 230, 118, 0.15); background: rgba(0, 0, 0, 0.7); }
-        .fv-input-main { flex: 1; background: transparent !important; border: none !important; color: #fff !important; font-size: 1.15em; font-family: 'JetBrains Mono', monospace; outline: none !important; text-transform: uppercase; letter-spacing: 1px; box-shadow: none !important; }
-        .fv-input-main::placeholder { color: rgba(255,255,255,0.3); font-family: 'Inter', sans-serif; text-transform: none; letter-spacing: 0; font-size: 0.9em; }
-        .fv-search-btn { background: var(--brand-green); color: #000; border: none; padding: 15px 35px; border-radius: 40px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 1em; letter-spacing: 0.5px; }
-        .fv-search-btn:hover { box-shadow: 0 0 20px var(--brand-glow); transform: scale(1.02); }
+        .fv-search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 25px rgba(217,174,87,0.15); background: rgba(0, 0, 0, 0.7); }
+        .fv-input-main { flex: 1; background: transparent !important; border: none !important; color: #fff !important; font-size: 1.15em; font-family: 'IBM Plex Mono', monospace; outline: none !important; text-transform: uppercase; letter-spacing: 1px; box-shadow: none !important; }
+        .fv-input-main::placeholder { color: rgba(255,255,255,0.3); font-family: 'IBM Plex Sans', sans-serif; text-transform: none; letter-spacing: 0; font-size: 0.9em; }
+        .fv-search-btn { background: var(--accent); color: #13202B; border: none; padding: 15px 35px; border-radius: 40px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 1em; letter-spacing: 0.5px; }
+        .fv-search-btn:hover { box-shadow: 0 0 20px var(--accent-glow); transform: scale(1.02); }
         /* Le caselle di testo dentro le barre devono potersi restringere, altrimenti su smartphone
            spingono il pulsante fuori dalla barra e allargano tutta la pagina */
         .fv-input-main, .watchlist-input { min-width: 0; width: 100%; }
         /* Card strumenti / link affiliato */
-        .affiliate-card { border-color: rgba(0, 230, 118, 0.25); background: linear-gradient(135deg, rgba(0,230,118,0.06), rgba(20,20,25,0.6)); }
+        .affiliate-card { border-color: rgba(217,174,87,0.25); background: linear-gradient(135deg, rgba(217,174,87,0.06), rgba(20,20,25,0.6)); }
         .affiliate-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
         .affiliate-text { flex: 1 1 auto; min-width: 0; }
         .affiliate-btn { flex: 0 0 auto; width: auto; margin: 0; padding: 14px 28px; text-decoration: none; text-align: center; white-space: nowrap; }
         .affiliate-note { margin: 18px 0 0; font-size: 0.75em; color: var(--text-muted); opacity: 0.8; }
         .promo-code { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; font-size: 0.85em; color: var(--text-muted); }
-        .promo-code-val { color: #fff; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 1px dashed var(--brand-green); border-radius: 6px; background: rgba(0,230,118,0.06); }
-        .promo-copy-btn { background: transparent; color: var(--brand-green); border: 1px solid rgba(0,230,118,0.4); border-radius: 6px; padding: 4px 12px; font-size: 0.95em; font-weight: 600; cursor: pointer; font-family: inherit; }
-        .promo-copy-btn:hover { background: rgba(0,230,118,0.1); }
+        .promo-code-val { color: #fff; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border: 1px dashed var(--accent); border-radius: 6px; background: rgba(217,174,87,0.06); }
+        .promo-copy-btn { background: transparent; color: var(--accent); border: 1px solid rgba(217,174,87,0.4); border-radius: 6px; padding: 4px 12px; font-size: 0.95em; font-weight: 600; cursor: pointer; font-family: inherit; }
+        .promo-copy-btn:hover { background: rgba(217,174,87,0.1); }
         @media (max-width: 600px) { .affiliate-inner { flex-direction: column; align-items: stretch; gap: 18px; } .affiliate-btn { white-space: normal; } }
         .fv-search-btn, .watchlist-add-btn { flex-shrink: 0; }
 
-        .fv-result-card { display: none; background: rgba(0, 230, 118, 0.05); border: 1px solid var(--brand-green); margin-top: 20px; animation: slideUp 0.5s ease; border-width: 2px;}
+        .fv-result-card { display: none; background: rgba(217,174,87,0.05); border: 1px solid var(--accent); margin-top: 20px; animation: slideUp 0.5s ease; border-width: 2px;}
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .fv-value-big { font-size: 3.2em; font-weight: 800; transition: 0.3s; }
         .fv-value-medium { font-size: 2.2em; font-weight: 800; color: var(--accent-blue); text-shadow: 0 0 15px rgba(41, 98, 255, 0.4); }
@@ -154,7 +156,7 @@
         /* DATI FONDAMENTALI */
         .fundamentals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-glass); }
         .fund-box { background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 10px; padding: 15px; text-align: center; }
-        .fund-val { font-family: 'JetBrains Mono', monospace; font-size: 1.3em; font-weight: 700; color: #fff; }
+        .fund-val { font-family: 'IBM Plex Mono', monospace; font-size: 1.3em; font-weight: 700; color: #fff; }
         .fund-lbl { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; letter-spacing: 0.5px;}
 
         .smart-video-container { margin-top: 30px; border-top: 1px solid var(--border-glass); padding-top: 20px; display: none; }
@@ -166,9 +168,9 @@
         .signal-list { display: flex; flex-direction: column; gap: 12px; }
         .signal-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 10px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
         .signal-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
-        .signal-ticker { font-family: 'JetBrains Mono', monospace; font-size: 1.2em; font-weight: 800; color: #fff; }
+        .signal-ticker { font-family: 'IBM Plex Mono', monospace; font-size: 1.2em; font-weight: 800; color: #fff; }
         .signal-date { font-size: 0.8em; color: var(--text-muted); margin-top: 4px; }
-        .signal-price { font-family: 'JetBrains Mono', monospace; font-size: 1.1em; font-weight: 600; color: #e0e0e0; }
+        .signal-price { font-family: 'IBM Plex Mono', monospace; font-size: 1.1em; font-weight: 600; color: #e0e0e0; }
         .sig-badge { display: inline-block; padding: 4px 12px; border-radius: 8px; font-size: 0.75em; font-weight: 800; letter-spacing: 0.5px; }
         .sig-badge.buy { background: rgba(0,230,118,0.15); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.4); }
         .sig-badge.sell { background: rgba(255,61,0,0.15); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.4); }
@@ -176,18 +178,18 @@
         /* === SCREENER E LOADER === */
         .screener-controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; }
         .screener-filter-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: var(--text-muted); padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 0.85em; font-weight: 700; transition: 0.2s; white-space: nowrap; }
-        .screener-filter-btn.active, .screener-filter-btn:hover { background: rgba(0,230,118,0.1); color: var(--brand-green); border-color: rgba(0,230,118,0.5); }
+        .screener-filter-btn.active, .screener-filter-btn:hover { background: rgba(217,174,87,0.1); color: var(--accent); border-color: rgba(217,174,87,0.5); }
         .screener-filter-btn.active-red { background: rgba(255,61,0,0.1) !important; color: var(--accent-red) !important; border-color: rgba(255,61,0,0.5) !important; }
-        .screener-search { flex: 1; min-width: 180px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: #fff; padding: 9px 18px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.9em; outline: none; transition: 0.2s; }
-        .screener-search:focus { border-color: var(--brand-green); }
+        .screener-search { flex: 1; min-width: 180px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: #fff; padding: 9px 18px; border-radius: 20px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.9em; outline: none; transition: 0.2s; }
+        .screener-search:focus { border-color: var(--accent); }
         .screener-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-glass); }
         .screener-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
         .screener-table th { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border-glass); cursor: pointer; white-space: nowrap; transition: color 0.2s; }
-        .screener-table th:hover, .screener-table th.sorted { color: var(--brand-green); }
+        .screener-table th:hover, .screener-table th.sorted { color: var(--accent); }
         .screener-table td { padding: 14px 18px; border-bottom: 1px solid var(--border-glass); vertical-align: middle; white-space: nowrap; }
         .screener-table tr:hover td { background: rgba(255,255,255,0.03); }
-        .scr-rank { font-family: 'JetBrains Mono', monospace; font-size: 0.8em; color: var(--text-muted); font-weight: 700; text-align: center; }
-        .scr-ticker { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #fff; font-size: 1em; letter-spacing: 0.5px; }
+        .scr-rank { font-family: 'IBM Plex Mono', monospace; font-size: 0.8em; color: var(--text-muted); font-weight: 700; text-align: center; }
+        .scr-ticker { font-family: 'IBM Plex Mono', monospace; font-weight: 800; color: #fff; font-size: 1em; letter-spacing: 0.5px; }
         .scr-name { color: var(--text-muted); font-size: 0.82em; }
         .scr-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.72em; font-weight: 800; letter-spacing: 0.3px; }
         .scr-badge.buy { background: rgba(0,230,118,0.12); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.3); }
@@ -198,47 +200,47 @@
         
         .screener-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
         .scr-stat { background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 10px; padding: 14px 18px; text-align: center; }
-        .scr-stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.5em; font-weight: 800; }
+        .scr-stat-val { font-family: 'IBM Plex Mono', monospace; font-size: 1.5em; font-weight: 800; }
         .scr-stat-lbl { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; margin-top: 3px; }
 
-        .screener-toggle-btn { display: flex; align-items: center; justify-content: space-between; background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.3); color: var(--brand-green); padding: 12px 24px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.95em; transition: 0.3s; width: 100%; font-family: 'Inter', sans-serif; }
-        .screener-toggle-btn:hover { background: rgba(0,230,118,0.14); box-shadow: 0 0 16px var(--brand-glow); }
+        .screener-toggle-btn { display: flex; align-items: center; justify-content: space-between; background: rgba(217,174,87,0.08); border: 1px solid rgba(217,174,87,0.3); color: var(--accent); padding: 12px 24px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.95em; transition: 0.3s; width: 100%; font-family: 'IBM Plex Sans', sans-serif; }
+        .screener-toggle-btn:hover { background: rgba(217,174,87,0.14); box-shadow: 0 0 16px var(--accent-glow); }
         .screener-toggle-icon { transition: transform 0.35s ease; }
         .screener-toggle-icon.open { transform: rotate(180deg); }
         .screener-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.35s ease; opacity: 0; }
         .screener-body.open { max-height: 3000px; opacity: 1; }
 
         /* Loader Screener */
-        .screener-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--brand-green); font-weight: bold; }
-        .screener-loading-spinner { width: 40px; height: 40px; border: 4px solid rgba(0,230,118,0.2); border-top-color: var(--brand-green); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
+        .screener-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--accent); font-weight: bold; }
+        .screener-loading-spinner { width: 40px; height: 40px; border: 4px solid rgba(217,174,87,0.2); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
         /* === COMPARATORE === */
 
         /* === WATCHLIST E PORTAFOGLIO PERSONALE === */
         .watchlist-add-box { display: flex; gap: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid var(--border-glass); margin-bottom: 24px; }
-        .watchlist-input { flex: 1; background: transparent; border: none; color: #fff; padding: 12px; font-size: 1em; font-family: 'Inter', sans-serif; outline: none; text-transform: uppercase; }
-        .watchlist-add-btn { background: var(--brand-green); color: #000; border: none; padding: 0 28px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 0.95em; }
-        .watchlist-add-btn:hover { box-shadow: 0 0 18px var(--brand-glow); }
+        .watchlist-input { flex: 1; background: transparent; border: none; color: #fff; padding: 12px; font-size: 1em; font-family: 'IBM Plex Sans', sans-serif; outline: none; text-transform: uppercase; }
+        .watchlist-add-btn { background: var(--accent); color: #13202B; border: none; padding: 0 28px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 0.95em; }
+        .watchlist-add-btn:hover { box-shadow: 0 0 18px var(--accent-glow); }
         .watchlist-empty { text-align: center; color: var(--text-muted); padding: 40px 20px; font-size: 0.95em; border: 2px dashed var(--border-glass); border-radius: 12px; }
         .wl-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.72em; font-weight: 800; letter-spacing: 0.5px; }
         .wl-badge.green { background: rgba(0,230,118,0.1); color: var(--brand-green); border: 1px solid rgba(0,230,118,0.3); }
         .wl-badge.red { background: rgba(255,61,0,0.1); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.3); }
-        .wl-fv-btn { width: 100%; background: transparent; border: 1px solid var(--border-glass); color: var(--brand-green); padding: 8px; border-radius: 8px; cursor: pointer; font-size: 0.8em; font-weight: 600; transition: 0.2s; }
-        .wl-fv-btn:hover { background: rgba(0,230,118,0.08); border-color: var(--brand-green); }
+        .wl-fv-btn { width: 100%; background: transparent; border: 1px solid var(--border-glass); color: var(--accent); padding: 8px; border-radius: 8px; cursor: pointer; font-size: 0.8em; font-weight: 600; transition: 0.2s; }
+        .wl-fv-btn:hover { background: rgba(217,174,87,0.08); border-color: var(--accent); }
 
         .pers-port-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; margin-bottom: 20px; }
         .pers-table { width: 100%; border-collapse: collapse; font-size: 0.9em; margin-top: 15px;}
         .pers-table th { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border-glass); }
-        .pers-table td { padding: 15px; border-bottom: 1px solid var(--border-glass); font-family: 'JetBrains Mono', monospace; }
+        .pers-table td { padding: 15px; border-bottom: 1px solid var(--border-glass); font-family: 'IBM Plex Mono', monospace; }
         .pers-table tr:last-child td { border-bottom: none; }
         .pl-positive { color: var(--brand-green); font-weight: bold; }
         .pl-negative { color: var(--accent-red); font-weight: bold; }
 
         /* === STRUMENTI OPERATIVI === */
         .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .tool-result-box { margin-top: 20px; padding: 20px; border-radius: 12px; text-align: center; background: rgba(0, 230, 118, 0.05); border: 1px solid rgba(0, 230, 118, 0.3); display: none; animation: slideUp 0.4s ease; }
-        .tool-result-val { font-size: 2.2em; font-weight: 800; color: var(--brand-green); margin-bottom: 5px; font-family: 'JetBrains Mono', monospace;}
+        .tool-result-box { margin-top: 20px; padding: 20px; border-radius: 12px; text-align: center; background: rgba(217,174,87,0.05); border: 1px solid rgba(217,174,87,0.3); display: none; animation: slideUp 0.4s ease; }
+        .tool-result-val { font-size: 2.2em; font-weight: 800; color: var(--accent); margin-bottom: 5px; font-family: 'IBM Plex Mono', monospace;}
         .tool-result-sub { font-size: 0.9em; color: var(--text-muted); }
 
         /* === PORTAFOGLIO MATTEO === */
@@ -251,7 +253,7 @@
         .bar-label { width: 120px; font-weight: 600; font-size: 0.85em; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .bar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; margin: 0 15px; overflow: hidden; }
         .bar-fill { height: 100%; border-radius: 5px; transition: width 1s ease-in-out; }
-        .bar-val { width: 70px; text-align: right; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); font-size: 0.85em; }
+        .bar-val { width: 70px; text-align: right; font-family: 'IBM Plex Mono', monospace; color: var(--text-muted); font-size: 0.85em; }
         
         /* === NEWS & SENTIMENT === */
         .news-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -263,7 +265,7 @@
 
         /* === FAQ / GLOSSARIO === */
         .faq-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; margin-bottom: 12px; overflow: hidden; transition: 0.3s; }
-        .faq-question { width: 100%; text-align: left; padding: 20px; background: transparent; border: none; color: #fff; font-size: 1.05em; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; }
+        .faq-question { width: 100%; text-align: left; padding: 20px; background: transparent; border: none; color: #fff; font-size: 1.05em; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Sans', sans-serif; }
         .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: var(--text-muted); line-height: 1.6; }
         .faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 500px; }
         .faq-item.faq-lunga.active .faq-answer { max-height: 3000px; }
@@ -272,9 +274,9 @@
         #scr-sec option { background: #14171c; color: #fff; }
         .mkt-overview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
         .mkt-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: 0.2s; }
-        .mkt-card:hover { border-color: rgba(0,230,118,0.35); }
+        .mkt-card:hover { border-color: rgba(217,174,87,0.35); }
         .mkt-card .t { font-weight: 700; color: #fff; font-size: 0.95em; }
-        .mkt-card .n { font-family: 'JetBrains Mono', monospace; font-size: 1.35em; font-weight: 800; margin-top: 6px; }
+        .mkt-card .n { font-family: 'IBM Plex Mono', monospace; font-size: 1.35em; font-weight: 800; margin-top: 6px; }
         .mkt-card .s { font-size: 0.78em; color: var(--text-muted); margin-top: 2px; line-height: 1.45; }
         .mkt-bar { height: 6px; border-radius: 3px; overflow: hidden; display: flex; margin-top: 10px; background: rgba(255,255,255,0.06); }
         .aff-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
@@ -299,7 +301,7 @@
         .div-box > summary::-webkit-details-marker { display: none; }
         .valuta-sel { display: inline-flex; border: 1px solid var(--border-glass); border-radius: 20px; overflow: hidden; }
         .valuta-sel button { background: transparent; border: 0; color: var(--text-muted); font: inherit; font-size: 0.8em; padding: 4px 12px; cursor: pointer; }
-        .valuta-sel button.attiva { background: rgba(0,230,118,0.14); color: var(--brand-green); font-weight: 700; }
+        .valuta-sel button.attiva { background: rgba(217,174,87,0.14); color: var(--accent); font-weight: 700; }
         .port-pos-box > summary { list-style: none; }
         .port-pos-box > summary::-webkit-details-marker { display: none; }
         .port-pos-box .port-pos-freccia::after { content: 'Mostra tutte ▾'; }
@@ -317,9 +319,9 @@
         .tbo-contesto .l { font-size: 0.72em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 3px; }
         .tbo-contesto .s { font-size: 0.85em; color: var(--text-muted); margin-top: 8px; line-height: 1.55; }
         .tbo-chip { display: inline-flex; align-items: baseline; gap: 6px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: 8px; padding: 4px 8px; cursor: pointer; color: #fff; font: inherit; text-align: left; }
-        .tbo-chip:hover { border-color: var(--brand-green); }
+        .tbo-chip:hover { border-color: var(--accent); }
         .tbo-chip .s { font-size: 0.72em; color: var(--text-muted); line-height: 1.2; white-space: nowrap; }
-        .tbo-chip .f { font-size: 0.75em; color: var(--brand-green); margin-left: 2px; flex-shrink: 0; }
+        .tbo-chip .f { font-size: 0.75em; color: var(--accent); margin-left: 2px; flex-shrink: 0; }
         .tbo-dett-riga td { background: rgba(255,255,255,0.025); cursor: default; }
         .tbo-dett { font-size: 0.86em; color: #ddd; line-height: 1.6; max-width: 900px; padding: 4px 2px; white-space: normal; position: sticky; left: 12px; }
         .tbo-prec-mob { display: none; margin-top: 6px; }
@@ -335,10 +337,10 @@
         .mini-kpi { display: flex; gap: 12px; flex-wrap: wrap; }
         .mini-kpi > div { box-sizing: border-box; flex: 1 1 150px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px 16px; }
         .mini-kpi .l { font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
-        .mini-kpi .v { font-family: 'JetBrains Mono', monospace; font-size: 1.25em; font-weight: 800; color: #fff; margin-top: 4px; }
+        .mini-kpi .v { font-family: 'IBM Plex Mono', monospace; font-size: 1.25em; font-weight: 800; color: #fff; margin-top: 4px; }
         .mini-kpi .s { font-size: 0.72em; color: var(--text-muted); margin-top: 3px; line-height: 1.45; }
         @media (max-width: 600px) { .mini-kpi { gap: 8px; } .mini-kpi > div { flex: 1 1 calc(50% - 4px); min-width: 0; padding: 10px 12px; } .mini-kpi .v { font-size: 1.1em; } }
-        .corr-tab { border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+        .corr-tab { border-collapse: collapse; font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
         .corr-tab td, .corr-tab th { width: 30px; height: 26px; text-align: center; padding: 0; color: #ddd; }
         .corr-tab th { color: var(--text-muted); font-weight: 600; font-size: 9px; }
         .corr-tab th.r { text-align: right; padding-right: 6px; width: 44px; }
@@ -347,17 +349,17 @@
         .lay-riga button { background: rgba(255,255,255,0.06); border: 1px solid var(--border-glass); color: #fff; border-radius: 8px; width: 34px; height: 30px; cursor: pointer; }
         .lay-riga button:disabled { opacity: 0.25; cursor: default; }
         .dati-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); color: #fff; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-size: 0.85em; font-weight: 600; }
-        .dati-btn:hover { border-color: var(--brand-green); }
+        .dati-btn:hover { border-color: var(--accent); }
         .tbo-avviso a { color: var(--accent-yellow); font-weight: 700; white-space: nowrap; }
         @media (max-width: 800px) { .tbo-grid { grid-template-columns: 1fr; } }
-        .held-tag { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.3px; color: #80cbc4; background: rgba(128,203,196,0.1); border: 1px solid rgba(128,203,196,0.35); border-radius: 5px; padding: 1px 6px; vertical-align: middle; white-space: nowrap; font-family: 'Inter', sans-serif; }
+        .held-tag { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.3px; color: #80cbc4; background: rgba(128,203,196,0.1); border: 1px solid rgba(128,203,196,0.35); border-radius: 5px; padding: 1px 6px; vertical-align: middle; white-space: nowrap; font-family: 'IBM Plex Sans', sans-serif; }
         .about-box { max-width: 760px; margin: 28px auto 0; display: flex; gap: 18px; align-items: center; text-align: left; background: var(--bg-glass); border: 1px solid var(--border-glass); border-radius: 16px; padding: 20px 24px; }
-        .about-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-green), #00b894); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3em; color: #000; }
+        .about-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #C99A42); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3em; color: #13202B; }
         .about-text { color: #cfd3da; font-size: 0.95em; line-height: 1.6; }
         .about-links { margin-top: 10px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.88em; font-weight: 700; }
-        .about-links a { color: var(--brand-green); text-decoration: none; }
+        .about-links a { color: var(--accent); text-decoration: none; }
         .pensieri-archivio { margin-top: 14px; font-size: 0.88em; }
-        .pensieri-archivio summary { cursor: pointer; color: var(--brand-green); font-weight: 700; }
+        .pensieri-archivio summary { cursor: pointer; color: var(--accent); font-weight: 700; }
         .pensiero-vecchio { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-glass); color: #c4c8cf; line-height: 1.65; white-space: pre-wrap; }
         .pensiero-vecchio .data { display: block; font-size: 0.8em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
         @media (max-width: 600px) { .about-box { flex-direction: column; text-align: center; padding: 18px; } .about-links { justify-content: center; } }
@@ -366,32 +368,32 @@
         .leg-nome { color: #fff; font-weight: 700; }
         .leg-chip { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78em; font-weight: 800; letter-spacing: 0.3px; }
         @media (max-width: 600px) { .leg-row { grid-template-columns: 1fr; gap: 4px; } }
-        .faq-item.active { border-color: rgba(0, 230, 118, 0.4); background: rgba(0, 230, 118, 0.05); }
-        .faq-icon { font-size: 1.2em; transition: transform 0.3s; color: var(--brand-green); font-weight: 400;}
+        .faq-item.active { border-color: rgba(217,174,87,0.4); background: rgba(217,174,87,0.05); }
+        .faq-icon { font-size: 1.2em; transition: transform 0.3s; color: var(--accent); font-weight: 400;}
         .faq-item.active .faq-icon { transform: rotate(45deg); }
 
         .request-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
         /* COLORI ASSET */
-        .c-1 { background-color: var(--brand-green); } .c-2 { background-color: var(--accent-blue); } 
+        .c-1 { background-color: var(--accent); } .c-2 { background-color: var(--accent-blue); } 
         .c-3 { background-color: var(--accent-red); } .c-4 { background-color: var(--accent-cyan); } 
         .c-5 { background-color: var(--accent-purple); }
 
         /* === HAMBURGER NAV MOBILE === */
         .nav-hamburger { display: none; background: none; border: 1px solid var(--border-glass); color: #fff; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 1.1em; transition: 0.2s; }
-        .nav-hamburger:hover { border-color: var(--brand-green); color: var(--brand-green); }
+        .nav-hamburger:hover { border-color: var(--accent); color: var(--accent); }
         .nav-mobile-overlay { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(5,5,5,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glass); z-index: 999; padding: 20px; flex-direction: column; gap: 4px; }
         .nav-mobile-overlay.open { display: flex; }
         .nav-mobile-overlay .nav-link { padding: 12px 16px; border-radius: 10px; font-size: 1em; color: var(--text-muted); text-decoration: none; transition: 0.2s; }
-        .nav-mobile-overlay .nav-link:hover, .nav-mobile-overlay .nav-link.active { background: rgba(0,230,118,0.08); color: var(--brand-green); }
+        .nav-mobile-overlay .nav-link:hover, .nav-mobile-overlay .nav-link.active { background: rgba(217,174,87,0.08); color: var(--accent); }
 
         /* === PORTFOLIO PERF CHART === */
         .perf-period-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: var(--text-muted); padding: 6px 16px; border-radius: 20px; cursor: pointer; font-size: 0.85em; font-weight: 700; transition: 0.2s; white-space: nowrap; }
-        .perf-period-btn.active, .perf-period-btn:hover { background: rgba(0,230,118,0.1); color: var(--brand-green); border-color: rgba(0,230,118,0.5); }
+        .perf-period-btn.active, .perf-period-btn:hover { background: rgba(217,174,87,0.1); color: var(--accent); border-color: rgba(217,174,87,0.5); }
         .perf-kpi-bar { display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
         .perf-kpi-item { flex: 1; min-width: 140px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 14px 18px; }
         .perf-kpi-label { font-size: 0.72em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
-        .perf-kpi-val { font-family: 'JetBrains Mono', monospace; font-size: 1.3em; font-weight: 800; color: #fff; }
+        .perf-kpi-val { font-family: 'IBM Plex Mono', monospace; font-size: 1.3em; font-weight: 800; color: #fff; }
 
         @media (max-width: 900px) {
             /* Layout grids → single column */
@@ -486,7 +488,7 @@
         }
         
         footer { text-align: center; padding: 50px; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.9em; }
-        footer a { color: var(--brand-green); text-decoration: none; }
+        footer a { color: var(--accent); text-decoration: none; }
 
         /* === TOTAL WATCHLIST LIVE BADGE === */
         .live-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8em; color: var(--brand-green); background: rgba(0,230,118,0.1); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(0,230,118,0.3); font-weight: 700; }
@@ -503,60 +505,65 @@
         .yt-facade { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: #000 center / cover no-repeat; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
         .yt-facade::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.28); border-radius: 12px; }
         .yt-facade .yt-play { position: relative; width: 68px; height: 48px; border-radius: 12px; background: rgba(220,0,0,0.92); color: #fff; font-size: 1.3em; display: flex; align-items: center; justify-content: center; }
-        .yt-facade .yt-note { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-size: 0.7em; color: rgba(255,255,255,0.75); font-family: 'Inter', sans-serif; }
+        .yt-facade .yt-note { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-size: 0.7em; color: rgba(255,255,255,0.75); font-family: 'IBM Plex Sans', sans-serif; }
         .yt-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
         .yt-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9em; gap: 10px; }
         .yt-title { margin-top: 12px; font-size: 0.95em; font-weight: 600; color: #e0e0e0; line-height: 1.4; }
         .yt-meta { font-size: 0.8em; color: var(--text-muted); margin-top: 4px; }
 
-        .pensiero-card { background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.2); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; min-height: 260px; }
+        .pensiero-card { background: rgba(217,174,87,0.04); border: 1px solid rgba(217,174,87,0.2); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; min-height: 260px; }
         .pensiero-author { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-        .pensiero-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-green), #00b894); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; color: #000; flex-shrink: 0; }
+        .pensiero-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #C99A42); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; color: #13202B; flex-shrink: 0; }
         .pensiero-byline { font-size: 0.82em; color: var(--text-muted); }
         .pensiero-byline strong { color: #e0e0e0; display: block; font-size: 1.05em; }
         .pensiero-text { flex: 1; font-size: 1.0em; line-height: 1.75; color: #d0d0d0; font-style: italic; white-space: pre-wrap; word-break: break-word; }
         .pensiero-week { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-glass); }
     </style>
+    <link rel="stylesheet" href="assets/tema.css?v=1">
 </head>
 <body>
 
     <div id="toast-container"></div>
 
-    <nav class="navbar">
-        <a href="#" class="navbar-logo" aria-label="MM Trading"><img src="favicon.svg" alt="" width="34" height="34"><span>Trading</span></a>
+    <div class="sfondo" aria-hidden="true"><i class="l1"></i><i class="l2"></i><i class="l3"></i></div>
+    <div class="grana" aria-hidden="true"></div>
+
+    <nav class="navbar" aria-label="Sezioni del sito">
+        <a href="#oggi" class="navbar-logo" aria-label="Matteo Mazzero, torna a Oggi"><img src="favicon.svg" alt="" width="32" height="32"><span>Matteo Mazzero</span></a>
+        <button type="button" class="nav-cerca" onclick="apriCerca()" aria-label="Cerca un titolo o una sezione"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="testo">Cerca un titolo</span><kbd>Ctrl K</kbd></button>
         <div class="nav-links">
-            <a href="#editoriale" class="nav-link">Editoriale</a>
-            <a href="#portfolio" class="nav-link">Il mio portafoglio</a>
-            <a href="#fv-section" class="nav-link">Fair Value</a>
-            <a href="#screener" class="nav-link">Screener</a>
-            <a href="#mappa" class="nav-link">Mappa</a>
-            <a href="#laboratorio" class="nav-link">Laboratorio</a>
-            <a href="#pattern" class="nav-link">Pattern</a>
-            <a href="#tbo" class="nav-link">TBO</a>
-            <a href="#indicatore" class="nav-link nav-segnali" style="display:none;">Segnali</a>
-            <a href="#myportfolio" class="nav-link">Simula il tuo</a>
-            <a href="#strumenti" class="nav-link">Strumenti</a>
-            <a href="#total-watchlist" class="nav-link">Watchlist</a>
-            <a class="nav-link" id="nav-personalizza" onclick="apriLayout()" title="Scegli quali sezioni vedere e in che ordine" style="cursor:pointer;">⚙️ Personalizza</a>
+            <span class="nav-ind" aria-hidden="true"></span>
+            <a href="#oggi" class="nav-link" data-v="oggi">Oggi</a>
+            <a href="#analizza" class="nav-link" data-v="analizza">Analizza</a>
+            <a href="#mercato" class="nav-link" data-v="mercato">Mercato</a>
+            <a href="#segnali" class="nav-link" data-v="segnali">Segnali</a>
+            <a href="#laboratorio" class="nav-link" data-v="laboratorio">Laboratorio</a>
+            <a href="#portafoglio" class="nav-link" data-v="portafoglio">Il mio portafoglio</a>
         </div>
         <button class="nav-hamburger" onclick="toggleMobileNav()" id="nav-hamburger-btn" aria-label="Apri il menu">☰</button>
     </nav>
-    <!-- Mobile nav overlay -->
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
-        <a href="#editoriale" class="nav-link" onclick="closeMobileNav()">✍️ Editoriale</a>
-        <a href="#portfolio" class="nav-link" onclick="closeMobileNav()">📈 Il mio portafoglio</a>
-        <a href="#fv-section" class="nav-link" onclick="closeMobileNav()">📊 Fair Value</a>
-        <a href="#screener" class="nav-link" onclick="closeMobileNav()">🔍 Screener</a>
-        <a href="#mappa" class="nav-link" onclick="closeMobileNav()">🗺️ Mappa del mercato</a>
-        <a href="#laboratorio" class="nav-link" onclick="closeMobileNav()">🧪 Laboratorio</a>
-        <a href="#pattern" class="nav-link" onclick="closeMobileNav()">🧩 Pattern Scanner</a>
-        <a href="#tbo" class="nav-link" onclick="closeMobileNav()">🫖 TBO Strategy</a>
-        <a href="#indicatore" class="nav-link nav-segnali" style="display:none;" onclick="closeMobileNav()">📡 Segnali</a>
-        <a href="#myportfolio" class="nav-link" onclick="closeMobileNav()">💼 Simula il tuo</a>
-        <a href="#strumenti" class="nav-link" onclick="closeMobileNav()">🛠️ Strumenti</a>
-        <a href="#total-watchlist" class="nav-link" onclick="closeMobileNav()">👁️ Watchlist</a>
-        <a class="nav-link" id="nav-personalizza-m" onclick="closeMobileNav(); apriLayout()" style="cursor:pointer;">⚙️ Personalizza la pagina</a>
+        <a href="#oggi" class="nav-link" data-v="oggi" onclick="closeMobileNav()">Oggi</a>
+        <a href="#analizza" class="nav-link" data-v="analizza" onclick="closeMobileNav()">Analizza</a>
+        <a href="#mercato" class="nav-link" data-v="mercato" onclick="closeMobileNav()">Mercato</a>
+        <a href="#segnali" class="nav-link" data-v="segnali" onclick="closeMobileNav()">Segnali</a>
+        <a href="#laboratorio" class="nav-link" data-v="laboratorio" onclick="closeMobileNav()">Laboratorio</a>
+        <a href="#portafoglio" class="nav-link" data-v="portafoglio" onclick="closeMobileNav()">Il mio portafoglio</a>
+        <a href="#mappa" class="nav-link" onclick="closeMobileNav()">Mappa del mercato</a>
+        <a href="#screener" class="nav-link" onclick="closeMobileNav()">Screener</a>
+        <a href="#pattern" class="nav-link" onclick="closeMobileNav()">Pattern scanner</a>
+        <a href="#myportfolio" class="nav-link" onclick="closeMobileNav()">Simula il tuo portafoglio</a>
+        <a href="#total-watchlist" class="nav-link" onclick="closeMobileNav()">La tua watchlist</a>
+        <a href="#indicatore" class="nav-link nav-segnali" style="display:none;" onclick="closeMobileNav()">Segnali dell'indicatore</a>
+        <a class="nav-link" id="nav-personalizza-m" onclick="closeMobileNav(); apriLayout()" style="cursor:pointer;">Personalizza le sezioni</a>
     </div>
+    <nav class="tabbar" aria-label="Sezioni principali">
+        <a href="#oggi" data-v="oggi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Oggi</span></a>
+        <a href="#analizza" data-v="analizza"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Analizza</span></a>
+        <a href="#mercato" data-v="mercato"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="6" rx="1"/><rect x="13" y="11" width="8" height="10" rx="1"/><rect x="3" y="15" width="8" height="6" rx="1"/></svg><span>Mercato</span></a>
+        <a href="#segnali" data-v="segnali"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l5-6 4 4 8-9"/><path d="M15 6h5v5"/></svg><span>Segnali</span></a>
+        <a href="#portafoglio" data-v="portafoglio"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v9l6.5 4"/><circle cx="12" cy="12" r="9"/></svg><span>Portafoglio</span></a>
+    </nav>
 
     <div class="tradingview-widget-container" style="margin-top: 0;">
         <div class="tradingview-widget-container__widget"></div>
@@ -565,31 +572,55 @@
         </script>
     </div>
 
-    <header style="padding: 80px 20px 40px; text-align: center;">
-        <h1 style="font-size: 2.8em; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px;">
-            Il mio <span style="color: var(--brand-green);">Trading Hub</span>
-        </h1>
-        <p style="color: var(--text-muted); font-size: 1.2em; max-width: 600px; margin: 10px auto 0;">
-            Il mio portafoglio reale, il fair value di qualsiasi azione (oltre 400 le seguo ogni giorno, le altre si calcolano al momento) e le mie analisi dei mercati.
-        </p>
-        <div class="about-box">
-            <div class="about-avatar" aria-hidden="true">MM</div>
-            <div>
-                <div class="about-text"><strong style="color:#fff;">Sono Matteo Mazzero</strong>, appassionato di finanza e investitore. Qui investo i miei soldi alla luce del sole: trovi il mio portafoglio reale con ogni posizione, i fair value che calcolo con il mio indicatore su TradingView e le analisi che pubblico su YouTube.</div>
-                <div class="about-links">
-                    <a href="#portfolio">Guarda il mio portafoglio →</a>
-                    <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener">Canale YouTube →</a>
-                    <a href="https://t.me/mm_trading_strategy" target="_blank" rel="noopener">Segnali TBO su Telegram →</a>
+    <!-- ===== OGGI: il portafoglio adesso, il quadro della sera, i segnali ===== -->
+    <section class="container oggi" id="oggi-home" aria-labelledby="oggi-titolo">
+        <div class="oggi-scena">
+            <div style="min-width:0;">
+                <h1 class="oggi-titolo" id="oggi-titolo">Il mio portafoglio, adesso. Soldi miei, ogni posizione è pubblica.</h1>
+                <p class="oggi-valore" id="oggi-valore" aria-live="polite">&nbsp;</p>
+                <p class="oggi-var" id="oggi-var"></p>
+                <div class="oggi-periodi" id="oggi-periodi" role="group" aria-label="Periodo del grafico"></div>
+                <div class="oggi-graf" id="oggi-graf" tabindex="0" role="img" aria-label="Valore del portafoglio nel periodo scelto. Scorri sul grafico, o usa le frecce, per vedere ogni giorno.">
+                    <svg viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="oggi-sfum" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9AE57" stop-opacity=".28"/><stop offset="1" stop-color="#D9AE57" stop-opacity="0"/></linearGradient>
+                            <clipPath id="oggi-clip"><rect x="0" y="-20" width="1000" height="240"/></clipPath>
+                        </defs>
+                        <line id="oggi-base" class="base" x1="0" x2="1000" y1="100" y2="100"/>
+                        <g clip-path="url(#oggi-clip)"><path id="oggi-area" fill="url(#oggi-sfum)"/><path id="oggi-linea" class="linea"/></g>
+                    </svg>
+                    <span class="cursore"></span><span class="data"></span><span class="punto ora" id="oggi-punto" style="opacity:0"></span>
                 </div>
+                <div class="oggi-assi" id="oggi-assi"></div>
+                <p class="oggi-link"><a href="#portfolio">Tutte le posizioni</a><a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener">Canale YouTube</a><a href="https://t.me/mm_trading_strategy" target="_blank" rel="noopener">Segnali su Telegram</a></p>
             </div>
+            <aside class="card oggi-quadro inclina" aria-labelledby="oggi-quadro-t">
+                <h2 id="oggi-quadro-t">Il quadro di stasera</h2>
+                <div id="oggi-quadro-corpo"><p class="q-nota">Carico i dati della sera…</p></div>
+            </aside>
         </div>
-    </header>
+
+        <div class="oggi-blocco" aria-labelledby="oggi-segnali-titolo">
+            <div class="oggi-blocco-testa">
+                <h2 id="oggi-segnali-titolo">I segnali dell'ultima seduta</h2>
+                <a href="#segnali">Tutti i segnali e il track record</a>
+            </div>
+            <div class="avviso-segnali" role="note"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.5v.01"/></svg><div><strong>Non sono consigli di acquisto.</strong> Sono gli spunti da cui parto io stesso: prima di muovermi guardo il fair value, i conti della società e il mio portafoglio, e la maggior parte dei segnali la scarto. Non tengono conto della tua situazione e <strong>non sono consulenza finanziaria né raccomandazioni personalizzate</strong>: ogni decisione resta tua. <a href="disclaimer.html">Leggi il disclaimer</a></div></div>
+            <div class="scorri-x">
+                <table class="segnali-lista">
+                    <thead><tr><th scope="col">Titolo</th><th scope="col">Segnale</th><th scope="col" class="col-media">Chiusura</th><th scope="col" class="col-media">Fair value</th><th scope="col" class="col-larga">Precedenti sul titolo</th><th scope="col"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Apri</span></th></tr></thead>
+                    <tbody id="oggi-segnali-corpo"><tr><td colspan="6" class="segnali-vuoto">Carico i segnali…</td></tr></tbody>
+                </table>
+            </div>
+            <p style="margin:12px 0 0; font-size:0.85em; color:var(--text-muted);">I precedenti sono storia, non una previsione. Ricevi i segnali anche sul <a href="https://t.me/mm_trading_strategy" target="_blank" rel="noopener">canale Telegram</a>.</p>
+        </div>
+    </section>
 
     <!-- ===== EDITORIALE ===== -->
     <div class="container" id="editoriale">
         <div class="section-header">
-            <h2 class="section-title">✍️ <span>Editoriale</span></h2>
-            <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="font-size:0.82em; color:var(--brand-green); text-decoration:none; font-weight:700;">▶ Canale YouTube →</a>
+            <h2 class="section-title"><span>Editoriale</span></h2>
+            <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="font-size:0.82em; color:var(--accent); text-decoration:none; font-weight:700;">▶ Canale YouTube →</a>
         </div>
         <div class="editorial-grid">
 
@@ -630,6 +661,17 @@
         </div>
     </div>
 
+    <!-- ===== OGGI: gli strumenti ===== -->
+    <div class="container" id="oggi-strumenti">
+        <div class="oggi-blocco-testa" style="border-bottom:0; padding-bottom:6px;"><h2>Le analisi</h2></div>
+        <div class="tessere">
+            <a class="tessera" href="#analizza"><strong>Analizza un titolo</strong><span>Fair value, cosa sconta il prezzo e com'è andato il modello, per oltre 2.400 società americane ed europee.</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="tessera" href="#mappa"><strong>Mappa del mercato</strong><span>Tutto il mercato per settore, colorato secondo il fair value: dov'è caro e dov'è conveniente.</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="tessera" href="#laboratorio"><strong>Il Laboratorio</strong><span>Il mio modello messo alla prova sui dati, le aspettative nei prezzi e il radar delle convergenze.</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="tessera" href="#diario-box"><strong>Il diario delle mie operazioni</strong><span>Ogni acquisto e vendita con il contesto di quel giorno, e com'è andata dopo.</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+    </div>
+
     <div class="container" id="portfolio">
         <div class="section-header">
             <h2 class="section-title">Il mio <span>Portafoglio</span></h2>
@@ -658,7 +700,7 @@
                 <div class="mini-kpi" id="div-proiezione"><div><div class="l">Calcolo</div><div class="v" style="font-size:1em;">…</div></div></div>
                 <div id="div-proiezione-righe" style="margin-top:10px;"></div>
                 <details style="margin-top:14px;">
-                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Tutti i dividendi e le cedole incassati</summary>
+                    <summary style="cursor:pointer; color:var(--accent); font-weight:700; font-size:0.88em;">Tutti i dividendi e le cedole incassati</summary>
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Data</th><th>Titolo</th><th>Importo</th><th id="div-col-val">In dollari</th></tr></thead><tbody id="div-elenco"></tbody></table></div>
                 </details>
                 <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Dividendi registrati sul portafoglio TradingView e cedole delle obbligazioni calcolate dal tasso, dal calendario di pagamento e dal nominale posseduto; tutti gli importi sono lordi (sui titoli di Stato la ritenuta è del 12,5%) e quelli in euro sono convertiti al cambio del giorno di pagamento. Le cedole non sono comprese nel valore e nel profitto del portafoglio TradingView. La proiezione moltiplica le azioni che ho oggi per il dividendo annuo che ciascuna società paga attualmente, senza aumenti né tagli, e aggiunge le cedole a tasso fisso in pagamento nel 2027, al cambio di oggi. Non è una previsione: i dividendi possono essere ridotti o sospesi.</p>
@@ -681,7 +723,7 @@
                     <thead><tr><th>Data</th><th>Operazione</th><th>Titolo</th><th title="Prezzo dell'operazione rispetto al fair value pavimento di allora (ultima fine trimestre)">Rispetto al fair value di allora</th><th title="Segnale della strategia TBO sul titolo nei 7 giorni fino all'operazione">Segnale TBO</th><th title="Quota di titoli sopra la media delle ultime 200 sedute quel giorno">Mercato quel giorno</th><th title="Variazione del prezzo da allora a oggi, nella valuta del titolo; tra parentesi lo S&amp;P 500 nello stesso periodo">Da allora</th></tr></thead>
                     <tbody id="diario-tbody"><tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">Caricamento…</td></tr></tbody>
                 </table></div>
-                <a id="diario-piu" onclick="diarioTutte = !diarioTutte; renderDiario()" style="display:inline-block; margin-top:10px; color:var(--brand-green); cursor:pointer; font-weight:700; font-size:0.85em;"></a>
+                <a id="diario-piu" onclick="diarioTutte = !diarioTutte; renderDiario()" style="display:inline-block; margin-top:10px; color:var(--accent); cursor:pointer; font-weight:700; font-size:0.85em;"></a>
                 <p style="margin:12px 2px 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);">Le operazioni sono quelle registrate sul mio portafoglio TradingView. Il fair value di allora è il pavimento calcolato alla fine del trimestre precedente all'operazione; il segnale TBO è quello della strategia sulla storia del titolo; "da allora" è la variazione del prezzo senza dividendi. Lo scopo è rendere conto delle mie scelte, non indicare cosa comprare: non è consulenza.</p>
             </div>
         </details>
@@ -699,7 +741,7 @@
                 <!-- Andamento Portafoglio (grafico storico) -->
                 <div class="card" style="padding:20px;" id="perf-chart-card">
                     <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
-                        <h3 style="margin:0; font-size:0.95em; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">📈 Andamento Storico</h3>
+                        <h3 style="margin:0; font-size:0.95em; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">Andamento Storico</h3>
                         <div style="display:flex; gap:6px; flex-wrap:wrap;" id="perf-mode-btns">
                             <button class="perf-period-btn perf-mode-btn active" onclick="setPerfMode('perf',this)" title="Rendimento percentuale, al netto dei versamenti">Rendimento</button>
                             <button class="perf-period-btn perf-mode-btn" onclick="setPerfMode('value',this)" title="Valore del portafoglio in dollari, versamenti compresi">Valore</button>
@@ -725,7 +767,7 @@
                         <div style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:10px;">⚖️ Quanto rischio c'è dentro</div>
                         <div class="mini-kpi" id="risk-kpi"></div>
                         <details id="risk-corr-box" style="display:none; margin-top:12px;">
-                            <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Mostra la correlazione tra i titoli</summary>
+                            <summary style="cursor:pointer; color:var(--accent); font-weight:700; font-size:0.88em;">Mostra la correlazione tra i titoli</summary>
                             <div id="risk-corr-testo" style="margin:10px 0; font-size:0.85em; color:#ddd; line-height:1.6;"></div>
                             <div style="overflow-x:auto;" id="risk-corr-tab"></div>
                         </details>
@@ -734,7 +776,7 @@
                 </div>
                 <!-- Confronto giorno per giorno con gli indici (benchmarks.json) -->
                 <div class="card" style="padding:20px; display:none;" id="bench-card">
-                    <h3 style="margin:0 0 12px; font-size:0.95em; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">🆚 Giorno per giorno contro gli indici</h3>
+                    <h3 style="margin:0 0 12px; font-size:0.95em; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.5px;">Giorno per giorno contro gli indici</h3>
                     <div style="display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
                         <div style="display:flex; gap:6px; flex-wrap:wrap;" id="bench-idx-btns"></div>
                         <div style="display:flex; gap:6px; flex-wrap:wrap;" id="bench-per-btns"></div>
@@ -772,7 +814,7 @@
                     </div>
                 </details>
                 <div class="card" id="port-div-card" style="display:none;">
-                    <h3 style="margin:0 0 4px;">🌍 Diversificazione</h3>
+                    <h3 style="margin:0 0 4px;">Diversificazione</h3>
                     <div id="port-div-corpo"></div>
                     <p style="margin:14px 0 0; font-size:0.74em; line-height:1.6; color:var(--text-muted);"><strong style="color:#ccc;">Valuta</strong>: quella in cui è quotato il titolo. <strong style="color:#ccc;">Paese</strong>: dove ha sede l'attività principale della società (per i titoli di Stato, lo Stato emittente; l'ETF sulle società aurifere è "Globale"). Pesi sul valore del portafoglio, aggiornati ogni sera.</p>
                 </div>
@@ -840,7 +882,7 @@
                         </div>
 
                         <!-- FV band dall'indicatore Pine Script -->
-                        <div id="fv-band-row" style="display:none; margin-top:18px; background:rgba(0,230,118,0.04); border:1px solid rgba(0,230,118,0.15); border-radius:12px; padding:16px 20px;">
+                        <div id="fv-band-row" style="display:none; margin-top:18px; background:rgba(76,195,138,0.04); border:1px solid rgba(76,195,138,0.15); border-radius:12px; padding:16px 20px;">
                             <div id="fv-band-title" style="font-size:0.72em; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:12px;">📊 Indicatore FAIR VALUE (dati realizzati)</div>
                             <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-around;">
                                 <div style="text-align:center; min-width:100px;">
@@ -889,7 +931,7 @@
                                     <div style="background:rgba(200,0,0,0.92); border-radius:50%; width:54px; height:54px; display:flex; align-items:center; justify-content:center; font-size:1.3em; box-shadow:0 4px 20px rgba(0,0,0,0.5);">▶</div>
                                 </div>
                             </div>
-                            <a id="smart-video-link" href="#" target="_blank" rel="noopener" style="display:block; text-align:center; margin-top:12px; color:var(--brand-green); font-weight:600; text-decoration:none; font-size:0.88em;">📺 Guarda l'analisi completa su YouTube →</a>
+                            <a id="smart-video-link" href="#" target="_blank" rel="noopener" style="display:block; text-align:center; margin-top:12px; color:var(--accent); font-weight:600; text-decoration:none; font-size:0.88em;">📺 Guarda l'analisi completa su YouTube →</a>
                         </div>
                     </div>
                 </div>
@@ -946,7 +988,7 @@
                 <div style="font-size:0.78em; color:var(--text-muted); line-height:1.6; margin-top:14px;">
                     <strong style="color:#fff;">Pavimento</strong>: valore se l'azienda non crescesse più in termini reali; sotto, la <strong style="color:#fff;">banda</strong> tra l'anno peggiore e il migliore degli ultimi 10. 
                     <strong style="color:#fff;">FV mercato</strong>: valore se cresce come l'economia. <strong style="color:#fff;">Potenziale</strong>: quanto dovrebbe muoversi il prezzo per arrivare al più basso tra FV pavimento e FV storico. Il verdetto segue le quattro zone dell'indicatore; clicca un titolo per il dettaglio.<br>
-                    Prezzi TradingView ritardati di 15 minuti. <span class="held-tag">💼 in portafoglio</span> indica i titoli che possiedo. I ★ preferiti restano salvati solo in questo browser. <a href="#faq" style="color:var(--brand-green);">Come leggere i valori</a> · <a href="titoli/" style="color:var(--brand-green);">Tutti i fair value, una pagina per titolo</a>
+                    Prezzi TradingView ritardati di 15 minuti. <span class="held-tag">💼 in portafoglio</span> indica i titoli che possiedo. I ★ preferiti restano salvati solo in questo browser. <a href="#faq" style="color:var(--accent);">Come leggere i valori</a> · <a href="titoli/" style="color:var(--accent);">Tutti i fair value, una pagina per titolo</a>
                 </div>
 
                 <div class="screener-loading" id="scr-loading" style="display:none;">
@@ -1067,7 +1109,7 @@
             </div>
             <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:12px; font-size:0.8em; color:var(--text-muted);">
                 <span id="pat-note"></span>
-                <a id="pat-more" onclick="patTutti = !patTutti; renderPatterns()" style="color:var(--brand-green); cursor:pointer; font-weight:700;"></a>
+                <a id="pat-more" onclick="patTutti = !patTutti; renderPatterns()" style="color:var(--accent); cursor:pointer; font-weight:700;"></a>
             </div>
         </div>
     </div>
@@ -1077,23 +1119,24 @@
             <h2 class="section-title">TBO <span>Strategy</span></h2>
             <span style="color: var(--text-muted); font-size: 0.9em;">La strategia che uso sul grafico giornaliero</span>
         </div>
+        <div class="avviso-segnali" role="note" style="margin:0 0 22px; font-size:1em;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.5v.01"/></svg><div><strong>Non sono consigli di acquisto.</strong> Sono gli spunti da cui parto io stesso: prima di muovermi guardo il fair value, i conti della società e il mio portafoglio, e la maggior parte dei segnali la scarto. Non tengono conto della tua situazione e <strong>non sono consulenza finanziaria né raccomandazioni personalizzate</strong>: ogni decisione resta tua. <a href="disclaimer.html">Leggi il disclaimer</a></div></div>
         <div class="tbo-grid">
             <div class="card">
-                <h3>📏 Che cosa misura</h3>
+                <h3>Che cosa misura</h3>
                 <p>Nasce dal mio <strong style="color:#fff;">Tea Bottle Oscillator</strong>. Per ogni seduta guarda dove si è chiuso il prezzo rispetto al minimo e al massimo del giorno, e ne ricava quanta parte del movimento è stata dei compratori e quanta dei venditori. Confronta poi questa forza con la sua media di pochi giorni e con quella dell'ultimo mese.</p>
             </div>
             <div class="card">
-                <h3>🎯 Che cosa cerca</h3>
+                <h3>Che cosa cerca</h3>
                 <p>Lavora solo al rialzo. Dà un segnale <strong style="color:#fff;">Compra</strong> quando, dopo una fase di debolezza, la forza dei compratori torna con decisione in una singola seduta, e un'<strong style="color:#fff;">Operazione chiusa all'80%</strong> quando accade l'opposto dopo una fase di forza: in uscita vende gran parte della posizione, non tutta. Compra a più riprese, finché ha liquidità da investire.</p>
             </div>
             <div class="card">
-                <h3>🧭 Come la uso</h3>
+                <h3>Come la uso</h3>
                 <p>Sul grafico giornaliero di TradingView, per decidere <em>quando</em> muovermi su titoli che ho già scelto guardando il fair value. Non la seguo in automatico: è un supporto alle mie decisioni, che racconto nel pensiero della settimana e sul canale YouTube.</p>
             </div>
         </div>
         <div class="card" style="padding: 20px; margin-top: 16px;" id="tbo-segnali">
             <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:baseline; margin-bottom:12px;">
-                <h3 style="margin:0; color:#fff; font-size:1.1em;">🗓️ I segnali della settimana</h3>
+                <h3 style="margin:0; color:#fff; font-size:1.1em;">I segnali della settimana</h3>
                 <span id="tbo-periodo" style="font-size:0.85em; color:var(--text-muted);"></span>
             </div>
             <div class="tbo-avviso">
@@ -1151,13 +1194,13 @@
             </div>
             <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:12px; font-size:0.8em; color:var(--text-muted);">
                 <span id="tbo-note"></span>
-                <a id="tbo-more" onclick="tboTutti = !tboTutti; renderTbo()" style="color:var(--brand-green); cursor:pointer; font-weight:700;"></a>
+                <a id="tbo-more" onclick="tboTutti = !tboTutti; renderTbo()" style="color:var(--accent); cursor:pointer; font-weight:700;"></a>
             </div>
-            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Sono gli stessi segnali che la strategia mostra sul mio grafico giornaliero di TradingView. <strong style="color:#ccc;">Compra</strong> compare solo quando la strategia ha ancora liquidità da investire sul titolo (ogni acquisto impegna il 10% del capitale): se è già tutta investita non compra più, anche se le condizioni ci sarebbero. <strong style="color:#ccc;">Chiusa all'80%</strong> vuol dire che vende l'80% della posizione. Le regole restano private: qui vedi solo l'esito, aggiornato ogni sera a mercati chiusi. Oltre ai titoli che seguo, la strategia esamina tutte le società degli indici americani S&amp;P 500, 400 e 600 e le altre società americane ed europee con almeno 2 miliardi di capitalizzazione. Per i titoli che seguo il calcolo parte dallo stato letto da TradingView; per gli altri lo stato della strategia è ricostruito da 14 anni di storia, e nelle prove su titoli dove si può confrontare i segnali coincidono con il grafico in oltre 9 casi su 10. I prezzi del calcolo serale arrivano da una fonte diversa da TradingView, quindi in qualche caso l'elenco può differire dal grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--brand-green); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
+            <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;">Sono gli stessi segnali che la strategia mostra sul mio grafico giornaliero di TradingView. <strong style="color:#ccc;">Compra</strong> compare solo quando la strategia ha ancora liquidità da investire sul titolo (ogni acquisto impegna il 10% del capitale): se è già tutta investita non compra più, anche se le condizioni ci sarebbero. <strong style="color:#ccc;">Chiusa all'80%</strong> vuol dire che vende l'80% della posizione. Le regole restano private: qui vedi solo l'esito, aggiornato ogni sera a mercati chiusi. Oltre ai titoli che seguo, la strategia esamina tutte le società degli indici americani S&amp;P 500, 400 e 600 e le altre società americane ed europee con almeno 2 miliardi di capitalizzazione. Per i titoli che seguo il calcolo parte dallo stato letto da TradingView; per gli altri lo stato della strategia è ricostruito da 14 anni di storia, e nelle prove su titoli dove si può confrontare i segnali coincidono con il grafico in oltre 9 casi su 10. I prezzi del calcolo serale arrivano da una fonte diversa da TradingView, quindi in qualche caso l'elenco può differire dal grafico. <a href="https://www.youtube.com/@investireconmatteomazzero" target="_blank" rel="noopener" style="color:var(--accent); font-weight:700;">Come li uso, sul canale YouTube →</a></p>
         </div>
 
         <div class="card" style="padding: 20px; margin-top: 16px; display:none;" id="tbo-stats">
-            <h3 style="margin:0 0 4px; color:#fff; font-size:1.1em;">📒 Track record della strategia</h3>
+            <h3 style="margin:0 0 4px; color:#fff; font-size:1.1em;">Track record della strategia</h3>
             <div id="tbo-stats-sub" style="font-size:0.85em; color:var(--text-muted); margin-bottom:14px;"></div>
             <div id="tbo-eff" style="display:none; margin-bottom:18px;">
                 <div id="tbo-eff-sintesi" style="background:rgba(255,255,255,0.04); border:1px solid var(--border-glass); border-left:4px solid var(--brand-green); border-radius:10px; padding:14px 16px; font-size:0.95em; line-height:1.65; color:#eee;"></div>
@@ -1166,16 +1209,16 @@
                 <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Tutti i titoli del campione con lo stesso peso: la strategia applicata a ciascuno, contro l'averli comprati all'inizio e tenuti. La strategia entra a scaglioni e alleggerisce sulla forza, quindi resta investita solo in parte: è da qui che vengono sia il ribasso più contenuto sia il rendimento più basso.</div>
                 <div class="mini-kpi" id="tbo-eff-tieni" style="margin-top:12px;"></div>
                 <details id="tbo-eff-gruppi-box" style="display:none; margin-top:14px;">
-                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Per tipo di società</summary>
+                    <summary style="cursor:pointer; color:var(--accent); font-weight:700; font-size:0.88em;">Per tipo di società</summary>
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Gruppo</th><th>Titoli</th><th>TBO, annuo</th><th>Compra e tieni, annuo</th><th>Ribasso TBO</th><th>Ribasso compra e tieni</th></tr></thead><tbody id="tbo-eff-gruppi"></tbody></table></div>
                 </details>
                 <details style="margin-top:14px;">
-                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">2 · Che cosa succede dopo un segnale, rispetto a un giorno qualsiasi</summary>
+                    <summary style="cursor:pointer; color:var(--accent); font-weight:700; font-size:0.88em;">2 · Che cosa succede dopo un segnale, rispetto a un giorno qualsiasi</summary>
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Dopo</th><th>Giorno qualsiasi</th><th>Dopo un “compra”</th><th>Differenza</th><th>Dopo una condizione di uscita</th></tr></thead><tbody id="tbo-eff-righe"></tbody></table></div>
                     <div style="font-size:0.74em; color:var(--text-muted); margin-top:6px; line-height:1.55;">Rendimento mediano del titolo (il caso tipico) e, tra parentesi, quota di casi finiti in guadagno. “Compra” qui è ogni seduta in cui scatta la condizione di acquisto. In questi anni i rendimenti dopo un segnale sono stati in linea con quelli di un giorno qualsiasi: il segnale serve a scaglionare gli ingressi, non a prevedere il rialzo.</div>
                 </details>
                 <details id="tbo-ctx-box" style="display:none; margin-top:14px;">
-                    <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">3 · Quando i segnali sono andati meglio: il contesto di mercato</summary>
+                    <summary style="cursor:pointer; color:var(--accent); font-weight:700; font-size:0.88em;">3 · Quando i segnali sono andati meglio: il contesto di mercato</summary>
                     <div style="font-size:0.85em; color:#ddd; line-height:1.6; margin-top:10px;">Ho provato quali informazioni, disponibili il giorno del segnale, distinguono i “Compra” andati bene da quelli andati male. I precedenti del singolo titolo non hanno aiutato: un titolo con segnali buoni in passato non ha avuto segnali migliori dopo. Ha fatto differenza invece <strong>l'ampiezza del mercato</strong>, cioè la quota di titoli sopra la propria media delle ultime 200 sedute: quando è molto bassa (sotto il 30%) il mercato è in piena correzione, e i segnali dati in quelle fasi sono andati nettamente meglio, sia nel 2013-2019 sia dal 2020. Tra le altre fasce le differenze sono piccole e cambiano da un periodo all'altro.</div>
                     <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Ampiezza il giorno del segnale</th><th>Segnali</th><th>In guadagno dopo 12 mesi</th><th>Risultato mediano 12 mesi</th><th>2013-2019</th><th>Dal 2020</th></tr></thead><tbody id="tbo-ctx-righe"></tbody></table></div>
                     <div id="tbo-ctx-sconto" style="font-size:0.85em; color:#ddd; line-height:1.6; margin-top:10px;"></div>
@@ -1197,7 +1240,7 @@
             </div>
             <div id="tbo-stats-confronto" style="margin-top:14px; font-size:0.9em; color:#ddd; line-height:1.65;"></div>
             <details style="margin-top:12px;">
-                <summary style="cursor:pointer; color:var(--brand-green); font-weight:700; font-size:0.88em;">Anno per anno</summary>
+                <summary style="cursor:pointer; color:var(--accent); font-weight:700; font-size:0.88em;">Anno per anno</summary>
                 <div class="screener-table-wrap" style="margin-top:10px;"><table class="screener-table"><thead><tr><th>Anno di chiusura</th><th>Operazioni chiuse</th><th>Vincenti</th><th>Rendimento mediano</th></tr></thead><tbody id="tbo-stats-anni"></tbody></table></div>
             </details>
             <p style="margin:14px 0 0; font-size:0.8em; color:var(--text-muted); line-height:1.65;"><strong style="color:#ccc;">Come leggerlo.</strong> È una simulazione: la strategia viene fatta ripartire da zero su ogni titolo del campione con le stesse impostazioni del mio grafico, e ogni coppia acquisto-vendita conta come un'operazione, come nel registro di TradingView. Tre cautele: la strategia non ha stop, quindi gli acquisti andati male restano aperti invece di chiudersi in perdita (per questo conviene guardare anche il quadro degli acquisti aperti); le società sono quelle presenti oggi negli indici e nel mio elenco, quindi mancano quelle uscite o fallite in questi anni; il periodo è stato in gran parte di mercati in salita. I risultati passati non dicono nulla di certo su quelli futuri.</p>
@@ -1207,7 +1250,7 @@
     <div class="container" id="indicatore" style="display:none;">
         <div class="section-header">
             <h2 class="section-title">Segnali <span>Indicatore Premium</span></h2>
-            <span style="font-size: 0.82em; color: var(--text-muted);">Gli ultimi setup generati dal mio algoritmo su <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" style="color: var(--brand-green); text-decoration: none;">TradingView</a></span>
+            <span style="font-size: 0.82em; color: var(--text-muted);">Gli ultimi setup generati dal mio algoritmo su <a href="https://it.tradingview.com/?aff_id=158356" target="_blank" rel="sponsored noopener" style="color: var(--accent); text-decoration: none;">TradingView</a></span>
         </div>
         <div class="card">
             <div class="signals-layout">
@@ -1217,7 +1260,7 @@
                         </div>
                 </div>
                 <div>
-                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">🧠 Come usare l'Indicatore</h3>
+                    <h3 style="margin-top: 0; color: #fff; margin-bottom: 20px;">Come usare l'Indicatore</h3>
                     <div class="video-responsive">
                         <div data-yt="yTvn64m3Ruo" data-yt-title="Come usare l'indicatore"></div>
                     </div>
@@ -1276,7 +1319,7 @@
         </div>
         <div class="tools-grid">
             <div class="card">
-                <h3 style="margin-top:0; color:#fff;">📈 Calcolatore PAC</h3>
+                <h3 style="margin-top:0; color:#fff;">Calcolatore PAC</h3>
                 <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Scopri l'effetto palla di neve sui tuoi investimenti a lungo termine.</p>
                 <div class="form-group"><label class="form-label" for="pacInit">Capitale Iniziale (€)</label><input type="number" id="pacInit" class="form-input" value="1000"></div>
                 <div class="form-group"><label class="form-label" for="pacMonthly">Versamento Mensile (€)</label><input type="number" id="pacMonthly" class="form-input" value="200"></div>
@@ -1294,7 +1337,7 @@
             </div>
 
             <div class="card">
-                <h3 style="margin-top:0; color:#fff;">🛡️ Calcolatore Position Sizing</h3>
+                <h3 style="margin-top:0; color:#fff;">Calcolatore Position Sizing</h3>
                 <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Calcola esattamente quante azioni comprare per non sforare il tuo limite di rischio.</p>
                 <div class="form-group"><label class="form-label" for="psCap">Capitale Totale sul Conto (€)</label><input type="number" id="psCap" class="form-input" value="5000"></div>
                 <div class="form-group"><label class="form-label" for="psRisk">Rischio Massimo per Trade (%)</label><input type="number" id="psRisk" class="form-input" value="1" step="0.1"></div>
@@ -1318,7 +1361,7 @@
             <div class="affiliate-inner">
                 <div class="affiliate-text">
                     <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
-                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📊 TradingView</h3>
+                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">TradingView</h3>
                     <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
                         È la piattaforma su cui faccio tutte le mie analisi: i grafici, gli screener, il portafoglio e l'indicatore che genera i segnali di questo sito sono costruiti lì.
                         Puoi iniziare con il piano gratuito e passare a un piano a pagamento solo se ti serve.
@@ -1332,7 +1375,7 @@
             <div class="affiliate-inner">
                 <div class="affiliate-text">
                     <div class="fv-label" style="color: var(--brand-green); margin-bottom: 8px;">Gli strumenti che uso</div>
-                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">📈 Investing.com e InvestingPro</h3>
+                    <h3 style="margin: 0 0 10px; color:#fff; font-size: 1.4em;">Investing.com e InvestingPro</h3>
                     <p style="color: var(--text-muted); font-size: 0.92em; line-height: 1.6; margin: 0;">
                         La uso da quasi 7 anni per seguire i mercati in tempo reale quando non sono a casa, costruire le mie watchlist e controllare i dati finanziari del giorno.
                         Con InvestingPro approfondisco le analisi fondamentali dei titoli, il fair value, le notizie riservate agli abbonati e le reazioni alle trimestrali.
@@ -1350,13 +1393,13 @@
     <div class="container" id="news">
         <div class="section-header">
             <h2 class="section-title">News & <span>Sentiment</span></h2>
-            <span style="font-size: 0.8em; color: var(--brand-green); background: rgba(0,230,118,0.1); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(0,230,118,0.3); font-weight: 700;">● LIVE</span>
+            <span style="font-size: 0.8em; color: var(--brand-green); background: rgba(76,195,138,0.1); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(76,195,138,0.3); font-weight: 700;">● LIVE</span>
         </div>
 
         <div class="news-layout">
             <div style="display: flex; flex-direction: column; gap: 24px;">
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📰 Ultime Notizie</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Ultime Notizie</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js">
@@ -1365,7 +1408,7 @@
                     </div>
                 </div>
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🌍 Panoramica Mercati</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Panoramica Mercati</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
@@ -1377,7 +1420,7 @@
 
             <div style="display: flex; flex-direction: column; gap: 24px;">
                 <div class="card">
-                    <h3 style="margin: 0 0 5px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">🧭 Termometro del mercato (USA)</h3>
+                    <h3 style="margin: 0 0 5px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Termometro del mercato (USA)</h3>
                     <p style="color: var(--text-muted); font-size: 0.85em;">Volatilità attesa sull'S&amp;P 500 (indice VIX): più è alta, più il mercato ha paura.</p>
                     <div class="sentiment-bar">
                         <div class="sentiment-needle" id="sent-needle" style="display:none;"></div>
@@ -1391,7 +1434,7 @@
                     <div id="sent-note" style="text-align: center; margin-top: 6px; font-size: 0.8em; color: var(--text-muted);">Caricamento…</div>
                 </div>
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">📅 Calendario Macro</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Calendario Macro</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-events.js">
@@ -1422,8 +1465,8 @@
                         <div class="leg-row"><div class="leg-nome">Banda (peggiore – migliore)</div><div>Lo stesso calcolo con il margine dell'anno peggiore e di quello migliore degli ultimi 10. Più la banda è larga, più l'azienda è ciclica e la stima incerta. Se l'anno peggiore ha un free cash flow negativo, il limite basso non esiste e la banda parte da zero.</div></div>
                         <div class="leg-row"><div class="leg-nome">FV di mercato</div><div>Quanto vale l'azienda se cresce <strong>come l'economia</strong> nel lungo periodo (convenzione usata da Damodaran per il premio per il rischio). È la soglia oltre la quale il prezzo chiede più crescita di un'azienda media.</div></div>
                         <div class="leg-row"><div class="leg-nome">FV storico</div><div>Il prezzo che avrebbe oggi il titolo se il mercato lo pagasse al suo <strong>rendimento di free cash flow mediano degli ultimi 10 anni</strong>. Non usa tassi: dice se il titolo è caro o economico rispetto alla sua storia, non in assoluto.</div></div>
-                        <div class="leg-row"><div class="leg-nome">Potenziale</div><div>Nello screener: quanto dovrebbe <span style="color:#43a047;">salire (+)</span> o <span style="color:#d32f2f;">scendere (−)</span> il prezzo per arrivare al fair value, cioè FV ÷ prezzo − 1. Per prudenza si usa il <strong>più basso tra FV pavimento e FV storico</strong> (l'etichetta dice quale): un titolo risulta conveniente solo se lo è sia rispetto ai tassi di oggi sia rispetto alla sua storia. Sotto, lo stesso calcolo sul FV di mercato. Esempio: prezzo 80 e FV 100 danno +25%; prezzo 125 e FV 100 danno −20%. Un potenziale molto alto di solito indica un'azienda con margini crollati rispetto alla sua storia (<span style="color:#f9a825;">⚠ margine in calo</span>): il modello presume che tornino alla media, quindi va letto con cautela. Se esito e potenziale non coincidono (per esempio "sottovalutata" con potenziale negativo), i due metodi danno letture diverse e la valutazione è meno netta.</div></div>
-                        <div class="leg-row"><div class="leg-nome">Affidabilità della stima</div><div>Indica quanto il modello è adatto al titolo: <span style="color:#43a047;">alta</span>, <span style="color:#f9a825;">media</span> o <span style="color:#ef6c00;">bassa</span>. Scende quando ci sono anni con free cash flow negativo, margini crollati rispetto alla storia, molto debito (che il fair value non sottrae), utili che non diventano cassa, un beta molto basso, oppure quando fair value pavimento e storico sono molto distanti. Banche e assicurazioni hanno sempre affidabilità bassa. Nello screener puoi nascondere le stime poco affidabili.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Potenziale</div><div>Nello screener: quanto dovrebbe <span style="color:#4CC38A;">salire (+)</span> o <span style="color:#F0716A;">scendere (−)</span> il prezzo per arrivare al fair value, cioè FV ÷ prezzo − 1. Per prudenza si usa il <strong>più basso tra FV pavimento e FV storico</strong> (l'etichetta dice quale): un titolo risulta conveniente solo se lo è sia rispetto ai tassi di oggi sia rispetto alla sua storia. Sotto, lo stesso calcolo sul FV di mercato. Esempio: prezzo 80 e FV 100 danno +25%; prezzo 125 e FV 100 danno −20%. Un potenziale molto alto di solito indica un'azienda con margini crollati rispetto alla sua storia (<span style="color:#f9a825;">⚠ margine in calo</span>): il modello presume che tornino alla media, quindi va letto con cautela. Se esito e potenziale non coincidono (per esempio "sottovalutata" con potenziale negativo), i due metodi danno letture diverse e la valutazione è meno netta.</div></div>
+                        <div class="leg-row"><div class="leg-nome">Affidabilità della stima</div><div>Indica quanto il modello è adatto al titolo: <span style="color:#4CC38A;">alta</span>, <span style="color:#f9a825;">media</span> o <span style="color:#ef6c00;">bassa</span>. Scende quando ci sono anni con free cash flow negativo, margini crollati rispetto alla storia, molto debito (che il fair value non sottrae), utili che non diventano cassa, un beta molto basso, oppure quando fair value pavimento e storico sono molto distanti. Banche e assicurazioni hanno sempre affidabilità bassa. Nello screener puoi nascondere le stime poco affidabili.</div></div>
                         <div class="leg-row"><div class="leg-nome">Posizione</div><div>In quale zona si trova il prezzo rispetto alle soglie: sotto la banda, nella banda (con la percentuale: 0% = scenario peggiore, 100% = migliore), tra banda e FV di mercato, sopra il FV di mercato. Da qui nasce il verdetto.</div></div>
                         <div class="leg-row"><div class="leg-nome">Crescita scontata e storica</div><div>La <strong>crescita scontata</strong> è quella che il prezzo di oggi dà per scontata; la <strong>storica</strong> è quella dei ricavi per azione davvero realizzata negli ultimi anni. Se il mercato chiede molta più crescita di quella mai realizzata, il titolo è caro.</div></div>
                     </div>
@@ -1441,14 +1484,14 @@
                 <button class="faq-question">Cosa significano i verdetti <span class="faq-icon">+</span></button>
                 <div class="faq-answer">
                     <div>
-                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#1b5e20; background:rgba(27,94,32,0.12); border:1px solid rgba(27,94,32,0.45);">MOLTO SOTTOVALUTATA</span></div><div>Prezzo sotto anche lo scenario peggiore, con un margine di sicurezza del 10%.</div></div>
-                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#43a047; background:rgba(67,160,71,0.12); border:1px solid rgba(67,160,71,0.45);">SOTTOVALUTATA</span></div><div>Prezzo <strong>sotto la stima prudente</strong>, cioè sotto il più basso tra FV pavimento e FV storico: è lo stesso riferimento del potenziale, quindi una sottovalutata ha sempre potenziale positivo.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#3DDC97; background:rgba(27,94,32,0.12); border:1px solid rgba(27,94,32,0.45);">MOLTO SOTTOVALUTATA</span></div><div>Prezzo sotto anche lo scenario peggiore, con un margine di sicurezza del 10%.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#4CC38A; background:rgba(67,160,71,0.12); border:1px solid rgba(67,160,71,0.45);">SOTTOVALUTATA</span></div><div>Prezzo <strong>sotto la stima prudente</strong>, cioè sotto il più basso tra FV pavimento e FV storico: è lo stesso riferimento del potenziale, quindi una sottovalutata ha sempre potenziale positivo.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#00897b; background:rgba(0,137,123,0.12); border:1px solid rgba(0,137,123,0.45);">NELLA BANDA DEL FAIR VALUE</span></div><div>Prezzo sopra la stima prudente ma ancora entro lo scenario migliore e sotto il FV di mercato: non è caro, ma non c'è margine rispetto alla stima.</div></div>
-                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#ffeb3b; background:rgba(255,235,59,0.10); border:1px solid rgba(255,235,59,0.45);">EQUA PER UN'AZIENDA IN DECLINO</span></div><div>Prezzo sotto la stima prudente, ma i ricavi per azione sono in calo: il prezzo basso può essere giustificato (rischio <em>value trap</em>). Sotto la banda diventa <em>molto sottovalutata, ma in declino</em>.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#E8C15A; background:rgba(255,235,59,0.10); border:1px solid rgba(255,235,59,0.45);">EQUA PER UN'AZIENDA IN DECLINO</span></div><div>Prezzo sotto la stima prudente, ma i ricavi per azione sono in calo: il prezzo basso può essere giustificato (rischio <em>value trap</em>). Sotto la banda diventa <em>molto sottovalutata, ma in declino</em>.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#546e7a; background:rgba(84,110,122,0.12); border:1px solid rgba(84,110,122,0.45);">ZONA DI EQUITÀ</span></div><div>Prezzo tra la banda e il FV di mercato: sconta meno crescita di un'azienda media.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#f9a825; background:rgba(249,168,37,0.12); border:1px solid rgba(249,168,37,0.45);">PREMIO SOSTENUTO</span></div><div>Prezzo sopra il FV di mercato, ma la crescita che chiede è già stata realizzata e il ROIC supera il rendimento richiesto: il premio è giustificato.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#ef6c00; background:rgba(239,108,0,0.12); border:1px solid rgba(239,108,0,0.45);">PREMIO DUBBIO</span></div><div>Prezzo sopra il FV di mercato con crescita realizzata, ma il ROIC non supera il rendimento richiesto: la crescita non crea valore.</div></div>
-                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#d32f2f; background:rgba(211,47,47,0.12); border:1px solid rgba(211,47,47,0.45);">SOPRAVVALUTATA</span></div><div>Prezzo sopra il FV di mercato che chiede una crescita mai realizzata in passato.</div></div>
+                        <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#F0716A; background:rgba(211,47,47,0.12); border:1px solid rgba(211,47,47,0.45);">SOPRAVVALUTATA</span></div><div>Prezzo sopra il FV di mercato che chiede una crescita mai realizzata in passato.</div></div>
                         <div class="leg-row"><div class="leg-nome"><span class="leg-chip" style="color:#9e9e9e; background:rgba(158,158,158,0.12); border:1px solid rgba(158,158,158,0.45);">NON VALUTABILE</span></div><div>Free cash flow normalizzato negativo, dati insufficienti, oppure prezzo sopra il FV di mercato senza una crescita storica con cui confrontarlo.</div></div>
                         <div class="leg-row"><div class="leg-nome">⚠ Avvisi</div><div>Segnalano quando la stima è meno affidabile: free cash flow molto inferiore all'utile, anni con free cash flow negativo, debito netto elevato, margine attuale molto sotto la media, e banche e assicurazioni, per cui un modello sul free cash flow è poco significativo.</div></div>
                     </div>
@@ -1552,7 +1595,7 @@
     <div id="lay-modale" style="display:none; position:fixed; inset:0; z-index:3000; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; padding:16px;" onclick="if(event.target===this) chiudiLayout()">
         <div style="background:#111; border:1px solid var(--border-glass); border-radius:16px; width:100%; max-width:440px; max-height:88vh; overflow:auto; padding:20px;" role="dialog" aria-label="Personalizza la pagina">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                <h3 style="margin:0; color:#fff;">⚙️ Personalizza la pagina</h3>
+                <h3 style="margin:0; color:#fff;">Personalizza la pagina</h3>
                 <button onclick="chiudiLayout()" aria-label="Chiudi" style="background:none; border:none; color:#fff; font-size:1.4em; cursor:pointer;">✕</button>
             </div>
             <p style="margin:0 0 10px; font-size:0.85em; color:var(--text-muted); line-height:1.5;">Togli la spunta alle sezioni che non ti servono e usa le frecce per metterle nell'ordine che preferisci. La scelta resta salvata in questo browser.</p>
@@ -1567,7 +1610,7 @@
     <div id="app-offline" style="display:none; position:fixed; left:50%; bottom:14px; transform:translateX(-50%); z-index:2500; background:#1a1a1a; border:1px solid var(--accent-yellow); color:#fff; border-radius:24px; padding:9px 18px; font-size:0.85em; box-shadow:0 6px 24px rgba(0,0,0,0.6); max-width:92vw; text-align:center;">📡 Sei senza rete: vedi i dati dell'ultimo aggiornamento, senza prezzi in tempo reale</div>
 
     <footer>
-        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView e Investing.com sono link affiliati. <br><br> <a href="disclaimer.html">Disclaimer</a> · <a href="privacy.html">Privacy</a> · <a href="titoli/">Tutti i fair value</a></p>
+        <p>Matteo Mazzero Trading © 2026 - Analisi a scopo didattico. I dati non costituiscono consulenza finanziaria. Alcuni link verso TradingView e Investing.com sono link affiliati. <br><br> <a href="disclaimer.html">Disclaimer</a> · <a href="privacy.html">Privacy</a> · <a href="titoli/">Tutti i fair value</a> · <button type="button" class="personalizza" onclick="apriLayout()">Personalizza le sezioni</button></p>
     </footer>
 
     <script>
@@ -1693,7 +1736,7 @@
                 const [vix, spx] = await Promise.all([q('CBOE:VIX', 'close'), q('SP:SPX', 'close,SMA200')]);
                 const v = vix && vix.close;
                 if (!(v > 0)) throw new Error('VIX non disponibile');
-                const stato = v >= 30 ? ['Paura', '#ff3d00'] : v >= 20 ? ['Tensione', '#ffb300'] : v >= 15 ? ['Normale', '#cddc39'] : ['Calma', '#00e676'];
+                const stato = v >= 30 ? ['Paura', '#F0716A'] : v >= 20 ? ['Tensione', '#ffb300'] : v >= 15 ? ['Normale', '#cddc39'] : ['Calma', '#4CC38A'];
                 // Posizione sulla barra: VIX 40 o più = tutto a sinistra (paura), VIX 10 o meno = tutto a destra (calma)
                 needle.style.left = Math.max(2, Math.min(98, (40 - v) / 30 * 100)).toFixed(0) + '%';
                 needle.style.display = '';
@@ -1771,7 +1814,7 @@
             if (!d || d.fv == null || !(p > 0)) return { key: 'na', cat: 'na', titolo: 'FV NON DISPONIBILE', breve: 'N/D', sotto: '', colore: '#9e9e9e', dettagli: [] };
             const sotto = d.fv > p;
             return { key: sotto ? 'sotto' : 'sopra', cat: sotto ? 'sotto' : 'sopra', titolo: sotto ? 'SOTTOVALUTATA' : 'SOPRAVVALUTATA',
-                     breve: sotto ? 'SOTTOVALUTATA' : 'SOPRAVVALUTATA', sotto: 'stima manuale', colore: sotto ? '#00e676' : '#ff3d00', dettagli: [] };
+                     breve: sotto ? 'SOTTOVALUTATA' : 'SOPRAVVALUTATA', sotto: 'stima manuale', colore: sotto ? '#4CC38A' : '#F0716A', dettagli: [] };
         }
         // Banche e assicurazioni: il fair value sul free cash flow è poco significativo
         const FINANZIARI = new Set(FVEngine.FINANZIARI);
@@ -1787,7 +1830,7 @@
         }
 
         // Affidabilità della stima (calcolata in fv_engine.js): colori ed etichette
-        const AFF_COL = { alta: '#43a047', media: '#f9a825', bassa: '#ef6c00' };
+        const AFF_COL = { alta: '#4CC38A', media: '#f9a825', bassa: '#ef6c00' };
         const AFF_TXT = { alta: 'affidabile', media: 'da leggere con cautela', bassa: 'poco affidabile' };
 
         // Copia negli appunti il link diretto alla scheda del titolo aperto
@@ -1881,7 +1924,7 @@
                     const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 0 }) + '%';
                     const dist = (pos.zona < 9 ? `<div style="color:#fff;">Posizione: <strong>${pos.testo}</strong>${pos.sotto ? ' · ' + pos.sotto : ''}</div>` : '')
                         + (aff.livello ? `<div style="color:#fff;" title="${aff.motivi.join(' · ')}">Affidabilità della stima: <strong style="color:${AFF_COL[aff.livello]};">${aff.livello}</strong></div>` : '')
-                        + (pt.pot != null ? `<div style="color:#fff;">Potenziale: <strong style="color:${pt.pot >= 0 ? '#43a047' : '#d32f2f'};">${pcs(pt.pot)}</strong> su FV ${pt.rif}${pt.potMkt != null ? ' · ' + pcs(pt.potMkt) + ' su FV mercato' : ''}</div>` : '')
+                        + (pt.pot != null ? `<div style="color:#fff;">Potenziale: <strong style="color:${pt.pot >= 0 ? '#4CC38A' : '#F0716A'};">${pcs(pt.pot)}</strong> su FV ${pt.rif}${pt.potMkt != null ? ' · ' + pcs(pt.potMkt) + ' su FV mercato' : ''}</div>` : '')
                         + (pt.pot != null && ((v.cat === 'sotto' && pt.pot < 0) || (v.cat === 'sopra' && pt.pot > 0)) ? `<div style="color:var(--text-muted);">Esito e potenziale qui non coincidono: il primo guarda ai tassi di oggi, il secondo anche alla storia del titolo. Valutazione meno netta.</div>` : '');
                     vt.innerHTML = (v.sotto ? `<div style="color:${v.colore}; font-weight:600;">${v.sotto}</div>` : '') + dist
                         + v.dettagli.map(t => `<div style="color:${t === AVVISO_FIN ? '#f9a825' : 'var(--text-muted)'};">${t.startsWith('crescita') || t.startsWith('ROIC') ? '' : '⚠ '}${t}</div>`).join('');
@@ -1997,9 +2040,9 @@
                 const m = med(v.filter(d => d.pot != null && d.aff.livello !== 'bassa').map(d => d.pot));
                 return `<div class="mkt-card" onclick="apriMercato('${k}')" title="Apri lo screener su questo mercato">
                     <div class="t">${nome} <span style="color:var(--text-muted); font-weight:400; font-size:0.85em;">· ${v.length} titoli</span></div>
-                    <div class="n" style="color:${m == null ? 'var(--text-muted)' : m >= 0 ? '#43a047' : '#d32f2f'};">${pcs(m)}</div>
+                    <div class="n" style="color:${m == null ? 'var(--text-muted)' : m >= 0 ? '#4CC38A' : '#F0716A'};">${pcs(m)}</div>
                     <div class="s">potenziale mediano</div>
-                    <div class="mkt-bar"><div style="width:${n('sotto') / tot * 100}%; background:#43a047;"></div><div style="width:${n('equa') / tot * 100}%; background:#78909c;"></div><div style="width:${n('sopra') / tot * 100}%; background:#d32f2f;"></div></div>
+                    <div class="mkt-bar"><div style="width:${n('sotto') / tot * 100}%; background:#4CC38A;"></div><div style="width:${n('equa') / tot * 100}%; background:#78909c;"></div><div style="width:${n('sopra') / tot * 100}%; background:#F0716A;"></div></div>
                     <div class="s">${Math.round(n('sotto') / tot * 100)}% sotto o nella banda · ${Math.round(n('equa') / tot * 100)}% equità o premio · ${Math.round(n('sopra') / tot * 100)}% sopravvalutati</div>
                 </div>`;
             }).join('');
@@ -2117,7 +2160,7 @@
             for (const [k, e] of Object.entries(fvExtDati || {})) if (!db[k] || db[k].ext) valuta(k, e);
             elenco.sort((a, b) => b.n - a.n || (b.tbo ? 1 : 0) - (a.tbo ? 1 : 0) || (b.pot || 0) - (a.pot || 0));
             const C = tboStatsDati && tboStatsDati.convergenze, M = tboData && tboData.mercato;
-            const lente = (ok, testo) => `<span style="display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:6px; font-size:0.75em; ${ok ? 'background:rgba(0,230,118,0.12); color:var(--brand-green); border:1px solid rgba(0,230,118,0.35);' : 'color:var(--text-muted); border:1px solid var(--border-glass);'}">${ok ? '✓' : '·'} ${testo}</span>`;
+            const lente = (ok, testo) => `<span style="display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:6px; font-size:0.75em; ${ok ? 'background:rgba(76,195,138,0.12); color:var(--brand-green); border:1px solid rgba(76,195,138,0.35);' : 'color:var(--text-muted); border:1px solid var(--border-glass);'}">${ok ? '✓' : '·'} ${testo}</span>`;
             box.innerHTML = `<p style="margin:0 0 12px; color:#ddd; font-size:0.92em; line-height:1.65;">Ogni sera cerco i titoli su cui concordano i due strumenti la cui combinazione ho verificato sui dati: <strong>il prezzo è sotto il fair value</strong> e <strong>la strategia TBO ha dato un "Compra"</strong> nelle ultime due settimane. Per ciascuno mostro anche due indizi in più: se <strong>il periodo storico più simile</strong> del Pattern Scanner (somiglianza ≥ 90%) fu seguito da un rialzo, e se <strong>il prezzo chiede molto meno crescita</strong> (oltre 10 punti) di quella che l'azienda ha già realizzato. In cima i titoli con più indizi a favore.</p>
                 ${C && C.sotto_fv && C.sotto_fv.p12 ? `<div class="tbo-contesto" style="margin:0 0 12px;"><div class="l">La combinazione verificata sui dati</div>I “Compra” della strategia dati con il prezzo <strong>sotto il fair value</strong> di allora sono stati in guadagno dopo 12 mesi nel <strong style="color:#fff;">${C.sotto_fv.p12.toLocaleString('it-IT')}%</strong> dei casi (mediana ${pc1(C.sotto_fv.m12)}, ${C.sotto_fv.casi.toLocaleString('it-IT')} segnali dal 2021); quelli dati <strong>sopra</strong> nel ${C.sopra_fv.p12.toLocaleString('it-IT')}% (mediana ${pc1(C.sopra_fv.m12)}).${M ? ` Oggi il mercato è ${M.nome} (${M.ampiezza_pct.toLocaleString('it-IT')}% dei titoli sopra la media a 200 sedute).` : ''}  Le aspettative molto basse hanno funzionato da sole ma misurano quasi la stessa cosa del fair value (vedi "Cosa sconta il prezzo"); il Pattern Scanner non ha ancora una verifica storica: entrambi contano come indizi.</div>` : ''}
                 ${elenco.length ? `<div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Titolo</th><th>Strumenti e indizi d'accordo</th><th>Esito del fair value</th><th>Potenziale</th></tr></thead><tbody>
@@ -2247,7 +2290,7 @@
             document.getElementById('mappa-nota').innerText = `${titoli.length.toLocaleString('it-IT')} società · ${nOk.toLocaleString('it-IT')} con fair value · ${sotto.toLocaleString('it-IT')} sotto il fair value pavimento`;
             const leg = modo === 'pot'
                 ? '<span>Potenziale:</span><span style="color:#d0293a;">■ −50% o meno</span><span style="color:#8a8f99;">■ 0%</span><span style="color:#11ae34;">■ +50% o più</span><span style="color:#5a5f6b;">■ non calcolabile</span>'
-                : [['#1b5e20', 'molto sottovalutata'], ['#43a047', 'sottovalutata'], ['#00897b', 'nella banda'], ['#546e7a', 'zona di equità'], ['#f9a825', 'premio sostenuto'], ['#ef6c00', 'premio dubbio'], ['#d32f2f', 'sopravvalutata'], ['#ffeb3b', 'in declino'], ['#3a3f4b', 'non calcolabile']].map(([c, l]) => `<span><span style="color:${c};">■</span> ${l}</span>`).join('');
+                : [['#3DDC97', 'molto sottovalutata'], ['#4CC38A', 'sottovalutata'], ['#00897b', 'nella banda'], ['#546e7a', 'zona di equità'], ['#f9a825', 'premio sostenuto'], ['#ef6c00', 'premio dubbio'], ['#F0716A', 'sopravvalutata'], ['#E8C15A', 'in declino'], ['#3a3f4b', 'non calcolabile']].map(([c, l]) => `<span><span style="color:${c};">■</span> ${l}</span>`).join('');
             document.getElementById('mappa-legenda').innerHTML = leg;
         }
         function mappaVoce(ev) { const i = ev.target && ev.target.getAttribute && ev.target.getAttribute('data-i'); return i != null ? mappaRetti[+i] : null; }
@@ -2311,7 +2354,7 @@
                 <td><div class="scr-ticker">${esc(d.ticker)}${inPortafoglio(d.ticker) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(d.name)}${d.altro ? ' <span style="color:var(--text-muted);">· altro titolo</span>' : ''}</div></td>
                 <td class="mono-font" style="font-weight:800; color:${d.ok ? '#fff' : 'var(--text-muted)'};">${(d.r * 100).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</td>
                 <td style="white-space:nowrap;">${mese(d.dal)} – ${mese(d.al)}</td>
-                <td style="line-height:1.35;"><div class="mono-font" style="font-weight:800; color:${d.var >= 0 ? '#43a047' : '#d32f2f'};">${pcs(d.var)}</div><div style="font-size:0.75em; color:var(--text-muted);">in ${d.sedute} sedute</div></td>
+                <td style="line-height:1.35;"><div class="mono-font" style="font-weight:800; color:${d.var >= 0 ? '#4CC38A' : '#F0716A'};">${pcs(d.var)}</div><div style="font-size:0.75em; color:var(--text-muted);">in ${d.sedute} sedute</div></td>
                 <td class="mono-font" style="white-space:nowrap; color:var(--text-muted);">${pcs(d.min)} / ${pcs(d.max)}</td></tr>`).join('')
                 : '<tr><td colspan="5" style="text-align:center; padding:24px; color:var(--text-muted);">Nessun titolo con questi filtri.</td></tr>';
             const quando = patData.aggiornato ? new Date(patData.aggiornato).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
@@ -2423,7 +2466,7 @@
                 <td><div class="scr-ticker">${esc(r.e.altro ? apri : r.t)}${!r.e.altro && inPortafoglio(r.t) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${esc(r.e.name)}</div><div class="tbo-prec-mob">${tboChipPrecedenti(r, idR, aperto)}</div></td>
                 <td><span class="scr-badge ${r.k === 'c' ? 'buy' : 'watch'}" style="white-space:nowrap;">${r.k === 'c' ? 'COMPRA' : 'CHIUSA ALL\'80%'}</span></td>
                 <td class="mono-font" style="white-space:nowrap;">${num(r.p0)} ${r.e.curr}</td>
-                <td class="mono-font" style="white-space:nowrap; font-weight:800; color:${da == null ? 'var(--text-muted)' : da >= 0 ? '#43a047' : '#d32f2f'};">${da == null ? '—' : pcs(da)}</td>
+                <td class="mono-font" style="white-space:nowrap; font-weight:800; color:${da == null ? 'var(--text-muted)' : da >= 0 ? '#4CC38A' : '#F0716A'};">${da == null ? '—' : pcs(da)}</td>
                 <td>${r.v && r.v.key !== 'na' ? `<span class="scr-badge" style="${badgeStyle(r.v.colore)}">${r.v.breve}</span>` : r.e.altro ? '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">calcola →</span>' : '<span style="color:var(--text-muted);">—</span>'}</td>
                 <td class="tbo-col-prec">${tboChipPrecedenti(r, idR, aperto)}</td></tr>`
                 + (aperto ? `<tr class="tbo-dett-riga"><td colspan="7">${tboDettaglio(r, apri)}</td></tr>` : '');
@@ -2453,8 +2496,8 @@
             const P = r.pr;
             if (!P || (r.k === 'c' ? !(P.n12 >= 3) : !(P.u >= 2))) return '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">pochi dati</span>';
             const [val, sotto, col] = r.k === 'c'
-                ? [P.p12, 'in guadagno dopo 12 mesi', P.p12 - P.q12 >= 5 ? '#43a047' : P.p12 - P.q12 <= -5 ? '#ffa726' : '#fff']
-                : [P.uc, 'calo nei 3 mesi dopo', P.uc >= 60 ? '#43a047' : P.uc < 40 ? '#ffa726' : '#fff'];
+                ? [P.p12, 'in guadagno dopo 12 mesi', P.p12 - P.q12 >= 5 ? '#4CC38A' : P.p12 - P.q12 <= -5 ? '#ffa726' : '#fff']
+                : [P.uc, 'calo nei 3 mesi dopo', P.uc >= 60 ? '#4CC38A' : P.uc < 40 ? '#ffa726' : '#fff'];
             return `<button class="tbo-chip" aria-expanded="${aperto}" onclick="event.stopPropagation(); tboDettagli.has('${esc(idR)}') ? tboDettagli.delete('${esc(idR)}') : tboDettagli.add('${esc(idR)}'); renderTbo()">
                 <span class="mono-font" style="color:${col}; font-weight:800;">${pcIt(val)}%</span><span class="s">${sotto}</span><span class="f">${aperto ? '▴' : '▾'}</span></button>`;
         }
@@ -2480,7 +2523,7 @@
             const box = document.getElementById('tbo-contesto'), M = tboData && tboData.mercato;
             if (!box || !M || M.ampiezza_pct == null) return;
             const f = tboFascia(M.ampiezza_pct), e = f && tboEsitoFascia(f.k), F = (tboStatsDati && tboStatsDati.contesto && tboStatsDati.contesto.fasce) || [];
-            const col = { molto_debole: '#ef5350', debole: '#ffa726', normale: '#9ccc65', forte: '#43a047' }[f && f.k] || '#fff';
+            const col = { molto_debole: '#ef5350', debole: '#ffa726', normale: '#9ccc65', forte: '#4CC38A' }[f && f.k] || '#fff';
             const st = M.storia || [], W = 140, H = 34, x = i => (i / Math.max(1, st.length - 1) * W).toFixed(1), y = v => (H - v / 100 * H).toFixed(1);
             const linea = st.length > 1 ? `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true" style="flex-shrink:0;">
                 <line x1="0" x2="${W}" y1="${y(50)}" y2="${y(50)}" stroke="rgba(255,255,255,0.18)" stroke-dasharray="3 3"/>
@@ -2502,7 +2545,7 @@
             document.getElementById('cambi-lista').innerHTML = cambi.map(c => {
                 const d = new Date(c.data + 'T12:00:00');
                 const su = FVEngine.categoria(c.a) === 'sotto' || (FVEngine.categoria(c.a) === 'equa' && FVEngine.categoria(c.da) === 'sopra');
-                return `<div class="cambio"><span class="d">${d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })}</span><a onclick="apriTitolo('${c.t}')">${c.t}</a><span style="color:var(--text-muted);">${db[c.t].name}</span><span>da ${nome(c.da)} a <strong style="color:${su ? '#43a047' : '#d32f2f'};">${nome(c.a)}</strong></span></div>`;
+                return `<div class="cambio"><span class="d">${d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })}</span><a onclick="apriTitolo('${c.t}')">${c.t}</a><span style="color:var(--text-muted);">${db[c.t].name}</span><span>da ${nome(c.da)} a <strong style="color:${su ? '#4CC38A' : '#F0716A'};">${nome(c.a)}</strong></span></div>`;
             }).join('');
             document.getElementById('cambi-n').innerText = '(' + cambi.length + ')';
             document.getElementById('cambi-box').style.display = '';
@@ -2588,7 +2631,7 @@
                 const avv = (d.ind && d.ind.avvisi) || [];
                 const margAvv = avv.find(a => a.startsWith('margine attuale'));
                 const scontoCell = d.pot == null ? `<span style="color:var(--text-muted);">—</span>`
-                    : `<div style="font-weight:800; color:${d.pot >= 0 ? '#43a047' : '#d32f2f'};">${pc(d.pot)} <span style="font-size:0.7em; font-weight:600; color:var(--text-muted);" title="FV ${d.potRif}: ${cur(d.potRif === 'storico' ? d.fv_sto : d.fv)}">su FV ${d.potRif}</span></div><div style="font-size:0.75em; color:var(--text-muted);">FV mercato: ${pc(d.potMkt)}</div>`
+                    : `<div style="font-weight:800; color:${d.pot >= 0 ? '#4CC38A' : '#F0716A'};">${pc(d.pot)} <span style="font-size:0.7em; font-weight:600; color:var(--text-muted);" title="FV ${d.potRif}: ${cur(d.potRif === 'storico' ? d.fv_sto : d.fv)}">su FV ${d.potRif}</span></div><div style="font-size:0.75em; color:var(--text-muted);">FV mercato: ${pc(d.potMkt)}</div>`
                       + (margAvv ? `<div style="font-size:0.72em; color:#f9a825;" title="${avv.join(' · ')}">⚠ margine in calo</div>` : '');
                 tr.innerHTML = `<td><button class="scr-fav" onclick="event.stopPropagation(); toggleFavorite('${d.ticker}')" title="${fav ? 'Togli dai preferiti' : 'Aggiungi ai preferiti'}" style="background:none;border:none;cursor:pointer;font-size:1.15em;color:${fav ? '#f9a825' : 'var(--text-muted)'};">${fav ? '★' : '☆'}</button></td>
                 <td><div class="scr-ticker">${d.ticker}${inPortafoglio(d.ticker) ? ' ' + HELD_TAG : ''}</div><div class="scr-name" style="font-size:0.78em;">${d.name}</div></td>
@@ -2666,7 +2709,7 @@
             for (let i = 1; i <= years; i++) { labels.push(`Anno ${i}`); for (let m = 0; m < 12; m++) { total = (total + monthly) * (1 + (rate/100)/12); invested += monthly; } dataInvested.push(invested); dataTotal.push(total); }
             document.getElementById('pacTotal').innerText = total.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('pacInvested').innerText = invested.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('pacInterest').innerText = (total - invested).toLocaleString('it-IT', { style: 'currency', currency: 'EUR' }); document.getElementById('pacResult').style.display = 'block';
             if (pacChartObj) pacChartObj.destroy();
-            pacChartObj = new Chart(document.getElementById('pacChartCanvas').getContext('2d'), { type: 'bar', data: { labels, datasets: [ { label: 'Capitale Versato', data: dataInvested, backgroundColor: '#2962ff' }, { label: 'Interesse Composto', data: dataTotal.map((v,i) => v - dataInvested[i]), backgroundColor: '#00e676' } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } } });
+            pacChartObj = new Chart(document.getElementById('pacChartCanvas').getContext('2d'), { type: 'bar', data: { labels, datasets: [ { label: 'Capitale Versato', data: dataInvested, backgroundColor: '#6E9BF0' }, { label: 'Interesse Composto', data: dataTotal.map((v,i) => v - dataInvested[i]), backgroundColor: '#4CC38A' } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } } });
         }
         function calculatePosition() {
             const cap = parseFloat(document.getElementById('psCap').value) || 0, riskPct = parseFloat(document.getElementById('psRisk').value) || 0, entry = parseFloat(document.getElementById('psEntry').value) || 0, stop = parseFloat(document.getElementById('psStop').value) || 0;
@@ -2691,7 +2734,7 @@
         let allocChartObj = null;
         function renderPortfolio() {
             const pd = portfolioData;
-            const COLORS = ['#00e676','#2962ff','#ff3d00','#9c27b0','#00bcd4','#ffeb3b','#795548','#607d8b','#e91e63','#f06292','#aed581','#4fc3f7','#ffb74d','#a1887f','#90a4ae','#80cbc4','#ce93d8','#ef9a9a','#81d4fa','#c5e1a5','#ffe082','#bcaaa4','#b0bec5','#80deea','#b39ddb'];
+            const COLORS = ['#4CC38A','#6E9BF0','#F0716A','#9c27b0','#00bcd4','#E8C15A','#795548','#607d8b','#e91e63','#f06292','#aed581','#4fc3f7','#ffb74d','#a1887f','#90a4ae','#80cbc4','#ce93d8','#ef9a9a','#81d4fa','#c5e1a5','#ffe082','#bcaaa4','#b0bec5','#80deea','#b39ddb'];
 
             // KPI cards
             if (pd && pd.summary) {
@@ -2736,8 +2779,8 @@
                             tooltip: {
                                 backgroundColor: 'rgba(5,5,5,0.95)', titleColor: '#fff', bodyColor: '#d1d4dc',
                                 borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, padding: 12, usePointStyle: true,
-                                titleFont: { family: "'JetBrains Mono', monospace", size: 14, weight: 'bold' },
-                                bodyFont: { family: "'Inter', sans-serif", size: 12 },
+                                titleFont: { family: "'IBM Plex Mono', monospace", size: 14, weight: 'bold' },
+                                bodyFont: { family: "'IBM Plex Sans', sans-serif", size: 12 },
                                 callbacks: {
                                     title: items => items[0].label,
                                     label: c => ' ' + names[c.dataIndex] + ': ' + c.parsed.toFixed(1) + '%'
@@ -2757,7 +2800,7 @@
                     .map(p => ({ t: p.ticker, d: new Date(db[p.ticker].earn_next + 'T12:00:00') }))
                     .filter(x => x.d >= oggi).sort((a, b) => a.d - b.d).slice(0, 6);
                 if (prossime.length) {
-                    pe.innerHTML = '📅 <strong style="color:#fff;">Prossime trimestrali:</strong> ' + prossime.map(x => `<a onclick="apriTitolo('${x.t}')" style="color:var(--brand-green); cursor:pointer;">${x.t}</a> ${x.d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })}`).join(' · ');
+                    pe.innerHTML = '📅 <strong style="color:#fff;">Prossime trimestrali:</strong> ' + prossime.map(x => `<a onclick="apriTitolo('${x.t}')" style="color:var(--accent); cursor:pointer;">${x.t}</a> ${x.d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })}`).join(' · ');
                     pe.style.display = '';
                 }
             }
@@ -2808,7 +2851,7 @@
             const col = x => x == null ? 'var(--text-muted)' : x > 0 ? 'var(--brand-green)' : x < 0 ? 'var(--accent-red)' : '#fff';
             const med = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
             const quando = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
-            const fascia = q => q == null ? null : q < 30 ? ['molto debole', '#ef5350'] : q < 50 ? ['debole', '#ffa726'] : q < 70 ? ['in salute', '#9ccc65'] : ['forte', '#43a047'];
+            const fascia = q => q == null ? null : q < 30 ? ['molto debole', '#ef5350'] : q < 50 ? ['debole', '#ffa726'] : q < 70 ? ['in salute', '#9ccc65'] : ['forte', '#4CC38A'];
             // sintesi: come sono andati gli acquisti fatti sotto e sopra il fair value di allora, e le vendite
             const acq = O.filter(o => o.side === 'buy' && o.dopo != null && o.date < new Date(Date.now() - 20 * 864e5).toISOString().slice(0, 10));
             const sotto = acq.filter(o => o.fv && o.fv.gap < 0), sopra = acq.filter(o => o.fv && o.fv.gap >= 0), vend = O.filter(o => o.side === 'sell' && o.dopo != null);
@@ -2862,7 +2905,7 @@
             const paesi = somma(p => (C[p.ticker] && C[p.ticker].paese) || 'Da classificare');
             const settori = somma(p => (C[p.ticker] && C[p.ticker].settore) || 'Da classificare');
             const aree = somma(p => { const x = (C[p.ticker] && C[p.ticker].paese) || ''; return x ? (AREA_PAESE[x] || 'Europa') : 'Da classificare'; });
-            const PAL = ['#00e676', '#4fc3f7', '#ffb74d', '#ce93d8', '#f06292', '#aed581', '#ffe082', '#80cbc4', '#90a4ae', '#ef9a9a', '#b39ddb', '#bcaaa4'];
+            const PAL = ['#4CC38A', '#4fc3f7', '#ffb74d', '#ce93d8', '#f06292', '#aed581', '#ffe082', '#80cbc4', '#90a4ae', '#ef9a9a', '#b39ddb', '#bcaaa4'];
             const pct = x => x.toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
             const blocco = (titolo, righe, sotto, etichetta = k => k) => {
                 const max = Math.max(...righe.map(r => r[1]), 1);
@@ -3092,14 +3135,14 @@
             const values = mode === 'perf' ? P.serie : P.slice.map(p => p.v);
             const esito = P.conPerf ? P.rend : P.last.v - P.start.v;
             const isPositive = esito >= 0;
-            const color = isPositive ? '#00e676' : '#ff3d00';
+            const color = isPositive ? '#4CC38A' : '#F0716A';
             const pct = (x, dec = 2) => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + '%';
             const usd = (x, segno) => fmtRaw(x, { dec: 0, segno });        // valori già nella valuta scelta
 
             if (perfChartInstance) { perfChartInstance.destroy(); perfChartInstance = null; }
             const ctx = document.getElementById('perfChart').getContext('2d');
             const gradient = ctx.createLinearGradient(0, 0, 0, 220);
-            gradient.addColorStop(0, isPositive ? 'rgba(0,230,118,0.22)' : 'rgba(255,61,0,0.22)');
+            gradient.addColorStop(0, isPositive ? 'rgba(76,195,138,0.22)' : 'rgba(255,61,0,0.22)');
             gradient.addColorStop(1, 'rgba(0,0,0,0)');
             const pochi = P.slice.length <= 30;
 
@@ -3153,7 +3196,7 @@
                 </div>`;
             if (kpiBar) kpiBar.innerHTML = P.conPerf
                 ? kpi('Rendimento', pct(P.rend), color, dal)
-                  + kpi('Guadagno / perdita', usd(P.pl, true), P.pl >= 0 ? '#00e676' : '#ff3d00', 'in dollari, ' + (P.dallInizio ? 'dall\'inizio' : 'nel periodo'))
+                  + kpi('Guadagno / perdita', usd(P.pl, true), P.pl >= 0 ? '#4CC38A' : '#F0716A', 'in dollari, ' + (P.dallInizio ? 'dall\'inizio' : 'nel periodo'))
                   + kpi(P.dallInizio ? 'Capitale versato' : 'Versamenti netti', !P.dallInizio && Math.abs(P.versamenti) < 1 ? 'nessuno' : usd(P.versamenti, !P.dallInizio), null, P.dallInizio ? 'totale, dall\'inizio' : 'nuovo capitale nel periodo')
                   + kpi('Valore attuale', usd(P.last.v), null, P.last.live ? 'adesso · prezzi ritardati di 15 min' : 'al ' + giorno(P.last.d))
                 : kpi('Variazione del valore', usd(P.last.v - P.start.v, true), color, dal + ' · versamenti compresi')
@@ -3200,7 +3243,7 @@
                 type: 'line',
                 data: { labels: date.map(et), datasets: [
                     { label: 'Prezzo', data: p, borderColor: '#e0e0e0', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.2, spanGaps: true },
-                    { label: 'Fair value', data: fv, borderColor: '#00e676', backgroundColor: 'rgba(0,230,118,0.10)', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.2, spanGaps: true, fill: true } ] },
+                    { label: 'Fair value', data: fv, borderColor: '#4CC38A', backgroundColor: 'rgba(76,195,138,0.10)', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.2, spanGaps: true, fill: true } ] },
                 options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
                     plugins: { legend: { labels: { color: '#bbb', boxWidth: 14, font: { size: 11 } } },
                         tooltip: { backgroundColor: 'rgba(5,5,5,0.9)', titleColor: '#fff', bodyColor: '#ccc', callbacks: { label: c => c.dataset.label + ': ' + (c.parsed.y == null ? 'n.d.' : itNum(c.parsed.y) + ' ' + curr) } } },
@@ -3212,7 +3255,7 @@
                 : dP > dFv ? 'il prezzo è salito più della stima di valore, quindi il titolo è diventato più caro'
                 : dP >= 0 ? 'la stima di valore è cresciuta più del prezzo, quindi il titolo è diventato più conveniente'
                 : 'la stima di valore è cresciuta mentre il prezzo scendeva';
-            document.getElementById('fv-hist-testo').innerHTML = `Da ${et(date[0])} il fair value è passato da <strong>${itNum(fv[0])}</strong> a <strong>${itNum(fv[n])} ${esc(curr)}</strong> (<strong style="color:${dFv >= 0 ? '#43a047' : '#d32f2f'};">${itPct(dFv, 0)}</strong>) e il prezzo da ${itNum(p[0])} a ${itNum(p[n])} (${itPct(dP, 0)}): ${lettura}.`;
+            document.getElementById('fv-hist-testo').innerHTML = `Da ${et(date[0])} il fair value è passato da <strong>${itNum(fv[0])}</strong> a <strong>${itNum(fv[n])} ${esc(curr)}</strong> (<strong style="color:${dFv >= 0 ? '#4CC38A' : '#F0716A'};">${itPct(dFv, 0)}</strong>) e il prezzo da ${itNum(p[0])} a ${itNum(p[n])} (${itPct(dP, 0)}): ${lettura}.`;
         }
 
         // === TITOLI FUORI ELENCO: dati di base dallo screener pubblico di TradingView ===
@@ -3258,9 +3301,9 @@
                         ${voce('Capitalizzazione', cap != null ? grande(cap) + ' ' + esc(x.currency === 'GBX' ? 'GBP' : x.currency || '') : nd)}
                         ${voce('Ricavi, ultimo anno', x.total_revenue_yoy_growth_ttm != null ? itPct(x.total_revenue_yoy_growth_ttm) : nd, 'Crescita dei ricavi degli ultimi 12 mesi sui 12 precedenti')}
                     </div>
-                    ${altri.length ? `<div style="margin-top:12px; font-size:0.82em; color:var(--text-muted);">Altri risultati: ${altri.map(y => `<a data-s="${esc(y.s)}" style="color:var(--brand-green); cursor:pointer; margin-right:10px;">${esc(y.description)} (${esc(y.s)})</a>`).join('')}</div>` : ''}
+                    ${altri.length ? `<div style="margin-top:12px; font-size:0.82em; color:var(--text-muted);">Altri risultati: ${altri.map(y => `<a data-s="${esc(y.s)}" style="color:var(--accent); cursor:pointer; margin-right:10px;">${esc(y.description)} (${esc(y.s)})</a>`).join('')}</div>` : ''}
                     <div id="fvx-stato" style="margin-top:12px; font-size:0.88em; color:#ddd;"></div>
-                    <div style="margin-top:10px; font-size:0.74em; color:var(--text-muted);">Fonte: TradingView, prezzi ritardati. <a href="https://it.tradingview.com/symbols/${encodeURIComponent(x.s.replace(':', '-'))}/?aff_id=158356" target="_blank" rel="noopener sponsored" style="color:var(--brand-green);">Apri il grafico su TradingView →</a></div>`;
+                    <div style="margin-top:10px; font-size:0.74em; color:var(--text-muted);">Fonte: TradingView, prezzi ritardati. <a href="https://it.tradingview.com/symbols/${encodeURIComponent(x.s.replace(':', '-'))}/?aff_id=158356" target="_blank" rel="noopener sponsored" style="color:var(--accent);">Apri il grafico su TradingView →</a></div>`;
                 box.querySelectorAll('a[data-s]').forEach(a => a.onclick = () => mostra(righe.find(y => y.s === a.dataset.s)));
                 fvFuoriElenco(x);
             };
@@ -3359,10 +3402,10 @@
             document.getElementById('tbo-stats-kpi').innerHTML =
                 voce('Operazioni chiuse', int(c.operazioni), `durata mediana ${mesi} mesi`)
                 + voce('Vincenti', itNum(c.vincenti_pct, 1) + '%', 'chiuse in guadagno')
-                + voce('Guadagno medio', itPct(c.guadagno_medio_pct), 'delle operazioni vincenti', '#43a047')
-                + voce('Perdita media', itPct(c.perdita_media_pct), 'delle operazioni perdenti', '#d32f2f')
+                + voce('Guadagno medio', itPct(c.guadagno_medio_pct), 'delle operazioni vincenti', '#4CC38A')
+                + voce('Perdita media', itPct(c.perdita_media_pct), 'delle operazioni perdenti', '#F0716A')
                 + voce('Rapporto guadagno / perdita', c.rapporto != null ? itNum(c.rapporto, 2) : 'n.d.', 'guadagno medio diviso perdita media');
-            const verde = '#43a047', rosso = '#d32f2f', colore = x => (x >= 0 ? verde : rosso);
+            const verde = '#4CC38A', rosso = '#F0716A', colore = x => (x >= 0 ? verde : rosso);
             const inGuad = a.in_guadagno_pct != null ? a.in_guadagno_pct : 100 - a.in_perdita_pct;
             document.getElementById('tbo-stats-aperte').innerHTML =
                 voce('Acquisti aperti', int(a.acquisti), a.eta_mediana_mesi != null ? `non ancora venduti · aperti da ${a.eta_mediana_mesi} mesi (mediana)` : 'non ancora venduti')
@@ -3371,7 +3414,7 @@
                 + voce('Risultato medio', itPct(a.rendimento_medio_pct), 'pesano i titoli molto saliti', colore(a.rendimento_medio_pct))
                 + (a.migliore_pct != null ? voce('Migliore / peggiore', `<span style="color:${verde}">${itPct(a.migliore_pct, 0)}</span> <span style="color:#666">/</span> <span style="color:${rosso}">${itPct(a.peggiore_pct, 0)}</span>`, 'singolo acquisto') : voce('Il peggiore', itPct(a.peggiore_pct), 'singolo acquisto', rosso));
             if (a.fasce && a.fasce.length) {
-                const col = ['#1b5e20', '#2e7d32', '#66bb6a', '#ef9a9a', '#e53935', '#8e0000'];
+                const col = ['#3DDC97', '#2e7d32', '#66bb6a', '#ef9a9a', '#e53935', '#8e0000'];
                 document.getElementById('tbo-aperte-barra').innerHTML = a.fasce.map((f, i) => f.quota_pct > 0 ? `<div title="${esc(f.nome)}: ${itNum(f.quota_pct, 1)}%" style="width:${f.quota_pct}%; background:${col[i]};"></div>` : '').join('');
                 document.getElementById('tbo-aperte-legenda').innerHTML = a.fasce.map((f, i) => `<span style="white-space:nowrap;"><span style="display:inline-block; width:10px; height:10px; border-radius:2px; background:${col[i]}; margin-right:5px; vertical-align:-1px;"></span>${esc(f.nome)}: <strong class="mono-font">${itNum(f.quota_pct, 1)}%</strong></span>`).join('');
                 document.getElementById('tbo-aperte-fasce').style.display = 'block';
@@ -3387,7 +3430,7 @@
             if (Ef && Ef.orizzonti && Ef.orizzonti.length) {
                 const val = o => (o.mediana_pct != null ? o.mediana_pct : o.media_pct), cella = o => o ? `${itPct(val(o))} <span style="color:var(--text-muted);">(${itNum(o.positivi_pct, 0)}%)</span>` : '—';
                 document.getElementById('tbo-eff-righe').innerHTML = Ef.orizzonti.map(o => { const d = o.acquisto && o.qualsiasi ? val(o.acquisto) - val(o.qualsiasi) : null;
-                    return `<tr><td>${o.mesi} ${o.mesi === 1 ? 'mese' : 'mesi'}</td><td class="mono-font">${cella(o.qualsiasi)}</td><td class="mono-font">${cella(o.acquisto)}</td><td class="mono-font" style="font-weight:800; color:${d == null || Math.abs(d) < 0.5 ? '#bbb' : d > 0 ? '#43a047' : '#d32f2f'};">${d == null ? '—' : itPct(d) .replace('%', ' punti')}</td><td class="mono-font">${cella(o.uscita)}</td></tr>`; }).join('');
+                    return `<tr><td>${o.mesi} ${o.mesi === 1 ? 'mese' : 'mesi'}</td><td class="mono-font">${cella(o.qualsiasi)}</td><td class="mono-font">${cella(o.acquisto)}</td><td class="mono-font" style="font-weight:800; color:${d == null || Math.abs(d) < 0.5 ? '#bbb' : d > 0 ? '#4CC38A' : '#F0716A'};">${d == null ? '—' : itPct(d) .replace('%', ' punti')}</td><td class="mono-font">${cella(o.uscita)}</td></tr>`; }).join('');
                 const T = Ef.tieni, Pf = Ef.portafoglio || [], P0 = Pf[0];
                 const riga = (nome, etic, m, forte) => `<tr><td>${nome}</td><td${forte ? ' style="color:#fff; font-weight:700;"' : ''}>${etic}</td><td class="mono-font">${itPct(m.annuo_pct)}</td><td class="mono-font">${itPct(m.ribasso_pct)}</td><td class="mono-font">${itNum(m.volatilita_pct, 1)}%</td></tr>`;
                 document.getElementById('tbo-eff-port').innerHTML = Pf.map(x => riga(esc(x.nome) + (x.nome.includes(x.dal.slice(0, 4)) ? '' : ' (' + x.dal.slice(0, 4) + ')'), 'TBO', x.strategia, true) + riga('', 'Compra e tieni', x.tieni)).join('');
@@ -3407,7 +3450,7 @@
                 if (Cx && Cx.fasce && Cx.fasce.some(f => f.casi)) {
                     const per = (i, k) => { const g = Cx.periodi && Cx.periodi[i] && Cx.periodi[i].fasce.find(f => f.k === k); return g && g.casi ? `${pcIt(g.p12)}%` : '—'; };
                     document.getElementById('tbo-ctx-righe').innerHTML = Cx.fasce.filter(f => f.casi).map(f => `<tr><td style="white-space:nowrap;">${{ molto_debole: 'sotto il 30% · ', debole: 'dal 30 al 50% · ', normale: 'dal 50 al 70% · ', forte: 'oltre il 70% · ' }[f.k] || ''}${f.nome}</td>
-                        <td class="mono-font">${int(f.casi)}</td><td class="mono-font" style="font-weight:800;">${pcIt(f.p12, 1)}%</td><td class="mono-font" style="color:${f.m12 >= 0 ? '#43a047' : '#d32f2f'};">${segnoIt(f.m12)}</td><td class="mono-font">${per(0, f.k)}</td><td class="mono-font">${per(1, f.k)}</td></tr>`).join('')
+                        <td class="mono-font">${int(f.casi)}</td><td class="mono-font" style="font-weight:800;">${pcIt(f.p12, 1)}%</td><td class="mono-font" style="color:${f.m12 >= 0 ? '#4CC38A' : '#F0716A'};">${segnoIt(f.m12)}</td><td class="mono-font">${per(0, f.k)}</td><td class="mono-font">${per(1, f.k)}</td></tr>`).join('')
                         + (Cx.tutti ? `<tr style="border-top:1px solid var(--border-glass);"><td><strong>Tutti i segnali</strong></td><td class="mono-font">${int(Cx.tutti.casi)}</td><td class="mono-font" style="font-weight:800;">${pcIt(Cx.tutti.p12, 1)}%</td><td class="mono-font">${segnoIt(Cx.tutti.m12)}</td><td></td><td></td></tr>` : '');
                     const sc = Cx.sconto || [], g = (m, i) => sc.filter(x => x.mercato === m)[i];
                     if (g('debole', 0) && g('debole', 0).casi && g('debole', 1) && g('debole', 1).casi)
@@ -3661,12 +3704,12 @@
                 else { tot += ref.value_usd; ferme++; }
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
-            const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#00e676' : '#ff5252';
+            const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#4CC38A' : '#ff5252';
             portLive = { tot, d };
             el.innerText = fmtV(tot);
             renderPortKpi();
             perfSenzaAnimazione = true; try { renderPerfChart(); } catch (e) {} finally { perfSenzaAnimazione = false; }
-            if (portLivePrec != null && Math.abs(tot - portLivePrec) >= 0.01) { el.style.color = tot > portLivePrec ? '#00e676' : '#ff5252'; setTimeout(() => { el.style.color = ''; }, 900); }
+            if (portLivePrec != null && Math.abs(tot - portLivePrec) >= 0.01) { el.style.color = tot > portLivePrec ? '#4CC38A' : '#ff5252'; setTimeout(() => { el.style.color = ''; }, 900); }
             portLivePrec = tot;
             const [y, m, g] = String(snap.date || '').split('-');
             nota.style.display = 'block';
@@ -3902,29 +3945,7 @@
 
         };
 
-        // Bug 3 fix: scroll spy — highlight active nav link
-        (function() {
-            const sections = ['editoriale','portfolio','fv-section','screener','pattern','tbo','indicatore','myportfolio','strumenti','news','faq','total-watchlist'];
-            const navLinks = document.querySelectorAll('.nav-link');
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    requestAnimationFrame(function() {
-                        const scrollY = window.scrollY;
-                        let current = '';
-                        sections.forEach(function(id) {
-                            const el = document.getElementById(id);
-                            if (el && el.offsetParent !== null && scrollY >= el.offsetTop - 130) current = id;
-                        });
-                        navLinks.forEach(function(l) {
-                            l.classList.toggle('active', l.getAttribute('href') === '#' + current);
-                        });
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-        })();
     </script>
+    <script src="assets/tema.js?v=1"></script>
 </body>
 </html>

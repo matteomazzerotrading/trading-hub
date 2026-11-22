@@ -281,7 +281,7 @@
   function verdict(d, close) {
     const ind = d.ind || {};
     const pct = x => x == null || !isFinite(x) ? 'n.d.' : (x * 100).toFixed(1).replace('.', ',') + '%';
-    const out = { key: 'na', titolo: 'DATI INSUFFICIENTI', sotto: '', colore: '#9e9e9e', dettagli: [], gImpl: null };
+    const out = { key: 'na', titolo: 'DATI INSUFFICIENTI', sotto: '', colore: '#93A4B6', dettagli: [], gImpl: null };
     if (ind.status === 'fcf_negativo') return Object.assign(out, { titolo: 'FCF NORMALIZZATO NEGATIVO', sotto: 'modello non applicabile' });
     if (ind.status === 'tasso_non_disponibile') return Object.assign(out, { titolo: 'TASSO NON DISPONIBILE', sotto: 'controlla il decennale' });
     if (d.fv == null || !(close > 0)) return out;
@@ -305,28 +305,28 @@
 
     if (hasBand && close < d.fv_low * (1 - P.MOS) && close <= sogliaSotto) {
       Object.assign(out, declino
-        ? { key: 'molto_sotto_declino', titolo: 'MOLTO SOTTOVALUTATA, MA IN DECLINO', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#ffeb3b' }
-        : { key: 'molto_sotto', titolo: 'MOLTO SOTTOVALUTATA', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#1b5e20' });
+        ? { key: 'molto_sotto_declino', titolo: 'MOLTO SOTTOVALUTATA, MA IN DECLINO', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#E8C15A' }
+        : { key: 'molto_sotto', titolo: 'MOLTO SOTTOVALUTATA', sotto: "sotto anche l'anno peggiore a crescita zero", colore: '#3DDC97' });
     } else if (close > sogliaSotto && close <= sogliaSu) {
       // Dentro la banda ma sopra la stima prudente: non è "sottovalutata" (il potenziale sarebbe negativo)
-      Object.assign(out, { key: 'banda', titolo: 'NELLA BANDA DEL FAIR VALUE', sotto: 'sopra la stima prudente, entro lo scenario migliore', colore: '#00897b' });
+      Object.assign(out, { key: 'banda', titolo: 'NELLA BANDA DEL FAIR VALUE', sotto: 'sopra la stima prudente, entro lo scenario migliore', colore: '#4FB3A9' });
       if (declino) det.push('in calo: rischio value trap');
     } else if (close <= sogliaSu) {
       Object.assign(out, declino
-        ? { key: 'equa_declino', titolo: "EQUA PER UN'AZIENDA IN DECLINO", sotto: 'prezzata come se non crescesse più', colore: '#ffeb3b' }
-        : { key: 'sotto', titolo: 'SOTTOVALUTATA', sotto: 'prezzata come se non crescesse più', colore: '#43a047' });
+        ? { key: 'equa_declino', titolo: "EQUA PER UN'AZIENDA IN DECLINO", sotto: 'prezzata come se non crescesse più', colore: '#E8C15A' }
+        : { key: 'sotto', titolo: 'SOTTOVALUTATA', sotto: 'prezzata come se non crescesse più', colore: '#4CC38A' });
     } else if (d.fv_mkt == null || close <= d.fv_mkt) {
-      Object.assign(out, { key: 'equita', titolo: 'ZONA DI EQUITÀ', sotto: "sconta meno crescita dell'azienda media", colore: '#546e7a' });
+      Object.assign(out, { key: 'equita', titolo: 'ZONA DI EQUITÀ', sotto: "sconta meno crescita dell'azienda media", colore: '#8FA3B5' });
     } else if (gHist == null) {
-      Object.assign(out, { key: 'sopra_nd', titolo: 'SOPRA IL FAIR VALUE DI MERCATO', sotto: 'crescita storica n.d.: non valutabile', colore: '#9e9e9e' });
+      Object.assign(out, { key: 'sopra_nd', titolo: 'SOPRA IL FAIR VALUE DI MERCATO', sotto: 'crescita storica n.d.: non valutabile', colore: '#93A4B6' });
     } else if (gImpl > gHist + P.TOLL_G) {
-      Object.assign(out, { key: 'sopra', titolo: 'SOPRAVVALUTATA', sotto: 'chiede una crescita mai realizzata', colore: '#d32f2f' });
+      Object.assign(out, { key: 'sopra', titolo: 'SOPRAVVALUTATA', sotto: 'chiede una crescita mai realizzata', colore: '#F0716A' });
       det.push(detRoic);
     } else if (roicOk) {
-      Object.assign(out, { key: 'premio_sostenuto', titolo: 'PREMIO SOSTENUTO', sotto: 'crescita già realizzata e ROIC > Ke', colore: '#f9a825' });
+      Object.assign(out, { key: 'premio_sostenuto', titolo: 'PREMIO SOSTENUTO', sotto: 'crescita già realizzata e ROIC > Ke', colore: '#E8B04A' });
       det.push(detRoic);
     } else {
-      Object.assign(out, { key: 'premio_dubbio', titolo: 'PREMIO DUBBIO', sotto: 'crescita realizzata ma ROIC ≤ Ke', colore: '#ef6c00' });
+      Object.assign(out, { key: 'premio_dubbio', titolo: 'PREMIO DUBBIO', sotto: 'crescita realizzata ma ROIC ≤ Ke', colore: '#E8873A' });
       det.push(detRoic);
     }
     if (declino && out.key === 'equita') det.push('in calo: rischio value trap');   // come avv_decl nel Pine
