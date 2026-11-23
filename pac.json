@@ -174,20 +174,21 @@
      "quote": 10.775,
      "investito": 1887.93,
      "prezzo_manuale": {
-      "data": "2026-11-23",
+      "data": "2026-11-19",
       "valore": 154.04
      }
     }
    ],
    "ricostruisci": false,
    "foto": {
-    "data": "2026-11-23",
+    "data": "2026-11-19",
     "investito": 1887.93,
     "valore": 1659.84,
     "fonte": "app della banca",
     "rate_versate": 14,
     "rate_totali": 120,
-    "pagato": 2800
+    "pagato": 2800,
+    "nota": "valore della quota (NAV) del 19 novembre, come nell'app"
    }
   }
  ],

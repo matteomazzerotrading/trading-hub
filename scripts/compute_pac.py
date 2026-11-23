@@ -122,7 +122,8 @@ def main():
                         return q0 + sum(r[1] for r in rr if r[0] <= g), i0 + sum(r[1] * r[2] for r in rr if r[0] <= g)
                 return 0.0, 0.0
             ultimo = giorni[-1]
-            quote, investito = stato_al(ultimo)
+            # se l'ultimo prezzo è anteriore alla foto (fondi con NAV in ritardo) valgono comunque le quote della foto
+            quote, investito = stato_al(max(ultimo, foto['data']) if con_foto else ultimo)
             ss.update({'quote': round(quote, 4), 'investito': round(investito, 2), 'prezzo': round(px[ultimo], 4), 'data_prezzo': ultimo,
                        'valore': round(quote * px[ultimo], 2), 'rate': pezzi[-1][4]})
             sp['strumenti'].append(ss)
