@@ -3900,6 +3900,8 @@
             const prezzi = await prezziPortLive((pd.positions || []).map(sim).concat(FX));
             if (prezzi[FX]) portFxOggi = prezzi[FX].c;
             const fx = prezzi[FX] && snap.eurusd ? prezzi[FX].c / snap.eurusd : 1;
+            // le azioni in euro sono valutate al cambio fissato all'acquisto: si muove solo il prezzo; le obbligazioni in euro seguono il cambio del giorno
+            const fxPos = p => p.curr === 'EUR' && p.type === 'bond' ? fx : 1;
             // variazione di un titolo dalla fotografia: se la seduta in corso è successiva alla fotografia, chiusura attuale
             // su chiusura precedente; altrimenti la seduta è già compresa nella fotografia e non c'è variazione
             const varia = q => (q && q.t && q.c1 > 0 && giornoRoma(q.t) > snap.date) ? q.c / q.c1 : 1;
@@ -3907,8 +3909,8 @@
             for (const p of pd.positions || []) {
                 const ref = snap.positions[p.ticker], q = prezzi[sim(p)];
                 if (!ref) { tot += p.alloc_pct / 100 * pd.summary.total_value_usd; ferme++; continue; }
-                if (q) tot += ref.value_usd * varia(q) * (p.curr === 'EUR' ? fx : 1);
-                else { tot += ref.value_usd * (p.curr === 'EUR' ? fx : 1); ferme++; }
+                if (q) tot += ref.value_usd * varia(q) * fxPos(p);
+                else { tot += ref.value_usd * fxPos(p); ferme++; }
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
             const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#4CC38A' : '#ff5252';

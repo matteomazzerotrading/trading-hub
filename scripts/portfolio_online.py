@@ -8,7 +8,8 @@ del portafoglio partendo dall'ultima fotografia TradingView (`snapshot`) e dai
 prezzi di mercato correnti (connettore TradingView, mcp-tv-get-symbol-data-batch).
 
 Ogni posizione viene rivalutata in proporzione al movimento del suo prezzo
-(e del cambio EUR/USD per i titoli in euro) rispetto alla fotografia, così i
+(e del cambio EUR/USD per le obbligazioni in euro; le azioni in euro hanno il
+cambio fissato all'acquisto) rispetto alla fotografia, così i
 valori restano allineati con quelli di TradingView invece di saltare.
 
 Uso:
@@ -143,8 +144,9 @@ def cmd_online(path):
         eur = q.get('currency') == 'EUR'
         ref = snap['positions'].get(p['ticker'])
         if ref and ref['qty'] == p['qty'] and ref['price']:
-            # rivaluta in proporzione al prezzo (e al cambio per i titoli in EUR)
-            ratio = q['close'] / ref['price'] * ((fx_now / fx_ref) if eur else 1)
+            # rivaluta in proporzione al prezzo; il cambio conta solo per le obbligazioni in EUR,
+            # perché le azioni in EUR sono valutate al cambio fissato all'acquisto
+            ratio = q['close'] / ref['price'] * ((fx_now / fx_ref) if eur and p.get('type') == 'bond' else 1)
             value = ref['value_usd'] * ratio
             p['unrealized_pl'] = round(ref['unrealized_pl'] + value - ref['value_usd'], 2)
         else:
