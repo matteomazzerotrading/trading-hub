@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-23T16:42:42.916Z",
+ "aggiornato": "2026-11-23T21:46:20.345Z",
  "cambi": [
+  {
+   "data": "2026-11-23",
+   "t": "CB",
+   "nome": "Chubb",
+   "da": "banda",
+   "a": "molto_sotto"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "MELI",
+   "nome": "MercadoLibre",
+   "da": "sotto",
+   "a": "banda"
+  },
   {
    "data": "2026-11-23",
    "t": "OXY",
@@ -14,13 +28,6 @@
    "nome": "Citigroup",
    "da": "sotto",
    "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "CB",
-   "nome": "Chubb",
-   "da": "banda",
-   "a": "molto_sotto"
   },
   {
    "data": "2026-11-23",
@@ -474,192 +481,66 @@
  "cambi_altri": [
   {
    "data": "2026-11-23",
-   "t": "ADAM",
-   "nome": "Adamas Trust, Inc.",
-   "da": "equa_declino",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "AGNC",
-   "nome": "AGNC Investment",
-   "da": "equa_declino",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "ALG",
-   "nome": "Alamo Group",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "ALK",
-   "nome": "Alaska Air Group",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "ATMU",
-   "nome": "Atmus Filtration Technologies Inc.",
-   "da": "premio_sostenuto",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "BBY.L",
-   "nome": "Balfour Beatty plc",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "NDSN",
-   "nome": "Nordson Corporation",
-   "da": "premio_sostenuto",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "OSIS",
-   "nome": "OSI Systems, Inc.",
-   "da": "premio_dubbio",
-   "a": "premio_sostenuto"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "PRLB",
-   "nome": "Protolabs",
-   "da": "equita",
-   "a": "premio_dubbio"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "RES",
-   "nome": "RPC, Inc.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "ROG",
-   "nome": "Rogers Corporation",
-   "da": "banda",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "SIMO",
-   "nome": "Silicon Motion Technology Corporation Sponsored ADR",
-   "da": "premio_sostenuto",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "SSB",
-   "nome": "South State Bank",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "SW",
-   "nome": "Smurfit Westrock",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "SYM",
-   "nome": "Symbotic, Inc. Class A",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "TMP",
-   "nome": "Tompkins Financial Corporation",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "VSH",
-   "nome": "Vishay Intertechnology",
-   "da": "banda",
-   "a": "premio_dubbio"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "YOU",
-   "nome": "Clear Secure, Inc.",
+   "t": "ATAT",
+   "nome": "Atour Lifestyle Holdings Ltd. Sponsored ADR",
    "da": "banda",
    "a": "sotto"
   },
   {
    "data": "2026-11-23",
-   "t": "CLBT",
-   "nome": "Cellebrite DI Ltd.",
+   "t": "ATMU",
+   "nome": "Atmus Filtration Technologies Inc.",
+   "da": "sopra",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "SSB",
+   "nome": "South State Bank",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "UFPI",
+   "nome": "UFP Industries",
    "da": "sotto",
    "a": "banda"
   },
   {
    "data": "2026-11-23",
-   "t": "EL.US",
-   "nome": "Estée Lauder Companies (The)",
-   "da": "equita",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "ETSY",
-   "nome": "Etsy",
+   "t": "YOU",
+   "nome": "Clear Secure, Inc.",
    "da": "sotto",
    "a": "banda"
   },
   {
    "data": "2026-11-23",
-   "t": "HLI",
-   "nome": "Houlihan Lokey",
+   "t": "BCO",
+   "nome": "Brink's",
    "da": "sotto",
    "a": "banda"
   },
   {
    "data": "2026-11-23",
-   "t": "HOMB",
-   "nome": "Home BancShares",
-   "da": "molto_sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "IMB.L",
-   "nome": "Imperial Brands PLC",
-   "da": "molto_sotto",
+   "t": "FCF",
+   "nome": "First Commonwealth Financial, Corp.",
+   "da": "sotto",
    "a": "banda"
   },
   {
    "data": "2026-11-23",
    "t": "KBX.DE",
    "nome": "Knorr-Bremse AG",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "LBRT",
-   "nome": "Liberty Energy, Inc.",
    "da": "banda",
-   "a": "sopra"
+   "a": "sotto"
   },
   {
    "data": "2026-11-23",
    "t": "MAT",
    "nome": "Mattel",
-   "da": "sotto",
-   "a": "banda"
+   "da": "banda",
+   "a": "sotto"
   }
  ]
 }
