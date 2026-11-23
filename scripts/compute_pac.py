@@ -76,7 +76,8 @@ def main():
         dal_dl = (date.fromisoformat(dal) - timedelta(days=10)).isoformat()
         serie_tot = {}
         for s in p['strumenti']:
-            simbolo, px = chiusure(s.get('yf') or [], dal_dl)
+            # se nessun simbolo funziona si prova con l'ISIN (yfinance lo cerca su Yahoo, utile per i fondi)
+            simbolo, px = chiusure((s.get('yf') or []) + [s['isin']], dal_dl)
             giorni = sorted(px)
             ss = {k: s.get(k) for k in ('isin', 'ticker', 'nome', 'rata', 'tipo', 'tv', 'paese', 'settore')}
             ss['simbolo'] = simbolo
