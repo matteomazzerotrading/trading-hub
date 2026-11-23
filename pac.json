@@ -160,7 +160,7 @@
    "nome": "PAC su CPR Invest Global Resources",
    "giorno": 28,
    "quote_intere": false,
-   "inizio": null,
+   "inizio": "2026-03-28",
    "strumenti": [
     {
      "isin": "LU1989769465",
@@ -179,7 +179,7 @@
      }
     }
    ],
-   "ricostruisci": false,
+   "ricostruisci": true,
    "foto": {
     "data": "2026-11-19",
     "investito": 1887.93,
@@ -188,7 +188,13 @@
     "rate_versate": 8,
     "pagato": 1900
    },
-   "descrizione": "Fondo comune: ogni rata compra quote al valore della quota del giorno."
+   "descrizione": "Fondo comune: ogni rata compra quote al valore della quota del giorno.",
+   "versamenti_extra": [
+    [
+     "2026-02-27",
+     300
+    ]
+   ]
   }
  ],
  "stato": {

@@ -72,7 +72,9 @@ def main():
             sp['avvisi'].append('in attesa della data di partenza o delle quote possedute')
             stato['piani'].append(sp)
             continue
-        dal = min(x for x in [inizio, foto.get('data')] if x)
+        extra = p.get('versamenti_extra') or []                     # versamenti fuori calendario, es. quello iniziale: [[data, importo]]
+        rata_piano = sum(x['rata'] for x in p['strumenti']) or 1
+        dal = min(x for x in [inizio, foto.get('data')] + [e[0] for e in extra] if x)
         dal_dl = (date.fromisoformat(dal) - timedelta(days=10)).isoformat()
         serie_tot = {}
         for s in p['strumenti']:
@@ -92,24 +94,35 @@ def main():
                 if vs:
                     sp['strumenti'].append(vs)
                 continue
-            def esegui(da, q0, i0):
-                """Rate dal giorno 'da' in poi, partendo da q0 quote e i0 euro investiti."""
-                rate = []
-                for d in date_rata(p['giorno'], da, oggi):
-                    g = next((x for x in giorni if x >= d.isoformat()), None)
-                    if not g:
-                        break                                   # rata non ancora eseguita (nessuna chiusura dopo la data)
-                    prezzo = px[g]
-                    q = math.floor(s['rata'] / prezzo) if p.get('quote_intere') else round(s['rata'] / prezzo, 4)
-                    rate.append([g, q, round(prezzo, 4)])
+            def compra(d, importo):
+                """Acquisto alla prima chiusura dal giorno d: [giorno, quote, prezzo, euro investiti], oppure None se non ancora eseguito."""
+                g = next((x for x in giorni if x >= d.isoformat()), None)
+                if not g:
+                    return None
+                prezzo = px[g]
+                q = math.floor(importo / prezzo) if p.get('quote_intere') else importo / prezzo
+                return [g, q, round(prezzo, 4), q * prezzo]
+            def esegui(da, con_extra=False):
+                """Rate dal giorno 'da' in poi (e, se richiesto, i versamenti fuori calendario dello stesso periodo)."""
+                ordini = [(d, s['rata']) for d in date_rata(p['giorno'], da, oggi)]
+                if con_extra:
+                    ordini += [(date.fromisoformat(e[0]), e[1] * s['rata'] / rata_piano) for e in extra]
+                rate = [r for r in (compra(d, imp) for d, imp in sorted(ordini)) if r]
                 return rate
             # ricostruzione dalla data di inizio; se c'è la foto, da quel giorno valgono le sue quote
-            ric = esegui(date.fromisoformat(inizio), 0.0, 0.0) if inizio and p.get('ricostruisci', True) else []
+            ric = esegui(date.fromisoformat(inizio), True) if inizio and p.get('ricostruisci', True) else []
             con_foto = s.get('quote') is not None and foto.get('data')
             if con_foto:
                 fd = foto['data']
-                dopo = esegui(date.fromisoformat(fd) + timedelta(days=1), 0, 0)
-                pezzi = [(None, fd, 0.0, 0.0, [r for r in ric if r[0] <= fd]), (fd, None, float(s['quote']), float(s.get('investito') or 0), dopo)]
+                dopo = esegui(date.fromisoformat(fd) + timedelta(days=1))
+                prima = [r for r in ric if r[0] <= fd]
+                # la ricostruzione è tarata sulla foto: quote e investito alla data della foto coincidono con quelli reali,
+                # così lo storico arriva alla foto senza salti (le differenze sono costi e arrotondamenti)
+                qr, ir = sum(r[1] for r in prima), sum(r[3] for r in prima)
+                kq = float(s['quote']) / qr if qr else 1.0
+                ki = float(s.get('investito') or 0) / ir if ir else 1.0
+                prima = [[r[0], r[1] * kq, r[2], r[3] * ki] for r in prima]
+                pezzi = [(None, fd, 0.0, 0.0, prima), (fd, None, float(s['quote']), float(s.get('investito') or 0), dopo)]
                 ss['origine'] = 'quote al ' + fd
                 if ric:
                     ss['ricostruite_alla_foto'] = sum(r[1] for r in ric if r[0] <= fd)
@@ -119,13 +132,13 @@ def main():
             def stato_al(g, pezzi=pezzi):
                 for da, a, q0, i0, rr in pezzi:
                     if (da is None or g >= da) and (a is None or g < a):      # dal giorno della foto valgono le sue quote
-                        return q0 + sum(r[1] for r in rr if r[0] <= g), i0 + sum(r[1] * r[2] for r in rr if r[0] <= g)
+                        return q0 + sum(r[1] for r in rr if r[0] <= g), i0 + sum(r[3] for r in rr if r[0] <= g)
                 return 0.0, 0.0
             ultimo = giorni[-1]
             # se l'ultimo prezzo è anteriore alla foto (fondi con NAV in ritardo) valgono comunque le quote della foto
             quote, investito = stato_al(max(ultimo, foto['data']) if con_foto else ultimo)
             ss.update({'quote': round(quote, 4), 'investito': round(investito, 2), 'prezzo': round(px[ultimo], 4), 'data_prezzo': ultimo,
-                       'valore': round(quote * px[ultimo], 2), 'rate': pezzi[-1][4]})
+                       'valore': round(quote * px[ultimo], 2), 'rate': [[r[0], round(r[1], 4), r[2], round(r[3], 2)] for r in pezzi[-1][4]]})
             sp['strumenti'].append(ss)
             serie_tot[s['isin']] = (px, stato_al)
         sp['investito'] = round(sum(x.get('investito') or 0 for x in sp['strumenti']), 2)
