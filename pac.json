@@ -192,7 +192,7 @@
   }
  ],
  "stato": {
-  "aggiornato": "2026-11-23T00:51:47Z",
+  "aggiornato": "2026-11-23T01:04:14Z",
   "piani": [
    {
     "id": "etf",
@@ -208,6 +208,8 @@
       "rata": 30,
       "tipo": "Azioni Europa, dividendi",
       "tv": "XETR:EXSH",
+      "paese": "Europa",
+      "settore": "Azionario diversificato",
       "simbolo": "EXSH.DE",
       "origine": "quote dall'app al 2026-11-23",
       "ricostruite_alla_foto": 3,
@@ -216,9 +218,7 @@
       "prezzo": 25.425,
       "data_prezzo": "2026-11-20",
       "valore": 76.27,
-      "rate": [],
-      "paese": "Europa",
-      "settore": "Azionario diversificato"
+      "rate": []
      },
      {
       "isin": "IE00BG36TC12",
@@ -227,6 +227,8 @@
       "rata": 35,
       "tipo": "Azioni Giappone",
       "tv": "XETR:XZMJ",
+      "paese": "Giappone",
+      "settore": "Azionario diversificato",
       "simbolo": "XZMJ.DE",
       "origine": "quote dall'app al 2026-11-23",
       "ricostruite_alla_foto": 3,
@@ -235,9 +237,7 @@
       "prezzo": 27.22,
       "data_prezzo": "2026-11-20",
       "valore": 81.66,
-      "rate": [],
-      "paese": "Giappone",
-      "settore": "Azionario diversificato"
+      "rate": []
      },
      {
       "isin": "IE00BHZPJ569",
@@ -246,6 +246,8 @@
       "rata": 35,
       "tipo": "Azioni mondo",
       "tv": "XETR:EDMW",
+      "paese": "Globale",
+      "settore": "Azionario diversificato",
       "simbolo": "EDMW.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 9.0,
@@ -269,9 +271,7 @@
         3,
         10.926
        ]
-      ],
-      "paese": "Globale",
-      "settore": "Azionario diversificato"
+      ]
      },
      {
       "isin": "IE00BK5BC891",
@@ -280,6 +280,8 @@
       "rata": 20,
       "tipo": "Azioni tematiche, acqua",
       "tv": "XETR:XMLC",
+      "paese": "Globale",
+      "settore": "Utilities",
       "simbolo": "XMLC.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
@@ -303,9 +305,7 @@
         1,
         19.03
        ]
-      ],
-      "paese": "Globale",
-      "settore": "Utilities"
+      ]
      },
      {
       "isin": "IE00BMDH1538",
@@ -314,6 +314,8 @@
       "rata": 10,
       "tipo": "Azioni tematiche, idrogeno",
       "tv": "XETR:HDR0",
+      "paese": "Globale",
+      "settore": "Industria",
       "simbolo": "HDR0.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
@@ -337,9 +339,7 @@
         1,
         6.804
        ]
-      ],
-      "paese": "Globale",
-      "settore": "Industria"
+      ]
      },
      {
       "isin": "IE000PMX0MW6",
@@ -348,6 +348,8 @@
       "rata": 25,
       "tipo": "Azioni mondo, utilities",
       "tv": "XETR:WELD",
+      "paese": "Globale",
+      "settore": "Utilities",
       "simbolo": "WELD.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
@@ -371,9 +373,7 @@
         1,
         14.228
        ]
-      ],
-      "paese": "Globale",
-      "settore": "Utilities"
+      ]
      },
      {
       "isin": "IE000STIHQB2",
@@ -382,6 +382,8 @@
       "rata": 30,
       "tipo": "Obbligazioni euro a breve",
       "tv": "XETR:FVSA",
+      "paese": "Europa",
+      "settore": "Obbligazioni",
       "simbolo": "FVSA.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
@@ -405,9 +407,7 @@
         1,
         27.955
        ]
-      ],
-      "paese": "Europa",
-      "settore": "Obbligazioni"
+      ]
      },
      {
       "isin": "IE0002PG6CA6",
@@ -416,6 +416,8 @@
       "rata": 15,
       "tipo": "Materie prime, metalli strategici",
       "tv": "XETR:VVMX",
+      "paese": "Globale",
+      "settore": "Materiali",
       "simbolo": "VVMX.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
@@ -439,9 +441,7 @@
         1,
         9.055
        ]
-      ],
-      "paese": "Globale",
-      "settore": "Materiali"
+      ]
      },
      {
       "isin": "IE0003WEWAX4",
@@ -450,6 +450,8 @@
       "rata": 30,
       "tipo": "Azioni tematiche, salute",
       "tv": "XETR:FOHW",
+      "paese": "Globale",
+      "settore": "Salute",
       "simbolo": "FOHW.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
@@ -473,9 +475,7 @@
         1,
         27.96
        ]
-      ],
-      "paese": "Globale",
-      "settore": "Salute"
+      ]
      },
      {
       "isin": "IE00041037N4",
@@ -484,6 +484,8 @@
       "rata": 35,
       "tipo": "Azioni paesi emergenti",
       "tv": "XETR:EMGM",
+      "paese": "Emergenti",
+      "settore": "Azionario diversificato",
       "simbolo": "EMGM.DE",
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
@@ -507,9 +509,7 @@
         1,
         28.495
        ]
-      ],
-      "paese": "Emergenti",
-      "settore": "Azionario diversificato"
+      ]
      }
     ],
     "avvisi": [],
@@ -825,10 +825,39 @@
     "giorno": 28,
     "rata": 200,
     "prossima": "2026-11-28",
-    "strumenti": [],
-    "avvisi": [
-     "in attesa della data di partenza o delle quote possedute"
-    ]
+    "strumenti": [
+     {
+      "isin": "LU1989769465",
+      "ticker": "CPR GR",
+      "nome": "CPR Invest Global Resources",
+      "rata": 200,
+      "tipo": "Azioni materie prime",
+      "tv": null,
+      "paese": "Globale",
+      "settore": "Materiali",
+      "simbolo": "LU1989769465",
+      "origine": "quote dall'app al 2026-11-23",
+      "quote": 0.0,
+      "investito": 0.0,
+      "prezzo": 154.04,
+      "data_prezzo": "2026-11-19",
+      "valore": 0.0,
+      "rate": []
+     }
+    ],
+    "avvisi": [],
+    "investito": 0,
+    "valore": 0,
+    "storia": [],
+    "foto": {
+     "data": "2026-11-23",
+     "investito": 1887.93,
+     "valore": 1659.84,
+     "fonte": "app della banca",
+     "rate_versate": 14,
+     "rate_totali": 120,
+     "pagato": 2800
+    }
    }
   ]
  }
