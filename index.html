@@ -519,7 +519,7 @@
         .pensiero-text { flex: 1; font-size: 1.0em; line-height: 1.75; color: #d0d0d0; font-style: italic; white-space: pre-wrap; word-break: break-word; }
         .pensiero-week { font-size: 0.75em; color: var(--text-muted); margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-glass); }
     </style>
-    <link rel="stylesheet" href="assets/tema.css?v=2">
+    <link rel="stylesheet" href="assets/tema.css?v=3">
 </head>
 <body>
 
@@ -684,8 +684,8 @@
         </div>
         <div id="valuta-nota" style="display:none; margin:-14px 0 16px; font-size:0.75em; color:var(--text-muted); text-align:right;"></div>
         <div class="kpi-container">
-            <div class="kpi-card"><div class="fv-label">Valore Totale</div><div class="kpi-val mono-font" id="port-total" style="transition:color 0.6s;">—</div><div id="port-live" style="display:none; font-size:0.72em; margin-top:5px; color:var(--text-muted); line-height:1.5;"></div></div>
-            <div class="kpi-card"><div class="fv-label">P&amp;L Non Realizzato</div><div class="kpi-val mono-font" id="port-unreal">—</div></div>
+            <div class="kpi-card"><div class="fv-label">Valore totale</div><div class="kpi-val mono-font" id="port-total" style="transition:color 0.6s;">—</div><div id="port-live" style="display:none; font-size:0.72em; margin-top:5px; color:var(--text-muted); line-height:1.5;"></div></div>
+            <div class="kpi-card"><div class="fv-label">Guadagno non realizzato</div><div class="kpi-val mono-font" id="port-unreal">—</div></div>
             <div class="kpi-card"><div class="fv-label">Da inizio anno</div><div class="kpi-val mono-font" id="port-annual">—</div><div id="port-annual-sub" style="font-size:0.75em; color:var(--text-muted); margin-top:4px;"></div></div>
             <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono-font" id="port-count">—</div></div>
         </div>
@@ -731,7 +731,7 @@
             <div style="display: flex; flex-direction: column; gap: 30px;">
                 <!-- Allocazione per asset class -->
                 <div class="card">
-                    <h3>Allocazione per Asset Class</h3>
+                    <h3>Allocazione per tipo di strumento</h3>
                     <div id="port-alloc-bars" style="margin-top: 20px;"></div>
                 </div>
                 <!-- Grafico doughnut -->
@@ -741,7 +741,7 @@
                 <!-- Andamento Portafoglio (grafico storico) -->
                 <div class="card" style="padding:20px;" id="perf-chart-card">
                     <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
-                        <h3 style="margin:0; font-size:0.95em; font-weight:700; color:#fff; ">Andamento Storico</h3>
+                        <h3 style="margin:0; font-size:0.95em; font-weight:700; color:#fff; ">Andamento</h3>
                         <div style="display:flex; gap:6px; flex-wrap:wrap;" id="perf-mode-btns">
                             <button class="perf-period-btn perf-mode-btn active" onclick="setPerfMode('perf',this)" title="Rendimento percentuale, al netto dei versamenti">Rendimento</button>
                             <button class="perf-period-btn perf-mode-btn" onclick="setPerfMode('value',this)" title="Valore del portafoglio in dollari, versamenti compresi">Valore</button>
@@ -824,7 +824,7 @@
 
     <div class="container" id="fv-section">
         <div class="section-header">
-            <h2 class="section-title">Ricerca <span>Fair Value</span></h2>
+            <h2 class="section-title">Ricerca fair value</h2>
         </div>
         <div class="card">
             <div class="fv-interface">
@@ -840,81 +840,67 @@
                 </div>
                 <div id="fvExtra" style="display:none; margin-top:16px; border:1px solid var(--border-glass); border-radius:14px; padding:18px 20px;"></div>
                 
-                <div id="fvResult" class="card fv-result-card" style="padding: 0; overflow: hidden;">
-                    <div style="padding: 30px;">
-                        <h3 id="fvName" style="margin-top: 0; color: #fff; font-size: 1.8em; text-align: center; margin-bottom: 8px;">Nome Azienda</h3>
-                        <div id="fvHeld" style="text-align:center; min-height: 22px; margin-bottom: 20px;"></div>
-                        
-                        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; align-items: center;">
-                            <div style="text-align: center; flex: 1; min-width: 200px;">
-                                <div class="fv-label">Fair Value · pavimento</div>
-                                <div id="fvValue" class="fv-value-big mono-font">---</div>
-                                <div id="fvStatus" class="wl-badge" style="margin-top:10px; padding: 6px 18px; font-size: 0.85em;">---</div>
-                                <div id="fvVerdictText" style="margin-top:8px; font-size:0.82em; line-height:1.55; max-width:340px; margin-left:auto; margin-right:auto;"></div>
-                                <div id="fvPriceBasis" style="margin-top:8px; font-size:0.78em; color:var(--text-muted); line-height:1.5; max-width:320px; margin-left:auto; margin-right:auto;"></div>
-                                <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                                    <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="wl-fv-btn" style="width: auto; padding: 8px 20px;">
-                                        Preferiti
-                                    </button>
-                                    <button id="fvShare" onclick="copiaLink(this)" class="wl-fv-btn" style="width: auto; padding: 8px 20px;" title="Copia il link diretto a questa scheda">Copia link</button>
-                                    <a id="fvBot" target="_blank" rel="noopener" class="wl-fv-btn" style="display:none; width:auto; padding:8px 20px; text-decoration:none; border-color:#29a9eb; color:#29a9eb;" title="Ricevi un messaggio su Telegram quando su questo titolo arriva un segnale TBO o cambia il fair value">Avvisami su Telegram</a>
-                                    <button onclick="toggleAlert(currentFVTicker)" class="wl-fv-btn" style="width: auto; padding: 8px 20px; border-color: var(--accent-yellow); color: var(--accent-yellow);" onmouseover="this.style.background='rgba(255,235,59,0.1)'" onmouseout="this.style.background='transparent'">
-                                        Attiva Alert Drop
-                                    </button>
-                                </div>
+                <div id="fvResult" class="card fv-result-card scheda" style="padding: 0; overflow: hidden;">
+                    <div class="sch">
+                        <header class="sch-testa">
+                            <div class="sch-id">
+                                <div id="fvHeld" class="sch-meta"></div>
+                                <h3 id="fvName" class="sch-nome">Nome Azienda</h3>
                             </div>
-                            <div style="text-align: center; flex: 1; min-width: 150px; border-left: 1px solid var(--border-glass); border-right: 1px solid var(--border-glass); padding: 0 15px;">
-                                <div class="fv-label">Dividend Yield</div>
-                                <div id="fvDividend" class="fv-value-medium mono-font">---</div>
-                                <div style="font-size: 0.85em; color: var(--text-muted); margin-top: 5px;">Rendimento Annuo</div>
+                            <div class="sch-azioni">
+                                <button id="fvAddToWatchlist" onclick="addCurrentToWatchlist()" class="sch-btn">Preferiti</button>
+                                <button id="fvShare" onclick="copiaLink(this)" class="sch-btn" title="Copia il link diretto a questa scheda">Copia link</button>
+                                <button onclick="toggleAlert(currentFVTicker)" class="sch-btn" title="Ti avviso in questa pagina se il prezzo scende sotto il fair value">Avviso di prezzo</button>
+                                <a id="fvBot" target="_blank" rel="noopener" class="sch-btn" style="display:none;" title="Ricevi un messaggio su Telegram quando su questo titolo arriva un segnale TBO o cambia il fair value">Avvisami su Telegram</a>
+                                <a id="fvTv" target="_blank" rel="sponsored noopener" class="sch-btn sch-btn-pieno" style="display:none;">Grafico su TradingView</a>
                             </div>
-                            <div style="text-align: center; flex: 1; min-width: 220px;">
-                                <div class="fv-label">Prezzo attuale</div>
-                                <div id="mini-chart-container" style="height: 120px; margin-top: 10px;"></div>
+                        </header>
+
+                        <div class="sch-tre">
+                            <div class="sch-cella">
+                                <div class="fv-label">Prezzo</div>
+                                <div id="fv-prezzo-num" class="sch-num">—</div>
+                                <div id="fvPriceBasis" class="sch-sub"></div>
+                            </div>
+                            <div class="sch-cella">
+                                <div class="fv-label">Il mio fair value, pavimento</div>
+                                <div id="fvValue" class="sch-num sch-oro">—</div>
+                                <div class="sch-sub">Rendimento del dividendo <strong id="fvDividend" style="color:var(--text-main); font-weight:600;">—</strong></div>
+                            </div>
+                            <div class="sch-cella">
+                                <div class="fv-label">Verdetto</div>
+                                <div id="fvStatus" class="sch-esito">—</div>
+                                <div id="fvVerdictText" class="sch-sub sch-dettagli"></div>
                             </div>
                         </div>
 
-                        <div class="fundamentals-grid" id="fv-fundamentals">
-                            <div class="fund-box"><div class="fund-val" id="fund-pe">--</div><div class="fund-lbl">P/E Ratio</div></div>
-                            <div class="fund-box"><div class="fund-val" id="fund-eps">--</div><div class="fund-lbl">EPS (Utili)</div></div>
-                            <div class="fund-box"><div class="fund-val" id="fund-mcap">--</div><div class="fund-lbl">Market Cap</div></div>
-                            <div class="fund-box"><div class="fund-val" id="fund-div">--</div><div class="fund-lbl">Dividendo</div></div>
-                        </div>
-
-                        <!-- FV band dall'indicatore Pine Script -->
-                        <div id="fv-band-row" style="display:none; margin-top:18px; background:rgba(76,195,138,0.04); border:1px solid rgba(76,195,138,0.15); border-radius:12px; padding:16px 20px;">
-                            <div id="fv-band-title" style="font-size:0.72em; color:var(--text-muted); margin-bottom:12px;">Indicatore FAIR VALUE (dati realizzati)</div>
-                            <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-around;">
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; color:var(--text-muted); margin-bottom:4px;">Peggiore</div>
-                                    <div id="fv-band-low" class="mono-font" style="font-size:1.1em; color:#ef9a9a;">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:110px;">
-                                    <div style="font-size:0.72em; color:var(--brand-green); margin-bottom:4px;">FV Pavimento</div>
-                                    <div id="fv-band-main" class="mono-font" style="font-size:1.3em; font-weight:800; color:var(--brand-green);">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; color:var(--text-muted); margin-bottom:4px;">FV Mercato</div>
-                                    <div id="fv-band-mkt" class="mono-font" style="font-size:1.1em; color:#80cbc4;">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; color:var(--text-muted); margin-bottom:4px;">FV Storico</div>
-                                    <div id="fv-band-sto" class="mono-font" style="font-size:1.1em; color:#ffcc80;">—</div>
-                                </div>
-                                <div style="text-align:center; min-width:100px;">
-                                    <div style="font-size:0.72em; color:var(--text-muted); margin-bottom:4px;">Migliore</div>
-                                    <div id="fv-band-high" class="mono-font" style="font-size:1.1em; color:#a5d6a7;">—</div>
-                                </div>
+                        <div id="fv-band-row" class="sch-blocco" style="display:none;">
+                            <div id="fv-band-title" class="sch-titoletto">Indicatore FAIR VALUE (dati realizzati)</div>
+                            <div class="scala" id="fv-scala"></div>
+                            <div class="sch-valori">
+                                <div><span>Scenario peggiore</span><strong id="fv-band-low">—</strong></div>
+                                <div><span>Pavimento</span><strong id="fv-band-main" class="sch-oro">—</strong></div>
+                                <div><span>FV di mercato</span><strong id="fv-band-mkt">—</strong></div>
+                                <div><span>FV storico</span><strong id="fv-band-sto">—</strong></div>
+                                <div><span>Scenario migliore</span><strong id="fv-band-high">—</strong></div>
                             </div>
                         </div>
+
+                        <div class="fundamentals-grid sch-fond" id="fv-fundamentals">
+                            <div class="fund-box"><div class="fund-lbl">Prezzo / utili</div><div class="fund-val" id="fund-pe">--</div></div>
+                            <div class="fund-box"><div class="fund-lbl">Utile per azione</div><div class="fund-val" id="fund-eps">--</div></div>
+                            <div class="fund-box"><div class="fund-lbl">Capitalizzazione</div><div class="fund-val" id="fund-mcap">--</div></div>
+                            <div class="fund-box"><div class="fund-lbl">Dividendo</div><div class="fund-val" id="fund-div">--</div></div>
+                        </div>
+                        <div id="mini-chart-container" hidden></div>
 
                         <!-- Cosa sta scontando il prezzo (DCF inverso) e il modello alla prova su questo titolo -->
-                        <div id="fv-dcf-row" style="display:none; margin-top:18px; border:1px solid var(--border-glass); border-radius:12px; padding:16px 20px;"></div>
-                        <div id="fv-prova-row" style="display:none; margin-top:12px; border:1px solid var(--border-glass); border-radius:12px; padding:14px 20px; font-size:0.86em; color:#ddd; line-height:1.6;"></div>
+                        <div id="fv-dcf-row" class="sch-blocco" style="display:none;"></div>
+                        <div id="fv-prova-row" class="sch-blocco" style="display:none;"></div>
 
                         <!-- Storico del fair value rispetto al prezzo -->
-                        <div id="fv-hist-row" style="display:none; margin-top:18px; border:1px solid var(--border-glass); border-radius:12px; padding:16px 20px;">
-                            <div style="font-size:0.72em; color:var(--text-muted); margin-bottom:10px;">Fair value e prezzo negli ultimi 6 anni</div>
+                        <div id="fv-hist-row" class="sch-blocco" style="display:none;">
+                            <div class="sch-titoletto">Fair value e prezzo negli ultimi 6 anni</div>
                             <div style="position:relative; height:220px;"><canvas id="fvHistChart"></canvas></div>
                             <div id="fv-hist-testo" style="margin-top:10px; font-size:0.88em; color:#ddd; line-height:1.6;"></div>
                             <div style="margin-top:6px; font-size:0.74em; color:var(--text-muted); line-height:1.6;">Il fair value (pavimento) è ricalcolato a ogni fine trimestre con i soli dati disponibili allora: bilanci già pubblicati, decennale e inflazione di quel momento. Cassa e debito sono noti solo a oggi e restano fuori dai punti passati, perciò l'ultimo punto può staccarsi un po' dalla linea. Il fair value si muove con i conti della società e con i tassi: quando sale nel tempo, di solito sono i fondamentali a migliorare; quando i tassi salgono, a parità di conti scende.</div>
@@ -941,7 +927,7 @@
 
     <div class="container" id="screener">
         <div class="section-header">
-            <h2 class="section-title">Screener <span>Titoli</span></h2>
+            <h2 class="section-title">Screener dei titoli</h2>
             <span style="font-size:0.8em; color:var(--text-muted);" id="scr-subtitle">Valutazione con l'indicatore FAIR VALUE (dati realizzati)</span>
         </div>
         <div class="card" style="padding: 24px;">
@@ -1064,7 +1050,7 @@
 
     <div class="container" id="pattern">
         <div class="section-header">
-            <h2 class="section-title">Pattern <span>Scanner</span></h2>
+            <h2 class="section-title">Pattern scanner</h2>
             <span style="color: var(--text-muted); font-size: 0.9em;">Il periodo del passato più simile all'andamento di oggi, titolo per titolo</span>
         </div>
         <div class="card" style="padding: 20px;">
@@ -1142,16 +1128,17 @@
             <div class="tbo-avviso">
                 <strong>Non sono consigli di acquisto.</strong> Sono soltanto gli spunti da cui parto io stesso quando valuto se comprare un titolo: prima di muovermi guardo il fair value, i conti della società e il resto del mio portafoglio, e la maggior parte dei segnali la scarto. Un segnale non dice che il prezzo salirà e non tiene conto della tua situazione: <strong>non è consulenza finanziaria né una raccomandazione personalizzata</strong>, e ogni decisione di investimento resta tua. <a href="disclaimer.html">Leggi il disclaimer</a>
             </div>
+            <div class="tbo-tg-riga">
             <a href="https://t.me/mm_trading_strategy" target="_blank" rel="noopener" class="tbo-telegram">
                 <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#29a9eb"/><path d="M5.4 11.8l11.6-4.5c.5-.2 1 .1.8.9l-2 9.3c-.1.6-.5.8-1.1.5l-3-2.2-1.4 1.4c-.2.2-.3.3-.6.3l.2-3.1 5.6-5.1c.2-.2 0-.3-.4-.1l-6.9 4.4-3-.9c-.6-.2-.7-.6.2-.9z" fill="#fff"/></svg>
                 <span><strong>Ricevi i segnali su Telegram</strong><small>Ogni sera a mercati chiusi, solo quando ci sono segnali nuovi · t.me/mm_trading_strategy</small></span>
                 <span class="tbo-telegram-cta">Iscriviti</span>
             </a>
             <a id="tbo-bot" href="#" target="_blank" rel="noopener" class="tbo-telegram" style="display:none;">
-                <span style="flex-shrink:0; color:var(--accent); display:inline-flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
                 <span><strong>Avvisi personali sui titoli che scegli tu</strong><small>Scrivi al bot <span class="bot-nome"></span> per esempio "/segui AAPL ENI": ti scrive solo quando su quei titoli arriva un segnale o cambia il fair value</small></span>
                 <span class="tbo-telegram-cta">Apri il bot</span>
             </a>
+            </div>
             <div id="tbo-contesto" class="tbo-contesto" style="display:none;"></div>
             <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0;">
                 <select id="tbo-sett" class="screener-search" aria-label="Scegli la settimana" onchange="tboTutti = false; renderTbo()" style="max-width:200px; cursor:pointer; flex:0 0 auto;">
@@ -1271,12 +1258,12 @@
 
     <div class="container" id="myportfolio">
         <div class="section-header">
-            <h2 class="section-title">Simula il tuo <span>Portafoglio</span></h2>
+            <h2 class="section-title">Simula il tuo portafoglio</h2>
             <span style="color: var(--text-muted); font-size: 0.9em;">Inserisci le tue posizioni e seguile con i prezzi aggiornati</span>
         </div>
         
         <div class="kpi-container">
-            <div class="kpi-card"><div class="fv-label">Valore Investito</div><div class="kpi-val mono-font" id="myp-invested">0.00 €</div></div>
+            <div class="kpi-card"><div class="fv-label">Valore investito</div><div class="kpi-val mono-font" id="myp-invested">0.00 €</div></div>
             <div class="kpi-card"><div class="fv-label">Controvalore attuale</div><div class="kpi-val mono-font" id="myp-current">0.00 €</div></div>
             <div class="kpi-card"><div class="fv-label">P&L Totale</div><div class="kpi-val mono-font" id="myp-pl" style="color:#fff;">0.00 €</div></div>
         </div>
@@ -1315,11 +1302,11 @@
 
     <div class="container" id="strumenti">
         <div class="section-header">
-            <h2 class="section-title">Strumenti <span>Operativi</span></h2>
+            <h2 class="section-title">Calcolatori e strumenti</h2>
         </div>
         <div class="tools-grid">
             <div class="card">
-                <h3 style="margin-top:0; color:#fff;">Calcolatore PAC</h3>
+                <h3 style="margin-top:0; color:#fff;">Piano di accumulo</h3>
                 <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Scopri l'effetto palla di neve sui tuoi investimenti a lungo termine.</p>
                 <div class="form-group"><label class="form-label" for="pacInit">Capitale Iniziale (€)</label><input type="number" id="pacInit" class="form-input" value="1000"></div>
                 <div class="form-group"><label class="form-label" for="pacMonthly">Versamento Mensile (€)</label><input type="number" id="pacMonthly" class="form-input" value="200"></div>
@@ -1337,7 +1324,7 @@
             </div>
 
             <div class="card">
-                <h3 style="margin-top:0; color:#fff;">Calcolatore Position Sizing</h3>
+                <h3 style="margin-top:0; color:#fff;">Quante azioni comprare</h3>
                 <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px;">Calcola esattamente quante azioni comprare per non sforare il tuo limite di rischio.</p>
                 <div class="form-group"><label class="form-label" for="psCap">Capitale Totale sul Conto (€)</label><input type="number" id="psCap" class="form-input" value="5000"></div>
                 <div class="form-group"><label class="form-label" for="psRisk">Rischio Massimo per Trade (%)</label><input type="number" id="psRisk" class="form-input" value="1" step="0.1"></div>
@@ -1392,14 +1379,14 @@
 
     <div class="container" id="news">
         <div class="section-header">
-            <h2 class="section-title">News & <span>Sentiment</span></h2>
+            <h2 class="section-title">Notizie e clima di mercato</h2>
             <span style="font-size: 0.8em; color: var(--brand-green); background: rgba(76,195,138,0.1); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(76,195,138,0.3); font-weight: 700;">● LIVE</span>
         </div>
 
         <div class="news-layout">
             <div style="display: flex; flex-direction: column; gap: 24px;">
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); ">Ultime Notizie</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); ">Ultime notizie</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js">
@@ -1408,7 +1395,7 @@
                     </div>
                 </div>
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); ">Panoramica Mercati</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); ">Panoramica dei mercati</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
@@ -1434,7 +1421,7 @@
                     <div id="sent-note" style="text-align: center; margin-top: 6px; font-size: 0.8em; color: var(--text-muted);">Caricamento…</div>
                 </div>
                 <div class="card" style="padding: 20px 20px 0 20px;">
-                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); ">Calendario Macro</h3>
+                    <h3 style="margin: 0 0 16px 0; font-size: 1em; font-weight: 700; color: var(--text-muted); ">Calendario macroeconomico</h3>
                     <div class="tv-news-widget">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/plain" class="tv-lazy" data-src="https://s3.tradingview.com/external-embedding/embed-widget-events.js">
@@ -1448,7 +1435,7 @@
 
     <div class="container" id="faq">
         <div class="section-header">
-            <h2 class="section-title">Glossario & <span>Metodologia</span></h2>
+            <h2 class="section-title">Glossario e metodo</h2>
         </div>
         <div class="card" style="padding: 20px;">
             <div class="faq-item">
@@ -1515,7 +1502,7 @@
 
     <div class="container" id="total-watchlist">
         <div class="section-header">
-            <h2 class="section-title">Watchlist <span>completa</span></h2>
+            <h2 class="section-title">Watchlist completa</h2>
             <span class="live-badge">LIVE</span>
         </div>
 
@@ -1901,7 +1888,8 @@
                 document.getElementById('fvHeld').innerHTML = (inPortafoglio(input) ? HELD_TAG + ' ' : '') + `<span style="font-size:0.78em; color:var(--text-muted);">${data.settore ? data.settore + ' · ' : ''}${trim ? trim.slice(3) + ' · ' : ''}</span>` + (data.fuori && !data.ext ? '<span style="font-size:0.78em; color:var(--accent-yellow);">fuori dal mio elenco: fair value calcolato ora</span>'
                     : data.ext ? `<span style="font-size:0.78em; color:var(--accent-yellow);">non è tra i titoli che seguo · </span><a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo</a>`
                     : `<a href="titoli/${input.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" style="font-size:0.78em; color:var(--text-muted);">pagina del titolo</a>`);
-                document.getElementById('fvValue').innerText = data.fv != null ? data.fv.toFixed(2) + " " + data.curr : "N/D";
+                const fmtP = (x, c) => x == null || isNaN(x) ? '—' : ((c = c || data.curr) === '$' ? '$' : '') + Number(x).toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' }) + (c === '$' ? '' : ' ' + c);
+                document.getElementById('fvValue').innerText = data.fv != null ? fmtP(data.fv) : "N/D";
                 document.getElementById('fvDividend').innerText = (data.divYield > 0) ? data.divYield.toFixed(2) + "%" : "N/A";
 
                 document.getElementById('fund-pe').innerText = data.fund?.pe || "N/A";
@@ -1913,10 +1901,12 @@
                 const priceNum = parseFloat(livePrice);
                 const badge = document.getElementById('fvStatus');
                 const v = fvVerdict(data, priceNum);
-                document.getElementById('fvValue').style.color = fvNum === null ? "var(--text-muted)" : v.colore;
-                badge.innerText = v.titolo;
-                badge.style.cssText = badgeStyle(v.colore);
-                res.style.borderColor = v.key === 'na' ? "var(--border-glass)" : v.colore;
+                document.getElementById('fvValue').style.color = fvNum === null ? "var(--text-muted)" : "";
+                badge.innerText = v.titolo.charAt(0) + v.titolo.slice(1).toLowerCase().replace(/\broic\b/g, 'ROIC');
+                badge.style.color = v.colore;
+                res.style.setProperty('--esito', v.key === 'na' ? 'rgba(148,178,209,0.3)' : v.colore);
+                document.getElementById('fv-prezzo-num').innerText = isNaN(priceNum) ? '—' : fmtP(priceNum);
+                window._fvPrezzo = isNaN(priceNum) ? null : priceNum;
                 const vt = document.getElementById('fvVerdictText');
                 if (vt) {
                     const pos = fvPosition(data, priceNum);
@@ -1938,17 +1928,16 @@
                     if (fvNum === null || isNaN(priceNum)) {
                         basis.innerHTML = '';
                     } else if (priceInfo.live) {
-                        basis.innerHTML = `Confronto sul prezzo di mercato: <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong> <span title="Fonte TradingView">(ritardato di 15 minuti)</span>`;
+                        basis.innerHTML = `Prezzo di mercato: dati TradingView, ritardati di 15 minuti`;
                     } else {
                         const updSrc = data.updated || data.fv_updated;
                         const upd = updSrc ? new Date(updSrc + 'T12:00:00').toLocaleDateString('it-IT', {day:'2-digit', month:'2-digit', year:'numeric'}) : 'data non indicata';
-                        basis.innerHTML = `Prezzo aggiornato non disponibile: confronto sull'ultimo prezzo salvato <strong style="color:#fff;">${priceNum.toFixed(2)} ${data.curr}</strong> (${upd}). Se diverso dal prezzo qui accanto, fa fede quello.`;
+                        basis.innerHTML = `Ultimo prezzo salvato, del ${upd}: quello di oggi non è disponibile.`;
                     }
                 }
 
-                const script = document.createElement('script'); script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js'; script.async = true;
-                script.innerHTML = JSON.stringify({ "symbol": data.tv || (data.ex + ":" + input), "width": "100%", "isTransparent": true, "colorTheme": "dark", "locale": "it" });
-                miniChart.appendChild(script);
+                const tvL = document.getElementById('fvTv'), tvS = data.tv || (data.ex ? data.ex + ':' + input : '');
+                if (tvL) { tvL.style.display = tvS ? '' : 'none'; tvL.href = 'https://it.tradingview.com/chart/?symbol=' + encodeURIComponent(tvS) + '&aff_id=158356'; }
 
                 if (data.videoID) {
                     currentVideoID = data.videoID;
@@ -1961,7 +1950,7 @@
                 const bandRow = document.getElementById('fv-band-row');
                 const hasBand = data.fv_low || data.fv_high || data.fv_mkt || data.fv_sto;
                 if (hasBand) {
-                    const fmt = (v, c) => v ? v.toFixed(2) + ' ' + (c || data.curr) : '—';
+                    const fmt = (v, c) => v ? fmtP(v, c) : '—';
                     document.getElementById('fv-band-low').innerText  = fmt(data.fv_low);
                     document.getElementById('fv-band-main').innerText = fmt(data.fv);
                     document.getElementById('fv-band-mkt').innerText  = fmt(data.fv_mkt);
@@ -3946,6 +3935,6 @@
         };
 
     </script>
-    <script src="assets/tema.js?v=2"></script>
+    <script src="assets/tema.js?v=3"></script>
 </body>
 </html>

@@ -43,33 +43,39 @@ const cap = m => !m || m === 'N/D' ? '—' : /T$/.test(m) ? Math.round(parseFloa
   : /B$/.test(m) ? parseFloat(m).toLocaleString('it-IT', { maximumFractionDigits: 1 }) + ' mld' : /M$/.test(m) ? parseFloat(m).toLocaleString('it-IT') + ' mln' : m;
 
 const CSS = `
-:root{--bg:#050505;--card:#111316;--bd:rgba(255,255,255,.09);--tx:#d6d9de;--mu:#8b93a6;--gr:#00e676}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
-a{color:var(--gr);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:860px;margin:0 auto;padding:24px 20px 60px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.9em;margin-bottom:28px}
-.logo{font-weight:800;color:#fff;font-size:1.15em}.logo span{color:var(--gr)}
-h1{color:#fff;font-size:1.9em;line-height:1.2;margin:0 0 6px;letter-spacing:-.5px}
-h2{color:#fff;font-size:1.15em;margin:34px 0 10px}
-.mu{color:var(--mu);font-size:.9em}
-.badge{display:inline-block;padding:5px 14px;border-radius:8px;font-weight:800;font-size:.85em;letter-spacing:.3px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px 22px;margin-top:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
-.box{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
-.box .l{font-size:.72em;text-transform:uppercase;letter-spacing:1px;color:var(--mu)}
-.box .v{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;font-size:1.08em;font-weight:700;color:#fff;margin-top:4px}
-.box .s{font-size:.78em;color:var(--mu);margin-top:2px}
-ul{padding-left:20px;margin:8px 0}.warn li{color:#f9a825}
-.dia{margin-top:18px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 10px 6px}.dia svg{width:100%;height:auto;display:block}.dia-n{display:none}@media(max-width:600px){.dia-w{display:none}.dia-n{display:block}}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chips a{border:1px solid var(--bd);border-radius:20px;padding:5px 12px;font-size:.85em;background:var(--card)}
-.aff{display:inline-block;padding:3px 10px;border-radius:6px;font-size:.78em;font-weight:700;margin-left:8px;vertical-align:middle}
-.cta{display:inline-block;margin-top:18px;background:var(--gr);color:#000;font-weight:800;padding:12px 22px;border-radius:10px}
-.cta:hover{text-decoration:none;opacity:.9}
-.held{display:inline-block;font-size:.75em;font-weight:700;color:#80cbc4;background:rgba(128,203,196,.1);border:1px solid rgba(128,203,196,.35);border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:middle}
-table{width:100%;border-collapse:collapse;font-size:.92em}th,td{padding:9px 10px;text-align:left;border-top:1px solid var(--bd)}th{color:var(--mu);font-size:.75em;text-transform:uppercase;letter-spacing:.8px;border-top:none}
-td.n{text-align:right;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;white-space:nowrap}th.n{text-align:right}
+:root{--bg:#0B1520;--card:rgba(22,37,53,.62);--bd:rgba(148,178,209,.14);--tx:#E9EEF3;--mu:#93A4B6;--gr:#4CC38A;--oro:#D9AE57;--oro2:#F0C978;--ink:#13202B;--disp:'Bricolage Grotesque','IBM Plex Sans',system-ui,sans-serif}
+*{box-sizing:border-box}html{background:#0B1520}
+body{margin:0;color:var(--tx);font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;min-height:100vh;
+background:radial-gradient(60vw 45vw at 0% -10%,rgba(217,174,87,.13),transparent 70%),radial-gradient(60vw 55vw at 100% 0%,rgba(52,108,172,.32),transparent 70%),linear-gradient(180deg,#102031 0%,#0B1520 50%,#08111A 100%) fixed}
+a{color:var(--oro)}a:hover{color:var(--oro2)}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px 64px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.92em;padding:18px 0;margin-bottom:40px;border-bottom:1px solid var(--bd)}
+.top nav{display:flex;gap:18px;flex-wrap:wrap}.top nav a{color:#C3CEDA;text-decoration:none}.top nav a:hover{color:#fff}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;color:#F2F5F8;font-size:1.12em;text-decoration:none}
+h1{font-family:var(--disp);color:#F4F6F9;font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.05;margin:0 0 12px;letter-spacing:-.03em}
+h2{font-family:var(--disp);color:#F2F5F8;font-size:1.45em;font-weight:700;letter-spacing:-.015em;margin:52px 0 12px;padding-top:28px;border-top:1px solid var(--bd)}
+p{max-width:72ch}
+.mu{color:var(--mu);font-size:.95em}
+.badge{display:inline-block;padding:4px 12px;border-radius:8px;font-weight:600;font-size:.95em;margin-top:4px}
+.card{background:linear-gradient(180deg,rgba(30,49,70,.6),rgba(17,30,44,.6));border:1px solid var(--bd);border-radius:16px;padding:20px 22px;margin-top:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:26px;border-top:1px solid var(--bd)}
+.box{padding:18px 20px 18px 0;border-bottom:1px solid var(--bd)}
+.box .l{font-size:.86em;color:var(--mu)}
+.box .v{font-family:var(--disp);font-size:1.5em;font-weight:700;color:#F4F6F9;margin-top:2px;letter-spacing:-.01em}
+.box .s{font-size:.82em;color:var(--mu);margin-top:2px}
+ul{padding-left:20px;margin:8px 0}.warn li{color:#E8B04A}
+.dia{margin-top:22px;background:linear-gradient(180deg,rgba(30,49,70,.5),rgba(17,30,44,.5));border:1px solid var(--bd);border-radius:16px;padding:16px 12px 8px}.dia svg{width:100%;height:auto;display:block;font-family:'IBM Plex Sans',sans-serif}.dia-n{display:none}@media(max-width:600px){.dia-w{display:none}.dia-n{display:block}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.chips a{border:1px solid var(--bd);border-radius:999px;padding:6px 14px;font-size:.88em;background:rgba(20,34,49,.6);color:#C3CEDA;text-decoration:none}.chips a:hover{border-color:rgba(217,174,87,.5);color:#fff}
+.aff{display:inline-block;padding:3px 10px;border-radius:7px;font-size:.82em;font-weight:600;margin-left:8px;vertical-align:middle}
+.cta{display:inline-block;margin-top:26px;background:linear-gradient(180deg,#E4BD6C,#C99A42);color:var(--ink);font-weight:600;padding:13px 24px;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px -10px rgba(217,174,87,.8)}
+.cta:hover{color:var(--ink);filter:brightness(1.06)}
+.held{display:inline-block;font-family:'IBM Plex Sans',sans-serif;font-size:.36em;font-weight:500;letter-spacing:0;color:#C3CEDA;background:rgba(148,178,209,.1);border:1px solid rgba(148,178,209,.25);border-radius:7px;padding:3px 9px;margin-left:12px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;font-size:.94em}th,td{padding:11px 10px;text-align:left;border-top:1px solid var(--bd)}th{color:var(--mu);font-size:.84em;font-weight:500;border-top:none}
+tbody tr:hover{background:linear-gradient(90deg,rgba(217,174,87,.07),transparent 70%)}
+td.n{text-align:right;white-space:nowrap}th.n{text-align:right}
 .tw{overflow-x:auto}
-footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--bd);color:var(--mu);font-size:.82em}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--bd);color:var(--mu);font-size:.86em}
+@media(max-width:600px){.box{padding-right:10px}.top nav{gap:12px}}
 `.trim();
 
 const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
@@ -82,7 +88,7 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 <link rel="canonical" href="${url}">
 <meta name="author" content="Matteo Mazzero">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#0B1520">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
@@ -94,11 +100,14 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${SITE}og-image.png">
 <meta name="twitter:card" content="summary_large_image">${extra}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>${CSS}</style>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><a class="logo" href="../" aria-label="MM Trading" style="display:inline-flex;align-items:center;gap:8px"><img src="../favicon.svg" alt="" width="30" height="30" style="display:block;border-radius:8px;box-shadow:0 0 0 1px rgba(0,230,118,.45)"><span>Trading</span></a><span><a href="../">Home</a> · <a href="./">Tutti i fair value</a> · <a href="../#faq">Come leggere i valori</a></span></div>
+<header class="top"><a class="logo" href="../" aria-label="Matteo Mazzero, Trading Hub"><img src="../favicon.svg" alt="" width="30" height="30" style="display:block;border-radius:8px"><span>Matteo Mazzero</span></a><nav aria-label="Sezioni"><a href="../#oggi">Oggi</a><a href="../#analizza">Analizza</a><a href="./">Tutti i fair value</a><a href="../#faq">Come leggere i valori</a></nav></header>
 `;
 
 const foot = `
@@ -111,22 +120,22 @@ const foot = `
 </html>
 `;
 
-const AFF = { alta: ['#43a047', 'Affidabilità della stima: alta'], media: ['#f9a825', 'Affidabilità della stima: media'], bassa: ['#ef6c00', 'Affidabilità della stima: bassa'] };
+const AFF = { alta: ['#4CC38A', 'Affidabilità della stima: alta'], media: ['#E8B04A', 'Affidabilità della stima: media'], bassa: ['#E8873A', 'Affidabilità della stima: bassa'] };
 
 // Diagramma: prezzo e fair value sulla stessa scala
 function svgUno(d, close, W, righe) {
   const H = 96 + righe * 19, L = 20, R = 20, y = 62;
-  const punti = [['Prezzo', close, '#ffffff'], ['FV pavimento', d.fv, '#42a5f5'], ['FV mercato', d.fv_mkt, '#b0bec5'], ['FV storico', d.fv_sto > 0 ? d.fv_sto : null, '#ba68c8']].filter(p => p[1] > 0);
+  const punti = [['Prezzo', close, '#F4F6F9'], ['FV pavimento', d.fv, '#F0C978'], ['FV mercato', d.fv_mkt, '#9DBBF5'], ['FV storico', d.fv_sto > 0 ? d.fv_sto : null, '#C3A6F0']].filter(p => p[1] > 0);
   const max = Math.max(...punti.map(p => p[1]), d.fv_high || 0) * 1.08;
   const x = v => L + (W - L - R) * Math.min(1, Math.max(0, v / max));
   const lo = d.fv_low != null ? Math.max(0, d.fv_low) : 0, hi = d.fv_high != null ? d.fv_high : d.fv;
-  let out = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Prezzo e fair value di ${esc(d.name)} sulla stessa scala"><rect x="${L}" y="${y - 3}" width="${W - L - R}" height="6" rx="3" fill="#23272e"/>`;
-  out += `<rect x="${x(lo).toFixed(1)}" y="${y - 12}" width="${Math.max(2, x(hi) - x(lo)).toFixed(1)}" height="24" rx="5" fill="#42a5f5" fill-opacity=".22" stroke="#42a5f5" stroke-opacity=".5"/>`;
-  out += `<text x="${((x(lo) + x(hi)) / 2).toFixed(1)}" y="${y - 20}" fill="#8b93a6" font-size="12" text-anchor="middle">banda peggiore – migliore</text>`;
+  let out = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Prezzo e fair value di ${esc(d.name)} sulla stessa scala"><rect x="${L}" y="${y - 3}" width="${W - L - R}" height="6" rx="3" fill="rgba(148,178,209,.16)"/>`;
+  out += `<rect x="${x(lo).toFixed(1)}" y="${y - 12}" width="${Math.max(2, x(hi) - x(lo)).toFixed(1)}" height="24" rx="5" fill="#D9AE57" fill-opacity=".16" stroke="#D9AE57" stroke-opacity=".45"/>`;
+  out += `<text x="${((x(lo) + x(hi)) / 2).toFixed(1)}" y="${y - 20}" fill="#93A4B6" font-size="12" text-anchor="middle">banda peggiore – migliore</text>`;
   punti.slice().sort((a, b) => a[1] - b[1]).forEach((p, i) => {
     const px = x(p[1]), ty = y + 34 + (i % righe) * 19, prezzo = p[0] === 'Prezzo';
     const anc = px < 100 ? 'start' : px > W - 100 ? 'end' : 'middle';
-    out += prezzo ? `<path d="M${(px - 8).toFixed(1)} ${y - 15}h16l-8 13z" fill="#fff"/><line x1="${px.toFixed(1)}" y1="${y - 4}" x2="${px.toFixed(1)}" y2="${ty - 13}" stroke="#fff" stroke-width="2"/>`
+    out += prezzo ? `<path d="M${(px - 8).toFixed(1)} ${y - 15}h16l-8 13z" fill="#F4F6F9"/><line x1="${px.toFixed(1)}" y1="${y - 4}" x2="${px.toFixed(1)}" y2="${ty - 13}" stroke="#F4F6F9" stroke-width="2"/>`
                   : `<line x1="${px.toFixed(1)}" y1="${y - 13}" x2="${px.toFixed(1)}" y2="${ty - 13}" stroke="${p[2]}" stroke-width="2.5"/>`;
     out += `<text x="${px.toFixed(1)}" y="${ty}" fill="${p[2]}" font-size="13" font-weight="${prezzo ? 700 : 500}" text-anchor="${anc}">${p[0]} ${num(p[1])}</text>`;
   });
@@ -171,15 +180,15 @@ function svgStorico(t, d) {
     const x = i => L + (W - L - R) * i / (date.length - 1), y = v => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
     const pt = a => a.map((v, i) => v == null ? '' : x(i).toFixed(1) + ',' + y(v).toFixed(1)).filter(Boolean).join(' ');
     const tick = [0, 0.25, 0.5, 0.75, 1].map(k => lo + (hi - lo) * k);
-    const gy = tick.map(v => `<line x1="${L}" x2="${W - R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="rgba(255,255,255,.06)"/><text x="${L - 6}" y="${(y(v) + 3.5).toFixed(1)}" fill="#8b93a6" font-size="11" text-anchor="end">${Number(v.toPrecision(3)).toLocaleString('it-IT', { useGrouping: 'always' })}</text>`).join('');
+    const gy = tick.map(v => `<line x1="${L}" x2="${W - R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="rgba(255,255,255,.06)"/><text x="${L - 6}" y="${(y(v) + 3.5).toFixed(1)}" fill="#93A4B6" font-size="11" text-anchor="end">${Number(v.toPrecision(3)).toLocaleString('it-IT', { useGrouping: 'always' })}</text>`).join('');
     let ultimoX = -99;
     const gx = date.map((dd, i) => [dd.slice(0, 4), i]).filter(([a], i, A) => i > 0 && a !== A[i - 1][0])
       .filter(([, i]) => { if (x(i) - ultimoX < 34) return false; ultimoX = x(i); return true; })
-      .map(([a, i]) => `<text x="${x(i).toFixed(1)}" y="${H - 7}" fill="#8b93a6" font-size="11" text-anchor="middle">${a}</text>`).join('');
+      .map(([a, i]) => `<text x="${x(i).toFixed(1)}" y="${H - 7}" fill="#93A4B6" font-size="11" text-anchor="middle">${a}</text>`).join('');
     return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Fair value pavimento e prezzo di ${esc(d.name)} a ogni fine trimestre">${gy}
-<polygon fill="rgba(0,230,118,.10)" points="${pt(fv)} ${x(fv.length - 1).toFixed(1)},${y(lo).toFixed(1)} ${x(0).toFixed(1)},${y(lo).toFixed(1)}"/>
-<polyline fill="none" stroke="#00e676" stroke-width="2.2" stroke-linejoin="round" points="${pt(fv)}"/><polyline fill="none" stroke="#e0e0e0" stroke-width="2" stroke-linejoin="round" points="${pt(p)}"/>${gx}
-<g font-size="12"><rect x="${L}" y="7" width="12" height="3" fill="#e0e0e0"/><text x="${L + 17}" y="12" fill="#d6d9de">Prezzo</text><rect x="${L + 76}" y="7" width="12" height="3" fill="#00e676"/><text x="${L + 93}" y="12" fill="#d6d9de">Fair value pavimento</text></g></svg>`;
+<polygon fill="rgba(217,174,87,.10)" points="${pt(fv)} ${x(fv.length - 1).toFixed(1)},${y(lo).toFixed(1)} ${x(0).toFixed(1)},${y(lo).toFixed(1)}"/>
+<polyline fill="none" stroke="#D9AE57" stroke-width="2.2" stroke-linejoin="round" points="${pt(fv)}"/><polyline fill="none" stroke="#E9EEF3" stroke-width="2" stroke-linejoin="round" points="${pt(p)}"/>${gx}
+<g font-size="12"><rect x="${L}" y="7" width="12" height="3" fill="#E9EEF3"/><text x="${L + 17}" y="12" fill="#C3CEDA">Prezzo</text><rect x="${L + 76}" y="7" width="12" height="3" fill="#D9AE57"/><text x="${L + 93}" y="12" fill="#C3CEDA">Fair value pavimento</text></g></svg>`;
   };
   const n = fv.length - 1, dFv = (fv[n] / fv[0] - 1) * 100, dP = (p[n] / p[0] - 1) * 100;
   const lettura = dFv <= 0 ? 'la stima di valore non è cresciuta' + (dP > 0 ? ', mentre il prezzo è salito' : '')
@@ -198,9 +207,9 @@ function scontaProva(t, d, close) {
   const r = E.crescitaImplicita(d, close), gh = d.ind && d.ind.g_hist, x = VER.titoli && VER.titoli[t];
   let h = '';
   if (r && !r.fuori) h += `<h2>Cosa sta scontando il prezzo</h2>
-<p>Al prezzo di ${num(close)} ${d.curr}, il mercato si aspetta che il free cash flow per azione di ${esc(d.name)} cresca del <strong>${pc1(r.g * 100)} l'anno</strong> per i prossimi 10 anni (poi solo con l'inflazione)${gh != null ? `; negli ultimi ${d.ind.anni || ''} anni i ricavi per azione sono cresciuti del ${pc1(gh * 100)} l'anno, quindi ${r.g < gh - 0.01 ? 'le aspettative sono più basse di quanto l\'azienda ha già fatto' : r.g > gh + 0.01 ? 'il prezzo scommette su un futuro migliore del passato' : 'il prezzo chiede più o meno quanto già fatto'}` : ''}. <a href="../?t=${encodeURIComponent(t)}">Prova altre ipotesi di crescita nella scheda →</a></p>`;
+<p>Al prezzo di ${num(close)} ${d.curr}, il mercato si aspetta che il free cash flow per azione di ${esc(d.name)} cresca del <strong>${pc1(r.g * 100)} l'anno</strong> per i prossimi 10 anni (poi solo con l'inflazione)${gh != null ? `; negli ultimi ${d.ind.anni || ''} anni i ricavi per azione sono cresciuti del ${pc1(gh * 100)} l'anno, quindi ${r.g < gh - 0.01 ? 'le aspettative sono più basse di quanto l\'azienda ha già fatto' : r.g > gh + 0.01 ? 'il prezzo scommette su un futuro migliore del passato' : 'il prezzo chiede più o meno quanto già fatto'}` : ''}. <a href="../?t=${encodeURIComponent(t)}">Prova altre ipotesi di crescita nella scheda</a></p>`;
   if (x && (x.s >= 2 || x.o >= 2)) h += `<h2>Il mio modello alla prova su questo titolo</h2>
-<p>Dal ${dataIt(VER.dal)}, ${[x.s >= 2 ? `nei ${x.s} trimestri in cui il prezzo era sotto il fair value il titolo ha reso nei 12 mesi successivi ${pc1(x.sm)} in mediana (${pc1(x.sx)} rispetto alla mediana di tutti i titoli)` : '', x.o >= 2 ? `nei ${x.o} trimestri sopra il fair value ${pc1(x.om)} (${pc1(x.ox)} rispetto al mercato)` : ''].filter(Boolean).join('; ')}. <a href="../#laboratorio">La verifica su oltre ${Math.floor((VER.titoli_n || 0) / 100) * 100} titoli →</a></p>`;
+<p>Dal ${dataIt(VER.dal)}, ${[x.s >= 2 ? `nei ${x.s} trimestri in cui il prezzo era sotto il fair value il titolo ha reso nei 12 mesi successivi ${pc1(x.sm)} in mediana (${pc1(x.sx)} rispetto alla mediana di tutti i titoli)` : '', x.o >= 2 ? `nei ${x.o} trimestri sopra il fair value ${pc1(x.om)} (${pc1(x.ox)} rispetto al mercato)` : ''].filter(Boolean).join('; ')}. <a href="../#laboratorio">La verifica su oltre ${Math.floor((VER.titoli_n || 0) / 100) * 100} titoli</a></p>`;
   return h;
 }
 
@@ -225,7 +234,7 @@ function paginaTitolo(t, d) {
   const box = (l, val, s = '') => `<div class="box"><div class="l">${l}</div><div class="v">${val}</div>${s ? `<div class="s">${s}</div>` : ''}</div>`;
   let corpo = '';
   if (ok) {
-    const banda = d.fv_low != null ? `${num(d.fv_low)} – ${num(d.fv_high)} ${c}` : `fino a ${num(d.fv_high)} ${c}`;
+    const banda = d.fv_low != null ? `${num(d.fv_low)} – ${num(d.fv_high)}\u00a0${c}` : `fino a ${num(d.fv_high)}\u00a0${c}`;
     corpo += `<div class="grid">
 ${box('Prezzo', `${num(close)} ${c}`, `al ${agg}`)}
 ${box('FV pavimento', `${num(d.fv)} ${c}`, 'crescita reale zero')}
@@ -259,17 +268,17 @@ ${box('P/E', d.fund && d.fund.pe && d.fund.pe !== 'N/D' ? String(d.fund.pe).repl
 ${box('Capitalizzazione', cap(d.fund && d.fund.mcap), d.curr)}
 </div>`;
   } else {
-    corpo += `<div class="card"><strong style="color:#fff">${esc(minuscolo(v.titolo))}</strong>${v.sotto ? `: ${esc(v.sotto)}` : ''}.<br>
+    corpo += `<div class="card"><strong style="color:#F4F6F9">${esc(minuscolo(v.titolo))}</strong>${v.sotto ? `: ${esc(v.sotto)}` : ''}.<br>
 Per ${esc(d.name)} il modello non produce un fair value: ${ind.status === 'fcf_negativo' ? 'il free cash flow normalizzato degli ultimi 10 anni è negativo' : 'i dati di bilancio disponibili non sono sufficienti'}. Prezzo al ${agg}: ${num(close)} ${c}.</div>`;
   }
 
-  return head(title, desc, url, ld) + `<h1>Fair value di ${esc(d.name)} (${esc(t)})${held.has(t) ? '<span class="held">💼 nel mio portafoglio</span>' : ''}</h1>
+  return head(title, desc, url, ld) + `<h1>Fair value di ${esc(d.name)} (${esc(t)})${held.has(t) ? '<span class="held">nel mio portafoglio</span>' : ''}</h1>
 <p class="mu">${d.settore ? esc(d.settore) + ' · ' : ''}${{ it: 'Borsa Italiana', eu: 'Europa', us: 'Stati Uniti' }[E.mercato(d)]} · aggiornato al ${agg} · calcolato con il mio indicatore FAIR VALUE (dati realizzati) su TradingView${d.earn_next ? ` · prossima trimestrale: ${dataIt(d.earn_next)}` : ''}</p>
-${ext[t] ? `<p class="card mu" style="margin-top:10px">Non è tra i titoli che seguo personalmente: è una delle società americane ed europee (indici S&amp;P 500, 400 e 600 e le altre con almeno 2 miliardi di capitalizzazione) per cui calcolo ogni giorno fair value e segnali della mia strategia con lo stesso metodo. <a href="altri.html">Tutti gli altri titoli →</a></p>${ext[t].giovane ? `<p class="card mu" style="margin-top:10px">Quotata da poco: la storia dei prezzi e dei bilanci è ancora breve, quindi il fair value può mancare o essere poco affidabile. I segnali della strategia TBO partono quando ci sono abbastanza sedute (oltre un anno di borsa).</p>` : ''}` : ''}
-<p><span class="badge" style="color:${v.colore};background:${v.colore}1f;border:1px solid ${v.colore}73">${esc(v.titolo)}</span>${aff.livello ? `<span class="aff" style="color:${AFF[aff.livello][0]};border:1px solid ${AFF[aff.livello][0]}73">${AFF[aff.livello][1]}</span>` : ''}</p>
+${ext[t] ? `<p class="card mu" style="margin-top:10px">Non è tra i titoli che seguo personalmente: è una delle società americane ed europee (indici S&amp;P 500, 400 e 600 e le altre con almeno 2 miliardi di capitalizzazione) per cui calcolo ogni giorno fair value e segnali della mia strategia con lo stesso metodo. <a href="altri.html">Tutti gli altri titoli</a></p>${ext[t].giovane ? `<p class="card mu" style="margin-top:10px">Quotata da poco: la storia dei prezzi e dei bilanci è ancora breve, quindi il fair value può mancare o essere poco affidabile. I segnali della strategia TBO partono quando ci sono abbastanza sedute (oltre un anno di borsa).</p>` : ''}` : ''}
+<p><span class="badge" style="color:${v.colore};background:${v.colore}1f;border:1px solid ${v.colore}73">${esc(minuscolo(v.titolo))}</span>${aff.livello ? `<span class="aff" style="color:${AFF[aff.livello][0]};border:1px solid ${AFF[aff.livello][0]}73">${AFF[aff.livello][1]}</span>` : ''}</p>
 ${corpo}
-<a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato →</a>${BOT ? `
-<p class="mu" style="margin-top:10px">🔔 <a href="https://t.me/${BOT}?start=segui_${t.replace(/\./g, '_')}" rel="noopener">Avvisami su Telegram</a> quando su ${esc(t)} arriva un segnale della mia strategia o cambia il fair value.</p>` : ''}
+<a class="cta" href="../?t=${encodeURIComponent(t)}">Apri la scheda con il prezzo aggiornato</a>${BOT ? `
+<p class="mu" style="margin-top:12px"><a href="https://t.me/${BOT}?start=segui_${t.replace(/\./g, '_')}" rel="noopener">Avvisami su Telegram</a> quando su ${esc(t)} arriva un segnale della mia strategia o cambia il fair value.</p>` : ''}
 ${simili(t, d)}
 <h2>Il metodo in breve</h2>
 <p>Il <strong>fair value pavimento</strong> è quanto vale l'azienda se da oggi non crescesse più in termini reali: il margine di free cash flow tipico degli ultimi 10 anni, applicato ai ricavi attuali e capitalizzato al rendimento richiesto al netto dell'inflazione attesa, più la cassa che eccede il debito. Il decennale è quello della valuta del titolo (Bund per l'area euro) e l'inflazione attesa è l'obiettivo della banca centrale. Il <strong>fair value di mercato</strong> ipotizza una crescita pari a quella dell'economia; il <strong>fair value storico</strong> è il prezzo che il titolo avrebbe al suo rendimento di free cash flow mediano degli ultimi 10 anni. <a href="../#faq">Spiegazione completa nel glossario</a>.</p>
@@ -282,7 +291,7 @@ function paginaAltri(righe) {
   const desc = `Fair value di ${righe.length} azioni americane ed europee (indici S&P 500, 400 e 600 e società con almeno 2 miliardi di capitalizzazione) calcolati ogni giorno con l'indicatore FAIR VALUE (dati realizzati). Aggiornato al ${agg}.`;
   const tr = righe.map(({ t, d, v, pt }) => `<tr><td><a href="${slug(t)}.html"><strong>${esc(t)}</strong></a><br><span class="mu">${esc(d.name)}</span></td>
 <td class="n">${num(d.price)} ${d.curr}</td><td class="n">${d.fv != null ? num(d.fv) + ' ' + d.curr : '—'}</td>
-<td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#43a047' : '#d32f2f'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
+<td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#4CC38A' : '#F0716A'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
   return head(title, desc, `${SITE}titoli/altri.html`) + `<h1>Fair value di ${righe.length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane ed europee</h1>
 <p class="mu">Indici S&amp;P 500, 400 e 600 e altre società americane ed europee con almeno 2 miliardi di capitalizzazione · aggiornati al ${agg} · in ordine alfabetico</p>
 <p>Non sono i titoli che seguo personalmente (quelli sono nell'<a href="index.html">elenco principale</a>), ma per ciascuno calcolo ogni giorno il fair value con lo stesso metodo e i segnali della mia strategia TBO.</p>
@@ -298,11 +307,11 @@ function paginaIndice(righe) {
   const agg = dataIt(data.fv_updated ? data.fv_updated.slice(0, 10) : righe[0] && righe[0].d.fv_updated);
   const title = `Fair value di oltre ${Math.floor(righe.length / 50) * 50} azioni, aggiornati ogni giorno | Matteo Mazzero`;
   const desc = `Elenco dei fair value di ${righe.length} azioni italiane, europee e americane calcolati con l'indicatore FAIR VALUE (dati realizzati): pavimento, fair value di mercato, potenziale ed esito del modello. Aggiornato al ${agg}.`;
-  const tr = righe.map(({ t, d, v, pt }) => `<tr><td><a href="${slug(t)}.html"><strong>${esc(t)}</strong></a>${held.has(t) ? ' 💼' : ''}<br><span class="mu">${esc(d.name)}</span></td>
+  const tr = righe.map(({ t, d, v, pt }) => `<tr><td><a href="${slug(t)}.html"><strong>${esc(t)}</strong></a>${held.has(t) ? ' <span class="held" style="font-size:.72em">in portafoglio</span>' : ''}<br><span class="mu">${esc(d.name)}</span></td>
 <td class="n">${num(d.price)} ${d.curr}</td><td class="n">${d.fv != null ? num(d.fv) + ' ' + d.curr : '—'}</td><td class="n">${d.fv_mkt != null ? num(d.fv_mkt) + ' ' + d.curr : '—'}</td>
-<td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#43a047' : '#d32f2f'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
+<td class="n" style="color:${pt.pot == null ? 'inherit' : pt.pot >= 0 ? '#4CC38A' : '#F0716A'}">${pc(pt.pot)}</td><td style="color:${v.colore};font-weight:700;font-size:.85em">${esc(minuscolo(v.titolo))}</td></tr>`).join('\n');
   return head(title, desc, `${SITE}titoli/`) + `<h1>Fair value di ${righe.length} azioni</h1>
-<p class="mu">Aggiornati al ${agg} · in ordine alfabetico · 💼 = titolo nel mio portafoglio</p>
+<p class="mu">Aggiornati al ${agg} · in ordine alfabetico</p>
 <p>Ogni titolo ha la sua pagina con fair value pavimento, banda, fair value di mercato e storico, potenziale e avvisi sull'affidabilità della stima. Per ordinare e filtrare usa lo <a href="../#screener">screener</a> sulla home.${Object.keys(ext).length ? ` Ci sono anche le pagine di <a href="altri.html">${Object.keys(ext).length.toLocaleString('it-IT', { useGrouping: 'always' })} azioni americane ed europee</a> che non seguo personalmente.` : ''}</p>
 <div class="card tw"><table>
 <thead><tr><th>Titolo</th><th class="n">Prezzo</th><th class="n">FV pavimento</th><th class="n">FV mercato</th><th class="n">Potenziale</th><th>Esito del modello</th></tr></thead>

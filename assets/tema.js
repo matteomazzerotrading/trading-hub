@@ -72,6 +72,9 @@
             primo.parentNode.insertBefore(t, primo);
         }
     }
+    // contenitori che diventano piatti: il contenuto sta sulla griglia della pagina
+    ['#fv-section > .card', '#screener > .card', '#laboratorio > .card', '#pattern > .card', '#faq > .card', '#tbo-segnali', '#tbo-stats', '#indicatore > .card', '#myportfolio > .card']
+        .forEach(q => $$(q).forEach(el => el.classList.add('piatta')));
     const st = document.createElement('style');
     st.textContent = '.senza-titolo > .section-header .section-title { display: none; } .senza-titolo > .section-header { border-bottom: 0; padding-bottom: 0; margin-bottom: 18px; }';
     document.head.appendChild(st);
@@ -80,6 +83,9 @@
     function applica(v) {
         vistaOra = v; document.body.dataset.vista = v;
         $$('[data-vista]').forEach(el => el.classList.toggle('vista-on', el.dataset.vista === v));
+        const vis = $$('.container.vista-on').filter(el => !el.classList.contains('sez-nascosta') && getComputedStyle(el).display !== 'none');
+        $$('.container.primo-in-vista').forEach(el => el.classList.remove('primo-in-vista'));
+        if (vis[0]) vis[0].classList.add('primo-in-vista');
         $$('[data-v]').forEach(a => { const on = a.dataset.v === v; a.classList.toggle('active', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
         muoviIndicatore();
         requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
@@ -463,6 +469,28 @@
     document.addEventListener('click', e => { const tr = e.target.closest && e.target.closest('#oggi-segnali-corpo tr[data-t]'); if (tr) apriTitolo(tr.dataset.t); });
     document.addEventListener('keydown', e => { if (e.key !== 'Enter') return; const tr = e.target.closest && e.target.closest('#oggi-segnali-corpo tr[data-t]'); if (tr) apriTitolo(tr.dataset.t); });
 
+    // ---------------------------------------------------------------- scheda: la scala dei valori
+    function disegnaScala() {
+        const box = $('#fv-scala'), t = typeof currentFVTicker !== 'undefined' && currentFVTicker; if (!box || !t || !db[t]) return;
+        const d = db[t], p = window._fvPrezzo;
+        const voci = [['Pavimento', d.fv, '#F0C978'], ['FV di mercato', d.fv_mkt, '#9DBBF5'], ['FV storico', d.fv_sto, '#C3A6F0']].filter(x => x[1] > 0);
+        const tutti = [d.fv_low, d.fv_high, p, ...voci.map(x => x[1])].filter(x => x > 0);
+        if (tutti.length < 2) { box.innerHTML = ''; return; }
+        const lo = Math.min(...tutti) * 0.9, hi = Math.max(...tutti) * 1.06, X = v => ((v - lo) / (hi - lo) * 100);
+        const c = x => Math.min(97, Math.max(3, x));
+        let h = '<div class="asse"></div>';
+        if (d.fv_low > 0 && d.fv_high > 0) h += `<div class="banda" style="left:${X(d.fv_low)}%; width:${X(d.fv_high) - X(d.fv_low)}%"></div>`;
+        voci.sort((a, b) => a[1] - b[1]).forEach((x, i) => {
+            h += `<span class="tacca" style="left:${X(x[1])}%; --c:${x[2]}"></span><span class="etic ${i % 2 ? 'giu' : 'su'}" style="left:${c(X(x[1]))}%; --c:${x[2]}">${escH(x[0])}</span>`;
+        });
+        if (p > 0) h += `<span class="prezzo" style="left:0%"></span><span class="etic ${voci.length % 2 ? 'giu' : 'su'}" style="left:${c(X(p))}%; --c:#F4F6F9; font-weight:600">Prezzo</span>`;
+        box.innerHTML = h;
+        box.setAttribute('role', 'img');
+        box.setAttribute('aria-label', `Prezzo ${p > 0 ? num(p) : 'non disponibile'}, banda del fair value da ${d.fv_low > 0 ? num(d.fv_low) : '—'} a ${d.fv_high > 0 ? num(d.fv_high) : '—'}`);
+        const pr = $('.prezzo', box);
+        if (pr) requestAnimationFrame(() => requestAnimationFrame(() => { pr.style.left = X(p) + '%'; }));
+    }
+
     // ---------------------------------------------------------------- aggancio alle funzioni della pagina
     function dopo(nome, fn) {
         const orig = window[nome]; if (typeof orig !== 'function') return;
@@ -472,6 +500,7 @@
     dopo('renderTbo', () => { quadro(); segnaliOggi(); });
     dopo('renderTboStats', quadro);
     dopo('setValuta', () => { valMostrato = null; disegnaOggi(); });
+    dopo('calculateFV', disegnaScala);
     window.addEventListener('load', () => {
         preparaGrafico();
         try { caricaVerifica().then(quadro); } catch (e) {}
