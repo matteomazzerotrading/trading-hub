@@ -1,5 +1,5 @@
 {
- "nota": "Piani di accumulo. 'piani' è la configurazione (la modifica Matteo o Claude); 'stato' lo scrive ogni sera scripts/compute_pac.py.",
+ "nota": "Piani di accumulo: 'piani' è la configurazione, 'stato' è ricalcolato ogni sera.",
  "piani": [
   {
    "id": "etf",
@@ -10,8 +10,7 @@
    "foto": {
     "data": "2026-11-23",
     "investito": 668.12,
-    "valore": 636.06,
-    "fonte": "app della banca"
+    "valore": 636.06
    },
    "strumenti": [
     {
@@ -153,7 +152,8 @@
      "paese": "Emergenti",
      "settore": "Azionario diversificato"
     }
-   ]
+   ],
+   "descrizione": "Ogni mese si comprano solo quote intere di ciascun ETF, al prezzo di chiusura del giorno della rata."
   },
   {
    "id": "cpr",
@@ -184,12 +184,11 @@
     "data": "2026-11-19",
     "investito": 1887.93,
     "valore": 1659.84,
-    "fonte": "app della banca",
-    "nota": "valore della quota (NAV) del 19 novembre, come nell'app",
     "iniziale": 300,
     "rate_versate": 8,
     "pagato": 1900
-   }
+   },
+   "descrizione": "Fondo comune: ogni rata compra quote al valore della quota del giorno."
   }
  ],
  "stato": {
@@ -821,9 +820,9 @@
     "foto": {
      "data": "2026-11-23",
      "investito": 668.12,
-     "valore": 636.06,
-     "fonte": "app della banca"
-    }
+     "valore": 636.06
+    },
+    "descrizione": "Ogni mese si comprano solo quote intere di ciascun ETF, al prezzo di chiusura del giorno della rata."
    },
    {
     "id": "cpr",
@@ -865,12 +864,11 @@
      "data": "2026-11-19",
      "investito": 1887.93,
      "valore": 1659.84,
-     "fonte": "app della banca",
-     "nota": "valore della quota (NAV) del 19 novembre, come nell'app",
      "iniziale": 300,
      "rate_versate": 8,
      "pagato": 1900
-    }
+    },
+    "descrizione": "Fondo comune: ogni rata compra quote al valore della quota del giorno."
    }
   ]
  }

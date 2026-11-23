@@ -66,7 +66,7 @@ def main():
     for p in cfg['piani']:
         inizio = p.get('inizio')
         foto = p.get('foto') or {}
-        sp = {'id': p['id'], 'nome': p['nome'], 'giorno': p['giorno'], 'rata': sum(s['rata'] for s in p['strumenti']),
+        sp = {'id': p['id'], 'nome': p['nome'], 'descrizione': p.get('descrizione'), 'giorno': p['giorno'], 'rata': sum(s['rata'] for s in p['strumenti']),
               'prossima': prossima(p['giorno'], oggi), 'strumenti': [], 'avvisi': []}
         if not inizio and not any(s.get('quote') for s in p['strumenti']):
             sp['avvisi'].append('in attesa della data di partenza o delle quote possedute')

@@ -2999,11 +2999,11 @@
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
             const giorno = s => s ? new Date(s + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long' }) : '—';
             const att = pacAttivi(), totV = pacEur(), totI = pacVersEur();
-            document.getElementById('pac-sintesi').innerText = att.length ? `${att.length === P.length ? 'Inclusi' : 'I piani con dati sono inclusi'} nel valore totale e nel rendimento: le rate contano come versamenti, non come guadagno.` : '';
+            document.getElementById('pac-sintesi').innerText = att.length ? 'Inclusi nel valore totale e nel rendimento: le rate contano come versamenti, non come guadagno.' : '';
             document.getElementById('pac-corpo').innerHTML = P.map(p => {
                 const g = p.valore > 0 ? p.valore - p.investito : null;
                 const testa = `<div class="pac-piano-testa"><div><strong>${esc(p.nome)}</strong><span>${eur(p.rata)} al mese, il giorno ${p.giorno} · prossima rata ${giorno(p.prossima)}</span></div></div>`;
-                if (!(p.valore > 0)) return `<div class="pac-piano">${testa}<p class="pac-attesa">In attesa dei dati per ricostruirlo: la data della prima rata, oppure le quote possedute e il totale versato.</p></div>`;
+                if (!(p.valore > 0)) return `<div class="pac-piano">${testa}<p class="pac-attesa">Valori in aggiornamento.</p></div>`;
                 const righe = (p.strumenti || []).map(x => {
                     const r = x.investito > 0 ? (x.valore / x.investito - 1) * 100 : null;
                     return `<tr><td><span class="scr-ticker">${esc(x.ticker)}</span><div class="scr-name">${esc(x.nome)}</div></td>
@@ -3011,9 +3011,7 @@
                         <td class="n">${eur(x.prezzo)}</td><td class="n">${eur(x.investito)}</td><td class="n">${eur(x.valore)}</td>
                         <td class="n" style="color:${r == null ? 'inherit' : r >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${r == null ? '—' : pcs(r)}</td></tr>`;
                 }).join('');
-                const foto = !(p.foto && p.foto.investito) ? '' : p.foto.pagato
-                    ? `<p class="pac-nota">Versati finora ${eur(p.foto.pagato)}${p.foto.iniziale ? `: un versamento iniziale da ${eur(p.foto.iniziale)} e ${p.foto.rate_versate} rate da ${eur(p.rata)}` : ''}; investiti nel fondo, al netto dei costi, ${eur(p.foto.investito)}. Quote e valore della quota dall'app della banca al ${giorno(p.foto.data)}; le rate successive si aggiungono da sole.</p>`
-                    : `<p class="pac-nota">Quote ricostruite dalle rate ai prezzi di chiusura; nell'app della banca, al ${giorno(p.foto.data)}: investito ${eur(p.foto.investito)}, valore ${eur(p.foto.valore)}.</p>`;
+                const foto = p.descrizione ? `<p class="pac-nota">${esc(p.descrizione)}</p>` : '';
                 return `<div class="pac-piano">${testa}
                     <div class="pac-cifre"><div><span>Investito</span><strong>${eur(p.investito)}</strong></div><div><span>Valore</span><strong>${eur(p.valore)}</strong></div>
                     <div><span>Guadagno</span><strong style="color:${g >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${eurS(g)}</strong></div>
