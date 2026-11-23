@@ -160,7 +160,7 @@
    "nome": "PAC su CPR Invest Global Resources",
    "giorno": 28,
    "quote_intere": false,
-   "inizio": "2025-09-28",
+   "inizio": null,
    "strumenti": [
     {
      "isin": "LU1989769465",
@@ -185,10 +185,10 @@
     "investito": 1887.93,
     "valore": 1659.84,
     "fonte": "app della banca",
-    "rate_versate": 14,
-    "rate_totali": 120,
-    "pagato": 2800,
-    "nota": "valore della quota (NAV) del 19 novembre, come nell'app"
+    "nota": "valore della quota (NAV) del 19 novembre, come nell'app",
+    "iniziale": 300,
+    "rate_versate": 8,
+    "pagato": 1900
    }
   }
  ],
@@ -861,10 +861,10 @@
      "investito": 1887.93,
      "valore": 1659.84,
      "fonte": "app della banca",
-     "rate_versate": 14,
-     "rate_totali": 120,
-     "pagato": 2800,
-     "nota": "valore della quota (NAV) del 19 novembre, come nell'app"
+     "nota": "valore della quota (NAV) del 19 novembre, come nell'app",
+     "iniziale": 300,
+     "rate_versate": 8,
+     "pagato": 1900
     }
    }
   ]

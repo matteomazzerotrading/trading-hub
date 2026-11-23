@@ -3012,7 +3012,7 @@
                         <td class="n" style="color:${r == null ? 'inherit' : r >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${r == null ? '—' : pcs(r)}</td></tr>`;
                 }).join('');
                 const foto = !(p.foto && p.foto.investito) ? '' : p.foto.pagato
-                    ? `<p class="pac-nota">${p.foto.rate_versate} rate su ${p.foto.rate_totali} pagate finora, ${eur(p.foto.pagato)}; investiti nel fondo ${eur(p.foto.investito)}. Quote e valore della quota dall'app della banca al ${giorno(p.foto.data)}; le rate successive si aggiungono da sole.</p>`
+                    ? `<p class="pac-nota">Versati finora ${eur(p.foto.pagato)}${p.foto.iniziale ? `: un versamento iniziale da ${eur(p.foto.iniziale)} e ${p.foto.rate_versate} rate da ${eur(p.rata)}` : ''}; investiti nel fondo, al netto dei costi, ${eur(p.foto.investito)}. Quote e valore della quota dall'app della banca al ${giorno(p.foto.data)}; le rate successive si aggiungono da sole.</p>`
                     : `<p class="pac-nota">Quote ricostruite dalle rate ai prezzi di chiusura; nell'app della banca, al ${giorno(p.foto.data)}: investito ${eur(p.foto.investito)}, valore ${eur(p.foto.valore)}.</p>`;
                 return `<div class="pac-piano">${testa}
                     <div class="pac-cifre"><div><span>Investito</span><strong>${eur(p.investito)}</strong></div><div><span>Valore</span><strong>${eur(p.valore)}</strong></div>
