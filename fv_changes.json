@@ -1,12 +1,12 @@
 {
- "aggiornato": "2026-11-23T06:22:17.493Z",
+ "aggiornato": "2026-11-23T10:37:47.245Z",
  "cambi": [
   {
    "data": "2026-11-23",
    "t": "TIT",
    "nome": "Telecom Italia",
-   "da": "banda",
-   "a": "equa_declino"
+   "da": "equa_declino",
+   "a": "banda"
   },
   {
    "data": "2026-11-20",
@@ -425,155 +425,169 @@
  "cambi_altri": [
   {
    "data": "2026-11-23",
+   "t": "AALB.AS",
+   "nome": "Aalberts N.V.",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-23",
    "t": "TALO",
    "nome": "Talos Energy, Inc.",
-   "da": "banda",
-   "a": "sopra"
+   "da": "sopra",
+   "a": "banda"
   },
   {
    "data": "2026-11-23",
    "t": "TCAP.L",
    "nome": "TP ICAP Group plc",
-   "da": "banda",
-   "a": "molto_sotto_declino"
+   "da": "molto_sotto_declino",
+   "a": "banda"
   },
   {
    "data": "2026-11-23",
    "t": "TEX",
    "nome": "Terex",
-   "da": "banda",
-   "a": "sotto"
+   "da": "sotto",
+   "a": "banda"
   },
   {
    "data": "2026-11-23",
    "t": "THG",
    "nome": "Hanover Insurance",
-   "da": "banda",
-   "a": "sotto"
+   "da": "sotto",
+   "a": "banda"
   },
   {
    "data": "2026-11-23",
    "t": "TPC",
    "nome": "Tutor Perini Corporation",
-   "da": "sopra",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "TPRO.MI",
-   "nome": "Technoprobe SpA",
-   "da": "premio_dubbio",
-   "a": "premio_sostenuto"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "TRE.MC",
-   "nome": "Tecnicas Reunidas SA",
-   "da": "banda",
-   "a": "equa_declino"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "TRMB",
-   "nome": "Trimble Inc.",
-   "da": "premio_dubbio",
-   "a": "equita"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "TRST",
-   "nome": "TrustCo Bank Corp NY",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "UHRN.SW",
-   "nome": "Swatch Group Ltd. Registered",
-   "da": "banda",
-   "a": "equa_declino"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "UNF",
-   "nome": "UniFirst Corporation",
-   "da": "equita",
-   "a": "premio_dubbio"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "UNFI",
-   "nome": "United Natural Foods Inc",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "UNI.MC",
-   "nome": "Unicaja Banco S.A.",
    "da": "banda",
    "a": "sopra"
   },
   {
    "data": "2026-11-23",
+   "t": "TPRO.MI",
+   "nome": "Technoprobe SpA",
+   "da": "premio_sostenuto",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "TRE.MC",
+   "nome": "Tecnicas Reunidas SA",
+   "da": "equa_declino",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "TRMB",
+   "nome": "Trimble Inc.",
+   "da": "equita",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "TRST",
+   "nome": "TrustCo Bank Corp NY",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "UHRN.SW",
+   "nome": "Swatch Group Ltd. Registered",
+   "da": "equa_declino",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "UNF",
+   "nome": "UniFirst Corporation",
+   "da": "premio_dubbio",
+   "a": "equita"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "UNFI",
+   "nome": "United Natural Foods Inc",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "UNI.MC",
+   "nome": "Unicaja Banco S.A.",
+   "da": "sopra",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-23",
    "t": "UNI.MI",
    "nome": "UNIPOL ASSICURAZIONI SPA",
-   "da": "banda",
-   "a": "equa_declino"
+   "da": "equa_declino",
+   "a": "banda"
   },
   {
    "data": "2026-11-23",
    "t": "UNM",
    "nome": "Unum",
-   "da": "banda",
-   "a": "sotto"
+   "da": "sotto",
+   "a": "banda"
   },
   {
    "data": "2026-11-23",
    "t": "UPWK",
    "nome": "Upwork, Inc.",
-   "da": "sopra",
-   "a": "premio_sostenuto"
+   "da": "premio_sostenuto",
+   "a": "sopra"
   },
   {
    "data": "2026-11-23",
    "t": "USAC",
    "nome": "USA Compression Partners LP",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "USPH",
-   "nome": "U.S. Physical Therapy, Inc.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "VAC",
-   "nome": "Marriott Vacations Worldwide",
    "da": "banda",
    "a": "sotto"
   },
   {
    "data": "2026-11-23",
-   "t": "VFC",
-   "nome": "VF Corporation",
+   "t": "USPH",
+   "nome": "U.S. Physical Therapy, Inc.",
    "da": "banda",
-   "a": "equa_declino"
+   "a": "sotto"
   },
   {
    "data": "2026-11-23",
-   "t": "VIRP.PA",
-   "nome": "Virbac SA",
+   "t": "VAC",
+   "nome": "Marriott Vacations Worldwide",
    "da": "sotto",
    "a": "banda"
   },
   {
    "data": "2026-11-23",
+   "t": "VFC",
+   "nome": "VF Corporation",
+   "da": "equa_declino",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "VIRP.PA",
+   "nome": "Virbac SA",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-23",
    "t": "VPK.AS",
    "nome": "Royal Vopak NV",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-23",
+   "t": "IP.MI",
+   "nome": "Interpump Group S.p.A.",
    "da": "sotto",
    "a": "banda"
   }
