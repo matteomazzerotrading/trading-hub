@@ -519,7 +519,7 @@
         .pensiero-text { flex: 1; font-size: 1.0em; line-height: 1.75; color: #d0d0d0; font-style: italic; white-space: pre-wrap; word-break: break-word; }
         .pensiero-week { font-size: 0.75em; color: var(--text-muted); margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-glass); }
     </style>
-    <link rel="stylesheet" href="assets/tema.css?v=4">
+    <link rel="stylesheet" href="assets/tema.css?v=5">
 </head>
 <body>
 
@@ -689,6 +689,10 @@
             <div class="kpi-card"><div class="fv-label">Da inizio anno</div><div class="kpi-val mono-font" id="port-annual">—</div><div id="port-annual-sub" style="font-size:0.75em; color:var(--text-muted); margin-top:4px;"></div></div>
             <div class="kpi-card"><div class="fv-label">N. Posizioni</div><div class="kpi-val mono-font" id="port-count">—</div></div>
         </div>
+        <section class="pac-box" id="pac-box" style="display:none;" aria-labelledby="pac-titolo">
+            <div class="pac-testa"><h3 id="pac-titolo">Piani di accumulo</h3><span id="pac-sintesi"></span></div>
+            <div id="pac-corpo"></div>
+        </section>
         <details class="card div-box" id="div-box" style="display:none; margin-bottom:30px; padding:0;" ontoggle="if (this.open) proiezioneDividendi()">
             <summary style="cursor:pointer; padding:18px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; list-style:none;">
                 <span style="font-weight:700; color:#fff;">Dividendi e cedole incassati, proiezione 2027</span>
@@ -1625,6 +1629,7 @@
         // signals.json: segnali buy/sell inviati automaticamente da TradingView
         const DATA_BASE = 'https://raw.githubusercontent.com/matteomazzerotrading/trading-hub/main/';
         let portfolioData = null;
+        let pacData = null;      // piani di accumulo (pac.json, ricostruiti ogni sera da scripts/compute_pac.py)
 
         // Legge un file di dati: prima dal repository (sempre l'ultima versione), poi dalla copia pubblicata con il sito
         async function fetchJson(name) {
@@ -1637,7 +1642,8 @@
             return null;
         }
         async function loadRemoteData() {
-            const [d, s, p] = await Promise.all([fetchJson('data.json'), fetchJson('signals.json'), fetchJson('portfolio.json')]);
+            const [d, s, p, pac] = await Promise.all([fetchJson('data.json'), fetchJson('signals.json'), fetchJson('portfolio.json'), fetchJson('pac.json')]);
+            if (pac) pacData = pac;
             if (d && d.db) Object.assign(db, d.db);
             if (d && d.aliases) Object.assign(aliases, d.aliases);
             if (s && Array.isArray(s.signals)) indicatorSignals = s.signals;
@@ -2763,7 +2769,7 @@
                 renderDiversificazione();
                 caricaBenchmark();
                 const s = pd.summary;
-                document.getElementById('port-count').innerText = (pd.positions || []).length;
+                document.getElementById('port-count').innerText = (pd.positions || []).length + (pacAttivi().length ? ' + ' + pacAttivi().length + ' PAC' : '');
                 document.getElementById('port-updated-badge').innerText = 'Aggiornato al ' + pd.updated;
                 avviaPortLive();
             }
@@ -2771,8 +2777,10 @@
             // Allocation bars
             const barsEl = document.getElementById('port-alloc-bars');
             if (barsEl && pd && pd.allocation) {
-                const maxPct = Math.max(...pd.allocation.map(a => a.pct));
-                barsEl.innerHTML = pd.allocation.map((a, i) => `
+                const wPac = pd.summary && pacUsd() > 0 ? pacUsd() / (pd.summary.total_value_usd + pacUsd()) : 0;
+                const alloc = pd.allocation.map(a => ({ ...a, pct: a.pct * (1 - wPac) })).concat(wPac ? [{ label: 'Piani di accumulo', pct: wPac * 100 }] : []);
+                const maxPct = Math.max(...alloc.map(a => a.pct));
+                barsEl.innerHTML = alloc.map((a, i) => `
                     <div class="bar-row">
                         <div class="bar-label">${a.label}</div>
                         <div class="bar-track"><div class="bar-fill" style="width:${(a.pct/maxPct*100).toFixed(1)}%; background:${COLORS[i % COLORS.length]};"></div></div>
@@ -2902,6 +2910,73 @@
             }).join('') || '<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">Nessuna operazione.</td></tr>';
         }
 
+        // === PIANI DI ACCUMULO ===
+        // Valori in euro (le rate sono in euro); nel totale e nello storico del portafoglio entrano convertiti al cambio del giorno.
+        const pacPiani = () => ((pacData && pacData.stato && pacData.stato.piani) || []);
+        const pacAttivi = () => pacPiani().filter(p => p.valore > 0);
+        const pacEur = () => pacAttivi().reduce((a, p) => a + p.valore, 0);
+        const pacVersEur = () => pacAttivi().reduce((a, p) => a + p.investito, 0);
+        const pacUsd = () => pacEur() * fxOra();
+        // storico in dollari: data → [valore, versato], con il cambio di ciascun giorno
+        function pacSerieUsd() {
+            const m = {};
+            for (const p of pacAttivi()) for (const [d, v, i] of (p.storia || [])) { const fx = fxAl(d), x = m[d] || (m[d] = [0, 0]); x[0] += v * fx; x[1] += i * fx; }
+            return m;
+        }
+        // Unisce i piani allo storico del portafoglio TradingView. Il rendimento di ogni giorno è la media dei due rendimenti
+        // pesata sui valori del giorno prima; le rate sono versamenti, quindi non contano come guadagno.
+        function conPac(pts) {
+            const S = pacSerieUsd(), date = Object.keys(S).sort();
+            if (!date.length || !pts.length) return pts;
+            const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            const out = []; let j = -1;
+            for (let k = 0; k < pts.length; k++) {
+                const p = pts[k], g = iso(p.d);
+                while (j + 1 < date.length && date[j + 1] <= g) j++;
+                let pac = j >= 0 ? S[date[j]] : [0, 0];
+                if (p.live) pac = [pacUsd(), pacVersEur() * fxOra()];
+                const q = { ...p, v: p.v + pac[0], pl: p.pl != null ? p.pl + (pac[0] - pac[1]) : p.pl, _pac: pac };
+                if (k > 0 && p.perf != null && pts[k - 1].perf != null && out[k - 1].perf != null) {
+                    const a = pts[k - 1], b = out[k - 1], prima = b._pac;
+                    const rTv = (1 + p.perf / 100) / (1 + a.perf / 100) - 1;
+                    const rComb = (a.v * rTv + (pac[0] - prima[0] - (pac[1] - prima[1]))) / (a.v + prima[0]);
+                    q.perf = ((1 + b.perf / 100) * (1 + rComb) - 1) * 100;
+                }
+                out.push(q);
+            }
+            return out;
+        }
+        function renderPac() {
+            const box = document.getElementById('pac-box'), P = pacPiani();
+            if (!box || !P.length) return;
+            const eur = v => fmtRaw(inEuro() ? v : v * fxOra());
+            const eurS = v => fmtRaw(inEuro() ? v : v * fxOra(), { segno: true });
+            const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+            const giorno = s => s ? new Date(s + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long' }) : '—';
+            const att = pacAttivi(), totV = pacEur(), totI = pacVersEur();
+            document.getElementById('pac-sintesi').innerText = att.length ? `${att.length === P.length ? 'Inclusi' : 'I piani con dati sono inclusi'} nel valore totale e nel rendimento: le rate contano come versamenti, non come guadagno.` : '';
+            document.getElementById('pac-corpo').innerHTML = P.map(p => {
+                const g = p.valore > 0 ? p.valore - p.investito : null;
+                const testa = `<div class="pac-piano-testa"><div><strong>${esc(p.nome)}</strong><span>${eur(p.rata)} al mese, il giorno ${p.giorno} · prossima rata ${giorno(p.prossima)}</span></div></div>`;
+                if (!(p.valore > 0)) return `<div class="pac-piano">${testa}<p class="pac-attesa">In attesa dei dati per ricostruirlo: la data della prima rata, oppure le quote possedute e il totale versato.</p></div>`;
+                const righe = (p.strumenti || []).map(x => {
+                    const r = x.investito > 0 ? (x.valore / x.investito - 1) * 100 : null;
+                    return `<tr><td><span class="scr-ticker">${esc(x.ticker)}</span><div class="scr-name">${esc(x.nome)}</div></td>
+                        <td class="n">${eur(x.rata)}</td><td class="n">${Number(x.quote).toLocaleString('it-IT', { maximumFractionDigits: 3 })}</td>
+                        <td class="n">${eur(x.prezzo)}</td><td class="n">${eur(x.investito)}</td><td class="n">${eur(x.valore)}</td>
+                        <td class="n" style="color:${r == null ? 'inherit' : r >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${r == null ? '—' : pcs(r)}</td></tr>`;
+                }).join('');
+                const foto = p.foto && p.foto.investito ? `<p class="pac-nota">Quote ricostruite dalle rate ai prezzi di chiusura${p.foto.data ? `; nell'app della banca, al ${giorno(p.foto.data)}: versato ${eur(p.foto.investito)}, valore ${eur(p.foto.valore)}` : ''}.</p>` : '';
+                return `<div class="pac-piano">${testa}
+                    <div class="pac-cifre"><div><span>Versato</span><strong>${eur(p.investito)}</strong></div><div><span>Valore</span><strong>${eur(p.valore)}</strong></div>
+                    <div><span>Guadagno</span><strong style="color:${g >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${eurS(g)}</strong></div>
+                    <div><span>Rendimento</span><strong style="color:${g >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${p.investito > 0 ? pcs(g / p.investito * 100) : '—'}</strong></div></div>
+                    <details class="pac-dett"><summary>Gli strumenti (${(p.strumenti || []).length})</summary>
+                    <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Strumento</th><th class="n">Rata</th><th class="n">Quote</th><th class="n">Prezzo</th><th class="n">Versato</th><th class="n">Valore</th><th class="n">Rendimento</th></tr></thead><tbody>${righe}</tbody></table></div></details>${foto}</div>`;
+            }).join('');
+            box.style.display = '';
+        }
+
         // === POSIZIONI (sintesi) E DIVERSIFICAZIONE ===
         function renderPosSintesi() {
             const P = (portfolioData && portfolioData.positions) || [];
@@ -2919,11 +2994,15 @@
             const card = document.getElementById('port-div-card');
             if (!card || !P.length) return;
             const tot = P.reduce((a, p) => a + (p.alloc_pct || 0), 0) || 100;
-            const somma = f => { const g = {}; for (const p of P) { const k = f(p); g[k] = (g[k] || 0) + (p.alloc_pct || 0) / tot * 100; } return Object.entries(g).sort((a, b) => b[1] - a[1]); };
+            // i piani di accumulo entrano con il loro peso, strumento per strumento (classificazione in pac.json)
+            const totTv = (portfolioData.summary && portfolioData.summary.total_value_usd) || 0, wPac = totTv && pacUsd() > 0 ? pacUsd() / (totTv + pacUsd()) : 0;
+            const strPac = pacAttivi().flatMap(p => (p.strumenti || []).filter(x => x.valore > 0)).map(x => ({ ticker: x.ticker, curr: 'EUR', _w: x.valore / pacEur() * wPac * 100, _c: { paese: x.paese || 'Globale', settore: x.settore || 'Fondi ed ETF' } }));
+            const somma = f => { const g = {}; for (const p of P) { const k = f(p); g[k] = (g[k] || 0) + (p.alloc_pct || 0) / tot * 100 * (1 - wPac); } for (const p of strPac) { const k = f(p); g[k] = (g[k] || 0) + p._w; } return Object.entries(g).sort((a, b) => b[1] - a[1]); };
             const valute = somma(p => p.curr === 'EUR' ? 'Euro' : p.curr === 'USD' ? 'Dollaro USA' : (p.curr || 'Altra'));
-            const paesi = somma(p => (C[p.ticker] && C[p.ticker].paese) || 'Da classificare');
-            const settori = somma(p => (C[p.ticker] && C[p.ticker].settore) || 'Da classificare');
-            const aree = somma(p => { const x = (C[p.ticker] && C[p.ticker].paese) || ''; return x ? (AREA_PAESE[x] || 'Europa') : 'Da classificare'; });
+            const cl = p => p._c || C[p.ticker];
+            const paesi = somma(p => (cl(p) && cl(p).paese) || 'Da classificare');
+            const settori = somma(p => (cl(p) && cl(p).settore) || 'Da classificare');
+            const aree = somma(p => { const x = (cl(p) && cl(p).paese) || ''; return x ? (AREA_PAESE[x] || (x === 'Emergenti' ? 'Paesi emergenti' : 'Europa')) : 'Da classificare'; });
             const PAL = ['#4CC38A', '#6FC3DF', '#ffb74d', '#ce93d8', '#f06292', '#aed581', '#ffe082', '#80cbc4', '#90a4ae', '#ef9a9a', '#b39ddb', '#bcaaa4'];
             const pct = x => x.toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
             const blocco = (titolo, righe, sotto, etichetta = k => k) => {
@@ -3082,7 +3161,7 @@
                 if (+ultimo.d === +oggi) pts[pts.length - 1] = punto;
                 else if (ultimo.d < oggi && oggi.getDay() % 6 !== 0) pts.push(punto);
             }
-            return pts;
+            return conPac(pts);
         }
         // Storico nella valuta scelta. In euro: valore / cambio del giorno; rendimento concatenato giorno per giorno,
         // (1 + r$) × cambio di ieri / cambio di oggi; profitto in euro accumulato da quei rendimenti.
@@ -3566,9 +3645,15 @@
             const s = pd.summary, snap = pd.snapshot, L = portLive && snap ? portLive : null;
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2).replace('.', ',') + '%';
             aggiornaSelValuta();
-            document.getElementById('port-total').innerText = fmtV(L ? L.tot : s.total_value_usd);
+            const valTv = L ? L.tot : s.total_value_usd;
+            document.getElementById('port-total').innerText = fmtV(valTv + pacUsd());
             let nr = s.unrealized_pl_usd, nrPct = s.unrealized_pl_pct;
             if (L) { nr = snap.summary.unrealized_pl_usd + L.d; nrPct = snap.unrealized_base ? nr / snap.unrealized_base * 100 : snap.summary.unrealized_pl_pct; }
+            if (pacEur() > 0) {          // i piani di accumulo: guadagno = valore − versato
+                const base = (nrPct ? nr / (nrPct / 100) : valTv - nr) + pacVersEur() * fxOra();
+                nr += (pacEur() - pacVersEur()) * fxOra(); nrPct = base ? nr / base * 100 : nrPct;
+            }
+            renderPac();
             const unreal = document.getElementById('port-unreal');
             unreal.innerText = fmtV(nr, { segno: true }) + ' (' + pcs(nrPct) + ')';
             unreal.style.color = nr >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';

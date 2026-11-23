@@ -78,7 +78,7 @@ def main():
         for s in p['strumenti']:
             simbolo, px = chiusure(s.get('yf') or [], dal_dl)
             giorni = sorted(px)
-            ss = {k: s.get(k) for k in ('isin', 'ticker', 'nome', 'rata', 'tipo', 'tv')}
+            ss = {k: s.get(k) for k in ('isin', 'ticker', 'nome', 'rata', 'tipo', 'tv', 'paese', 'settore')}
             ss['simbolo'] = simbolo
             if not giorni:
                 vs = next((x for x in (vecchio.get('piani') or []) for x in x.get('strumenti', []) if x.get('isin') == s['isin']), None)

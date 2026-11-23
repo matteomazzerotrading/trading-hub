@@ -589,3 +589,29 @@ iframe { color-scheme: normal; }
 #tbo-segnali.piatta, #tbo-stats.piatta { margin-top: 48px !important; }
 .screener-body.open { max-height: none; overflow: visible; }
 #scr-pagine .screener-filter-btn { min-height: 36px; }
+
+/* piani di accumulo */
+.pac-box { margin: 0 0 40px; }
+.pac-testa { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 20px; flex-wrap: wrap; margin-bottom: 14px; }
+.pac-testa h3 { margin: 0; font-family: var(--f-display); font-size: 1.6em; font-weight: 700; letter-spacing: -0.02em; color: #F2F5F8; }
+.pac-testa span { color: var(--text-muted); font-size: .92rem; max-width: 70ch; }
+.pac-piano { padding: 20px 22px; border-radius: 16px; border: 1px solid var(--border-glass); background: linear-gradient(180deg, rgba(30, 49, 70, .5), rgba(17, 30, 44, .5)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04); }
+.pac-piano + .pac-piano { margin-top: 14px; }
+.pac-piano-testa strong { display: block; font-family: var(--f-display); font-size: 1.2em; font-weight: 700; color: #F2F5F8; }
+.pac-piano-testa span { color: var(--text-muted); font-size: .92rem; }
+.pac-cifre { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 16px; border-top: 1px solid var(--border-glass); }
+.pac-cifre > div { padding: 14px 18px 4px; }
+.pac-cifre > div:first-child { padding-left: 0; }
+.pac-cifre > div + div { border-left: 1px solid var(--border-glass); }
+.pac-cifre span { display: block; font-size: .84rem; color: var(--text-muted); }
+.pac-cifre strong { font-family: var(--f-display); font-size: 1.45em; font-weight: 700; color: #F4F6F9; letter-spacing: -0.01em; }
+.pac-dett { margin-top: 14px; }
+.pac-dett summary { color: var(--accent); font-weight: 600; font-size: .92rem; padding: 6px 0; }
+.pac-dett .screener-table-wrap { margin-top: 10px; }
+.pac-dett td.n, .pac-dett th.n { text-align: right; white-space: nowrap; }
+.pac-nota, .pac-attesa { margin: 10px 0 0; font-size: .86rem; color: var(--text-muted); }
+@media (max-width: 700px) {
+    .pac-cifre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pac-cifre > div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .pac-cifre > div:nth-child(n+3) { border-top: 1px solid var(--border-glass); }
+}

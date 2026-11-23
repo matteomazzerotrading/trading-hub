@@ -25,7 +25,9 @@
      "tv": "XETR:EXSH",
      "tipo": "Azioni Europa, dividendi",
      "quote": 3,
-     "investito": 79.57
+     "investito": 79.57,
+     "paese": "Europa",
+     "settore": "Azionario diversificato"
     },
     {
      "isin": "IE00BG36TC12",
@@ -38,7 +40,9 @@
      "tv": "XETR:XZMJ",
      "tipo": "Azioni Giappone",
      "quote": 3,
-     "investito": 89.17
+     "investito": 89.17,
+     "paese": "Giappone",
+     "settore": "Azionario diversificato"
     },
     {
      "isin": "IE00BHZPJ569",
@@ -50,7 +54,9 @@
       "ENWD.PA"
      ],
      "tv": "XETR:EDMW",
-     "tipo": "Azioni mondo"
+     "tipo": "Azioni mondo",
+     "paese": "Globale",
+     "settore": "Azionario diversificato"
     },
     {
      "isin": "IE00BK5BC891",
@@ -62,7 +68,9 @@
       "GLUG.PA"
      ],
      "tv": "XETR:XMLC",
-     "tipo": "Azioni tematiche, acqua"
+     "tipo": "Azioni tematiche, acqua",
+     "paese": "Globale",
+     "settore": "Utilities"
     },
     {
      "isin": "IE00BMDH1538",
@@ -74,7 +82,9 @@
       "HDRO.PA"
      ],
      "tv": "XETR:HDR0",
-     "tipo": "Azioni tematiche, idrogeno"
+     "tipo": "Azioni tematiche, idrogeno",
+     "paese": "Globale",
+     "settore": "Industria"
     },
     {
      "isin": "IE000PMX0MW6",
@@ -86,7 +96,9 @@
       "UTIW.PA"
      ],
      "tv": "XETR:WELD",
-     "tipo": "Azioni mondo, utilities"
+     "tipo": "Azioni mondo, utilities",
+     "paese": "Globale",
+     "settore": "Utilities"
     },
     {
      "isin": "IE000STIHQB2",
@@ -97,7 +109,9 @@
       "FVSA.DE"
      ],
      "tv": "XETR:FVSA",
-     "tipo": "Obbligazioni euro a breve"
+     "tipo": "Obbligazioni euro a breve",
+     "paese": "Europa",
+     "settore": "Obbligazioni"
     },
     {
      "isin": "IE0002PG6CA6",
@@ -109,7 +123,9 @@
       "REMX.PA"
      ],
      "tv": "XETR:VVMX",
-     "tipo": "Materie prime, metalli strategici"
+     "tipo": "Materie prime, metalli strategici",
+     "paese": "Globale",
+     "settore": "Materiali"
     },
     {
      "isin": "IE0003WEWAX4",
@@ -120,7 +136,9 @@
       "FOHW.DE"
      ],
      "tv": "XETR:FOHW",
-     "tipo": "Azioni tematiche, salute"
+     "tipo": "Azioni tematiche, salute",
+     "paese": "Globale",
+     "settore": "Salute"
     },
     {
      "isin": "IE00041037N4",
@@ -131,7 +149,9 @@
       "EMGM.DE"
      ],
      "tv": "XETR:EMGM",
-     "tipo": "Azioni paesi emergenti"
+     "tipo": "Azioni paesi emergenti",
+     "paese": "Emergenti",
+     "settore": "Azionario diversificato"
     }
    ]
   },
@@ -148,7 +168,9 @@
      "nome": "CPR Invest Global Resources",
      "rata": 200,
      "yf": [],
-     "tipo": "Azioni materie prime"
+     "tipo": "Azioni materie prime",
+     "paese": "Globale",
+     "settore": "Materiali"
     }
    ]
   }
@@ -178,7 +200,9 @@
       "prezzo": 25.425,
       "data_prezzo": "2026-11-20",
       "valore": 76.27,
-      "rate": []
+      "rate": [],
+      "paese": "Europa",
+      "settore": "Azionario diversificato"
      },
      {
       "isin": "IE00BG36TC12",
@@ -195,7 +219,9 @@
       "prezzo": 27.22,
       "data_prezzo": "2026-11-20",
       "valore": 81.66,
-      "rate": []
+      "rate": [],
+      "paese": "Giappone",
+      "settore": "Azionario diversificato"
      },
      {
       "isin": "IE00BHZPJ569",
@@ -227,7 +253,9 @@
         3,
         10.926
        ]
-      ]
+      ],
+      "paese": "Globale",
+      "settore": "Azionario diversificato"
      },
      {
       "isin": "IE00BK5BC891",
@@ -259,7 +287,9 @@
         1,
         19.03
        ]
-      ]
+      ],
+      "paese": "Globale",
+      "settore": "Utilities"
      },
      {
       "isin": "IE00BMDH1538",
@@ -291,7 +321,9 @@
         1,
         6.804
        ]
-      ]
+      ],
+      "paese": "Globale",
+      "settore": "Industria"
      },
      {
       "isin": "IE000PMX0MW6",
@@ -323,7 +355,9 @@
         1,
         14.228
        ]
-      ]
+      ],
+      "paese": "Globale",
+      "settore": "Utilities"
      },
      {
       "isin": "IE000STIHQB2",
@@ -355,7 +389,9 @@
         1,
         27.955
        ]
-      ]
+      ],
+      "paese": "Europa",
+      "settore": "Obbligazioni"
      },
      {
       "isin": "IE0002PG6CA6",
@@ -387,7 +423,9 @@
         1,
         9.055
        ]
-      ]
+      ],
+      "paese": "Globale",
+      "settore": "Materiali"
      },
      {
       "isin": "IE0003WEWAX4",
@@ -419,7 +457,9 @@
         1,
         27.96
        ]
-      ]
+      ],
+      "paese": "Globale",
+      "settore": "Salute"
      },
      {
       "isin": "IE00041037N4",
@@ -451,7 +491,9 @@
         1,
         28.495
        ]
-      ]
+      ],
+      "paese": "Emergenti",
+      "settore": "Azionario diversificato"
      }
     ],
     "avvisi": [],
