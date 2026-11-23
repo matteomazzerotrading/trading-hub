@@ -1,36 +1,777 @@
 {
-  "nota": "Piani di accumulo. 'piani' è la configurazione (la modifica Matteo o Claude); 'stato' lo scrive ogni sera scripts/compute_pac.py.",
-  "piani": [
+ "nota": "Piani di accumulo. 'piani' è la configurazione (la modifica Matteo o Claude); 'stato' lo scrive ogni sera scripts/compute_pac.py.",
+ "piani": [
+  {
+   "id": "etf",
+   "nome": "PAC su dieci ETF",
+   "giorno": 1,
+   "quote_intere": true,
+   "inizio": "2026-09-01",
+   "foto": {
+    "data": "2026-11-23",
+    "investito": 668.12,
+    "valore": 636.06,
+    "fonte": "app della banca"
+   },
+   "strumenti": [
     {
-      "id": "etf",
-      "nome": "PAC su dieci ETF",
-      "giorno": 1,
-      "quote_intere": true,
-      "inizio": "2026-09-01",
-      "foto": { "data": "2026-11-23", "investito": 668.12, "valore": 636.06, "fonte": "app della banca" },
-      "strumenti": [
-        { "isin": "DE0002635299", "ticker": "EXSH", "nome": "iShares STOXX Europe Select Dividend 30", "rata": 30, "yf": ["EXSH.DE"], "tv": "XETR:EXSH", "tipo": "Azioni Europa, dividendi", "quote": 3, "investito": 79.57 },
-        { "isin": "IE00BG36TC12", "ticker": "XZMJ", "nome": "Xtrackers MSCI Japan ESG", "rata": 35, "yf": ["XZMJ.DE"], "tv": "XETR:XZMJ", "tipo": "Azioni Giappone", "quote": 3, "investito": 89.17 },
-        { "isin": "IE00BHZPJ569", "ticker": "ENWD", "nome": "iShares MSCI World ESG Enhanced", "rata": 35, "yf": ["EDMW.DE", "ENWD.PA"], "tv": "XETR:EDMW", "tipo": "Azioni mondo" },
-        { "isin": "IE00BK5BC891", "ticker": "GLUG", "nome": "L&G Clean Water", "rata": 20, "yf": ["XMLC.DE", "GLUG.PA"], "tv": "XETR:XMLC", "tipo": "Azioni tematiche, acqua" },
-        { "isin": "IE00BMDH1538", "ticker": "HDRO", "nome": "VanEck Hydrogen Economy", "rata": 10, "yf": ["HDR0.DE", "HDRO.PA"], "tv": "XETR:HDR0", "tipo": "Azioni tematiche, idrogeno" },
-        { "isin": "IE000PMX0MW6", "ticker": "UTIW", "nome": "Amundi S&P Global Utilities ESG", "rata": 25, "yf": ["WELD.DE", "UTIW.PA"], "tv": "XETR:WELD", "tipo": "Azioni mondo, utilities" },
-        { "isin": "IE000STIHQB2", "ticker": "FLESA", "nome": "Franklin Euro Short Maturity (acc)", "rata": 30, "yf": ["FVSA.DE"], "tv": "XETR:FVSA", "tipo": "Obbligazioni euro a breve" },
-        { "isin": "IE0002PG6CA6", "ticker": "REMX", "nome": "VanEck Rare Earth and Strategic Metals", "rata": 15, "yf": ["VVMX.DE", "REMX.PA"], "tv": "XETR:VVMX", "tipo": "Materie prime, metalli strategici" },
-        { "isin": "IE0003WEWAX4", "ticker": "FOHW", "nome": "Franklin Future of Health and Wellness", "rata": 30, "yf": ["FOHW.DE"], "tv": "XETR:FOHW", "tipo": "Azioni tematiche, salute" },
-        { "isin": "IE00041037N4", "ticker": "EMERG", "nome": "Franklin FTSE Emerging Markets", "rata": 35, "yf": ["EMGM.DE"], "tv": "XETR:EMGM", "tipo": "Azioni paesi emergenti" }
-      ]
+     "isin": "DE0002635299",
+     "ticker": "EXSH",
+     "nome": "iShares STOXX Europe Select Dividend 30",
+     "rata": 30,
+     "yf": [
+      "EXSH.DE"
+     ],
+     "tv": "XETR:EXSH",
+     "tipo": "Azioni Europa, dividendi",
+     "quote": 3,
+     "investito": 79.57
     },
     {
-      "id": "cpr",
-      "nome": "PAC su CPR Invest Global Resources",
-      "giorno": 28,
-      "quote_intere": false,
-      "inizio": null,
-      "strumenti": [
-        { "isin": "LU1989769465", "ticker": "CPR GR", "nome": "CPR Invest Global Resources", "rata": 200, "yf": [], "tipo": "Azioni materie prime" }
-      ]
+     "isin": "IE00BG36TC12",
+     "ticker": "XZMJ",
+     "nome": "Xtrackers MSCI Japan ESG",
+     "rata": 35,
+     "yf": [
+      "XZMJ.DE"
+     ],
+     "tv": "XETR:XZMJ",
+     "tipo": "Azioni Giappone",
+     "quote": 3,
+     "investito": 89.17
+    },
+    {
+     "isin": "IE00BHZPJ569",
+     "ticker": "ENWD",
+     "nome": "iShares MSCI World ESG Enhanced",
+     "rata": 35,
+     "yf": [
+      "EDMW.DE",
+      "ENWD.PA"
+     ],
+     "tv": "XETR:EDMW",
+     "tipo": "Azioni mondo"
+    },
+    {
+     "isin": "IE00BK5BC891",
+     "ticker": "GLUG",
+     "nome": "L&G Clean Water",
+     "rata": 20,
+     "yf": [
+      "XMLC.DE",
+      "GLUG.PA"
+     ],
+     "tv": "XETR:XMLC",
+     "tipo": "Azioni tematiche, acqua"
+    },
+    {
+     "isin": "IE00BMDH1538",
+     "ticker": "HDRO",
+     "nome": "VanEck Hydrogen Economy",
+     "rata": 10,
+     "yf": [
+      "HDR0.DE",
+      "HDRO.PA"
+     ],
+     "tv": "XETR:HDR0",
+     "tipo": "Azioni tematiche, idrogeno"
+    },
+    {
+     "isin": "IE000PMX0MW6",
+     "ticker": "UTIW",
+     "nome": "Amundi S&P Global Utilities ESG",
+     "rata": 25,
+     "yf": [
+      "WELD.DE",
+      "UTIW.PA"
+     ],
+     "tv": "XETR:WELD",
+     "tipo": "Azioni mondo, utilities"
+    },
+    {
+     "isin": "IE000STIHQB2",
+     "ticker": "FLESA",
+     "nome": "Franklin Euro Short Maturity (acc)",
+     "rata": 30,
+     "yf": [
+      "FVSA.DE"
+     ],
+     "tv": "XETR:FVSA",
+     "tipo": "Obbligazioni euro a breve"
+    },
+    {
+     "isin": "IE0002PG6CA6",
+     "ticker": "REMX",
+     "nome": "VanEck Rare Earth and Strategic Metals",
+     "rata": 15,
+     "yf": [
+      "VVMX.DE",
+      "REMX.PA"
+     ],
+     "tv": "XETR:VVMX",
+     "tipo": "Materie prime, metalli strategici"
+    },
+    {
+     "isin": "IE0003WEWAX4",
+     "ticker": "FOHW",
+     "nome": "Franklin Future of Health and Wellness",
+     "rata": 30,
+     "yf": [
+      "FOHW.DE"
+     ],
+     "tv": "XETR:FOHW",
+     "tipo": "Azioni tematiche, salute"
+    },
+    {
+     "isin": "IE00041037N4",
+     "ticker": "EMERG",
+     "nome": "Franklin FTSE Emerging Markets",
+     "rata": 35,
+     "yf": [
+      "EMGM.DE"
+     ],
+     "tv": "XETR:EMGM",
+     "tipo": "Azioni paesi emergenti"
     }
-  ],
-  "stato": null
+   ]
+  },
+  {
+   "id": "cpr",
+   "nome": "PAC su CPR Invest Global Resources",
+   "giorno": 28,
+   "quote_intere": false,
+   "inizio": null,
+   "strumenti": [
+    {
+     "isin": "LU1989769465",
+     "ticker": "CPR GR",
+     "nome": "CPR Invest Global Resources",
+     "rata": 200,
+     "yf": [],
+     "tipo": "Azioni materie prime"
+    }
+   ]
+  }
+ ],
+ "stato": {
+  "aggiornato": "2026-11-23T00:51:47Z",
+  "piani": [
+   {
+    "id": "etf",
+    "nome": "PAC su dieci ETF",
+    "giorno": 1,
+    "rata": 265,
+    "prossima": "2026-12-01",
+    "strumenti": [
+     {
+      "isin": "DE0002635299",
+      "ticker": "EXSH",
+      "nome": "iShares STOXX Europe Select Dividend 30",
+      "rata": 30,
+      "tipo": "Azioni Europa, dividendi",
+      "tv": "XETR:EXSH",
+      "simbolo": "EXSH.DE",
+      "origine": "quote dall'app al 2026-11-23",
+      "ricostruite_alla_foto": 3,
+      "quote": 3.0,
+      "investito": 79.55,
+      "prezzo": 25.425,
+      "data_prezzo": "2026-11-20",
+      "valore": 76.27,
+      "rate": []
+     },
+     {
+      "isin": "IE00BG36TC12",
+      "ticker": "XZMJ",
+      "nome": "Xtrackers MSCI Japan ESG",
+      "rata": 35,
+      "tipo": "Azioni Giappone",
+      "tv": "XETR:XZMJ",
+      "simbolo": "XZMJ.DE",
+      "origine": "quote dall'app al 2026-11-23",
+      "ricostruite_alla_foto": 3,
+      "quote": 3.0,
+      "investito": 89.05,
+      "prezzo": 27.22,
+      "data_prezzo": "2026-11-20",
+      "valore": 81.66,
+      "rate": []
+     },
+     {
+      "isin": "IE00BHZPJ569",
+      "ticker": "ENWD",
+      "nome": "iShares MSCI World ESG Enhanced",
+      "rata": 35,
+      "tipo": "Azioni mondo",
+      "tv": "XETR:EDMW",
+      "simbolo": "EDMW.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 9.0,
+      "investito": 97.27,
+      "prezzo": 10.332,
+      "data_prezzo": "2026-11-20",
+      "valore": 92.99,
+      "rate": [
+       [
+        "2026-09-01",
+        3,
+        10.668
+       ],
+       [
+        "2026-10-01",
+        3,
+        10.828
+       ],
+       [
+        "2026-11-02",
+        3,
+        10.926
+       ]
+      ]
+     },
+     {
+      "isin": "IE00BK5BC891",
+      "ticker": "GLUG",
+      "nome": "L&G Clean Water",
+      "rata": 20,
+      "tipo": "Azioni tematiche, acqua",
+      "tv": "XETR:XMLC",
+      "simbolo": "XMLC.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 3.0,
+      "investito": 55.15,
+      "prezzo": 18.336,
+      "data_prezzo": "2026-11-20",
+      "valore": 55.01,
+      "rate": [
+       [
+        "2026-09-01",
+        1,
+        18.232
+       ],
+       [
+        "2026-10-01",
+        1,
+        17.886
+       ],
+       [
+        "2026-11-02",
+        1,
+        19.03
+       ]
+      ]
+     },
+     {
+      "isin": "IE00BMDH1538",
+      "ticker": "HDRO",
+      "nome": "VanEck Hydrogen Economy",
+      "rata": 10,
+      "tipo": "Azioni tematiche, idrogeno",
+      "tv": "XETR:HDR0",
+      "simbolo": "HDR0.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 3.0,
+      "investito": 21.73,
+      "prezzo": 6.06,
+      "data_prezzo": "2026-11-20",
+      "valore": 18.18,
+      "rate": [
+       [
+        "2026-09-01",
+        1,
+        7.452
+       ],
+       [
+        "2026-10-01",
+        1,
+        7.478
+       ],
+       [
+        "2026-11-02",
+        1,
+        6.804
+       ]
+      ]
+     },
+     {
+      "isin": "IE000PMX0MW6",
+      "ticker": "UTIW",
+      "nome": "Amundi S&P Global Utilities ESG",
+      "rata": 25,
+      "tipo": "Azioni mondo, utilities",
+      "tv": "XETR:WELD",
+      "simbolo": "WELD.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 3.0,
+      "investito": 40.66,
+      "prezzo": 14.194,
+      "data_prezzo": "2026-11-20",
+      "valore": 42.58,
+      "rate": [
+       [
+        "2026-09-01",
+        1,
+        13.37
+       ],
+       [
+        "2026-10-01",
+        1,
+        13.066
+       ],
+       [
+        "2026-11-02",
+        1,
+        14.228
+       ]
+      ]
+     },
+     {
+      "isin": "IE000STIHQB2",
+      "ticker": "FLESA",
+      "nome": "Franklin Euro Short Maturity (acc)",
+      "rata": 30,
+      "tipo": "Obbligazioni euro a breve",
+      "tv": "XETR:FVSA",
+      "simbolo": "FVSA.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 3.0,
+      "investito": 83.72,
+      "prezzo": 27.978,
+      "data_prezzo": "2026-11-20",
+      "valore": 83.93,
+      "rate": [
+       [
+        "2026-09-01",
+        1,
+        27.888
+       ],
+       [
+        "2026-10-01",
+        1,
+        27.88
+       ],
+       [
+        "2026-11-02",
+        1,
+        27.955
+       ]
+      ]
+     },
+     {
+      "isin": "IE0002PG6CA6",
+      "ticker": "REMX",
+      "nome": "VanEck Rare Earth and Strategic Metals",
+      "rata": 15,
+      "tipo": "Materie prime, metalli strategici",
+      "tv": "XETR:VVMX",
+      "simbolo": "VVMX.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 3.0,
+      "investito": 32.99,
+      "prezzo": 7.669,
+      "data_prezzo": "2026-11-20",
+      "valore": 23.01,
+      "rate": [
+       [
+        "2026-09-01",
+        1,
+        13.024
+       ],
+       [
+        "2026-10-01",
+        1,
+        10.908
+       ],
+       [
+        "2026-11-02",
+        1,
+        9.055
+       ]
+      ]
+     },
+     {
+      "isin": "IE0003WEWAX4",
+      "ticker": "FOHW",
+      "nome": "Franklin Future of Health and Wellness",
+      "rata": 30,
+      "tipo": "Azioni tematiche, salute",
+      "tv": "XETR:FOHW",
+      "simbolo": "FOHW.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 3.0,
+      "investito": 79.76,
+      "prezzo": 27.465,
+      "data_prezzo": "2026-11-20",
+      "valore": 82.4,
+      "rate": [
+       [
+        "2026-09-01",
+        1,
+        26.04
+       ],
+       [
+        "2026-10-01",
+        1,
+        25.76
+       ],
+       [
+        "2026-11-02",
+        1,
+        27.96
+       ]
+      ]
+     },
+     {
+      "isin": "IE00041037N4",
+      "ticker": "EMERG",
+      "nome": "Franklin FTSE Emerging Markets",
+      "rata": 35,
+      "tipo": "Azioni paesi emergenti",
+      "tv": "XETR:EMGM",
+      "simbolo": "EMGM.DE",
+      "origine": "ricostruito dal 2026-09-01",
+      "quote": 3.0,
+      "investito": 87.5,
+      "prezzo": 26.45,
+      "data_prezzo": "2026-11-20",
+      "valore": 79.35,
+      "rate": [
+       [
+        "2026-09-01",
+        1,
+        29.465
+       ],
+       [
+        "2026-10-01",
+        1,
+        29.535
+       ],
+       [
+        "2026-11-02",
+        1,
+        28.495
+       ]
+      ]
+     }
+    ],
+    "avvisi": [],
+    "investito": 667.38,
+    "valore": 635.38,
+    "storia": [
+     [
+      "2026-09-01",
+      223.52,
+      223.52
+     ],
+     [
+      "2026-09-02",
+      223.12,
+      223.52
+     ],
+     [
+      "2026-09-03",
+      224.55,
+      223.52
+     ],
+     [
+      "2026-09-04",
+      224.87,
+      223.52
+     ],
+     [
+      "2026-09-07",
+      224.77,
+      223.52
+     ],
+     [
+      "2026-09-08",
+      224.46,
+      223.52
+     ],
+     [
+      "2026-09-09",
+      222.78,
+      223.52
+     ],
+     [
+      "2026-09-10",
+      220.85,
+      223.52
+     ],
+     [
+      "2026-09-11",
+      222.03,
+      223.52
+     ],
+     [
+      "2026-09-14",
+      221.02,
+      223.52
+     ],
+     [
+      "2026-09-15",
+      220.25,
+      223.52
+     ],
+     [
+      "2026-09-16",
+      221.99,
+      223.52
+     ],
+     [
+      "2026-09-17",
+      223.36,
+      223.52
+     ],
+     [
+      "2026-09-18",
+      222.0,
+      223.52
+     ],
+     [
+      "2026-09-21",
+      224.06,
+      223.52
+     ],
+     [
+      "2026-09-22",
+      224.92,
+      223.52
+     ],
+     [
+      "2026-09-23",
+      223.8,
+      223.52
+     ],
+     [
+      "2026-09-24",
+      221.81,
+      223.52
+     ],
+     [
+      "2026-09-25",
+      222.93,
+      223.52
+     ],
+     [
+      "2026-09-28",
+      221.85,
+      223.52
+     ],
+     [
+      "2026-09-29",
+      222.28,
+      223.52
+     ],
+     [
+      "2026-09-30",
+      222.72,
+      223.52
+     ],
+     [
+      "2026-10-01",
+      443.02,
+      445.03
+     ],
+     [
+      "2026-10-02",
+      446.03,
+      445.03
+     ],
+     [
+      "2026-10-05",
+      450.17,
+      445.03
+     ],
+     [
+      "2026-10-06",
+      451.54,
+      445.03
+     ],
+     [
+      "2026-10-07",
+      448.7,
+      445.03
+     ],
+     [
+      "2026-10-08",
+      444.07,
+      445.03
+     ],
+     [
+      "2026-10-09",
+      447.62,
+      445.03
+     ],
+     [
+      "2026-10-12",
+      448.98,
+      445.03
+     ],
+     [
+      "2026-10-13",
+      447.55,
+      445.03
+     ],
+     [
+      "2026-10-14",
+      447.68,
+      445.03
+     ],
+     [
+      "2026-10-15",
+      444.05,
+      445.03
+     ],
+     [
+      "2026-10-16",
+      443.68,
+      445.03
+     ],
+     [
+      "2026-10-19",
+      442.0,
+      445.03
+     ],
+     [
+      "2026-10-20",
+      443.03,
+      445.03
+     ],
+     [
+      "2026-10-21",
+      444.06,
+      445.03
+     ],
+     [
+      "2026-10-22",
+      441.07,
+      445.03
+     ],
+     [
+      "2026-10-23",
+      441.27,
+      445.03
+     ],
+     [
+      "2026-10-26",
+      442.88,
+      445.03
+     ],
+     [
+      "2026-10-27",
+      446.05,
+      445.03
+     ],
+     [
+      "2026-10-28",
+      445.52,
+      445.03
+     ],
+     [
+      "2026-10-29",
+      445.67,
+      445.03
+     ],
+     [
+      "2026-10-30",
+      442.08,
+      445.03
+     ],
+     [
+      "2026-11-02",
+      667.05,
+      667.38
+     ],
+     [
+      "2026-11-03",
+      662.3,
+      667.38
+     ],
+     [
+      "2026-11-04",
+      671.74,
+      667.38
+     ],
+     [
+      "2026-11-05",
+      662.09,
+      667.38
+     ],
+     [
+      "2026-11-06",
+      658.83,
+      667.38
+     ],
+     [
+      "2026-11-09",
+      665.75,
+      667.38
+     ],
+     [
+      "2026-11-10",
+      664.57,
+      667.38
+     ],
+     [
+      "2026-11-11",
+      674.13,
+      667.38
+     ],
+     [
+      "2026-11-12",
+      673.94,
+      667.38
+     ],
+     [
+      "2026-11-13",
+      671.59,
+      667.38
+     ],
+     [
+      "2026-11-16",
+      668.0,
+      667.38
+     ],
+     [
+      "2026-11-17",
+      656.33,
+      667.38
+     ],
+     [
+      "2026-11-18",
+      654.25,
+      667.38
+     ],
+     [
+      "2026-11-19",
+      650.57,
+      667.38
+     ],
+     [
+      "2026-11-20",
+      635.38,
+      667.38
+     ]
+    ],
+    "foto": {
+     "data": "2026-11-23",
+     "investito": 668.12,
+     "valore": 636.06,
+     "fonte": "app della banca"
+    }
+   },
+   {
+    "id": "cpr",
+    "nome": "PAC su CPR Invest Global Resources",
+    "giorno": 28,
+    "rata": 200,
+    "prossima": "2026-11-28",
+    "strumenti": [],
+    "avvisi": [
+     "in attesa della data di partenza o delle quote possedute"
+    ]
+   }
+  ]
+ }
 }
