@@ -1,7 +1,7 @@
 {
   "name": "Matteo Mazzero | Trading Hub",
   "short_name": "Trading Hub",
-  "description": "Fair value di qualsiasi azione (oltre 400 seguite ogni giorno), il mio portafoglio reale, screener e analisi dei mercati.",
+  "description": "Il mio portafoglio reale, il fair value di oltre 2.500 società americane ed europee, i segnali della mia strategia e l'analisi dei mercati.",
   "lang": "it",
   "dir": "ltr",
   "id": "/trading-hub/",
@@ -11,16 +11,74 @@
   "orientation": "any",
   "background_color": "#0B1520",
   "theme_color": "#0B1520",
-  "categories": ["finance", "education"],
+  "categories": [
+    "finance",
+    "education"
+  ],
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/icon-192-v2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512-v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-512-v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    { "name": "Fair Value di un titolo", "short_name": "Fair Value", "url": "./?source=app#fv-section", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Screener", "url": "./?source=app#screener", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Il mio portafoglio", "short_name": "Portafoglio", "url": "./?source=app#portfolio", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Segnali TBO", "url": "./?source=app#tbo", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+    {
+      "name": "Analizza un titolo",
+      "short_name": "Analizza",
+      "url": "./?source=app#analizza",
+      "icons": [
+        {
+          "src": "icons/icon-192-v2.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Mercato e screener",
+      "short_name": "Mercato",
+      "url": "./?source=app#mercato",
+      "icons": [
+        {
+          "src": "icons/icon-192-v2.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Segnali TBO",
+      "short_name": "Segnali",
+      "url": "./?source=app#segnali",
+      "icons": [
+        {
+          "src": "icons/icon-192-v2.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Il mio portafoglio",
+      "short_name": "Portafoglio",
+      "url": "./?source=app#portafoglio",
+      "icons": [
+        {
+          "src": "icons/icon-192-v2.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }

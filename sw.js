@@ -2,8 +2,8 @@
 // La pagina e i dati si prendono sempre dalla rete quando c'è (così l'app è aggiornata quanto il sito);
 // se la rete manca o è lenta si usa l'ultima copia salvata. Prezzi in tempo reale, widget di TradingView e
 // video non passano di qui: senza rete semplicemente non si caricano.
-const VERSIONE = 'th-v3';
-const GUSCIO = ['./', 'scripts/fv_engine.js', 'assets/tema.css', 'assets/tema.js', 'favicon.svg', 'manifest.webmanifest', 'icons/icon-192.png'];
+const VERSIONE = 'th-v4';
+const GUSCIO = ['./', 'scripts/fv_engine.js', 'assets/tema.css', 'assets/tema.js', 'favicon.svg', 'manifest.webmanifest', 'icons/icon-192-v2.png'];
 const DATI_HOST = 'raw.githubusercontent.com';
 const STATICI_ESTERNI = ['cdn.jsdelivr.net', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 
