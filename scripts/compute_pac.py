@@ -78,6 +78,11 @@ def main():
         for s in p['strumenti']:
             # se nessun simbolo funziona si prova con l'ISIN (yfinance lo cerca su Yahoo, utile per i fondi)
             simbolo, px = chiusure((s.get('yf') or []) + [s['isin']], dal_dl)
+            if not px and s.get('prezzo_manuale'):
+                # nessun prezzo da Yahoo: il valore della quota dell'ultimo estratto, uguale per ogni giorno feriale da allora
+                pm = s['prezzo_manuale']; d0 = date.fromisoformat(pm['data'])
+                px = {(d0 + timedelta(days=k)).isoformat(): float(pm['valore']) for k in range((oggi - d0).days + 1) if (d0 + timedelta(days=k)).weekday() < 5}
+                simbolo = 'valore della quota al ' + pm['data']
             giorni = sorted(px)
             ss = {k: s.get(k) for k in ('isin', 'ticker', 'nome', 'rata', 'tipo', 'tv', 'paese', 'settore')}
             ss['simbolo'] = simbolo
@@ -99,20 +104,21 @@ def main():
                     rate.append([g, q, round(prezzo, 4)])
                 return rate
             # ricostruzione dalla data di inizio; se c'è la foto dall'app, da quel giorno valgono le quote vere
-            ric = esegui(date.fromisoformat(inizio), 0.0, 0.0) if inizio else []
+            ric = esegui(date.fromisoformat(inizio), 0.0, 0.0) if inizio and p.get('ricostruisci', True) else []
             con_foto = s.get('quote') is not None and foto.get('data')
             if con_foto:
                 fd = foto['data']
                 dopo = esegui(date.fromisoformat(fd) + timedelta(days=1), 0, 0)
                 pezzi = [(None, fd, 0.0, 0.0, [r for r in ric if r[0] <= fd]), (fd, None, float(s['quote']), float(s.get('investito') or 0), dopo)]
                 ss['origine'] = 'quote dall\'app al ' + fd
-                ss['ricostruite_alla_foto'] = sum(r[1] for r in ric if r[0] <= fd)
+                if ric:
+                    ss['ricostruite_alla_foto'] = sum(r[1] for r in ric if r[0] <= fd)
             else:
                 pezzi = [(None, None, 0.0, 0.0, ric)]
                 ss['origine'] = 'ricostruito dal ' + inizio
             def stato_al(g, pezzi=pezzi):
                 for da, a, q0, i0, rr in pezzi:
-                    if (da is None or g > da) and (a is None or g <= a):
+                    if (da is None or g >= da) and (a is None or g < a):      # dal giorno della foto valgono le quote dell'app
                         return q0 + sum(r[1] for r in rr if r[0] <= g), i0 + sum(r[1] * r[2] for r in rr if r[0] <= g)
                 return 0.0, 0.0
             ultimo = giorni[-1]

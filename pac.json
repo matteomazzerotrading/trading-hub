@@ -160,7 +160,7 @@
    "nome": "PAC su CPR Invest Global Resources",
    "giorno": 28,
    "quote_intere": false,
-   "inizio": null,
+   "inizio": "2025-09-28",
    "strumenti": [
     {
      "isin": "LU1989769465",
@@ -170,9 +170,25 @@
      "yf": [],
      "tipo": "Azioni materie prime",
      "paese": "Globale",
-     "settore": "Materiali"
+     "settore": "Materiali",
+     "quote": 10.775,
+     "investito": 1887.93,
+     "prezzo_manuale": {
+      "data": "2026-11-23",
+      "valore": 154.04
+     }
     }
-   ]
+   ],
+   "ricostruisci": false,
+   "foto": {
+    "data": "2026-11-23",
+    "investito": 1887.93,
+    "valore": 1659.84,
+    "fonte": "app della banca",
+    "rate_versate": 14,
+    "rate_totali": 120,
+    "pagato": 2800
+   }
   }
  ],
  "stato": {

@@ -2917,10 +2917,18 @@
         const pacEur = () => pacAttivi().reduce((a, p) => a + p.valore, 0);
         const pacVersEur = () => pacAttivi().reduce((a, p) => a + p.investito, 0);
         const pacUsd = () => pacEur() * fxOra();
-        // storico in dollari: data → [valore, versato], con il cambio di ciascun giorno
+        // storico in dollari: data → [valore, versato, flusso del giorno], con il cambio di ciascun giorno. Il flusso è la rata
+        // investita quel giorno; il primo giorno di un piano entra il suo intero valore (così non conta come guadagno o perdita).
         function pacSerieUsd() {
             const m = {};
-            for (const p of pacAttivi()) for (const [d, v, i] of (p.storia || [])) { const fx = fxAl(d), x = m[d] || (m[d] = [0, 0]); x[0] += v * fx; x[1] += i * fx; }
+            for (const p of pacAttivi()) {
+                let prec = null;
+                for (const [d, v, i] of (p.storia || [])) {
+                    const fx = fxAl(d), x = m[d] || (m[d] = [0, 0, 0]);
+                    x[0] += v * fx; x[1] += i * fx; x[2] += (prec ? i - prec[2] : v) * fx;
+                    prec = [d, v, i];
+                }
+            }
             return m;
         }
         // Unisce i piani allo storico del portafoglio TradingView. Il rendimento di ogni giorno è la media dei due rendimenti
@@ -2932,14 +2940,15 @@
             const out = []; let j = -1;
             for (let k = 0; k < pts.length; k++) {
                 const p = pts[k], g = iso(p.d);
-                while (j + 1 < date.length && date[j + 1] <= g) j++;
-                let pac = j >= 0 ? S[date[j]] : [0, 0];
+                let flusso = 0;
+                while (j + 1 < date.length && date[j + 1] <= g) { j++; flusso += S[date[j]][2]; }
+                let pac = j >= 0 ? S[date[j]] : [0, 0, 0];
                 if (p.live) pac = [pacUsd(), pacVersEur() * fxOra()];
                 const q = { ...p, v: p.v + pac[0], pl: p.pl != null ? p.pl + (pac[0] - pac[1]) : p.pl, _pac: pac };
                 if (k > 0 && p.perf != null && pts[k - 1].perf != null && out[k - 1].perf != null) {
                     const a = pts[k - 1], b = out[k - 1], prima = b._pac;
                     const rTv = (1 + p.perf / 100) / (1 + a.perf / 100) - 1;
-                    const rComb = (a.v * rTv + (pac[0] - prima[0] - (pac[1] - prima[1]))) / (a.v + prima[0]);
+                    const rComb = (a.v * rTv + (pac[0] - prima[0] - flusso)) / (a.v + prima[0]);
                     q.perf = ((1 + b.perf / 100) * (1 + rComb) - 1) * 100;
                 }
                 out.push(q);
@@ -2966,13 +2975,15 @@
                         <td class="n">${eur(x.prezzo)}</td><td class="n">${eur(x.investito)}</td><td class="n">${eur(x.valore)}</td>
                         <td class="n" style="color:${r == null ? 'inherit' : r >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${r == null ? '—' : pcs(r)}</td></tr>`;
                 }).join('');
-                const foto = p.foto && p.foto.investito ? `<p class="pac-nota">Quote ricostruite dalle rate ai prezzi di chiusura${p.foto.data ? `; nell'app della banca, al ${giorno(p.foto.data)}: versato ${eur(p.foto.investito)}, valore ${eur(p.foto.valore)}` : ''}.</p>` : '';
+                const foto = !(p.foto && p.foto.investito) ? '' : p.foto.pagato
+                    ? `<p class="pac-nota">${p.foto.rate_versate} rate su ${p.foto.rate_totali} pagate finora, ${eur(p.foto.pagato)}; investiti nel fondo ${eur(p.foto.investito)}. Quote e valore della quota dall'app della banca al ${giorno(p.foto.data)}; le rate successive si aggiungono da sole.</p>`
+                    : `<p class="pac-nota">Quote ricostruite dalle rate ai prezzi di chiusura; nell'app della banca, al ${giorno(p.foto.data)}: investito ${eur(p.foto.investito)}, valore ${eur(p.foto.valore)}.</p>`;
                 return `<div class="pac-piano">${testa}
-                    <div class="pac-cifre"><div><span>Versato</span><strong>${eur(p.investito)}</strong></div><div><span>Valore</span><strong>${eur(p.valore)}</strong></div>
+                    <div class="pac-cifre"><div><span>Investito</span><strong>${eur(p.investito)}</strong></div><div><span>Valore</span><strong>${eur(p.valore)}</strong></div>
                     <div><span>Guadagno</span><strong style="color:${g >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${eurS(g)}</strong></div>
                     <div><span>Rendimento</span><strong style="color:${g >= 0 ? 'var(--brand-green)' : 'var(--accent-red)'}">${p.investito > 0 ? pcs(g / p.investito * 100) : '—'}</strong></div></div>
                     <details class="pac-dett"><summary>Gli strumenti (${(p.strumenti || []).length})</summary>
-                    <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Strumento</th><th class="n">Rata</th><th class="n">Quote</th><th class="n">Prezzo</th><th class="n">Versato</th><th class="n">Valore</th><th class="n">Rendimento</th></tr></thead><tbody>${righe}</tbody></table></div></details>${foto}</div>`;
+                    <div class="screener-table-wrap"><table class="screener-table"><thead><tr><th>Strumento</th><th class="n">Rata</th><th class="n">Quote</th><th class="n">Prezzo</th><th class="n">Investito</th><th class="n">Valore</th><th class="n">Rendimento</th></tr></thead><tbody>${righe}</tbody></table></div></details>${foto}</div>`;
             }).join('');
             box.style.display = '';
         }
