@@ -2920,14 +2920,20 @@
         // storico in dollari: data → [valore, versato, flusso del giorno], con il cambio di ciascun giorno. Il flusso è la rata
         // investita quel giorno; il primo giorno di un piano entra il suo intero valore (così non conta come guadagno o perdita).
         function pacSerieUsd() {
-            const m = {};
-            for (const p of pacAttivi()) {
-                let prec = null;
-                for (const [d, v, i] of (p.storia || [])) {
-                    const fx = fxAl(d), x = m[d] || (m[d] = [0, 0, 0]);
-                    x[0] += v * fx; x[1] += i * fx; x[2] += (prec ? i - prec[2] : v) * fx;
-                    prec = [d, v, i];
-                }
+            const piani = pacAttivi().map(p => p.storia || []).filter(x => x.length);
+            const date = [...new Set(piani.flatMap(x => x.map(r => r[0])))].sort(), m = {};
+            const idx = piani.map(() => -1);
+            for (const d of date) {
+                const fx = fxAl(d), x = m[d] = [0, 0, 0];
+                piani.forEach((st, k) => {
+                    // ogni piano porta avanti il suo ultimo valore nei giorni in cui non ha un prezzo (fondi, borse chiuse)
+                    while (idx[k] + 1 < st.length && st[idx[k] + 1][0] <= d) {
+                        idx[k]++;
+                        const r = st[idx[k]], prec = idx[k] > 0 ? st[idx[k] - 1] : null;
+                        x[2] += (prec ? r[2] - prec[2] : r[1]) * fx;
+                    }
+                    if (idx[k] >= 0) { const r = st[idx[k]]; x[0] += r[1] * fx; x[1] += r[2] * fx; }
+                });
             }
             return m;
         }
