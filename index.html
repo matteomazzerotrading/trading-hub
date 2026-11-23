@@ -3880,35 +3880,35 @@
         // rivaluta ogni posizione con il prezzo di adesso (e il cambio, per i titoli in euro). I prezzi sono quelli
         // pubblici di TradingView, ritardati di circa 15 minuti. Una posizione senza prezzo resta al valore della fotografia.
         let portLiveTimer = null, portLivePrec = null, portLive = null, perfSenzaAnimazione = false;
+        // Prezzi pubblici di TradingView (ritardati di 15 minuti). Per ogni simbolo: chiusura attuale, chiusura della seduta
+        // precedente e giorno della seduta in corso, così la variazione si misura dalla fotografia serale senza dipendere
+        // dai prezzi salvati nella fotografia.
         async function prezziPortLive(simboli) {
             const out = {};
             try {
                 const r = await fetch('https://scanner.tradingview.com/global/scan', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, signal: AbortSignal.timeout(10000),
-                    body: JSON.stringify({ symbols: { tickers: simboli }, columns: ['close'] }) });
-                for (const x of ((await r.json()).data || [])) if (x.d[0] > 0) out[x.s] = x.d[0];
+                    body: JSON.stringify({ symbols: { tickers: simboli }, columns: ['close', 'close[1]', 'time'] }) });
+                for (const x of ((await r.json()).data || [])) if (x.d[0] > 0) out[x.s] = { c: x.d[0], c1: x.d[1], t: x.d[2] };
             } catch (e) {}
-            // cambio, obbligazioni e ciò che lo screener azionario non restituisce: una richiesta per simbolo
-            await Promise.all(simboli.filter(s => !(s in out)).map(async s => {
-                try { const r = await fetch('https://scanner.tradingview.com/symbol?symbol=' + encodeURIComponent(s) + '&fields=close', { signal: AbortSignal.timeout(8000) });
-                    const j = await r.json(); if (j && j.close > 0) out[s] = j.close; } catch (e) {}
-            }));
             return out;
         }
+        const giornoRoma = t => new Date(t * 1000).toLocaleDateString('sv-SE', { timeZone: 'Europe/Rome' });
         async function aggiornaPortLive() {
             const pd = portfolioData, snap = pd && pd.snapshot, el = document.getElementById('port-total'), nota = document.getElementById('port-live');
             if (!snap || !snap.positions || !el || document.hidden) return;
             const FX = 'FX_IDC:EURUSD', sim = p => p.exchange + ':' + p.ticker;
-            const pos = (pd.positions || []).filter(p => snap.positions[p.ticker] && snap.positions[p.ticker].price > 0);
-            const prezzi = await prezziPortLive(pos.map(sim).concat(FX));
-            const fx = prezzi[FX] && snap.eurusd ? prezzi[FX] / snap.eurusd : 1;
-            if (prezzi[FX] > 0) portFxOggi = prezzi[FX];
+            const prezzi = await prezziPortLive((pd.positions || []).map(sim).concat(FX));
+            if (prezzi[FX]) portFxOggi = prezzi[FX].c;
+            const fx = prezzi[FX] && snap.eurusd ? prezzi[FX].c / snap.eurusd : 1;
+            // variazione di un titolo dalla fotografia: se la seduta in corso è successiva alla fotografia, chiusura attuale
+            // su chiusura precedente; altrimenti la seduta è già compresa nella fotografia e non c'è variazione
+            const varia = q => (q && q.t && q.c1 > 0 && giornoRoma(q.t) > snap.date) ? q.c / q.c1 : 1;
             let tot = Number(pd.summary.cash_usd) || 0, ferme = 0;
             for (const p of pd.positions || []) {
-                const ref = snap.positions[p.ticker];
+                const ref = snap.positions[p.ticker], q = prezzi[sim(p)];
                 if (!ref) { tot += p.alloc_pct / 100 * pd.summary.total_value_usd; ferme++; continue; }
-                const ora = prezzi[sim(p)];
-                if (ora > 0 && ref.price > 0) tot += ref.value_usd * (ora / ref.price) * (p.curr === 'EUR' ? fx : 1);
-                else { tot += ref.value_usd; ferme++; }
+                if (q) tot += ref.value_usd * varia(q) * (p.curr === 'EUR' ? fx : 1);
+                else { tot += ref.value_usd * (p.curr === 'EUR' ? fx : 1); ferme++; }
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
             const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#4CC38A' : '#ff5252';

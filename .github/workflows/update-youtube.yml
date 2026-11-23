@@ -2,7 +2,7 @@ name: Update latest YouTube video
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # ogni 6 ore
+    - cron: '23 * * * *'    # ogni ora (un video nuovo compare sul sito entro un'ora circa)
   workflow_dispatch:           # eseguibile manualmente da GitHub
 
 permissions:
