@@ -1,0 +1,36 @@
+{
+  "nota": "Piani di accumulo. 'piani' è la configurazione (la modifica Matteo o Claude); 'stato' lo scrive ogni sera scripts/compute_pac.py.",
+  "piani": [
+    {
+      "id": "etf",
+      "nome": "PAC su dieci ETF",
+      "giorno": 1,
+      "quote_intere": true,
+      "inizio": "2026-09-01",
+      "foto": { "data": "2026-11-23", "investito": 668.12, "valore": 636.06, "fonte": "app della banca" },
+      "strumenti": [
+        { "isin": "DE0002635299", "ticker": "EXSH", "nome": "iShares STOXX Europe Select Dividend 30", "rata": 30, "yf": ["EXSH.DE"], "tv": "XETR:EXSH", "tipo": "Azioni Europa, dividendi", "quote": 3, "investito": 79.57 },
+        { "isin": "IE00BG36TC12", "ticker": "XZMJ", "nome": "Xtrackers MSCI Japan ESG", "rata": 35, "yf": ["XZMJ.DE"], "tv": "XETR:XZMJ", "tipo": "Azioni Giappone", "quote": 3, "investito": 89.17 },
+        { "isin": "IE00BHZPJ569", "ticker": "ENWD", "nome": "iShares MSCI World ESG Enhanced", "rata": 35, "yf": ["EDMW.DE", "ENWD.PA"], "tv": "XETR:EDMW", "tipo": "Azioni mondo" },
+        { "isin": "IE00BK5BC891", "ticker": "GLUG", "nome": "L&G Clean Water", "rata": 20, "yf": ["XMLC.DE", "GLUG.PA"], "tv": "XETR:XMLC", "tipo": "Azioni tematiche, acqua" },
+        { "isin": "IE00BMDH1538", "ticker": "HDRO", "nome": "VanEck Hydrogen Economy", "rata": 10, "yf": ["HDR0.DE", "HDRO.PA"], "tv": "XETR:HDR0", "tipo": "Azioni tematiche, idrogeno" },
+        { "isin": "IE000PMX0MW6", "ticker": "UTIW", "nome": "Amundi S&P Global Utilities ESG", "rata": 25, "yf": ["WELD.DE", "UTIW.PA"], "tv": "XETR:WELD", "tipo": "Azioni mondo, utilities" },
+        { "isin": "IE000STIHQB2", "ticker": "FLESA", "nome": "Franklin Euro Short Maturity (acc)", "rata": 30, "yf": ["FVSA.DE"], "tv": "XETR:FVSA", "tipo": "Obbligazioni euro a breve" },
+        { "isin": "IE0002PG6CA6", "ticker": "REMX", "nome": "VanEck Rare Earth and Strategic Metals", "rata": 15, "yf": ["VVMX.DE", "REMX.PA"], "tv": "XETR:VVMX", "tipo": "Materie prime, metalli strategici" },
+        { "isin": "IE0003WEWAX4", "ticker": "FOHW", "nome": "Franklin Future of Health and Wellness", "rata": 30, "yf": ["FOHW.DE"], "tv": "XETR:FOHW", "tipo": "Azioni tematiche, salute" },
+        { "isin": "IE00041037N4", "ticker": "EMERG", "nome": "Franklin FTSE Emerging Markets", "rata": 35, "yf": ["EMGM.DE"], "tv": "XETR:EMGM", "tipo": "Azioni paesi emergenti" }
+      ]
+    },
+    {
+      "id": "cpr",
+      "nome": "PAC su CPR Invest Global Resources",
+      "giorno": 28,
+      "quote_intere": false,
+      "inizio": null,
+      "strumenti": [
+        { "isin": "LU1989769465", "ticker": "CPR GR", "nome": "CPR Invest Global Resources", "rata": 200, "yf": [], "tipo": "Azioni materie prime" }
+      ]
+    }
+  ],
+  "stato": null
+}

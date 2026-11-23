@@ -13,6 +13,8 @@ on:
       - 'scripts/fv_history.mjs'
       - 'scripts/fetch_market_data.py'
       - 'scripts/fetch_benchmarks.py'
+      - 'scripts/compute_pac.py'
+      - 'pac.json'
       - 'scripts/build_pages.mjs'
       - 'scripts/compute_verifica.mjs'
       - '.github/workflows/compute-fv.yml'
@@ -47,6 +49,7 @@ jobs:
           pip install yfinance --quiet
           python scripts/fetch_market_data.py
           python scripts/fetch_benchmarks.py || echo "Indici di confronto non aggiornati"
+          python scripts/compute_pac.py || echo "Piani di accumulo non aggiornati"
 
       - name: Calcola i fair value
         run: node scripts/compute_fv.mjs
@@ -66,6 +69,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto: fair value dall'indicatore [skip ci]"
-          file_pattern: "verifica_fv.json benchmarks.json data.json fv_report.json fv_changes.json fv_history.json fv_ext.json fv_history_ext.json macro.json cpi_paesi.json titoli sitemap.xml"
+          file_pattern: "pac.json verifica_fv.json benchmarks.json data.json fv_report.json fv_changes.json fv_history.json fv_ext.json fv_history_ext.json macro.json cpi_paesi.json titoli sitemap.xml"
           commit_user_name: "TradingHub Bot"
           commit_user_email: "bot@tradinghub.local"
