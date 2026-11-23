@@ -519,7 +519,7 @@
         .pensiero-text { flex: 1; font-size: 1.0em; line-height: 1.75; color: #d0d0d0; font-style: italic; white-space: pre-wrap; word-break: break-word; }
         .pensiero-week { font-size: 0.75em; color: var(--text-muted); margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-glass); }
     </style>
-    <link rel="stylesheet" href="assets/tema.css?v=3">
+    <link rel="stylesheet" href="assets/tema.css?v=4">
 </head>
 <body>
 
@@ -944,7 +944,7 @@
 
             <div class="screener-body" id="scr-body">
                 <div class="screener-stats" id="screener-stats" style="display:none; margin-top:20px;">
-                    <div class="scr-stat"><div class="scr-stat-val" id="stat-total" style="color:#fff;">—</div><div class="scr-stat-lbl">Titoli Analizzati</div></div>
+                    <div class="scr-stat"><div class="scr-stat-val" id="stat-total" style="color:#fff;">—</div><div class="scr-stat-lbl">Titoli analizzati</div></div>
                     <div class="scr-stat"><div class="scr-stat-val" id="stat-undervalued" style="color:var(--brand-green);">—</div><div class="scr-stat-lbl">Sotto o nella banda</div></div>
                     <div class="scr-stat"><div class="scr-stat-val" id="stat-overvalued" style="color:var(--accent-red);">—</div><div class="scr-stat-lbl">Sopravvalutati</div></div>
                 </div>
@@ -957,6 +957,11 @@
                     <button class="screener-filter-btn" id="scr-btn-equa" onclick="applyFilter('equa')"><span class="pallino" style="background:#8FA3B5"></span>Equità / premio</button>
                     <button class="screener-filter-btn" id="scr-btn-over" onclick="applyFilter('over')"><span class="pallino" style="background:#F0716A"></span>Sopravvalutati</button>
                     <button class="screener-filter-btn" id="scr-btn-div" onclick="applyFilter('div')">Dividendo &gt;3%</button>
+                    <select id="scr-quali" class="screener-search" aria-label="Quali titoli" onchange="scrMostra = SCR_PAGINA; applyFilter(currentFilter)" style="max-width:230px; cursor:pointer;">
+                        <option value="tutti" selected>Tutti i titoli (USA ed Europa)</option>
+                        <option value="mio">I titoli che seguo</option>
+                        <option value="ext">Solo gli altri titoli</option>
+                    </select>
                     <select id="scr-mkt" class="screener-search" aria-label="Filtra per mercato" onchange="applyFilter(currentFilter)" style="max-width:170px; cursor:pointer;">
                         <option value="">Tutti i mercati</option>
                         <option value="it">Italia</option>
@@ -966,7 +971,7 @@
                     <select id="scr-sec" class="screener-search" aria-label="Filtra per settore" onchange="applyFilter(currentFilter)" style="max-width:210px; cursor:pointer;">
                         <option value="">Tutti i settori</option>
                     </select>
-                    <label class="scr-check" title="Nasconde i titoli per cui il modello è poco adatto (affidabilità bassa)"><input type="checkbox" id="scr-aff" onchange="applyFilter(currentFilter)"> Solo stime affidabili</label>
+                    <label class="scr-check" title="Nasconde i titoli per cui il modello è poco adatto (affidabilità bassa) e i potenziali oltre il 300%, quasi sempre dovuti a dati anomali"><input type="checkbox" id="scr-aff" checked onchange="applyFilter(currentFilter)"> Solo stime affidabili</label>
                     <button class="screener-filter-btn" onclick="scaricaCsv()" title="Scarica i titoli filtrati in un file CSV">Scarica CSV</button>
                     <input type="text" class="screener-search" id="scr-search" aria-label="Cerca nello screener per ticker o nome" placeholder="Cerca ticker o nome" oninput="applyFilter(currentFilter)">
                 </div>
@@ -998,6 +1003,11 @@
                         </thead>
                         <tbody id="scr-tbody"></tbody>
                     </table>
+                </div>
+                <div id="scr-pagine" style="display:none; margin-top:14px; align-items:center; gap:14px; flex-wrap:wrap; font-size:0.9em; color:var(--text-muted);">
+                    <span id="scr-conta"></span>
+                    <button type="button" class="screener-filter-btn" id="scr-altri" onclick="scrMostra += SCR_PAGINA; renderScreener()">Mostra altri</button>
+                    <button type="button" class="screener-filter-btn" id="scr-tutti" onclick="scrMostra = 1e9; renderScreener()">Mostra tutti</button>
                 </div>
             </div>
         </div>
@@ -1057,8 +1067,8 @@
             <p style="margin: 0 0 16px; color: var(--text-muted); font-size: 0.92em; line-height: 1.65;">È il mio indicatore <strong style="color:#fff;">MM Pattern Scanner</strong> di TradingView, calcolato ogni sera sui titoli che seguo e su migliaia di altre società americane ed europee (scegli "Tutti i titoli"). Confronta le ultime 171 sedute con gli ultimi 12 anni di storia dello stesso titolo e trova il periodo più somigliante; poi mostra che cosa accadde nelle 252 sedute successive, riportato al prezzo di oggi. <strong style="color:#fff;">Non è una previsione</strong>: è un confronto con il passato, e due andamenti simili possono proseguire in modi opposti.</p>
             <div class="screener-controls" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:14px;">
                 <select id="pat-quali" class="screener-search" aria-label="Quali titoli" onchange="cambiaPatQuali()" style="max-width:210px; cursor:pointer; flex:0 0 auto;">
+                    <option value="tutti" selected>Tutti i titoli (USA ed Europa)</option>
                     <option value="mio">I titoli che seguo</option>
-                    <option value="tutti">Tutti i titoli (USA ed Europa)</option>
                     <option value="ext">Solo gli altri titoli</option>
                 </select>
                 <select id="pat-mkt" class="screener-search" aria-label="Filtra per mercato" onchange="renderPatterns()" style="max-width:170px; cursor:pointer; flex:0 0 auto;">
@@ -1077,7 +1087,7 @@
                     <span id="pat-chart-sub" style="font-size:0.85em; color:var(--text-muted);"></span>
                 </div>
                 <div style="position:relative; height:300px; margin-top:10px;"><canvas id="patChart" aria-label="Andamento attuale, periodo storico simile e proseguimento storico"></canvas></div>
-                <div class="pat-leg"><span><i style="background:#ff9800;"></i>Ultime 171 sedute</span><span><i style="background:#42a5f5;"></i>Periodo storico più simile (riportato al prezzo di oggi)</span><span><i style="background:#e040fb;"></i>Che cosa accadde dopo quel periodo</span></div>
+                <div class="pat-leg"><span><i style="background:#D9AE57;"></i>Ultime 171 sedute</span><span><i style="background:#6E9BF0;"></i>Periodo storico più simile (riportato al prezzo di oggi)</span><span><i style="background:#e040fb;"></i>Che cosa accadde dopo quel periodo</span></div>
             </div>
             <div class="screener-table-wrap" id="pat-table-wrap">
                 <table class="screener-table">
@@ -1974,6 +1984,7 @@
         // === SCREENER ===
         let screenerData = []; let screenerOpen = false; let screenerBuilt = false;
         let currentFilter = 'all'; let currentSort = { col: 'pot', dir: 'desc' };
+        const SCR_PAGINA = 100; let scrMostra = SCR_PAGINA;
 
         function toggleScreener() {
             screenerOpen = !screenerOpen;
@@ -1983,7 +1994,7 @@
                 document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `<strong>Nascondi</strong> lo Screener`;
                 if (!screenerBuilt) { buildScreenerData(); screenerBuilt = true; }
             } else {
-                document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `Mostra tutti i <strong>${Object.keys(db).length}</strong> titoli, dal più economico al più caro`;
+                document.getElementById('scr-toggle-btn').querySelector('span:first-child').innerHTML = `Mostra tutti i <strong>${(screenerData.length || Object.keys(db).length).toLocaleString('it-IT', { useGrouping: 'always' })}</strong> titoli, dal più economico al più caro`;
             }
         }
 
@@ -1995,7 +2006,12 @@
             await loadTvPrices();
             renderTbo();   // la colonna "Da allora" dei segnali TBO usa gli stessi prezzi
             // Solo i titoli che hanno già un prezzo (quelli appena aggiunti lo ricevono al primo calcolo serale)
-            const entries = Object.entries(db).filter(([, e]) => parseFloat(e.price) > 0 || (e.yf && _priceCache[e.yf]));
+            const entries = Object.entries(db).filter(([, e]) => !e.fuori && (parseFloat(e.price) > 0 || (e.yf && _priceCache[e.yf])));
+            // le altre società americane ed europee calcolate ogni sera: prezzo della sera prima, fair value dello stesso calcolo
+            try {
+                const X = await caricaFvExt();
+                for (const [k, x] of Object.entries(X || {})) if (x && parseFloat(x.price) > 0 && !(db[k] && !db[k].fuori)) entries.push([k, { ...x, yf: null, altro: true }]);
+            } catch (e) {}
             screenerData = [];
             
             const chunkSize = 10;
@@ -2169,7 +2185,7 @@
             dcfCorrente = { d, p };
             const confronto = gh == null ? '' : r.g < gh - 0.10 ? `molto meno di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:var(--brand-green);">aspettative molto basse</strong>, la situazione che dal 2020 ha reso di più (vedi il Laboratorio)`
                 : r.g < gh - 0.01 ? `un po' meno di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): aspettative leggermente basse`
-                : r.g > gh + 0.01 ? `più di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:#ffa726;">il prezzo scommette su un futuro migliore del passato</strong>`
+                : r.g > gh + 0.01 ? `più di quanto ha fatto negli ultimi ${d.ind.anni || ''} anni (ricavi per azione ${pcG(gh)} l'anno): <strong style="color:#E8A055;">il prezzo scommette su un futuro migliore del passato</strong>`
                 : `quanto ha fatto negli ultimi anni (ricavi per azione ${pcG(gh)} l'anno)`;
             const iniziale = Math.round(Math.max(-10, Math.min(40, (gh != null ? gh : r.g) * 100)));
             row.innerHTML = `<div style="font-size:0.72em; color:var(--text-muted); margin-bottom:8px;">Cosa sta scontando il prezzo</div>
@@ -2200,7 +2216,7 @@
             if (x.o >= 2) parti.push(`nei <strong>${x.o} trimestri</strong> sopra il fair value ha reso ${pc1(x.om)} (${pc1(x.ox)} rispetto al mercato)`);
             if (!parti.length) return;
             const buono = x.s >= 3 && x.sx > 0 && (x.o < 2 || x.sx > x.ox);
-            row.innerHTML = `<span style="font-size:0.72em; color:var(--text-muted);">Il modello alla prova su questo titolo</span><div style="margin-top:6px;">Dal ${V.dal ? new Date(V.dal + 'T12:00:00').toLocaleDateString('it-IT', { month: 'short', year: 'numeric' }) : '2021'}, ${parti.join('; ')}. ${x.s >= 3 ? (buono ? '<strong style="color:var(--brand-green);">Su questo titolo il modello ha funzionato.</strong>' : '<strong style="color:#ffa726;">Su questo titolo il modello finora non ha funzionato: da leggere con cautela.</strong>') : ''} <a href="#laboratorio" onclick="setTimeout(() => setLab('prova', document.querySelector('#lab-tabs button')), 50)" style="color:var(--brand-green);">La verifica su tutti i titoli</a></div>`;
+            row.innerHTML = `<span style="font-size:0.72em; color:var(--text-muted);">Il modello alla prova su questo titolo</span><div style="margin-top:6px;">Dal ${V.dal ? new Date(V.dal + 'T12:00:00').toLocaleDateString('it-IT', { month: 'short', year: 'numeric' }) : '2021'}, ${parti.join('; ')}. ${x.s >= 3 ? (buono ? '<strong style="color:var(--brand-green);">Su questo titolo il modello ha funzionato.</strong>' : '<strong style="color:#E8A055;">Su questo titolo il modello finora non ha funzionato: da leggere con cautela.</strong>') : ''} <a href="#laboratorio" onclick="setTimeout(() => setLab('prova', document.querySelector('#lab-tabs button')), 50)" style="color:var(--brand-green);">La verifica su tutti i titoli</a></div>`;
             row.style.display = 'block';
         }
 
@@ -2318,6 +2334,7 @@
         async function loadPatterns() {
             patData = await fetchJson('patterns.json');
             renderPatterns();
+            if ((document.getElementById('pat-quali') || {}).value !== 'mio') cambiaPatQuali();
         }
         function sortPatterns(col) {
             patSort = { col, dir: patSort.col === col && patSort.dir === 'desc' ? 'asc' : 'desc' };
@@ -2380,8 +2397,8 @@
             patChart = new Chart(document.getElementById('patChart'), {
                 type: 'line',
                 data: { datasets: [
-                    { label: 'Ultime sedute', data: att, borderColor: '#ff9800', borderWidth: 2, pointRadius: 0, tension: 0.15 },
-                    { label: 'Periodo storico simile', data: sto, borderColor: '#42a5f5', borderWidth: 1.5, pointRadius: 0, tension: 0.15 },
+                    { label: 'Ultime sedute', data: att, borderColor: '#D9AE57', borderWidth: 2, pointRadius: 0, tension: 0.15 },
+                    { label: 'Periodo storico simile', data: sto, borderColor: '#6E9BF0', borderWidth: 1.5, pointRadius: 0, tension: 0.15 },
                     { label: 'Che cosa accadde dopo', data: pro, borderColor: '#e040fb', borderWidth: 2, borderDash: [6, 4], pointRadius: 0, tension: 0.15 }
                 ] },
                 options: { responsive: true, maintainAspectRatio: false, animation: false, parsing: false,
@@ -2485,8 +2502,8 @@
             const P = r.pr;
             if (!P || (r.k === 'c' ? !(P.n12 >= 3) : !(P.u >= 2))) return '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">pochi dati</span>';
             const [val, sotto, col] = r.k === 'c'
-                ? [P.p12, 'in guadagno dopo 12 mesi', P.p12 - P.q12 >= 5 ? '#4CC38A' : P.p12 - P.q12 <= -5 ? '#ffa726' : '#fff']
-                : [P.uc, 'calo nei 3 mesi dopo', P.uc >= 60 ? '#4CC38A' : P.uc < 40 ? '#ffa726' : '#fff'];
+                ? [P.p12, 'in guadagno dopo 12 mesi', P.p12 - P.q12 >= 5 ? '#4CC38A' : P.p12 - P.q12 <= -5 ? '#E8A055' : '#fff']
+                : [P.uc, 'calo nei 3 mesi dopo', P.uc >= 60 ? '#4CC38A' : P.uc < 40 ? '#E8A055' : '#fff'];
             return `<button class="tbo-chip" aria-expanded="${aperto}" onclick="event.stopPropagation(); tboDettagli.has('${esc(idR)}') ? tboDettagli.delete('${esc(idR)}') : tboDettagli.add('${esc(idR)}'); renderTbo()">
                 <span class="mono-font" style="color:${col}; font-weight:800;">${pcIt(val)}%</span><span class="s">${sotto}</span><span class="f">${aperto ? '▴' : '▾'}</span></button>`;
         }
@@ -2497,7 +2514,7 @@
                 const vs = P.p12 - P.q12;
                 parti.push(`<p><strong>Su ${esc(nome)}</strong>, da ${mese(P.dal)}, la strategia ha dato <strong>${P.a} segnali “Compra”</strong> in ${P.cy} ${P.cy === 1 ? 'ciclo' : 'cicli'} di acquisti. Dopo 12 mesi il prezzo era più alto nel <strong>${pcIt(P.p12)}%</strong> dei ${P.n12} casi già maturati, con un risultato mediano di <strong>${segnoIt(P.m12)}</strong>${P.p6 != null ? ` (dopo 6 mesi: ${pcIt(P.p6)}%, mediana ${segnoIt(P.m6)})` : ''}.
                     Comprando ${esc(nome)} in un giorno qualsiasi degli stessi anni: ${pcIt(P.q12)}% e ${segnoIt(P.qm12)}, quindi i segnali sono andati ${Math.abs(vs) < 5 ? 'in linea con un giorno qualsiasi' : vs > 0 ? 'meglio di un giorno qualsiasi' : 'peggio di un giorno qualsiasi'}.</p>`);
-                if (P.dd != null) parti.push(`<p>Nei 6 mesi dopo un segnale il titolo è sceso in genere fino a <strong style="color:#ffa726;">${segnoIt(P.dd)}</strong> sotto il prezzo del segnale (valore mediano dei minimi): è l'oscillazione da mettere in conto anche quando poi è finita bene.</p>`);
+                if (P.dd != null) parti.push(`<p>Nei 6 mesi dopo un segnale il titolo è sceso in genere fino a <strong style="color:#E8A055;">${segnoIt(P.dd)}</strong> sotto il prezzo del segnale (valore mediano dei minimi): è l'oscillazione da mettere in conto anche quando poi è finita bene.</p>`);
             }
             if (P && r.k === 'x' && P.u >= 2) parti.push(`<p><strong>Su ${esc(nome)}</strong> la strategia ha chiuso all'80% ${P.u} volte. Tre mesi dopo il prezzo era più basso nel <strong>${pcIt(P.uc)}%</strong> dei casi, con una variazione mediana di <strong>${segnoIt(P.um)}</strong>: ${P.uc > 55 ? 'più spesso che no, vendere è servito a evitare un calo.' : P.uc < 45 ? 'più spesso che no, il titolo ha continuato a salire anche dopo la vendita.' : 'in circa metà dei casi è sceso, nell\'altra metà ha continuato a salire.'}</p>`);
             if (r.k === 'c' && r.amp != null) {
@@ -2512,7 +2529,7 @@
             const box = document.getElementById('tbo-contesto'), M = tboData && tboData.mercato;
             if (!box || !M || M.ampiezza_pct == null) return;
             const f = tboFascia(M.ampiezza_pct), e = f && tboEsitoFascia(f.k), F = (tboStatsDati && tboStatsDati.contesto && tboStatsDati.contesto.fasce) || [];
-            const col = { molto_debole: '#ef5350', debole: '#ffa726', normale: '#9ccc65', forte: '#4CC38A' }[f && f.k] || '#fff';
+            const col = { molto_debole: '#F0716A', debole: '#E8A055', normale: '#8FCB7A', forte: '#4CC38A' }[f && f.k] || '#fff';
             const st = M.storia || [], W = 140, H = 34, x = i => (i / Math.max(1, st.length - 1) * W).toFixed(1), y = v => (H - v / 100 * H).toFixed(1);
             const linea = st.length > 1 ? `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true" style="flex-shrink:0;">
                 <line x1="0" x2="${W}" y1="${y(50)}" y2="${y(50)}" stroke="rgba(255,255,255,0.18)" stroke-dasharray="3 3"/>
@@ -2575,6 +2592,7 @@
         }
 
         function applyFilter(filter) {
+            if (filter !== currentFilter) scrMostra = SCR_PAGINA;
             currentFilter = filter;
             document.querySelectorAll('.screener-filter-btn').forEach(b => b.classList.remove('active', 'active-red'));
             document.getElementById('scr-btn-' + filter)?.classList.add(filter === 'over' ? 'active-red' : 'active');
@@ -2586,12 +2604,15 @@
             const mkt = (document.getElementById('scr-mkt') || {}).value || '';
             const sec = (document.getElementById('scr-sec') || {}).value || '';
             const soloAff = (document.getElementById('scr-aff') || {}).checked;
-            const mercatoDi = d => d.ex === 'MIL' ? 'it' : (d.ex === 'NYSE' || d.ex === 'NASDAQ') ? 'us' : 'eu';
+            const mercatoDi = d => FVEngine.mercato(d);
+            const quali = (document.getElementById('scr-quali') || {}).value || 'tutti';
             let filtered = screenerData.filter(d => {
+                if (quali === 'mio' && d.altro) return false;
+                if (quali === 'ext' && !d.altro) return false;
                 if (search && !d.ticker.toLowerCase().includes(search) && !d.name.toLowerCase().includes(search)) return false;
                 if (mkt && mercatoDi(d) !== mkt) return false;
                 if (sec && d.settore !== sec) return false;
-                if (soloAff && d.aff.livello !== 'alta' && d.aff.livello !== 'media') return false;
+                if (soloAff && ((d.aff.livello !== 'alta' && d.aff.livello !== 'media') || (d.pot != null && d.pot > 300))) return false;
                 if (currentFilter === 'under' && d.cat !== 'sotto') return false;
                 if (currentFilter === 'equa' && d.cat !== 'equa') return false;
                 if (currentFilter === 'over' && d.cat !== 'sopra') return false;
@@ -2601,19 +2622,28 @@
                 return true;
             });
 
-            screenerFiltrati = filtered;
+            screenerFiltrati = filtered.slice();
             document.getElementById('stat-total').innerText = screenerData.length;
             document.getElementById('stat-undervalued').innerText = screenerData.filter(d => d.cat === 'sotto').length;
             document.getElementById('stat-overvalued').innerText = screenerData.filter(d => d.cat === 'sopra').length;
             document.getElementById('screener-stats').style.display = 'grid';
 
             const tbody = document.getElementById('scr-tbody'); tbody.innerHTML = '';
+            const totF = filtered.length; filtered = filtered.slice(0, scrMostra);
+            const pag = document.getElementById('scr-pagine');
+            if (pag) {
+                const it = x => x.toLocaleString('it-IT', { useGrouping: 'always' });
+                pag.style.display = totF ? 'flex' : 'none';
+                document.getElementById('scr-conta').innerText = `${it(filtered.length)} di ${it(totF)} titoli`;
+                document.getElementById('scr-altri').style.display = totF > filtered.length ? '' : 'none';
+                document.getElementById('scr-tutti').style.display = totF > filtered.length ? '' : 'none';
+            }
             if (!filtered.length) tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:var(--text-muted); padding:24px;">${currentFilter === 'fav' ? 'Nessun preferito: tocca la stella accanto a un titolo per aggiungerlo.' : 'Nessun titolo.'}</td></tr>`;
             const num = x => x != null ? x.toFixed(2) : '—';
             filtered.forEach(d => {
                 const v = d.verdict, pos = d.posInfo, fav = watchlist.includes(d.ticker);
                 const tr = document.createElement('tr');
-                tr.onclick = () => { document.getElementById('fvInput').value = d.ticker; document.getElementById('fv-section').scrollIntoView(); setTimeout(calculateFV, 400); };
+                tr.onclick = () => apriTitolo(d.ticker);
                 const cur = x => x != null ? num(x) + ' ' + d.curr : '—';
                 const banda = d.fv != null ? `<div style="font-size:0.75em; color:var(--text-muted);">${d.fv_low != null ? num(d.fv_low) + ' – ' + cur(d.fv_high) : 'fino a ' + cur(d.fv_high)}</div>` : '';
                 const pc = x => x == null ? '—' : (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { maximumFractionDigits: 0 }) + '%';
@@ -2723,7 +2753,7 @@
         let allocChartObj = null;
         function renderPortfolio() {
             const pd = portfolioData;
-            const COLORS = ['#4CC38A','#6E9BF0','#F0716A','#9c27b0','#00bcd4','#E8C15A','#795548','#607d8b','#e91e63','#f06292','#aed581','#4fc3f7','#ffb74d','#a1887f','#90a4ae','#80cbc4','#ce93d8','#ef9a9a','#81d4fa','#c5e1a5','#ffe082','#bcaaa4','#b0bec5','#80deea','#b39ddb'];
+            const COLORS = ['#4CC38A','#6E9BF0','#F0716A','#9c27b0','#00bcd4','#E8C15A','#795548','#607d8b','#e91e63','#f06292','#aed581','#6FC3DF','#ffb74d','#a1887f','#90a4ae','#80cbc4','#ce93d8','#ef9a9a','#81d4fa','#c5e1a5','#ffe082','#bcaaa4','#b0bec5','#80deea','#b39ddb'];
 
             // KPI cards
             if (pd && pd.summary) {
@@ -2840,7 +2870,7 @@
             const col = x => x == null ? 'var(--text-muted)' : x > 0 ? 'var(--brand-green)' : x < 0 ? 'var(--accent-red)' : '#fff';
             const med = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
             const quando = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
-            const fascia = q => q == null ? null : q < 30 ? ['molto debole', '#ef5350'] : q < 50 ? ['debole', '#ffa726'] : q < 70 ? ['in salute', '#9ccc65'] : ['forte', '#4CC38A'];
+            const fascia = q => q == null ? null : q < 30 ? ['molto debole', '#F0716A'] : q < 50 ? ['debole', '#E8A055'] : q < 70 ? ['in salute', '#8FCB7A'] : ['forte', '#4CC38A'];
             // sintesi: come sono andati gli acquisti fatti sotto e sopra il fair value di allora, e le vendite
             const acq = O.filter(o => o.side === 'buy' && o.dopo != null && o.date < new Date(Date.now() - 20 * 864e5).toISOString().slice(0, 10));
             const sotto = acq.filter(o => o.fv && o.fv.gap < 0), sopra = acq.filter(o => o.fv && o.fv.gap >= 0), vend = O.filter(o => o.side === 'sell' && o.dopo != null);
@@ -2860,7 +2890,7 @@
                 const f = fascia(o.amp), apri = o.k ? `apriTitolo('${esc(o.k)}')` : '';
                 const nome = o.nome || (portfolioData && (portfolioData.positions || []).find(p => p.ticker === o.ticker) || {}).name || '';
                 const etichetta = o.k ? esc(o.k) : esc(posLabel({ ticker: o.ticker, name: nome }));
-                const fv = o.fv ? `<span class="mono-font" style="font-weight:800; color:${o.fv.gap < 0 ? 'var(--brand-green)' : '#ffa726'};">${sg(o.fv.gap, 0)}</span><div style="font-size:0.75em; color:var(--text-muted);">${o.fv.gap < 0 ? 'sotto' : 'sopra'} il FV di ${o.fv.val.toLocaleString('it-IT', { maximumFractionDigits: 2 })} (${quando(o.fv.data)})</div>` : '<span style="color:var(--text-muted);">—</span>';
+                const fv = o.fv ? `<span class="mono-font" style="font-weight:800; color:${o.fv.gap < 0 ? 'var(--brand-green)' : '#E8A055'};">${sg(o.fv.gap, 0)}</span><div style="font-size:0.75em; color:var(--text-muted);">${o.fv.gap < 0 ? 'sotto' : 'sopra'} il FV di ${o.fv.val.toLocaleString('it-IT', { maximumFractionDigits: 2 })} (${quando(o.fv.data)})</div>` : '<span style="color:var(--text-muted);">—</span>';
                 const tbo = o.tbo ? `<span class="scr-badge ${o.side === 'buy' ? 'buy' : 'watch'}">${o.side === 'buy' ? 'COMPRA' : 'CHIUSA 80%'}</span><div style="font-size:0.75em; color:var(--text-muted);">il ${quando(o.tbo.d)}</div>` : '<span style="color:var(--text-muted); font-size:0.85em;">nessuno</span>';
                 return `<tr${apri ? ` onclick="${apri}" style="cursor:pointer;"` : ''}>
                     <td style="white-space:nowrap;">${quando(o.date)}</td>
@@ -2894,7 +2924,7 @@
             const paesi = somma(p => (C[p.ticker] && C[p.ticker].paese) || 'Da classificare');
             const settori = somma(p => (C[p.ticker] && C[p.ticker].settore) || 'Da classificare');
             const aree = somma(p => { const x = (C[p.ticker] && C[p.ticker].paese) || ''; return x ? (AREA_PAESE[x] || 'Europa') : 'Da classificare'; });
-            const PAL = ['#4CC38A', '#4fc3f7', '#ffb74d', '#ce93d8', '#f06292', '#aed581', '#ffe082', '#80cbc4', '#90a4ae', '#ef9a9a', '#b39ddb', '#bcaaa4'];
+            const PAL = ['#4CC38A', '#6FC3DF', '#ffb74d', '#ce93d8', '#f06292', '#aed581', '#ffe082', '#80cbc4', '#90a4ae', '#ef9a9a', '#b39ddb', '#bcaaa4'];
             const pct = x => x.toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
             const blocco = (titolo, righe, sotto, etichetta = k => k) => {
                 const max = Math.max(...righe.map(r => r[1]), 1);
@@ -3603,7 +3633,7 @@
             const nomi = Object.fromEntries((portfolioData.positions || []).map(p => [p.ticker, p.name]));
             document.getElementById('div-elenco').innerHTML = L.filter(x => x.amount > 0).sort((a, b) => b.date.localeCompare(a.date)).map(x => `<tr>
                 <td style="white-space:nowrap;">${new Date(x.date + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
-                <td>${x.cedola ? `<span class="scr-ticker" style="color:#4fc3f7;">${esc(x.label)}</span><div class="scr-name" style="font-size:0.78em;">Cedola · ${esc(nomi[x.ticker] || x.ticker)}</div>`
+                <td>${x.cedola ? `<span class="scr-ticker" style="color:#6FC3DF;">${esc(x.label)}</span><div class="scr-name" style="font-size:0.78em;">Cedola · ${esc(nomi[x.ticker] || x.ticker)}</div>`
                     : `<span class="scr-ticker">${esc(x.ticker)}</span>${nomi[x.ticker] || (db[x.ticker] && db[x.ticker].name) ? `<div class="scr-name" style="font-size:0.78em;">${esc(nomi[x.ticker] || db[x.ticker].name)}</div>` : ''}`}</td>
                 <td class="mono-font" style="white-space:nowrap;">${x.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${x.curr === 'EUR' ? '€' : '$'}</td>
                 <td class="mono-font" style="white-space:nowrap;">${dUsd(divV(x))}</td></tr>`).join('');
@@ -3644,16 +3674,16 @@
             const totV = inEuro() ? tot / fx : tot;
             box.innerHTML = voce('Attesi nel 2027', dUsdP(tot), totCed > 0 ? 'dividendi e cedole' : 'con le azioni di oggi, ai dividendi attuali', 'var(--brand-green)')
                 + voce('Dividendi', dUsdP(totDiv), 'azioni di oggi, ai dividendi attuali')
-                + (totCed > 0 ? voce('Cedole', dUsdP(totCed), bond.length + ' obbligazioni a tasso fisso', '#4fc3f7') : '')
+                + (totCed > 0 ? voce('Cedole', dUsdP(totCed), bond.length + ' obbligazioni a tasso fisso', '#6FC3DF') : '')
                 + voce('Al mese, in media', dUsdP(tot / 12), 'distribuiti nell\'anno')
                 + voce('Rendimento da dividendo', (valAz > 0 ? (totDiv / valAz * 100) : 0).toLocaleString('it-IT', { maximumFractionDigits: 2 }) + '%', 'sulla parte azionaria')
                 + voce('Rispetto agli ultimi 12 mesi', (totV >= ultimi12 ? '+' : '−') + dUsd(Math.abs(totV - ultimi12)), `incassati ${dUsd(ultimi12)}`, totV >= ultimi12 ? 'var(--brand-green)' : 'var(--accent-red)');
             const tutte = paganti.sort((a, b) => b.annuo - a.annuo).concat(bond.sort((a, b) => b.annuo - a.annuo)), max = Math.max(...tutte.map(x => x.annuo), 1);
             const quando = d => new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
-            document.getElementById('div-proiezione-righe').innerHTML = `<div style="font-size:0.72em; color:#fff; font-weight:700; margin:16px 0 4px;">Attesi nel 2027, titolo per titolo</div><div style="font-size:0.78em; color:var(--text-muted); margin-bottom:6px;">${paganti.length} titoli su ${righe.length} pagano un dividendo${bond.length ? ` · <span style="color:#4fc3f7;">${bond.length} obbligazioni pagano cedole</span>` : ''}${prossima ? ` · prossima cedola il ${quando(prossima.date)} (${esc(prossima.label)}, ${prossima.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${prossima.curr === 'EUR' ? '€' : '$'})` : ''}</div>`
+            document.getElementById('div-proiezione-righe').innerHTML = `<div style="font-size:0.72em; color:#fff; font-weight:700; margin:16px 0 4px;">Attesi nel 2027, titolo per titolo</div><div style="font-size:0.78em; color:var(--text-muted); margin-bottom:6px;">${paganti.length} titoli su ${righe.length} pagano un dividendo${bond.length ? ` · <span style="color:#6FC3DF;">${bond.length} obbligazioni pagano cedole</span>` : ''}${prossima ? ` · prossima cedola il ${quando(prossima.date)} (${esc(prossima.label)}, ${prossima.amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })} ${prossima.curr === 'EUR' ? '€' : '$'})` : ''}</div>`
                 + tutte.map(x => `<div style="display:flex; align-items:center; gap:10px; margin:5px 0; font-size:0.85em;">
-                    <span class="mono-font" style="width:${bond.length ? 92 : 58}px; flex-shrink:0; color:${x.cedola ? '#4fc3f7' : '#fff'}; font-weight:700; white-space:nowrap;">${esc(x.t)}</span>
-                    <div style="flex:1; background:rgba(255,255,255,0.05); border-radius:4px; height:10px;"><div style="width:${(x.annuo / max * 100).toFixed(1)}%; height:100%; background:${x.cedola ? '#4fc3f7' : 'var(--brand-green)'}; border-radius:4px;"></div></div>
+                    <span class="mono-font" style="width:${bond.length ? 92 : 58}px; flex-shrink:0; color:${x.cedola ? '#6FC3DF' : '#fff'}; font-weight:700; white-space:nowrap;">${esc(x.t)}</span>
+                    <div style="flex:1; background:rgba(255,255,255,0.05); border-radius:4px; height:10px;"><div style="width:${(x.annuo / max * 100).toFixed(1)}%; height:100%; background:${x.cedola ? '#6FC3DF' : 'var(--brand-green)'}; border-radius:4px;"></div></div>
                     <span class="mono-font" style="width:78px; text-align:right;">${dUsdP(x.annuo)}</span><span class="mono-font" style="width:52px; text-align:right; color:var(--text-muted);">${x.y.toLocaleString('it-IT', { maximumFractionDigits: x.cedola ? 2 : 1 })}%</span></div>`).join('');
         }
 

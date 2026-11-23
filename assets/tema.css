@@ -587,3 +587,5 @@ iframe { color-scheme: normal; }
 }
 .piatta > div:first-child > h3, .piatta > h3:first-child { font-family: var(--f-display); font-size: 1.6em !important; font-weight: 700; letter-spacing: -0.02em; color: #F2F5F8 !important; }
 #tbo-segnali.piatta, #tbo-stats.piatta { margin-top: 48px !important; }
+.screener-body.open { max-height: none; overflow: visible; }
+#scr-pagine .screener-filter-btn { min-height: 36px; }
