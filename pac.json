@@ -193,7 +193,7 @@
   }
  ],
  "stato": {
-  "aggiornato": "2026-11-23T01:04:14Z",
+  "aggiornato": "2026-11-23T01:09:51Z",
   "piani": [
    {
     "id": "etf",
@@ -215,7 +215,7 @@
       "origine": "quote dall'app al 2026-11-23",
       "ricostruite_alla_foto": 3,
       "quote": 3.0,
-      "investito": 79.55,
+      "investito": 79.57,
       "prezzo": 25.425,
       "data_prezzo": "2026-11-20",
       "valore": 76.27,
@@ -234,7 +234,7 @@
       "origine": "quote dall'app al 2026-11-23",
       "ricostruite_alla_foto": 3,
       "quote": 3.0,
-      "investito": 89.05,
+      "investito": 89.17,
       "prezzo": 27.22,
       "data_prezzo": "2026-11-20",
       "valore": 81.66,
@@ -514,7 +514,7 @@
      }
     ],
     "avvisi": [],
-    "investito": 667.38,
+    "investito": 667.52,
     "valore": 635.38,
     "storia": [
      [
@@ -837,27 +837,34 @@
       "paese": "Globale",
       "settore": "Materiali",
       "simbolo": "LU1989769465",
-      "origine": "quote dall'app al 2026-11-23",
-      "quote": 0.0,
-      "investito": 0.0,
+      "origine": "quote dall'app al 2026-11-19",
+      "quote": 10.775,
+      "investito": 1887.93,
       "prezzo": 154.04,
       "data_prezzo": "2026-11-19",
-      "valore": 0.0,
+      "valore": 1659.78,
       "rate": []
      }
     ],
     "avvisi": [],
-    "investito": 0,
-    "valore": 0,
-    "storia": [],
+    "investito": 1887.93,
+    "valore": 1659.78,
+    "storia": [
+     [
+      "2026-11-19",
+      1659.78,
+      1887.93
+     ]
+    ],
     "foto": {
-     "data": "2026-11-23",
+     "data": "2026-11-19",
      "investito": 1887.93,
      "valore": 1659.84,
      "fonte": "app della banca",
      "rate_versate": 14,
      "rate_totali": 120,
-     "pagato": 2800
+     "pagato": 2800,
+     "nota": "valore della quota (NAV) del 19 novembre, come nell'app"
     }
    }
   ]
