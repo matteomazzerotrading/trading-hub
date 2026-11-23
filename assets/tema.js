@@ -32,7 +32,7 @@
         if (e.pointerType === 'touch' || calmo()) return;
         const el = e.target.closest && e.target.closest('.inclina'); if (!el) return;
         const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-        el.classList.add('attivo'); el.style.setProperty('--ry', (x * 5).toFixed(2) + 'deg'); el.style.setProperty('--rx', (-y * 4).toFixed(2) + 'deg');
+        el.classList.add('attivo'); el.style.setProperty('--ry', (x * 3).toFixed(2) + 'deg'); el.style.setProperty('--rx', (-y * 2.5).toFixed(2) + 'deg');
     }, { passive: true });
     document.addEventListener('pointerout', e => {
         const el = e.target.closest && e.target.closest('.inclina'); if (!el || el.contains(e.relatedTarget)) return;
@@ -90,6 +90,7 @@
         muoviIndicatore();
         requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
         if (v === 'oggi') requestAnimationFrame(disegnaOggi);
+        requestAnimationFrame(() => { try { aggiornaIndice(); } catch (e) {} });
     }
     function mostra(v, o = {}) {
         if (!VISTE[v]) v = 'oggi';
@@ -490,6 +491,96 @@
         const pr = $('.prezzo', box);
         if (pr) requestAnimationFrame(() => requestAnimationFrame(() => { pr.style.left = X(p) + '%'; }));
     }
+
+    // ---------------------------------------------------------------- grafici: un solo stile per tutti (Chart.js)
+    if (window.Chart && Chart.defaults) {
+        const D = Chart.defaults;
+        D.font.family = "'IBM Plex Sans', system-ui, sans-serif"; D.font.size = 12; D.color = '#93A4B6';
+        D.borderColor = 'rgba(148,178,209,0.08)';
+        if (D.elements) { D.elements.line.borderWidth = 2; D.elements.line.tension = 0.2; D.elements.point.radius = 0; D.elements.point.hoverRadius = 4; }
+        const T = D.plugins && D.plugins.tooltip;
+        if (T) { Object.assign(T, { backgroundColor: 'rgba(14,26,39,0.96)', titleColor: '#F2F5F8', bodyColor: '#C3CEDA', borderColor: 'rgba(148,178,209,0.22)', borderWidth: 1, padding: 12, cornerRadius: 10, boxPadding: 4, usePointStyle: true }); T.titleFont = { weight: '600' }; }
+        if (D.plugins && D.plugins.legend) D.plugins.legend.labels = Object.assign(D.plugins.legend.labels || {}, { usePointStyle: true, pointStyle: 'line', boxWidth: 18 });
+        D.animation = Object.assign(D.animation || {}, { duration: calmo() ? 0 : 450, easing: 'easeOutQuart' });
+    }
+
+    // ---------------------------------------------------------------- scheda in un pannello laterale
+    // Dalle liste (screener, segnali, mappa, diario, ricerca) la scheda si apre a lato: l'elenco resta dov'era.
+    const dlg = $('#cassetto'), corpoC = $('#cassetto-corpo'), casa = $('#fvResult') && $('#fvResult').parentNode;
+    const PEZZI = ['fvError', 'fvExtra', 'fvResult'];
+    function rimetti() { if (casa) PEZZI.forEach(id => { const el = document.getElementById(id); if (el && el.parentNode !== casa) casa.appendChild(el); }); }
+    function chiudiCassetto() { if (dlg && dlg.open) dlg.close(); }
+    if (dlg && casa && typeof window.apriTitolo === 'function' && typeof dlg.showModal === 'function') {
+        const apriOrig = window.apriTitolo;
+        window.apriTitolo = function (t) {
+            if (vistaOra === 'analizza') return apriOrig(t);
+            PEZZI.forEach(id => { const el = document.getElementById(id); if (el) corpoC.appendChild(el); });
+            document.getElementById('fvInput').value = t;
+            if (!dlg.open) dlg.showModal();
+            corpoC.scrollTop = 0;
+            calculateFV();
+        };
+        dlg.addEventListener('close', rimetti);
+        $('#cassetto-chiudi').addEventListener('click', chiudiCassetto);
+        dlg.addEventListener('click', e => { if (e.target === dlg) chiudiCassetto(); });     // clic sullo sfondo
+        $('#cassetto-pagina').addEventListener('click', e => { e.preventDefault(); chiudiCassetto(); location.hash = 'analizza'; });
+    }
+
+    // ---------------------------------------------------------------- indice della vista: scorciatoie alle parti della pagina
+    const INDICI = {
+        mercato: [['#mappa', 'Mappa'], ['#screener', 'Screener'], ['#pattern', 'Pattern'], ['#news', 'Notizie'], ['#total-watchlist', 'Watchlist']],
+        segnali: [['#tbo', 'La strategia'], ['#tbo-segnali', 'I segnali della settimana'], ['#tbo-stats', 'Track record']],
+        portafoglio: [['#portfolio', 'Riepilogo'], ['#pac-box', 'Piani di accumulo'], ['#div-box', 'Dividendi'], ['#diario-box', 'Diario'], ['#perf-chart-card', 'Andamento'], ['#port-div-card', 'Diversificazione'], ['#myportfolio', 'Simula il tuo']],
+    };
+    Object.entries(INDICI).forEach(([v, voci]) => {
+        const testa = $(`.vista-testa[data-vista="${v}"]`); if (!testa) return;
+        const nav = document.createElement('nav'); nav.className = 'indice'; nav.dataset.vista = v; nav.setAttribute('aria-label', 'In questa pagina');
+        nav.innerHTML = voci.map(([h, n]) => `<a href="${h}" data-dest="${h}">${escH(n)}</a>`).join('');
+        testa.insertAdjacentElement('afterend', nav);
+        nav.classList.toggle('vista-on', vistaOra === v);
+        nav.addEventListener('click', e => {
+            const a = e.target.closest('a'); if (!a) return; e.preventDefault();
+            const el = $(a.dataset.dest); if (!el || !el.offsetParent) return;
+            if (el.tagName === 'DETAILS') el.open = true;
+            scrollTo({ top: el.getBoundingClientRect().top + scrollY - 130, behavior: calmo() ? 'auto' : 'smooth' });
+        });
+    });
+    function aggiornaIndice() {
+        const nav = $(`.indice[data-vista="${vistaOra}"]`); if (!nav) return;
+        let att = null;
+        $$('a', nav).forEach(a => {
+            const el = $(a.dataset.dest), vis = !!(el && el.offsetParent);
+            a.hidden = !vis;
+            if (vis && el.getBoundingClientRect().top < 170) att = a;
+        });
+        const vis = $$('a:not([hidden])', nav); if (!att) att = vis[0];
+        vis.forEach(a => a.classList.toggle('attiva', a === att));
+    }
+
+    // ---------------------------------------------------------------- avanzamento della lettura, sotto la barra in alto
+    let rafScroll = 0;
+    window.addEventListener('scroll', () => {
+        if (rafScroll) return;
+        rafScroll = requestAnimationFrame(() => {
+            rafScroll = 0;
+            const h = document.documentElement.scrollHeight - innerHeight;
+            document.documentElement.style.setProperty('--letto', h > 0 ? (scrollY / h).toFixed(4) : 0);
+            aggiornaIndice();
+        });
+    }, { passive: true });
+
+    // ---------------------------------------------------------------- tabelle come schede sul telefono: ogni cella prende il nome della sua colonna
+    function etichette(tbody) {
+        const tab = tbody.closest('table'); if (!tab) return;
+        const nomi = $$('thead th', tab).map(th => th.textContent.replace(/[↕▲▼]/g, '').trim());
+        $$(':scope > tr', tbody).forEach(tr => { let i = 0; $$(':scope > td', tr).forEach(td => { if (!td.hasAttribute('colspan')) td.dataset.label = nomi[i] || ''; i += +(td.getAttribute('colspan') || 1); }); });
+    }
+    ['#scr-tbody', '#pat-tbody', '#tbo-tbody'].forEach(q => {
+        const tb = $(q); if (!tb) return;
+        tb.closest('table').classList.add('schede-mobile');
+        new MutationObserver(() => etichette(tb)).observe(tb, { childList: true });
+        etichette(tb);
+    });
 
     // ---------------------------------------------------------------- aggancio alle funzioni della pagina
     function dopo(nome, fn) {
