@@ -1,41 +1,41 @@
 {
   "_comment": "Dati da TradingView — Directa Investments + Unicredit. Posizioni e allocazione aggiornate il 2026-11-19.",
-  "updated": "21 Nov 2026",
+  "updated": "23 Nov 2026",
   "summary": {
-    "total_value_usd": 13997.85,
+    "total_value_usd": 14221.95,
     "cash_usd": 0.5,
-    "unrealized_pl_usd": -1243.34,
-    "unrealized_pl_pct": -8.16,
+    "unrealized_pl_usd": -1019.24,
+    "unrealized_pl_pct": -6.69,
     "realized_pl_usd": 286.19,
     "dividends_usd": 147.64,
-    "total_pl_usd": -957.15,
-    "total_pl_pct": -6.26,
-    "annualized_return_pct": -3.51
+    "total_pl_usd": -733.05,
+    "total_pl_pct": -4.76,
+    "annualized_return_pct": -2.67
   },
   "periods": {
     "1M": {
-      "pl_usd": -514.68,
-      "pl_pct": -3.55
+      "pl_usd": -291.19,
+      "pl_pct": -2.0
     },
     "3M": {
-      "pl_usd": -946.13,
-      "pl_pct": -6.33
+      "pl_usd": -722.64,
+      "pl_pct": -4.83
     },
     "6M": {
-      "pl_usd": -1276.26,
-      "pl_pct": -8.36
+      "pl_usd": -1052.77,
+      "pl_pct": -6.89
     },
     "YTD": {
-      "pl_usd": -970.29,
-      "pl_pct": -6.47
+      "pl_usd": -746.8,
+      "pl_pct": -4.98
     },
     "1Y": {
-      "pl_usd": -827.32,
-      "pl_pct": -5.54
+      "pl_usd": -603.83,
+      "pl_pct": -4.03
     },
     "ALL": {
-      "pl_usd": -957.15,
-      "pl_pct": -6.26
+      "pl_usd": -733.05,
+      "pl_pct": -4.76
     }
   },
   "history": [
@@ -469,28 +469,29 @@
     {"date": "2026-11-17", "value": 14131.95, "perf": -2.89, "pl": -444.05, "source": "tradingview"},
     {"date": "2026-11-18", "value": 14175.53, "perf": -2.59, "pl": -400.47, "source": "tradingview"},
     {"date": "2026-11-19", "value": 14308.98, "perf": -4.18, "pl": -646.02, "source": "tradingview"},
-    {"date": "2026-11-21", "value": 13997.85, "perf": -6.26, "pl": -957.15, "source": "tradingview"}
+    {"date": "2026-11-21", "value": 13997.85, "perf": -6.26, "pl": -957.15, "source": "tradingview"},
+    {"date": "2026-11-23", "value": 14221.95, "perf": -4.76, "pl": -733.05, "source": "tradingview"}
   ],
   "allocation": [
     {
       "label": "Azioni",
-      "value_usd": 10682.13,
-      "pct": 76.32
+      "value_usd": 10855.73,
+      "pct": 76.33
     },
     {
       "label": "Obbligazioni",
-      "value_usd": 2390.68,
-      "pct": 17.08
+      "value_usd": 2405.32,
+      "pct": 16.91
     },
     {
       "label": "ETF/Dr",
-      "value_usd": 585.76,
-      "pct": 4.18
+      "value_usd": 609.91,
+      "pct": 4.29
     },
     {
       "label": "Fund",
-      "value_usd": 338.79,
-      "pct": 2.42
+      "value_usd": 351.12,
+      "pct": 2.47
     }
   ],
   "positions": [
@@ -503,8 +504,8 @@
       "qty": 70,
       "avg_price": 17.44,
       "curr": "USD",
-      "alloc_pct": 6.69,
-      "unrealized_pl": -284.34
+      "alloc_pct": 6.92,
+      "unrealized_pl": -236.64
     },
     {
       "ticker": "BR",
@@ -515,8 +516,8 @@
       "qty": 4,
       "avg_price": 149.68,
       "curr": "USD",
-      "alloc_pct": 5.18,
-      "unrealized_pl": 126.37
+      "alloc_pct": 5.11,
+      "unrealized_pl": 128.02
     },
     {
       "ticker": "TRI",
@@ -527,8 +528,8 @@
       "qty": 7,
       "avg_price": 91.12,
       "curr": "USD",
-      "alloc_pct": 5.08,
-      "unrealized_pl": 73.25
+      "alloc_pct": 5.04,
+      "unrealized_pl": 78.95
     },
     {
       "ticker": "DIA",
@@ -539,8 +540,8 @@
       "qty": 8,
       "avg_price": 59.42,
       "curr": "EUR",
-      "alloc_pct": 5.08,
-      "unrealized_pl": 169.64
+      "alloc_pct": 5.06,
+      "unrealized_pl": 178.39
     },
     {
       "ticker": "US912810RX81",
@@ -551,8 +552,8 @@
       "qty": 10,
       "avg_price": 73.48,
       "curr": "USD",
-      "alloc_pct": 5.02,
-      "unrealized_pl": -32.42
+      "alloc_pct": 4.95,
+      "unrealized_pl": -30.17
     },
     {
       "ticker": "PFE",
@@ -563,8 +564,8 @@
       "qty": 25,
       "avg_price": 27.7,
       "curr": "USD",
-      "alloc_pct": 4.89,
-      "unrealized_pl": -8.01
+      "alloc_pct": 4.82,
+      "unrealized_pl": -7.0
     },
     {
       "ticker": "BF.B",
@@ -575,8 +576,8 @@
       "qty": 22,
       "avg_price": 26.05,
       "curr": "USD",
-      "alloc_pct": 4.7,
-      "unrealized_pl": 84.8
+      "alloc_pct": 4.46,
+      "unrealized_pl": 61.2
     },
     {
       "ticker": "SAP",
@@ -587,8 +588,8 @@
       "qty": 3,
       "avg_price": 166.4,
       "curr": "EUR",
-      "alloc_pct": 4.57,
-      "unrealized_pl": 64.74
+      "alloc_pct": 4.56,
+      "unrealized_pl": 73.44
     },
     {
       "ticker": "EL",
@@ -599,8 +600,8 @@
       "qty": 3,
       "avg_price": 179.0,
       "curr": "EUR",
-      "alloc_pct": 4.38,
-      "unrealized_pl": -0.49
+      "alloc_pct": 4.32,
+      "unrealized_pl": 0.8
     },
     {
       "ticker": "IT0005480980",
@@ -611,8 +612,8 @@
       "qty": 10,
       "avg_price": 59.06,
       "curr": "EUR",
-      "alloc_pct": 4.28,
-      "unrealized_pl": 8.45
+      "alloc_pct": 4.25,
+      "unrealized_pl": 13.65
     },
     {
       "ticker": "PDD",
@@ -623,8 +624,8 @@
       "qty": 7,
       "avg_price": 97.0,
       "curr": "USD",
-      "alloc_pct": 4.18,
-      "unrealized_pl": -93.89
+      "alloc_pct": 4.29,
+      "unrealized_pl": -68.88
     },
     {
       "ticker": "NFLX",
@@ -635,8 +636,8 @@
       "qty": 10,
       "avg_price": 66.0,
       "curr": "USD",
-      "alloc_pct": 4.05,
-      "unrealized_pl": -93.09
+      "alloc_pct": 4.09,
+      "unrealized_pl": -78.32
     },
     {
       "ticker": "IT0005425233",
@@ -647,8 +648,8 @@
       "qty": 10,
       "avg_price": 58.16,
       "curr": "EUR",
-      "alloc_pct": 3.95,
-      "unrealized_pl": -28.37
+      "alloc_pct": 3.92,
+      "unrealized_pl": -23.59
     },
     {
       "ticker": "BSX",
@@ -659,8 +660,8 @@
       "qty": 13,
       "avg_price": 43.57,
       "curr": "USD",
-      "alloc_pct": 3.9,
-      "unrealized_pl": -20.49
+      "alloc_pct": 3.87,
+      "unrealized_pl": -16.02
     },
     {
       "ticker": "US912810SZ21",
@@ -671,8 +672,8 @@
       "qty": 10,
       "avg_price": 56.06,
       "curr": "USD",
-      "alloc_pct": 3.83,
-      "unrealized_pl": -24.62
+      "alloc_pct": 3.79,
+      "unrealized_pl": -22.11
     },
     {
       "ticker": "LULU",
@@ -683,8 +684,8 @@
       "qty": 5,
       "avg_price": 121.7,
       "curr": "USD",
-      "alloc_pct": 3.67,
-      "unrealized_pl": -94.78
+      "alloc_pct": 3.68,
+      "unrealized_pl": -85.13
     },
     {
       "ticker": "BLDR",
@@ -695,8 +696,8 @@
       "qty": 9,
       "avg_price": 69.4,
       "curr": "USD",
-      "alloc_pct": 3.54,
-      "unrealized_pl": -129.08
+      "alloc_pct": 3.6,
+      "unrealized_pl": -112.61
     },
     {
       "ticker": "QCOM",
@@ -707,8 +708,8 @@
       "qty": 3,
       "avg_price": 164.45,
       "curr": "USD",
-      "alloc_pct": 3.21,
-      "unrealized_pl": -44.02
+      "alloc_pct": 3.49,
+      "unrealized_pl": 3.0
     },
     {
       "ticker": "RACE",
@@ -719,8 +720,8 @@
       "qty": 1,
       "avg_price": 342.6,
       "curr": "EUR",
-      "alloc_pct": 2.99,
-      "unrealized_pl": 24.81
+      "alloc_pct": 2.96,
+      "unrealized_pl": 27.28
     },
     {
       "ticker": "FUN",
@@ -732,7 +733,7 @@
       "avg_price": 19.52,
       "curr": "USD",
       "alloc_pct": 2.84,
-      "unrealized_pl": -305.18
+      "unrealized_pl": -298.82
     },
     {
       "ticker": "AMP",
@@ -743,8 +744,8 @@
       "qty": 30,
       "avg_price": 11.25,
       "curr": "EUR",
-      "alloc_pct": 2.64,
-      "unrealized_pl": -0.67
+      "alloc_pct": 2.6,
+      "unrealized_pl": -0.33
     },
     {
       "ticker": "CE",
@@ -755,8 +756,8 @@
       "qty": 8,
       "avg_price": 44.91,
       "curr": "USD",
-      "alloc_pct": 2.57,
-      "unrealized_pl": 0.46
+      "alloc_pct": 2.54,
+      "unrealized_pl": 1.96
     },
     {
       "ticker": "SGBS",
@@ -767,8 +768,8 @@
       "qty": 1,
       "avg_price": 394.56,
       "curr": "USD",
-      "alloc_pct": 2.42,
-      "unrealized_pl": -55.81
+      "alloc_pct": 2.47,
+      "unrealized_pl": -43.46
     },
     {
       "ticker": "CPRT",
@@ -780,7 +781,7 @@
       "avg_price": 31.8,
       "curr": "USD",
       "alloc_pct": 2.22,
-      "unrealized_pl": -7.25
+      "unrealized_pl": -2.27
     },
     {
       "ticker": "INTU",
@@ -791,8 +792,8 @@
       "qty": 1,
       "avg_price": 307.37,
       "curr": "USD",
-      "alloc_pct": 1.93,
-      "unrealized_pl": -37.21
+      "alloc_pct": 1.94,
+      "unrealized_pl": -31.46
     },
     {
       "ticker": "ADBE",
@@ -803,8 +804,8 @@
       "qty": 1,
       "avg_price": 486.37,
       "curr": "USD",
-      "alloc_pct": 1.56,
-      "unrealized_pl": -268.0
+      "alloc_pct": 1.57,
+      "unrealized_pl": -263.09
     },
     {
       "ticker": "FMC",
@@ -815,410 +816,107 @@
       "qty": 22,
       "avg_price": 14.75,
       "curr": "USD",
-      "alloc_pct": 0.61,
-      "unrealized_pl": -239.11
+      "alloc_pct": 0.64,
+      "unrealized_pl": -233.48
     }
   ],
   "snapshot": {
-    "date": "2026-11-21",
-    "eurusd": 1.09674,
+    "date": "2026-11-23",
+    "eurusd": 1.09023,
     "summary": {
-      "total_value_usd": 13997.85,
+      "total_value_usd": 14221.95,
       "cash_usd": 0.5,
-      "unrealized_pl_usd": -1243.34,
-      "unrealized_pl_pct": -8.16,
+      "unrealized_pl_usd": -1019.24,
+      "unrealized_pl_pct": -6.69,
       "realized_pl_usd": 286.19,
       "dividends_usd": 147.64,
-      "total_pl_usd": -957.15,
-      "total_pl_pct": -6.26,
-      "annualized_return_pct": -3.51
+      "total_pl_usd": -733.05,
+      "total_pl_pct": -4.76,
+      "annualized_return_pct": -2.67
     },
     "periods": {
       "1M": {
-        "pl_usd": -514.68,
-        "pl_pct": -3.55
+        "pl_usd": -291.19,
+        "pl_pct": -2.0
       },
       "3M": {
-        "pl_usd": -946.13,
-        "pl_pct": -6.33
+        "pl_usd": -722.64,
+        "pl_pct": -4.83
       },
       "6M": {
-        "pl_usd": -1276.26,
-        "pl_pct": -8.36
+        "pl_usd": -1052.77,
+        "pl_pct": -6.89
       },
       "YTD": {
-        "pl_usd": -970.29,
-        "pl_pct": -6.47
+        "pl_usd": -746.8,
+        "pl_pct": -4.98
       },
       "1Y": {
-        "pl_usd": -827.32,
-        "pl_pct": -5.54
+        "pl_usd": -603.83,
+        "pl_pct": -4.03
       },
       "ALL": {
-        "pl_usd": -957.15,
-        "pl_pct": -6.26
+        "pl_usd": -733.05,
+        "pl_pct": -4.76
       }
     },
-    "unrealized_base": 15237.009803921566,
+    "unrealized_base": 15235.27653213752,
     "positions": {
-      "TTD": {
-        "price": 13.38,
-        "value_usd": 936.46,
-        "unrealized_pl": -284.34,
-        "qty": 70
-      },
-      "BR": {
-        "price": 181.41,
-        "value_usd": 725.09,
-        "unrealized_pl": 126.37,
-        "qty": 4
-      },
-      "TRI": {
-        "price": 101.56,
-        "value_usd": 711.09,
-        "unrealized_pl": 73.25,
-        "qty": 7
-      },
-      "DIA": {
-        "price": 77.84,
-        "value_usd": 711.09,
-        "unrealized_pl": 169.64,
-        "qty": 8
-      },
-      "US912810RX81": {
-        "price": 70.2692,
-        "value_usd": 702.69,
-        "unrealized_pl": -32.42,
-        "qty": 10
-      },
-      "PFE": {
-        "price": 27.4,
-        "value_usd": 684.49,
-        "unrealized_pl": -8.01,
-        "qty": 25
-      },
-      "BF.B": {
-        "price": 29.92,
-        "value_usd": 657.9,
-        "unrealized_pl": 84.8,
-        "qty": 22
-      },
-      "SAP": {
-        "price": 183.68,
-        "value_usd": 639.7,
-        "unrealized_pl": 64.74,
-        "qty": 3
-      },
-      "EL": {
-        "price": 174.6,
-        "value_usd": 613.11,
-        "unrealized_pl": -0.49,
-        "qty": 3
-      },
-      "IT0005480980": {
-        "price": 54.6263,
-        "value_usd": 599.11,
-        "unrealized_pl": 8.45,
-        "qty": 10
-      },
-      "PDD": {
-        "price": 83.68,
-        "value_usd": 585.11,
-        "unrealized_pl": -93.89,
-        "qty": 7
-      },
-      "NFLX": {
-        "price": 56.73,
-        "value_usd": 566.91,
-        "unrealized_pl": -93.09,
-        "qty": 10
-      },
-      "IT0005425233": {
-        "price": 50.4144,
-        "value_usd": 552.92,
-        "unrealized_pl": -28.37,
-        "qty": 10
-      },
-      "BSX": {
-        "price": 42,
-        "value_usd": 545.92,
-        "unrealized_pl": -20.49,
-        "qty": 13
-      },
-      "US912810SZ21": {
-        "price": 53.6118,
-        "value_usd": 536.12,
-        "unrealized_pl": -24.62,
-        "qty": 10
-      },
-      "LULU": {
-        "price": 102.62,
-        "value_usd": 513.72,
-        "unrealized_pl": -94.78,
-        "qty": 5
-      },
-      "BLDR": {
-        "price": 55.03,
-        "value_usd": 495.52,
-        "unrealized_pl": -129.08,
-        "qty": 9
-      },
-      "QCOM": {
-        "price": 149.94,
-        "value_usd": 449.33,
-        "unrealized_pl": -44.02,
-        "qty": 3
-      },
-      "RACE": {
-        "price": 363.1,
-        "value_usd": 418.54,
-        "unrealized_pl": 24.81,
-        "qty": 1
-      },
-      "FUN": {
-        "price": 11.06,
-        "value_usd": 397.54,
-        "unrealized_pl": -305.18,
-        "qty": 36
-      },
-      "AMP": {
-        "price": 11.23,
-        "value_usd": 369.54,
-        "unrealized_pl": -0.67,
-        "qty": 30
-      },
-      "CE": {
-        "price": 45.01,
-        "value_usd": 359.74,
-        "unrealized_pl": 0.46,
-        "qty": 8
-      },
-      "SGBS": {
-        "price": 338.79,
-        "value_usd": 338.75,
-        "unrealized_pl": -55.81,
-        "qty": 1
-      },
-      "CPRT": {
-        "price": 31.09,
-        "value_usd": 310.75,
-        "unrealized_pl": -7.25,
-        "qty": 10
-      },
-      "INTU": {
-        "price": 270.44,
-        "value_usd": 270.16,
-        "unrealized_pl": -37.21,
-        "qty": 1
-      },
-      "ADBE": {
-        "price": 217.71,
-        "value_usd": 218.37,
-        "unrealized_pl": -268.0,
-        "qty": 1
-      },
-      "FMC": {
-        "price": 3.9,
-        "value_usd": 85.39,
-        "unrealized_pl": -239.11,
-        "qty": 22
-      }
+      "TTD": {"price": 14.0594, "value_usd": 984.16, "unrealized_pl": -236.64, "qty": 70},
+      "BR": {"price": 181.6854, "value_usd": 726.74, "unrealized_pl": 128.02, "qty": 4},
+      "TRI": {"price": 102.398, "value_usd": 716.79, "unrealized_pl": 78.95, "qty": 7},
+      "DIA": {"price": 82.509, "value_usd": 719.63, "unrealized_pl": 178.39, "qty": 8},
+      "US912810RX81": {"price": 70.3987, "value_usd": 703.99, "unrealized_pl": -30.17, "qty": 10},
+      "PFE": {"price": 27.4199, "value_usd": 685.5, "unrealized_pl": -7.0, "qty": 25},
+      "BF.B": {"price": 28.8318, "value_usd": 634.3, "unrealized_pl": 61.2, "qty": 22},
+      "SAP": {"price": 198.2826, "value_usd": 648.52, "unrealized_pl": 73.44, "qty": 3},
+      "EL": {"price": 187.8467, "value_usd": 614.39, "unrealized_pl": 0.8, "qty": 3},
+      "IT0005480980": {"price": 55.4409, "value_usd": 604.43, "unrealized_pl": 13.65, "qty": 10},
+      "PDD": {"price": 87.1602, "value_usd": 610.12, "unrealized_pl": -68.88, "qty": 7},
+      "NFLX": {"price": 58.1678, "value_usd": 581.68, "unrealized_pl": -78.32, "qty": 10},
+      "IT0005425233": {"price": 51.136, "value_usd": 557.5, "unrealized_pl": -23.59, "qty": 10},
+      "BSX": {"price": 42.3377, "value_usd": 550.39, "unrealized_pl": -16.02, "qty": 13},
+      "US912810SZ21": {"price": 53.9012, "value_usd": 539.01, "unrealized_pl": -22.11, "qty": 10},
+      "LULU": {"price": 104.6736, "value_usd": 523.37, "unrealized_pl": -85.13, "qty": 5},
+      "BLDR": {"price": 56.8878, "value_usd": 511.99, "unrealized_pl": -112.61, "qty": 9},
+      "QCOM": {"price": 165.4487, "value_usd": 496.35, "unrealized_pl": 3.0, "qty": 3},
+      "RACE": {"price": 386.1293, "value_usd": 420.97, "unrealized_pl": 27.28, "qty": 1},
+      "FUN": {"price": 11.2195, "value_usd": 403.9, "unrealized_pl": -298.82, "qty": 36},
+      "AMP": {"price": 11.3056, "value_usd": 369.77, "unrealized_pl": -0.33, "qty": 30},
+      "CE": {"price": 45.1547, "value_usd": 361.24, "unrealized_pl": 1.96, "qty": 8},
+      "SGBS": {"price": 351.2822, "value_usd": 351.28, "unrealized_pl": -43.46, "qty": 1},
+      "CPRT": {"price": 31.5727, "value_usd": 315.73, "unrealized_pl": -2.27, "qty": 10},
+      "INTU": {"price": 275.9058, "value_usd": 275.91, "unrealized_pl": -31.46, "qty": 1},
+      "ADBE": {"price": 223.2846, "value_usd": 223.28, "unrealized_pl": -263.09, "qty": 1},
+      "FMC": {"price": 4.1373, "value_usd": 91.02, "unrealized_pl": -233.48, "qty": 22}
     }
   },
   "source": "tradingview",
   "dividends": [
-    {
-      "date": "2026-11-10",
-      "ticker": "CE",
-      "exchange": "NYSE",
-      "amount": 0.24,
-      "curr": "USD",
-      "usd": 0.24
-    },
-    {
-      "date": "2026-10-16",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "amount": 1.38,
-      "curr": "USD",
-      "usd": 1.38
-    },
-    {
-      "date": "2026-10-15",
-      "ticker": "FMC",
-      "exchange": "NYSE",
-      "amount": 1.76,
-      "curr": "USD",
-      "usd": 1.76
-    },
-    {
-      "date": "2026-10-05",
-      "ticker": "BR",
-      "exchange": "NYSE",
-      "amount": 4.36,
-      "curr": "USD",
-      "usd": 4.36
-    },
-    {
-      "date": "2026-10-01",
-      "ticker": "BF.B",
-      "exchange": "NYSE",
-      "amount": 5.08,
-      "curr": "USD",
-      "usd": 5.08
-    },
-    {
-      "date": "2026-09-24",
-      "ticker": "QCOM",
-      "exchange": "NASDAQ",
-      "amount": 2.76,
-      "curr": "USD",
-      "usd": 2.76
-    },
-    {
-      "date": "2026-09-10",
-      "ticker": "TRI",
-      "exchange": "NASDAQ",
-      "amount": 4.58,
-      "curr": "USD",
-      "usd": 4.58
-    },
-    {
-      "date": "2026-07-17",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "amount": 1.2,
-      "curr": "USD",
-      "usd": 1.2
-    },
-    {
-      "date": "2026-07-16",
-      "ticker": "FMC",
-      "exchange": "NYSE",
-      "amount": 1.76,
-      "curr": "USD",
-      "usd": 1.76
-    },
-    {
-      "date": "2026-07-01",
-      "ticker": "HPQ",
-      "exchange": "NYSE",
-      "amount": 9.0,
-      "curr": "USD",
-      "usd": 9.0
-    },
-    {
-      "date": "2026-06-25",
-      "ticker": "QCOM",
-      "exchange": "NASDAQ",
-      "amount": 4.6,
-      "curr": "USD",
-      "usd": 4.6
-    },
-    {
-      "date": "2026-06-03",
-      "ticker": "EL",
-      "exchange": "EURONEXT",
-      "amount": 12.0,
-      "curr": "EUR",
-      "usd": 13.92
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "DIA",
-      "exchange": "MIL",
-      "amount": 10.4,
-      "curr": "EUR",
-      "usd": 12.09
-    },
-    {
-      "date": "2026-05-08",
-      "ticker": "SAP",
-      "exchange": "XETR",
-      "amount": 7.5,
-      "curr": "EUR",
-      "usd": 8.84
-    },
-    {
-      "date": "2026-05-05",
-      "ticker": "RACE",
-      "exchange": "MIL",
-      "amount": 3.62,
-      "curr": "EUR",
-      "usd": 4.23
-    },
-    {
-      "date": "2026-04-17",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "amount": 2.4,
-      "curr": "USD",
-      "usd": 2.4
-    },
-    {
-      "date": "2026-03-27",
-      "ticker": "LMT",
-      "exchange": "NYSE",
-      "amount": 0.0,
-      "curr": "USD",
-      "usd": 0.0
-    },
-    {
-      "date": "2026-03-26",
-      "ticker": "QCOM",
-      "exchange": "NASDAQ",
-      "amount": 2.67,
-      "curr": "USD",
-      "usd": 2.67
-    },
-    {
-      "date": "2025-12-30",
-      "ticker": "LMT",
-      "exchange": "NYSE",
-      "amount": 3.45,
-      "curr": "USD",
-      "usd": 3.45
-    },
-    {
-      "date": "2025-12-18",
-      "ticker": "QCOM",
-      "exchange": "NASDAQ",
-      "amount": 2.67,
-      "curr": "USD",
-      "usd": 2.67
-    },
-    {
-      "date": "2025-09-26",
-      "ticker": "LMT",
-      "exchange": "NYSE",
-      "amount": 3.3,
-      "curr": "USD",
-      "usd": 3.3
-    },
-    {
-      "date": "2025-06-27",
-      "ticker": "LMT",
-      "exchange": "NYSE",
-      "amount": 3.3,
-      "curr": "USD",
-      "usd": 3.3
-    },
-    {
-      "date": "2025-05-21",
-      "ticker": "ERG",
-      "exchange": "MIL",
-      "amount": 45.0,
-      "curr": "EUR",
-      "usd": 50.76
-    },
-    {
-      "date": "2025-03-28",
-      "ticker": "LMT",
-      "exchange": "NYSE",
-      "amount": 3.3,
-      "curr": "USD",
-      "usd": 3.3
-    }
+    {"date": "2026-11-10", "ticker": "CE", "exchange": "NYSE", "amount": 0.24, "curr": "USD", "usd": 0.24},
+    {"date": "2026-10-16", "ticker": "INTU", "exchange": "NASDAQ", "amount": 1.38, "curr": "USD", "usd": 1.38},
+    {"date": "2026-10-15", "ticker": "FMC", "exchange": "NYSE", "amount": 1.76, "curr": "USD", "usd": 1.76},
+    {"date": "2026-10-05", "ticker": "BR", "exchange": "NYSE", "amount": 4.36, "curr": "USD", "usd": 4.36},
+    {"date": "2026-10-01", "ticker": "BF.B", "exchange": "NYSE", "amount": 5.08, "curr": "USD", "usd": 5.08},
+    {"date": "2026-09-24", "ticker": "QCOM", "exchange": "NASDAQ", "amount": 2.76, "curr": "USD", "usd": 2.76},
+    {"date": "2026-09-10", "ticker": "TRI", "exchange": "NASDAQ", "amount": 4.58, "curr": "USD", "usd": 4.58},
+    {"date": "2026-07-17", "ticker": "INTU", "exchange": "NASDAQ", "amount": 1.2, "curr": "USD", "usd": 1.2},
+    {"date": "2026-07-16", "ticker": "FMC", "exchange": "NYSE", "amount": 1.76, "curr": "USD", "usd": 1.76},
+    {"date": "2026-07-01", "ticker": "HPQ", "exchange": "NYSE", "amount": 9.0, "curr": "USD", "usd": 9.0},
+    {"date": "2026-06-25", "ticker": "QCOM", "exchange": "NASDAQ", "amount": 4.6, "curr": "USD", "usd": 4.6},
+    {"date": "2026-06-03", "ticker": "EL", "exchange": "EURONEXT", "amount": 12.0, "curr": "EUR", "usd": 13.92},
+    {"date": "2026-05-20", "ticker": "DIA", "exchange": "MIL", "amount": 10.4, "curr": "EUR", "usd": 12.09},
+    {"date": "2026-05-08", "ticker": "SAP", "exchange": "XETR", "amount": 7.5, "curr": "EUR", "usd": 8.84},
+    {"date": "2026-05-05", "ticker": "RACE", "exchange": "MIL", "amount": 3.62, "curr": "EUR", "usd": 4.23},
+    {"date": "2026-04-17", "ticker": "INTU", "exchange": "NASDAQ", "amount": 2.4, "curr": "USD", "usd": 2.4},
+    {"date": "2026-03-27", "ticker": "LMT", "exchange": "NYSE", "amount": 0.0, "curr": "USD", "usd": 0.0},
+    {"date": "2026-03-26", "ticker": "QCOM", "exchange": "NASDAQ", "amount": 2.67, "curr": "USD", "usd": 2.67},
+    {"date": "2025-12-30", "ticker": "LMT", "exchange": "NYSE", "amount": 3.45, "curr": "USD", "usd": 3.45},
+    {"date": "2025-12-18", "ticker": "QCOM", "exchange": "NASDAQ", "amount": 2.67, "curr": "USD", "usd": 2.67},
+    {"date": "2025-09-26", "ticker": "LMT", "exchange": "NYSE", "amount": 3.3, "curr": "USD", "usd": 3.3},
+    {"date": "2025-06-27", "ticker": "LMT", "exchange": "NYSE", "amount": 3.3, "curr": "USD", "usd": 3.3},
+    {"date": "2025-05-21", "ticker": "ERG", "exchange": "MIL", "amount": 45.0, "curr": "EUR", "usd": 50.76},
+    {"date": "2025-03-28", "ticker": "LMT", "exchange": "NYSE", "amount": 3.3, "curr": "USD", "usd": 3.3}
   ],
   "bond_terms": {
     "_comment": "Cedole delle obbligazioni: tasso annuo lordo, giorno e mesi di pagamento, nominale posseduto, data di acquisto. Il sito calcola da qui le cedole incassate e quelle attese; fx_cedole è il cambio EURUSD del giorno di pagamento delle cedole in euro già incassate.",
@@ -1226,10 +924,7 @@
       "label": "T-Bond 2047",
       "coupon_pct": 3.0,
       "day": 15,
-      "months": [
-        5,
-        11
-      ],
+      "months": [5, 11],
       "nominal": 1000,
       "curr": "USD",
       "since": "2026-06-09"
@@ -1238,10 +933,7 @@
       "label": "T-Bond 2051",
       "coupon_pct": 2.0,
       "day": 15,
-      "months": [
-        2,
-        8
-      ],
+      "months": [2, 8],
       "nominal": 1000,
       "curr": "USD",
       "since": "2026-06-10"
@@ -1250,10 +942,7 @@
       "label": "BTP 2052",
       "coupon_pct": 2.15,
       "day": 1,
-      "months": [
-        3,
-        9
-      ],
+      "months": [3, 9],
       "nominal": 1000,
       "curr": "EUR",
       "since": "2026-09-30"
@@ -1262,10 +951,7 @@
       "label": "BTP 2051",
       "coupon_pct": 1.7,
       "day": 1,
-      "months": [
-        3,
-        9
-      ],
+      "months": [3, 9],
       "nominal": 1000,
       "curr": "EUR",
       "since": "2026-05-06"
@@ -1276,565 +962,79 @@
   },
   "classificazione": {
     "_comment": "Paese (sede principale dell'attività) e settore di ogni posizione, per la diversificazione sul sito. Settori: Tecnologia, Salute, Consumi discrezionali, Beni di prima necessità, Industria, Materiali, Comunicazione, Finanza, Energia, Utility, Immobiliare, Titoli di Stato. SGBS è un ETF di società aurifere di più paesi: Globale.",
-    "TTD": {
-      "paese": "Stati Uniti",
-      "settore": "Tecnologia"
-    },
-    "BR": {
-      "paese": "Stati Uniti",
-      "settore": "Industria"
-    },
-    "DIA": {
-      "paese": "Italia",
-      "settore": "Salute"
-    },
-    "TRI": {
-      "paese": "Canada",
-      "settore": "Industria"
-    },
-    "PFE": {
-      "paese": "Stati Uniti",
-      "settore": "Salute"
-    },
-    "SAP": {
-      "paese": "Germania",
-      "settore": "Tecnologia"
-    },
-    "US912810RX81": {
-      "paese": "Stati Uniti",
-      "settore": "Titoli di Stato"
-    },
-    "BF.B": {
-      "paese": "Stati Uniti",
-      "settore": "Beni di prima necessità"
-    },
-    "EL": {
-      "paese": "Francia",
-      "settore": "Salute"
-    },
-    "NFLX": {
-      "paese": "Stati Uniti",
-      "settore": "Comunicazione"
-    },
-    "IT0005480980": {
-      "paese": "Italia",
-      "settore": "Titoli di Stato"
-    },
-    "BSX": {
-      "paese": "Stati Uniti",
-      "settore": "Salute"
-    },
-    "IT0005425233": {
-      "paese": "Italia",
-      "settore": "Titoli di Stato"
-    },
-    "PDD": {
-      "paese": "Cina",
-      "settore": "Consumi discrezionali"
-    },
-    "US912810SZ21": {
-      "paese": "Stati Uniti",
-      "settore": "Titoli di Stato"
-    },
-    "BLDR": {
-      "paese": "Stati Uniti",
-      "settore": "Industria"
-    },
-    "LULU": {
-      "paese": "Canada",
-      "settore": "Consumi discrezionali"
-    },
-    "QCOM": {
-      "paese": "Stati Uniti",
-      "settore": "Tecnologia"
-    },
-    "RACE": {
-      "paese": "Italia",
-      "settore": "Consumi discrezionali"
-    },
-    "FUN": {
-      "paese": "Stati Uniti",
-      "settore": "Consumi discrezionali"
-    },
-    "CE": {
-      "paese": "Stati Uniti",
-      "settore": "Materiali"
-    },
-    "SGBS": {
-      "paese": "Globale",
-      "settore": "Materiali"
-    },
-    "INTU": {
-      "paese": "Stati Uniti",
-      "settore": "Tecnologia"
-    },
-    "CPRT": {
-      "paese": "Stati Uniti",
-      "settore": "Industria"
-    },
-    "ADBE": {
-      "paese": "Stati Uniti",
-      "settore": "Tecnologia"
-    },
-    "FMC": {
-      "paese": "Stati Uniti",
-      "settore": "Materiali"
-    },
-    "AMP": {
-      "paese": "Italia",
-      "settore": "Salute"
-    }
+    "TTD": {"paese": "Stati Uniti", "settore": "Tecnologia"},
+    "BR": {"paese": "Stati Uniti", "settore": "Industria"},
+    "DIA": {"paese": "Italia", "settore": "Salute"},
+    "TRI": {"paese": "Canada", "settore": "Industria"},
+    "PFE": {"paese": "Stati Uniti", "settore": "Salute"},
+    "SAP": {"paese": "Germania", "settore": "Tecnologia"},
+    "US912810RX81": {"paese": "Stati Uniti", "settore": "Titoli di Stato"},
+    "BF.B": {"paese": "Stati Uniti", "settore": "Beni di prima necessità"},
+    "EL": {"paese": "Francia", "settore": "Salute"},
+    "NFLX": {"paese": "Stati Uniti", "settore": "Comunicazione"},
+    "IT0005480980": {"paese": "Italia", "settore": "Titoli di Stato"},
+    "BSX": {"paese": "Stati Uniti", "settore": "Salute"},
+    "IT0005425233": {"paese": "Italia", "settore": "Titoli di Stato"},
+    "PDD": {"paese": "Cina", "settore": "Consumi discrezionali"},
+    "US912810SZ21": {"paese": "Stati Uniti", "settore": "Titoli di Stato"},
+    "BLDR": {"paese": "Stati Uniti", "settore": "Industria"},
+    "LULU": {"paese": "Canada", "settore": "Consumi discrezionali"},
+    "QCOM": {"paese": "Stati Uniti", "settore": "Tecnologia"},
+    "RACE": {"paese": "Italia", "settore": "Consumi discrezionali"},
+    "FUN": {"paese": "Stati Uniti", "settore": "Consumi discrezionali"},
+    "CE": {"paese": "Stati Uniti", "settore": "Materiali"},
+    "SGBS": {"paese": "Globale", "settore": "Materiali"},
+    "INTU": {"paese": "Stati Uniti", "settore": "Tecnologia"},
+    "CPRT": {"paese": "Stati Uniti", "settore": "Industria"},
+    "ADBE": {"paese": "Stati Uniti", "settore": "Tecnologia"},
+    "FMC": {"paese": "Stati Uniti", "settore": "Materiali"},
+    "AMP": {"paese": "Italia", "settore": "Salute"}
   },
   "operazioni": [
-    {
-      "date": "2026-11-19",
-      "ticker": "AMP",
-      "exchange": "MIL",
-      "side": "buy",
-      "qty": 30,
-      "price": 11.25,
-      "curr": "EUR",
-      "comm": 0
-    },
-    {
-      "date": "2026-11-04",
-      "ticker": "NFLX",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 10,
-      "price": 66,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-09-30",
-      "ticker": "IT0005480980",
-      "exchange": "OTCB",
-      "side": "buy",
-      "qty": 10,
-      "price": 59.06,
-      "curr": null,
-      "comm": 0
-    },
-    {
-      "date": "2026-09-29",
-      "ticker": "BSX",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 13,
-      "price": 43.57,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-09-14",
-      "ticker": "CE",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 8,
-      "price": 44.91,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-09-08",
-      "ticker": "LULU",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 5,
-      "price": 121.7,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-08-20",
-      "ticker": "PFE",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 25,
-      "price": 27.7,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-08-17",
-      "ticker": "CPRT",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 10,
-      "price": 31.8,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-08-07",
-      "ticker": "TTD",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 45,
-      "price": 13.8,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-08-07",
-      "ticker": "HPQ",
-      "exchange": "NYSE",
-      "side": "sell",
-      "qty": 30,
-      "price": 30.01,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-08-07",
-      "ticker": "FUN",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 12,
-      "price": 16.35,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-07-08",
-      "ticker": "TRI",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 7,
-      "price": 91.12,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-07-03",
-      "ticker": "SGBS",
-      "exchange": "LSE",
-      "side": "buy",
-      "qty": 1,
-      "price": 394.56,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-07-01",
-      "ticker": "BF.B",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 22,
-      "price": 26.05,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-06-25",
-      "ticker": "BR",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 4,
-      "price": 149.68,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-06-18",
-      "ticker": "QCOM",
-      "exchange": "NASDAQ",
-      "side": "sell",
-      "qty": 2,
-      "price": 218.86,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-06-16",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "side": "sell",
-      "qty": 3,
-      "price": 279.75,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-06-10",
-      "ticker": "US912810SZ21",
-      "exchange": "EUROTLX",
-      "side": "buy",
-      "qty": 10,
-      "price": 56.06,
-      "curr": null,
-      "comm": 0
-    },
-    {
-      "date": "2026-06-09",
-      "ticker": "US912810RX81",
-      "exchange": "EUROTLX",
-      "side": "buy",
-      "qty": 10,
-      "price": 73.48,
-      "curr": null,
-      "comm": 0
-    },
-    {
-      "date": "2026-05-21",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 1,
-      "price": 307.37,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-05-21",
-      "ticker": "BLDR",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 9,
-      "price": 69.4,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-05-19",
-      "ticker": "PDD",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 7,
-      "price": 97,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-05-08",
-      "ticker": "TTD",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 25,
-      "price": 24,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-05-06",
-      "ticker": "IT0005425233",
-      "exchange": "OTCB",
-      "side": "buy",
-      "qty": 10,
-      "price": 58.16,
-      "curr": null,
-      "comm": 0
-    },
-    {
-      "date": "2026-05-01",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 1,
-      "price": 429.5,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-05-01",
-      "ticker": "HPQ",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 30,
-      "price": 20.15,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-04-30",
-      "ticker": "SAP",
-      "exchange": "XETR",
-      "side": "buy",
-      "qty": 3,
-      "price": 166.4,
-      "curr": "EUR",
-      "comm": 0
-    },
-    {
-      "date": "2026-04-30",
-      "ticker": "EL",
-      "exchange": "EURONEXT",
-      "side": "buy",
-      "qty": 3,
-      "price": 179,
-      "curr": "EUR",
-      "comm": 0
-    },
-    {
-      "date": "2026-04-22",
-      "ticker": "FMC",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 22,
-      "price": 14.75,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-04-08",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 1,
-      "price": 410.24,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-02-27",
-      "ticker": "ERG",
-      "exchange": "MIL",
-      "side": "sell",
-      "qty": 30,
-      "price": 25.3,
-      "curr": "EUR",
-      "comm": 1.5
-    },
-    {
-      "date": "2026-01-20",
-      "ticker": "LMT",
-      "exchange": "NYSE",
-      "side": "sell",
-      "qty": 1,
-      "price": 585,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-01-15",
-      "ticker": "FUN",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 12,
-      "price": 16.25,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2026-01-14",
-      "ticker": "INTU",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 1,
-      "price": 553,
-      "curr": "USD",
-      "comm": 6.63
-    },
-    {
-      "date": "2026-01-12",
-      "ticker": "QCOM",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 2,
-      "price": 154.94,
-      "curr": "USD",
-      "comm": 9
-    },
-    {
-      "date": "2026-01-07",
-      "ticker": "ERG",
-      "exchange": "MIL",
-      "side": "sell",
-      "qty": 15,
-      "price": 23,
-      "curr": "EUR",
-      "comm": 1.5
-    },
-    {
-      "date": "2025-12-11",
-      "ticker": "BC",
-      "exchange": "MIL",
-      "side": "sell",
-      "qty": 6,
-      "price": 94.86,
-      "curr": "EUR",
-      "comm": 0
-    },
-    {
-      "date": "2025-11-07",
-      "ticker": "DIA",
-      "exchange": "MIL",
-      "side": "buy",
-      "qty": 8,
-      "price": 59.42,
-      "curr": "EUR",
-      "comm": 1.5
-    },
-    {
-      "date": "2025-10-29",
-      "ticker": "QCOM",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 3,
-      "price": 183.48,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2025-10-29",
-      "ticker": "FUN",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 12,
-      "price": 25.96,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2025-10-10",
-      "ticker": "RACE",
-      "exchange": "MIL",
-      "side": "buy",
-      "qty": 1,
-      "price": 342.6,
-      "curr": "EUR",
-      "comm": 1.5
-    },
-    {
-      "date": "2025-09-27",
-      "ticker": "BC",
-      "exchange": "MIL",
-      "side": "buy",
-      "qty": 6,
-      "price": 78.06,
-      "curr": "EUR",
-      "comm": 0
-    },
-    {
-      "date": "2025-02-03",
-      "ticker": "LMT",
-      "exchange": "NYSE",
-      "side": "buy",
-      "qty": 1,
-      "price": 528.88,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2025-01-17",
-      "ticker": "ADBE",
-      "exchange": "NASDAQ",
-      "side": "buy",
-      "qty": 1,
-      "price": 486.37,
-      "curr": "USD",
-      "comm": 0
-    },
-    {
-      "date": "2024-12-02",
-      "ticker": "ERG",
-      "exchange": "MIL",
-      "side": "buy",
-      "qty": 45,
-      "price": 19.72,
-      "curr": "EUR",
-      "comm": 0
-    }
+    {"date": "2026-11-19", "ticker": "AMP", "exchange": "MIL", "side": "buy", "qty": 30, "price": 11.25, "curr": "EUR", "comm": 0},
+    {"date": "2026-11-04", "ticker": "NFLX", "exchange": "NASDAQ", "side": "buy", "qty": 10, "price": 66, "curr": "USD", "comm": 0},
+    {"date": "2026-09-30", "ticker": "IT0005480980", "exchange": "OTCB", "side": "buy", "qty": 10, "price": 59.06, "curr": null, "comm": 0},
+    {"date": "2026-09-29", "ticker": "BSX", "exchange": "NYSE", "side": "buy", "qty": 13, "price": 43.57, "curr": "USD", "comm": 0},
+    {"date": "2026-09-14", "ticker": "CE", "exchange": "NYSE", "side": "buy", "qty": 8, "price": 44.91, "curr": "USD", "comm": 0},
+    {"date": "2026-09-08", "ticker": "LULU", "exchange": "NASDAQ", "side": "buy", "qty": 5, "price": 121.7, "curr": "USD", "comm": 0},
+    {"date": "2026-08-20", "ticker": "PFE", "exchange": "NYSE", "side": "buy", "qty": 25, "price": 27.7, "curr": "USD", "comm": 0},
+    {"date": "2026-08-17", "ticker": "CPRT", "exchange": "NASDAQ", "side": "buy", "qty": 10, "price": 31.8, "curr": "USD", "comm": 9},
+    {"date": "2026-08-07", "ticker": "TTD", "exchange": "NASDAQ", "side": "buy", "qty": 45, "price": 13.8, "curr": "USD", "comm": 0},
+    {"date": "2026-08-07", "ticker": "HPQ", "exchange": "NYSE", "side": "sell", "qty": 30, "price": 30.01, "curr": "USD", "comm": 0},
+    {"date": "2026-08-07", "ticker": "FUN", "exchange": "NYSE", "side": "buy", "qty": 12, "price": 16.35, "curr": "USD", "comm": 9},
+    {"date": "2026-07-08", "ticker": "TRI", "exchange": "NASDAQ", "side": "buy", "qty": 7, "price": 91.12, "curr": "USD", "comm": 0},
+    {"date": "2026-07-03", "ticker": "SGBS", "exchange": "LSE", "side": "buy", "qty": 1, "price": 394.56, "curr": "USD", "comm": 0},
+    {"date": "2026-07-01", "ticker": "BF.B", "exchange": "NYSE", "side": "buy", "qty": 22, "price": 26.05, "curr": "USD", "comm": 0},
+    {"date": "2026-06-25", "ticker": "BR", "exchange": "NYSE", "side": "buy", "qty": 4, "price": 149.68, "curr": "USD", "comm": 0},
+    {"date": "2026-06-18", "ticker": "QCOM", "exchange": "NASDAQ", "side": "sell", "qty": 2, "price": 218.86, "curr": "USD", "comm": 9},
+    {"date": "2026-06-16", "ticker": "INTU", "exchange": "NASDAQ", "side": "sell", "qty": 3, "price": 279.75, "curr": "USD", "comm": 9},
+    {"date": "2026-06-10", "ticker": "US912810SZ21", "exchange": "EUROTLX", "side": "buy", "qty": 10, "price": 56.06, "curr": null, "comm": 0},
+    {"date": "2026-06-09", "ticker": "US912810RX81", "exchange": "EUROTLX", "side": "buy", "qty": 10, "price": 73.48, "curr": null, "comm": 0},
+    {"date": "2026-05-21", "ticker": "INTU", "exchange": "NASDAQ", "side": "buy", "qty": 1, "price": 307.37, "curr": "USD", "comm": 9},
+    {"date": "2026-05-21", "ticker": "BLDR", "exchange": "NYSE", "side": "buy", "qty": 9, "price": 69.4, "curr": "USD", "comm": 0},
+    {"date": "2026-05-19", "ticker": "PDD", "exchange": "NASDAQ", "side": "buy", "qty": 7, "price": 97, "curr": "USD", "comm": 0},
+    {"date": "2026-05-08", "ticker": "TTD", "exchange": "NASDAQ", "side": "buy", "qty": 25, "price": 24, "curr": "USD", "comm": 0},
+    {"date": "2026-05-06", "ticker": "IT0005425233", "exchange": "OTCB", "side": "buy", "qty": 10, "price": 58.16, "curr": null, "comm": 0},
+    {"date": "2026-05-01", "ticker": "INTU", "exchange": "NASDAQ", "side": "buy", "qty": 1, "price": 429.5, "curr": "USD", "comm": 9},
+    {"date": "2026-05-01", "ticker": "HPQ", "exchange": "NYSE", "side": "buy", "qty": 30, "price": 20.15, "curr": "USD", "comm": 0},
+    {"date": "2026-04-30", "ticker": "SAP", "exchange": "XETR", "side": "buy", "qty": 3, "price": 166.4, "curr": "EUR", "comm": 0},
+    {"date": "2026-04-30", "ticker": "EL", "exchange": "EURONEXT", "side": "buy", "qty": 3, "price": 179, "curr": "EUR", "comm": 0},
+    {"date": "2026-04-22", "ticker": "FMC", "exchange": "NYSE", "side": "buy", "qty": 22, "price": 14.75, "curr": "USD", "comm": 9},
+    {"date": "2026-04-08", "ticker": "INTU", "exchange": "NASDAQ", "side": "buy", "qty": 1, "price": 410.24, "curr": "USD", "comm": 9},
+    {"date": "2026-02-27", "ticker": "ERG", "exchange": "MIL", "side": "sell", "qty": 30, "price": 25.3, "curr": "EUR", "comm": 1.5},
+    {"date": "2026-01-20", "ticker": "LMT", "exchange": "NYSE", "side": "sell", "qty": 1, "price": 585, "curr": "USD", "comm": 9},
+    {"date": "2026-01-15", "ticker": "FUN", "exchange": "NYSE", "side": "buy", "qty": 12, "price": 16.25, "curr": "USD", "comm": 0},
+    {"date": "2026-01-14", "ticker": "INTU", "exchange": "NASDAQ", "side": "buy", "qty": 1, "price": 553, "curr": "USD", "comm": 6.63},
+    {"date": "2026-01-12", "ticker": "QCOM", "exchange": "NASDAQ", "side": "buy", "qty": 2, "price": 154.94, "curr": "USD", "comm": 9},
+    {"date": "2026-01-07", "ticker": "ERG", "exchange": "MIL", "side": "sell", "qty": 15, "price": 23, "curr": "EUR", "comm": 1.5},
+    {"date": "2025-12-11", "ticker": "BC", "exchange": "MIL", "side": "sell", "qty": 6, "price": 94.86, "curr": "EUR", "comm": 0},
+    {"date": "2025-11-07", "ticker": "DIA", "exchange": "MIL", "side": "buy", "qty": 8, "price": 59.42, "curr": "EUR", "comm": 1.5},
+    {"date": "2025-10-29", "ticker": "QCOM", "exchange": "NASDAQ", "side": "buy", "qty": 3, "price": 183.48, "curr": "USD", "comm": 0},
+    {"date": "2025-10-29", "ticker": "FUN", "exchange": "NYSE", "side": "buy", "qty": 12, "price": 25.96, "curr": "USD", "comm": 0},
+    {"date": "2025-10-10", "ticker": "RACE", "exchange": "MIL", "side": "buy", "qty": 1, "price": 342.6, "curr": "EUR", "comm": 1.5},
+    {"date": "2025-09-27", "ticker": "BC", "exchange": "MIL", "side": "buy", "qty": 6, "price": 78.06, "curr": "EUR", "comm": 0},
+    {"date": "2025-02-03", "ticker": "LMT", "exchange": "NYSE", "side": "buy", "qty": 1, "price": 528.88, "curr": "USD", "comm": 0},
+    {"date": "2025-01-17", "ticker": "ADBE", "exchange": "NASDAQ", "side": "buy", "qty": 1, "price": 486.37, "curr": "USD", "comm": 0},
+    {"date": "2024-12-02", "ticker": "ERG", "exchange": "MIL", "side": "buy", "qty": 45, "price": 19.72, "curr": "EUR", "comm": 0}
   ]
 }
