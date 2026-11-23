@@ -1,9 +1,9 @@
 """Piani di accumulo (pac.json → stato).
 
 Per ogni piano e ogni strumento ricostruisce le quote rata per rata: la rata scatta il giorno indicato del mese (o la
-prima seduta utile dopo) al prezzo di chiusura di quel giorno. Con quote_intere si comprano solo quote intere, come fa
-l'app della banca (il resto della rata non viene investito). Se per uno strumento ci sono quote e investito presi
-dall'app ('foto'), si parte da quelli e si aggiungono solo le rate successive alla data della foto.
+prima seduta utile dopo) al prezzo di chiusura di quel giorno. Con quote_intere si comprano solo quote intere (il resto
+della rata non viene investito). Se per uno strumento ci sono quote e investito a una certa data ('foto'), si parte da
+quelli e si aggiungono solo le rate successive.
 
 Scrive in pac.json → stato: quote, investito, prezzo e valore per strumento, totali per piano, prossima rata e lo
 storico giornaliero (valore, versato). I prezzi vengono da Yahoo Finance: se uno strumento non ha prezzi, il piano
@@ -103,14 +103,14 @@ def main():
                     q = math.floor(s['rata'] / prezzo) if p.get('quote_intere') else round(s['rata'] / prezzo, 4)
                     rate.append([g, q, round(prezzo, 4)])
                 return rate
-            # ricostruzione dalla data di inizio; se c'è la foto dall'app, da quel giorno valgono le quote vere
+            # ricostruzione dalla data di inizio; se c'è la foto, da quel giorno valgono le sue quote
             ric = esegui(date.fromisoformat(inizio), 0.0, 0.0) if inizio and p.get('ricostruisci', True) else []
             con_foto = s.get('quote') is not None and foto.get('data')
             if con_foto:
                 fd = foto['data']
                 dopo = esegui(date.fromisoformat(fd) + timedelta(days=1), 0, 0)
                 pezzi = [(None, fd, 0.0, 0.0, [r for r in ric if r[0] <= fd]), (fd, None, float(s['quote']), float(s.get('investito') or 0), dopo)]
-                ss['origine'] = 'quote dall\'app al ' + fd
+                ss['origine'] = 'quote al ' + fd
                 if ric:
                     ss['ricostruite_alla_foto'] = sum(r[1] for r in ric if r[0] <= fd)
             else:
@@ -118,7 +118,7 @@ def main():
                 ss['origine'] = 'ricostruito dal ' + inizio
             def stato_al(g, pezzi=pezzi):
                 for da, a, q0, i0, rr in pezzi:
-                    if (da is None or g >= da) and (a is None or g < a):      # dal giorno della foto valgono le quote dell'app
+                    if (da is None or g >= da) and (a is None or g < a):      # dal giorno della foto valgono le sue quote
                         return q0 + sum(r[1] for r in rr if r[0] <= g), i0 + sum(r[1] * r[2] for r in rr if r[0] <= g)
                 return 0.0, 0.0
             ultimo = giorni[-1]
