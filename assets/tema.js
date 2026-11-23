@@ -350,6 +350,7 @@
     }
     function disegnaOggi() {
         if (vistaOra !== 'oggi' || typeof perfPoints !== 'function') return;
+        if (primaVolta && document.getElementById('intro')) { document.addEventListener('mm-intro-fine', disegnaOggi, { once: true }); return; }
         let pts = [];
         try { pts = perfPoints(); } catch (e) { return; }
         if (!pts.length) return;
@@ -400,6 +401,17 @@
         });
         g.addEventListener('blur', giu);
     }
+
+    // titolo del riquadro secondo l'ora di chi legge: i dati sono quelli dell'ultima chiusura
+    function titoloQuadro() {
+        const el = $('#oggi-quadro-t'); if (!el) return;
+        const h = new Date().getHours();
+        const t = h < 5 ? 'Il quadro di stanotte' : h < 12 ? 'Il quadro di stamattina' : h < 18 ? 'Il quadro di oggi' : 'Il quadro di stasera';
+        if (el.textContent !== t) el.textContent = t;
+    }
+    titoloQuadro();
+    setInterval(titoloQuadro, 60000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) titoloQuadro(); });
 
     // ---------------------------------------------------------------- OGGI: il quadro della sera e i segnali
     function quadro() {

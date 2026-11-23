@@ -522,6 +522,64 @@
     <link rel="stylesheet" href="assets/tema.css?v=6">
 </head>
 <body>
+    <!-- Apertura: il logo si compone mentre la pagina carica (una volta per sessione, mai con "riduci movimento") -->
+    <div id="intro" class="intro" aria-hidden="true">
+        <style>
+            .intro { position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+                background: radial-gradient(60% 50% at 30% 20%, rgba(217,174,87,.14), transparent 70%), radial-gradient(60% 60% at 80% 10%, rgba(52,108,172,.32), transparent 70%), linear-gradient(180deg, #102031, #0B1520 55%, #08111A);
+                transition: opacity .5s cubic-bezier(.16,1,.3,1), visibility .5s; }
+            .intro.via { opacity: 0; visibility: hidden; }
+            .intro.via .intro-logo { transform: scale(.92); }
+            .intro-logo { width: 104px; height: 104px; overflow: visible; transition: transform .5s cubic-bezier(.16,1,.3,1); filter: drop-shadow(0 18px 40px rgba(0,0,0,.55)); }
+            .intro-logo .fondo { transform-box: fill-box; transform-origin: center; animation: introFondo .55s cubic-bezier(.16,1,.3,1) both; }
+            .intro-logo .m { transform-box: fill-box; transform-origin: 50% 100%; animation: introSale .6s cubic-bezier(.16,1,.3,1) both; }
+            .intro-logo .m1 { animation-delay: .25s; } .intro-logo .m2 { animation-delay: .42s; }
+            .intro-logo .st { transform-box: fill-box; animation: introSale .35s cubic-bezier(.16,1,.3,1) both; }
+            .intro-logo .su { transform-origin: 50% 100%; } .intro-logo .giu { transform-origin: 50% 0%; }
+            .intro-logo .s1 { animation-delay: .7s; } .intro-logo .s2 { animation-delay: .78s; } .intro-logo .s3 { animation-delay: .86s; } .intro-logo .s4 { animation-delay: .94s; }
+            .intro-logo .luce { animation: introLuce .8s ease-in-out 1s both; }
+            .intro-nome { font: 700 1.05rem 'Bricolage Grotesque', 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: -.01em; color: #E9EEF3; opacity: 0; animation: introNome .6s cubic-bezier(.16,1,.3,1) .75s both; }
+            @keyframes introFondo { from { opacity: 0; transform: scale(.8); } }
+            @keyframes introSale { from { transform: scaleY(0); } }
+            @keyframes introNome { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+            @keyframes introLuce { from { transform: translateX(-90px); } to { transform: translateX(90px); } }
+            @media (prefers-reduced-motion: reduce) { .intro { display: none; } }
+        </style>
+        <svg class="intro-logo" viewBox="0 0 64 64" role="presentation">
+            <defs>
+                <clipPath id="intro-forma"><rect width="64" height="64" rx="14"/></clipPath>
+                <linearGradient id="intro-riflesso" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+            </defs>
+            <g clip-path="url(#intro-forma)">
+                <rect class="fondo" width="64" height="64" rx="14" fill="#0B1520" stroke="rgba(217,174,87,.35)" stroke-width="1"/>
+                <path class="m m1" fill="#fff" d="M9 45V21h5.2L19.5 29.899L24.8 21h5.2V45h-5.2V28.475L19.5 37.972L14.2 28.475V45z"/>
+                <path class="m m2" fill="#D9AE57" d="M34 45V21h5.2L44.5 29.899L49.8 21h5.2V45h-5.2V28.475L44.5 37.972L39.2 28.475V45z"/>
+                <g stroke-width="1.6" stroke-linecap="round">
+                    <path class="st su s1" stroke="#fff" d="M11.6 21v-5.5"/><path class="st giu s2" stroke="#fff" d="M27.4 45v4.5"/>
+                    <path class="st giu s3" stroke="#D9AE57" d="M36.6 45v4.5"/><path class="st su s4" stroke="#D9AE57" d="M52.4 21v-5.5"/>
+                </g>
+                <rect class="luce" x="-30" y="-10" width="28" height="84" fill="url(#intro-riflesso)" transform="skewX(-18)"/>
+            </g>
+        </svg>
+        <span class="intro-nome">Matteo Mazzero</span>
+    </div>
+    <script>
+        (function () {
+            var el = document.getElementById('intro'), fine = function () { document.documentElement.classList.remove('con-intro'); document.dispatchEvent(new Event('mm-intro-fine')); };
+            try {
+                if (sessionStorage.getItem('mm_intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.remove(); return; }
+                sessionStorage.setItem('mm_intro', '1');
+            } catch (e) {}
+            document.documentElement.classList.add('con-intro');
+            var t0 = Date.now(), fatto = false;
+            function via() {
+                if (fatto) return; fatto = true;
+                setTimeout(function () { el.classList.add('via'); setTimeout(function () { el.remove(); fine(); }, 450); }, Math.max(0, 1700 - (Date.now() - t0)));
+            }
+            window.addEventListener('load', via);
+            setTimeout(via, 3500);       // se qualcosa tarda, la pagina si mostra comunque
+        })();
+    </script>
 
     <div id="toast-container"></div>
 
@@ -4095,6 +4153,6 @@
         };
 
     </script>
-    <script src="assets/tema.js?v=4"></script>
+    <script src="assets/tema.js?v=5"></script>
 </body>
 </html>
