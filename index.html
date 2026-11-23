@@ -4030,7 +4030,7 @@
         async function loadLatestYouTubeVideo() {
             const CHANNEL_ID = 'UCflbinnpV6oa8dwfbMh1FNw'; // @investireconmatteomazzero
             const CACHE_KEY = 'mm_yt_cache';
-            const CACHE_TTL = 3600000; // 1 ora
+            const CACHE_TTL = 15 * 60 * 1000;   // 15 minuti: un video nuovo compare presto anche a chi ha il sito aperto // 1 ora
 
             // Prova a usare la cache sessionStorage
             try {
@@ -4041,7 +4041,7 @@
                 }
             } catch(e) {}
 
-            // latest_video.json è aggiornato ogni 6 ore dal GitHub Action
+            // latest_video.json è aggiornato ogni ora dal GitHub Action
             try {
                 const r = await fetch(DATA_BASE + 'latest_video.json?v=' + Date.now(), { signal: AbortSignal.timeout(8000) });
                 if (r.ok) {
