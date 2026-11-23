@@ -192,11 +192,12 @@
   }
  ],
  "stato": {
-  "aggiornato": "2026-11-23T10:37:42Z",
+  "aggiornato": "2026-11-23T12:21:47Z",
   "piani": [
    {
     "id": "etf",
     "nome": "PAC su dieci ETF",
+    "descrizione": "Ogni mese si comprano solo quote intere di ciascun ETF, al prezzo di chiusura del giorno della rata.",
     "giorno": 1,
     "rata": 265,
     "prossima": "2026-12-01",
@@ -215,9 +216,9 @@
       "ricostruite_alla_foto": 3,
       "quote": 3.0,
       "investito": 79.57,
-      "prezzo": 25.57,
+      "prezzo": 25.59,
       "data_prezzo": "2026-11-23",
-      "valore": 76.71,
+      "valore": 76.77,
       "rate": []
      },
      {
@@ -234,9 +235,9 @@
       "ricostruite_alla_foto": 3,
       "quote": 3.0,
       "investito": 89.17,
-      "prezzo": 27.32,
+      "prezzo": 27.46,
       "data_prezzo": "2026-11-23",
-      "valore": 81.96,
+      "valore": 82.38,
       "rate": []
      },
      {
@@ -252,9 +253,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 9.0,
       "investito": 97.27,
-      "prezzo": 10.408,
+      "prezzo": 10.434,
       "data_prezzo": "2026-11-23",
-      "valore": 93.67,
+      "valore": 93.91,
       "rate": [
        [
         "2026-09-01",
@@ -286,9 +287,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 55.15,
-      "prezzo": 18.446,
+      "prezzo": 18.458,
       "data_prezzo": "2026-11-23",
-      "valore": 55.34,
+      "valore": 55.37,
       "rate": [
        [
         "2026-09-01",
@@ -320,9 +321,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 21.73,
-      "prezzo": 6.154,
+      "prezzo": 6.149,
       "data_prezzo": "2026-11-23",
-      "valore": 18.46,
+      "valore": 18.45,
       "rate": [
        [
         "2026-09-01",
@@ -354,9 +355,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 40.66,
-      "prezzo": 14.206,
+      "prezzo": 14.234,
       "data_prezzo": "2026-11-23",
-      "valore": 42.62,
+      "valore": 42.7,
       "rate": [
        [
         "2026-09-01",
@@ -422,9 +423,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 32.99,
-      "prezzo": 7.95,
+      "prezzo": 7.974,
       "data_prezzo": "2026-11-23",
-      "valore": 23.85,
+      "valore": 23.92,
       "rate": [
        [
         "2026-09-01",
@@ -514,7 +515,7 @@
     ],
     "avvisi": [],
     "investito": 667.52,
-    "valore": 640.06,
+    "valore": 640.95,
     "storia": [
      [
       "2026-09-01",
@@ -813,7 +814,7 @@
      ],
      [
       "2026-11-23",
-      640.05,
+      640.94,
       667.52
      ]
     ],
@@ -821,12 +822,12 @@
      "data": "2026-11-23",
      "investito": 668.12,
      "valore": 636.06
-    },
-    "descrizione": "Ogni mese si comprano solo quote intere di ciascun ETF, al prezzo di chiusura del giorno della rata."
+    }
    },
    {
     "id": "cpr",
     "nome": "PAC su CPR Invest Global Resources",
+    "descrizione": "Fondo comune: ogni rata compra quote al valore della quota del giorno.",
     "giorno": 28,
     "rata": 200,
     "prossima": "2026-11-28",
@@ -867,8 +868,7 @@
      "iniziale": 300,
      "rate_versate": 8,
      "pagato": 1900
-    },
-    "descrizione": "Fondo comune: ogni rata compra quote al valore della quota del giorno."
+    }
    }
   ]
  }
