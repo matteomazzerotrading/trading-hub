@@ -321,14 +321,18 @@
         .tbo-chip { display: inline-flex; align-items: baseline; gap: 6px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: 8px; padding: 4px 8px; cursor: pointer; color: #fff; font: inherit; text-align: left; }
         .tbo-chip:hover { border-color: var(--accent); }
         .tbo-chip .s { font-size:0.8rem; color: var(--text-muted); line-height: 1.2; white-space: nowrap; }
+        th.tbo-col-prec, td.tbo-col-prec { width: 1%; white-space: nowrap; }
+        #tbo-tbody td:nth-child(2) { white-space: normal; min-width: 150px; max-width: 240px; }
         .tbo-chip .f { font-size:0.82rem; color: var(--accent); margin-left: 2px; flex-shrink: 0; }
         .tbo-dett-riga td { background: rgba(255,255,255,0.025); cursor: default; }
         .tbo-dett { font-size: 0.86em; color: #ddd; line-height: 1.6; max-width: 900px; padding: 4px 2px; white-space: normal; position: sticky; left: 12px; }
         .tbo-prec-mob { display: none; margin-top: 6px; }
         @media (max-width: 700px) {
-            .tbo-col-prec { display: none; }
+            /* sul telefono la tabella diventa a schede: i precedenti stanno sotto il nome, una volta sola */
+            .tbo-col-prec, .schede-mobile tbody td.tbo-col-prec { display: none; }
             .tbo-prec-mob { display: block; }
-            .tbo-dett { width: calc(100vw - 125px); }
+            .tbo-prec-mob .tbo-chip { max-width: 100%; }
+            .tbo-dett { width: auto; position: static; max-width: 100%; }
         }
         .tbo-dett p { margin: 0 0 8px; }
         .tbo-dett .nota { font-size: 0.85em; color: var(--text-muted); margin: 0; }
@@ -1233,6 +1237,10 @@
                     <option value="c">Solo Compra</option>
                     <option value="x">Solo chiusure all'80%</option>
                 </select>
+                <select id="tbo-ord" class="screener-search" aria-label="Ordina i segnali" onchange="renderTbo()" style="max-width:230px; cursor:pointer; flex:0 0 auto;" title="Affidabilità: quante volte, in passato, i segnali della strategia su quel titolo sono andati nella direzione giusta (colonna Precedenti)">
+                    <option value="">Ordina per data</option>
+                    <option value="aff">Ordina per affidabilità</option>
+                </select>
                 <label class="scr-check" title="Mostra solo i titoli che il mio fair value giudica sottovalutati"><input type="checkbox" id="tbo-sotto" onchange="renderTbo()"> Solo sottovalutati per il fair value</label>
             </div>
             <div class="screener-table-wrap">
@@ -1242,7 +1250,7 @@
                             <th>Seduta</th>
                             <th>Titolo</th>
                             <th title="Compra: la strategia apre un nuovo acquisto. Chiusa all'80%: vende l'80% della posizione che ha sul titolo.">Segnale</th>
-                            <th title="Prezzo di chiusura della seduta del segnale: è il prezzo a cui la strategia esegue l'ordine">Chiusura di quel giorno</th>
+                            <th title="Prezzo di chiusura della seduta del segnale: è il prezzo a cui la strategia esegue l'ordine">Prezzo del segnale</th>
                             <th title="Variazione dal prezzo di chiusura di quel giorno all'ultimo prezzo disponibile">Da allora</th>
                             <th title="Il giudizio del mio fair value sul prezzo attuale: clicca il titolo per l'analisi">Fair value</th>
                             <th class="tbo-col-prec" title="Come sono andati i segnali passati della strategia su questo titolo: tocca per il dettaglio">Precedenti</th>
@@ -2554,6 +2562,12 @@
                     && (!quali || (quali === 'ext') === !!r.ext))
                 .map(r => { const e = scheda(r), p = prezzo(e); return { ...r, e, p0: r.p, p, v: p > 0 && (!e.altro || e.conFv) ? fvVerdict(e, p) : null }; })
                 .filter(r => (!mkt || FVEngine.mercato(r.e) === mkt) && (!sotto || (r.v && r.v.cat === 'sotto')));
+            // per affidabilità: la percentuale dei precedenti sul titolo (Compra: in guadagno dopo 12 mesi; chiusure: calo nei
+            // 3 mesi dopo), a parità quella con più casi; in fondo i titoli con pochi precedenti, poi per data
+            if (document.getElementById('tbo-ord').value === 'aff') {
+                const aff = r => { const P = r.pr; if (!P) return [-1, 0]; return r.k === 'c' ? (P.n12 >= 3 ? [P.p12, P.n12] : [-1, 0]) : (P.u >= 2 ? [P.uc, P.u] : [-1, 0]); };
+                righe.sort((a, b) => { const x = aff(a), y = aff(b); return y[0] - x[0] || y[1] - x[1] || (a.d < b.d ? 1 : a.d > b.d ? -1 : 0); });
+            }
             const tot = righe.length, mostra = tboTutti ? righe : righe.slice(0, 15);
             const num = x => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' });
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
@@ -2596,8 +2610,8 @@
             const P = r.pr;
             if (!P || (r.k === 'c' ? !(P.n12 >= 3) : !(P.u >= 2))) return '<span style="color:var(--text-muted); font-size:0.8em; white-space:nowrap;">pochi dati</span>';
             const [val, sotto, col] = r.k === 'c'
-                ? [P.p12, 'in guadagno dopo 12 mesi', P.p12 - P.q12 >= 5 ? '#4CC38A' : P.p12 - P.q12 <= -5 ? '#E8A055' : '#fff']
-                : [P.uc, 'calo nei 3 mesi dopo', P.uc >= 60 ? '#4CC38A' : P.uc < 40 ? '#E8A055' : '#fff'];
+                ? [P.p12, 'in guadagno a 12 mesi', P.p12 - P.q12 >= 5 ? '#4CC38A' : P.p12 - P.q12 <= -5 ? '#E8A055' : '#fff']
+                : [P.uc, 'in calo a 3 mesi', P.uc >= 60 ? '#4CC38A' : P.uc < 40 ? '#E8A055' : '#fff'];
             return `<button class="tbo-chip" aria-expanded="${aperto}" onclick="event.stopPropagation(); tboDettagli.has('${esc(idR)}') ? tboDettagli.delete('${esc(idR)}') : tboDettagli.add('${esc(idR)}'); renderTbo()">
                 <span class="mono-font" style="color:${col}; font-weight:800;">${pcIt(val)}%</span><span class="s">${sotto}</span><span class="f">${aperto ? '▴' : '▾'}</span></button>`;
         }
