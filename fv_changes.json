@@ -1,6 +1,13 @@
 {
- "aggiornato": "2026-11-23T21:46:20.345Z",
+ "aggiornato": "2026-11-24T06:09:02.715Z",
  "cambi": [
+  {
+   "data": "2026-11-24",
+   "t": "LMT",
+   "nome": "Lockheed Martin",
+   "da": "banda",
+   "a": "sotto"
+  },
   {
    "data": "2026-11-23",
    "t": "CB",
@@ -480,65 +487,51 @@
  ],
  "cambi_altri": [
   {
-   "data": "2026-11-23",
-   "t": "ATAT",
-   "nome": "Atour Lifestyle Holdings Ltd. Sponsored ADR",
+   "data": "2026-11-24",
+   "t": "ALC.SW",
+   "nome": "Alcon AG",
+   "da": "premio_dubbio",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-24",
+   "t": "STE",
+   "nome": "Steris",
+   "da": "premio_sostenuto",
+   "a": "premio_dubbio"
+  },
+  {
+   "data": "2026-11-24",
+   "t": "TATE.L",
+   "nome": "Tate & Lyle PLC",
+   "da": "equa_declino",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-24",
+   "t": "TNL",
+   "nome": "Travel + Leisure Co.",
    "da": "banda",
    "a": "sotto"
   },
   {
-   "data": "2026-11-23",
-   "t": "ATMU",
-   "nome": "Atmus Filtration Technologies Inc.",
+   "data": "2026-11-24",
+   "t": "UPWK",
+   "nome": "Upwork, Inc.",
    "da": "sopra",
    "a": "premio_sostenuto"
   },
   {
-   "data": "2026-11-23",
-   "t": "SSB",
-   "nome": "South State Bank",
+   "data": "2026-11-24",
+   "t": "VTRS",
+   "nome": "Viatris",
    "da": "banda",
-   "a": "sotto"
+   "a": "equa_declino"
   },
   {
-   "data": "2026-11-23",
-   "t": "UFPI",
-   "nome": "UFP Industries",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "YOU",
-   "nome": "Clear Secure, Inc.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
+   "data": "2026-11-24",
    "t": "BCO",
    "nome": "Brink's",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "FCF",
-   "nome": "First Commonwealth Financial, Corp.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "KBX.DE",
-   "nome": "Knorr-Bremse AG",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-23",
-   "t": "MAT",
-   "nome": "Mattel",
    "da": "banda",
    "a": "sotto"
   }
