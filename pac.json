@@ -198,7 +198,7 @@
   }
  ],
  "stato": {
-  "aggiornato": "2026-11-24T06:08:58Z",
+  "aggiornato": "2026-11-24T08:16:22Z",
   "piani": [
    {
     "id": "etf",
@@ -217,7 +217,7 @@
       "tv": "XETR:EXSH",
       "paese": "Europa",
       "settore": "Azionario diversificato",
-      "simbolo": "DE0002635299",
+      "simbolo": "EXSH.DE",
       "origine": "quote al 2026-11-23",
       "ricostruite_alla_foto": 3,
       "quote": 3.0,

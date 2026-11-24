@@ -1,12 +1,12 @@
 {
- "aggiornato": "2026-11-24T06:09:02.715Z",
+ "aggiornato": "2026-11-24T08:16:26.485Z",
  "cambi": [
   {
    "data": "2026-11-24",
    "t": "LMT",
    "nome": "Lockheed Martin",
-   "da": "banda",
-   "a": "sotto"
+   "da": "sotto",
+   "a": "banda"
   },
   {
    "data": "2026-11-23",
@@ -488,52 +488,45 @@
  "cambi_altri": [
   {
    "data": "2026-11-24",
-   "t": "ALC.SW",
-   "nome": "Alcon AG",
+   "t": "STE",
+   "nome": "Steris",
    "da": "premio_dubbio",
    "a": "premio_sostenuto"
   },
   {
    "data": "2026-11-24",
-   "t": "STE",
-   "nome": "Steris",
-   "da": "premio_sostenuto",
-   "a": "premio_dubbio"
-  },
-  {
-   "data": "2026-11-24",
    "t": "TATE.L",
    "nome": "Tate & Lyle PLC",
-   "da": "equa_declino",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "TNL",
-   "nome": "Travel + Leisure Co.",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "UPWK",
-   "nome": "Upwork, Inc.",
-   "da": "sopra",
-   "a": "premio_sostenuto"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "VTRS",
-   "nome": "Viatris",
    "da": "banda",
    "a": "equa_declino"
   },
   {
    "data": "2026-11-24",
-   "t": "BCO",
-   "nome": "Brink's",
-   "da": "banda",
-   "a": "sotto"
+   "t": "TNL",
+   "nome": "Travel + Leisure Co.",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-24",
+   "t": "UPWK",
+   "nome": "Upwork, Inc.",
+   "da": "premio_sostenuto",
+   "a": "sopra"
+  },
+  {
+   "data": "2026-11-24",
+   "t": "VCT.PA",
+   "nome": "Vicat SA",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-24",
+   "t": "VTRS",
+   "nome": "Viatris",
+   "da": "equa_declino",
+   "a": "banda"
   }
  ]
 }
