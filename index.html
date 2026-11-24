@@ -2929,7 +2929,7 @@
                         <td style="padding:10px 8px; text-align:right; color:var(--text-muted);">${p.alloc_pct.toFixed(1)}%</td>
                         <td style="padding:10px 8px; text-align:right;">${p.qty}</td>
                         <td style="padding:10px 8px; text-align:right; font-family:'JetBrains Mono',monospace;">${p.avg_price.toFixed(2)} ${p.curr}</td>
-                        <td style="padding:10px 16px; text-align:right; font-family:'JetBrains Mono',monospace; color:${plColor};">${fmtRaw(inEuro() && azEur(p) ? p.unrealized_pl / cambioFisso(p.ticker) : inV(p.unrealized_pl), { segno: true })}</td>
+                        <td style="padding:10px 16px; text-align:right; font-family:'JetBrains Mono',monospace; color:${plColor};">${fmtV(p.unrealized_pl, { segno: true })}</td>
                     </tr>`;
                 }).join('');
             }
@@ -3233,71 +3233,6 @@
             return inEuro() ? `${s}${n} €` : `${s}$${n}`;
         }
         const fmtV = (usd, o) => fmtRaw(inV(usd), o);       // importo in dollari → valuta scelta, al cambio di oggi
-
-        // === AZIONI IN EURO A CAMBIO FISSO ===
-        // TradingView conta in dollari le azioni comprate in euro al cambio fissato all'acquisto: il loro valore in dollari
-        // si muove solo con il prezzo. In euro valgono quantità × prezzo, senza effetto del cambio. Nella vista in euro si
-        // toglie quindi dal totale in dollari la loro parte e si aggiunge il loro valore in euro; il resto (titoli in dollari,
-        // obbligazioni in euro, che TradingView valuta al cambio del giorno) si converte al cambio.
-        const ISIN_RE = /^[A-Z]{2}[A-Z0-9]{9}[0-9]$/;
-        const azEur = p => !!p && p.curr === 'EUR' && p.type !== 'bond' && !ISIN_RE.test(p.ticker || '');
-        // cambio fisso di un'azione: dalla fotografia (valore in dollari / quantità × prezzo)
-        function cambioFisso(t) {
-            const snap = portfolioData && portfolioData.snapshot, ref = snap && snap.positions && snap.positions[t];
-            if (ref && ref.qty > 0 && ref.price > 0 && ref.value_usd > 0) return ref.value_usd / (ref.qty * ref.price);
-            const d0 = ((portfolioData && portfolioData.operazioni) || []).filter(o => o.ticker === t && o.side === 'buy').map(o => o.date).sort()[0];
-            return d0 ? fxAl(d0) : fxOra();          // posizione nuova, non ancora nella fotografia
-        }
-        // solo le azioni in euro ancora in portafoglio: di quelle vendute non si conosce il cambio fissato, e TradingView ha
-        // già convertito in dollari quanto incassato; restano come le conta TradingView, al cambio di ogni giorno
-        const opsAzEur = () => {
-            const pd = portfolioData, tic = new Set(((pd && pd.positions) || []).filter(azEur).map(p => p.ticker));
-            return ((pd && pd.operazioni) || []).filter(o => tic.has(o.ticker));
-        };
-        function qtaAzEur(iso) {             // azioni in euro in portafoglio alla chiusura del giorno: ticker → quantità
-            const q = {};
-            for (const o of opsAzEur()) if (o.date <= iso) q[o.ticker] = (q[o.ticker] || 0) + (o.side === 'sell' ? -1 : 1) * (Number(o.qty) || 0);
-            for (const t in q) if (q[t] < 1e-9) delete q[t];
-            return q;
-        }
-        // prezzo in euro di un'azione in un giorno: in movimento, dalla fotografia con la variazione di oggi; il giorno della
-        // fotografia (o dopo), il prezzo della fotografia; prima, la chiusura del giorno o dell'ultima seduta (benchmarks.json)
-        function prezzoAzEur(t, iso, live) {
-            const snap = portfolioData && portfolioData.snapshot, ref = snap && snap.positions && snap.positions[t];
-            if (ref && ref.price > 0 && (live || iso >= snap.date)) return ref.price * (live && portLive && portLive.varia ? (portLive.varia[t] || 1) : 1);
-            const S = benchDati && benchDati.titoli_eur && benchDati.titoli_eur[t];
-            if (S && S.d.length && iso >= S.d[0]) {
-                let lo = 0, hi = S.d.length - 1, r = 0; while (lo <= hi) { const m = (lo + hi) >> 1; if (S.d[m] <= iso) { r = m; lo = m + 1; } else hi = m - 1; }
-                return S.c[r];
-            }
-            const op = opsAzEur().find(o => o.ticker === t && o.side === 'buy');
-            return op ? Number(op.price) || 0 : 0;
-        }
-        // valore delle azioni in euro con le quantità date e i prezzi del giorno: { usd: come lo conta TradingView, eur }
-        function valAzEur(Q, iso, live) {
-            let usd = 0, eur = 0;
-            for (const t in Q) { const e = Q[t] * prezzoAzEur(t, iso, live); eur += e; usd += e * cambioFisso(t); }
-            return { usd, eur };
-        }
-        // le azioni in euro di adesso: valore e guadagno non realizzato, in dollari (TradingView) e in euro
-        function parteAzEur(foto) {
-            const pd = portfolioData, out = { usd: 0, eur: 0, plUsd: 0, plEur: 0 };
-            if (!pd || !pd.positions) return out;
-            const snap = pd.snapshot, L = !foto && portLive && portLive.eur, uguale = snap && snap.summary && snap.summary.total_value_usd === pd.summary.total_value_usd;
-            for (const p of pd.positions) {
-                if (!azEur(p)) continue;
-                const ref = snap && snap.positions && snap.positions[p.ticker], k = cambioFisso(p.ticker);
-                let v, pl;
-                if (L && L[p.ticker]) [v, pl] = L[p.ticker];
-                else if (ref && (foto || uguale)) { v = ref.value_usd; pl = ref.unrealized_pl; }
-                else { v = p.alloc_pct / 100 * pd.summary.total_value_usd; pl = p.unrealized_pl; }
-                out.usd += v; out.eur += v / k; out.plUsd += pl; out.plEur += pl / k;
-            }
-            return out;
-        }
-        // importo in dollari di TradingView → valuta scelta, con le azioni in euro al loro valore in euro
-        const totV = (usd, parte) => (inEuro() && parte ? (usd - parte.usd) / fxOra() + parte.eur : inV(usd));
-        const plV = (usd, parte) => (inEuro() && parte ? (usd - parte.plUsd) / fxOra() + parte.plEur : inV(usd));
         function setValuta(v) {
             portValuta = v; try { localStorage.setItem('mm_valuta', v); } catch (e) {}
             aggiornaSelValuta();
@@ -3309,7 +3244,7 @@
         function aggiornaSelValuta() {
             for (const k of ['EUR', 'USD']) { const b = document.getElementById('val-' + k); if (b) b.classList.toggle('attiva', portValuta === k); }
             const n = document.getElementById('valuta-nota');
-            if (n) { n.style.display = inEuro() ? '' : 'none'; n.innerText = `Valori in euro al cambio di oggi (1 € = ${fxOra().toLocaleString('it-IT', { minimumFractionDigits: 4, maximumFractionDigits: 4 })} $); storico e rendimenti al cambio di ogni giorno. Le azioni europee contano al loro valore in euro, senza effetto del cambio. Il portafoglio su TradingView è in dollari.`; }
+            if (n) { n.style.display = inEuro() ? '' : 'none'; n.innerText = `Valori in euro al cambio di oggi (1 € = ${fxOra().toLocaleString('it-IT', { minimumFractionDigits: 4, maximumFractionDigits: 4 })} $); storico e rendimenti al cambio di ogni giorno. Il portafoglio su TradingView è in dollari.`; }
         }
         function perfPointsUsd() {
             const history = (portfolioData && portfolioData.history) || [];
@@ -3331,29 +3266,18 @@
             }
             return conPac(pts);
         }
-        // Storico nella valuta scelta. In euro: la parte in dollari / cambio del giorno, più le azioni in euro al loro valore
-        // in euro (quantità × chiusura del giorno). Rendimento concatenato giorno per giorno: quello di TradingView (r$) si
-        // divide tra azioni in euro (rE, dai loro prezzi) e resto (rU); in euro il resto prende anche l'effetto del cambio,
-        // le azioni in euro no. Profitto in euro accumulato da quei rendimenti.
+        // Storico nella valuta scelta. In euro: valore / cambio del giorno; rendimento concatenato giorno per giorno,
+        // (1 + r$) × cambio di ieri / cambio di oggi; profitto in euro accumulato da quei rendimenti.
         function perfPoints() {
             const pts = perfPointsUsd();
             if (!inEuro() || !pts.length) return pts;
             const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
             const fx = pts.map(p => (p.live ? fxOra() : fxAl(iso(p.d))));
-            const conAz = !!(benchDati && benchDati.titoli_eur);       // senza le chiusure, tutto al cambio del giorno
-            const Q = pts.map(p => (conAz ? qtaAzEur(p.live ? '9999-12-31' : iso(p.d)) : {}));
-            const A = pts.map((p, i) => valAzEur(Q[i], iso(p.d), p.live));
             const out = []; let I = pts[0].perf != null ? 1 + pts[0].perf / 100 : null, pl = pts[0].pl != null ? pts[0].pl / fx[0] : null;
             for (let i = 0; i < pts.length; i++) {
-                const p = pts[i], v = (p.v - A[i].usd) / fx[i] + A[i].eur;
+                const p = pts[i], v = p.v / fx[i];
                 if (i > 0 && I != null && p.perf != null && pts[i - 1].perf != null) {
-                    const g = (1 + p.perf / 100) / (1 + pts[i - 1].perf / 100), a = A[i - 1];
-                    // azioni in euro di ieri ai prezzi di oggi: il loro rendimento, senza acquisti e vendite del giorno
-                    const m = a.eur > 0 ? valAzEur(Q[i - 1], iso(p.d), p.live) : a;
-                    const gEu = a.usd > 0 ? m.usd / a.usd : 1, gEe = a.eur > 0 ? m.eur / a.eur : 1;
-                    const w = pts[i - 1].v > 0 ? a.usd / pts[i - 1].v : 0, wE = out[i - 1].v > 0 ? a.eur / out[i - 1].v : 0;
-                    const gU = w < 0.999 ? (g - w * gEu) / (1 - w) : 1;
-                    const r = (1 - wE) * gU * (fx[i - 1] / fx[i]) + wE * gEe;
+                    const r = (1 + p.perf / 100) / (1 + pts[i - 1].perf / 100) * (fx[i - 1] / fx[i]);
                     if (pl != null) pl += out[i - 1].v * (r - 1);
                     I *= r;
                 }
@@ -3824,23 +3748,18 @@
             const s = pd.summary, snap = pd.snapshot, L = portLive && snap ? portLive : null;
             const pcs = x => (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2).replace('.', ',') + '%';
             aggiornaSelValuta();
-            const valTv = L ? L.tot : s.total_value_usd, AZ = parteAzEur();
-            const valV = totV(valTv, AZ) + inV(pacUsd());
-            document.getElementById('port-total').innerText = fmtRaw(valV);
+            const valTv = L ? L.tot : s.total_value_usd;
+            document.getElementById('port-total').innerText = fmtV(valTv + pacUsd());
             let nr = s.unrealized_pl_usd, nrPct = s.unrealized_pl_pct;
             if (L) { nr = snap.summary.unrealized_pl_usd + L.d; nrPct = snap.unrealized_base ? nr / snap.unrealized_base * 100 : snap.summary.unrealized_pl_pct; }
-            let nrV = plV(nr, AZ);
             if (pacEur() > 0) {          // i piani di accumulo: guadagno = valore − versato
                 const base = (nrPct ? nr / (nrPct / 100) : valTv - nr) + pacVersEur() * fxOra();
                 nr += (pacEur() - pacVersEur()) * fxOra(); nrPct = base ? nr / base * 100 : nrPct;
-                nrV += inV((pacEur() - pacVersEur()) * fxOra());
             }
-            // in euro la percentuale si rifà sul costo in euro (valore − guadagno)
-            if (inEuro() && valV - nrV > 0) nrPct = nrV / (valV - nrV) * 100;
             renderPac();
             const unreal = document.getElementById('port-unreal');
-            unreal.innerText = fmtRaw(nrV, { segno: true }) + ' (' + pcs(nrPct) + ')';
-            unreal.style.color = nrV >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
+            unreal.innerText = fmtV(nr, { segno: true }) + ' (' + pcs(nrPct) + ')';
+            unreal.style.color = nr >= 0 ? 'var(--brand-green)' : 'var(--accent-red)';
             // da inizio anno e ultimi 12 mesi: dallo storico giornaliero, con il punto in movimento se c'è
             const per = pd.periods || {}, pts = perfPoints();
             const daStorico = k => { const P = perfPeriodo(pts, k); return P && P.conPerf ? P : null; };
@@ -3987,28 +3906,23 @@
             // su chiusura precedente; altrimenti la seduta è già compresa nella fotografia e non c'è variazione
             const varia = q => (q && q.t && q.c1 > 0 && giornoRoma(q.t) > snap.date) ? q.c / q.c1 : 1;
             let tot = Number(pd.summary.cash_usd) || 0, ferme = 0;
-            const eur = {}, vari = {};                 // azioni in euro: [valore, guadagno] in dollari; variazione del prezzo
             for (const p of pd.positions || []) {
                 const ref = snap.positions[p.ticker], q = prezzi[sim(p)];
                 if (!ref) { tot += p.alloc_pct / 100 * pd.summary.total_value_usd; ferme++; continue; }
-                const f = q ? varia(q) : 1;
-                if (!q) ferme++;
-                tot += ref.value_usd * f * fxPos(p);
-                if (azEur(p)) { vari[p.ticker] = f; eur[p.ticker] = [ref.value_usd * f, ref.unrealized_pl + ref.value_usd * (f - 1)]; }
+                if (q) tot += ref.value_usd * varia(q) * fxPos(p);
+                else { tot += ref.value_usd * fxPos(p); ferme++; }
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
-            const base = snap.summary.total_value_usd, d = tot - base;
-            portLive = { tot, d, eur, varia: vari };
-            // variazione dalla fotografia nella valuta scelta (in euro, azioni in euro al loro valore in euro)
-            const baseV = totV(base, parteAzEur(true)), dV = totV(tot, parteAzEur()) - baseV, col = dV >= 0 ? '#4CC38A' : '#ff5252';
-            el.innerText = fmtRaw(totV(tot, parteAzEur()) + inV(pacUsd()));
+            const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#4CC38A' : '#ff5252';
+            portLive = { tot, d };
+            el.innerText = fmtV(tot);
             renderPortKpi();
             perfSenzaAnimazione = true; try { renderPerfChart(); } catch (e) {} finally { perfSenzaAnimazione = false; }
             if (portLivePrec != null && Math.abs(tot - portLivePrec) >= 0.01) { el.style.color = tot > portLivePrec ? '#4CC38A' : '#ff5252'; setTimeout(() => { el.style.color = ''; }, 900); }
             portLivePrec = tot;
             const [y, m, g] = String(snap.date || '').split('-');
             nota.style.display = 'block';
-            nota.innerHTML = `<span style="color:${col}; font-weight:700;">${fmtRaw(dV, { segno: true })} (${itPct(dV / baseV * 100, 2)})</span> dal ${+g} ${PERF_MESI[+m - 1] || ''}`
+            nota.innerHTML = `<span style="color:${col}; font-weight:700;">${fmtV(d, { segno: true })} (${itPct(d / base * 100, 2)})</span> dal ${+g} ${PERF_MESI[+m - 1] || ''}`
                 + `<br><span title="Stima dai prezzi pubblici di TradingView, ritardati di circa 15 minuti. Il dato ufficiale è quello serale.">● in movimento · prezzi ritardati di 15 min${ferme ? ` · ${ferme} ${ferme === 1 ? 'posizione ferma' : 'posizioni ferme'}` : ''}</span>`;
         }
         function avviaPortLive() {
