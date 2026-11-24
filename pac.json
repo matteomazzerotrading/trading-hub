@@ -198,7 +198,7 @@
   }
  ],
  "stato": {
-  "aggiornato": "2026-11-24T08:16:22Z",
+  "aggiornato": "2026-11-24T11:54:28Z",
   "piani": [
    {
     "id": "etf",
@@ -222,9 +222,9 @@
       "ricostruite_alla_foto": 3,
       "quote": 3.0,
       "investito": 79.57,
-      "prezzo": 25.425,
-      "data_prezzo": "2026-11-20",
-      "valore": 76.27,
+      "prezzo": 25.625,
+      "data_prezzo": "2026-11-24",
+      "valore": 76.88,
       "rate": []
      },
      {
@@ -241,9 +241,9 @@
       "ricostruite_alla_foto": 3,
       "quote": 3.0,
       "investito": 89.17,
-      "prezzo": 27.22,
-      "data_prezzo": "2026-11-20",
-      "valore": 81.66,
+      "prezzo": 28.005,
+      "data_prezzo": "2026-11-24",
+      "valore": 84.01,
       "rate": []
      },
      {
@@ -259,9 +259,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 9.0,
       "investito": 97.27,
-      "prezzo": 10.332,
-      "data_prezzo": "2026-11-20",
-      "valore": 92.99,
+      "prezzo": 10.534,
+      "data_prezzo": "2026-11-24",
+      "valore": 94.81,
       "rate": [
        [
         "2026-09-01",
@@ -296,9 +296,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 55.15,
-      "prezzo": 18.336,
-      "data_prezzo": "2026-11-20",
-      "valore": 55.01,
+      "prezzo": 18.698,
+      "data_prezzo": "2026-11-24",
+      "valore": 56.09,
       "rate": [
        [
         "2026-09-01",
@@ -333,9 +333,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 21.73,
-      "prezzo": 6.06,
-      "data_prezzo": "2026-11-20",
-      "valore": 18.18,
+      "prezzo": 6.303,
+      "data_prezzo": "2026-11-24",
+      "valore": 18.91,
       "rate": [
        [
         "2026-09-01",
@@ -370,9 +370,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 40.66,
-      "prezzo": 14.194,
-      "data_prezzo": "2026-11-20",
-      "valore": 42.58,
+      "prezzo": 14.278,
+      "data_prezzo": "2026-11-24",
+      "valore": 42.83,
       "rate": [
        [
         "2026-09-01",
@@ -408,7 +408,7 @@
       "quote": 3.0,
       "investito": 83.72,
       "prezzo": 27.978,
-      "data_prezzo": "2026-11-20",
+      "data_prezzo": "2026-11-24",
       "valore": 83.93,
       "rate": [
        [
@@ -444,9 +444,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 32.99,
-      "prezzo": 7.669,
-      "data_prezzo": "2026-11-20",
-      "valore": 23.01,
+      "prezzo": 7.877,
+      "data_prezzo": "2026-11-24",
+      "valore": 23.63,
       "rate": [
        [
         "2026-09-01",
@@ -481,9 +481,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 79.76,
-      "prezzo": 27.465,
-      "data_prezzo": "2026-11-20",
-      "valore": 82.4,
+      "prezzo": 28.025,
+      "data_prezzo": "2026-11-24",
+      "valore": 84.07,
       "rate": [
        [
         "2026-09-01",
@@ -518,9 +518,9 @@
       "origine": "ricostruito dal 2026-09-01",
       "quote": 3.0,
       "investito": 87.5,
-      "prezzo": 26.45,
-      "data_prezzo": "2026-11-20",
-      "valore": 79.35,
+      "prezzo": 27.955,
+      "data_prezzo": "2026-11-24",
+      "valore": 83.86,
       "rate": [
        [
         "2026-09-01",
@@ -545,7 +545,7 @@
     ],
     "avvisi": [],
     "investito": 667.52,
-    "valore": 635.38,
+    "valore": 649.02,
     "storia": [
      [
       "2026-09-01",
@@ -840,6 +840,16 @@
      [
       "2026-11-20",
       635.38,
+      667.52
+     ],
+     [
+      "2026-11-23",
+      651.47,
+      667.52
+     ],
+     [
+      "2026-11-24",
+      649.04,
       667.52
      ]
     ],
