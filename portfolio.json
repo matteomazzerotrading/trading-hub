@@ -1,6 +1,6 @@
 {
   "_comment": "Dati da TradingView — Directa Investments + Unicredit. Posizioni e allocazione aggiornate il 2026-11-19.",
-  "updated": "25 Nov 2026",
+  "updated": "24 Nov 2026",
   "summary": {
     "total_value_usd": 14382.11,
     "cash_usd": 0.5,
@@ -469,9 +469,9 @@
     {"date": "2026-11-17", "value": 14131.95, "perf": -2.89, "pl": -444.05, "source": "tradingview"},
     {"date": "2026-11-18", "value": 14175.53, "perf": -2.59, "pl": -400.47, "source": "tradingview"},
     {"date": "2026-11-19", "value": 14308.98, "perf": -4.18, "pl": -646.02, "source": "tradingview"},
-    {"date": "2026-11-21", "value": 13997.85, "perf": -6.26, "pl": -957.15, "source": "tradingview"},
+    {"date": "2026-11-20", "value": 13997.85, "perf": -6.26, "pl": -957.15, "source": "tradingview"},
     {"date": "2026-11-23", "value": 14221.95, "perf": -4.76, "pl": -733.05, "source": "tradingview"},
-    {"date": "2026-11-25", "value": 14382.11, "perf": -3.69, "pl": -572.89, "source": "tradingview"}
+    {"date": "2026-11-24", "value": 14382.11, "perf": -3.69, "pl": -572.89, "source": "tradingview"}
   ],
   "allocation": [
     {
@@ -822,7 +822,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-11-25",
+    "date": "2026-11-24",
     "eurusd": 1.09619,
     "summary": {
       "total_value_usd": 14382.11,
