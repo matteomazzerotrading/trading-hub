@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-24T21:46:42.437Z",
+ "aggiornato": "2026-11-25T04:58:16.803Z",
  "cambi": [
+  {
+   "data": "2026-11-25",
+   "t": "ADI",
+   "nome": "Analog Devices",
+   "da": "premio_dubbio",
+   "a": "premio_sostenuto"
+  },
+  {
+   "data": "2026-11-25",
+   "t": "ILMN",
+   "nome": "Illumina",
+   "da": "sopra",
+   "a": "premio_sostenuto"
+  },
   {
    "data": "2026-11-24",
    "t": "LMT",
@@ -499,111 +513,5 @@
    "a": "equita"
   }
  ],
- "cambi_altri": [
-  {
-   "data": "2026-11-24",
-   "t": "AALB.AS",
-   "nome": "Aalberts N.V.",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "ATAT",
-   "nome": "Atour Lifestyle Holdings Ltd. Sponsored ADR",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "NSIT",
-   "nome": "Insight Enterprises, Inc.",
-   "da": "premio_dubbio",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "ROG",
-   "nome": "Rogers Corporation",
-   "da": "sopra",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "SSB",
-   "nome": "South State Bank",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "SYM",
-   "nome": "Symbotic, Inc. Class A",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "VSH",
-   "nome": "Vishay Intertechnology",
-   "da": "premio_dubbio",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "YOU",
-   "nome": "Clear Secure, Inc.",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "BCO",
-   "nome": "Brink's",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "BRO",
-   "nome": "Brown & Brown",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "ECHO",
-   "nome": "EchoStar",
-   "da": "premio_dubbio",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "EPAM",
-   "nome": "EPAM Systems",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "HPE",
-   "nome": "Hewlett Packard Enterprise",
-   "da": "sopra",
-   "a": "premio_sostenuto"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "IP.MI",
-   "nome": "Interpump Group S.p.A.",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-24",
-   "t": "J",
-   "nome": "Jacobs Solutions",
-   "da": "sopra",
-   "a": "banda"
-  }
- ]
+ "cambi_altri": []
 }
