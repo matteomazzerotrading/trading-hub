@@ -52,6 +52,8 @@ function scheda(r) {
   return { t: tk, k, d: ext[k] || { name: r.n || tk, curr: '$' }, mio: false };
 }
 const riga = r => {
+  // indici e materie prime: nessun fair value, il link apre il grafico di TradingView
+  if (r.cat) return `<a href="https://it.tradingview.com/chart/?symbol=${encodeURIComponent(r.tv || '')}"><b>${esc(r.n || r.t)}</b></a> ${esc(r.cat === 'Indici' ? 'indice' : 'materia prima')} · ${num(r.p)}${r.cur ? ' ' + esc(r.cur) : ''}` + precedenti(r);
   const s = scheda(r), d = s.d, v = d.fv > 0 ? E.verdict(d, r.p) : null;
   const esito = v && v.key !== 'na' ? ` · <i>${esc(v.titolo.toLowerCase())}</i>` : '';
   const pagina = ext[s.k] || s.mio ? `${SITE}titoli/${slug(s.k || s.t)}.html` : `${SITE}?t=${encodeURIComponent(s.t)}`;

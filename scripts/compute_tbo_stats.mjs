@@ -23,6 +23,8 @@ const oggi = new Date().toISOString().slice(0, 10);
 const STATO_EXT = path.join(ROOT, 'tbo_state_ext.json'), RITARDO = 12;
 const ext = fs.existsSync(STATO_EXT) ? JSON.parse(fs.readFileSync(STATO_EXT, 'utf8')) : { titoli: {} };
 const sito = new Set(meta.sito || []), nuovoExt = {};
+// indici di borsa e materie prime (meta.macro): segnali giornalieri e precedenti, ma fuori dal track record delle azioni
+const MACRO = meta.macro || {}, catDi = sim => (MACRO[sim] ? { cat: MACRO[sim].cat, cur: MACRO[sim].cur } : {});
 const per = [], serie = [], coppie = [], gruppi = {}, prec = {}; let dal = '9999', al = '', errori = 0, scartati = 0;
 for (const f of fs.readdirSync(DIR).filter(x => /^daily_\d+\.json$/.test(x)).sort()) {
   const blocco = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
@@ -32,6 +34,19 @@ for (const f of fs.readdirSync(DIR).filter(x => /^daily_\d+\.json$/.test(x)).sor
     const s = { d: b.d.slice(0, n), h: b.h.slice(0, n), l: b.l.slice(0, n), c: b.c.slice(0, n) };
     // storia breve (nuove quotazioni): fuori dal track record, ma lo stato per i segnali giornalieri si ricostruisce
     if (b.d.length < 1500) { giovani(sim, s); continue; }
+    if (MACRO[sim]) {
+      if (!s.c.every(x => x > 0)) { scartati++; continue; }
+      let r; try { r = segnali(s); if (!r || !r.setup || !r.uscita) throw 0; } catch { errori++; continue; }
+      prec[sim] = precedenti(s, r);
+      const vecchio = ext.titoli[sim], tv = (meta.tv && meta.tv[sim]) || (vecchio && vecchio.tv) || null, nome = (meta.nomi && meta.nomi[sim]) || sim;
+      if (vecchio) nuovoExt[sim] = { ...vecchio, n: nome, tv, ...catDi(sim) };
+      else if (s.d.length > RITARDO + 300) {
+        const st = { q: [], cash: 1e6, fino: '0000' }, m = s.d.length - RITARDO;
+        avanza(st, { d: s.d.slice(0, m), c: s.c.slice(0, m) }, { setup: r.setup.slice(0, m), uscita: r.uscita.slice(0, m) });
+        nuovoExt[sim] = { ...st, n: nome, tv, ...catDi(sim) };
+      }
+      continue;
+    }
     // barre sospette (frazionamenti non corretti, prezzi sbagliati): un salto di oltre 4 volte in un giorno esclude il titolo
     let salto = false; for (let i = 1; i < n; i++) { const q = s.c[i] / s.c[i - 1]; if (!(q > 0.25 && q < 4) || !(s.h[i] >= s.l[i]) || !(s.c[i] > 0)) { salto = true; break; } }
     if (salto) { scartati++; continue; }
@@ -90,16 +105,16 @@ fs.writeFileSync(path.join(ROOT, 'tbo_titoli.json'), JSON.stringify({ aggiornato
 function giovani(sim, s) {
   if (sito.has(sim) || !(meta.tv && meta.tv[sim])) return false;
   const vecchio = ext.titoli[sim], nome = (meta.nomi && meta.nomi[sim]) || sim, tv = meta.tv[sim];
-  if (vecchio) { nuovoExt[sim] = { ...vecchio, n: nome, tv }; return true; }
+  if (vecchio) { nuovoExt[sim] = { ...vecchio, n: nome, tv, ...catDi(sim) }; return true; }
   if (s.d.length > RITARDO + 300) {
     try {
       const r = segnali(s); if (!r || !r.setup) throw 0;
       const st = { q: [], cash: 1e6, fino: '0000' }, m = s.d.length - RITARDO;
       avanza(st, { d: s.d.slice(0, m), c: s.c.slice(0, m) }, { setup: r.setup.slice(0, m), uscita: r.uscita.slice(0, m) });
-      nuovoExt[sim] = { ...st, n: nome, tv }; return true;
+      nuovoExt[sim] = { ...st, n: nome, tv, ...catDi(sim) }; return true;
     } catch { /* si riprova come titolo in attesa */ }
   }
-  nuovoExt[sim] = { q: [], cash: 1e6, fino: '0000', attesa: 1, n: nome, tv }; return true;
+  nuovoExt[sim] = { q: [], cash: 1e6, fino: '0000', attesa: 1, n: nome, tv, ...catDi(sim) }; return true;
 }
 for (const sim of Object.keys((meta.giovani) || {})) if (!nuovoExt[sim]) {
   // titoli senza barre scaricate (quotati da pochi giorni) o con meno di 320 sedute: non sono nei file daily

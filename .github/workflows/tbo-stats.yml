@@ -57,7 +57,7 @@ jobs:
           if [ -f /tmp/ext_nuovo.json ]; then node -e "
             const fs = require('fs'), n = JSON.parse(fs.readFileSync('/tmp/ext_nuovo.json', 'utf8'));
             const v = fs.existsSync('tbo_state_ext.json') ? JSON.parse(fs.readFileSync('tbo_state_ext.json', 'utf8')) : { titoli: {} }, t = {};
-            for (const [k, x] of Object.entries(n.titoli)) t[k] = v.titoli[k] ? { ...v.titoli[k], n: x.n, tv: x.tv } : x;
+            for (const [k, x] of Object.entries(n.titoli)) t[k] = v.titoli[k] ? { ...v.titoli[k], n: x.n, tv: x.tv, ...(x.cat ? { cat: x.cat, cur: x.cur } : {}) } : x;
             fs.writeFileSync('tbo_state_ext.json', JSON.stringify({ ...v, titoli: t }) + '\\n');"; fi
       - name: Salva
         uses: stefanzweifel/git-auto-commit-action@v5

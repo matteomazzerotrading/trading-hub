@@ -464,13 +464,14 @@
         const extPronti = typeof fvExtDati !== 'undefined' && fvExtDati;
         if (righe.some(r => r.ext) && !extPronti) { try { caricaFvExt().then(segnaliOggi); } catch (e) {} }
         tb.innerHTML = righe.slice(0, 8).map(r => {
-            const altro = !(db[r.t] && !r.ext), chiave = altro ? (chiaveExt(r.tv, r.t) || r.t) : r.t;
-            const e = altro ? (extPronti && fvExtDati[chiave]) : db[r.t];
-            const nome = (e && e.name) || r.n || r.t, curr = (e && e.curr) || (String(r.t).includes('.') ? '' : '$');
+            const altro = !(db[r.t] && !r.ext), chiave = r.cat ? (String(r.tv || '').split(':')[1] || r.t) : altro ? (chiaveExt(r.tv, r.t) || r.t) : r.t;
+            const e = r.cat ? null : altro ? (extPronti && fvExtDati[chiave]) : db[r.t];
+            const nome = (e && e.name) || r.n || r.t, curr = r.cat ? (r.cur || '') : (e && e.curr) || (String(r.t).includes('.') ? '' : '$');
             let fv = '<span style="color:var(--text-muted)">—</span>';
             try { if (e) { const v = fvVerdict(e, r.p); if (v && v.key !== 'na') fv = `<span style="color:${v.colore}">${escH(maiusc(String(v.breve).toLowerCase()))}</span>`; } } catch (er) {}
             const prezzo = curr === 'GBp' ? num(r.p, 0) + ' p' : (curr === '$' ? '$' + num(r.p) : num(r.p) + (curr ? ' ' + curr : ''));
-            return `<tr tabindex="0" role="link" data-t="${escH(chiave)}" aria-label="Apri l'analisi di ${escH(nome)}">
+            // indici e materie prime: la riga apre il grafico su TradingView (non c'è un fair value)
+            return `<tr tabindex="0" role="link" ${r.cat ? `data-tv="${escH(r.tv || '')}" aria-label="Apri il grafico di ${escH(nome)} su TradingView"` : `data-t="${escH(chiave)}" aria-label="Apri l'analisi di ${escH(nome)}"`}>
                 <td><span class="nome">${escH(String(nome).replace(/\s+(S\.?p\.?A\.?|SE|plc|PLC|Inc\.?|AG|Aktiengesellschaft|N\.?V\.?|S\.?A\.?|Corporation|Corp\.?)$/, ''))}</span><span class="tk">${escH(chiave)}</span><span class="prec-mob">${precedentiTesto(r)}</span></td>
                 <td><span class="etichetta ${r.k === 'c' ? 'compra' : 'chiusa'}">${r.k === 'c' ? 'Compra' : "Chiusa all'80%"}</span></td>
                 <td class="col-media mono-font" style="white-space:nowrap">${escH(prezzo)}</td>
@@ -479,8 +480,9 @@
                 <td style="text-align:right"><span class="vai" aria-hidden="true">→</span></td></tr>`;
         }).join('');
     }
-    document.addEventListener('click', e => { const tr = e.target.closest && e.target.closest('#oggi-segnali-corpo tr[data-t]'); if (tr) apriTitolo(tr.dataset.t); });
-    document.addEventListener('keydown', e => { if (e.key !== 'Enter') return; const tr = e.target.closest && e.target.closest('#oggi-segnali-corpo tr[data-t]'); if (tr) apriTitolo(tr.dataset.t); });
+    const apriRigaSegnale = tr => { if (tr.dataset.tv) window.open('https://it.tradingview.com/chart/?symbol=' + encodeURIComponent(tr.dataset.tv), '_blank', 'noopener'); else apriTitolo(tr.dataset.t); };
+    document.addEventListener('click', e => { const tr = e.target.closest && e.target.closest('#oggi-segnali-corpo tr[data-t], #oggi-segnali-corpo tr[data-tv]'); if (tr) apriRigaSegnale(tr); });
+    document.addEventListener('keydown', e => { if (e.key !== 'Enter') return; const tr = e.target.closest && e.target.closest('#oggi-segnali-corpo tr[data-t], #oggi-segnali-corpo tr[data-tv]'); if (tr) apriRigaSegnale(tr); });
 
     // ---------------------------------------------------------------- scheda: la scala dei valori
     function disegnaScala() {

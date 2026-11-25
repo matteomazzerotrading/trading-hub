@@ -257,8 +257,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const stato = leggi('tbo_state.json'), prima = fs.existsSync(path.join(ROOT, 'tbo_signals.json')) ? leggi('tbo_signals.json') : { segnali: [] };
   const ora = process.env.TBO_NOW ? new Date(process.env.TBO_NOW) : new Date();
   const oggi = ora.toISOString().slice(0, 10), minuti = ora.getUTCHours() * 60 + ora.getUTCMinutes();
-  // La barra di oggi vale solo a mercato chiuso: Europa dalle 16:50 UTC, Stati Uniti dalle 21:10 UTC.
-  const chiuso = sym => minuti >= (/\.[A-Z]+$/.test(sym) ? 16 * 60 + 50 : 21 * 60 + 10);
+  // La barra di oggi vale solo a mercato chiuso: Europa dalle 16:50 UTC, Stati Uniti dalle 21:10 UTC, futures sulle
+  // materie prime (simboli Yahoo "=F", contrattati quasi tutto il giorno) dalle 22:05 UTC, alla chiusura giornaliera.
+  const chiuso = sym => minuti >= (/=F$/.test(sym) ? 22 * 60 + 5 : /\.[A-Z]+$/.test(sym) ? 16 * 60 + 50 : 21 * 60 + 10);
   const lunedi = s => { const d = new Date(s + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7); return d; };
 
   // Il track record (tbo_stats.json) si calcola a parte, su un campione più largo: scripts/compute_tbo_stats.mjs
@@ -287,7 +288,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   }
   if (!titoli || errori > titoli) { console.error('Troppi errori nel calcolo: file non aggiornati.'); process.exit(1); }
 
-  // Titoli che il sito non segue (S&P 500, 400 e 600): stato ricostruito dalla storia (tbo_state_ext.json, creato dal
+  // Titoli che il sito non segue (S&P 500, 400 e 600, altre società americane ed europee, indici e materie prime): stato ricostruito dalla storia (tbo_state_ext.json, creato dal
   // calcolo settimanale del track record) e barre degli ultimi due anni (daily_ext.json). Un problema qui non ferma
   // i segnali dei titoli del sito: in quel caso questi titoli restano semplicemente fermi all'ultimo aggiornamento.
   const pExt = path.join(ROOT, 'tbo_state_ext.json'), pBarre = path.join(ROOT, 'daily_ext.json');
@@ -301,7 +302,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       let n = b.d.length; if (b.d[n - 1] === oggi && !chiuso(sym)) n--;
       const da = Math.max(0, n - BARRE), taglia = a => a.slice(da, n);
       const s = { d: taglia(b.d), o: taglia(b.o), h: taglia(b.h), l: taglia(b.l), c: taglia(b.c) };
-      perAmpiezza.push(s); serieDi[sym + '|x'] = s;
+      if (!st.cat) perAmpiezza.push(s);                              // indici e materie prime non entrano nell'ampiezza
+      serieDi[sym + '|x'] = s;
       let r;
       if (st.attesa) {
         // nuova quotazione che ora ha abbastanza sedute: lo stato parte in silenzio fino a 12 sedute fa, così i
@@ -317,7 +319,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       // più di 3 sedute da recuperare in un colpo solo: titolo appena aggiunto (o avviato dopo la quotazione); i suoi
       // segnali passati vanno in elenco ma non come notifiche nuove (tardi: 1)
       const daRecuperare = s.d.filter(d => d > st.fino).length, tardi = daRecuperare > 3;
-      for (const ev of avanza(st, s, r)) eventiExt.push(conSconto({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1, ...(tardi && ev.d < s.d.at(-1) ? { tardi: 1 } : {}) }, s));
+      for (const ev of avanza(st, s, r)) eventiExt.push(conSconto({ t: sym, ...ev, n: st.n, tv: st.tv, ext: 1, ...(st.cat ? { cat: st.cat, cur: st.cur } : {}), ...(tardi && ev.d < s.d.at(-1) ? { tardi: 1 } : {}) }, s));
       titoliExt++;
     }
     if (titoliExt && errExt <= titoliExt / 5) { nuovi.push(...eventiExt); ext.aggiornato = ora.toISOString(); }
