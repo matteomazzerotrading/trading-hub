@@ -3019,22 +3019,23 @@
         const pacEur = () => pacAttivi().reduce((a, p) => a + p.valore, 0);
         const pacVersEur = () => pacAttivi().reduce((a, p) => a + p.investito, 0);
         const pacUsd = () => pacEur() * fxOra();
-        // storico in dollari: data → [valore, versato, flusso del giorno], con il cambio di ciascun giorno. Il flusso è la rata
-        // investita quel giorno; il primo giorno di un piano entra il suo intero valore (così non conta come guadagno o perdita).
-        function pacSerieUsd() {
+        // storico in euro: data → [valore, versato, flusso del giorno]. Il flusso è la rata investita quel giorno; il primo
+        // giorno di un piano entra il suo intero valore (così non conta come guadagno o perdita). In dollari si converte al
+        // cambio del giorno del punto del portafoglio a cui si somma (conPac), anche quando il valore è portato avanti.
+        function pacSerieEur() {
             const piani = pacAttivi().map(p => p.storia || []).filter(x => x.length);
             const date = [...new Set(piani.flatMap(x => x.map(r => r[0])))].sort(), m = {};
             const idx = piani.map(() => -1);
             for (const d of date) {
-                const fx = fxAl(d), x = m[d] = [0, 0, 0];
+                const x = m[d] = [0, 0, 0];
                 piani.forEach((st, k) => {
                     // ogni piano porta avanti il suo ultimo valore nei giorni in cui non ha un prezzo (fondi, borse chiuse)
                     while (idx[k] + 1 < st.length && st[idx[k] + 1][0] <= d) {
                         idx[k]++;
                         const r = st[idx[k]], prec = idx[k] > 0 ? st[idx[k] - 1] : null;
-                        x[2] += (prec ? r[2] - prec[2] : r[1]) * fx;
+                        x[2] += prec ? r[2] - prec[2] : r[1];
                     }
-                    if (idx[k] >= 0) { const r = st[idx[k]]; x[0] += r[1] * fx; x[1] += r[2] * fx; }
+                    if (idx[k] >= 0) { const r = st[idx[k]]; x[0] += r[1]; x[1] += r[2]; }
                 });
             }
             return m;
@@ -3042,15 +3043,16 @@
         // Unisce i piani allo storico del portafoglio TradingView. Il rendimento di ogni giorno è la media dei due rendimenti
         // pesata sui valori del giorno prima; le rate sono versamenti, quindi non contano come guadagno.
         function conPac(pts) {
-            const S = pacSerieUsd(), date = Object.keys(S).sort();
+            const S = pacSerieEur(), date = Object.keys(S).sort();
             if (!date.length || !pts.length) return pts;
             const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
             const out = []; let j = -1;
             for (let k = 0; k < pts.length; k++) {
                 const p = pts[k], g = iso(p.d);
+                const fx = p.live ? fxOra() : fxAl(g);
                 let flusso = 0;
-                while (j + 1 < date.length && date[j + 1] <= g) { j++; flusso += S[date[j]][2]; }
-                let pac = j >= 0 ? S[date[j]] : [0, 0, 0];
+                while (j + 1 < date.length && date[j + 1] <= g) { j++; flusso += S[date[j]][2] * fx; }
+                let pac = j >= 0 ? [S[date[j]][0] * fx, S[date[j]][1] * fx] : [0, 0];
                 if (p.live) pac = [pacUsd(), pacVersEur() * fxOra()];
                 const q = { ...p, v: p.v + pac[0], pl: p.pl != null ? p.pl + (pac[0] - pac[1]) : p.pl, _pac: pac };
                 if (k > 0 && p.perf != null && pts[k - 1].perf != null && out[k - 1].perf != null) {
@@ -3233,9 +3235,14 @@
         let portValuta = (() => { try { return localStorage.getItem('mm_valuta') || 'EUR'; } catch (e) { return 'EUR'; } })();
         let portFxOggi = null, fxStorico = null;
         const fxOra = () => portFxOggi || (portfolioData && portfolioData.snapshot && portfolioData.snapshot.eurusd) || (fxStorico && fxStorico.c[fxStorico.c.length - 1]) || 1.16;
+        // cambio di chiusura di un giorno. Nella serie di Yahoo la riga di un giorno riporta il cambio di inizio giornata,
+        // cioè la chiusura del giorno prima: la chiusura del giorno è quindi nella riga successiva. Il giorno della
+        // fotografia vale il cambio letto quella sera insieme al portafoglio; dopo l'ultima riga, il cambio di adesso.
         function fxAl(iso) {
-            const S = fxStorico; if (!S || !S.d.length || iso > S.d[S.d.length - 1]) return fxOra();
-            let lo = 0, hi = S.d.length - 1, r = 0; while (lo <= hi) { const m = (lo + hi) >> 1; if (S.d[m] <= iso) { r = m; lo = m + 1; } else hi = m - 1; }
+            const snap = portfolioData && portfolioData.snapshot;
+            if (snap && snap.date === iso && snap.eurusd > 0) return snap.eurusd;
+            const S = fxStorico; if (!S || !S.d.length || iso >= S.d[S.d.length - 1]) return fxOra();
+            let lo = 0, hi = S.d.length - 1, r = S.d.length; while (lo <= hi) { const m = (lo + hi) >> 1; if (S.d[m] > iso) { r = m; hi = m - 1; } else lo = m + 1; }
             return S.c[r];
         }
         const inEuro = () => portValuta === 'EUR';
@@ -3934,7 +3941,9 @@
                 else { tot += ref.value_usd * fxPos(p); ferme++; }
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
-            const base = snap.summary.total_value_usd, d = tot - base, col = d >= 0 ? '#4CC38A' : '#ff5252';
+            const base = snap.summary.total_value_usd, d = tot - base;
+            // variazione nella valuta scelta: in euro conta anche il cambio, dalla sera della fotografia a adesso (come nella home)
+            const baseV = inEuro() && snap.eurusd > 0 ? base / snap.eurusd : inV(base), dV = inV(tot) - baseV, col = dV >= 0 ? '#4CC38A' : '#ff5252';
             portLive = { tot, d };
             el.innerText = fmtV(tot);
             renderPortKpi();
@@ -3943,7 +3952,7 @@
             portLivePrec = tot;
             const [y, m, g] = String(snap.date || '').split('-');
             nota.style.display = 'block';
-            nota.innerHTML = `<span style="color:${col}; font-weight:700;">${fmtV(d, { segno: true })} (${itPct(d / base * 100, 2)})</span> dal ${+g} ${PERF_MESI[+m - 1] || ''}`
+            nota.innerHTML = `<span style="color:${col}; font-weight:700;">${fmtRaw(dV, { segno: true })} (${itPct(dV / (baseV + (inEuro() ? pacEur() : pacUsd())) * 100, 2)})</span> dal ${+g} ${PERF_MESI[+m - 1] || ''}`
                 + `<br><span title="Stima dai prezzi pubblici di TradingView, ritardati di circa 15 minuti. Il dato ufficiale è quello serale.">● in movimento · prezzi ritardati di 15 min${ferme ? ` · ${ferme} ${ferme === 1 ? 'posizione ferma' : 'posizioni ferme'}` : ''}</span>`;
         }
         function avviaPortLive() {
