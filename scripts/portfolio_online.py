@@ -26,7 +26,7 @@ PREZZI.json è il campo `data` restituito dal connettore:
 
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 FILE = 'portfolio.json'
@@ -35,7 +35,16 @@ MESI = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'N
 
 
 def today():
-    return datetime.now(ZoneInfo('Europe/Rome')).date()
+    """Giorno della seduta a cui si riferiscono i dati: di solito oggi (ora di Roma). Se lo script gira di notte o
+    all'alba (per esempio il task delle 22:00 partito in ritardo perché il PC era spento) i prezzi sono ancora quelli
+    dell'ultima chiusura: vale la seduta precedente, saltando sabato e domenica."""
+    ora = datetime.now(ZoneInfo('Europe/Rome'))
+    g = ora.date()
+    if ora.hour < 9:
+        g -= timedelta(days=1)
+    while g.weekday() >= 5:
+        g -= timedelta(days=1)
+    return g
 
 
 def sym(p):

@@ -3916,14 +3916,21 @@
             const fx = prezzi[FX] && snap.eurusd ? prezzi[FX].c / snap.eurusd : 1;
             // le azioni in euro sono valutate al cambio fissato all'acquisto: si muove solo il prezzo; le obbligazioni in euro seguono il cambio del giorno
             const fxPos = p => p.curr === 'EUR' && p.type === 'bond' ? fx : 1;
-            // variazione di un titolo dalla fotografia: se la seduta in corso è successiva alla fotografia, chiusura attuale
-            // su chiusura precedente; altrimenti la seduta è già compresa nella fotografia e non c'è variazione
-            const varia = q => (q && q.t && q.c1 > 0 && giornoRoma(q.t) > snap.date) ? q.c / q.c1 : 1;
+            // variazione di un titolo dalla fotografia: prezzo attuale su prezzo della fotografia (le chiusure vere della sera).
+            // Così non conta a che ora o con che data è stata scritta la fotografia, né quante sedute sono passate.
+            // Se il rapporto è fuori scala (unità diverse, per esempio pence e sterline) vale la regola per data: se la seduta
+            // in corso è successiva alla fotografia, chiusura attuale su chiusura precedente, altrimenti nessuna variazione.
+            const varia = (q, ref) => {
+                if (!q) return 1;
+                const r = ref && ref.price > 0 ? q.c / ref.price : 0;
+                if (r > 0.8 && r < 1.25) return r;
+                return (q.t && q.c1 > 0 && giornoRoma(q.t) > snap.date) ? q.c / q.c1 : 1;
+            };
             let tot = Number(pd.summary.cash_usd) || 0, ferme = 0;
             for (const p of pd.positions || []) {
                 const ref = snap.positions[p.ticker], q = prezzi[sim(p)];
                 if (!ref) { tot += p.alloc_pct / 100 * pd.summary.total_value_usd; ferme++; continue; }
-                if (q) tot += ref.value_usd * varia(q) * fxPos(p);
+                if (q) tot += ref.value_usd * varia(q, ref) * fxPos(p);
                 else { tot += ref.value_usd * fxPos(p); ferme++; }
             }
             if (ferme > (pd.positions || []).length / 2) return;                   // troppi prezzi mancanti: resta il dato serale
