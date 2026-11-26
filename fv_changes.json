@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-26T04:14:49.580Z",
+ "aggiornato": "2026-11-26T21:46:03.130Z",
  "cambi": [
   {
    "data": "2026-11-26",
@@ -548,5 +548,132 @@
    "a": "equita"
   }
  ],
- "cambi_altri": []
+ "cambi_altri": [
+  {
+   "data": "2026-11-26",
+   "t": "ALMA.HE",
+   "nome": "Alma Media Oyj",
+   "da": "equa_declino",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "ARCAD.AS",
+   "nome": "Arcadis NV",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "KBX.DE",
+   "nome": "Knorr-Bremse AG",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "SEB-A.ST",
+   "nome": "Skandinaviska Enskilda Banken AB Class A",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "SIP.BR",
+   "nome": "SIPEF SA",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "VCT.PA",
+   "nome": "Vicat SA",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "VID.MC",
+   "nome": "Vidrala SA",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "VIL.PA",
+   "nome": "Viel & Cie SA",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "VOE.VI",
+   "nome": "voestalpine AG",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "BAER.SW",
+   "nome": "Julius Baer Gruppe AG",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "BBY.L",
+   "nome": "Balfour Beatty plc",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "BFSA.DE",
+   "nome": "Befesa SA",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "DNR.MI",
+   "nome": "Industrie De Nora SpA",
+   "da": "equa_declino",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "ESSITY-A.ST",
+   "nome": "Essity AB Class A",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "FAN.L",
+   "nome": "Volution Group plc",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "HOC.L",
+   "nome": "Hochschild Mining plc",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "IMCD.AS",
+   "nome": "IMCD N.V.",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "IP.MI",
+   "nome": "Interpump Group S.p.A.",
+   "da": "sotto",
+   "a": "banda"
+  }
+ ]
 }
