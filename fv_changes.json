@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-25T21:45:18.226Z",
+ "aggiornato": "2026-11-26T04:14:49.580Z",
  "cambi": [
+  {
+   "data": "2026-11-26",
+   "t": "HEN3",
+   "nome": "Henkel",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-26",
+   "t": "ITX",
+   "nome": "Inditex",
+   "da": "banda",
+   "a": "sotto"
+  },
   {
    "data": "2026-11-25",
    "t": "OXY",
@@ -534,111 +548,5 @@
    "a": "equita"
   }
  ],
- "cambi_altri": [
-  {
-   "data": "2026-11-25",
-   "t": "BAER.SW",
-   "nome": "Julius Baer Gruppe AG",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "BBY.L",
-   "nome": "Balfour Beatty plc",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "NU",
-   "nome": "Nu Holdings Ltd. Class A",
-   "da": "equa_declino",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "TOL",
-   "nome": "Toll Brothers",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "TX",
-   "nome": "Ternium S.A. Sponsored ADR",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "VCT.PA",
-   "nome": "Vicat SA",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "YOU",
-   "nome": "Clear Secure, Inc.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "CALY",
-   "nome": "Callaway Golf Company",
-   "da": "sopra",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "CCC.L",
-   "nome": "Computacenter Plc",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "CG",
-   "nome": "Carlyle Group (The)",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "COF",
-   "nome": "Capital One",
-   "da": "molto_sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "DFH",
-   "nome": "Dream Finders Homes, Inc.",
-   "da": "banda",
-   "a": "premio_dubbio"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "HEN.DE",
-   "nome": "Henkel AG & Co. KGaA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "HII",
-   "nome": "Huntington Ingalls Industries",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-25",
-   "t": "HOC.L",
-   "nome": "Hochschild Mining plc",
-   "da": "banda",
-   "a": "sotto"
-  }
- ]
+ "cambi_altri": []
 }
