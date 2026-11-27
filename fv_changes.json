@@ -1,6 +1,20 @@
 {
- "aggiornato": "2026-11-26T21:46:03.130Z",
+ "aggiornato": "2026-11-27T04:21:18.041Z",
  "cambi": [
+  {
+   "data": "2026-11-27",
+   "t": "OXY",
+   "nome": "Occidental Petroleum",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-27",
+   "t": "SRG",
+   "nome": "Snam",
+   "da": "sotto",
+   "a": "banda"
+  },
   {
    "data": "2026-11-26",
    "t": "HEN3",
@@ -550,128 +564,30 @@
  ],
  "cambi_altri": [
   {
-   "data": "2026-11-26",
-   "t": "ALMA.HE",
-   "nome": "Alma Media Oyj",
+   "data": "2026-11-27",
+   "t": "MAB.L",
+   "nome": "Mitchells & Butlers plc",
+   "da": "banda",
+   "a": "equa_declino"
+  },
+  {
+   "data": "2026-11-27",
+   "t": "SGHC",
+   "nome": "Super Group (SGHC) Limited",
    "da": "equa_declino",
    "a": "banda"
   },
   {
-   "data": "2026-11-26",
-   "t": "ARCAD.AS",
-   "nome": "Arcadis NV",
+   "data": "2026-11-27",
+   "t": "SWKS",
+   "nome": "Skyworks Solutions",
    "da": "sotto",
    "a": "banda"
   },
   {
-   "data": "2026-11-26",
-   "t": "KBX.DE",
-   "nome": "Knorr-Bremse AG",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "SEB-A.ST",
-   "nome": "Skandinaviska Enskilda Banken AB Class A",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "SIP.BR",
-   "nome": "SIPEF SA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "VCT.PA",
-   "nome": "Vicat SA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "VID.MC",
-   "nome": "Vidrala SA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "VIL.PA",
-   "nome": "Viel & Cie SA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "VOE.VI",
-   "nome": "voestalpine AG",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "BAER.SW",
-   "nome": "Julius Baer Gruppe AG",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "BBY.L",
-   "nome": "Balfour Beatty plc",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "BFSA.DE",
-   "nome": "Befesa SA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "DNR.MI",
-   "nome": "Industrie De Nora SpA",
-   "da": "equa_declino",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "ESSITY-A.ST",
-   "nome": "Essity AB Class A",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "FAN.L",
-   "nome": "Volution Group plc",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "HOC.L",
-   "nome": "Hochschild Mining plc",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "IMCD.AS",
-   "nome": "IMCD N.V.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-26",
-   "t": "IP.MI",
-   "nome": "Interpump Group S.p.A.",
+   "data": "2026-11-27",
+   "t": "CSR",
+   "nome": "Centerspace Trust",
    "da": "sotto",
    "a": "banda"
   }
