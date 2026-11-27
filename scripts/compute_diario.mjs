@@ -44,9 +44,30 @@ function tboDi(t, s) {
 }
 const giorniPrima = (d, giorni) => { const x = new Date(d + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() - giorni); return x.toISOString().slice(0, 10); };
 
+// titoli dell'operazione che non sono né tra quelli del sito né tra gli altri (per esempio un'azione americana comprata
+// su una borsa europea): nome e prezzo di oggi dallo screener pubblico di TradingView
+const fuori = [...new Set(ops.map(o => `${o.exchange}:${o.ticker}`).filter(k => !perTv[k]))], scanner = {};
+if (fuori.length) {
+  try {
+    const r = await fetch('https://scanner.tradingview.com/global/scan', { method: 'POST', headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ symbols: { tickers: fuori }, columns: ['description', 'close'] }), signal: AbortSignal.timeout(30000) });
+    for (const x of (await r.json()).data || []) scanner[x.s] = { nome: x.d[0], prezzo: x.d[1] };
+  } catch (e) { console.log(`Screener non raggiungibile per ${fuori.join(', ')}: ${e.message}`); }
+}
+const contesto = (o, r) => {
+  const q = [...amp.keys()].filter(d => d <= o.date).sort().at(-1);
+  if (q) r.amp = r1(amp.get(q));
+  if (sp && sp.d.length) { const a = chiusuraAl(sp, o.date), b = sp.c.at(-1); if (a) r.sp500 = r1(b / a - 1); }
+  return r;
+};
+
 const righe = ops.map(o => {
   const m = perTv[`${o.exchange}:${o.ticker}`], r = { ...o };
-  if (!m) return r;
+  if (!m) {
+    const x = scanner[`${o.exchange}:${o.ticker}`];
+    if (x) { if (x.nome) r.nome = x.nome; if (x.prezzo > 0) { r.prezzo_oggi = x.prezzo; r.dopo = r1(x.prezzo / o.price - 1); } }
+    return contesto(o, r);
+  }
   r.k = m.k; r.nome = m.e.name; if (m.ext) r.altro = 1;
   const s = m.s;
   // fair value di allora: l'ultima fine trimestre fino al giorno dell'operazione (l'ultimo punto della serie è "oggi")
@@ -66,10 +87,7 @@ const righe = ops.map(o => {
       r.tbo = trovati.length ? { d: trovati.at(-1), n: trovati.length } : null;
     }
   }
-  const q = [...amp.keys()].filter(d => d <= o.date).sort().at(-1);
-  if (q) r.amp = r1(amp.get(q));
-  if (sp && sp.d.length) { const a = chiusuraAl(sp, o.date), b = sp.c.at(-1); if (a) r.sp500 = r1(b / a - 1); }
-  return r;
+  return contesto(o, r);
 });
 fs.writeFileSync(path.join(ROOT, 'diario.json'), JSON.stringify({ aggiornato: new Date().toISOString(), operazioni: righe }) + '\n');
 console.log(`Diario: ${righe.length} operazioni, ${righe.filter(r => r.fv).length} con fair value di allora, ${righe.filter(r => r.tbo).length} con un segnale TBO vicino.`);

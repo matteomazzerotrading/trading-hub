@@ -195,7 +195,9 @@ def cmd_online(path):
         if 'pl_pct' in v:
             per['pl_pct'] = round(((1 + v['pl_pct'] / 100) * (1 + var) - 1) * 100, 2)
 
-    # allocazione per tipologia (campo `class` di ogni posizione, come in TradingView)
+    # allocazione per tipologia (campo `class` di ogni posizione, come in TradingView): lista [{label, value_usd, pct}]
+    if isinstance(d.get('allocation'), dict):
+        d['allocation'] = [{'label': k, **v} for k, v in d['allocation'].items()]
     for a in d.get('allocation', []):
         val = sum(p['alloc_pct'] / 100 * total for p in d['positions'] if asset_class(p) == a['label'])
         a['value_usd'] = round(val, 2)

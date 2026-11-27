@@ -2884,7 +2884,9 @@
             const barsEl = document.getElementById('port-alloc-bars');
             if (barsEl && pd && pd.allocation) {
                 const wPac = pd.summary && pacUsd() > 0 ? pacUsd() / (pd.summary.total_value_usd + pacUsd()) : 0;
-                const alloc = pd.allocation.map(a => ({ ...a, pct: a.pct * (1 - wPac) })).concat(wPac ? [{ label: 'Piani di accumulo', pct: wPac * 100 }] : []);
+                // lista [{label, value_usd, pct}]; accetta anche la forma {etichetta: {value_usd, pct}}
+                const lista = Array.isArray(pd.allocation) ? pd.allocation : Object.entries(pd.allocation).map(([label, v]) => ({ label, ...v }));
+                const alloc = lista.map(a => ({ ...a, pct: a.pct * (1 - wPac) })).concat(wPac ? [{ label: 'Piani di accumulo', pct: wPac * 100 }] : []);
                 const maxPct = Math.max(...alloc.map(a => a.pct));
                 barsEl.innerHTML = alloc.map((a, i) => `
                     <div class="bar-row">
