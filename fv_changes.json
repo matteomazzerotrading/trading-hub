@@ -1,6 +1,34 @@
 {
- "aggiornato": "2026-11-27T21:46:33.967Z",
+ "aggiornato": "2026-11-28T03:59:39.693Z",
  "cambi": [
+  {
+   "data": "2026-11-28",
+   "t": "MO",
+   "nome": "Altria Group",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-28",
+   "t": "IG",
+   "nome": "Italgas",
+   "da": "sotto",
+   "a": "banda"
+  },
+  {
+   "data": "2026-11-28",
+   "t": "TSCO",
+   "nome": "Tesco",
+   "da": "banda",
+   "a": "sotto"
+  },
+  {
+   "data": "2026-11-28",
+   "t": "ILMN",
+   "nome": "Illumina",
+   "da": "premio_sostenuto",
+   "a": "sopra"
+  },
   {
    "data": "2026-11-27",
    "t": "ILMN",
@@ -569,146 +597,5 @@
    "a": "equita"
   }
  ],
- "cambi_altri": [
-  {
-   "data": "2026-11-27",
-   "t": "AALB.AS",
-   "nome": "Aalberts N.V.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "ATMU",
-   "nome": "Atmus Filtration Technologies Inc.",
-   "da": "premio_sostenuto",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "KARN.SW",
-   "nome": "Kardex Holding AG",
-   "da": "sotto",
-   "a": "premio_sostenuto"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "MRL.MC",
-   "nome": "MERLIN Properties SOCIMI, S.A.",
-   "da": "equa_declino",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "NDSN",
-   "nome": "Nordson Corporation",
-   "da": "premio_sostenuto",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "NXT",
-   "nome": "Nextpower",
-   "da": "equita",
-   "a": "sopra"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "PNDX-B.ST",
-   "nome": "Pandox AB Class B",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "RF",
-   "nome": "Regions Financial Corporation",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "SEDG",
-   "nome": "SolarEdge",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "SWEC-A.ST",
-   "nome": "Sweco AB Class A",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "USB",
-   "nome": "U.S. Bancorp",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "USPH",
-   "nome": "U.S. Physical Therapy, Inc.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "VID.MC",
-   "nome": "Vidrala SA",
-   "da": "banda",
-   "a": "sotto"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "BEKB.BR",
-   "nome": "Bekaert SA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "WFRD",
-   "nome": "Weatherford International",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "WIIT.MI",
-   "nome": "WIIT SpA",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "CNR",
-   "nome": "Core Natural Resources, Inc.",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "COTY",
-   "nome": "Coty",
-   "da": "equa_declino",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "HUH1V.HE",
-   "nome": "Huhtamaki Oyj",
-   "da": "sotto",
-   "a": "banda"
-  },
-  {
-   "data": "2026-11-27",
-   "t": "INVX",
-   "nome": "Innovex International, Inc.",
-   "da": "equa_declino",
-   "a": "banda"
-  }
- ]
+ "cambi_altri": []
 }
